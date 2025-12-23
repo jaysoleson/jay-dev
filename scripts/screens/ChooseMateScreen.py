@@ -20,6 +20,7 @@ from scripts.utility import (
     shorten_text_to_fit,
 )
 from .Screens import Screens
+from .enums import GameScreen
 from ..clan_package.settings import get_clan_setting
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
 from ..game_structure.screen_settings import MANAGER
@@ -107,7 +108,7 @@ class ChooseMateScreen(Screens):
             # Cat buttons list
             if event.ui_element == self.back_button:
                 self.selected_mate_index = 0
-                self.change_screen("profile screen")
+                self.change_screen(GameScreen.PROFILE)
             elif event.ui_element == self.toggle_mate:
                 if self.work_thread is not None and self.work_thread.is_alive():
                     return
@@ -186,7 +187,7 @@ class ChooseMateScreen(Screens):
                     return
 
                 switch_set_value(Switch.cat, event.ui_element.cat_object.ID)
-                self.change_screen("profile screen")
+                self.change_screen(GameScreen.PROFILE)
 
     def screen_switches(self):
         """Sets up the elements that are always on the page"""
@@ -1212,7 +1213,7 @@ class ChooseMateScreen(Screens):
                 i, for_love_interest=False, age_restriction=False, ignore_no_mates=True
             )
             and i.status.is_outsider == self.the_cat.status.is_outsider
-            and i.status.group == self.the_cat.status.group
+            and i.status.group_ID == self.the_cat.status.group_ID
             and i.ID not in self.the_cat.mate
             and (not self.single_only or not i.mate)
             and (

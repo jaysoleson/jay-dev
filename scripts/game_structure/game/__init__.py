@@ -40,8 +40,8 @@ herb_events_list = []
 freshkill_event_list = []
 
 # Keeping track of various last screen for various purposes
-last_screen_forupdate = "start screen"
-last_screen_forProfile = "list screen"
+last_screen_forupdate = GameScreen.START
+last_screen_forProfile = GameScreen.LIST
 last_list_forProfile = None
 
 choose_cats = {}
@@ -63,6 +63,14 @@ choose_cats = {}
 
 patrol_cats = {}
 patrolled = []
+
+used_group_IDs: dict = {
+    CatGroup.PLAYER_CLAN_ID: CatGroup.PLAYER_CLAN,
+    CatGroup.STARCLAN_ID: CatGroup.STARCLAN,
+    CatGroup.UNKNOWN_RESIDENCE_ID: CatGroup.UNKNOWN_RESIDENCE,
+    CatGroup.DARK_FOREST_ID: CatGroup.DARK_FOREST,
+}
+"""Int IDs already in use. Key is the group ID, value is the group type."""
 
 # store changing parts of the game that the user can toggle with buttons
 
@@ -86,7 +94,7 @@ rpc = None
 is_close_menu_open = False
 
 
-current_screen = "start screen"
+current_screen = GameScreen.START
 clicked = False
 keyspressed = []
 switch_screens = False
@@ -267,6 +275,16 @@ def get_config_value(*args):
             config_value -= mod
 
     return config_value
+
+
+def get_free_group_ID(group_type: CatGroup) -> str:
+    """
+    Find the next free group ID, adds it to the used_group_ID dict, and then returns the ID.
+    :param group_type: The CatGroup that the new group will be considered.
+    """
+    new_ID = str(int(list(used_group_IDs.keys())[-1]) + 1)
+    used_group_IDs.update({new_ID: group_type})
+    return new_ID
 
 
 pygame.display.set_caption("Clan Generator")

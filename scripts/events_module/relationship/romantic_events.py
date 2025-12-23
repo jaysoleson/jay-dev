@@ -215,7 +215,7 @@ class RomanticEvents:
         rel_type = RelType.ROMANCE
         relationship.chosen_interaction = chosen_interaction
         relationship.interaction_affect_relationships(
-            value_change, chosen_interaction.intensity, rel_type
+            positive, chosen_interaction.intensity, rel_type
         )
 
         # give cats injuries
@@ -953,7 +953,7 @@ class RomanticEvents:
                 poly_key = "r_c_mates"
             if not poly_key:
                 # none of the other involved mates are alive
-                return None
+                return choice(RomanticEvents.MATE_DICTS[key])
             return choice(RomanticEvents.POLY_MATE_DICTS[key][poly_key])
 
     # ---------------------------------------------------------------------------- #

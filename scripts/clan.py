@@ -64,11 +64,7 @@ class Clan:
 
     age = 0
     current_season = "Newleaf"
-
     all_other_clans = []
-    # all_other_clans = []
-    # other_clans: list[CatGroup] = []
-    """List of other_clan enums currently in use."""
 
     def __init__(
         self,
@@ -156,7 +152,6 @@ class Clan:
         self._reputation = 80
 
         self.all_other_clans = []
-        # self.all_other_clans = []
 
         self.starting_members = starting_members
         if game_mode in ("expanded", "cruel season"):
@@ -239,7 +234,10 @@ class Clan:
         )
 
         self.instructor = Cat(
-            status_dict={"rank": instructor_rank, "group": CatGroup.STARCLAN},
+            status_dict={"rank": instructor_rank, "group_ID": CatGroup.STARCLAN_ID},
+            backstory=choice(
+                BACKSTORIES["backstory_categories"]["clan_guide_backstories"]
+            ),
         )
 
         self.instructor.dead = True
@@ -249,7 +247,6 @@ class Clan:
         else:
             self.instructor.backstory = choice(BACKSTORIES["backstory_categories"]["starclan_backstories"])
         self.add_cat(self.instructor)
-        # self.all_other_clans = []
         self.all_other_clans = []
         
         self.demon = Cat(status=choice(["apprentice", "mediator apprentice", "medicine cat apprentice", "warrior",
@@ -288,11 +285,13 @@ class Clan:
 
         # give thoughts,actions and relationships to cats
         for cat_id in Cat.all_cats:
-            Cat.all_cats.get(cat_id).init_all_relationships()
-            Cat.all_cats.get(cat_id).backstory = "clan_founder"
-            if Cat.all_cats.get(cat_id).status.rank == CatRank.APPRENTICE:
-                Cat.all_cats.get(cat_id).rank_change(CatRank.APPRENTICE)
-            Cat.all_cats.get(cat_id).thoughts()
+            the_cat = Cat.all_cats.get(cat_id)
+            the_cat.init_all_relationships()
+            if the_cat != self.instructor:
+                the_cat.backstory = "clan_founder"
+            if the_cat.status.rank == CatRank.APPRENTICE:
+                the_cat.rank_change(CatRank.APPRENTICE)
+            the_cat.thoughts()
 
         save_cats(game.clan.name, Cat, game)
         number_other_clans = randint(3, 5)
@@ -764,6 +763,7 @@ class Clan:
             "camp_bg": self.camp_bg,
             "clan_symbol": self.chosen_symbol,
             "gamemode": self.game_mode,
+            "used_group_IDs": game.used_group_IDs,
             "last_focus_change": self.last_focus_change,
             "clans_in_focus": self.clans_in_focus,
             "instructor": self.instructor.ID,
@@ -1079,7 +1079,6 @@ class Clan:
         """
         TODO: DOCS
         """
-        other_clans = []
         if not switch_get_value(Switch.clan_list):
             number_other_clans = randint(3, 5)
             for _ in range(number_other_clans):
@@ -1136,11 +1135,18 @@ class Clan:
         )
         game.clan.post_initialization_functions()
 
+        # LG
         if "following_starclan" in clan_data:
             game.clan.followingsc = clan_data['following_starclan']
         else:
             game.clan.followingsc = True
+        # ---
         
+        if clan_data.get("used_group_IDs"):
+            game.used_group_IDs = clan_data["used_group_IDs"]
+            for ID in game.used_group_IDs:
+                game.used_group_IDs[ID] = CatGroup(game.used_group_IDs[ID])
+
         game.clan.reputation = max(0, min(100, int(clan_data["reputation"])))
         game.clan.age = clan_data["clanage"]
         game.clan.starting_season = (

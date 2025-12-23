@@ -130,8 +130,3 @@ class CatGroup(StrEnum):
             self.PLAYER_CLAN,
             self.OTHER_CLAN,
         )
-
-class CatCompatibility(Enum):
-    NEGATIVE = auto()
-    POSITIVE = auto()
-    NEUTRAL = auto()

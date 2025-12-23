@@ -31,6 +31,7 @@ from scripts.game_structure.ui_elements import (
 from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset
 from scripts.utility import ui_scale_dimensions, generate_sprite
 from .Screens import Screens
+from .enums import GameScreen
 from .screens_core.screens_core import rebuild_den_dropdown
 from ..cat import save_load
 from ..cat.enums import CatRank
@@ -424,6 +425,8 @@ class MakeClanScreen(Screens):
             if event.ui_element == self.main_menu:
                 self.change_screen('start screen')
             if self.sub_screen == 'name clan':
+                self.change_screen(GameScreen.START)
+            elif self.sub_screen == "name clan":
                 self.handle_name_clan_event(event)
             elif self.sub_screen == 'choose name':
                 self.handle_choose_name_event(event)
@@ -447,7 +450,7 @@ class MakeClanScreen(Screens):
             elif self.sub_screen == "saved screen" and (
                 event.key == pygame.K_RETURN or event.key == pygame.K_RIGHT
             ):
-                self.change_screen("start screen")
+                self.change_screen(GameScreen.START)
 
     def handle_name_clan_event(self, event):
         if event.ui_element == self.elements["random"]:
@@ -493,7 +496,7 @@ class MakeClanScreen(Screens):
     
     def handle_name_clan_key(self, event):
         if event.key == pygame.K_ESCAPE:
-            self.change_screen("start screen")
+            self.change_screen(GameScreen.START)
         elif event.key == pygame.K_LEFT:
             if not self.elements["name_entry"].is_focused:
                 self.clan_name = ""
@@ -823,7 +826,7 @@ class MakeClanScreen(Screens):
                 self.save_clan()
                 self.open_clan_saved_screen()
                 switch_set_value(Switch.customise_new_life, False)
-            self.change_screen("camp screen")
+            self.change_screen(GameScreen.CAMP)
 
     def exit_screen(self):
         self.main_menu.kill()

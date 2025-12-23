@@ -204,7 +204,7 @@ def get_warring_clan():
     """
     enemy_clan = None
     if game.clan.war.get("at_war", False):
-        for other_clan in game.clan.all_clans:
+        for other_clan in game.clan.all_other_clans:
             if other_clan.name == game.clan.war["enemy"]:
                 enemy_clan = other_clan
 
@@ -258,8 +258,8 @@ def change_clan_relations(other_clan, difference):
     # grab the clan that has been indicated
     other_clan = other_clan
     # grab the relation value for that clan
-    y = game.clan.all_clans.index(other_clan)
-    clan_relations = int(game.clan.all_clans[y].relations)
+    y = game.clan.all_other_clans.index(other_clan)
+    clan_relations = int(game.clan.all_other_clans[y].relations)
     # change the value
     clan_relations += difference
     # making sure it doesn't exceed the bounds
@@ -268,7 +268,7 @@ def change_clan_relations(other_clan, difference):
     elif clan_relations < 0:
         clan_relations = 0
     # setting it in the Clan save
-    game.clan.all_clans[y].relations = clan_relations
+    game.clan.all_other_clans[y].relations = clan_relations
 
 
 def create_new_cat_block(
@@ -343,17 +343,6 @@ def create_new_cat_block(
                     continue
 
                 give_mates.append(in_event_cats[index])
-
-            try:
-                index = int(index)
-            except ValueError:
-                print(f"mate-index not correct: {index}")
-                continue
-
-            if index >= i:
-                continue
-
-            give_mates.extend(event.new_cats[index])
 
     # determine gender
     if "male" in attribute_list:
@@ -447,11 +436,10 @@ def create_new_cat_block(
     elif "clancat" in attribute_list or "former Clancat" in attribute_list:
         cat_social = CatSocial.CLANCAT
         if other_clan:
-            cat_group = other_clan.enum
+            cat_group = other_clan.group_ID
         else:
-            cat_group = choice(game.clan.other_clans)
     # CHECKMERGE: clan_status stuff for lg patrol new cats was here. figure that out
-    
+            cat_group = choice([x.group_ID for x in game.clan.all_other_clans])
     else:
         cat_social = choice([CatSocial.KITTYPET, CatSocial.LONER, "former Clancat"])
 
@@ -506,22 +494,25 @@ def create_new_cat_block(
             break
     if bs_override:
         chosen_backstory = choice(stor)
-
-        if (
-            chosen_backstory
-            in BACKSTORIES["backstory_categories"]["baby_clancat_backstories"]
+        if chosen_backstory in (
+            BACKSTORIES["backstory_categories"]["baby_clancat_backstories"]
+            + BACKSTORIES["backstory_categories"]["former_clancat_backstories"]
         ):
             cat_social = CatSocial.CLANCAT
-        elif (
-            chosen_backstory
-            in BACKSTORIES["backstory_categories"]["baby_loner_backstories"]
+        elif chosen_backstory in (
+            BACKSTORIES["backstory_categories"]["baby_loner_backstories"]
+            + BACKSTORIES["backstory_categories"]["loner_backstories"]
         ):
             cat_social = CatSocial.LONER
-        elif (
-            chosen_backstory
-            in BACKSTORIES["backstory_categories"]["baby_kittypet_backstories"]
+        elif chosen_backstory in (
+            BACKSTORIES["backstory_categories"]["baby_kittypet_backstories"]
+            + BACKSTORIES["backstory_categories"]["kittypet_backstories"]
         ):
             cat_social = CatSocial.KITTYPET
+        elif (
+            chosen_backstory in BACKSTORIES["backstory_categories"]["rogue_backstories"]
+        ):
+            cat_social = CatSocial.ROGUE
 
     # KITTEN THOUGHT
     if rank in (CatRank.KITTEN, CatRank.NEWBORN):
@@ -616,7 +607,7 @@ def create_new_cat_block(
             elif outside:
                 # updates so that the clan is marked as knowing of this cat
                 current_standing = chosen_cat.status.get_standing_with_group(
-                    CatGroup.PLAYER_CLAN
+                    CatGroup.PLAYER_CLAN_ID
                 )
                 if (
                     CatStanding.KNOWN not in current_standing
@@ -779,7 +770,7 @@ def get_other_clan(clan_name):
     """
     returns the clan object of given clan name
     """
-    for clan in game.clan.all_clans:
+    for clan in game.clan.all_other_clans:
         if clan.name == clan_name:
             return clan
 
@@ -2141,7 +2132,7 @@ def history_text_adjust(text,
         text = text.replace("o_c_n", str(other_clan_name))
 
     if "c_n" in text:
-        text = text.replace("c_n", clan.displayname)
+        text = text.replace("c_n", clan.displayname + "Clan")
     if "r_c" in text and other_cat_rc:
         text = selective_replace(text, "r_c", str(other_cat_rc.name))
     return text
@@ -2425,9 +2416,19 @@ def event_text_adjust(
 
         # acc_singular (only works for main_cat's acc)
         if "acc_singular" in text:
+            accessory_name = main_cat.pelt.accessory[-1]
+            if sprites.COLLAR_DATA["palette_map"]:
+                potential_collar = "".join(
+                    [x for x in accessory_name if not x.islower()]
+                ).strip("_")
+                for style in main_cat.pelt.collar_styles:
+                    if style == potential_collar:
+                        accessory_name = potential_collar
+                        break
             text = text.replace(
                 "acc_singular",
-                i18n.t(f"cat.accessories.{main_cat.pelt.accessories[-1]}", count=1),
+                i18n.t(f"cat.accessories.{main_cat.pelt.accessory[-1]}", count=1),
+                # i18n.t(f"cat.accessories.{accessory_name}", count=1),
             )
 
         if "given_herb" in text:
@@ -2826,7 +2827,7 @@ def generate_sprite(
     # paralyzed sprites
     elif cat.pelt.paralyzed and age != CatAge.NEWBORN:
         if age in (CatAge.KITTEN, CatAge.ADOLESCENT):
-            cat_sprite = sprite_poses["para_young0"]
+            cat_sprite = sprite_poses[cat.pelt.cat_sprites["para_young"]]
         else:
             cat_sprite = sprite_poses[cat.pelt.cat_sprites["para_adult"]]
 

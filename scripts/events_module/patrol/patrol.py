@@ -292,8 +292,8 @@ class Patrol:
             else:
                 self.patrol_leader = choice(self.patrol_cats)
 
-        if clan.all_clans and len(clan.all_clans) > 0:
-            self.other_clan = choice(clan.all_clans)
+        if clan.all_other_clans and len(clan.all_other_clans) > 0:
+            self.other_clan = choice(clan.all_other_clans)
         else:
             self.other_clan = None
 
@@ -698,6 +698,19 @@ class Patrol:
         if patrol_type == "general":
             patrol_type = random.choice(["hunting", "border", "training"])
 
+        app_number_mentor_checks = {}
+        for i in range(1, 7):
+            app_number_mentor_checks[f"app{i}_mentored"] = (
+                len(self.patrol_apprentices) >= i
+                and self.patrol_apprentices[i - 1].mentor is not None
+            )
+        general_mentor_checks = (
+            all(app.mentor for app in self.patrol_apprentices)
+            if self.patrol_apprentices
+            else False
+        )
+        has_mentor = {"general": general_mentor_checks, **app_number_mentor_checks}
+
         # makes sure that it grabs patrols in the correct biomes, season, with the correct number of cats
         for patrol in possible_patrols:
 
@@ -757,7 +770,7 @@ class Patrol:
                     )
                 continue
 
-            if not event_for_tags(patrol.tags, Cat):
+            if not event_for_tags(patrol.tags, Cat, mentor_tags_fulfilled=has_mentor):
                 if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
                     print("DEBUG: requested patrol does not meet constraints (tags)")
                 continue
@@ -1389,7 +1402,7 @@ class Patrol:
 
         root_dir = "resources/images/patrol_art/"
 
-        if game_setting_get("gore") and self.patrol_event.patrol_art_clean:
+        if not game_setting_get("gore") and self.patrol_event.patrol_art_clean:
             file_name = self.patrol_event.patrol_art_clean
         else:
             file_name = self.patrol_event.patrol_art

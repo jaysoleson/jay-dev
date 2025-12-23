@@ -62,6 +62,7 @@ from scripts.housekeeping.update import (
     get_latest_version_number,
 )
 from scripts.housekeeping.version import get_version_info
+from scripts.screens.enums import GameScreen
 from scripts.ui.generate_box import BoxStyles, get_box
 from scripts.ui.generate_button import ButtonStyles, get_button_dict
 from scripts.ui.icon import Icon
@@ -343,7 +344,7 @@ class SaveCheck(UIWindow):
                     game.is_close_menu_open = False
                     self.mm_btn.enable()
                     game.last_screen_forupdate = switch_get_value(Switch.cur_screen)
-                    switch_set_value(Switch.cur_screen, "start screen")
+                    switch_set_value(Switch.cur_screen, GameScreen.START)
                     game.switch_screens = True
                     self.kill()
                 else:
@@ -549,7 +550,7 @@ class DeleteCheck(UIWindow):
                 else:
                     print("No clan.json/txt???? Clan prolly wasnt initalized kekw")
                 self.kill()
-                self.reloadscreen("switch clan screen")
+                self.reloadscreen(GameScreen.SWITCH_CLAN)
 
             elif event.ui_element == self.go_back_button:
                 self.kill()
@@ -609,7 +610,7 @@ class GameOver(UIWindow):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.begin_anew_button:
                 game.last_screen_forupdate = switch_get_value(Switch.cur_screen)
-                switch_set_value(Switch.cur_screen, "start screen")
+                switch_set_value(Switch.cur_screen, GameScreen.START)
                 game.switch_screens = True
                 self.kill()
             elif event.ui_element == self.not_yet_button:
@@ -820,8 +821,8 @@ class ChangeCatName(UIWindow):
                 self.suffix_entry_box.rebuild()
                 self.suffix_entry_box.disable()
             elif event.ui_element == self.back_button:
-                game.all_screens["profile screen"].exit_screen()
-                game.all_screens["profile screen"].screen_switches()
+                game.all_screens[GameScreen.PROFILE].exit_screen()
+                game.all_screens[GameScreen.PROFILE].screen_switches()
                 self.kill()
         return super().process_event(event)
 
@@ -1056,8 +1057,8 @@ class PronounCreation(UIWindow):
     def process_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
-                game.all_screens["change gender screen"].exit_screen()
-                game.all_screens["change gender screen"].screen_switches()
+                game.all_screens[GameScreen.CHANGE_GENDER].exit_screen()
+                game.all_screens[GameScreen.CHANGE_GENDER].screen_switches()
                 [item.kill() for item in self.dropdowns.values()]
                 self.kill()
             elif event.ui_element in self.dropdowns["conju"].child_buttons:
@@ -1277,8 +1278,8 @@ class KillCat(UIWindow):
                 self.the_cat.die()
                 self.the_cat.history.add_death(death_message)
                 update_sprite(self.the_cat)
-                game.all_screens["profile screen"].exit_screen()
-                game.all_screens["profile screen"].screen_switches()
+                game.all_screens[GameScreen.PROFILE].exit_screen()
+                game.all_screens[GameScreen.PROFILE].screen_switches()
                 self.kill()
             elif event.ui_element == self.all_lives_check:
                 self.take_all = False
@@ -1289,8 +1290,8 @@ class KillCat(UIWindow):
                 self.all_lives_check.show()
                 self.one_life_check.hide()
             elif event.ui_element == self.back_button:
-                game.all_screens["profile screen"].exit_screen()
-                game.all_screens["profile screen"].screen_switches()
+                game.all_screens[GameScreen.PROFILE].exit_screen()
+                game.all_screens[GameScreen.PROFILE].screen_switches()
                 self.kill()
 
         return super().process_event(event)
@@ -2624,8 +2625,8 @@ class ChangeCatToggles(UIWindow):
     def process_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
-                game.all_screens["profile screen"].exit_screen()
-                game.all_screens["profile screen"].screen_switches()
+                game.all_screens[GameScreen.PROFILE].exit_screen()
+                game.all_screens[GameScreen.PROFILE].screen_switches()
                 self.kill()
             elif event.ui_element == self.checkboxes["prevent_fading"]:
                 self.the_cat.prevent_fading = not self.the_cat.prevent_fading
@@ -2684,7 +2685,7 @@ class SelectFocusClans(UIWindow):
             container=self,
         )
         n = 0
-        for clan in game.clan.all_clans:
+        for clan in game.clan.all_other_clans:
             self.texts[clan.name] = pygame_gui.elements.UITextBox(
                 clan.name + "clan",
                 ui_scale(pygame.Rect(107, n * 27 + 38, -1, 25)),
@@ -2699,7 +2700,7 @@ class SelectFocusClans(UIWindow):
         self.checkboxes = {}
 
         n = 0
-        for clan in game.clan.all_clans:
+        for clan in game.clan.all_other_clans:
             box_type = "@unchecked_checkbox"
             if clan.name in game.clan.clans_in_focus:
                 box_type = "@checked_checkbox"
@@ -2716,13 +2717,13 @@ class SelectFocusClans(UIWindow):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
                 game.clan.clans_in_focus = []
-                game.all_screens["warrior den screen"].exit_screen()
-                game.all_screens["warrior den screen"].screen_switches()
+                game.all_screens[GameScreen.WARRIOR_DEN].exit_screen()
+                game.all_screens[GameScreen.WARRIOR_DEN].screen_switches()
                 self.kill()
             if event.ui_element == self.save_button:
-                game.all_screens["warrior den screen"].save_focus()
-                game.all_screens["warrior den screen"].exit_screen()
-                game.all_screens["warrior den screen"].screen_switches()
+                game.all_screens[GameScreen.WARRIOR_DEN].save_focus()
+                game.all_screens[GameScreen.WARRIOR_DEN].exit_screen()
+                game.all_screens[GameScreen.WARRIOR_DEN].screen_switches()
                 self.kill()
             if event.ui_element in self.checkboxes.values():
                 for clan_name, value in self.checkboxes.items():
@@ -2841,11 +2842,11 @@ class ConfirmDisplayChanges(UIMessageWindow):
     def revert_changes(self):
         """Revert the changes made to screen scaling"""
         from scripts.game_structure.screen_settings import toggle_fullscreen
-        from scripts.screens.all_screens import AllScreens
+        from scripts.screens import all_screens
 
         toggle_fullscreen(
             None,
-            source_screen=getattr(AllScreens, self.source_screen_name),
+            source_screen=all_screens.get_screen(self.source_screen_name),
             show_confirm_dialog=False,
         )
 
