@@ -13,6 +13,7 @@ import traceback
 
 import ujson
 import re
+from enum import Enum
 
 from scripts.clan import Clan
 from scripts.clan_resources.herb.herb import HERBS

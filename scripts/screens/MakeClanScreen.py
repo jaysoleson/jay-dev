@@ -423,8 +423,6 @@ class MakeClanScreen(Screens):
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.main_menu:
-                self.change_screen('start screen')
-            if self.sub_screen == 'name clan':
                 self.change_screen(GameScreen.START)
             elif self.sub_screen == "name clan":
                 self.handle_name_clan_event(event)
@@ -2000,14 +1998,6 @@ class MakeClanScreen(Screens):
             visible=False,
             manager=MANAGER,
             text_kwargs={"m_c": self.selected_cat},
-        )
-        # Error message, to appear if you can't choose that cat.
-        self.elements[Switch.error_message] = pygame_gui.elements.UITextBox(
-            "screens.make_clan.error_too_young_leader",
-            ui_scale(pygame.Rect((150, 353), (500, 55))),
-            object_id=get_text_box_theme("#text_box_30_horizcenter_red"),
-            visible=False,
-            manager=MANAGER
         )
 
         self.elements['select_cat'] = UISurfaceImageButton(
@@ -4174,7 +4164,6 @@ class MakeClanScreen(Screens):
             starting_height=2,
             anchors={"left_target": self.elements["previous_step"]},
         )
-        self.elements["next_step"].disable()
 
         # Biome buttons
         self.elements["forest_biome"] = UIImageButton(

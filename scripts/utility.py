@@ -38,8 +38,7 @@ from scripts.cat.enums import (
     CatRank,
     CatSocial,
     CatGroup,
-    CatStanding,
-    CatCompatibility,
+    CatStanding
 )
 from scripts.cat.names import names
 from scripts.cat.sprites import sprites

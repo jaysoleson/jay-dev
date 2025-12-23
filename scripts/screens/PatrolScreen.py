@@ -623,11 +623,11 @@ class PatrolScreen(Screens):
         self.patrol_stage = "choose_cats"
         self.patrol_screen = "patrol_cats"  # List
 
-        self.elements["info"] = pygame_gui.elements.UITextBox(
-            "screens.patrol.choose_cats_info",
-            ui_scale(pygame.Rect((187, 95), (425, 100))),
-            object_id=get_text_box_theme("#text_box_22_horizcenter"),
-        )
+        # self.elements["info"] = pygame_gui.elements.UITextBox(
+        #     "screens.patrol.choose_cats_info",
+        #     ui_scale(pygame.Rect((187, 95), (425, 100))),
+        #     object_id=get_text_box_theme("#text_box_22_horizcenter"),
+        # )
         self.elements["cat_frame"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((300, 165), (200, 275))),
             get_box(BoxStyles.FRAME, (200, 275)),
@@ -905,7 +905,7 @@ class PatrolScreen(Screens):
             current_amount = round(game.clan.freshkill_pile.total_amount, 2)
             self.elements["current_prey"] = pygame_gui.elements.UITextBox(
                 "screens.patrol.current_prey",
-                ui_scale(pygame.Rect((300, 630), (200, 400))),
+                ui_scale(pygame.Rect((300, 95), (200, 400))),
                 object_id=get_text_box_theme("#text_box_30_horizcenter"),
                 manager=MANAGER,
                 text_kwargs={"prey": str(current_amount)},
@@ -913,7 +913,7 @@ class PatrolScreen(Screens):
             needed_amount = round(game.clan.freshkill_pile.amount_food_needed(), 2)
             self.elements["needed_prey"] = pygame_gui.elements.UITextBox(
                 "screens.patrol.needed_prey",
-                ui_scale(pygame.Rect((300, 647), (200, 400))),
+                ui_scale(pygame.Rect((300, 112), (200, 400))),
                 object_id=get_text_box_theme("#text_box_30_horizcenter"),
                 manager=MANAGER,
                 text_kwargs={"prey": str(needed_amount)},
