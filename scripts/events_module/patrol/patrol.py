@@ -765,8 +765,9 @@ class Patrol:
                     print(f"Issue with status limits: {patrol.patrol_id}")
                     continue
 
-                # LG
-                # idk what the problem was here...?
+                # LG ---
+                # this problem is obviously coming from somewhere else,
+                # but this does work. lol
                 convert = {
                     "healer cats": (
                         self.patrol_statuses.get(CatRank.MEDICINE_CAT, 0) +
@@ -785,16 +786,10 @@ class Patrol:
                         status_number = -1
                 else:
                     status_number = self.patrol_statuses.get(sta, -1)
-                # ----
+                # -------
 
                 if not (num[0] <= status_number <= num[1]):
                     flag = True
-                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                        print("MIN", sta, ":", num[0], "| MAX", sta, ":", num[1])
-                        print(sta, self.patrol_statuses.get(sta, -1))
-                        print(self.patrol_statuses)
-                        print("HERE", flag)
-
                     break
             
             # LG
