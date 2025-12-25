@@ -277,7 +277,7 @@ class Pelt:
                 "senior adult": adult_sprite if adult_sprite is not None else 6,
                 "senior": senior_sprite if senior_sprite is not None else 12,
                 "para_adult": para_adult_sprite,
-                "newborn": 20,
+                "newborn": newborn_sprite if newborn_sprite is not None else 0
             }
             for age, pose in self.cat_sprites.items():
                 # we only need to convert if it's using the old sprite pose numbers
@@ -294,7 +294,7 @@ class Pelt:
 
                 if age == CatAge.NEWBORN:
                     self.cat_sprites[age] = (
-                        "newborn2" if "newborn2" in self.newborn_poses else "newborn0"
+                        f"newborn{pose}" if f"newborn{pose}" in self.newborn_poses else "newborn2"
                     )
                     continue
                 if age == CatAge.KITTEN:

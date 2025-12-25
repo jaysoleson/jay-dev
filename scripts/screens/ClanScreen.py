@@ -468,10 +468,12 @@ class ClanScreen(Screens):
             if (
                 Cat.all_cats[x].status.rank == CatRank.NEWBORN
                 or constants.CONFIG["fun"]["all_cats_are_newborn"]
+                or Cat.all_cats[x].moons < 0
             ):
                 if (
-                    constants.CONFIG["fun"]["all_cats_are_newborn"]
-                    or constants.CONFIG["fun"]["newborns_can_roam"]
+                    (constants.CONFIG["fun"]["all_cats_are_newborn"]
+                    or constants.CONFIG["fun"]["newborns_can_roam"])
+                    and Cat.all_cats[x].moons >= 0
                 ):
                     # Free them
                     [
