@@ -258,20 +258,25 @@ class Clan:
         self.add_cat(self.demon)
         self.all_other_clans = []
 
+        if self.leader.status != CatRank.LEADER:
+            self.leader.status.rank_change(CatRank.LEADER)
+
         key_copy = tuple(Cat.all_cats.keys())
         for i in key_copy:  # Going through all currently existing cats
             # cat_class is a Cat-object
             not_found = True
-            for x in [self.leader, self.deputy, self.medicine_cat] + self.starting_members:
+            for x in self.starting_members:
                 if Cat.all_cats[i] == x:
                     self.add_cat(Cat.all_cats[i])
                     not_found = False
-            if Cat.all_cats[i] != self.leader and Cat.all_cats[i] != \
-                    self.medicine_cat and Cat.all_cats[i] != \
-                    self.deputy and Cat.all_cats[i] != \
-                    self.instructor and Cat.all_cats[i] != \
-                    self.demon and Cat.all_cats[i] != self.focus_cat \
-                    and not_found:
+            if (
+                Cat.all_cats[i] != self.leader
+                and Cat.all_cats[i] != self.medicine_cat
+                and Cat.all_cats[i] != self.deputy
+                and Cat.all_cats[i] != self.instructor
+                and Cat.all_cats[i] != self.demon
+                and not_found
+            ):
                 Cat.all_cats[i].example = True
                 self.remove_cat(Cat.all_cats[i].ID)
 
@@ -1253,9 +1258,6 @@ class Clan:
                     )
 
         for cat in clan_data["clan_cats"].split(","):
-            # print("------")
-            # print("ALL CATS:", Cat.all_cats)
-            # print(cat)
             if cat in Cat.all_cats:
                 game.clan.add_cat(Cat.all_cats[cat])
             else:
