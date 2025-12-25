@@ -485,6 +485,7 @@ class PatrolScreen(Screens):
                 if self.patrol_type == "med":
                     self.patrol_type = "general"
             
+            self.elements["info"].kill()
             text = ""
             if switch_get_value(Switch.patrol_category) == "clangen":
                 if self.patrol_type == "general":
@@ -603,6 +604,12 @@ class PatrolScreen(Screens):
         self.current_page = 1
         self.patrol_stage = "choose_cats"
         self.patrol_screen = "patrol_cats"  # List
+
+        self.elements["info"] = pygame_gui.elements.UITextBox(
+            "screens.patrol.choose_cats_info",
+            ui_scale(pygame.Rect((187, 95), (425, 100))),
+            object_id=get_text_box_theme("#text_box_22_horizcenter"),
+        )
 
         self.elements["cat_frame"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((300, 165), (200, 275))),
