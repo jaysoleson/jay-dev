@@ -40,6 +40,7 @@ from scripts.utility import (
 )
  
 # LG
+from scripts.cat.enums import CatRank
 from scripts.game_structure.ui_elements import UIImageButton, UIModifiedScrollingContainer, IDImageButton, UISpriteButton
 import random
 from scripts.game_structure.windows import GameOver, DeathScreen, PickPath
@@ -173,12 +174,11 @@ class EventsScreen(Screens):
                     # CHECKMERGE: check if opening windows has changed at all
                     return
                 elif (game.clan.your_cat.moons == 5
-                        and not game.clan.your_cat.status.is_outsider
-                        and not game.clan.your_cat.dead
-                        and game.clan.your_cat.status == "kitten"
-                        ) or not game.clan.your_cat.status:
+                        and game.clan.your_cat.status.alive_in_player_clan
+                        and game.clan.your_cat.status.rank == CatRank.KITTEN
+                        ):
                     PickPath('events screen')
-                elif game.clan.your_cat.status:
+                else:
                     self.events_thread = self.loading_screen_start_work(
                         events_class.one_moon
                     )

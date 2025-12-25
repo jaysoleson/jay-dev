@@ -1991,43 +1991,54 @@ class PickPath(UIWindow):
                     switch_set_value(Switch.window_open, False)
 
                     if game.clan.your_cat.moons < 12:
-                        status = 'medicine cat apprentice'
+                        status = CatRank.MEDICINE_APPRENTICE
                     else:
-                        status = 'medicine cat'
+                        status = CatRank.MEDICINE_CAT
                 elif event.ui_element == self.not_yet_button:
                     switch_set_value(Switch.window_open, False)
 
                     if game.clan.your_cat.moons < 12:
-                        status = 'apprentice'
+                        status = CatRank.APPRENTICE
                     else:
-                        status = 'warrior'
+                        status = CatRank.WARRIOR
                 elif event.ui_element == self.mediator_button:
                     switch_set_value(Switch.window_open, False)
 
                     if game.clan.your_cat.moons < 12:
-                        status = 'mediator apprentice'
+                        status = CatRank.MEDIATOR_APPRENTICE
                     else:
-                        status = 'mediator'
+                        status = CatRank.MEDIATOR
                 elif event.ui_element == self.queen_button:
                     switch_set_value(Switch.window_open, False)
 
                     if game.clan.your_cat.moons < 12:
-                        status = "queen's apprentice"
+                        status = CatRank.QUEENS_APPRENTICE
                     else:
-                        status = "queen"
+                        status = CatRank.QUEEN
                 elif event.ui_element == self.random_button:
                     switch_set_value(Switch.window_open, False)
 
                     if game.clan.your_cat.moons < 12:
-                        status = choice(['mediator apprentice','apprentice','medicine cat apprentice', "queen's apprentice"])
+                        status = choice([
+                                CatRank.APPRENTICE,
+                                CatRank.MEDIATOR_APPRENTICE,
+                                CatRank.MEDICINE_APPRENTICE,
+                                CatRank.QUEENS_APPRENTICE
+                        ])
                     else:
-                        status = choice(['mediator','warrior','medicine cat', "queen"])
+                        status = choice([
+                            CatRank.WARRIOR,
+                            CatRank.MEDICINE_CAT,
+                            CatRank.MEDIATOR,
+                            CatRank.QUEEN,
+                        ])
                 
                 if status:
-                    game.clan.your_cat.status_change(status)
+                    game.clan.your_cat.rank_change(status)
                     self.kill()
-        except:
+        except Exception as e:
             print('Error with PickPath window!')
+            print(e)
 
 
 class DeathScreen(UIWindow):
