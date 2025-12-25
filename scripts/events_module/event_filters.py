@@ -87,7 +87,7 @@ def event_for_tags(tags: list, cat, other_cat=None, mentor_tags_fulfilled=None) 
                 return False
             if cat.moons <= 14 + cat.age_moons["kitten"][1]:
                 return False
-            if any(cat.fetch_cat(i).no_kits for i in cat.mate):
+            if any(cat.fetch_cat(i).no_kits for i in cat.mates):
                 return False
 
         if (

@@ -556,7 +556,7 @@ class MediationScreen(Screens):
         self.selected_cat_elements["col1" + tag].disable()
 
         mates = False
-        if len(cat.mate) > 0:
+        if len(cat.mates) > 0:
             col2 = i18n.t("general.has_a_mate")
             if other_cat:
                 if other_cat.ID in cat.mates:

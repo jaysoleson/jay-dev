@@ -1369,12 +1369,12 @@ class ProfileScreen(Screens):
 
             mate_block = ", ".join(mate_names)
 
-            if len(the_cat.mate) > 2:
+            if len(the_cat.mates) > 2:
                 mate_block = i18n.t(
                     "utility.items",
                     count=2,
                     item1=mate_block,
-                    item2=i18n.t("general.mate_extra", count=len(the_cat.mate) - 2),
+                    item2=i18n.t("general.mate_extra", count=len(the_cat.mates) - 2),
                 )
 
             output += i18n.t(

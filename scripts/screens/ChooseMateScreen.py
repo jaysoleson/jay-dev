@@ -898,7 +898,7 @@ class ChooseMateScreen(Screens):
 
         info = self.the_cat.get_info_block()
         if self.the_cat.mates:
-            info += f"\n{len(self.the_cat.mate)} " + i18n.t(
+            info += f"\n{len(self.the_cat.mates)} " + i18n.t(
                 "general.mate", count=len(self.the_cat.mates)
             )
         self.current_cat_elements["info"] = pygame_gui.elements.UITextBox(
@@ -1056,8 +1056,8 @@ class ChooseMateScreen(Screens):
 
         info = self.selected_cat.get_info_block()
         if self.selected_cat.mate:
-            info += f"\n{len(self.selected_cat.mate)} " + i18n.t(
-                "general.mate", count=len(self.selected_cat.mate)
+            info += f"\n{len(self.selected_cat.mates)} " + i18n.t(
+                "general.mate", count=len(self.selected_cat.mates)
             )
 
         self.selected_cat_elements["info"] = pygame_gui.elements.UITextBox(
@@ -1215,7 +1215,7 @@ class ChooseMateScreen(Screens):
             and i.status.is_outsider == self.the_cat.status.is_outsider
             and i.status.group_ID == self.the_cat.status.group_ID
             and i.ID not in self.the_cat.mate
-            and (not self.single_only or not i.mate)
+            and (not self.single_only or not i.mates)
             and (
                 not self.have_kits_only
                 or get_clan_setting("same sex birth")

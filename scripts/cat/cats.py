@@ -4248,9 +4248,11 @@ def create_cat(rank, moons=None, biome=None):
 
 # Twelve example cats
 def create_example_cats():
+    """
+    creates kittens for the player to choose from
+    """
     for cat_index in range(12):
         game.choose_cats[cat_index] = create_cat(rank=CatRank.KITTEN)
-
 
 def create_option_preview_cat(scar: str = None, acc: str = None):
     """

@@ -312,18 +312,18 @@ class TestMateFunctions(unittest.TestCase):
         # given
         cat1 = Cat(disable_random=True)
         cat2 = Cat(disable_random=True)
-        cat1.mate.append(cat2.ID)
-        cat2.mate.append(cat1.ID)
+        cat1.mates.append(cat2.ID)
+        cat2.mates.append(cat1.ID)
 
         # when
         cat1.unset_mate(cat2)
         cat2.unset_mate(cat1)
 
         # then
-        self.assertNotIn(cat2, cat1.mate)
-        self.assertNotIn(cat1, cat2.mate)
-        self.assertEqual(len(cat1.mate), 0)
-        self.assertEqual(len(cat2.mate), 0)
+        self.assertNotIn(cat2, cat1.mates)
+        self.assertNotIn(cat1, cat2.mates)
+        self.assertEqual(len(cat1.mates), 0)
+        self.assertEqual(len(cat2.mates), 0)
 
     # test for relationship comparisons
     def test_set_mate_relationship(self):
@@ -385,8 +385,8 @@ class TestMateFunctions(unittest.TestCase):
             respect=20,
         )
         old_relation2 = deepcopy(relation2)
-        cat1.mate.append(cat2.ID)
-        cat2.mate.append(cat1.ID)
+        cat1.mates.append(cat2.ID)
+        cat2.mates.append(cat1.ID)
         cat1.relationships[cat2.ID] = relation1
         cat2.relationships[cat1.ID] = relation2
 

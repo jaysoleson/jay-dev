@@ -2310,7 +2310,7 @@ class Events:
                     game.clan.med_cat_list.remove(cat.ID)
 
                 # Unset their mate, if they have one
-                if len(cat.mate) > 0:
+                if len(cat.mates) > 0:
                     for mate_id in cat.mates:
                         if Cat.all_cats.get(mate_id):
                             cat.unset_mate(Cat.all_cats.get(mate_id))

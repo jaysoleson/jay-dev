@@ -258,9 +258,6 @@ class Clan:
         self.add_cat(self.demon)
         self.all_other_clans = []
 
-        if self.leader.status != CatRank.LEADER:
-            self.leader.status.rank_change(CatRank.LEADER)
-
         key_copy = tuple(Cat.all_cats.keys())
         for i in key_copy:  # Going through all currently existing cats
             # cat_class is a Cat-object

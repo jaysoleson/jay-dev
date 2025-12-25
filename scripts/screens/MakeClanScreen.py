@@ -560,17 +560,21 @@ class MakeClanScreen(Screens):
             self.open_choose_leader()
     
     def handle_create_other_cats(self):
+        """
+        Creates the rest of the Clan
+        """
         self.create_example_cats2()
+        # assign a leader, deputy, and medcat since the player couldnt choose them
         for cat in game.choose_cats.values():
-            if cat.status == "warrior":
+            if cat.status.rank == CatRank.WARRIOR:
                 if self.leader is None:
                     self.leader = cat
                 elif self.deputy is None:
                     self.deputy = cat
-                    cat.status = "deputy"
+                    cat.rank_change(CatRank.DEPUTY)
                 elif self.med_cat is None:
                     self.med_cat = cat
-                    cat.status = "medicine cat"
+                    cat.rank_change(CatRank.DEPUTY)
                 else:
                     self.members.append(cat)
             else:
@@ -578,6 +582,9 @@ class MakeClanScreen(Screens):
         self.members.append(self.your_cat)
         
     def create_example_cats2(self):
+        """ 
+        Creates the other Clan cats
+        """
         e = random.sample(range(12), 3)
         not_allowed = ['NOPAW', 'NOTAIL', 'HALFTAIL', 'NOEAR', 'BOTHBLIND', 'RIGHTBLIND', 'LEFTBLIND', 'BRIGHTHEART',
                     'NOLEFTEAR', 'NORIGHTEAR', 'MANLEG']
