@@ -187,7 +187,7 @@ class EventsScreen(Screens):
                 return
             elif element == self.you:
                 switch_set_value(Switch.cat, game.clan.your_cat.ID)
-                self.change_screen("profile screen")
+                self.change_screen(GameScreen.PROFILE)
             
             elif element == self.faith_toggle_button:
                 if self.faith_toggle is True:

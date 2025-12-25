@@ -111,7 +111,7 @@ class PatrolScreen(Screens):
             if event.key == pygame.K_LEFT:
                 self.change_screen(GameScreen.LIST)
             # elif event.key == pygame.K_RIGHT:
-            # self.change_screen('list screen')
+            # self.change_screen(GameScreen.LIST)
 
     def handle_choose_cats_events(self, event):
 
@@ -1462,7 +1462,7 @@ class PatrolScreen(Screens):
                     ui_scale(pygame.Rect((148, -4), (104, 26))),
                     (
                         "screens.patrol.select"
-                        if self.mate in self.able_cats
+                        if self.mates in self.able_cats
                         else "screens.patrol.unavailable"
                     ),
                     object_id="#patrol_select_button",

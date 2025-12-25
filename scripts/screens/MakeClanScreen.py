@@ -446,7 +446,7 @@ class MakeClanScreen(Screens):
             self.open_choose_leader()
         elif event.ui_element == self.elements["previous_step"]:
             self.clan_name = ""
-            self.change_screen('start screen')
+            self.change_screen(GameScreen.START)
         elif event.ui_element == self.elements['small']:
             self.elements['small'].disable()
             self.elements['medium'].enable()
@@ -3642,7 +3642,7 @@ class MakeClanScreen(Screens):
                         self.open_customize_cat()
 
             if event.ui_element == self.main_menu:
-                self.change_screen('start screen')
+                self.change_screen(GameScreen.START)
             elif event.ui_element == self.elements['right']:
                 if self.page < 5:
                     self.page += 1

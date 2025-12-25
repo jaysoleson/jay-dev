@@ -12,6 +12,8 @@ from scripts.game_structure.ui_elements import (
     UISpriteButton,
     UISurfaceImageButton,
 )
+from scripts.screens.enums import GameScreen
+
 from scripts.utility import (
     get_text_box_theme,
     ui_scale,
@@ -70,7 +72,7 @@ class ChooseRebornScreen(Screens):
 
                 # self.update_buttons()
             elif event.ui_element == self.back_button:
-                self.change_screen('profile screen')
+                self.change_screen(GameScreen.PROFILE)
                 switch_set_value(Switch.continue_after_death, False)
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):

@@ -683,16 +683,16 @@ dev_tools = false
 # LIFEGEN!!!!
 
 [lifegen]
-  [debug]
+  [lifegen.debug]
     debug_ensure_focus = ""
     debug_ensure_dialogue = ""
     debug_meow_error_locating = false
 
-  [shunned_cat]
+  [lifegen.shunned_cat]
     max_forgiven_moons = 10
     max_shunned_moons = 10
     return_home_chance = 0
-    [exile_chance]
+    [lifegen.shunned_cat.exile_chance]
       newborn = 500
       kitten = 45
       adolescent = 20

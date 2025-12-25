@@ -202,7 +202,7 @@ class ProfileScreen(Screens):
             elif event.ui_element == self.exile_return_button:
                 game.clan.exile_return = True
                 Cat.return_home(self)
-                self.change_screen('events screen')
+                self.change_screen(GameScreen.EVENTS)
             elif event.ui_element == self.back_button:
                 self.close_current_tab()
                 self.change_screen(game.last_screen_forProfile)
@@ -507,7 +507,7 @@ class ProfileScreen(Screens):
             if event.ui_element == self.kill_cat_button:
                 KillCat(self.the_cat)
             elif event.ui_element == self.murder_cat_button:
-                self.change_screen('murder screen')
+                self.change_screen(GameScreen.MURDER)
             elif event.ui_element == self.join_df_button:
                 game.clan.your_cat.joined_df = True
                 game.clan.your_cat.df_join_moon = game.clan.age
@@ -528,7 +528,7 @@ class ProfileScreen(Screens):
                 self.clear_profile()
                 self.build_profile()
             elif event.ui_element == self.affair_button:
-                self.change_screen('affair screen')
+                self.change_screen(GameScreen.AFFAIR)
             elif event.ui_element == self.exile_cat_button:
                 # exiles a living cat
                 if self.the_cat.status.alive_in_player_clan:
@@ -852,7 +852,6 @@ class ProfileScreen(Screens):
         if is_df_instructor:
             if game.clan.followingsc == True:
                 self.the_cat.thought = "Hello. I am here to drag the cats of " + game.clan.name + "Clan into the Dark Forest"
-                self.the_cat.df
             else:
                 self.the_cat.thought = "Is picking more " + game.clan.name + "Clan cats to join them"
 
@@ -1955,7 +1954,7 @@ class ProfileScreen(Screens):
         else:
             text = i18n.t("cat.backstories.unknown", name=self.the_cat.name)
 
-        beginning = History.get_beginning(self.the_cat)
+        beginning = self.the_cat.history.beginning
         if beginning:
             if (
                 ("encountered" in beginning and beginning['encountered'] is False)
@@ -1973,9 +1972,9 @@ class ProfileScreen(Screens):
                 text += "<br>You encountered {PRONOUN/m_c/object} on Moon " + str(beginning['moon']) + "."
 
         if self.the_cat.history and self.the_cat.history.wrong_placement and self.the_cat.dead and not self.the_cat.status.is_outsider:
-            if self.the_cat.df:
+            if self.the_cat.status.group == CatGroup.DARK_FOREST:
                 text += f"<br>{self.the_cat.name} was wrongly placed in the Dark Forest."
-            else:
+            elif self.the_cat.status.group == CatGroup.STARCLAN:
                 text += f"<br>{self.the_cat.name} was wrongly placed in StarClan."
 
         if self.the_cat.status.is_lost():
@@ -1994,8 +1993,8 @@ class ProfileScreen(Screens):
                 text = text.replace("o_c_n", self.the_cat.backstory_str)
             else:
                 other_clan = "a different Clan"
-                if game.clan.all_clans:
-                    other_clan = str(choice(game.clan.all_clans).name) + "Clan"
+                if game.clan.all_other_clans:
+                    other_clan = str(choice(game.clan.all_other_clans).name) + "Clan"
                 self.the_cat.backstory_str = other_clan
                 text = text.replace("o_c_n", other_clan)
         if "c_n" in text:
@@ -3040,7 +3039,7 @@ class ProfileScreen(Screens):
             self.exile_layer = pygame_gui.elements.UIImage(
                 ui_scale(pygame.Rect((578, 450), (172, 36))),
                 pygame.transform.scale(
-                    self.df,
+                    self.status.group == CatGroup.DARK_FOREST,
                     ui_scale_dimensions((172, 36)),
                 ),
             )
@@ -3242,7 +3241,7 @@ class ProfileScreen(Screens):
                 anchors={
                     "bottom_target": self.gift_accessory_button},
             )
-            if not self.the_cat.is_baby() and not self.the_cat.dead and not self.the_cat.status.is_outsider:
+            if not self.the_cat.age.is_baby() and not self.the_cat.dead and not self.the_cat.status.is_outsider:
                 self.your_faith_button.enable()
             else:
                 self.your_faith_button.disable()
@@ -3269,9 +3268,9 @@ class ProfileScreen(Screens):
                     self.exile_cat_button.disable()
 
             elif self.the_cat.dead:
-                if not self.the_cat.status.is_outsider and not self.the_cat.df:
+                if self.the_cat.status.group == CatGroup.STARCLAN:
                     dead_button = "#exile_df_button"
-                elif self.the_cat.df and not self.the_cat.status.is_outsider:
+                elif self.the_cat.status.group == CatGroup.DARK_FOREST:
                     dead_button = "#send_ur_button"
                 else:
                     dead_button = "#guide_sc_button"
@@ -3631,98 +3630,84 @@ class ProfileScreen(Screens):
         
     def get_dead_cat_talk(self):
         """ determining placing the talk button for dead cats """
-        # They SC
-        cat_dead_condition_sc = (
-            self.the_cat.dead and
-            not self.the_cat.df and
-            not self.the_cat.status.is_outsider and
-            (game.clan.your_cat.dead or
-            (game.clan.your_cat.skills.meets_skill_requirement(SkillPath.STAR)
-            and game.clan.your_cat.moons >=1))
-            )
-
-        # They DF
-        cat_dead_condition_df = (
-            self.the_cat.dead and
-            self.the_cat.df and
-            (game.clan.your_cat.dead or
-            (game.clan.your_cat.skills.meets_skill_requirement(SkillPath.DARK)
-            and game.clan.your_cat.moons >=1) or
-            game.clan.your_cat.joined_df)
-            )
-
-        # They UR
-        cat_dead_condition_ur = (
-            self.the_cat.dead and
-            self.the_cat.ID in game.clan.unknown_cats and
-            (game.clan.your_cat.dead or
-            (game.clan.your_cat.skills.meets_skill_requirement(SkillPath.GHOST) and
-            game.clan.your_cat.moons >=1))
-            )
 
         # you SC
-        cat_alive_condition_sc = (
-            game.clan.your_cat.dead and
-            not game.clan.your_cat.df and
-            game.clan.your_cat.ID in game.clan.starclan_cats and
-            (self.the_cat.dead or
-            (self.the_cat.skills.meets_skill_requirement(SkillPath.STAR) and
-            self.the_cat.moons >= 1))
+        sc_talk = df_talk = (
+            (
+                game.clan.your_cat.status.group == CatGroup.STARCLAN and
+                self.the_cat.status.group == CatGroup.STARCLAN
             )
-
-        # you DF
-        cat_alive_condition_df = (
-            game.clan.your_cat.dead and
-            game.clan.your_cat.df and
-            (self.the_cat.dead or
-            (self.the_cat.skills.meets_skill_requirement(SkillPath.DARK) and
-            self.the_cat.moons >= 1) or
-            self.the_cat.joined_df)
+            or
+            (
+                self.the_cat.status.group == CatGroup.STARCLAN and
+                game.clan.your_cat.skills.meets_skill_requirement(SkillPath.STAR)
             )
-
-        # You UR
-        cat_alive_condition_ur = (
-            game.clan.your_cat.dead and
-            game.clan.your_cat.ID in game.clan.unknown_cats and
-            (self.the_cat.dead or
-            (self.the_cat.skills.meets_skill_requirement(SkillPath.GHOST) and
-            self.the_cat.moons >= 1))
+            or
+            (
+                game.clan.your_cat.status.group == CatGroup.STARCLAN and
+                self.the_cat.skills.meets_skill_requirement(SkillPath.STAR)
             )
+        )
 
-        if self.the_cat.dead and not self.the_cat.status.is_outsider and not self.the_cat.df:
-            if not cat_dead_condition_sc:
+        df_talk = (
+            (
+                game.clan.your_cat.status.group == CatGroup.DARK_FOREST and
+                self.the_cat.status.group == CatGroup.DARK_FOREST
+            )
+            or
+            (
+                self.the_cat.status.group == CatGroup.DARK_FOREST and
+                game.clan.your_cat.skills.meets_skill_requirement(SkillPath.DARK)
+            )
+            or
+            (
+                game.clan.your_cat.status.group == CatGroup.DARK_FOREST and
+                self.the_cat.skills.meets_skill_requirement(SkillPath.DARK)
+            )
+        )
+
+        ur_talk = (
+            (
+                game.clan.your_cat.status.group == CatGroup.DARK_FOREST and
+                self.the_cat.status.group == CatGroup.DARK_FOREST
+            )
+            or
+            (
+                self.the_cat.status.group == CatGroup.DARK_FOREST and
+                game.clan.your_cat.skills.meets_skill_requirement(SkillPath.DARK)
+            )
+            or
+            (
+                game.clan.your_cat.status.group == CatGroup.DARK_FOREST and
+                self.the_cat.skills.meets_skill_requirement(SkillPath.DARK)
+            )
+        )
+        if (
+            self.the_cat.status.group == CatGroup.STARCLAN or
+            game.clan.your_cat.status.group == CatGroup.STARCLAN
+            ):
+            if not sc_talk:
                 return False
             else:
                 return True
             
-        if self.the_cat.dead and self.the_cat.status.is_outsider and not self.the_cat.df:
-            if not cat_dead_condition_ur:
+        if (
+            self.the_cat.status.group == CatGroup.UNKNOWN_RESIDENCE or
+            game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE
+            ):
+            if not ur_talk:
                 return False
             else:
                 return True
             
-        if self.the_cat.dead and not self.the_cat.status.is_outsider and self.the_cat.df:
-            if not cat_dead_condition_df:
+        if (
+            self.the_cat.status.group == CatGroup.DARK_FOREST or
+            game.clan.your_cat.status.group == CatGroup.DARK_FOREST
+            ):
+            if not df_talk:
                 return False
             else:
                 return True
-            
-        if game.clan.your_cat.dead:
-            if game.clan.your_cat.df:
-                if not cat_alive_condition_df:
-                    return False
-                else:
-                    return True
-            elif game.clan.your_cat.status.is_outsider:
-                if not cat_alive_condition_ur:
-                    return False
-                else:
-                    return True
-            else:
-                if not cat_alive_condition_sc:
-                    return False
-                else:
-                    return True
     
     def build_inventory(self, event):
         """

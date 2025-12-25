@@ -241,7 +241,6 @@ class Clan:
                 BACKSTORIES["backstory_categories"]["clan_guide_backstories"]
             ),
         )
-        self.instructor.dead = True
         self.instructor.dead_for = randint(20, 200)
 
         self.add_cat(self.instructor)
@@ -255,8 +254,6 @@ class Clan:
             ),
         )
 
-        self.demon.df = True
-        self.demon.dead = True
         self.demon.dead_for = randint(20, 200)
         self.add_cat(self.demon)
         self.all_other_clans = []

@@ -96,6 +96,7 @@ class Illness:
         risks,
         herbs=None,
         event_triggered=False,
+        grief_cat=None
     ):
         self.name = name
         self.severity = severity

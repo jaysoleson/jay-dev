@@ -20,6 +20,8 @@ from scripts.utility import get_text_box_theme, ui_scale
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
+from scripts.screens.enums import GameScreen
+
 
 
 with open("resources/dicts/events/lifegen_events/gift.json", "r") as read_file:
@@ -96,7 +98,7 @@ class GiftScreen(Screens):
                 self.update_selected_cat()
 
             elif event.ui_element == self.back_button:
-                self.change_screen('profile screen')
+                self.change_screen(GameScreen.PROFILE)
                 self.stage = 'choose gift cat'
             elif event.ui_element == self.gift_again_button and self.stage == 'gift reaction':
                 self.exit_screen()

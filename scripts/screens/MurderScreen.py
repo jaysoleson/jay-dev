@@ -8,6 +8,7 @@ from scripts.cat.history import History
 from scripts.event_class import Single_Event
 from scripts.game_structure import constants
 
+from scripts.screens.enums import GameScreen
 
 from .Screens import Screens
 from scripts.utility import get_text_box_theme, process_text, pronoun_repl, ui_scale_dimensions
@@ -194,7 +195,7 @@ class MurderScreen(Screens):
                     self.screen_switches()
 
             elif event.ui_element == self.back_button:
-                self.change_screen('profile screen')
+                self.change_screen(GameScreen.PROFILE)
                 self.stage = 'choose murder cat'
 
                 # reset cats
@@ -1680,7 +1681,7 @@ class MurderScreen(Screens):
 
         ceremony_txt = choice(ceremony_txt)
 
-        other_clan = choice(game.clan.all_clans)
+        other_clan = choice(game.clan.all_other_clans)
         ceremony_txt = ceremony_txt.replace('c_n', game.clan.name)
         ceremony_txt = ceremony_txt.replace("o_c_n", str(other_clan.name) + "Clan")
     

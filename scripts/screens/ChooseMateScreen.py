@@ -897,9 +897,9 @@ class ChooseMateScreen(Screens):
         )
 
         info = self.the_cat.get_info_block()
-        if self.the_cat.mate:
+        if self.the_cat.mates:
             info += f"\n{len(self.the_cat.mate)} " + i18n.t(
-                "general.mate", count=len(self.the_cat.mate)
+                "general.mate", count=len(self.the_cat.mates)
             )
         self.current_cat_elements["info"] = pygame_gui.elements.UITextBox(
             info,

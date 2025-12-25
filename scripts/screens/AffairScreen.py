@@ -15,6 +15,8 @@ from scripts.game_structure.ui_elements import (
     UISurfaceImageButton,
     UIImageButton
 )
+from scripts.screens.enums import GameScreen
+
 from ..cat.enums import CatAge, CatRank, CatGroup
 
 from scripts.game_structure import constants
@@ -75,7 +77,7 @@ class AffairScreen(Screens):
                     # resetting selected cat so theyre not still in the box when reentering the affair screen next moon
                     self.selected_cat = None
             elif event.ui_element == self.back_button:
-                self.change_screen('profile screen')
+                self.change_screen(GameScreen.PROFILE)
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
                     switch_set_value(Switch.cat, self.next_cat)

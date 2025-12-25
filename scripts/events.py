@@ -123,22 +123,23 @@ class Events:
             self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mates), 0, None]
             if game.clan.leader:
                 self.checks[3] = game.clan.leader.ID
-        game.cur_events_list = [] + game.next_events_list
-        game.next_events_list = []
+        game.cur_events_list = []
         game.herb_events_list = []
         game.freshkill_events_list = []
         game.mediated = []
+        
         game.told_story = []
+        
         switch_set_value(Switch.saved_clan, False)
         self.new_cat_invited = False
         Relation_Events.clear_trigger_dict()
         Patrol.used_patrols.clear()
         game.patrolled.clear()
         game.just_died.clear()
+        
         game.dated_cats.clear()
         # 1 = reg patrol 2 = lifegen patrol 3 = df patrol 4 = date
         switch_set_value(Switch.patrolled, [])
-
         switch_set_value(Switch.window_open, False)
         
         if game.clan.your_cat.status.rank == CatRank.MEDICINE_APPRENTICE or game.clan.your_cat.status.rank == CatRank.MEDICINE_CAT:
@@ -191,11 +192,8 @@ class Events:
         self.trigger_future_events()
 
         # Calling of "one_moon" functions.
-        resource_dir = "resources/dicts/events/disasters/"
-        disaster_text = {}
-        with open(f"{resource_dir}forest.json",
-                  encoding="ascii") as read_file:
-            disaster_text = ujson.loads(read_file.read())
+        disaster_text = load_lang_resource(f"events/disasters/{game.clan.biome.lower()}.json")
+        
         if not game.clan.disaster and random.randint(1,50) == 1:
             for clan_cat in game.clan.clan_cats:
                 clan_cat_cat = Cat.fetch_cat(clan_cat)
@@ -441,7 +439,7 @@ class Events:
             if game.clan.your_cat.moons == 0:
                 self.generate_birth_event()
             elif game.clan.your_cat.moons < 6:
-                self.generate_events() 
+                self.generate_kit_events() 
             elif game.clan.your_cat.moons == 6:
                 self.generate_app_ceremony()
             elif game.clan.your_cat.status.is_any_apprentice_rank():
@@ -566,7 +564,7 @@ class Events:
                 game.clan.focus = "starving"
             elif random.randint(1,30) == 1:
                 possible_focuses = ["valentines", "hailstorm"]
-                if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside and game.clan.leader.ID != game.clan.your_cat.ID:
+                if game.clan.leader and game.clan.leader.status.alive_in_player_clan and game.clan.leader.ID != game.clan.your_cat.ID:
                     possible_focuses.append("leader")
                 focus_chosen = random.choice(possible_focuses)
                 if dialogue_focuses[focus_chosen]["season"] == "Any" or dialogue_focuses[focus_chosen]["season"] == game.clan.current_season:
@@ -636,6 +634,9 @@ class Events:
         game.cur_events_list.insert(0, Single_Event(string, "alert", game.clan.your_cat.ID))
     
     def check_achievements(self):
+        # CHECKMERGE
+        # this is just insane. ACTUALLY switch achievements to be a static list in the json
+        # bc wtf is going on here
         you = game.clan.your_cat
         achievements = set()
         murder_history = you.history.murder
@@ -657,54 +658,54 @@ class Events:
             
 
         for cat in Cat.all_cats_list:
-            if Cat.all_cats.get(cat).pelt.tortie_base and Cat.all_cats.get(cat).gender == 'male':
+            if cat.pelt.tortie_base and cat.gender == 'male':
                 achievements.add("5")
-            if Cat.all_cats.get(cat).insulted == True:
+            if cat.insulted:
                 achievements.add("29")
-            if (Cat.all_cats.get(cat).name.prefix == "Coffee" and Cat.all_cats.get(cat).name.suffix == "dot") or (Cat.all_cats.get(cat).name.prefix == "Chibi" and Cat.all_cats.get(cat).name.suffix == "Galaxies"):
+            if (cat.name.prefix == "Coffee" and cat.name.suffix == "dot") or (cat.name.prefix == "Chibi" and cat.name.suffix == "Galaxies"):
                 achievements.add("30")
-            if Cat.all_cats.get(cat).status.rank == CatRank.APPRENTICE and Cat.all_cats.get(cat).name.prefix == "Pea" and Cat.all_cats.get(cat).pelt.white_colours:
+            if cat.status.rank == CatRank.APPRENTICE and cat.name.prefix == "Pea" and cat.pelt.white_colours:
                 achievements.add("33")
-            if Cat.all_cats.get(cat).status.rank == CatRank.KITTEN and Cat.all_cats.get(cat).moons > 5:
+            if cat.status.rank == CatRank.KITTEN and cat.moons > 5:
                 achievements.add("34")
-            if Cat.all_cats.get(cat).backstory == 'dfkit' or Cat.all_cats.get(cat).backstory == 'dfkit2':
+            if cat.backstory == 'dfkit' or cat.backstory == 'dfkit2':
                 achievements.add("35")
             ##WILDCARD check, because I've lost control of my life
             ##Declare Lists of wildcard combos for comparison. (Will be made more professional later.)
             not_wildcard_patterns = ['tabby', 'ticked', 'mackerel', 'classic', 'agouti', 'smoke', 'single']
             ##Actual check for wildcardness
-            if Cat.all_cats.get(cat).pelt.name == "Tortie" or Cat.all_cats.get(cat).pelt.name == "Calico":
-                ID_check = Cat.all_cats.get(cat).ID 
+            if cat.pelt.name == "Tortie" or cat.pelt.name == "Calico":
+                ID_check = cat.ID 
                 ##Check if wildcard colour combo
-                if (Cat.all_cats.get(cat).pelt.colour == "WHITE" and not Cat.all_cats.get(cat).pelt.tortie_colour == "WHITE"):
+                if (cat.pelt.colour == "WHITE" and not cat.pelt.tortie_colour == "WHITE"):
                     achievements.add("6")
-                elif ((Cat.all_cats.get(cat).pelt.colour in Pelt.black_colours or Cat.all_cats.get(cat).pelt.colour in Pelt.white_colours) and Cat.all_cats.get(cat).pelt.tortie_colour in Pelt.black_colours or Cat.all_cats.get(cat).pelt.tortie_colour in Pelt.white_colours):
+                elif ((cat.pelt.colour in Pelt.black_colours or cat.pelt.colour in Pelt.white_colours) and cat.pelt.tortie_colour in Pelt.black_colours or cat.pelt.tortie_colour in Pelt.white_colours):
                     achievements.add("6")
-                elif ((Cat.all_cats.get(cat).pelt.colour in Pelt.ginger_colours) and Cat.all_cats.get(cat).pelt.tortie_colour in Pelt.ginger_colours or Cat.all_cats.get(cat).pelt.tortie_colour in Pelt.white_colours):
+                elif ((cat.pelt.colour in Pelt.ginger_colours) and cat.pelt.tortie_colour in Pelt.ginger_colours or cat.pelt.tortie_colour in Pelt.white_colours):
                     achievements.add("6")
-                elif ((Cat.all_cats.get(cat).pelt.colour in Pelt.brown_colours) and Cat.all_cats.get(cat).pelt.tortie_colour in Pelt.white_colours):
+                elif ((cat.pelt.colour in Pelt.brown_colours) and cat.pelt.tortie_colour in Pelt.white_colours):
                     achievements.add("6")
                 ##Check if wildcard pattern combo       
                 ##rewritten wildcard pattern combo
-                if Cat.all_cats.get(cat).pelt.tortie_base in Pelt.tabbies and not Cat.all_cats.get(cat).pelt.tortie_pattern == "single" and Cat.all_cats.get(cat).pelt.tortie_base != Cat.all_cats.get(cat).pelt.tortie_pattern:
+                if cat.pelt.tortie_base in Pelt.tabbies and not cat.pelt.tortie_pattern == "single" and cat.pelt.tortie_base != cat.pelt.tortie_pattern:
                     achievements.add("6")
-                if Cat.all_cats.get(cat).pelt.tortie_base in Pelt.spotted and not Cat.all_cats.get(cat).pelt.tortie_pattern == "single" and Cat.all_cats.get(cat).pelt.tortie_base != Cat.all_cats.get(cat).pelt.tortie_pattern:
+                if cat.pelt.tortie_base in Pelt.spotted and not cat.pelt.tortie_pattern == "single" and cat.pelt.tortie_base != cat.pelt.tortie_pattern:
                     achievements.add("6")
-                if Cat.all_cats.get(cat).pelt.tortie_base in Pelt.exotic and not Cat.all_cats.get(cat).pelt.tortie_pattern == "single" and Cat.all_cats.get(cat).pelt.tortie_base != Cat.all_cats.get(cat).pelt.tortie_pattern:
+                if cat.pelt.tortie_base in Pelt.exotic and not cat.pelt.tortie_pattern == "single" and cat.pelt.tortie_base != cat.pelt.tortie_pattern:
                     achievements.add("6")
-                if Cat.all_cats.get(cat).pelt.tortie_base in Pelt.plain and not Cat.all_cats.get(cat).pelt.tortie_pattern in not_wildcard_patterns and Cat.all_cats.get(cat).pelt.tortie_base != Cat.all_cats.get(cat).pelt.tortie_pattern:
+                if cat.pelt.tortie_base in Pelt.plain and not cat.pelt.tortie_pattern in not_wildcard_patterns and cat.pelt.tortie_base != cat.pelt.tortie_pattern:
                     achievements.add("6")
             ##code block for achievement 31
             achieve31RankList = [CatRank.MEDIATOR, CatRank.WARRIOR, CatRank.LEADER]
             achieve31UsedRanks = []
-            if len(Cat.all_cats.get(cat).mates) >= 2:
-                catMateIDs = Cat.all_cats.get(cat).mates.copy()
-                if Cat.all_cats.get(cat).status.rank in achieve31RankList:
-                    achieve31UsedRanks.append(Cat.all_cats.get(cat).status.rank)
+            if len(cat.mates) >= 2:
+                catMateIDs = cat.mates.copy()
+                if cat.status.rank in achieve31RankList:
+                    achieve31UsedRanks.append(cat.status.rank)
                     for cat in Cat.all_cats_list:
-                        if Cat.all_cats.get(cat).ID in catMateIDs:
-                            if (Cat.all_cats.get(cat).status.rank in achieve31RankList) and (Cat.all_cats.get(cat).status.rank not in achieve31UsedRanks):
-                                achieve31UsedRanks.append(Cat.all_cats.get(cat).status.rank)
+                        if cat.ID in catMateIDs:
+                            if (cat.status.rank in achieve31RankList) and (cat.status.rank not in achieve31UsedRanks):
+                                achieve31UsedRanks.append(cat.status.rank)
                         countranks = 0
                         for i in achieve31UsedRanks:
                             if i in achieve31RankList:
@@ -715,17 +716,17 @@ class Events:
             mcMateIDs = you.mates 
             #for loop list is in case you have multiple mates to search through. 
             for i in mcMateIDs:
-                if Cat.all_cats.get(cat).ID in mcMateIDs and you.dead is False:
+                if cat.ID in mcMateIDs and you.dead is False:
                     #Thank you Jay, for helping me figure out history stuff! 
-                    if Cat.all_cats.get(cat).history:
-                        if Cat.all_cats.get(cat).history.beginning:
-                            if "encountered" in Cat.all_cats.get(cat).history.beginning and Cat.all_cats.get(cat).history.beginning["encountered"] is True and Cat.all_cats.get(cat).df is True:
+                    if cat.history:
+                        if cat.history.beginning:
+                            if "encountered" in cat.history.beginning and cat.history.beginning["encountered"] is True and cat.df is True:
                                 achievements.add("36")
             #code for achievement 23 + 24
             if game.clan.age >= 1:
-                if not Cat.all_cats.get(cat).dead and not Cat.all_cats.get(cat).outside:
+                if not cat.dead and not cat.status.is_outsider:
                     count_alive_cats += 1
-                if count_alive_cats == 1 and Cat.all_cats.get(cat).ID == you.ID:
+                if count_alive_cats == 1 and cat.ID == you.ID:
                     achievements.add('23')
                 elif count_alive_cats >= 100:
                     achievements.add('24')
@@ -745,9 +746,9 @@ class Events:
         if you.inheritance.get_children():
             achievements.add("10")
         for i in you.relationships.keys():
-            if you.relationships.get(i).dislike >= 60:
+            if you.relationships.get(i).like <= -60:
                 achievements.add("11")
-            if you.relationships.get(i).romantic_love >= 60:
+            if you.relationships.get(i).romance >= 60:
                 achievements.add('12')
             
         if len(you.mates) >= 5:
@@ -769,9 +770,9 @@ class Events:
         
         if you.moons >= 200:
             achievements.add('20')
-        if you.exiled:
+        if you.status.is_exiled(CatGroup.PLAYER_CLAN_ID):
             achievements.add('21')
-        elif you.outside:
+        elif you.status.is_outsider:
             achievements.add('22')
             
         if you.experience >= 100:
@@ -808,20 +809,55 @@ class Events:
                 cat = Cat.all_cats[candidate_id]
                 is_age_compatible = (other_parent_age is None) or (cat.age == other_parent_age)
                 is_gender_compatible = True
-                is_relation_compatible = cat.is_potential_mate(Cat.all_cats.get(other_parent_id)) if other_parent_id else True
+                
+                is_relation_compatible = (
+                    cat.is_potential_mate(Cat.all_cats.get(other_parent_id))
+                    if other_parent_id
+                    else True
+                    )
                 if not get_clan_setting("same sex birth"):
                     is_gender_compatible = (other_parent_gender is None) or (cat.gender != other_parent_gender)
-                return (cat.ID != game.clan.your_cat.ID and cat.ID != other_parent_id and not cat.dead and not cat.status.is_outsider
-                        and cat.age in ["young adult", "adult", "senior adult"] and cat.moons > 17
-                        and "apprentice" not in cat.status.rank and is_age_compatible and is_gender_compatible and is_relation_compatible)
+                return (
+                    cat.ID != game.clan.your_cat.ID
+                    and cat.ID != other_parent_id
+                    and cat.status.alive_in_player_clan
+                    and cat.age.can_have_mate()
+                    and is_age_compatible and
+                    is_gender_compatible and
+                    is_relation_compatible
+                    )
 
             for _ in range(MAX_ATTEMPTS):
                 if other_parent and other_parent.mates:
                     candidate_id = random.choice(other_parent.mates)
-                    if is_valid_parent(candidate_id, other_parent.gender if other_parent else None, other_parent.ID if other_parent else None, other_parent.age if other_parent else None):
+                    if is_valid_parent(
+                        candidate_id,
+                        other_parent.gender
+                            if other_parent
+                            else None,
+                        other_parent.ID
+                            if other_parent
+                            else None,
+                        other_parent.age
+                            if other_parent
+                            else None
+                        ):
                         return Cat.all_cats.get(candidate_id)
+
                 candidate_id = random.choice(Cat.all_cats_list).ID
-                if is_valid_parent(candidate_id, other_parent.gender if other_parent else None, other_parent.ID if other_parent else None, other_parent.age if other_parent else None):
+
+                if is_valid_parent(
+                    candidate_id,
+                    other_parent.gender
+                        if other_parent
+                        else None,
+                    other_parent.ID
+                        if other_parent
+                        else None,
+                    other_parent.age
+                        if other_parent
+                        else None
+                    ):
                     return Cat.all_cats.get(candidate_id)
             
             return None
@@ -955,8 +991,6 @@ class Events:
                 birth_type = random.choice(list(BirthType))
                 return get_parents(birth_type)
 
-
-
         def handle_backstory(siblings):
             '''Handles creating backstories for your cat'''
             backstory = ""
@@ -1066,23 +1100,21 @@ class Events:
             adoptive_parents_cats.append(Cat.fetch_cat(c))
         for c in [parent1, parent2] + adoptive_parents_cats:
             for s in siblings + [game.clan.your_cat]:
-                if s and c and not c.dead and not c.outside:
+                if s and c and c.status.alive_in_player_clan:
                     y = random.randrange(0, 20)
                     start_relation = Relationship(c, s, False, True)
                     start_relation.like += 30 + y
-                    start_relation.comfortable = 10 + y
-                    start_relation.admiration = 15 + y
+                    start_relation.comfort = 10 + y
                     start_relation.trust = 10 + y
                     c.relationships[s.ID] = start_relation
                     y = random.randrange(0, 20)
                     start_relation = Relationship(s, c, False, True)
                     start_relation.like += 30 + y
-                    start_relation.comfortable = 10 + y
-                    start_relation.admiration = 15 + y
+                    start_relation.comfort = 10 + y
                     start_relation.trust = 10 + y
                     s.relationships[c.ID] = start_relation
         game.clan.your_cat.w_done = False
-        game.clan.your_cat.age = "newborn"
+        game.clan.your_cat.age = CatAge.NEWBORN
         switch_set_value(Switch.continue_after_death, False)
 
         self.cat_dict.clear()
@@ -1211,31 +1243,32 @@ class Events:
     def generate_kit_events(self):
         # Parent events for moons 1-5
         if game.clan.your_cat.parent1:
-            moons_list = range(2, 6)
             parents_txt = {1: "one_parent", 2: "two_parents"}
-            for moons in moons_list:
-                if game.clan.your_cat.moons == moons:
-                    for parents in parents_txt.keys():
-                        if (game.clan.your_cat.parent1 and not game.clan.your_cat.parent2 and not Cat.all_cats[game.clan.your_cat.parent1].dead and not Cat.all_cats[game.clan.your_cat.parent1].outside) or \
-                        (parents == 2 and game.clan.your_cat.parent1 and game.clan.your_cat.parent2 and not Cat.all_cats[game.clan.your_cat.parent1].dead and not Cat.all_cats[game.clan.your_cat.parent1].outside and not Cat.all_cats[game.clan.your_cat.parent2].dead and not Cat.all_cats[game.clan.your_cat.parent2].outside):
-                            kit_event1 = random.choice(self.c_txt[f"moon_{moons}_{parents_txt[parents]}"])
-                            if game.clan.your_cat.parent1:
-                                kit_event1 = re.sub(r'(?<!\/)parent1(?!\/)', str(Cat.all_cats[game.clan.your_cat.parent1].name), kit_event1)
-                                self.cat_dict["parent1"] = Cat.all_cats[game.clan.your_cat.parent1]
-                            if game.clan.your_cat.parent2:
-                                kit_event1 = re.sub(r'(?<!\/)parent2(?!\/)', str(Cat.all_cats[game.clan.your_cat.parent2].name), kit_event1)
-                                self.cat_dict["parent2"] = Cat.all_cats[game.clan.your_cat.parent2]
 
-                            kit_event = kit_event1
-                            
-                            if kit_event not in game.cur_events_list:
-                                process_text_dict = self.cat_dict.copy()
-                                for abbrev in process_text_dict.keys():
-                                    abbrev_cat = process_text_dict[abbrev]
-                                    process_text_dict[abbrev] = (abbrev_cat, random.choice(abbrev_cat.pronouns))
-                                kit_event = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), kit_event)
-                                game.cur_events_list.insert(0, Single_Event(kit_event, "alert", game.clan.your_cat.ID))
-                            break
+            alive_parents = 0
+            if (
+                game.clan.your_cat.parent1 and
+                Cat.fetch_cat(game.clan.your_cat.parent1).status.alive_in_player_clan
+                ):
+                alive_parents += 1
+            if (
+                game.clan.your_cat.parent2 and
+                Cat.fetch_cat(game.clan.your_cat.parent2).status.alive_in_player_clan
+                ):
+                alive_parents += 1
+
+            moon = str(game.clan.your_cat.moons)
+
+            kit_event1 = random.choice(self.c_txt[f"moon_{moons}_{parents_txt[alive_parents]}"])
+    
+            if game.clan.your_cat.parent1:
+                kit_event1 = re.sub(r'(?<!\/)parent1(?!\/)', str(Cat.all_cats[game.clan.your_cat.parent1].name), kit_event1)
+                self.cat_dict["parent1"] = Cat.all_cats[game.clan.your_cat.parent1]
+            if game.clan.your_cat.parent2:
+                kit_event1 = re.sub(r'(?<!\/)parent2(?!\/)', str(Cat.all_cats[game.clan.your_cat.parent2].name), kit_event1)
+                self.cat_dict["parent2"] = Cat.all_cats[game.clan.your_cat.parent2]
+
+            game.cur_events_list.insert(0, Single_Event(kit_event, "alert", game.clan.your_cat.ID))
 
     def generate_app_ceremony(self):
         try:
@@ -2278,7 +2311,7 @@ class Events:
 
                 # Unset their mate, if they have one
                 if len(cat.mate) > 0:
-                    for mate_id in cat.mate:
+                    for mate_id in cat.mates:
                         if Cat.all_cats.get(mate_id):
                             cat.unset_mate(Cat.all_cats.get(mate_id))
 

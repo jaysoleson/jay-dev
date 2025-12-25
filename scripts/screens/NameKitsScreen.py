@@ -8,6 +8,7 @@ from scripts.cat.history import History
 from scripts.event_class import Single_Event
 from scripts.events import events_class
 from .Screens import Screens
+from scripts.screens.enums import GameScreen
 
 from scripts.utility import get_personality_compatibility, get_text_box_theme, shorten_text_to_fit
 from scripts.cat.cats import Cat
@@ -83,7 +84,7 @@ class NameKitsScreen(Screens):
                 for cat in Cat.all_cats_list:
                     if not cat.dead and not cat.status.is_outsider and cat.age == 'newborn' and cat.ID in game.clan.your_cat.inheritance.get_children() and cat.name.prefix.strip() == "":
                         cat.name.give_prefix(cat.pelt.eye_colour, cat.pelt.colour, game.clan.biome)
-                self.change_screen('events screen')
+                self.change_screen(GameScreen.EVENTS)
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
                     switch_set_value(Switch.cat, self.next_cat)

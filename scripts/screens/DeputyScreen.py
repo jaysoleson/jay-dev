@@ -14,6 +14,8 @@ from scripts.utility import (
     ui_scale,
     ui_scale_dimensions
 )
+from scripts.screens.enums import GameScreen
+
 from ..game_structure.screen_settings import MANAGER
 from ..ui.generate_box import get_box, BoxStyles
 from ..ui.generate_button import get_button_dict, ButtonStyles
@@ -65,7 +67,7 @@ class DeputyScreen(Screens):
                     self.change_cat(self.selected_cat)
                     # self.update_buttons()
             elif event.ui_element == self.back_button:
-                self.change_screen('events screen')
+                self.change_screen(GameScreen.EVENTS)
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
                     switch_set_value(Switch.cat, self.next_cat)

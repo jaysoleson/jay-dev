@@ -165,7 +165,7 @@ class RomanticEvents:
             RomanticEvents.current_loaded_lang = i18n.config.get("locale")
 
         relevant_dict = deepcopy(RomanticEvents.ROMANTIC_INTERACTIONS)
-        if cat_to.ID in cat_from.mate and not cat_to.dead:
+        if cat_to.ID in cat_from.mates and not cat_to.dead:
             relevant_dict = deepcopy(RomanticEvents.MATE_INTERACTIONS)
 
         # check if it should be a positive or negative interaction
@@ -433,7 +433,7 @@ class RomanticEvents:
 
         RomanticEvents.rebuild_dicts()
 
-        if cat_from.ID not in cat_to.mate:
+        if cat_from.ID not in cat_to.mates:
             return False
 
         if cat_from.no_mates or cat_to.no_mates:
@@ -557,7 +557,7 @@ class RomanticEvents:
             return False
 
         alive_inclan_from_mates = [
-            mate for mate in cat_from.mate if cat_from.status.alive_in_player_clan
+            mate for mate in cat_from.mates if cat_from.status.alive_in_player_clan
         ]
         alive_inclan_to_mates = [
             mate
@@ -629,7 +629,7 @@ class RomanticEvents:
                         switch_append_list_value(Switch.windows_dict, 'mate')
             else:
                 cat_from.set_mate(cat_to)
-                mate_string = Romantic_Events.prepare_relationship_string(mate_string, cat_from, cat_to)
+                mate_string = RomanticEvents.prepare_relationship_string(mate_string, cat_from, cat_to)
                 game.cur_events_list.append(Single_Event(mate_string, ["relation", "misc"], [cat_from.ID, cat_to.ID]))
 
         return True
@@ -702,12 +702,12 @@ class RomanticEvents:
 
         alive_inclan_from_mates = [
             mate
-            for mate in cat_from.mate
+            for mate in cat_from.mates
             if cat_from.fetch_cat(mate).status.alive_in_player_clan
         ]
         alive_inclan_to_mates = [
             mate
-            for mate in cat_to.mate
+            for mate in cat_to.mates
             if cat_to.fetch_cat(mate).status.alive_in_player_clan
         ]
         poly = len(alive_inclan_from_mates) > 0 or len(alive_inclan_to_mates) > 0

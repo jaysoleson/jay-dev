@@ -303,9 +303,9 @@ def event_for_cat(
             # just some preliminary checks to see if any of these are impossible for this cat
             if status == "siblings" and not cat.get_siblings():
                 return False
-            elif status == "mates" and not cat.mate:
+            elif status == "mates" and not cat.mates:
                 return False
-            elif status == "mates_with_pl" and p_l.ID not in cat.mate:
+            elif status == "mates_with_pl" and p_l.ID not in cat.mates:
                 return False
             elif status == "parent/child" and not cat.get_children():
                 return False

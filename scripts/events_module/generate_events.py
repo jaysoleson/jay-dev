@@ -121,16 +121,6 @@ class GenerateEvents:
                     break
                 return event
 
-    # CHECKMERGE
-    # faith events used to be here :'( figure out where they go now
-    # # LG
-    # faith_event = False
-    # if event_triggered != "faith":
-    #     file_path = f"{event_triggered}/{biome}.json"
-    # else:
-    #     faith_event = True
-    #     file_path = "resources/dicts/relationship_events/faith.json"
-    # # ---
     @staticmethod
     def possible_ongoing_events(event_type=None, specific_event=None):
         event_list = []

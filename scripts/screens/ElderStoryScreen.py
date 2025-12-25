@@ -14,6 +14,8 @@ from scripts.game_structure.ui_elements import (
     UISurfaceImageButton,
     UITextBoxTweaked
 )
+from scripts.screens.enums import GameScreen
+
 from ..game_structure.game.settings import game_setting_get
 
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch

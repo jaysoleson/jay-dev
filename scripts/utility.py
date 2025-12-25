@@ -1533,9 +1533,8 @@ def gather_cat_objects(
         elif abbr == "app6" and len(event.patrol_apprentices) >= 6:
             out_set.add(event.patrol_apprentices[5])
         elif abbr == "clan":
-            out_set.update([x for x in Cat.all_cats_list if not (x.dead or x.outside or x.exiled)])
+            out_set.update(clan_cats)
         elif abbr == "some_clan":  # 1 / 8 of clan cats are affected
-            clan_cats = [x for x in Cat.all_cats_list if not (x.dead or x.outside or x.exiled)]
             # LG
             if len(clan_cats) < 2:
                 out_set.add(clan_cats[0])
@@ -4239,7 +4238,7 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
             if "o_c_n" in other_dict:
                 text = re.sub(r'(?<!\/)o_c_n(?!\/)', str(other_dict["o_c_n"].name) + "Clan", text)
             else:
-                other_clan = choice(game.clan.all_clans)
+                other_clan = choice(game.clan.all_other_clans)
                 if not other_clan:
                     return ""
                 other_dict["o_c_n"] = other_clan

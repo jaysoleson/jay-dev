@@ -13,6 +13,7 @@ from scripts.game_structure.ui_elements import (
     UIImageButton,
     UISurfaceImageButton,
 )
+from scripts.screens.enums import GameScreen
 
 from scripts.game_structure import constants
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
@@ -369,7 +370,7 @@ class TalkScreen(Screens):
             pass
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
-                self.change_screen('profile screen')
+                self.change_screen(GameScreen.PROFILE)
             else:
                 for key, button in self.choice_buttons.items():
                     if event.ui_element == button and self.chosen_text_key:
@@ -377,7 +378,7 @@ class TalkScreen(Screens):
                         self.handle_choice(self.the_cat)
         elif event.type == pygame.KEYDOWN and game_setting_get("keybinds"):
             if event.key == pygame.K_ESCAPE:
-                self.change_screen('profile screen')
+                self.change_screen(GameScreen.PROFILE)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if self.text_frames:
                 if self.frame_index == len(self.text_frames[self.text_index]) - 1:

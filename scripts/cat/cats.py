@@ -412,7 +412,7 @@ class Cat:
         self.parent1 = None
         self.parent2 = None
         self.adoptive_parents = []
-        self.mate = []
+        self.mates = []
         self.status = Status(**status) if status else Status()
         self._pronouns = {}  # Needs to be set as a dict
         self.moons = moons
@@ -3539,7 +3539,7 @@ class Cat:
         for string in output:
             if "o_c_n" in string:
                 if not other_clan:
-                    other_clan = choice(game.clan.all_clans)
+                    other_clan = choice(game.clan.all_other_clans)
             new_string = event_text_adjust(
                 Cat,
                 text=string,

@@ -244,8 +244,8 @@ class Relationship:
 
         # LG: added o_c_n and c_n
         event_text = process_text(string, cat_dict)
-        if game.clan.all_clans:
-            event_text = event_text.replace("o_c_n", random.choice(game.clan.all_clans).name + "Clan")
+        if game.clan.all_other_clans:
+            event_text = event_text.replace("o_c_n", random.choice(game.clan.all_other_clans).name + "Clan")
         event_text = event_text.replace("c_n", game.clan.name + "Clan")
 
         return event_text

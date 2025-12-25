@@ -11,7 +11,7 @@ from ..game_structure.game.switches import switch_set_value, switch_get_value, S
 
 from scripts.cat.enums import CatAge, CatRank
 from ..game_structure.game.settings import game_setting_set, game_setting_get
-
+from scripts.screens.enums import GameScreen
 
 import pygame_gui
 from scripts.game_structure import game
@@ -246,10 +246,10 @@ class MoonplaceScreen(Screens):
             pass
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
-                self.change_screen('profile screen')
+                self.change_screen(GameScreen.PROFILE)
         elif event.type == pygame.KEYDOWN and game_setting_get('keybinds'):
             if event.key == pygame.K_ESCAPE:
-                self.change_screen('profile screen')
+                self.change_screen(GameScreen.PROFILE)
         elif event.type == pygame.MOUSEBUTTONDOWN:
             try:
                 if self.frame_index == len(self.text_frames[self.text_index]) - 1:
@@ -727,7 +727,7 @@ class MoonplaceScreen(Screens):
                     return ""
                 text = text.replace("m_n", str(Cat.fetch_cat(game.clan.your_cat.mentor).name))
             if "o_c_n" in text:
-                other_clan = choice(game.clan.all_clans)
+                other_clan = choice(game.clan.all_other_clans)
                 if not other_clan:
                     return ""
                 text = text.replace("o_c_n", str(other_clan.name) + "Clan")
@@ -886,15 +886,15 @@ class MoonplaceScreen(Screens):
 
         if "other_med" not in game.switches:
             game.switches["other_med"] = []
-            game.switches["other_med_clan"] = list(game.clan.all_clans)
+            game.switches["other_med_clan"] = list(game.clan.all_other_clans)
             game.switches["last_visited_moonplace"] = game.clan.age
 
-            for clan_name in game.clan.all_clans:
+            for clan_name in game.clan.all_other_clans:
                 game.switches["other_med"].append(generate_meds_for_clan())
 
         else:
             if "other_med_clan" not in game.switches:
-                game.switches["other_med_clan"] = list(game.clan.all_clans)
+                game.switches["other_med_clan"] = list(game.clan.all_other_clans)
 
             # Promote apprentices occasionally
             for clan_meds in game.switches["other_med"]:
