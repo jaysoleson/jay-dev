@@ -915,10 +915,8 @@ class Pregnancy_Events:
 
             #### REMOVE ACCESSORY ######
             # kit.pelt.accessory = None
-            kit.pelt.accessories = []
-            kit.pelt.inventory = []
-            
             kit.pelt.accessory = []
+            kit.pelt.inventory = []
             clan.add_cat(kit)
 
             #### GIVE HISTORY ######

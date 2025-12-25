@@ -126,7 +126,7 @@ class Relation_Events:
         if use_mate or cat.no_mates:
             cat_to_choose_from = [
                 cat.all_cats[mate_id]
-                for mate_id in cat.mate
+                for mate_id in cat.mates
                 if cat.all_cats[mate_id].status.alive_in_player_clan
             ]
 

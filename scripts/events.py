@@ -21,6 +21,7 @@ from scripts.cat import save_load
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.pelts import Pelt
 from scripts.cat.history import History
+from scripts.cat.sprites import sprites
 
 from scripts.clan_resources.freshkill import FreshkillPile
 from scripts.cat_relations.relationship import Relationship
@@ -442,7 +443,7 @@ class Events:
                 self.generate_kit_events() 
             elif game.clan.your_cat.moons == 6:
                 self.generate_app_ceremony()
-            elif game.clan.your_cat.status.is_any_apprentice_rank():
+            elif game.clan.your_cat.rank.status.is_any_apprentice_rank():
                 self.generate_events()
             elif game.clan.your_cat.status.rank in [CatRank.WARRIOR, CatRank.MEDICINE_CAT, CatRank.MEDIATOR, CatRank.QUEEN] and not game.clan.your_cat.w_done and game.clan.your_cat.shunned == 0:
                 self.generate_ceremony()
@@ -630,8 +631,31 @@ class Events:
             acc = random.choice(acc_list)
         game.clan.your_cat.pelt.inventory.append(acc)
         string = f"You found a new accessory, acc_singular! You choose to store it in a safe place for now."
-        string = string.replace("acc_singular", str(i18n.t(f"cat.accessories.{acc}", count=0)))
+        string = string.replace("acc_singular", str(i18n.t(self.get_acc_name(acc), count=0)))
         game.cur_events_list.insert(0, Single_Event(string, "alert", game.clan.your_cat.ID))
+    
+    def get_acc_name(self, acc):
+        """ grabs accessory names for display in the customiser """
+        acc_name = str(i18n.t(f"cat.accessories.{acc}", count=0)).capitalize()
+        collar_found = False
+        if acc in Pelt.collar_accessories:
+            for style_type in sprites.COLLAR_DATA["style_data"]:
+                for style, color_list in style_type.items():
+                    for colour in color_list:
+                        if f"{style}_{colour}" == acc:
+                            collar_found = True
+                            acc_name = str(i18n.t(f"cat.accessories.{style}", count=0)).capitalize()
+                            break
+                        if collar_found:
+                            break
+                    if collar_found:
+                        break
+                if collar_found:
+                    break
+
+                # wtaf
+
+        return acc_name
     
     def check_achievements(self):
         # CHECKMERGE
@@ -1257,9 +1281,17 @@ class Events:
                 ):
                 alive_parents += 1
 
-            moon = str(game.clan.your_cat.moons)
 
-            kit_event1 = random.choice(self.c_txt[f"moon_{moons}_{parents_txt[alive_parents]}"])
+            if not alive_parents:
+                return
+
+            moons = str(game.clan.your_cat.moons)
+
+            full_string = f"moon_{moons}_{parents_txt[alive_parents]}"
+            if full_string not in self.c_txt:
+                return
+
+            kit_event1 = random.choice(self.c_txt[full_string])
     
             if game.clan.your_cat.parent1:
                 kit_event1 = re.sub(r'(?<!\/)parent1(?!\/)', str(Cat.all_cats[game.clan.your_cat.parent1].name), kit_event1)
@@ -1268,7 +1300,7 @@ class Events:
                 kit_event1 = re.sub(r'(?<!\/)parent2(?!\/)', str(Cat.all_cats[game.clan.your_cat.parent2].name), kit_event1)
                 self.cat_dict["parent2"] = Cat.all_cats[game.clan.your_cat.parent2]
 
-            game.cur_events_list.insert(0, Single_Event(kit_event, "alert", game.clan.your_cat.ID))
+            game.cur_events_list.insert(0, Single_Event(kit_event1, "alert", game.clan.your_cat.ID))
 
     def generate_app_ceremony(self):
         try:
@@ -1276,25 +1308,35 @@ class Events:
             if game.clan.your_cat.shunned != 0:
                 ceremony_txt = ceremony_txt = random.choice(self.b_txt['apprentice ceremony shunned'])
             else:
+                no_leader = False
+                no_deputy = False
+                no_medcat = False
+                if (not game.clan.leader) or (not game.clan.leader.status.alive_in_player_clan):
+                    no_leader = True
+                if (not game.clan.deputy) or (not game.clan.deputy.status.alive_in_player_clan):
+                    no_deputy = True
+                if len(find_alive_cats_with_rank(Cat, [CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE])) == 0:
+                    no_medcat = True
+
                 add_on_lead = ""
                 if len(game.clan.clan_cats) == 1:
                     add_on_lead = " no one"
-                elif (not game.clan.leader or game.clan.leader.dead or game.clan.leader.outside) and (not game.clan.deputy or game.clan.deputy.dead or game.clan.deputy.outside) and len(find_alive_cats_with_rank(Cat, CatRank.MEDICINE_APPRENTICE, CatRank.MEDICINE_CAT)) == 0:
+                elif no_leader and no_deputy and no_medcat:
                     add_on_lead = " no leader no deputy no med"
-                elif (not game.clan.leader or game.clan.leader.dead or game.clan.leader.outside) and (not game.clan.deputy or game.clan.deputy.dead or game.clan.deputy.outside) and len(find_alive_cats_with_rank(Cat, CatRank.MEDICINE_APPRENTICE, CatRank.MEDICINE_CAT)) > 0:
+                elif no_leader and no_deputy:
                     add_on_lead = " no leader no deputy"
-                elif (not game.clan.leader or game.clan.leader.dead or game.clan.leader.outside):
+                elif no_leader:
                     add_on_lead = " no leader"
 
                 add_on_mentor = " no mentor" if not game.clan.your_cat.mentor else ""
-                ceremony_txt = random.choice(self.b_txt[f"{game.clan.your_cat.status} ceremony{add_on_lead}{add_on_mentor}"])
+                ceremony_txt = random.choice(self.b_txt[f"{game.clan.your_cat.status.rank} ceremony{add_on_lead}{add_on_mentor}"])
 
             ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name) + "Clan")
             ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
-            if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside:
+            if (game.clan.leader) and (game.clan.leader.status.alive_in_player_clan):
                 ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), ceremony_txt)
                 self.cat_dict["l_n"] = game.clan.leader
-            if game.clan.deputy and not game.clan.deputy.dead and not game.clan.deputy.outside:
+            if (game.clan.deputy) and (game.clan.deputy.status.alive_in_player_clan):
                 ceremony_txt = re.sub(r'(?<!\/)d_n(?!\/)', str(game.clan.deputy.name), ceremony_txt)
                 self.cat_dict["d_n"] = game.clan.deputy
             if len(find_alive_cats_with_rank(Cat, CatRank.MEDICINE_APPRENTICE, CatRank.MEDICINE_CAT)) > 0:
@@ -3259,16 +3301,12 @@ class Events:
 
         # remove duplicates
         involved_cats = list(set(involved_cats))
+
         if cat.ID != game.clan.your_cat.ID and game.clan.your_cat.ID != cat.mentor:
             game.cur_events_list.append(
-                Single_Event(f'{ceremony_text}', "ceremony", involved_cats))
-        cat.faith += round(random.uniform(0,2), 2)
-        game.ceremony_events_list.append(f'{cat.name}{ceremony_text}')
-
-        game.cur_events_list.append(
-            Single_Event(ceremony_text, "ceremony", involved_cats)
-        )
-        # game.ceremony_events_list.append(f'{cat.name}{ceremony_text}')
+                Single_Event(ceremony_text, "ceremony", involved_cats)
+            )
+            # game.ceremony_events_list.append(f'{cat.name}{ceremony_text}')
 
     def gain_accessories(self, cat):
         """

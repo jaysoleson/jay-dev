@@ -561,7 +561,7 @@ class RomanticEvents:
         ]
         alive_inclan_to_mates = [
             mate
-            for mate in cat_to.mate
+            for mate in cat_to.mates
             if cat_to.fetch_cat(mate).status.alive_in_player_clan
         ]
         poly = len(alive_inclan_from_mates) > 0 or len(alive_inclan_to_mates) > 0
@@ -797,7 +797,7 @@ class RomanticEvents:
         all_mates_fulfill_current_to_new = True
         alive_inclan_from_mates = [
             mate
-            for mate in cat_from.mate
+            for mate in cat_from.mates
             if cat_from.fetch_cat(mate).status.alive_in_player_clan
         ]
         if len(alive_inclan_from_mates) > 0:
@@ -837,7 +837,7 @@ class RomanticEvents:
         all_mates_fulfill_current_to_new = True
         alive_inclan_to_mates = [
             mate
-            for mate in cat_to.mate
+            for mate in cat_to.mates
             if cat_to.fetch_cat(mate).status.alive_in_player_clan
         ]
         if len(alive_inclan_to_mates) > 0:
@@ -937,12 +937,12 @@ class RomanticEvents:
             poly_key = ""
             alive_inclan_from_mates = [
                 mate
-                for mate in cat_from.mate
+                for mate in cat_from.mates
                 if cat_from.fetch_cat(mate).status.alive_in_player_clan
             ]
             alive_inclan_to_mates = [
                 mate
-                for mate in cat_to.mate
+                for mate in cat_to.mates
                 if cat_to.fetch_cat(mate).status.alive_in_player_clan
             ]
             if len(alive_inclan_from_mates) > 0 and len(alive_inclan_to_mates) > 0:

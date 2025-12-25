@@ -616,14 +616,14 @@ class GiftScreen(Screens):
 
         if reaction != "already_have":
             game.clan.your_cat.pelt.inventory.remove(acc)
-            if acc in game.clan.your_cat.pelt.accessories:
-                game.clan.your_cat.pelt.accessories.remove(acc)
+            if acc in game.clan.your_cat.pelt.accessory:
+                game.clan.your_cat.pelt.accessory.remove(acc)
             if acc == game.clan.your_cat.pelt.accessory:
                 game.clan.your_cat.pelt.accessory = None
             self.selected_cat.pelt.inventory.append(acc)
             if (acc in ACC_REACTION[cluster1]["like"] or (cluster2 and acc in ACC_REACTION[cluster2]["like"])) or reaction == "accept_favourite":
-                if len(self.selected_cat.pelt.accessories) <= 4:
-                    self.selected_cat.pelt.accessories.append(acc)
+                if len(self.selected_cat.pelt.accessory) <= 4:
+                    self.selected_cat.pelt.accessory.append(acc)
                     self.update_selected_cat()
 
         if acc in ACC_REACTION_TXT["unique_gifts"].keys() and reaction in ACC_REACTION_TXT["unique_gifts"][acc].keys():
@@ -722,7 +722,7 @@ class GiftScreen(Screens):
                     self.selected_acc_details["selected_image"] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((x_pos, y_pos), (dimensions))), pygame.transform.scale(sprites.sprites[acclist[0] + accessory + self.cat_sprite], (dimensions)), manager=MANAGER)
 
             info = ""
-            if self.selected_accessory.tool_tip_text in game.clan.your_cat.pelt.accessories:
+            if self.selected_accessory.tool_tip_text in game.clan.your_cat.pelt.accessory:
                 info = "\ncurrently worn"
 
             self.selected_acc_details["selected_info"] = pygame_gui.elements.UITextBox(
@@ -829,11 +829,7 @@ class GiftScreen(Screens):
         start_index = self.page * 30
         end_index = start_index + 30
 
-        if cat.pelt.accessory:
-            if cat.pelt.accessory not in cat.pelt.inventory:
-                cat.pelt.inventory.append(cat.pelt.accessory)
-
-        for acc in cat.pelt.accessories:
+        for acc in cat.pelt.accessory:
             if acc not in cat.pelt.inventory:
                 cat.pelt.inventory.append(acc)
 
