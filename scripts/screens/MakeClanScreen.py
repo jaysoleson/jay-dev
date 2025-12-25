@@ -1631,11 +1631,23 @@ class MakeClanScreen(Screens):
                                                                   MakeClanScreen.your_name_txt2, manager=MANAGER)
         self.elements['background'].disable()
 
-        self.elements["error"] = pygame_gui.elements.UITextBox(
-            "", ui_scale(pygame.Rect((253, 655), (298, -1))),
+        self.elements["random"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((285, 447), (34, 34))),
+            Icon.DICE,
+            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            object_id="@buttonstyles_icon",
             manager=MANAGER,
-            object_id="#default_dark", visible=False
-            )
+            sound_id="dice_roll",
+        )
+
+        self.elements["error"] = pygame_gui.elements.UITextBox(
+            "",
+            ui_scale(pygame.Rect((0, 700), (596, -1))),
+            manager=MANAGER,
+            object_id="#default_dark",
+            visible=False,
+            anchors={"centerx": "centerx"}
+        )
 
         self.elements["previous_step"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((253, 620), (147, 30))),
@@ -1691,9 +1703,13 @@ class MakeClanScreen(Screens):
         )
 
         self.elements["error"] = pygame_gui.elements.UITextBox(
-            "", ui_scale(pygame.Rect((253, 670), (297, -1))),
+            "",
+            ui_scale(pygame.Rect((0, 700), (596, -1))),
             manager=MANAGER,
-            object_id=get_text_box_theme("#text_box_22_horizcenter"), visible=False)
+            object_id="#default_dark",
+            visible=False,
+            anchors={"centerx": "centerx"}
+        )
 
         self.elements["previous_step"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((253, 635), (147, 30))),
