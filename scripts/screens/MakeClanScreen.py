@@ -4522,7 +4522,7 @@ class MakeClanScreen(Screens):
                 clan_name = self.clan_name
             self.your_cat.create_inheritance_new_cat()
 
-            print("LEADER AND DEP": self.leader, self.deputy)
+            print("LEADER AND DEP:", self.leader, self.deputy)
             game.clan = Clan(
                 name = clan_name,
                 displayname=displayname,
