@@ -511,9 +511,9 @@ class Events:
         
         if achievements_list:
             if len(achievements_list) == 1:
-                pre_string = "You've earned an achievement: "
+                pre_string = "You've earned an achievement this moon: "
             else:
-                pre_string = f"You've earned {len(achievements_list)} achievements: "
+                pre_string = f"You've earned {len(achievements_list)} achievements this moon: "
 
             string = adjust_list_text(achievements_list)
             game.cur_events_list.insert(0, Single_Event((pre_string + string + "!"), "alert"))
