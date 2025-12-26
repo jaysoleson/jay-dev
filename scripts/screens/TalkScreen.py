@@ -648,7 +648,7 @@ class TalkScreen(Screens):
         special_date = get_special_date()
 
         if switch_get_value(Switch.talk_category) == "insult":
-            possible_texts.update(load_lang_resource("lifegen_talk/insult.json"))
+            possible_texts.update(load_lang_resource("lifegen_talk/insults.json"))
         elif switch_get_value(Switch.talk_category) == "flirt":
             possible_texts.update(load_lang_resource("lifegen_talk/flirt.json"))
         else:
@@ -1375,7 +1375,7 @@ class TalkScreen(Screens):
             if rel_skip:
                 continue
 
-            print("Appending", talk_key)
+            # print("Appending", talk_key)
             texts_list[talk_key] = talk
 
         return self.choose_text(cat, texts_list)
@@ -1443,8 +1443,6 @@ class TalkScreen(Screens):
 
         if any(st in possible_statuses for st in BLOCK["status"]):
             if cat.status.rank not in BLOCK["status"]:
-                if talk_key == self.debug_dialogue:
-                    print("1 Skipping HERE", BLOCK["status"], cat.status.rank)
                 return False
         return True
 

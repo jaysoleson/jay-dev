@@ -82,7 +82,14 @@
         "former_clancat_backstories": "originally from another Clan",
         "orphaned_backstories": "orphaned",
         "abandoned_backstories": "abandoned",
+
+        "dead_cat_backstories": "dead",
+        "starclan_backstories": "dead",
+        "df_backstories": "dead",
+
         "beginning_clanborn": "{PRONOUN/m_c/subject/CAP} {VERB/m_c/were/was} born on moon %{birth_moon} during %{birth_season}.",
+
+
         "beginning_cotc": "{PRONOUN/m_c/subject/CAP} joined the Clan on moon %{moon} at the age of %{join_age}.",
         "halfclan3": "One of m_c's parents is a mediator in another Clan, and {PRONOUN/m_c/subject} {VERB/m_c/have/has} never met them.",
         "halfclan4": "One of m_c's parents is a mediator in another Clan, and {PRONOUN/m_c/subject} {VERB/m_c/visit/visits} regularly.",

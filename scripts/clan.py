@@ -16,7 +16,7 @@ import pygame
 import ujson
 
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
-from scripts.cat.enums import CatRank, CatGroup
+from scripts.cat.enums import CatRank, CatGroup, CatSocial
 from scripts.cat_relations.inheritance import Inheritance
 from scripts.cat.names import names
 from scripts.cat.save_load import (
@@ -326,6 +326,7 @@ class Clan:
         # self.leader.generate_lead_ceremony()
         # lifegen commented out
 
+        save_cats(game.clan.name, Cat, game)
         self.save_clan()
         save_clanlist(self.name)
         switch_set_value(Switch.clan_list, read_clans())
@@ -467,7 +468,7 @@ class Clan:
                             Cat.all_cats.get(app.parent2).inheritance.update_inheritance()
 
     def populate_sc(self):
-        for i in range(randint(0,5)):
+        for i in range(randint(2,5)):
             random_backstory = choice(["dead1",
                 "dead3",
                 "dead4",
@@ -476,18 +477,21 @@ class Clan:
                 "dead10",
                 "dead12",
                 "dead15"])
-            sc_cats = create_new_cat(
+            sc_cat = create_new_cat(
                 Cat,
                 new_name=True,
                 alive=False,
                 backstory=random_backstory,
+                original_group=CatGroup.NONE,
                 thought="Watches over the Clan"
-                )
-            sc_cats[0].history.beginning = None
-            sc_cats[0].dead_for = randint(20, 200)
+                )[0]
+            sc_cat.history.beginning = None
+            sc_cat.dead_for = randint(20, 200)
+            sc_cat.status.add_to_group(CatGroup.STARCLAN_ID)
+            self.add_cat(sc_cat)
 
     def populate_ur(self):
-        for i in range(randint(0,5)):
+        for i in range(randint(2,5)):
             random_backstory = choice(["dead1",
                 "dead2",
                 "dead3",
@@ -500,18 +504,22 @@ class Clan:
                 "dead11",
                 "dead12"])
             status = choice([CatRank.LONER, CatRank.KITTYPET])
-            ur_cats = create_new_cat(
+            ur_cat = create_new_cat(
                 Cat,
                 rank=status,
+                alive=False,
                 outside=True,
                 backstory=random_backstory,
+                original_social=CatSocial.LONER,
                 thought="Wanders the Unknown Residence"
-                )
-            ur_cats[0].history.beginning = None
-            ur_cats[0].dead_for = randint(20,100)
+                )[0]
+            ur_cat.history.beginning = None
+            ur_cat.dead_for = randint(20,100)
+            ur_cat.status.add_to_group(CatGroup.UNKNOWN_RESIDENCE_ID)
+            self.add_cat(ur_cat)
 
     def populate_df(self):
-        for i in range(randint(0,5)):
+        for i in range(randint(2,5)):
             random_backstory = choice(["dead2",
                 "dead5",
                 "dead7",
@@ -521,16 +529,19 @@ class Clan:
                 "dead12",
                 "dead13",
                 "dead14"])
-            df_cats = create_new_cat(
+            df_cat = create_new_cat(
                 Cat,
                 new_name=True,
                 alive=False,
-                df=True,
                 backstory=random_backstory,
+                original_group=CatGroup.NONE,
                 thought="Watches the Clan from the gloom"
-                )
-            df_cats[0].history.beginning = None
-            df_cats[0].dead_for = randint(20, 200)
+                )[0]
+            df_cat.history.beginning = None
+            df_cat.dead_for = randint(20, 200)
+            df_cat.status.add_to_group(CatGroup.DARK_FOREST_ID)
+            self.add_cat(df_cat)
+
 
     def generate_outsiders(self):
         for i in range(randint(0,5)):

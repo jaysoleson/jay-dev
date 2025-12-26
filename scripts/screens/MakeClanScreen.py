@@ -550,20 +550,11 @@ class MakeClanScreen(Screens):
         """
         self.create_example_cats2()
         # assign a leader, deputy, and medcat since the player couldnt choose them
+        self.leader = Cat(status_dict={"rank": CatRank.LEADER, "age": CatAge.ADULT})
+        self.deputy = Cat(status_dict={"rank": CatRank.DEPUTY, "age": CatAge.ADULT})
+        self.med_cat = Cat(status_dict={"rank": CatRank.MEDICINE_CAT, "age": CatAge.ADULT})
         for cat in game.choose_cats.values():
-            if cat.status.rank == CatRank.WARRIOR:
-                if self.leader is None:
-                    self.leader = cat
-                elif self.deputy is None:
-                    self.deputy = cat
-                    cat.rank_change(CatRank.DEPUTY)
-                elif self.med_cat is None:
-                    self.med_cat = cat
-                    cat.rank_change(CatRank.DEPUTY)
-                else:
-                    self.members.append(cat)
-            else:
-                self.members.append(cat)
+            self.members.append(cat)
         self.members.append(self.your_cat)
         
     def create_example_cats2(self):
@@ -586,23 +577,33 @@ class MakeClanScreen(Screens):
             c_size = 20
         
         special_ranks = 0
-        special_rank_str = ["medicine cat", "medicine cat apprentice", "mediator", "mediator apprentice", "queen", "queen's apprentice"]
+        special_rank_str = [CatRank.MEDICINE_CAT,
+                            CatRank.MEDICINE_APPRENTICE,
+                            CatRank.WARRIOR,
+                            CatRank.APPRENTICE,
+                            CatRank.KITTEN,
+                            CatRank.ELDER,
+                            CatRank.MEDIATOR,
+                            CatRank.MEDIATOR_APPRENTICE,
+                            CatRank.QUEEN,
+                            CatRank.QUEENS_APPRENTICE]
+
         for a in range(c_size):
             if a in e:
-                game.choose_cats[a] = Cat(status='warrior', biome=None)
+                game.choose_cats[a] = Cat(status_dict={"rank": CatRank.WARRIOR}, biome=None)
             else:
                 
                 status_percentages = [
-                ("medicine cat", 1),
-                ("medicine cat apprentice", 1),
-                ("warrior", 38),
-                ("apprentice", 15),
-                ("kitten", 5),
-                ("elder", 5),
-                ("mediator", 2),
-                ("mediator apprentice", 3),
-                ("queen", 2),
-                ("queen's apprentice", 3),
+                    (CatRank.MEDICINE_CAT, 1),
+                    (CatRank.MEDICINE_APPRENTICE, 1),
+                    (CatRank.WARRIOR, 38),
+                    (CatRank.APPRENTICE, 15),
+                    (CatRank.KITTEN, 5),
+                    (CatRank.ELDER, 5),
+                    (CatRank.MEDIATOR, 2),
+                    (CatRank.MEDIATOR_APPRENTICE, 3),
+                    (CatRank.QUEEN, 2),
+                    (CatRank.QUEENS_APPRENTICE, 3),
                 ]
 
                 status_choices = []
@@ -612,13 +613,13 @@ class MakeClanScreen(Screens):
                 s = random.choice(status_choices)
 
                 if special_ranks > 5:
-                    while s in special_rank_str:
+                    if s in special_rank_str:
                         s = random.choice(status_choices)
 
                 if s in special_rank_str:
                     special_ranks += 1
 
-                game.choose_cats[a] = Cat(status=s, biome=None)
+                game.choose_cats[a] = Cat(status_dict={"rank": s}, biome=None)
 
             if game.choose_cats[a].moons >= 160:
                 game.choose_cats[a].moons = choice(range(120, 155))
@@ -4688,6 +4689,8 @@ class MakeClanScreen(Screens):
             else:
                 clan_name = self.clan_name
             self.your_cat.create_inheritance_new_cat()
+
+            # print("LEADER:", self.leader, "DEP:", self.deputy)
 
             game.clan = Clan(
                 name = clan_name,

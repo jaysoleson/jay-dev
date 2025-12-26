@@ -7,6 +7,7 @@ from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.game_structure import game
 from scripts.game_structure.screen_settings import MANAGER
+from ..cat.enums import CatAge, CatRank, CatGroup
 
 from scripts.game_structure.ui_elements import (
     UISpriteButton,
@@ -451,34 +452,24 @@ class ChooseRebornScreen(Screens):
             else:
                 if self.current_sublist == "darkforest":
                     if (
-                        cat.dead and
-                        cat.df and
-                        not cat.status.is_outsider and
+                        cat.status.group == CatGroup.DARK_FOREST and
                         not cat.ID == game.clan.your_cat.ID and
-                        not cat.ID == game.clan.instructor.ID and
                         not cat.ID == game.clan.demon.ID and
                         not cat.faded
                         ):
                         valid_mentors.append(cat)
                 elif self.current_sublist == "starclan":
                     if (
-                        cat.dead and
-                        not cat.df and
-                        not cat.status.is_outsider and
+                        cat.status.group == CatGroup.STARCLAN and
                         not cat.ID == game.clan.your_cat.ID and
                         not cat.ID == game.clan.instructor.ID and
-                        not cat.ID == game.clan.demon.ID and
                         not cat.faded
                         ):
                         valid_mentors.append(cat)
                 elif self.current_sublist == "unknown":
                     if (
-                        cat.dead and
-                        not cat.df and
-                        cat.status.is_outsider and
+                        cat.status.group == CatGroup.UNKNOWN_RESIDENCE and
                         not cat.ID == game.clan.your_cat.ID and
-                        not cat.ID == game.clan.instructor.ID and
-                        not cat.ID == game.clan.demon.ID and 
                         not cat.faded
                         ):
                         valid_mentors.append(cat)

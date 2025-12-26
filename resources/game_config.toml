@@ -464,6 +464,7 @@ dev_tools = false
     "medicine cat apprentice" = 30
     apprentice = 25
     "mediator apprentice" = 25
+    "queen's apprentice" = 25
 
 [outside_ex]
   # base possible experience gain for cats outside the clan

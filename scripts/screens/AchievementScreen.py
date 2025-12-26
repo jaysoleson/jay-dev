@@ -59,7 +59,7 @@ class AchievementScreen(Screens):
         
         self.set_disabled_menu_buttons(["stats"])
         self.show_menu_buttons()
-        self.update_heading_text(f'{game.clan.name}Clan')
+        self.update_heading_text(f'{game.clan.displayname}Clan')
 
         a_txt = load_lang_resource("achievements.json")
 

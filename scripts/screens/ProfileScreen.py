@@ -854,15 +854,23 @@ class ProfileScreen(Screens):
         if is_sc_instructor:
 
             if game.clan.followingsc == True:
-                self.the_cat.thought = "Hello. I will be guiding the cats of " + game.clan.name + "Clan into StarClan."
+                self.the_cat.thought = i18n.t(
+                    "screens.profile.guide_thought_sc_following", clan=game.clan.displayname
+                )
             else:
-                self.the_cat.thought = "Misses watching over " + game.clan.name + "Clan"
+                self.the_cat.thought = i18n.t(
+                    "screens.profile.guide_thought_sc_not__following", clan=game.clan.displayname
+                )
 
         if is_df_instructor:
             if game.clan.followingsc == True:
-                self.the_cat.thought = "Hello. I am here to drag the cats of " + game.clan.name + "Clan into the Dark Forest"
+                self.the_cat.thought = i18n.t(
+                    "screens.profile.guide_thought_df_not__following", clan=game.clan.displayname
+                )
             else:
-                self.the_cat.thought = "Is picking more " + game.clan.name + "Clan cats to join them"
+                self.the_cat.thought = i18n.t(
+                    "screens.profile.guide_thought_df_following", clan=game.clan.displayname
+                )
 
         self.profile_elements["cat_name"] = pygame_gui.elements.UITextBox(cat_name,
                                                                         ui_scale(pygame.Rect((50, 280), (-1, 105))),
@@ -1444,7 +1452,7 @@ class ProfileScreen(Screens):
         if the_cat.dead:
             old_clan = the_cat.status.get_last_living_group()
             if old_clan == CatGroup.PLAYER_CLAN_ID:
-                name = game.clan.name
+                name = game.clan.displayname
             # if they had an old clan that wasn't the player's, find it!
             elif old_clan:
                 name = [
@@ -1466,7 +1474,7 @@ class ProfileScreen(Screens):
         # otherwise, assume the cat takes the player clan's name
         # it's okay if this is an outsider, if they don't actually have a group to refer to then they won't use this variable
         else:
-            name = game.clan.name
+            name = game.clan.displayname
 
         if the_cat.status.is_exiled():
             if not name:
@@ -1476,7 +1484,7 @@ class ProfileScreen(Screens):
                     if c.group_ID == the_cat.status.get_last_living_group()
                 ]
             if not name:
-                name = game.clan.name
+                name = game.clan.displayname
 
         cat_clan = i18n.t(f"general.clan", name=f"{name}")
 
@@ -1489,12 +1497,12 @@ class ProfileScreen(Screens):
             # NEWLINE ----------
             output += "\n"
 
-        if the_cat == game.clan.instructor:
+        if the_cat in [game.clan.instructor, game.clan.demon]:
             output += i18n.t(f"general.guide")
             output += "\n"
 
         if the_cat.dead:
-            if the_cat == game.clan.instructor or the_cat.status.is_outsider:
+            if the_cat in [game.clan.instructor, game.clan.demon] or the_cat.status.is_outsider:
                 output += i18n.t(
                     f"general.past_no_group",
                     rank=i18n.t(f"general.{the_cat.status.rank}", count=1),
@@ -1948,6 +1956,7 @@ class ProfileScreen(Screens):
         elif (
             self.the_cat.status.is_other_clancat
             and self.the_cat != game.clan.instructor
+            and self.the_cat != game.clan.demon
         ):
             clan = [
                 clan
@@ -2007,7 +2016,7 @@ class ProfileScreen(Screens):
                 self.the_cat.backstory_str = other_clan
                 text = text.replace("o_c_n", other_clan)
         if "c_n" in text:
-            text = text.replace("c_n", str(game.clan.name) + "Clan")
+            text = text.replace("c_n", str(game.clan.displayname) + "Clan")
         if "r_c" in text:
             if self.the_cat.backstory_str:
                 text = text.replace("r_c", self.the_cat.backstory_str)
