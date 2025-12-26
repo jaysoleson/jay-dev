@@ -195,19 +195,22 @@ class Events:
         # Calling of "one_moon" functions.
         disaster_text = load_lang_resource(f"events/disasters/{game.clan.biome.lower()}.json")
         
-        if not game.clan.disaster and random.randint(1,50) == 1:
+        if not game.clan.disaster and random.randint(1,10) == 1:
             for clan_cat in game.clan.clan_cats:
                 clan_cat_cat = Cat.fetch_cat(clan_cat)
                 if clan_cat_cat:
                     clan_cat_cat.faith -= round(random.uniform(-1,0), 2)
-            game.clan.disaster = random.choice(list(disaster_text.keys()))
+
+            chosen_disaster_name, chosen_disaster = random.choice(disaster_text.items())
+            # CHECKMERGE add real filtering here
+
+            game.clan.disaster = chosen_disaster_name
+            
             if Switch.next_possible_disaster:
                 current_disaster =  disaster_text.get(Switch.next_possible_disaster)
             else:
-                current_disaster = disaster_text.get(game.clan.disaster)
-            while not current_disaster or not disaster_text[game.clan.disaster]["trigger_events"] or (get_current_season() not in current_disaster["season"]):
-                game.clan.disaster = random.choice(list(disaster_text.keys()))
-                current_disaster = disaster_text.get(game.clan.disaster)
+                current_disaster = chosen_disaster
+        
         if game.clan.disaster and game.clan.disaster != "":
             if game.clan.disaster == Switch.next_possible_disaster:
                 switch_set_value(Switch.next_possible_disaster, None)
@@ -215,7 +218,7 @@ class Events:
                 clan_cat_cat = Cat.fetch_cat(clan_cat)
                 if clan_cat_cat:
                     clan_cat_cat.faith -= round(random.uniform(-0.1,0), 2)
-            self.handle_disaster()
+            self.handle_disaster(current_disaster)
         other_clan_cats = [c for c in Cat.all_cats_list if c.status.is_other_clancat]
         for cat in Cat.all_cats_list.copy():
             if cat.status.alive_in_player_clan or cat.status.group.is_afterlife():
@@ -631,7 +634,7 @@ class Events:
             acc = random.choice(acc_list)
         game.clan.your_cat.pelt.inventory.append(acc)
         string = f"You found a new accessory, acc_singular! You choose to store it in a safe place for now."
-        string = string.replace("acc_singular", str(i18n.t(self.get_acc_name(acc), count=0)))
+        string = string.replace("acc_singular", str(i18n.t(self.get_acc_name(acc)/lower(), count=0)))
         game.cur_events_list.insert(0, Single_Event(string, "alert", game.clan.your_cat.ID))
     
     def get_acc_name(self, acc):
@@ -1186,11 +1189,11 @@ class Events:
         resource_dir = "resources/dicts/events/lifegen_events/events/"
         
         if game.clan.your_cat.dead:
-            if game.clan.you_cat.status.group == CatGroup.STARCLAN:
+            if game.clan.your_cat.status.group == CatGroup.STARCLAN:
                 resource_dir = "resources/dicts/events/lifegen_events/events_dead_sc/"
-            elif game.clan.you_cat.status.group == CatGroup.DARK_FOREST:
+            elif game.clan.your_cat.status.group == CatGroup.DARK_FOREST:
                 resource_dir = "resources/dicts/events/lifegen_events/events_dead_df/"
-            elif game.clan.you_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
+            elif game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
                 resource_dir = "resources/dicts/events/lifegen_events/events_dead_ur/"
 
         elif game.clan.your_cat.shunned > 0 and not game.clan.your_cat.status.is_outsider and not game.clan.your_cat.dead:
@@ -3754,17 +3757,10 @@ class Events:
                     sub_type=["murder"],
                 )
 
-    def handle_disaster(self):
-        if not game.clan.disaster:
+    def handle_disaster(self, current_disaster):
+        if not current_disaster:
             return
 
-        resource_dir = "resources/dicts/events/disasters/"
-        disaster_text = {}
-        with open(f"{resource_dir}forest.json",
-                  encoding="ascii") as read_file:
-            disaster_text = ujson.loads(read_file.read())
-        
-        current_disaster = disaster_text.get(game.clan.disaster)
         current_moon = game.clan.disaster_moon
         if current_moon == 0:
             event_string = random.choice(current_disaster["trigger_events"])

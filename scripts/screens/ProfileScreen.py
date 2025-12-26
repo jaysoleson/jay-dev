@@ -499,7 +499,7 @@ class ProfileScreen(Screens):
                     switch_set_value(Switch.request_apprentice, False)
                     self.request_apprentice_button.disable()
             elif event.ui_element == self.gift_accessory_button:
-                self.change_screen("gift screen")
+                self.change_screen(GameScreen.GIFT)
             elif event.ui_element == self.your_faith_button:
                 self.toggle_faith_tab()
         # Dangerous Tab
@@ -3039,7 +3039,7 @@ class ProfileScreen(Screens):
             self.exile_layer = pygame_gui.elements.UIImage(
                 ui_scale(pygame.Rect((578, 450), (172, 36))),
                 pygame.transform.scale(
-                    self.status.group == CatGroup.DARK_FOREST,
+                    self.df,
                     ui_scale_dimensions((172, 36)),
                 ),
             )
@@ -3055,8 +3055,9 @@ class ProfileScreen(Screens):
                 ui_scale(pygame.Rect((578, 522), (172, 36))),
                 "",
                 object_id="#murder_button",
-                tool_tip_text='Choose to murder one of your clanmates',
-                starting_height=2, manager=MANAGER
+                tool_tip_text='Choose to murder one of your Clanmates',
+                starting_height=2,
+                manager=MANAGER
             )
             if game.clan.your_cat.moons == 0:
                 self.murder_cat_button.disable()
@@ -3255,53 +3256,56 @@ class ProfileScreen(Screens):
             # Button to exile cat
             if self.exile_cat_button:
                 self.exile_cat_button.kill()
+                self.exile_layer.kill()
+            self.exile_cat_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((578, 450), (172, 36))),
+                "",
+                get_button_dict(ButtonStyles.LADDER_TOP, (172, 36)),
+                object_id="@buttonstyles_ladder_top",
+                tool_tip_text=(
+                    "screens.profile.exile_guide_tooltip"
+                    if self.the_cat.dead and game.clan.instructor.ID == self.the_cat.ID
+                    else (
+                        "screens.profile.exile_tooltip"
+                        if not self.the_cat.dead
+                        else None
+                    )
+                ),
+                starting_height=2,
+                manager=MANAGER,
+            )
+
+            text = "screens.profile.exile"
             if not self.the_cat.dead:
-                self.exile_cat_button = UIImageButton(
-                    ui_scale(pygame.Rect((578, 450), (172, 36))),
-                    "",
-                    object_id="#exile_cat_button",
-                    tool_tip_text="This cannot be reversed.",
+              if self.the_cat.dead:
+                if self.the_cat in [game.clan.instructor, game.clan.demon]:
+                    text = "screens.profile.follow"
+                    if self.the_cat == game.clan.instructor:
+                        layer = self.sc
+                    else:
+                        layer = self.df
+                else:
+                    text = "screens.profile.exile_df"
+                    layer = self.df
+                    if self.the_cat.status.group == CatGroup.DARK_FOREST:
+                        text = "screens.profile.send_ur"
+                        layer = self.ur
+                    elif self.the_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
+                        text = "screens.profile.guide_sc"
+                        layer = self.sc
+
+                self.exile_layer = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((578, 450), (172, 46))),
+                    pygame.transform.scale(
+                        layer,
+                        ui_scale_dimensions((172, 46)),
+                    ),
                     starting_height=2,
-                    manager=MANAGER,
                 )
-                if self.the_cat.status.is_exiled() or self.the_cat.status.is_outsider:
-                    self.exile_cat_button.disable()
 
-            elif self.the_cat.dead:
-                if self.the_cat.status.group == CatGroup.STARCLAN:
-                    dead_button = "#exile_df_button"
-                elif self.the_cat.status.group == CatGroup.DARK_FOREST:
-                    dead_button = "#send_ur_button"
-                else:
-                    dead_button = "#guide_sc_button"
-
-                if game.clan.instructor.ID == self.the_cat.ID:
-                    self.exile_cat_button = UIImageButton(ui_scale(pygame.Rect((578, 450), (172, 46))),
-                                                            "",
-                                                          object_id= "#follow_sc_button",
-                                                           tool_tip_text='Your Clan will go to StarClan'
-                                                                         ' after death.',
-
-                                                          starting_height=2, manager=MANAGER)
-
-                    if game.clan.followingsc:
-                        self.exile_cat_button.disable()
-
-                elif game.clan.demon.ID == self.the_cat.ID:
-                    self.exile_cat_button = UIImageButton(ui_scale(pygame.Rect((578, 450), (172, 46))),
-                                                            "",
-                                                          object_id= "#follow_df_button",
-                                                          tool_tip_text='Your Clan will go to the Dark'
-                                                                         ' forest after death.',
-                                                          starting_height=2, manager=MANAGER)
-                    if not game.clan.followingsc:
-                        self.exile_cat_button.disable()
-
-                else:
-                    self.exile_cat_button = UIImageButton(ui_scale(pygame.Rect((578, 450), (172, 46))),
-                                                          "",
-                                                          object_id=dead_button,
-                                                          starting_height=2, manager=MANAGER)
+            self.exile_cat_button.set_text(text)
+            if not self.the_cat.status.alive_in_player_clan:
+                self.exile_cat_button.disable()
 
             if self.the_cat.dead:
                 self.exile_cat_button.enable()

@@ -201,8 +201,8 @@ class AffairScreen(Screens):
                 encoding="ascii") as read_file:
             self.mu_txt = ujson.loads(read_file.read())
         success = self.is_success(affair_cat)
-        affair_relationship_chance_lb = constants.CONFIG["lifegen"]["affair_relationship_change_lb"]
-        affair_relationship_chance_ub = constants.CONFIG["lifegen"]["affair_relationship_change_ub"]
+        affair_relationship_chance_lb = constants.CONFIG["lifegen"]["gen"]["affair_relationship_change_lb"]
+        affair_relationship_chance_ub = constants.CONFIG["lifegen"]["gen"]["affair_relationship_change_ub"]
         if success:
             affair_cat.relationships.get(
                 game.clan.your_cat.ID).dislike -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
@@ -215,7 +215,7 @@ class AffairScreen(Screens):
             ceremony_txt = self.adjust_txt(
                 choice(self.mu_txt['success']), affair_cat)
             game.cur_events_list.insert(0, Single_Event(ceremony_txt))
-            if randint(1, constants.CONFIG["lifegen"]["affair_success_pregnancy_chance"]) == 1:
+            if randint(1, constants.CONFIG["lifegen"]["gen"]["affair_success_pregnancy_chance"]) == 1:
                 Pregnancy_Events.handle_zero_moon_pregnant(
                     game.clan.your_cat, affair_cat, game.clan)
         else:
@@ -256,7 +256,7 @@ class AffairScreen(Screens):
 
     def is_success(self, affair_cat):
         """Calculates affair success rate based on relationships"""
-        chance = constants.CONFIG["lifegen"]["affair_success_chance"]
+        chance = constants.CONFIG["lifegen"]["gen"]["affair_success_chance"]
         for i in game.clan.your_cat.mates:
             if Cat.fetch_cat(i).relationships.get(game.clan.your_cat.ID).romantic_love > 50:
                 chance -=5
@@ -369,7 +369,7 @@ class AffairScreen(Screens):
             self.previous_cat,
         ) = self.the_cat.determine_next_and_previous_cats(
             filter_func=(
-                lambda cat: cat.age
+                lambda cat: cat
                 in (cat.is_potential_mate(game.clan.your_cat))
             )
         )

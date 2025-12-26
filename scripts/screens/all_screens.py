@@ -94,6 +94,15 @@ def rebuild_all_screens():
         GameScreen.MEDIATION: MediationScreen,
         GameScreen.CHANGE_GENDER: ChangeGenderScreen,
         GameScreen.EVENT_EDIT: EventEditScreen,
+
+        GameScreen.MURDER: MurderScreen,
+        GameScreen.AFFAIR: AffairScreen,
+        GameScreen.GIFT: GiftScreen,
+        GameScreen.TALK: TalkScreen,
+        GameScreen.MOONPLACE: MoonplaceScreen,
+        GameScreen.NAME_KITS: NameKitsScreen,
+        GameScreen.CHOOSE_REBORN: ChooseRebornScreen,
+        GameScreen.ACHIEVEMENTS: AchievementScreen,
     }
 
     for enum, classobj in enum_to_class.items():

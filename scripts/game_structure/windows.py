@@ -10,6 +10,7 @@ from re import search as re_search
 from re import sub
 from typing import TYPE_CHECKING
 from scripts.event_class import Single_Event
+from scripts.game_structure.localization import load_lang_resource
 
 
 from scripts.housekeeping.progress_bar_updater import UIUpdateProgressBar
@@ -2105,7 +2106,7 @@ class DeathScreen(UIWindow):
         self.mediator_button.enable()
         if game.clan.your_cat.revives < 5:
             self.mediator_button2.enable()
-        if (game.clan.your_cat.dead_for >= constants.CONFIG["fading"]["age_to_fade"]) and game.clan.your_cat.prevent_fading == False:
+        if (game.clan.your_cat.dead_for >= constants.CONFIG["fading"]["age_to_fade"]) and not game.clan.your_cat.prevent_fading:
             self.mediator_button2.disable()
         self.mediator_button3.enable()
         self.mediator_button4.enable()
@@ -2149,40 +2150,28 @@ class DeathScreen(UIWindow):
                 game.clan.your_cat.revives +=1
                 game.clan.your_cat.dead = False
                 game.clan.your_cat.status.add_to_group(CatGroup.PLAYER_CLAN_ID)
-                if game.clan.your_cat.status in ["rogue", "kittypet", "former Clancat", "loner"]:
-                    game.clan.your_cat.status = "exiled"
                     # cant play as an outsider yet gotta cheese it for now
                 game.clan.your_cat.dead_for = 0
                 game.clan.your_cat.moons+=1
                 game.clan.your_cat.update_mentor()
                 switch_set_value(Switch.continue_after_death, False)
-                if game.clan.your_cat.status.is_outsider:
-                    game.clan.add_to_clan(game.clan.your_cat)
-                if game.clan.your_cat.ID in game.clan.starclan_cats:
-                    game.clan.starclan_cats.remove(game.clan.your_cat.ID)
-                if game.clan.your_cat.ID in game.clan.darkforest_cats:
-                    game.clan.darkforest_cats.remove(game.clan.your_cat.ID)
-                if game.clan.your_cat.ID in game.clan.unknown_cats:
-                    game.clan.unknown_cats.remove(game.clan.your_cat.ID)
                 you = game.clan.your_cat
                 
-                if you.moons == 0 and you.status != "newborn":
-                    you.status = 'newborn'
-                elif you.moons < 6 and you.status != "kitten":
-                    you.status = "kitten"
-                elif you.moons >= 6 and you.status == "kitten":
-                    you.status = "apprentice"
-                    you.name.status = "apprentice"
+                if you.moons == 0 and you.status.rank != CatRank.NEWBORN:
+                    you.rank_change(CatRank.NEWBORN)
+                elif you.moons < 6 and you.status.rank != CatRank.KITTEN:
+                    you.rank_change(CatRank.KITTEN)
+                elif you.moons >= 6 and you.status.rank in [CatRank.NEWBORN, CatRank.KITTEN]:
+                    you.rank_change(CatRank.APPRENTICE)
 
-                game.clan.your_cat.thought = "Is surprised to find themselves back in the Clan"
+                game.clan.your_cat.thought = "Is surprised to be back in the Clan"
                 switch_set_value(Switch.window_open, False)
 
                 game.last_screen_forupdate = switch_get_value(Switch.cur_screen)
                 switch_set_value(Switch.cur_screen, "start screen")
                 game.switch_screens = True
 
-                with open("resources/dicts/events/lifegen_events/revival.json", "r") as read_file:
-                    revival_json = ujson.loads(read_file.read())['revival']
+                revival_json = load_lang_resource('events/lifegen_events/revival.json')
                 
                 game.next_events_list.append(Single_Event(choice(revival_json), 'alert'))
                 switch_set_value(Switch.cur_screen, 'events screen')
@@ -2196,9 +2185,6 @@ class DeathScreen(UIWindow):
             elif event.ui_element == self.mediator_button3:
                 game.last_screen_forupdate = None
                 switch_set_value(Switch.window_open, False)
-
-                # CHECKMERGE
-                # how does switching screens work now...........
 
                 switch_set_value(Switch.cur_screen, "events screen")
                 

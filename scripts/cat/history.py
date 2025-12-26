@@ -553,6 +553,8 @@ class History:
         murderer_id,
         clan_reveal: bool = False,
         aware_individuals: list = None,
+        # LG
+        shunned: bool = False
     ):
         """
         This adds reveal information to both the murderer and victim's history. This should be called from the murderer's history.

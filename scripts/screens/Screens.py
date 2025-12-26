@@ -89,6 +89,8 @@ class Screens:
             GameScreen.MEDIATION,
             GameScreen.CHANGE_GENDER,
             GameScreen.FAMILY_TREE,
+
+            GameScreen.ELDER_STORY,
         ]:
             game.last_list_forProfile = None
             self.current_group = "your_clan"

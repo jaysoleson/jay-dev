@@ -701,9 +701,10 @@ dev_tools = false
       senior_adult = 8
       senior = 8
   
-  affair_relationship_change_lb = 10
-  affair_relationship_change_ub = 30
-  affair_success_chance = 1
-  affair_success_pregnancy_chance = 20
-  murder_chance = -1
-  accomplice_chance = -1
+  [lifegen.gen]
+    affair_relationship_change_lb = 10
+    affair_relationship_change_ub = 30
+    affair_success_chance = 1
+    affair_success_pregnancy_chance = 20
+    murder_chance = -1
+    accomplice_chance = -1
