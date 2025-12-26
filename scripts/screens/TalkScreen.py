@@ -84,6 +84,8 @@ class TalkScreen(Screens):
         self.testing = False
         self.meow = False
 
+        self.debug_dialogue = constants.CONFIG["lifegen"]["debug"]["debug_ensure_dialogue"]
+
     def screen_switches(self):
         super().screen_switches()
         self.the_cat = Cat.all_cats.get(switch_get_value(Switch.cat))
@@ -403,7 +405,7 @@ class TalkScreen(Screens):
                 # skip over the dialogue that doesnt need anything bc its impossible anyway
                 if game.clan.your_cat.status.rank == CatRank.NEWBORN and dialogue[0].dead:
                     continue
-                if dialogue[0].outside and not dialogue[0].dead:
+                if not dialogue[0].status.alive_in_player_clan:
                     continue
                 if game.clan.your_cat.dead and dialogue[0].status.rank == CatRank.NEWBORN:
                     continue
@@ -656,12 +658,11 @@ class TalkScreen(Screens):
                 possible_texts.update(load_lang_resource("lifegen_talk/general_outsider.json"))
                 possible_texts.update(load_lang_resource("lifegen_talk/general_outsider.json"))
             else:
+                possible_texts.update(load_lang_resource(f"lifegen_talk/{cat.status.rank.replace(' ', '_')}.json"))
+
                 if cat.status.rank != CatRank.NEWBORN:
                     # newborns will no longer participate in nuanced discussion
 
-                    if not cat.status.is_exiled(CatGroup.PLAYER_CLAN_ID):
-                        possible_texts.update(load_lang_resource(f"lifegen_talk/{cat.status.rank.replace(' ', '_')}.json"))
-                    
                     possible_texts.update(load_lang_resource("lifegen_talk/choice_dialogue.json"))
     
                     if not cat.status.rank.is_baby() and not you.status.rank.is_baby():
@@ -669,7 +670,7 @@ class TalkScreen(Screens):
                         possible_texts.update(load_lang_resource("lifegen_talk/crush.json"))
 
 
-                    if cat.status.rank != CatRank.NEWBORN and you.status.rank != CatRank.NEWBORN:
+                    if cat.age != CatAge.NEWBORN and you.age != CatAge.NEWBORN:
                         possible_texts.update(load_lang_resource("lifegen_talk/general_no_newborn.json"))
 
                     if not cat.status.rank.is_baby() and you.status.rank.is_baby():
@@ -723,7 +724,7 @@ class TalkScreen(Screens):
 
             # what if i just start over
             # old stuff
-            if constants.CONFIG["lifegen"]["debug"]["debug_ensure_dialogue"] == talk_key:
+            if self.debug_dialogue == talk_key:
                 pass
             
             if contains_special_date_tag(TAGS):
@@ -747,21 +748,50 @@ class TalkScreen(Screens):
 
             # NEW CODE
             # STATUS
+
+            skip = False
+            status_valid = False
             if "status" in YOU:
-                if not self.validate_status(YOU, you):
-                    continue
+                if not self.validate_status(YOU, you, talk_key):
+                    skip = True
+                    if talk_key == self.debug_dialogue:
+                        print("Skipping debug dialogue", talk_key, ": validate_status(YOU)")
+                else:
+                    status_valid = True
             if "status" in CAT:
-                if not self.validate_status(CAT, cat):
-                    continue
+                if not self.validate_status(CAT, cat, talk_key):
+                    skip = True
+                    if talk_key == self.debug_dialogue:
+                        print("Skipping debug dialogue", talk_key, ": validate_status(CAT)")
+                else:
+                    if game.clan.your_cat.age == CatAge.NEWBORN:
+                        # "newborn" in status means it doesnt also have to be there for age
+                        status_valid = True
 
             # AGE
             if "age" in YOU:
-                if not self.validate_age(YOU, you):
-                    continue
+                AGE = YOU["age"]
+            else:
+                AGE = []
+            if not self.validate_age(AGE, you,):
+                if talk_key == self.debug_dialogue:
+                    print("Skipping debug dialogue", talk_key, ": validate_age(YOU)")
+                if not status_valid:
+                    skip = True
                     
+
             if "age" in CAT:
-                if not self.validate_age(CAT, cat):
-                    continue
+                AGE = CAT["age"]
+            else:
+                AGE = []
+            if not self.validate_age(AGE, cat):
+                if talk_key == self.debug_dialogue:
+                    print("Skipping debug dialogue", talk_key, ": validate_age(CAT)")
+                if not status_valid:
+                    skip = True
+
+            if skip:
+                continue
 
             # FAITH
             if "min_max_faith" in YOU:
@@ -1334,17 +1364,18 @@ class TalkScreen(Screens):
                 if cat.dead:
                     continue
 
-            skip = False
+            rel_skip = False
             for item in talk:
                 if isinstance(talk[item], list) and item not in ["relationship", "tags"]:
                     # checking the actual spoken dialogue
                     test_text = self.get_adjusted_txt(talk[item], cat)
                     if not test_text:
-                        skip = True
+                        rel_skip = True
                         break
-            if skip:
+            if rel_skip:
                 continue
 
+            print("Appending", talk_key)
             texts_list[talk_key] = talk
 
         return self.choose_text(cat, texts_list)
@@ -1375,7 +1406,7 @@ class TalkScreen(Screens):
 
     
     # Filter Helpers
-    def validate_status(self, BLOCK, cat):
+    def validate_status(self, BLOCK, cat, talk_key):
         """
         checks the "status" list
         """
@@ -1412,40 +1443,43 @@ class TalkScreen(Screens):
 
         if any(st in possible_statuses for st in BLOCK["status"]):
             if cat.status.rank not in BLOCK["status"]:
+                if talk_key == self.debug_dialogue:
+                    print("1 Skipping HERE", BLOCK["status"], cat.status.rank)
                 return False
         return True
 
     def validate_age(self, BLOCK, cat):
-        """ checks the "age" list
+        """
+        checks the "age" list
         """
         if cat.status.rank == CatRank.NEWBORN and "newborn" not in BLOCK:
             return False
-        if f"not_{cat.age}" in BLOCK["age"]:
+        if f"not_{cat.age}" in BLOCK:
             return False
-        if "not_kitten" in BLOCK["age"] and cat.age == CatAge.NEWBORN:
+        if "not_kitten" in BLOCK and cat.age == CatAge.NEWBORN:
             return False
 
         if cat == game.clan.your_cat:
-            if "younger" in BLOCK["age"] and cat.moons >= self.the_cat.moons:
+            if "younger" in BLOCK and cat.moons >= self.the_cat.moons:
                 return False
-            if "sameage" in BLOCK["age"] and cat.age != self.the_cat.age:
+            if "sameage" in BLOCK and cat.age != self.the_cat.age:
                 return False
-            if "older" in BLOCK["age"] and cat.moons <= self.the_cat.moons:
+            if "older" in BLOCK and cat.moons <= self.the_cat.moons:
                 return False
         else:
-            if "younger" in BLOCK["age"] and cat.moons >= game.clan.your_cat.moons:
+            if "younger" in BLOCK and cat.moons >= game.clan.your_cat.moons:
                 return False
-            if "sameage" in BLOCK["age"] and cat.age != game.clan.your_cat.age:
+            if "sameage" in BLOCK and cat.age != game.clan.your_cat.age:
                 return False
-            if "older" in BLOCK["age"] and cat.moons <= game.clan.your_cat.moons:
+            if "older" in BLOCK and cat.moons <= game.clan.your_cat.moons:
                 return False
 
         if any(st in [
-            "newborn", "kitten", "adolescent", "young adult",
-            "adult", "senior adult", "senior"
-            ] for st in BLOCK["age"]
+            CatAge.NEWBORN, CatAge.KITTEN, CatAge.ADOLESCENT,
+            CatAge.YOUNG_ADULT, CatAge.ADULT, CatAge.SENIOR_ADULT, CatAge.SENIOR
+            ] for st in BLOCK
             ):
-            if cat.age not in BLOCK["age"]:
+            if cat.age not in BLOCK:
                 return False
         return True
 
@@ -1708,9 +1742,8 @@ class TalkScreen(Screens):
                 weights.append(weight)
 
         # Check for debug mode
-        debug_dialogue = constants.CONFIG["lifegen"]["debug"]["debug_ensure_dialogue"]
-        if debug_dialogue in texts_list:
-            text_chosen_key = debug_dialogue
+        if self.debug_dialogue in texts_list:
+            text_chosen_key = self.debug_dialogue
             text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
             new_text = self.get_adjusted_txt(text, cat)
             if new_text:
@@ -1722,9 +1755,9 @@ class TalkScreen(Screens):
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
                 print("Debug:", text_chosen_key)
                 return new_text
-            print("1: Could not find debug ensure dialogue '" + debug_dialogue + "' within possible dialogues")
-        elif debug_dialogue:
-            print("2: Could not find debug ensure dialogue '" + debug_dialogue + "' within possible dialogues")
+            print("1: Could not find debug ensure dialogue '" + self.debug_dialogue + "' within possible dialogues")
+        elif self.debug_dialogue:
+            print("2: Could not find debug ensure dialogue '" + self.debug_dialogue + "' within possible dialogues")
 
         # Try to find a valid, unused text
         for _ in range(MAX_RETRIES):

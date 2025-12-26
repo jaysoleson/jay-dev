@@ -2466,9 +2466,9 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
             "min_trust_50",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_romance_20"
         ],
         "intro": [
             "[t_c walks into your den, staring at you as tears brim from {PRONOUN/t_c/poss} eyes.]",

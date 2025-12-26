@@ -3199,7 +3199,7 @@
         },
         "relationship": [
             "from_mate",
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "tags": [
             "accept"
@@ -6327,7 +6327,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "tags": [
             "accept"
@@ -6368,7 +6368,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "tags": [
             "accept"
@@ -6387,7 +6387,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "tags": [
             "accept"
@@ -6406,7 +6406,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "tags": [
             "accept",
@@ -6429,8 +6429,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "from_mate"
+            "from_mate",
+            "min_romance_20"
         ],
         "tags": [
             "accept"
@@ -7096,7 +7096,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_10"
+            "min_romance_10"
         ],
         "tags": [
             "accept"
@@ -8419,7 +8419,7 @@
             "shunned": true
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "tags": [
             "reject"

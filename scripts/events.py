@@ -978,6 +978,9 @@ class Events:
                     if birth_txt:
                         break
 
+            if game.clan.your_cat.status.rank != CatRank.NEWBORN:
+                print("Correcting mc to newborn")
+                game.clan.your_cat.rank_change(CatRank.NEWBORN)
             
             game.cur_events_list.insert(0, Single_Event(birth_txt, ["alert", "birth_death"], game.clan.your_cat.ID))
 
@@ -1069,7 +1072,7 @@ class Events:
 
         
         all_events = {}
-        if game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.status != 'newborn' or (game.clan.your_cat.status == "newborn" and game.clan.your_cat.dead):
+        if game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.status.rank != CatRank.NEWBORN or (game.clan.your_cat.status.rank == CatRank.NEWBORN and game.clan.your_cat.dead):
             with open(f"{resource_dir}{game.clan.your_cat.status.rank}.json",
                     encoding="ascii") as read_file:
                 all_events = ujson.loads(read_file.read())
@@ -1230,16 +1233,16 @@ class Events:
                 
     def generate_ceremony(self):
         if game.clan.your_cat.former_mentor:
-            if Cat.all_cats[game.clan.your_cat.former_mentor[-1]].dead and game.clan.your_cat.status == 'medicine cat':
-                ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status + '_ceremony_no_mentor'])
+            if Cat.all_cats[game.clan.your_cat.former_mentor[-1]].dead and game.clan.your_cat.status.rank == CatRank.MEDICINE_CAT:
+                ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status.rank + '_ceremony_no_mentor'])
 
             if game.clan.your_cat.forgiven < 10 and game.clan.your_cat.forgiven > 0:
                 try:
-                    ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status + '_ceremony forgiven'])
+                    ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status.rank + '_ceremony forgiven'])
                 except:
-                    ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status + '_ceremony'])
+                    ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status.rank + '_ceremony'])
             else:
-                ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status + '_ceremony'])
+                ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status.rank + '_ceremony'])
             former_mentor = Cat.all_cats[game.clan.your_cat.former_mentor[-1]]
             ceremony_txt = re.sub(r'(?<!\/)m_n(?!\/)', str(former_mentor.name), ceremony_txt)
             self.cat_dict["m_n"] = former_mentor
@@ -1405,9 +1408,9 @@ class Events:
     
     def check_leader(self, checks):
         if game.clan.leader:
-            if checks[3] != game.clan.leader.ID and game.clan.your_cat.status == 'leader' and not switch_get_value(Switch.window_open) and game.clan.your_cat.shunned == 0:
+            if checks[3] != game.clan.leader.ID and game.clan.your_cat.status.rank == CatRank.LEADER and not switch_get_value(Switch.window_open) and game.clan.your_cat.shunned == 0:
                 DeputyScreen('events screen')
-            elif checks[3] != game.clan.leader.ID and game.clan.your_cat.status == 'leader' and game.clan.your_cat.shunned == 0:
+            elif checks[3] != game.clan.leader.ID and game.clan.your_cat.status.rank == CatRank.LEADER and game.clan.your_cat.shunned == 0:
                 switch_append_list_value(Switch.windows_dict, 'deputy')
             
     def check_gain_kits(self, checks):
@@ -1477,19 +1480,19 @@ class Events:
             switch_set_value(Switch.retire, False)
     
     def generate_death_event(self):
-        if game.clan.your_cat.status == 'kitten':
+        if game.clan.your_cat.status.rank == CatRank.KITTEN:
             ceremony_txt = random.choice(self.b_txt['death_kit'])
             game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-        elif game.clan.your_cat.status == 'medicine cat apprentice':
+        elif game.clan.your_cat.status.rank == CatRank.MEDICINE_APPRENTICE:
             ceremony_txt = random.choice(self.b_txt['death_medapp'])
             game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-        elif game.clan.your_cat.status == 'apprentice':
+        elif game.clan.your_cat.status.rank == CatRank.APPRENTICE:
             ceremony_txt = random.choice(self.b_txt['death_app'])
             game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-        elif game.clan.your_cat.status == 'mediator apprentice':
+        elif game.clan.your_cat.status.rank == CatRank.MEDIATOR_APPRENTICE:
             ceremony_txt = random.choice(self.b_txt['death_mediapp'])
             game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-        elif game.clan.your_cat.status == 'elder':
+        elif game.clan.your_cat.status.rank == CatRank.ELDER:
             ceremony_txt = random.choice(self.b_txt['death_elder'])
             game.cur_events_list.insert(1, Single_Event(ceremony_txt, "alert", game.clan.your_cat.ID))
         else:
@@ -2444,7 +2447,7 @@ class Events:
         self.handle_murder(cat)
         cat.faith += round(random.uniform(-0.2,0.2), 2)
 
-        if cat.status == 'deputy' and cat.ID != game.clan.your_cat.ID and game.clan.your_cat.status == 'deputy' and not game.clan.your_cat.dead and not (game.clan.your_cat.status.is_outsider or game.clan.your_cat.status.is_exiled(CatGroup.PLAYER_CLAN)):
+        if cat.status == 'deputy' and cat.ID != game.clan.your_cat.ID and game.clan.your_cat.status.rank == CatRank.DEPUTY and not game.clan.your_cat.dead and not (game.clan.your_cat.status.is_outsider or game.clan.your_cat.status.is_exiled(CatGroup.PLAYER_CLAN)):
             cat.status = 'warrior'
 
             if game.clan.deputy.ID != game.clan.your_cat.ID:

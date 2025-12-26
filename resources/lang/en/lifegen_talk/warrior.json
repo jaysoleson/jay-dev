@@ -2847,7 +2847,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Hey. I saw you practicing your fighting techniques earlier.",
@@ -7628,8 +7628,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "Oh, y_c!! I've been meaning to ask you- would you like to go on a patrol with me?",
@@ -7662,7 +7662,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Hey um- y_c? I caught this extra squirrel whilst I was out hunting and uh-",
@@ -7688,7 +7688,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "[t_c blinks at you in the den, looking away for a moment before settling down beside you.]",
@@ -7714,7 +7714,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "tags": [
             "clan_has_kits"
@@ -8020,7 +8020,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "I love border patrols. Well, I don't love them, but I love pretending I'm on a quest to save c_n from badgers and threatening cats!",
@@ -9035,8 +9035,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_40",
-            "from_mate"
+            "from_mate",
+            "min_romance_40"
         ],
         "intro": [
             "[t_c sneaks up to you with a mouse in {PRONOUN/t_c/poss} mouth.]",

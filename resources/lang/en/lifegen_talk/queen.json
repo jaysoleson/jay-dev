@@ -358,9 +358,9 @@
         },
         "relationship": [
             "min_platonic_20",
-            "min_romantic_20",
             "min_comfort_50",
-            "min_like_20"
+            "min_like_20",
+            "min_romance_20"
         ],
         "intro": [
             "Hey, y_c ... do you ever get lonely sleeping here in the medicine den all by yourself? I know I would ...",
@@ -1574,7 +1574,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "tags": [
             "clan_has_kits"

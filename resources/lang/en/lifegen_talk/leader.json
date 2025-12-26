@@ -1460,7 +1460,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Hey, y_c! I just got a new scar today! Wanna come take a look?",
@@ -1891,7 +1891,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Hey. I saw you practicing your fighting techniques earlier.",
@@ -4256,8 +4256,8 @@
             ]
         },
         "relationship": [
-            "max_romantic_30",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "intro": [
             "Do not look at me as if your shunning is in any capacity my fault.",
@@ -4282,8 +4282,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_40",
-            "from_mate"
+            "from_mate",
+            "min_romance_40"
         ],
         "intro": [
             "I can see that look on your face. You're mad at me.",
@@ -4310,8 +4310,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_40",
-            "from_mate"
+            "from_mate",
+            "min_romance_40"
         ],
         "intro": [
             "... I'll talk to the Clan. I'll see if I can sway them.",

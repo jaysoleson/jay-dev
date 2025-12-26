@@ -2019,8 +2019,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "*Shudder* So many sick cats ... I gotta get out of this den, y_c. Come gather herbs with me later? We can make it into a contest!"
@@ -4922,9 +4922,9 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
             "min_comfort_50",
-            "from_mate"
+            "from_mate",
+            "min_romance_20"
         ],
         "intro": [
             "[t_c plops down next to you, {PRONOUN/t_c/poss} eyes watching y_kk play unwaveringly just a few paws away. y_kk lets out a ferocious meow and bounces around the moss ball, startling another kit from their slumber.]",
@@ -4947,9 +4947,9 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
             "min_comfort_50",
-            "from_mate"
+            "from_mate",
+            "min_romance_20"
         ],
         "intro": [
             "[t_c presses into your side and purrs.]",

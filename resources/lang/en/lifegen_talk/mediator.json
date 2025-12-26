@@ -767,8 +767,7 @@
         "y_c": {
             "status": [
                 "not_mediator",
-                "not_mediator apprentice",
-                "not_newborn"
+                "not_mediator apprentice"
             ],
             "condition": [
                 "blind:any:false"

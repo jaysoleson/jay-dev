@@ -390,7 +390,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Hey, y_c! I just got a new scar today! Wanna come take a look?",
@@ -432,8 +432,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "tags": [
             "clan_has_kits"
@@ -454,7 +454,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Hey, y_c, what are your thoughts on feathers as a nesting material?",
@@ -688,7 +688,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "What's that? One of the kits told you your ears are too big?",
@@ -3290,7 +3290,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "O-Oh! y_c, hi!",
@@ -3307,7 +3307,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Oh, hi!",
@@ -3325,7 +3325,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "y_c!",
@@ -3342,7 +3342,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Hey y_c! Want to cat-watch together?",
@@ -3389,7 +3389,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "... y_c?",
@@ -4106,6 +4106,28 @@
             "Horrible, right? I'll never understand them."
         ]
     },
+    "cool_4_1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "cool"
+            ],
+            "condition": [
+                "blind:any:false",
+                "hearing"
+            ]
+        },
+        "intro": [
+            "[t_c hums a catchy tune.]",
+            "Oh, hey y_c! I was coming up with a song.",
+            "Wanna hear it?",
+            "No? Oh come on!"
+        ]
+    },
     "cool_51": {
         "y_c": {
             "condition": [
@@ -4196,8 +4218,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "So, y_c, I hear you want romantic advice, huh? Well, you've come to the right cat. Everybody seems to fall head over paws for me, and I can't quite figure out why ...",
@@ -6129,9 +6151,9 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
             "min_trust_50",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_romance_20"
         ],
         "intro": [
             "[t_c walks into your den, staring at you as tears brim {PRONOUN/t_c/poss} eyes.]",
@@ -6499,7 +6521,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "[t_c sits next to you in your den, carefully setting a piece of fresh-kill next to you.]",
@@ -8565,7 +8587,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Hello, y_c. I thought I'd come pay you a visit here.",
@@ -9088,8 +9110,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "Hey, y_c. I was out collecting moss today, and I saved some for you. I know you like to use it to line your nest.",
@@ -9108,7 +9130,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Here. Have this. I saved it from the freshkill pile for you.",
@@ -9125,8 +9147,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "[You decide to strike up a conversation with t_c by telling {PRONOUN/t_c/object} about a particularly pretty flower grove you saw today.]",
@@ -9145,8 +9167,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "I saw this pretty flower out on the edge of the territory. It reminded me of you.",
@@ -9174,7 +9196,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "[t_c seems to relax into your side as {PRONOUN/t_c/subject} {VERB/t_c/settle/settles} down next to you, watching the sun set.]",
@@ -9198,8 +9220,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "I can't rest now, I've gotta train! You know that, y_c?",
@@ -10015,7 +10037,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Hey, y_c. I was out collecting moss today, and I saved some for you. I know you like to use it to line your nest.",
@@ -10031,7 +10053,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "[You decide to strike up a conversation with t_c by telling {PRONOUN/t_c/object} about a particularly pretty flower grove you saw today.]",
@@ -10050,8 +10072,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "I saw this pretty flower out on the edge of the territory. It reminded me of you.",
@@ -10486,7 +10508,7 @@
             "leaffall"
         ],
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Woah... it's getting cold again.",
@@ -10640,7 +10662,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Hey there, y_c! I was wondering how you get your pelt to shine like that. It looks nice!",
@@ -10696,8 +10718,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "from_mate"
+            "from_mate",
+            "min_romance_20"
         ],
         "intro": [
             "Oh, here you are, my sweetest y_c!",
@@ -12934,8 +12956,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "Oh, y_c, it's you!",
@@ -12955,7 +12977,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "[t_c does an impression of r_c that's so accurate, you can't help but crack up.]",
@@ -12976,7 +12998,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "[You catch t_c admiring you shyly out of the corner of your eye.]",
@@ -12994,8 +13016,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "[t_c seems to be avoiding you lately.]",
@@ -13014,8 +13036,8 @@
         "y_c": {},
         "t_c": {},
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "y_c, what do you do if you like someone you know you don't stand a chance with?",
@@ -14338,8 +14360,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "from_mate"
+            "from_mate",
+            "min_romance_20"
         ],
         "intro": [
             "[You compliment your mate, t_c, on {PRONOUN/t_c/poss} pretty eyes.]",
@@ -16233,8 +16255,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "... What? Why do you keep staring at me like that?",
@@ -16260,7 +16282,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "[You pay t_c a compliment on {PRONOUN/t_c/poss} beautiful pelt.]",
@@ -16284,8 +16306,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "Well, well, if it isn't the heartbreaker. What's going on, y_c? Reject any adoring cats today?",
@@ -16317,8 +16339,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "intro": [
             "Nice scent you've got on today, y_c! What is that, lavender?~",
@@ -16361,7 +16383,7 @@
             "leafbare"
         ],
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "[You see t_c bounding through the snow without a care in the world, as {PRONOUN/t_c/subject} {VERB/t_c/play/plays} with some kits.]",
@@ -26676,7 +26698,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "y_c! y_c! y_c!",
@@ -26704,7 +26726,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Woah... you're, like, really intimidating all the time, you know that?",
@@ -26724,7 +26746,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Hey, deputy cat- uh, y_c.",
@@ -27266,10 +27288,10 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
             "min_trust_50",
             "min_comfort_50",
-            "from_mate"
+            "from_mate",
+            "min_romance_20"
         ],
         "intro": [
             "You make me calm, I think. Whenever I'm around you, all my worries go away and...",
@@ -27284,10 +27306,10 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
             "min_trust_50",
             "min_comfort_50",
-            "from_mate"
+            "from_mate",
+            "min_romance_20"
         ],
         "intro": [
             "I don't remember the last time I felt this content.",
@@ -27305,10 +27327,10 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
             "min_trust_50",
             "min_comfort_50",
-            "from_mate"
+            "from_mate",
+            "min_romance_20"
         ],
         "intro": [
             "[t_c makes a beeline to you, looking extra overwhelmed today. {PRONOUN/t_c/subject/CAP} automatically {VERB/t_c/press/presses} {PRONOUN/t_c/poss} face into your fur when close enough, hiding from the outside world.]",
@@ -27496,8 +27518,8 @@
         },
         "t_c": {},
         "relationship": [
-            "min_romantic_50",
-            "from_mate"
+            "from_mate",
+            "min_romance_50"
         ],
         "intro": [
             "[In the middle of the night, you feel a sudden warmth at your side.]",
@@ -34024,8 +34046,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_40",
-            "non-mates"
+            "non-mates",
+            "min_romance_40"
         ],
         "intro": [
             "Hey, y_c? Can I ask you a question?",
@@ -38597,8 +38619,8 @@
             ]
         },
         "relationship": [
-            "max_romantic_30",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "intro": [
             "I'm certainly disappointed in your actions, y_c. Murder? Really?",
@@ -38621,8 +38643,8 @@
             ]
         },
         "relationship": [
-            "max_romantic_30",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "intro": [
             "[t_c pretends {PRONOUN/t_c/subject} {VERB/t_c/have/has} nothing to do with you as you try to strike up conversation.]"
@@ -38644,8 +38666,8 @@
             ]
         },
         "relationship": [
-            "max_romantic_30",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "intro": [
             "I'm finding it really hard to understand the motive behind your actions. Was it impulsive? Planned? Revenge?",
@@ -38688,8 +38710,8 @@
             ]
         },
         "relationship": [
-            "max_romantic_30",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "intro": [
             "[t_c has been distant every since you were shunned, swatting you away at any opportunity.]",
@@ -38707,8 +38729,8 @@
             ]
         },
         "relationship": [
-            "max_romantic_30",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "intro": [
             "Why did you do it? Why did you kill another cat?",
@@ -38759,9 +38781,9 @@
             ]
         },
         "relationship": [
-            "max_romantic_30",
             "max_trust_10",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "intro": [
             "My mind tells me I can't trust you, but I can, right?",
@@ -38785,9 +38807,9 @@
             ]
         },
         "relationship": [
-            "max_romantic_30",
             "min_comfort_20",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "intro": [
             "[t_c leans against your side, quietly succumbing to your presence.]",
@@ -38810,9 +38832,9 @@
             ]
         },
         "relationship": [
-            "min_romantic_40",
             "min_trust_10",
-            "from_mate"
+            "from_mate",
+            "min_romance_40"
         ],
         "intro": [
             "We will work through this. The Clan will forgive you.",
@@ -38835,8 +38857,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_40",
-            "from_mate"
+            "from_mate",
+            "min_romance_40"
         ],
         "intro": [
             "I understand why c_n shunned you, but do they have to be this brutal? Why do they have to retaliate with <i>more</i> violence?",
@@ -38859,8 +38881,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_40",
-            "from_mate"
+            "from_mate",
+            "min_romance_40"
         ],
         "intro": [
             "[t_c curls around you, covering your presence from judgemental stares and anger.]"
@@ -38876,8 +38898,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_40",
-            "from_mate"
+            "from_mate",
+            "min_romance_40"
         ],
         "intro": [
             "What if they don't forgive you? What if you're shunned forever? Or worse, exiled? Killed?",
@@ -38893,8 +38915,8 @@
             "shunned": true
         },
         "relationship": [
-            "max_romantic_30",
             "from_mate",
+            "max_romance_30",
             "min_like_20"
         ],
         "intro": [
@@ -38917,9 +38939,9 @@
             "shunned": true
         },
         "relationship": [
-            "max_romantic_30",
             "min_trust_10",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "intro": [
             "What, are you here to mock me too?"
@@ -38941,9 +38963,9 @@
             "shunned": true
         },
         "relationship": [
-            "max_romantic_30",
             "min_trust_10",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "intro": [
             "I don't understand how you're still with me. Wouldn't it be more beneficial for you to just leave?"
@@ -38965,9 +38987,9 @@
             "shunned": true
         },
         "relationship": [
-            "max_romantic_30",
             "min_trust_10",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "intro": [
             "I need some time to myself."
@@ -38989,9 +39011,9 @@
             "shunned": true
         },
         "relationship": [
-            "max_romantic_30",
             "min_trust_10",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "intro": [
             "You need to stop talking to me before the Clan starts getting suspicious of you."
@@ -39015,9 +39037,9 @@
             "shunned": true
         },
         "relationship": [
-            "max_romantic_30",
             "min_trust_10",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "tags": [],
         "intro": [
@@ -39033,9 +39055,9 @@
             "shunned": true
         },
         "relationship": [
-            "max_romantic_30",
             "min_trust_10",
-            "from_mate"
+            "from_mate",
+            "max_romance_30"
         ],
         "intro": [
             "Tell plike-t_k I love {PRONOUN/plike-t_k/object}, okay? I'm not able to get close enough to {PRONOUN/plike-t_k/object} without another cat getting in the way."
@@ -39050,9 +39072,9 @@
             "shunned": true
         },
         "relationship": [
-            "min_romantic_40",
             "min_comfort_15",
-            "from_mate"
+            "from_mate",
+            "min_romance_40"
         ],
         "intro": [
             "I don't deserve you, do you know that?",
@@ -39291,8 +39313,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_80",
-            "from_mate"
+            "from_mate",
+            "min_romance_80"
         ],
         "intro": [
             "This is really hard on me, y_c.",
@@ -39317,8 +39339,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_80",
-            "from_mate"
+            "from_mate",
+            "min_romance_80"
         ],
         "intro": [
             "Hi, y_c. I love you!",
@@ -43209,7 +43231,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "[You're digging a tunnel when suddenly a shadow swoops over the tunnel, knocking t_c in.]",
@@ -44764,7 +44786,7 @@
         },
         "relationship": [
             "from_mate",
-            "min_romantic_30"
+            "min_romance_30"
         ],
         "intro": [
             "Hm? Oh, hello, love. I'm glad you're here. Yes, I'm okay. Just very tired.",

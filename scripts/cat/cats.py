@@ -1236,14 +1236,14 @@ class Cat:
                 fetched_cat.update_mentor()
 
         if switch_get_value(Switch.request_apprentice) and self.mentor == game.clan.your_cat.ID:
-            if game.clan.your_cat.status == "queen":
-                self.status =  "queen's apprentice"
-            elif game.clan.your_cat.status == "mediator":
-                self.status = "mediator apprentice"
-            elif game.clan.your_cat.status == "medicine cat":
-                self.status = "medicine cat apprentice"
+            if game.clan.your_cat.status.rank == CatRank.QUEEN:
+                self.status.rank =  CatRank.QUEENS_APPRENTICE
+            elif game.clan.your_cat.status.rank == CatRank.MEDIATOR:
+                self.status = CatRank.MEDIATOR_APPRENTICE
+            elif game.clan.your_cat.status.rank == CatRank.MEDICINE_CAT:
+                self.status = CatRank.MEDICINE_APPRENTICE
             else:
-                self.status = "apprentice"
+                self.status = CatRank.APPRENTICE
             switch_set_value(Switch.request_apprentice, False)
 
         # If they have any apprentices, make sure they are still valid:

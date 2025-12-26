@@ -567,9 +567,9 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
             "min_trust_50",
-            "from_mate"
+            "from_mate",
+            "min_romance_20"
         ],
         "tags": [
             "focus"

@@ -3346,7 +3346,7 @@ class ProfileScreen(Screens):
                         self.exit_df_button.disable()
                 self.affair_button.show()
 
-            if game.clan.your_cat.status == 'kitten':
+            if game.clan.your_cat.status.rank == CatRank.KITTEN:
                 if self.join_df_button:
                     self.join_df_button.hide()
                 elif self.exit_df_button:

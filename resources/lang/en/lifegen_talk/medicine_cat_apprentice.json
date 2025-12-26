@@ -659,8 +659,7 @@
         "y_c": {
             "status": [
                 "not_medicine cat",
-                "not_medicine cat apprentice",
-                "not_newborn"
+                "not_medicine cat apprentice"
             ],
             "condition": [
                 "blind:any:false"
@@ -887,7 +886,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "intro": [
             "Hm? This herb? Oh, it's lavender.",

@@ -722,8 +722,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "tags": [
             "focus"
@@ -862,8 +862,8 @@
             ]
         },
         "relationship": [
-            "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_romance_20"
         ],
         "tags": [
             "focus"
@@ -1102,7 +1102,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "tags": [
             "focus"
@@ -1220,7 +1220,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "tags": [
             "focus"
@@ -1246,7 +1246,7 @@
             ]
         },
         "relationship": [
-            "min_romantic_20"
+            "min_romance_20"
         ],
         "tags": [
             "focus"
