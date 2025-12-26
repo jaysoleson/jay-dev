@@ -230,11 +230,9 @@ def generate_event_objects(event_triggered, biome, frequency) -> list:
     load_name = f"{file_path}_{frequency}"
 
     # LG
-    faith_event = False
     if event_triggered != "faith":
         file_path = f"{event_triggered}/{biome}.json"
     else:
-        faith_event = True
         file_path = f"{event_triggered}.json"
 
     try:

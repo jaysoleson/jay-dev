@@ -282,6 +282,9 @@ def event_for_cat(
         "not_skill": _check_cat_not_skills,
         "backstory": _check_cat_backstory,
         "gender": _check_cat_gender,
+
+        # LG
+        "min_max_faith": _check_cat_faith
     }
 
     for param, func in func_lookup.items():
@@ -427,6 +430,10 @@ def _check_cat_backstory(cat, backstories: list) -> bool:
 
     return False
 
+def _check_cat_faith(cat, min_max_faith: list) -> bool:
+    if cat.faith < min_max_faith[0] or cat.faith > min_max_faith[1]:
+        return False
+    return True
 
 def _check_cat_gender(cat, genders: list) -> bool:
     """
