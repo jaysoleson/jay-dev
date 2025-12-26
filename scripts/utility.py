@@ -1031,7 +1031,7 @@ def create_new_cat(
 
         # CHECKMERGE
         # ALL lifegen new_cat stuff. df, df mentors
-
+        new_cat.pelt.inventory = new_cat.pelt.accessory
         # newbie thought
         new_cat.thought = thought
 

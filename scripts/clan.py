@@ -1293,7 +1293,7 @@ class Clan:
         self.load_herb_supply(game.clan)
         self.load_future_events(game.clan)
         self.load_disaster(game.clan)
-        # self.load_accessories()
+        self.load_accessories()
         if game.clan.game_mode != "classic":
             self.load_freshkill_pile(game.clan)
         
