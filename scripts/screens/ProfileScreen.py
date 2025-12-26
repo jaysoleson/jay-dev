@@ -3350,7 +3350,7 @@ class ProfileScreen(Screens):
             for i in self.accessory_buttons:
                 self.accessory_buttons[i].kill()
 
-            if get_Clan_setting('all accessories'):
+            if get_clan_setting('all accessories'):
                 self.delete_accessory.disable()
             else:
                 self.delete_accessory.enable()
@@ -3765,23 +3765,29 @@ class ProfileScreen(Screens):
             )
 
         acc_dict = {
-            "acc_herbs": cat.pelt.plant_accessories,
-            "acc_wild": cat.pelt.wild_accessories,
-            "collars": cat.pelt.collars,
-            "acc_flower": cat.pelt.flower_accessories,
-            "acc_plant2": cat.pelt.plant2_accessories,
-            "acc_snake": cat.pelt.snake_accessories,
-            "acc_smallAnimal": cat.pelt.smallAnimal_accessories,
-            "acc_deadInsect": cat.pelt.deadInsect_accessories,
-            "acc_aliveInsect": cat.pelt.aliveInsect_accessories,
-            "acc_fruit": cat.pelt.fruit_accessories,
-            "acc_crafted": cat.pelt.crafted_accessories,
-            "acc_tail2": cat.pelt.tail2_accessories
+            "acc_herbs": Pelt.plant_accessories,
+            "acc_wild": Pelt.wild_accessories,
+            "collars": Pelt.collar_accessories,
+            # "acc_flower": cat.pelt.flower_accessories,
+            # "acc_plant2": cat.pelt.plant2_accessories,
+            # "acc_snake": cat.pelt.snake_accessories,
+            # "acc_smallAnimal": cat.pelt.smallAnimal_accessories,
+            # "acc_deadInsect": cat.pelt.deadInsect_accessories,
+            # "acc_aliveInsect": cat.pelt.aliveInsect_accessories,
+            # "acc_fruit": cat.pelt.fruit_accessories,
+            # "acc_crafted": cat.pelt.crafted_accessories,
+            # "acc_tail2": cat.pelt.tail2_accessories
         }
 
         for acc_string, acc_list in acc_dict.items():
             if accessory in acc_list:
-                self.cat_list_buttons[str(cat) + str(accessory) + "_sprite"] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100 + pos_x, 365 + pos_y), (50, 50))), sprites.sprites[acc_string + accessory + cat_sprite], manager=MANAGER)
+                self.cat_list_buttons[
+                    str(cat) + str(accessory) + "_sprite"
+                    ] = pygame_gui.elements.UIImage(
+                        ui_scale(pygame.Rect((100 + pos_x, 365 + pos_y), (50, 50))),
+                        sprites.sprites[acc_string + accessory + cat_sprite],
+                        manager=MANAGER
+                        )
                 break
     
     def generate_inventory(self, value, pos_x, pos_y):

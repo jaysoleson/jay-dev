@@ -1378,27 +1378,27 @@ class Clan:
                 if "PLANT" in possible_accs:
                     acc_list.extend(Pelt.plant_accessories)
                 if "COLLAR" in possible_accs:
-                    acc_list.extend(Pelt.collars)
-                if "FLOWER" in possible_accs:
-                    acc_list.extend(Pelt.flower_accessories)
-                if "PLANT2" in possible_accs:
-                    acc_list.extend(Pelt.plant2_accessories)
-                if "SNAKE" in possible_accs:
-                    acc_list.extend(Pelt.snake_accessories)
-                if "SMALLANIMAL" in possible_accs:
-                    acc_list.extend(Pelt.smallAnimal_accessories)
-                if "DEADINSECT" in possible_accs:
-                    acc_list.extend(Pelt.deadInsect_accessories)
-                if "ALIVEINSECT" in possible_accs:
-                    acc_list.extend(Pelt.aliveInsect_accessories)
-                if "FRUIT" in possible_accs:
-                    acc_list.extend(Pelt.fruit_accessories)
-                if "CRAFTED" in possible_accs:
-                    acc_list.extend(Pelt.crafted_accessories)
-                if "TAIL2" in possible_accs:
-                    acc_list.extend(Pelt.tail2_accessories)
+                    acc_list.extend(Pelt.collar_accessories)
+                # if "FLOWER" in possible_accs:
+                #     acc_list.extend(Pelt.flower_accessories)
+                # if "PLANT2" in possible_accs:
+                #     acc_list.extend(Pelt.plant2_accessories)
+                # if "SNAKE" in possible_accs:
+                #     acc_list.extend(Pelt.snake_accessories)
+                # if "SMALLANIMAL" in possible_accs:
+                #     acc_list.extend(Pelt.smallAnimal_accessories)
+                # if "DEADINSECT" in possible_accs:
+                #     acc_list.extend(Pelt.deadInsect_accessories)
+                # if "ALIVEINSECT" in possible_accs:
+                #     acc_list.extend(Pelt.aliveInsect_accessories)
+                # if "FRUIT" in possible_accs:
+                #     acc_list.extend(Pelt.fruit_accessories)
+                # if "CRAFTED" in possible_accs:
+                #     acc_list.extend(Pelt.crafted_accessories)
+                # if "TAIL2" in possible_accs:
+                #     acc_list.extend(Pelt.tail2_accessories)
                 if "NOTAIL" in c.pelt.scars or "HALFTAIL" in c.pelt.scars:
-                    for acc in Pelt.tail_accessories + Pelt.tail2_accessories:
+                    for acc in Pelt.tail_accessories:
                         if acc in acc_list:
                             try:
                                 acc_list.remove(acc)

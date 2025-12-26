@@ -1261,6 +1261,33 @@ class Pelt:
 
     def get_sprites_name(self):
         return Pelt.pattern_sprite_names[self.name]
+    
+    def is_wildcard_tortie(self):
+        """
+        LIFEGEN: Checks if a pelt is a wildcard for LG achievement purposes
+        """
+        not_wildcard_patterns = ['tabby', 'ticked', 'mackerel', 'classic', 'agouti', 'smoke', 'single']
+        if self.name == "Tortie" or self.name == "Calico":
+            ##Check if wildcard colour combo
+            if (self.colour == "WHITE" and not self.tortie_colour == "WHITE"):
+                return True
+            elif ((self.colour in self.black_colours or self.colour in self.white_colours) and self.tortie_colour in Pelt.black_colours or self.tortie_colour in self.white_colours):
+                return True
+            elif ((self.colour in self.ginger_colours) and self.tortie_colour in self.ginger_colours or self.tortie_colour in self.white_colours):
+                return True
+            elif ((self.colour in self.brown_colours) and self.tortie_colour in self.white_colours):
+                return True
+            ##Check if wildcard pattern combo       
+            ##rewritten wildcard pattern combo
+            if self.tortie_base in self.tabbies and self.tortie_pattern != "single" and self.tortie_base != self.tortie_pattern:
+                return True
+            if self.tortie_base in self.spotted and self.tortie_pattern != "single" and self.tortie_base != self.tortie_pattern:
+                return True
+            if self.tortie_base in self.exotic and self.tortie_pattern != "single" and self.tortie_base != self.tortie_pattern:
+                return True
+            if self.tortie_base in self.plain and self.tortie_pattern not in not_wildcard_patterns and self.tortie_base != self.tortie_pattern:
+                return True
+            return False
 
 
 def _describe_pattern(cat, short=False):

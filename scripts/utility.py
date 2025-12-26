@@ -4254,6 +4254,146 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
 
     return text
 
+def check_achievements(Cat, eventspage=False):
+    # CHECKMERGE
+    # this scares me 
+    you = game.clan.your_cat
+    achievements = set()
+    murder_history = you.history.murder
+    count_alive_cats = 0
+    if murder_history:
+        if 'is_murderer' in murder_history:
+            num_victims = len(murder_history["is_murderer"])
+            if num_victims >= 0:
+                achievements.add("1")
+            if num_victims >= 5:
+                achievements.add("2")
+            if num_victims >= 20:
+                achievements.add("3")
+            if num_victims >= 50:
+                achievements.add("4")
+    else:
+        if you.moons >= 120:
+            achievements.add("25")
+        
+
+    for cat in Cat.all_cats_list:
+        if cat.moons >= 0:
+            if cat.pelt.tortie_base and cat.gender == 'male':
+                achievements.add("5")
+            if cat.insulted:
+                achievements.add("29")
+            if (cat.name.prefix == "Coffee" and cat.name.suffix == "dot") or (cat.name.prefix == "Chibi" and cat.name.suffix == "Galaxies"):
+                achievements.add("30")
+            if cat.status.rank == CatRank.APPRENTICE and cat.name.prefix == "Pea" and cat.pelt.white_colours:
+                achievements.add("33")
+            if cat.status.rank == CatRank.KITTEN and cat.moons > 5:
+                achievements.add("34")
+            if cat.backstory == 'dfkit' or cat.backstory == 'dfkit2':
+                achievements.add("35")
+            ##WILDCARD check, because I've lost control of my life
+            ##Actual check for wildcardness
+            if cat.pelt.is_wildcard_tortie():
+                achievements.add("6")
+
+            ##code block for achievement 31
+            achieve31RankList = [CatRank.MEDIATOR, CatRank.WARRIOR, CatRank.LEADER]
+            achieve31UsedRanks = []
+            if len(cat.mates) >= 2:
+                catMateIDs = cat.mates.copy()
+                if cat.status.rank in achieve31RankList:
+                    achieve31UsedRanks.append(cat.status.rank)
+                    for cat in Cat.all_cats_list:
+                        if cat.ID in catMateIDs:
+                            if (cat.status.rank in achieve31RankList) and (cat.status.rank not in achieve31UsedRanks):
+                                achieve31UsedRanks.append(cat.status.rank)
+                        countranks = 0
+                        for i in achieve31UsedRanks:
+                            if i in achieve31RankList:
+                                countranks += 1
+                            if countranks >= 3:
+                                achievements.add("31")
+            ##achievement block to check MC has a df mate for achieve 36. Not a copy of above code. Above code checks for Any cats
+            mcMateIDs = you.mates 
+            #for loop list is in case you have multiple mates to search through. 
+            for i in mcMateIDs:
+                if cat.ID in mcMateIDs and you.dead is False:
+                    #Thank you Jay, for helping me figure out history stuff! 
+                    if cat.history:
+                        if cat.history.beginning:
+                            if "encountered" in cat.history.beginning and cat.history.beginning["encountered"] is True and cat.df is True:
+                                achievements.add("36")
+            #code for achievement 23 + 24
+            if game.clan.age >= 1:
+                if get_living_clan_cat_count(Cat) == 0:
+                    achievements.add('40')
+                elif get_living_clan_cat_count(Cat) == 1 and you.status.alive_in_player_clan:
+                    achievements.add('23')
+                elif get_living_clan_cat_count(Cat) >= 100:
+                    achievements.add('24')
+                elif get_living_clan_cat_count(Cat) >= 400:
+                    achievements.add('39')
+
+    if you.joined_df:
+        achievements.add("7")
+    
+    if len(you.former_apprentices) >= 1:
+        achievements.add("8")
+    if len(you.former_apprentices) >= 5:
+        achievements.add("9")
+    
+    if you.inheritance.get_children():
+        achievements.add("10")
+    for i in you.relationships.keys():
+        if you.relationships.get(i).like <= -60:
+            achievements.add("11")
+        if you.relationships.get(i).romance >= 60:
+            achievements.add('12')
+        
+    if len(you.mates) >= 5:
+        achievements.add('13')
+    if you.status.rank == CatRank.WARRIOR:
+        achievements.add('14')
+    elif you.status.rank == CatRank.MEDICINE_CAT:
+        achievements.add('15')
+    elif you.status.rank == CatRank.MEDIATOR:
+        achievements.add('16')
+    elif you.status.rank == CatRank.DEPUTY:
+        achievements.add('17')
+    elif you.status.rank == CatRank.LEADER:
+        achievements.add('18')
+    elif you.status.rank == CatRank.ELDER:
+        achievements.add('19')
+    elif you.status.rank == CatRank.QUEEN:
+        achievements.add('32')
+    
+    if you.moons >= 200:
+        achievements.add('20')
+    if you.status.is_exiled(CatGroup.PLAYER_CLAN_ID):
+        achievements.add('21')
+    elif you.status.is_outsider:
+        achievements.add('22')
+        
+    if you.experience >= 100:
+        achievements.add('26')
+    if you.experience >= 200:
+        achievements.add('27')
+    if you.experience >= 300:
+        achievements.add('28')
+    
+    for i in game.clan.achievements:
+        achievements.add(i)
+
+    new_achievements_list = []
+    for item in achievements:
+        if item not in game.clan.achievements:
+            game.clan.achievements.append(item)
+            if eventspage:
+                new_achievements_list.append(item)
+    if eventspage:
+        return new_achievements_list
+
+
 
 def quit(savesettings=False, clearevents=False):
     """

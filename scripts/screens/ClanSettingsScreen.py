@@ -8,6 +8,7 @@ from typing import Dict
 import pygame
 import pygame_gui
 import ujson
+from scripts.screens.enums import GameScreen
 
 from scripts.cat.cats import Cat
 from scripts.game_structure.game.settings import game_setting_get
@@ -100,7 +101,7 @@ class ClanSettingsScreen(Screens):
                 return
             elif "achievements" in self.checkboxes_text:
                 if event.ui_element == self.checkboxes_text["achievements"]:
-                    self.change_screen("achievement screen")
+                    self.change_screen(GameScreen.ACHIEVEMENTS)
             self.handle_checkbox_events(event)
             self.menu_button_pressed(event)
             self.mute_button_pressed(event)
