@@ -68,7 +68,7 @@ class AchievementScreen(Screens):
         # Determine stats
         stats_text = "Achievements:"
         for i in game.clan.achievements:
-            stats_text += "\n" + a_txt[i][0] + " - " + a_txt[i][1] 
+            stats_text += f"\n <b>{a_txt[i][0]}</b> - {a_txt[i][1]}"
 
         self.stats_box = pygame_gui.elements.UITextBox(
             stats_text,

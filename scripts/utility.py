@@ -2785,6 +2785,10 @@ def generate_sprite(
     acc_hidden=False,
     always_living=False,
     disable_sick_sprite=False,
+
+    # LG
+    only_accessory=False,
+    accessory_to_render=None
 ) -> pygame.Surface:
     """
     Generates the sprite for a cat, with optional arguments that will override certain things.
@@ -3069,8 +3073,24 @@ def generate_sprite(
         # draw accessories
         from scripts.cat.pelts import Pelt
 
-        if not acc_hidden and cat.pelt.accessory:
-            cat_accessories = cat.pelt.accessory
+        if only_accessory:
+            proceed = (
+                not acc_hidden
+            )
+        else:
+            proceed = (
+                not acc_hidden and cat.pelt.inventory
+            )
+
+        if proceed:
+            if only_accessory:
+                new_sprite = pygame.Surface(
+                    (sprites.size, sprites.size), pygame.HWSURFACE | pygame.SRCALPHA
+                )
+                cat_accessories = [accessory_to_render]
+            else:
+                cat_accessories = cat.pelt.accessory
+
             categories = [
                 "collar_accessories",
                 "tail_accessories",
@@ -3112,6 +3132,8 @@ def generate_sprite(
                                 # CHECKMERGE: LIFEGEN ACCS
                             )
 
+        if only_accessory:
+            return new_sprite
         # Apply fading fog
         if (
             cat.pelt.opacity <= 97

@@ -15,7 +15,7 @@ from scripts.game_structure import constants
 
 import ujson
 
-from scripts.utility import event_text_adjust, process_text, chunks, get_cluster
+from scripts.utility import event_text_adjust, process_text, chunks, get_cluster, generate_sprite
 
 from .Screens import Screens
 
@@ -797,18 +797,13 @@ class ProfileScreen(Screens):
         self.the_cat = Cat.all_cats.get(switch_get_value(Switch.cat))
 
         # LG: accessory bull shit
-        # if get_clan_setting('all accessories'):
-        #     self.cat_inventory = game.clan.load_accessories()
-        # else:
-        #     self.cat_inventory = self.the_cat.pelt.inventory
+        if get_clan_setting('all accessories'):
+            self.cat_inventory = game.clan.load_accessories()
+        else:
+            self.cat_inventory = self.the_cat.pelt.inventory
         
         # temp before i fix load_accessories
-        self.cat_inventory = self.the_cat.pelt.inventory
-
-        
-        if self.the_cat.pelt.accessory:
-            if self.the_cat.pelt.accessory not in self.the_cat.pelt.inventory:
-                self.the_cat.pelt.inventory.append(self.the_cat.pelt.accessory)
+        # self.cat_inventory = self.the_cat.pelt.inventory
 
         for acc in self.the_cat.pelt.accessory:
             if acc not in self.the_cat.pelt.inventory:
@@ -926,7 +921,7 @@ class ProfileScreen(Screens):
         self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((100, 200), (150, 150))),
             pygame.transform.scale(
-                self.the_cat.sprite, ui_scale_dimensions((150, 150))
+                generate_sprite(self.the_cat), ui_scale_dimensions((150, 150))
             ),
             manager=MANAGER,
         )
@@ -2861,7 +2856,7 @@ class ProfileScreen(Screens):
         if self.cat_inventory:
             for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len)], start = start_index):
                 if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
-                    self.inventory_display(cat, cat_sprite, accessory, pos_x, pos_y)
+                    self.inventory_display(cat, accessory, pos_x, pos_y)
                     self.accessories_list.append(accessory)
                     pos_x += 60
                     if pos_x >= 550:
@@ -3728,26 +3723,10 @@ class ProfileScreen(Screens):
             value = b_2data.index(b_data)
             self.generate_inventory(value, pos_x, pos_y)
 
-        self.profile_elements["cat_image"].kill()
-        self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((100, 200), (150, 150))),
-            pygame.transform.scale(
-                self.the_cat.sprite, ui_scale_dimensions((150, 150))
-            ),
-            manager=MANAGER,
-        )
-        self.profile_elements["cat_image"].disable()
-
-        self.profile_elements["cat_info_column1"].kill()
-        self.profile_elements["cat_info_column1"] = UITextBoxTweaked(
-            self.generate_column1(self.the_cat),
-            ui_scale(pygame.Rect((300, 220), (180, 200))),
-            object_id=get_text_box_theme("#text_box_22_horizleft"),
-            line_spacing=1,
-            manager=MANAGER,
-        )
+        self.clear_profile()
+        self.build_profile()
     
-    def inventory_display(self, cat, cat_sprite, accessory, pos_x, pos_y):
+    def inventory_display(self, cat, accessory, pos_x, pos_y):
         """
         Creates the individual accessory buttons
         """
@@ -3760,14 +3739,13 @@ class ProfileScreen(Screens):
         self.accessory_buttons[str(accessory) + "_select"] = UIImageButton(
             ui_scale(pygame.Rect((100 + pos_x, 365 + pos_y), (50, 50))),
             "",
-            tool_tip_text=accessory,
             object_id=button_id
             )
 
-        acc_dict = {
-            "acc_herbs": Pelt.plant_accessories,
-            "acc_wild": Pelt.wild_accessories,
-            "collars": Pelt.collar_accessories,
+        all_accessories = [
+            Pelt.plant_accessories,
+            Pelt.wild_accessories,
+            Pelt.collar_accessories,
             # "acc_flower": cat.pelt.flower_accessories,
             # "acc_plant2": cat.pelt.plant2_accessories,
             # "acc_snake": cat.pelt.snake_accessories,
@@ -3777,15 +3755,16 @@ class ProfileScreen(Screens):
             # "acc_fruit": cat.pelt.fruit_accessories,
             # "acc_crafted": cat.pelt.crafted_accessories,
             # "acc_tail2": cat.pelt.tail2_accessories
-        }
+        ]
 
-        for acc_string, acc_list in acc_dict.items():
+        for acc_list in all_accessories:
             if accessory in acc_list:
+                acc_sprite = generate_sprite(self.the_cat, only_accessory=True, accessory_to_render=accessory)
                 self.cat_list_buttons[
                     str(cat) + str(accessory) + "_sprite"
                     ] = pygame_gui.elements.UIImage(
                         ui_scale(pygame.Rect((100 + pos_x, 365 + pos_y), (50, 50))),
-                        sprites.sprites[acc_string + accessory + cat_sprite],
+                        acc_sprite,
                         manager=MANAGER
                         )
                 break
@@ -3855,7 +3834,7 @@ class ProfileScreen(Screens):
         if self.cat_inventory:
             for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len + start_index)], start = start_index):
                 if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
-                    self.inventory_display(cat, cat_sprite, accessory, pos_x, pos_y)
+                    self.inventory_display(cat, accessory, pos_x, pos_y)
                     pos_x += 60
                     if pos_x >= 550:
                         pos_x = 0

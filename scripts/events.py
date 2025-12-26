@@ -450,7 +450,7 @@ class Events:
                 self.generate_kit_events() 
             elif game.clan.your_cat.moons == 6:
                 self.generate_app_ceremony()
-            elif game.clan.your_cat.rank.status.is_any_apprentice_rank():
+            elif game.clan.your_cat.status.rank.is_any_apprentice_rank():
                 self.generate_events()
             elif game.clan.your_cat.status.rank in [CatRank.WARRIOR, CatRank.MEDICINE_CAT, CatRank.MEDIATOR, CatRank.QUEEN] and not game.clan.your_cat.w_done and game.clan.your_cat.shunned == 0:
                 self.generate_ceremony()
@@ -479,7 +479,7 @@ class Events:
                 if game.clan.your_cat.shunned == 0:
                     self.check_retire()
 
-            if random.randint(1,15) == 1 and game.clan.your_cat.status.rank != CatRank.NEWBORN:
+            if not int(random.random() * 15) and game.clan.your_cat.status.rank != CatRank.NEWBORN:
                 self.gain_acc()
 
         elif game.clan.your_cat.dead and game.clan.your_cat.dead_for == 0:
@@ -1069,7 +1069,7 @@ class Events:
 
         
         all_events = {}
-        if game.clan.your_cat.status.is_ and game.clan.your_cat.status != 'newborn' or (game.clan.your_cat.status == "newborn" and game.clan.your_cat.dead):
+        if game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.status != 'newborn' or (game.clan.your_cat.status == "newborn" and game.clan.your_cat.dead):
             with open(f"{resource_dir}{game.clan.your_cat.status.rank}.json",
                     encoding="ascii") as read_file:
                 all_events = ujson.loads(read_file.read())
