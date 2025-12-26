@@ -65,8 +65,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_mentor"
+            "from_mentor",
+            "min_like_20"
         ],
         "intro": [
             "You've been doing a fine job, y_c! Keep this up and you'll be getting your medicine cat name soon.",
@@ -108,7 +108,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c! y_c!!!",
@@ -186,7 +186,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "Oh my StarClan, I just remembered the craziest story from when I was a kit!!!",
@@ -280,7 +280,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey, get this one! What did the herb say to comfort its friend, who was afraid of growing old?",
@@ -303,7 +303,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "What do you think about taking on another apprentice?",
@@ -391,7 +391,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Eeek! The half-moon meeting is coming up! Aren't you excited?",
@@ -413,7 +413,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "Hey, flea-brain! I've been eyeing this huge thrush on the freshkill pile all day - wanna share it?",
@@ -438,7 +438,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Sorry, is someone talking to me right now?"
@@ -457,7 +457,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Can't you see I'm busy, mousebrain? Go bother someone else!"
@@ -478,7 +478,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Go away!!!"
@@ -503,7 +503,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Hey, y_c. You're looking smaller than usual. Maybe it's time to catch up on your training.",
@@ -531,7 +531,7 @@
             ]
         },
         "relationship": [
-            "max_platonic_50"
+            "max_like_50"
         ],
         "intro": [
             "[You're visiting the medicine den for a routine checkup, at t_c's insistence.]",
@@ -634,7 +634,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Sorry, fuzzface. As much as I'd love to talk today, the medicine den is totally swamped with patients!",
@@ -956,10 +956,10 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "adopted_sibling",
             "sibling",
-            "half_sibling"
+            "half_sibling",
+            "min_like_20"
         ],
         "intro": [
             "Hey. Bet I could beat ya in a fight!",
@@ -1237,7 +1237,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "... Oh! y_c? How long have you been there? I'm sorry, I wasn't ignoring you.",
@@ -1261,7 +1261,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You're wandering on a solo hunting patrol when the soft scent of herbs flutters into your nose. Is that t_c?]",
@@ -1439,7 +1439,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Oh, StarClan. When I first became an apprentice, I thought this role would be so much better than being a warrior! I still do, of course. It's so rewarding. But... it's way more labor intensive than I used to think!",
@@ -1510,7 +1510,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I love my role as a medicine cat.",
@@ -1538,7 +1538,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c, I'm lonely today. Wanna sit in the medicine den with me?",
@@ -1664,7 +1664,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c glances at you, tail flicking in annoyance.]",
@@ -1745,7 +1745,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "What do you want?",
@@ -2555,7 +2555,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c is practically a whirlwind of herbs and fur as {PRONOUN/t_c/subject} {VERB/t_c/try/tries} to juggle taking inventory, organizing herbs, tending to patients, and more daily tasks at the same time.]",
@@ -2598,8 +2598,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_mentor"
+            "from_mentor",
+            "min_like_20"
         ],
         "intro": [
             "[While the rest of the Clan is fast asleep in their nests, you are woken up by a paw poking you in the side.]",
@@ -2793,7 +2793,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "y_c, what are you doing here?",
@@ -2982,7 +2982,7 @@
             "greenleaf"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You find t_c digging through {PRONOUN/t_c/poss} stores, cleaning out herbs that have been shriveled past the point of usefulness by the greenleaf heat.]",
@@ -3008,8 +3008,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_50"
+            "min_trust_50",
+            "min_like_20"
         ],
         "intro": [
             "I really need advice, y_c. It looks like someone's thoroughly picked one of my herb patches.",
@@ -3035,7 +3035,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I need to gather some herbs close to the o_c_n border.",
@@ -3057,7 +3057,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c creeps up from behind you, a few herbs in {PRONOUN/t_c/poss} mouth. {PRONOUN/t_c/subject/CAP} {VERB/t_c/drop/drops} the herbs where no other cat will see.]",
@@ -3082,7 +3082,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [],
         "intro": [
@@ -3106,7 +3106,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [],
         "intro": [
@@ -3147,8 +3147,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_50"
+            "min_trust_50",
+            "min_like_20"
         ],
         "intro": [
             "Shhh, don't say anything. r_m is taking too long, in my personal, professional opinion.",
@@ -3190,8 +3190,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "from_mentor"
+            "from_mentor",
+            "max_like_-50"
         ],
         "intro": [
             "y_c, can't you see I am quite busy?",
@@ -3359,7 +3359,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c is going through the herb supplies, meticulously slicing off discolored or mold-speckled sections of leaves.]",
@@ -3410,7 +3410,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "I made some dividers out of sticks and rocks to keep the herbs separated! Oh, but if they're a problem, I can take them back out.",
@@ -3463,8 +3463,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "intro": [
             "neutral-r_w-sweet offered to help me sort the medicine stores earlier today. I appreciated it, but I wasn't sure I trusted {PRONOUN/neutral-r_w-sweet/object} to help since {PRONOUN/neutral-r_w-sweet/subject}{VERB/neutral-r_w-sweet/'re/'s} not exactly familiar with herbs, so I said I was okay.",
@@ -3492,8 +3492,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_30",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_30"
         ],
         "intro": [
             "[t_c gazes around the medicine den, admiring the stockpiled herbs. When {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you, {PRONOUN/t_c/subject} {VERB/t_c/smile/smiles} self-consciously.]",
@@ -3525,7 +3525,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I was helping r_m treat r_i's injury, but I think I might've overstepped. r_m was leading, you know?",
@@ -3561,7 +3561,7 @@
             "leafbare"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "There's a cold draft blowing into the medicine den. Could you help me move some of the nests out of the way?",
@@ -3597,7 +3597,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "Whenever I gather herbs, I want to collect more than I think we'll need, in case there's an outbreak or an attack or anything else unexpected.",
@@ -3624,8 +3624,8 @@
             "leafbare"
         ],
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "intro": [
             "It's so cold today. I'm really worried it's going to make r_s's condition a lot worse.",
@@ -3648,8 +3648,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "intro": [
             "Have you checked on r_s recently? I think {PRONOUN/r_s/subject}{VERB/r_s/'re/'s} looking all right, but I'd like your opinion.",
@@ -4034,7 +4034,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "connected"
@@ -4070,7 +4070,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_10"
+            "max_like_-10"
         ],
         "intro": [
             "Why do warriors all think that herbs work like magic?",
@@ -4098,7 +4098,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "You'd think that after all these moons, you'd know the difference between tansy and dandelion.",
@@ -4127,7 +4127,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "There's a thick patch of moss growing in the crook of a tree, just a bit from camp.",
@@ -4225,7 +4225,7 @@
             "leafbare"
         ],
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "y_c, stop. Let me see your paws.",
@@ -4258,7 +4258,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_20"
+            "max_like_-20"
         ],
         "intro": [
             "[t_c prods your injury just a bit too hard as {PRONOUN/t_c/subject} {VERB/t_c/inspect/inspects} it. You yelp.]",
@@ -4579,7 +4579,7 @@
             "newleaf"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "The betony patch is getting waterlogged with all the melting snow. Would you come with me to figure out how to drain it?",
@@ -4604,7 +4604,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "c_n is lucky to have a medicine cat like plike-r_m-silly.",
@@ -4663,8 +4663,8 @@
             ]
         },
         "relationship": [
-            "max_platonic_50",
-            "max_dislike_15"
+            "max_dislike_15",
+            "max_like_50"
         ],
         "intro": [
             "I've seen you staring off into space sometimes, you know.",
@@ -4853,7 +4853,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "Is it crazy to say that I only look forward to the half-moon meetings just for the chance to see tg_c again?",
@@ -4987,7 +4987,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_40"
+            "min_like_40"
         ],
         "intro": [
             "y_c, come here. You're not busy.",
@@ -5017,9 +5017,9 @@
             ]
         },
         "relationship": [
-            "min_dislike_15",
             "from_your_kit",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "max_like_-15"
         ],
         "intro": [
             "[Despite your pleas for help, the medicine cats refuse to treat you. In a last-ditch effort, you approach t_c, hoping {PRONOUN/t_c/subject} would have some pity for {PRONOUN/t_c/poss} {PRONOUN/y_c/parent}.]",
@@ -5063,7 +5063,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_40"
+            "max_like_-40"
         ],
         "intro": [
             "Sorry, y_c. I can't give you anything. All the herbs are in short supply right now.",
@@ -5086,7 +5086,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_40"
+            "max_like_-40"
         ],
         "intro": [
             "The only treatment for that sick moral code of yours would be deathberries."
@@ -5108,7 +5108,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_40"
+            "max_like_-40"
         ],
         "intro": [
             "[t_c bristles in anger as you approach the medicine den.]",
@@ -5136,7 +5136,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "[Tired of your Clanmates' hushed whispers and scornful glares each time they pass by your little corner, you decide to test your luck in the medicine den.]",
@@ -5165,8 +5165,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_30",
-            "littermate"
+            "littermate",
+            "min_like_30"
         ],
         "tags": [
             "not_accomplice"
@@ -5235,7 +5235,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Uhh... I need to go hunt a juniper tree.",
@@ -5263,7 +5263,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Uhh, I have to go find a catmint tree.",
@@ -5322,7 +5322,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_15"
+            "min_like_-15"
         ],
         "intro": [
             "[t_c is applying a new poultice to your bite wound. At the herbs' pungent scent, you wrinkle your nose and instinctively lean away from t_c.]",
@@ -5355,7 +5355,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10"
+            "min_like_-10"
         ],
         "intro": [
             "[t_c carefully checks your bite wound. {PRONOUN/t_c/subject/CAP} {VERB/t_c/pull/pulls} away the cobwebs and old poultice {PRONOUN/t_c/subject} had dressed your injury with yesterday, and {VERB/t_c/wince/winces} upon revealing the wound.]",
@@ -5383,7 +5383,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10"
+            "min_like_-10"
         ],
         "intro": [
             "[t_c drops a damp bundle of moss beside you.]",
@@ -5406,7 +5406,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10"
+            "min_like_-10"
         ],
         "intro": [
             "[You find t_c in the medicine den, chewing oak leaves into a poultice and spreading it on {PRONOUN/t_c/poss} cracked paw pads. {PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} up and {VERB/t_c/motion/motions} you over.]",
@@ -5436,8 +5436,8 @@
             ]
         },
         "relationship": [
-            "max_platonic_30",
-            "max_dislike_10"
+            "max_dislike_10",
+            "max_like_30"
         ],
         "intro": [
             "[t_c is giving you a checkup and treating your yellowcough, which is only getting worse. {PRONOUN/t_c/subject/CAP} {VERB/t_c/pull/pulls} a stack of spotted, long leaves from {PRONOUN/t_c/poss} herb supply. You lean over to inspect the plants, but t_c snaps at you.]",
@@ -5466,8 +5466,8 @@
             ]
         },
         "relationship": [
-            "max_platonic_20",
-            "max_dislike_10"
+            "max_dislike_10",
+            "max_like_20"
         ],
         "intro": [
             "[t_c recently gave you herbs for your cough, but they don't seem to be helping much. As the medicine cat passes by, you ask if you could have some more. t_c narrows {PRONOUN/t_c/poss} eyes.]",
@@ -5513,7 +5513,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_15"
+            "min_like_-15"
         ],
         "intro": [
             "[t_c winces as {PRONOUN/t_c/subject} {VERB/t_c/inspect/inspects} your cracked paw pads.]",
@@ -5542,7 +5542,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_40"
+            "min_like_40"
         ],
         "intro": [
             "[t_c doesn't usually use {PRONOUN/t_c/poss} herbs on small injuries like yours, but {PRONOUN/t_c/subject} {VERB/t_c/know/knows} you become worried about getting an infection. To assuage your fears, {PRONOUN/t_c/subject} sometimes {VERB/t_c/bandage/bandages} your scrapes and cuts if {PRONOUN/t_c/subject} {VERB/t_c/have/has} extra supplies.]",
@@ -5571,10 +5571,12 @@
             ],
             "condition": [
                 "scrapes",
-            "torn pelt", "small cut"]
+                "torn pelt",
+                "small cut"
+            ]
         },
         "relationship": [
-            "max_dislike_15"
+            "min_like_-15"
         ],
         "intro": [
             "y_c, I heard you got a bit scraped up. Can I take a look?",
@@ -5585,51 +5587,77 @@
     },
     "you_kit_brooding_SQ1~2": {
         "y_c": {
-            "status": ["apprentice", "queen's apprentice", "mediator apprentice"]
+            "status": [
+                "apprentice",
+                "queen's apprentice",
+                "mediator apprentice"
+            ]
         },
         "t_c": {
-"status": ["medicine cat"],
-            "cluster": ["brooding"]
-},
-        "relationship": ["max_dislike_5"],
-        "tags": ["connected"],
+            "status": [
+                "medicine cat"
+            ],
+            "cluster": [
+                "brooding"
+            ]
+        },
+        "relationship": [
+            "min_like_-5"
+        ],
+        "tags": [
+            "connected"
+        ],
         "intro": [
             "Thank StarClan you're finally an apprentice. Maybe now you'll stop bothering me all day.",
             "[t_c continues laying out herbs to dry in the sun. After a moment, though, {PRONOUN/t_c/subject} {VERB/t_c/look/looks} up at you with the hint of a smile.]",
             "...Congratulations. And good luck. Now leave."
-]
-},
-
- "medicine_cat_brooding_SQ1": {
+        ]
+    },
+    "medicine_cat_brooding_SQ1": {
         "y_c": {
-            "status": ["not_medicine_cat", "not_medicine_cat_apprentice"]
+            "status": [
+                "not_medicine_cat",
+                "not_medicine_cat_apprentice"
+            ]
         },
         "t_c": {
-"status": ["medicine cat", "medicine cat apprentice"],
-            "cluster": ["brooding"]
-},
-        "relationship": ["max_dislike_5", "max_platonic_30"],
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ],
+            "cluster": [
+                "brooding"
+            ]
+        },
+        "relationship": [
+            "max_platonic_30",
+            "min_like_-5"
+        ],
         "intro": [
             "*grumble* Everyone's been visiting the medicine den today with all kinds of trivial injuries.",
             "Scrapes, aches, being sore from training...",
             "Yes, I'm a medicine cat, but that doesn't mean everyone should come crying to me for help with every little thing!",
             "...",
             "You better not be here to ask me to look at a tiny scratch too, y_c."
-]
-},
-
- "medicine_cat_brooding_SQ2": {
-        "season": ["leafbare"],
+        ]
+    },
+    "medicine_cat_brooding_SQ2": {
+        "season": [
+            "leafbare"
+        ],
         "t_c": {
-"status": ["medicine cat"],
-            "cluster": ["brooding"]
-},
+            "status": [
+                "medicine cat"
+            ],
+            "cluster": [
+                "brooding"
+            ]
+        },
         "intro": [
             "[It's very cold and windy. Most cats are staying in camp today, so you're surprised to see t_c return from gathering herbs.]",
             "|r_w-stable|Oh, t_c, I didn't realize you'd left! It's so cold out...",
             "[t_c frowns and glances at the sky, as if {PRONOUN/t_c/subject} hadn't noticed the weather. {PRONOUN/t_c/subject/CAP} {VERB/t_c/aren't/isn't} even shivering...]",
             "...I guess."
-]
-}
-
+        ]
+    }
 }

@@ -193,6 +193,34 @@ class ProfileScreen(Screens):
 
         # LG: all accs
         self.cat_inventory = []
+    def affect_relationship(self, talk_type=""):
+        if game.clan.your_cat.ID not in self.the_cat.relationships:
+            self.the_cat.create_one_relationship(game.clan.your_cat)
+
+        if self.the_cat.ID not in game.clan.your_cat.relationships:
+            game.clan.your_cat.create_one_relationship(self.the_cat)
+
+        if talk_type == "talk":
+            if (
+                not self.the_cat.dead and
+                not game.clan.your_cat.dead and
+                game.clan.your_cat.shunned == 0
+            ):
+                self.the_cat.relationships[game.clan.your_cat.ID].like += randint(0,5)
+                game.clan.your_cat.relationships[self.the_cat.ID].like += randint(0,5)
+        if talk_type == "insult":
+            if (
+                not self.the_cat.dead and
+                not game.clan.your_cat.dead and
+                game.clan.your_cat.status != "kitten"
+            ):
+                self.the_cat.relationships[game.clan.your_cat.ID].like -= randint(1,5)
+                self.the_cat.relationships[game.clan.your_cat.ID].comfort -= randint(1,5)
+                self.the_cat.relationships[game.clan.your_cat.ID].trust -= randint(1,5)
+                game.clan.your_cat.relationships[self.the_cat.ID].like -= randint(1,5)
+                game.clan.your_cat.relationships[self.the_cat.ID].comfort -= randint(1,5)
+                game.clan.your_cat.relationships[self.the_cat.ID].trust -= randint(1,5)
+            
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
@@ -340,32 +368,18 @@ class ProfileScreen(Screens):
                 self.the_cat.pelt.accessory.clear()
                 self.build_inventory(event)
                 self.update_disabled_buttons_and_text()
-            elif "talk" in self.profile_elements and \
-                    event.ui_element == self.profile_elements["talk"]:
+            elif "talk" in self.profile_elements and event.ui_element == self.profile_elements["talk"]:
                 self.the_cat.talked_to = True
-                if not self.the_cat.dead and not game.clan.your_cat.dead and game.clan.your_cat.ID in self.the_cat.relationships and self.the_cat.ID in game.clan.your_cat.relationships and game.clan.your_cat.shunned == 0:
-                    self.the_cat.relationships[game.clan.your_cat.ID].platonic_like += randint(0,5)
-                    game.clan.your_cat.relationships[self.the_cat.ID].platonic_like += randint(0,5)
+                self.affect_relationship("talk")
+
                 switch_set_value(Switch.talk_category, 'talk')
                 self.change_screen(GameScreen.TALK)
-            elif "insult" in self.profile_elements and \
-                    event.ui_element == self.profile_elements["insult"]:
+            elif "insult" in self.profile_elements and event.ui_element == self.profile_elements["insult"]:
                 self.the_cat.insulted = True
-                if game.clan.your_cat.status != "kitten":
-                    self.the_cat.relationships[game.clan.your_cat.ID].dislike += randint(1,10)
-                    self.the_cat.relationships[game.clan.your_cat.ID].platonic_like -= randint(1,5)
-                    self.the_cat.relationships[game.clan.your_cat.ID].comfortable -= randint(1,5)
-                    self.the_cat.relationships[game.clan.your_cat.ID].trust -= randint(1,5)
-                    self.the_cat.relationships[game.clan.your_cat.ID].admiration -= randint(1,5)
-                    game.clan.your_cat.relationships[self.the_cat.ID].dislike += randint(1,10)
-                    game.clan.your_cat.relationships[self.the_cat.ID].platonic_like -= randint(1,5)
-                    game.clan.your_cat.relationships[self.the_cat.ID].comfortable -= randint(1,5)
-                    game.clan.your_cat.relationships[self.the_cat.ID].trust -= randint(1,5)
-                    game.clan.your_cat.relationships[self.the_cat.ID].admiration -= randint(1,5)
+                self.affect_relationship("insult")
                 switch_set_value(Switch.talk_category, 'insult')
                 self.change_screen(GameScreen.TALK)
-            elif "flirt" in self.profile_elements and \
-                    event.ui_element == self.profile_elements["flirt"]:
+            elif "flirt" in self.profile_elements and event.ui_element == self.profile_elements["flirt"]:
                 self.the_cat.flirted = True
                 switch_set_value(Switch.talk_category, 'flirt')
                 self.change_screen(GameScreen.TALK)

@@ -12,8 +12,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "non-mates"
+            "non-mates",
+            "min_like_20"
         ],
         "tags": [
             "reject"
@@ -34,7 +34,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "reject"
@@ -55,7 +55,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "reject"
@@ -698,7 +698,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "reject"
@@ -839,8 +839,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "non-mates"
+            "non-mates",
+            "max_like_-50"
         ],
         "tags": [
             "reject"
@@ -1189,8 +1189,8 @@
         },
         "t_c": {},
         "relationship": [
-            "min_platonic_50",
-            "non-mates"
+            "non-mates",
+            "min_like_50"
         ],
         "tags": [
             "reject"
@@ -1545,8 +1545,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "non-mates"
+            "non-mates",
+            "min_like_20"
         ],
         "tags": [
             "reject"
@@ -1668,7 +1668,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "reject"
@@ -2372,7 +2372,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "accept"
@@ -2397,7 +2397,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "tags": [
             "reject"
@@ -3571,7 +3571,7 @@
         },
         "relationship": [
             "from_mate",
-            "max_dislike_25"
+            "min_like_-25"
         ],
         "tags": [
             "accept"
@@ -4288,8 +4288,8 @@
         },
         "relationship": [
             "non-mates",
-            "min_dislike_25",
-            "min_romantic_10"
+            "min_romantic_10",
+            "max_like_-25"
         ],
         "tags": [
             "reject"
@@ -4550,7 +4550,7 @@
         },
         "relationship": [
             "non-mates",
-            "min_dislike_10"
+            "max_like_-10"
         ],
         "tags": [
             "reject"
@@ -4749,7 +4749,7 @@
             "shunned": true
         },
         "relationship": [
-            "min_dislike_10"
+            "max_like_-10"
         ],
         "tags": [
             "reject"
@@ -6019,7 +6019,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "accept"
@@ -6047,7 +6047,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "tags": [
             "accept"
@@ -6206,7 +6206,7 @@
             "leafbare"
         ],
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "tags": [
             "reject"
@@ -6344,8 +6344,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_20",
-            "min_romantic_20"
+            "min_romantic_20",
+            "max_like_-20"
         ],
         "tags": [
             "accept"
@@ -6520,7 +6520,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "reject"
@@ -6545,7 +6545,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "reject",
@@ -6595,7 +6595,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "reject"
@@ -6637,8 +6637,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "non-mates"
+            "non-mates",
+            "min_like_20"
         ],
         "tags": [
             "reject"
@@ -6682,8 +6682,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_30",
-            "non-mates"
+            "non-mates",
+            "max_like_-30"
         ],
         "tags": [
             "reject"
@@ -6704,8 +6704,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_30",
-            "non-mates"
+            "non-mates",
+            "max_like_-30"
         ],
         "tags": [
             "reject"
@@ -6811,7 +6811,7 @@
         },
         "relationship": [
             "non-mates",
-            "min_dislike_10"
+            "max_like_-10"
         ],
         "tags": [
             "reject"
@@ -7326,8 +7326,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "non-mates"
+            "non-mates",
+            "min_like_20"
         ],
         "tags": [
             "accept"
@@ -7357,8 +7357,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "non-mates"
+            "non-mates",
+            "min_like_50"
         ],
         "tags": [
             "accept"
@@ -7388,9 +7388,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
             "min_romantic_10",
-            "non-mates"
+            "non-mates",
+            "min_like_50"
         ],
         "tags": [
             "accept"
@@ -7424,8 +7424,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_30",
-            "non-mates"
+            "non-mates",
+            "min_like_30"
         ],
         "tags": [
             "accept"
@@ -7449,8 +7449,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_40",
-            "non-mates"
+            "non-mates",
+            "min_like_40"
         ],
         "tags": [
             "accept"
@@ -7483,8 +7483,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "non-mates"
+            "non-mates",
+            "min_like_20"
         ],
         "tags": [
             "accept"
@@ -7518,8 +7518,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_30",
-            "non-mates"
+            "non-mates",
+            "min_like_30"
         ],
         "tags": [
             "accept"
@@ -7550,9 +7550,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
             "min_romantic_20",
-            "non-mates"
+            "non-mates",
+            "min_like_50"
         ],
         "tags": [
             "accept"
@@ -7702,8 +7702,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "non-mates"
+            "non-mates",
+            "min_like_20"
         ],
         "tags": [
             "accept"
@@ -7731,8 +7731,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "non-mates"
+            "non-mates",
+            "min_like_20"
         ],
         "tags": [
             "accept"
@@ -7757,8 +7757,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "non-mates"
+            "non-mates",
+            "min_like_20"
         ],
         "tags": [
             "accept"
@@ -7782,8 +7782,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "non-mates"
+            "non-mates",
+            "min_like_20"
         ],
         "tags": [
             "accept"
@@ -7807,8 +7807,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "non-mates"
+            "non-mates",
+            "min_like_50"
         ],
         "tags": [
             "accept"
@@ -7958,7 +7958,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_5"
+            "min_like_-5"
         ],
         "tags": [
             "accept"
@@ -7984,7 +7984,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_5"
+            "min_like_-5"
         ],
         "tags": [
             "accept"
@@ -8227,7 +8227,7 @@
             "shunned": true
         },
         "relationship": [
-            "max_platonic_10"
+            "max_like_10"
         ],
         "tags": [
             "reject"
@@ -8371,7 +8371,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_30"
+            "max_like_-30"
         ],
         "tags": [
             "reject"
@@ -8395,8 +8395,8 @@
             ]
         },
         "relationship": [
-            "max_platonic_25",
-            "from_mate"
+            "from_mate",
+            "max_like_25"
         ],
         "tags": [
             "reject"
@@ -8773,8 +8773,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_10",
-            "non-mates"
+            "non-mates",
+            "max_like_-10"
         ],
         "tags": [
             "reject"
@@ -8924,7 +8924,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_40"
+            "max_like_-40"
         ],
         "tags": [
             "accept"
@@ -9024,7 +9024,7 @@
         },
         "relationship": [
             "non-mates",
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "reject"
@@ -9069,7 +9069,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_25"
+            "max_like_-25"
         ],
         "tags": [
             "accept"
@@ -9298,7 +9298,7 @@
     },
     "mcshunned_theygrieving_flirting_H1": {
         "y_c": {
-            "shunned":"any",
+            "shunned": "any",
             "condition": [
                 "deaf:any:false"
             ]
@@ -9320,7 +9320,7 @@
     },
     "mcshunned_theygrieving_flirting_H2": {
         "y_c": {
-            "shunned":"any"
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -9344,7 +9344,7 @@
     },
     "mcshunned_theygrieving_flirting_H3": {
         "y_c": {
-            "shunned":"any"
+            "shunned": "any"
         },
         "t_c": {
             "condition": [

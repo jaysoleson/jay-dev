@@ -3298,28 +3298,32 @@ def abbrev_addons(t_c, r_c, cluster, x, rel, r):
         return False
     
     if (
+        # CHECKMERGE
+        # change these to be the rel tiers ("listens_to", "relates_to", "fancies") if i wanna be evil to the writers
             (
             rel and (
                 r_c.ID not in t_c.relationships) or
-                (r == "plike" and t_c.relationships[r_c.ID].platonic_like < 20) or
-                (r == "plove" and t_c.relationships[r_c.ID].platonic_like < 50) or
-                (r == "rlike" and t_c.relationships[r_c.ID].romantic_love < 10) or
-                (r == "rlove" and t_c.relationships[r_c.ID].romantic_love < 50) or
-                (r == "dislike" and t_c.relationships[r_c.ID].dislike < 15) or
-                (r == "hate" and t_c.relationships[r_c.ID].dislike < 50) or
-                (r == "jealous" and t_c.relationships[r_c.ID].jealousy < 20) or
+                (r == "plike" and t_c.relationships[r_c.ID].like < 20) or
+                (r == "plove" and t_c.relationships[r_c.ID].like < 50) or
+                (r == "dislike" and t_c.relationships[r_c.ID].like > -15) or
+                (r == "hate" and t_c.relationships[r_c.ID].like > -50) or
+                (r == "rlike" and t_c.relationships[r_c.ID].romance < 10) or
+                (r == "rlove" and t_c.relationships[r_c.ID].romance < 50) or
+                (r == "jealous" and t_c.relationships[r_c.ID].respect < -20) or
+                (r == "respect" and t_c.relationships[r_c.ID].respect < 20) or
                 (r == "trust" and t_c.relationships[r_c.ID].trust < 20) or
-                (r == "comfort" and t_c.relationships[r_c.ID].comfortable < 20) or 
-                (r == "respect" and t_c.relationships[r_c.ID].admiration < 20) or
+                (r == "comfort" and t_c.relationships[r_c.ID].comfort < 20) or 
                 (r == "neutral" and
                 ( 
-                    (t_c.relationships[r_c.ID].platonic_like > 20) or
-                    (t_c.relationships[r_c.ID].romantic_love > 20) or
-                    (t_c.relationships[r_c.ID].dislike > 20) or
-                    (t_c.relationships[r_c.ID].jealousy > 20) or
+                    (t_c.relationships[r_c.ID].like > 20) or
+                    (t_c.relationships[r_c.ID].like < -20) or
+                    (t_c.relationships[r_c.ID].romance > 20) or
+                    (t_c.relationships[r_c.ID].respect < -20) or
+                    (t_c.relationships[r_c.ID].respect > 20) or
                     (t_c.relationships[r_c.ID].trust > 20) or
-                    (t_c.relationships[r_c.ID].comfortable > 20) or
-                    (t_c.relationships[r_c.ID].admiration > 20)
+                    (t_c.relationships[r_c.ID].trust < -20) or
+                    (t_c.relationships[r_c.ID].comfort > 20) or
+                    (t_c.relationships[r_c.ID].comfort < -20)
                         
                     )
                 )

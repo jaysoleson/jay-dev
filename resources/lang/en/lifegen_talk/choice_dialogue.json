@@ -548,8 +548,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "non-related"
+            "non-related",
+            "min_like_50"
         ],
         "intro": [
             "*Sigh* I feel like plove-t_s is upset about something, but {PRONOUN/plove-t_s/subject} won't tell me what it is. Is there something I'm missing?",
@@ -658,7 +658,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey, y_c, dare me to jump off the warrior's den!"
@@ -701,7 +701,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I found this super cool cave network just outside the territory ... Wanna come explore it with me later?",
@@ -930,7 +930,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "y_c, we're always gonna be best friends, aren't we?",
@@ -1031,9 +1031,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "min_trust_50",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_20"
         ],
         "intro": [
             "y_c, do you ever get scared?"
@@ -1084,7 +1084,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "What do you think our warrior names are gonna be?",
@@ -1138,9 +1138,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "min_like_20"
         ],
         "intro": [
             "y_c, family means forever, right? We're always gonna be together?",
@@ -1382,7 +1382,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c tackles you from behind.]",
@@ -1434,9 +1434,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "from_your_kit",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "min_like_20"
         ],
         "intro": [
             "y_c, t_l won't play with me! Will you go tell {PRONOUN/t_l/object} that {PRONOUN/t_l/subject} {VERB/t_l/have/has} to?"
@@ -1497,9 +1497,9 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "max_like_-50"
         ],
         "intro": [
             "... Who are you?",
@@ -1556,7 +1556,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You notice that t_c isn't acting like {PRONOUN/t_c/poss} usual, energetic self. You ask {PRONOUN/t_c/object} what's wrong.]",
@@ -1605,8 +1605,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "from_your_apprentice"
+            "from_your_apprentice",
+            "min_like_50"
         ],
         "intro": [
             "[t_c approaches you shyly.]",
@@ -2177,7 +2177,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey, do you think plike-r_w is mad at me?",
@@ -2452,7 +2452,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey... y_c? W- What if l_n doesn't make me a warrior because I'm too much of a fraidy cat, like r_c said?",
@@ -2510,8 +2510,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_your_apprentice"
+            "from_your_apprentice",
+            "min_like_20"
         ],
         "intro": [
             "[t_c coldly drops a bird at your paws.]",
@@ -2680,7 +2680,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Think there are other Clans out there?",
@@ -3202,7 +3202,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Look, I'd rather be eating a toad right now than speaking to you, but... we're still Clanmates, and Clanmates should at least try and tolerate one another, right?",
@@ -3679,7 +3679,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "G'day y_c, how you doing? You look really relaxed there- actually, what are you doing???",
@@ -3775,7 +3775,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "Be completely honest ... Did they deserve it?"
@@ -4303,7 +4303,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "[Ever since tg_c died, t_c has been refusing to sleep in {PRONOUN/t_c/poss} den.]",
@@ -4409,7 +4409,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You notice a small, well-loved trinket buried deep in the folds of t_c's nest.]",
@@ -4469,7 +4469,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "Y'know, if you really think about it, not caring too much about anything is kinda like a superpower.",
@@ -4576,7 +4576,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c. I have something for you.",
@@ -5000,7 +5000,7 @@
             "plains"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I saw white, fluffy things today!! It looked like walking clouds.",
@@ -5099,8 +5099,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_30",
-            "min_trust_10"
+            "min_trust_10",
+            "min_like_30"
         ],
         "intro": [
             "I was kind of close to r_s a few days ago, and now my nose kind of tickles.",
@@ -5142,8 +5142,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_10",
-            "max_platonic_30"
+            "max_platonic_30",
+            "min_like_10"
         ],
         "intro": [
             "Hey, uh, y_c? Maybe you should go back to the nursery for a bit.",
@@ -5201,7 +5201,7 @@
             "newleaf"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c brings you flowers! You start to investigate the brightly colored petals, but t_c puts out a paw to stop you.",
@@ -5247,7 +5247,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c comes into the nursery with something bristly and red in {PRONOUN/t_c/poss} jaws. {PRONOUN/t_c/subject/CAP} {VERB/t_c/drop/drops} it next to you, and you jerk back at the strong, musky scent.]",
@@ -5291,7 +5291,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_40"
+            "min_like_40"
         ],
         "intro": [
             "dislike-r_m isn't doing enough for plove-r_s. I swear, every time I visit the medicine den, plove-r_s looks worse.",
@@ -5346,7 +5346,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Whatever I choose to do as an apprentice is what I'm gonna do my whole life!",
@@ -5399,8 +5399,8 @@
             ]
         },
         "relationship": [
-            "max_platonic_30",
-            "max_trust_15"
+            "max_trust_15",
+            "max_like_30"
         ],
         "intro": [
             "[At the sight of you striding towards {PRONOUN/t_c/object}, t_c shrinks back.]",
@@ -5714,7 +5714,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Last Gathering, I ended up standing next to an apprentice from o_c_n.",
@@ -5776,7 +5776,7 @@
             "greenleaf"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[The nights have been full of fireflies recently. t_c is always nervous around things that are unexpected or unfamiliar, so you're surprised to see {PRONOUN/t_c/object} sitting calmly in the middle of camp, surrounded by glowing bugs.]",
@@ -5895,7 +5895,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "Um, y_c? Is there any chance I could be switched to a hunting patrol instead of a border patrol?",
@@ -5946,7 +5946,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I don't know if I'm really allowed to request this, but... um...",
@@ -6151,7 +6151,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I'm sorry, y_c. I know I have a lot of things to take care of, but I just... I can't right now.",
@@ -6198,7 +6198,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_40"
+            "min_like_40"
         ],
         "intro": [
             "dislike-r_w-assertive is just... urgh! I can't stand how {PRONOUN/dislike-r_w-assertive/subject} {VERB/dislike-r_w-assertive/keep/keeps} rushing into trouble!",
@@ -6250,8 +6250,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_40",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_40"
         ],
         "intro": [
             "I feel like theircrush-neurotic understands me like not many cats do, you know?",
@@ -6316,7 +6316,7 @@
             "leaffall"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Last leafbare was really cold... I was so worried someone was going to get lost and freeze to death.",
@@ -6375,8 +6375,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_30",
-            "min_comfort_15"
+            "min_comfort_15",
+            "min_like_30"
         ],
         "intro": [
             "[t_c stands awkwardly beside you for a few minutes, clearly trying to work up the nerve to say something. Finally, {PRONOUN/t_c/subject} {VERB/t_c/clear/clears} {PRONOUN/t_c/poss} throat.]",
@@ -6426,8 +6426,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_30",
-            "min_comfort_15"
+            "min_comfort_15",
+            "min_like_30"
         ],
         "intro": [
             "Everycat says I should take the time I need to grieve, but I don't think they actually mean it.",
@@ -6489,8 +6489,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "max_platonic_40"
+            "max_platonic_40",
+            "min_like_20"
         ],
         "intro": [
             "Did you hear neutral-r_w-introspective talking about... uh... stuff this morning?",

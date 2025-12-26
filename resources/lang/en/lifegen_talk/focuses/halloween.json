@@ -18,7 +18,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "halloween"
@@ -87,7 +87,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "y_c, y_c! Look, look, look!",
@@ -536,7 +536,9 @@
     },
     "ofrenda_dead_H3": {
         "y_c": {
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -549,7 +551,9 @@
                 "loner",
                 "rogue"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "halloween"
@@ -578,7 +582,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "tags": [
             "halloween"
@@ -607,7 +611,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "tags": [
             "halloween",
@@ -684,7 +688,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "tags": [
             "halloween"
@@ -714,7 +718,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "tags": [
             "halloween"
@@ -746,7 +750,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "tags": [
             "halloween"
@@ -771,7 +775,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "tags": [
             "halloween",
@@ -803,7 +807,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "tags": [
             "halloween"
@@ -858,7 +862,7 @@
             "leaffall"
         ],
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "tags": [
             "halloween"
@@ -892,7 +896,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "tags": [
             "halloween"

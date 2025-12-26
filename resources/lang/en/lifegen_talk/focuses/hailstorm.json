@@ -10,7 +10,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -57,7 +57,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_5"
+            "max_like_-5"
         ],
         "tags": [
             "focus"
@@ -83,7 +83,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "focus"
@@ -128,7 +128,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["deaf:any:false"]
+            "condition": [
+                "deaf:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -137,7 +139,10 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false","deaf:any:false"]
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
         },
         "tags": [
             "focus"
@@ -210,7 +215,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "focus"
@@ -228,7 +235,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -237,7 +246,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "focus"
@@ -319,7 +330,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -330,7 +343,7 @@
             ]
         },
         "relationship": [
-            "max_platonic_50"
+            "max_like_50"
         ],
         "tags": [
             "focus"
@@ -346,7 +359,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -355,7 +370,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "focus"
@@ -372,7 +389,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -384,7 +403,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "focus"
@@ -400,7 +421,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -414,7 +437,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "focus"
@@ -430,7 +455,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -463,7 +490,9 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "focus"
@@ -517,7 +546,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "focus"
@@ -541,7 +572,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus",
@@ -561,7 +592,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -575,7 +608,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "focus"

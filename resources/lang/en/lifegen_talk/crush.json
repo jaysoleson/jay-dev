@@ -11,7 +11,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You're chatting with t_c, but {PRONOUN/t_c/subject} {VERB/t_c/keep/keeps} glancing away and swishing {PRONOUN/t_c/poss} tail. It's clear that {PRONOUN/t_c/poss} attention lies elsewhere.]",
@@ -42,7 +42,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c and theircrush laugh hysterically together in the middle of the clearing, howls careening off the camp walls.]",
@@ -117,9 +117,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
             "min_trust_50",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_50"
         ],
         "intro": [
             "Say, ah ... What do you think about theircrush?",
@@ -174,7 +174,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "Ah - maybe I just gotta face it, y_c. There's no way I'm gonna end up with theircrush, not in a million moons.",
@@ -225,7 +225,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c walks over to you with a plump rabbit.]",
@@ -280,7 +280,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "You don't stand a chance with yourcrush ... You know that, don't you?",
@@ -325,7 +325,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "Hey, flea-brain! Wanna go on a walk later?",
@@ -354,8 +354,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_respect_50"
+            "min_respect_50",
+            "min_like_20"
         ],
         "intro": [
             "Look, y_c. You wanna get yourcrush to like you - which, don't even try to deny, it's embarrassingly obvious - you need to work on your flirting skills.",
@@ -541,7 +541,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c interrupts you in the middle of talking to yourcrush.]",
@@ -675,7 +675,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_40"
+            "min_like_40"
         ],
         "intro": [
             "[You notice aloud to t_c that yourcrush has been sick an awful lot recently ...]",
@@ -762,8 +762,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "intro": [
             "y_c, how do you impress a cat that you like? I can't help but...",
@@ -786,7 +786,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "Have you seen how pretty theircrush's fur looks today? Wow...",
@@ -812,8 +812,8 @@
             "greenleaf"
         ],
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "intro": [
             "[t_c slips over to you, casting surreptitious glances towards theircrush.]",
@@ -848,7 +848,7 @@
             "greenleaf"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I found a great place I want to take theircrush. There's a big tree with a branch big enough for the two of us to sit, and it's shaded by the leaves, and it has a great view of the territory.",
@@ -933,7 +933,7 @@
             "leafbare"
         ],
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "[Flowers are a classic gift to give a crush, but now that it's leafbare, t_c seems at a loss for something to show their affection towards theircrush.]",
@@ -1021,7 +1021,7 @@
             "newleaf"
         ],
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "I was going to give theircrush some flowers, but I noticed {PRONOUN/theircrush/subject} already {VERB/theircrush/have/has} some in {PRONOUN/theircrush/poss} nest. Do you know... is someone else, you know, interested in {PRONOUN/theircrush/object}? I don't have a chance, do I?",
@@ -1043,7 +1043,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "You have to stop looking at yourcrush like that.",

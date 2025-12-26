@@ -405,8 +405,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_50"
+            "min_trust_50",
+            "min_like_20"
         ],
         "intro": [
             "Did you ever notice how pretty the stars are? They're like shiny bugs in the sky!",
@@ -458,7 +458,7 @@
             "newleaf"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c, we should go swimming! I heard some other cats do it all the time!",
@@ -504,7 +504,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c! y_c! y_c! y_c! y_c!",
@@ -863,7 +863,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Hmph. You're no fun to play with.",
@@ -887,9 +887,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "min_trust_50",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_20"
         ],
         "intro": [
             "Hey, no fair! I totally would've won that game! You cheated!",
@@ -1118,9 +1118,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "min_like_20"
         ],
         "intro": [
             "Hey!!! Was someone picking on you?",
@@ -1146,9 +1146,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "min_like_20"
         ],
         "intro": [
             "I just talked to y_p, and we're allowed to play outside today!!!",
@@ -1175,9 +1175,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "min_like_20"
         ],
         "intro": [
             "Ughhh, y_p says we're not allowed to leave the nursery today!",
@@ -1199,9 +1199,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "from_your_kit",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "min_like_20"
         ],
         "intro": [
             "*Yaaawwn*",
@@ -1227,9 +1227,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "min_like_20"
         ],
         "intro": [
             "Raaahhh!",
@@ -1306,9 +1306,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "min_like_20"
         ],
         "intro": [
             "I'm gonna catch you! Hahaha!",
@@ -1390,9 +1390,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "from_kit",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "min_like_20"
         ],
         "intro": [
             "y_c!!!!",
@@ -1421,9 +1421,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "from_kit",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "min_like_20"
         ],
         "intro": [
             "y_c! y_c! I had the most funnest day ever today!",
@@ -1448,9 +1448,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "from_kit",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "min_like_20"
         ],
         "intro": [
             "[t_c stumbles across camp to you, soaking wet and covered in mud.]",
@@ -1474,9 +1474,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "from_kit",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "min_like_20"
         ],
         "intro": [
             "[t_c wakes up from {PRONOUN/t_c/poss} nap with fur so spiky, {PRONOUN/t_c/subject} {VERB/t_c/look/looks} like a little porcupine!]",
@@ -1491,9 +1491,9 @@
         },
         "t_c": {},
         "relationship": [
-            "min_platonic_20",
             "from_kit",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "min_like_20"
         ],
         "intro": [
             "[You and y_m watch t_c slowly creep up on a beetle ...]",
@@ -1513,9 +1513,9 @@
         },
         "t_c": {},
         "relationship": [
-            "min_platonic_20",
             "from_kit",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "min_like_20"
         ],
         "intro": [
             "[t_c is throwing a tantrum. You decide to try out a trick that r_q taught you.]",
@@ -1545,9 +1545,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "from_kit",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "min_like_20"
         ],
         "intro": [
             "[t_c accidentally drops {PRONOUN/t_c/poss} moss-ball while playing.]",
@@ -1576,7 +1576,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "r_c just told me the funniest joke ever!",
@@ -1686,7 +1686,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "[t_c seems to be pretending that you aren't there.]"
@@ -2513,7 +2513,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "[Out of seemingly nowhere, t_c breaks down crying. {PRONOUN/t_c/subject/CAP} {VERB/t_c/press/presses} {PRONOUN/t_c/poss} head into your shoulder, mumbling out a soft mew.]",
@@ -2917,7 +2917,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "Hmph. I swear, y_c, you're the only cat in all of c_n who I like to play with at all.",
@@ -2963,7 +2963,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Wake up, y_c! Wake up, wake up, wake up!!!",
@@ -3019,8 +3019,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "neutral"
+            "neutral",
+            "max_like_-50"
         ],
         "intro": [
             "You smell like crowfood! Hahahaha!"
@@ -3068,7 +3068,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey, y_c! Come squish bugs with me!",
@@ -3091,7 +3091,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey, d'you think if we told r_k to go call l_n a mange-ridden fuzz-brain, {PRONOUN/r_k/subject}'d do it?",
@@ -3128,7 +3128,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c? What's wrong? Are you sad?",
@@ -3602,7 +3602,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Teehee! y_c! Come play with me!",
@@ -3624,7 +3624,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Ooh! Are you playing a game? Is it moss-ball?",
@@ -3669,7 +3669,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "[Before you can even get close, t_c tears up and runs away from you.]"
@@ -4398,7 +4398,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey, y_c, do you remember that time when I tripped r_k and {PRONOUN/r_k/subject} fell in that mud puddle?",
@@ -4447,8 +4447,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "non-related"
+            "non-related",
+            "min_like_20"
         ],
         "intro": [
             "[Everycat sure seems to pay t_c a lot of attention ...]",
@@ -4568,8 +4568,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_kit"
+            "from_kit",
+            "min_like_20"
         ],
         "intro": [
             "[t_c is stumbling after r_m, holding a couple of herbs in {PRONOUN/t_c/poss} mouth. As you catch {PRONOUN/t_c/poss} eye, {PRONOUN/t_c/subject} {VERB/t_c/perk/perks} up and {VERB/t_c/call/calls} out to you.]",
@@ -4650,7 +4650,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[As you lie in your nest, you notice t_c marching back and forth near the entrance of the den. {PRONOUN/t_c/subject/CAP} {VERB/t_c/have/has} a determined look on {PRONOUN/t_c/poss} face, taking large steps that almost cause {PRONOUN/t_c/object} to stumble.]",
@@ -4674,7 +4674,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Eek!",
@@ -5032,7 +5032,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You catch t_c peering at you from the nursery. From the far side of the camp, you can just make out {PRONOUN/t_c/poss} determined expression.]"
@@ -5851,7 +5851,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "y_c ...?",
@@ -6010,8 +6010,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "neutral"
+            "neutral",
+            "min_like_20"
         ],
         "intro": [
             "[You hear a small trill at the entrance of the den and look over to see t_c trotting in, dragging a squirrel by the scruff of its neck.]",
@@ -6062,9 +6062,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "min_respect_50",
-            "neutral"
+            "neutral",
+            "min_like_20"
         ],
         "intro": [
             "Guess what! Guess what! Guess what!",
@@ -6607,7 +6607,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Don't worry, y_c, I'm sure you'll be out of time-out in no time.",
@@ -6627,7 +6627,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "[t_c dashes out of the nursery and clings to your leg as the hapless queens shout after {PRONOUN/t_c/object}.]",
@@ -6652,7 +6652,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I heard that you messed up bad, and did something mean.",
@@ -9385,7 +9385,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You notice t_c sitting in the nursery entrance, watching the camp. When {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you, t_c straightens and nervously motions you over.]",
@@ -9490,7 +9490,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "What's it like being an apprentice? Is the territory scary? Is m_n mean?",
@@ -9514,9 +9514,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
             "min_comfort_50",
-            "from_your_kit"
+            "from_your_kit",
+            "min_like_50"
         ],
         "intro": [
             "[You're preparing to leave on a patrol when you hear a small squeak. t_c runs over, half-tripping over {PRONOUN/t_c/poss} own paws.]",
@@ -9568,9 +9568,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "min_trust_50",
-            "non-related"
+            "non-related",
+            "min_like_20"
         ],
         "intro": [
             "[t_c pads up to you with hesitance in {PRONOUN/t_c/poss} step but determination on {PRONOUN/t_c/poss} face.]",
@@ -9902,7 +9902,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c grumbles to {PRONOUN/t_c/self} as {PRONOUN/t_c/subject} paw around the moss ball.]",
@@ -9925,7 +9925,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Stop taking away all the attention!"
@@ -10498,7 +10498,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "[t_c's voice is the tiniest of whispers.]",
@@ -10520,7 +10520,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Everycat says that one day, I'll be big enough to take care of myself.",
@@ -10547,7 +10547,7 @@
             "newleaf"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[With the newleaf rains, flowers have sprung up all around the camp! t_c eyes them warily, never venturing too close.]",
@@ -10583,7 +10583,7 @@
             "leaffall"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Everycat's talking about 'leafbare', and it seems really scary...",
@@ -10611,7 +10611,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "r_q was telling t_p that I was, um, making little squeaking noises when I was asleep last night.",
@@ -10640,9 +10640,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
             "from_parent",
-            "from_adopted_parent"
+            "from_adopted_parent",
+            "min_like_50"
         ],
         "tags": [],
         "intro": [
@@ -10666,7 +10666,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "[t_c creeps up to you, nervously glancing neutral-rsh_c's way.]",
@@ -10692,7 +10692,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "y_c, what's that?",
@@ -10720,7 +10720,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "tags": [
             "connected"
@@ -10783,7 +10783,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "*Sniff* I... I don't get it, y_c.",
@@ -10809,7 +10809,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "tg_c said everything would be okay, s'long as we were together.",
@@ -10834,7 +10834,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c's hiding under a pile of moss in the back of the nursery. You try to coax {PRONOUN/t_c/object} out with a feather and the best piece of prey.]",
@@ -10854,8 +10854,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_20"
         ],
         "intro": [
             "[As soon as you enter the nursery, t_c scampers up to you, wailing.]",
@@ -10880,7 +10880,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Psst, y_c! Let's go ask if we can listen to one of r_e-unlawful's stories.",
@@ -11113,7 +11113,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "Hey, y_c! It's me!",
@@ -11189,10 +11189,10 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "adopted_sibling",
             "sibling",
-            "half_sibling"
+            "half_sibling",
+            "min_like_20"
         ],
         "intro": [
             "[One day when you're visiting the nursery, t_c yawns and leans against you. When you look down at {PRONOUN/t_c/object}, {PRONOUN/t_c/poss} eyes are already closing.]",
@@ -11245,7 +11245,7 @@
             "newleaf"
         ],
         "relationship": [
-            "max_dislike_10"
+            "min_like_-10"
         ],
         "intro": [
             "[t_c stares at a cluster of purple flowers. {PRONOUN/t_c/subject/CAP} gently {VERB/t_c/paw/paws} through them, as if searching for something, and you ask what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing.]",
@@ -11291,7 +11291,7 @@
             ]
         },
         "relationship": [
-            "max_platonic_15"
+            "max_like_15"
         ],
         "intro": [
             "[As you go over herbs with y_a, you notice t_c watching you from just outside the medicine den.]",
@@ -11410,7 +11410,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "y_c? When you become an apprentice... and you're cool and grown-up...",
@@ -11698,7 +11698,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "neutral-r_e's seen a lot, right? {PRONOUN/neutral-r_e/subject/CAP}{VERB/neutral-r_e/'ve/'s} been around for a long, long time...",
@@ -11730,7 +11730,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "r_k-brooding was laughing at me, 'cause apparently my voice sometimes squeaks when I sing...",
@@ -11761,7 +11761,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "plike-r_c-silly told me a funny story today, so I'm trying to make {PRONOUN/plike-r_c-silly/object} a funny song!",
@@ -11819,7 +11819,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "r_q told me a story last night about a kit who... who was kinda shy, like me. They had to be brave, and do a lot of things that scared them, but they ended up going on an adventure and talked to StarClan!",
@@ -11851,7 +11851,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "[One night, t_c curls up beside you and whispers about the starry-pelted cats {PRONOUN/t_c/object} sometimes {VERB/t_c/see/sees} around camp. You listen in wonder.]",
@@ -11971,7 +11971,7 @@
             "beach"
         ],
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "[t_c is digging in the sand! {PRONOUN/t_c/subject/CAP}{VERB/t_c/'ve/'s} excavated a kit-sized hole so far, and it's only getting bigger.]",
@@ -12030,7 +12030,7 @@
             "leafbare"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c meticulously forms snow into tiny piles. You ask what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing.]",
@@ -12229,7 +12229,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "neutral-r_w-neurotic was telling me about all the scary things outside, so I was hiding in the nursery so the bad stuff wouldn't get me.",
@@ -12261,7 +12261,7 @@
             ]
         },
         "relationship": [
-            "max_platonic_30"
+            "max_like_30"
         ],
         "intro": [
             "[You're always cautious when you enter the nursery, worried you might step on or frighten a kit. t_c is especially jumpy, though, so you've been even more careful recently.]",
@@ -12286,7 +12286,7 @@
             ]
         },
         "relationship": [
-            "max_platonic_30"
+            "max_like_30"
         ],
         "tags": [
             "connected"
@@ -12324,7 +12324,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "I wanna make a new song, but r_k-upstanding says you can't just <i>make up</i> new ones.",
@@ -12408,7 +12408,7 @@
             "leafbare"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You find t_c in the corner of the nursery with teary eyes, looking out to the white snow.]",
@@ -12459,7 +12459,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You ask t_c how come {PRONOUN/t_c/subject} always get so many more gifts and visitors than you do.]",
@@ -12801,7 +12801,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c is sitting out of the nursery chores today, sick with a stomachache.]",
@@ -12837,7 +12837,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "[You engage in a staring contest with t_c. You're not about to back down first.]",
@@ -12964,7 +12964,7 @@
             "leafbare"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c sits beside you, watching r_k toss around pawfuls of snow outside the nursery.]",
@@ -12996,8 +12996,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_25",
-            "min_comfort_15"
+            "min_comfort_15",
+            "min_like_25"
         ],
         "intro": [
             "y_c? I... I heard a scary sound outside! It sounded like claws or... or teeth...",
@@ -13026,8 +13026,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "intro": [
             "[t_c's been hiding in the nursery all day, buried under a pile of moss scraps. You're playing with r_k, but when r_k settles down for a nap, t_c wriggles free of {PRONOUN/t_c/poss} pile and creeps over to you.]",
@@ -13057,8 +13057,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "tags": [
             "connected"
@@ -13084,8 +13084,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "littermate"
+            "littermate",
+            "min_like_20"
         ],
         "intro": [
             "What if no one wants me to be their apprentice?",
@@ -13115,8 +13115,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "intro": [
             "t_p says I've gotta go to see r_m 'cause I tripped and now my paw kind of hurts.",
@@ -13198,7 +13198,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c is sitting out of the nursery chores today, sick with a stomachache.]",
@@ -13232,7 +13232,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You ask t_c how come {PRONOUN/t_c/subject} always {VERB/t_c/get/gets} so many more gifts and visitors than you do.]",
@@ -13499,7 +13499,7 @@
             "min_trust_20",
             "from_your_kit",
             "from_adopted_kit",
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c curls into your side despite r_c's calls for {PRONOUN/t_c/object} to return, refusing to leave you.]"
@@ -13521,7 +13521,7 @@
             "min_trust_20",
             "from_your_kit",
             "from_adopted_kit",
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "They all look so angry.",
@@ -13552,7 +13552,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10"
+            "min_like_-10"
         ],
         "intro": [
             "[After spending the afternoon crafting a new toy out of twigs, leaves and tree sap, your creation is finally complete.]",
@@ -13626,9 +13626,9 @@
             ]
         },
         "relationship": [
-            "min_dislike_5",
             "max_trust_5",
-            "max_comfort_10"
+            "max_comfort_10",
+            "max_like_-5"
         ],
         "intro": [
             "[You awaken to find yourself covered in twigs and a frustrated t_c sitting nearby.]",
@@ -13733,7 +13733,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "tags": [],
         "intro": [
@@ -13760,7 +13760,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "tags": [],
         "intro": [
@@ -13786,9 +13786,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_35",
             "from_your_kit",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "min_like_35"
         ],
         "intro": [
             "[t_c burrows into your side, glaring at anycat that dares to even look your direction. Almost as though {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} trying to defend you, despite being a fraction of your size.]",
@@ -13809,8 +13809,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_25",
-            "max_comfort_10"
+            "max_comfort_10",
+            "min_like_25"
         ],
         "tags": [
             "not_murder_victim"
@@ -13849,7 +13849,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "Hey y_c, r_q was just telling me about how you need to 'relearn the Warrior Code.'",
@@ -13925,7 +13925,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "r_q told me a story, but I didn't like the ending. It was kind of scary, and I felt really bad for all the cats, 'cause they went through a lot!",
@@ -13947,7 +13947,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "*sniff* I tried to talk to neutral-r_c, but {PRONOUN/neutral-r_c/subject} said {PRONOUN/neutral-r_c/subject} {VERB/neutral-r_c/were/was} busy and couldn't talk right now.",
@@ -14002,7 +14002,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "I'm trying to make up a story, but I'm stuck thinking of a name for the cat it's about. I don't think I'm a good storyteller if I can't even get this far...",
@@ -14132,7 +14132,7 @@
             "newleaf"
         ],
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "[You're awoken late at night by t_c shifting beside you. You sleepily blink at {PRONOUN/t_c/object} and realize {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} tense, {PRONOUN/t_c/poss} fur bristling.]",
@@ -14267,7 +14267,7 @@
             ]
         },
         "relationship": [
-            "min_10_dislike"
+            "max_like_-dislike"
         ],
         "intro": [
             "Tsk, why did you get the bigger freshkill? That should be mine!",
@@ -14318,7 +14318,7 @@
             ]
         },
         "relationship": [
-            "min_10_dislike"
+            "max_like_-dislike"
         ],
         "intro": [
             "[You find t_c sulking at the corner of the nursery, and decide to approach {PRONOUN/t_c/object}.]",
@@ -14343,7 +14343,7 @@
             ]
         },
         "relationship": [
-            "min_10_dislike"
+            "max_like_-dislike"
         ],
         "intro": [
             "Don't you have something better to do? Like cleaning the Elders' den? Or taking out the stinky prey from the pile?",
@@ -14369,7 +14369,7 @@
             ]
         },
         "relationship": [
-            "min_10_dislike"
+            "max_like_-dislike"
         ],
         "intro": [
             "Don't you have something better to do? Like chores or whatever?",
@@ -14388,9 +14388,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_10",
             "littermates",
-            "sibling"
+            "sibling",
+            "min_like_10"
         ],
         "intro": [
             "Just tell me who said mean things and I'll bite their tail!",
@@ -14454,7 +14454,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey, psst!",
@@ -14709,7 +14709,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_10"
+            "max_like_-10"
         ],
         "intro": [
             "[t_c turns {PRONOUN/t_c/poss} nose at you when you ask to play with {PRONOUN/t_c/object}.]"
@@ -14748,7 +14748,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_5"
+            "min_like_5"
         ],
         "intro": [
             "You're making your nest wrong.",
@@ -14800,7 +14800,9 @@
             "age": [
                 "kitten"
             ],
-            "cluster": ["unruly"]
+            "cluster": [
+                "unruly"
+            ]
         },
         "season": [
             "leafbare",
@@ -14941,7 +14943,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_5"
+            "max_like_-5"
         ],
         "intro": [
             "You know you and r_k were playing your game wrong, right? r_k made up a whole bunch of warrior codes that don't exist!",
@@ -14959,7 +14961,9 @@
             "age": [
                 "kitten"
             ],
-            "cluster": ["unruly"]
+            "cluster": [
+                "unruly"
+            ]
         },
         "tags": [],
         "intro": [
@@ -15421,9 +15425,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_10",
             "max_dislike_5",
-            "from_kit"
+            "from_kit",
+            "min_like_10"
         ],
         "intro": [
             "[While you're on your way out of camp, you catch t_c's eye from the nursery and {PRONOUN/t_c/subject} {VERB/t_c/flash/flashes} you {PRONOUN/t_c/poss} biggest, cheesiest smile, waving an excited paw in the air.]",
@@ -15546,7 +15550,9 @@
             "age": [
                 "kitten"
             ],
-            "cluster": ["self-conscious"]
+            "cluster": [
+                "self-conscious"
+            ]
         },
         "relationship": [
             "from_kit",
@@ -15574,7 +15580,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_25"
+            "max_like_-25"
         ],
         "intro": [
             "[t_c is happily playing a game with plike-t_l, but {PRONOUN/t_c/poss} expression darkens as you approach.]",
@@ -15718,10 +15724,12 @@
             "condition": [
                 "blind:any:false"
             ],
-            "cluster": ["self-conscious"]
+            "cluster": [
+                "self-conscious"
+            ]
         },
         "relationship": [
-            "min_platonic_25"
+            "min_like_25"
         ],
         "tags": [],
         "intro": [
@@ -15803,7 +15811,9 @@
                 "blind:any:false"
             ]
         },
-        "season": ["leaffall"],
+        "season": [
+            "leaffall"
+        ],
         "tags": [],
         "intro": [
             "If r_k brings any more leaves into the nursery just because {PRONOUN/r_k/subject} thought they looked pretty, I'm moving my nest outside."
@@ -15904,7 +15914,9 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "cluster": ["quiet"]
+            "cluster": [
+                "quiet"
+            ]
         },
         "tags": [],
         "intro": [
@@ -15964,7 +15976,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_10"
+            "max_like_-10"
         ],
         "intro": [
             "Everycat took too long to shun you! I knew you were a bad cat right from the start.",
@@ -16070,8 +16082,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_10",
-            "min_trust_5"
+            "min_trust_5",
+            "min_like_10"
         ],
         "intro": [
             "Wanna know how to get out of cleaning the nursery?",
@@ -16166,8 +16178,8 @@
             ]
         },
         "relationship": [
-            "max_platonic_10",
-            "max_dislike_10"
+            "max_dislike_10",
+            "max_like_10"
         ],
         "intro": [
             "[You're playing in the clearing when t_c bursts out of a nearby den and bolts towards you, eyes wide.]",
@@ -16209,7 +16221,9 @@
             "age": [
                 "kitten"
             ],
-            "cluster": ["quiet"]
+            "cluster": [
+                "quiet"
+            ]
         },
         "tags": [],
         "intro": [
@@ -16316,7 +16330,9 @@
                 "deaf:any:false"
             ],
             "shunned": true,
-            "cluster": ["self-conscious"]
+            "cluster": [
+                "self-conscious"
+            ]
         },
         "tags": [],
         "intro": [
@@ -16361,7 +16377,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "[You hear a whispery voice coming from the bush you're sitting next to.]",
@@ -16535,7 +16551,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "[t_c smiles as {PRONOUN/t_c/subject} {VERB/t_c/walk/walks} up to you, a small piece of prey in {PRONOUN/t_c/poss} jaws.]",
@@ -16801,99 +16817,160 @@
     },
     "upstanding_kitten_SQ1": {
         "y_c": {
-            "age": ["newborn"],
-            "cluster": ["assertive", "silly", "unlawful"],
-            "condition": ["blind:any:false"]
+            "age": [
+                "newborn"
+            ],
+            "cluster": [
+                "assertive",
+                "silly",
+                "unlawful"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
-"status": ["kitten"],
-            "cluster": ["upstanding"],
-            "condition": ["blind:any:false"]
-},
+            "status": [
+                "kitten"
+            ],
+            "cluster": [
+                "upstanding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
         "intro": [
-           "Newborns are s'posed to stay in their nests. You're not allowed to wander around yet!",
-           "[Ignoring your mews of protest, t_c nudges you back into your moss-lined bed.]"
-]
-},
-
- "upstanding_kitten_SQ2": {
+            "Newborns are s'posed to stay in their nests. You're not allowed to wander around yet!",
+            "[Ignoring your mews of protest, t_c nudges you back into your moss-lined bed.]"
+        ]
+    },
+    "upstanding_kitten_SQ2": {
         "t_c": {
-"status": ["kitten"],
-            "cluster": ["upstanding"]
-},
-        "relationship": ["min_platonic_5", "max_dislike_10"],
+            "status": [
+                "kitten"
+            ],
+            "cluster": [
+                "upstanding"
+            ]
+        },
+        "relationship": [
+            "max_dislike_10",
+            "min_like_5"
+        ],
         "intro": [
-           "I wonder who's gonna be my mentor. There's a lot of good cats...",
-           "[t_c scans the camp, {PRONOUN/t_c/poss} gaze lingering on plike-r_w1 and plike-r_w2.]",
-           "I just want someone who's serious about teaching me! And isn't, like, a pushover...",
-           "l_n better choose someone good."
-]
-},
-
- "upstanding_kitten_SQ3": {
+            "I wonder who's gonna be my mentor. There's a lot of good cats...",
+            "[t_c scans the camp, {PRONOUN/t_c/poss} gaze lingering on plike-r_w1 and plike-r_w2.]",
+            "I just want someone who's serious about teaching me! And isn't, like, a pushover...",
+            "l_n better choose someone good."
+        ]
+    },
+    "upstanding_kitten_SQ3": {
         "t_c": {
-"status": ["kitten"],
-            "cluster": ["upstanding"]
-},
-        "relationship": ["min_platonic_5", "max_dislike_10"],
+            "status": [
+                "kitten"
+            ],
+            "cluster": [
+                "upstanding"
+            ]
+        },
+        "relationship": [
+            "max_dislike_10",
+            "min_like_5"
+        ],
         "intro": [
-           "Did you see r_k-assertive running after l_n, begging {PRONOUN/l_n/object} to make {PRONOUN/r_k-assertive/object} an apprentice early?",
-           "[t_c heaves a dramatic sigh.]",
-           "We have the six-moon rule for a reason! And of course I want to be an apprentice, too, but that doesn't mean I'm gonna ask cats to break the rules for me!"
-]
-},
-
- "upstanding_kitten_SQ4": {
+            "Did you see r_k-assertive running after l_n, begging {PRONOUN/l_n/object} to make {PRONOUN/r_k-assertive/object} an apprentice early?",
+            "[t_c heaves a dramatic sigh.]",
+            "We have the six-moon rule for a reason! And of course I want to be an apprentice, too, but that doesn't mean I'm gonna ask cats to break the rules for me!"
+        ]
+    },
+    "upstanding_kitten_SQ4": {
         "y_c": {
-            "status": ["kitten"],
-            "condition": ["blind:any:false"]
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
-"status": ["kitten"],
-            "cluster": ["upstanding"],
-            "condition": ["blind:any:false"]
-},
-        "relationship": ["max_dislike_5"],
+            "status": [
+                "kitten"
+            ],
+            "cluster": [
+                "upstanding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_like_-5"
+        ],
         "intro": [
-           "y_c! y_c! I decided we should have a schedule, just like the adults do!",
-           "So I made one. First, we're gonna have breakfast, and then we're gonna go watch d_n organize patrols, and then we're gonna clean the nursery...",
-           "[You try to interject, but t_c talks over you.]",
-           "...And then we're gonna ask if anyone needs help, and then we'll patrol the elders' den, and then...",
-           "[StarClan, you're going to be busy if t_c gets {PRONOUN/t_c/poss} way!]"
-]
-},
-
- "upstanding_kitten_SQ5": {
+            "y_c! y_c! I decided we should have a schedule, just like the adults do!",
+            "So I made one. First, we're gonna have breakfast, and then we're gonna go watch d_n organize patrols, and then we're gonna clean the nursery...",
+            "[You try to interject, but t_c talks over you.]",
+            "...And then we're gonna ask if anyone needs help, and then we'll patrol the elders' den, and then...",
+            "[StarClan, you're going to be busy if t_c gets {PRONOUN/t_c/poss} way!]"
+        ]
+    },
+    "upstanding_kitten_SQ5": {
         "y_c": {
-            "condition": ["illness:any", "injury:any"]
+            "condition": [
+                "illness:any",
+                "injury:any"
+            ]
         },
         "t_c": {
-"status": ["kitten"],
-            "cluster": ["upstanding"]
-},
-        "relationship": ["max_dislike_5"],
+            "status": [
+                "kitten"
+            ],
+            "cluster": [
+                "upstanding"
+            ]
+        },
+        "relationship": [
+            "min_like_-5"
+        ],
         "intro": [
-           "r_m said you aren't feeling well. Why aren't you asleep?",
-           "[t_c draws {PRONOUN/t_c/self} up and looks sternly down at you.]",
-           "r_m also said it's important that you sleep, so you get better! So come on, close your eyes and take a nap!"
-]
-},
-
- "upstanding_kitten_SQ6": {
+            "r_m said you aren't feeling well. Why aren't you asleep?",
+            "[t_c draws {PRONOUN/t_c/self} up and looks sternly down at you.]",
+            "r_m also said it's important that you sleep, so you get better! So come on, close your eyes and take a nap!"
+        ]
+    },
+    "upstanding_kitten_SQ6": {
         "y_c": {
-            "status": ["kitten"],
-            "cluster": ["assertive", "cool", "upstanding", "silly", "unabashed"]
+            "status": [
+                "kitten"
+            ],
+            "cluster": [
+                "assertive",
+                "cool",
+                "upstanding",
+                "silly",
+                "unabashed"
+            ]
         },
         "t_c": {
-            "status": ["kitten"],
-            "cluster": ["upstanding"],
-            "condition": ["illness:any", "injury:any"]
+            "status": [
+                "kitten"
+            ],
+            "cluster": [
+                "upstanding"
+            ],
+            "condition": [
+                "illness:any",
+                "injury:any"
+            ]
         },
-        "relationship": ["max_dislike_5"],
+        "relationship": [
+            "min_like_-5"
+        ],
         "intro": [
-           "[t_c turns away when you begin inviting {PRONOUN/t_c/object} to play.]",
-           "I'm s'posed to rest so I get better. r_m's orders.",
-           "No, don't argue! You've gotta leave me alone now."
+            "[t_c turns away when you begin inviting {PRONOUN/t_c/object} to play.]",
+            "I'm s'posed to rest so I get better. r_m's orders.",
+            "No, don't argue! You've gotta leave me alone now."
         ]
     },
     "mcgrievingonly_kitten_H1": {

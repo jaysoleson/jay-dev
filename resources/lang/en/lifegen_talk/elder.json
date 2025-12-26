@@ -185,8 +185,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "y_c! Get over here and do some exercises with me, won't ya? If the medicine cat wants me to stay cooped up in this den all day, they'll have to drag me back in themselves!",
@@ -227,7 +227,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey, y_c! How was your day? ",
@@ -387,7 +387,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Hmph. Come to mock me again?",
@@ -930,7 +930,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "[t_c sits in the darkest corner of the den, eyes seemingly screwed up in concentration.]",
@@ -1122,7 +1122,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Hehe. Of course you'd never leave the nursery, y_c.",
@@ -1411,8 +1411,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_respect_50"
+            "min_respect_50",
+            "min_like_20"
         ],
         "intro": [
             "Tell ya what, kid, you're much smarter than I ever was at your age.",
@@ -1461,7 +1461,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Don't let anybody tell ya that we elders can't defend ourselves. In my prime, I could take down a whole o_c_n patrol ... With my leg broken!",
@@ -1486,7 +1486,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Tell ya what, there's one secret to me living this long: plain, dumb luck.",
@@ -1786,7 +1786,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You ask t_c if {PRONOUN/t_c/subject} {VERB/t_c/have/has} any cool stories from {PRONOUN/t_c/poss} youth {PRONOUN/t_c/subject} can tell you.]",
@@ -1816,7 +1816,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Growing up fast, huh, y_c?",
@@ -1844,7 +1844,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hmph. My advice to you, y_c: don't ever get old.",
@@ -1874,7 +1874,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "If a battle ever made its way into c_n camp, don't count on me just lazing around the elder's den.",
@@ -1898,7 +1898,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "[t_c stares at the side of the elder's den resentfully.]",
@@ -1937,7 +1937,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "My advice? Try not to let yourself get too attached to anyone.",
@@ -1959,7 +1959,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "All these young cats milling about ... Politics, drama ... It's all just play to me now.",
@@ -2213,7 +2213,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[Today has been rough, cats are fighting left and right and you haven't caught a break.]",
@@ -2330,7 +2330,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c purrs, welcoming your presence and dipping {PRONOUN/t_c/poss} head respectfully.]",
@@ -2472,9 +2472,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "min_romantic_20",
-            "from_mate"
+            "from_mate",
+            "min_like_20"
         ],
         "intro": [
             "Hey, furbag. I brought you something!",
@@ -2512,8 +2512,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "neutral"
+            "neutral",
+            "max_like_-50"
         ],
         "intro": [
             "*Sigh* Can't you see I have more important things to do, y_c?",
@@ -2564,7 +2564,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "My bones might be croaking and my health might be deteriorating, but that won't stop me from hurting you, youngling."
@@ -2727,7 +2727,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I want to do something special for t_m, but I'm out of ideas.",
@@ -2759,7 +2759,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "The Clan's changed so much since I was a kit, and it's just going to keep changing...",
@@ -2783,7 +2783,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "[t_c motions you over one evening as you're heading to your den. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} watching the edge of camp, {PRONOUN/t_c/poss} tail flicking nervously.]",
@@ -2975,7 +2975,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey, can I make a silly request? It's not super important, but if you have time...",
@@ -3008,7 +3008,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_25"
+            "min_like_25"
         ],
         "intro": [
             "plike-r_w-stable has been stopping by a lot recently.",
@@ -3085,7 +3085,7 @@
         "relationship": [
             "min_comfort_30",
             "non-related",
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "What is wrong, young one? Missing yg_c?",
@@ -3119,7 +3119,7 @@
         "relationship": [
             "min_comfort_30",
             "non-related",
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "Grief is like the ocean.",
@@ -3149,7 +3149,7 @@
         },
         "relationship": [
             "min_comfort_30",
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "In all my moons of living, I realized that grief is not a burden. Rather, it is really just love.",
@@ -3175,7 +3175,7 @@
         "relationship": [
             "min_comfort_30",
             "non-related",
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "I'm sorry for your loss, dear. plike-yg_c was a wonderful cat.",
@@ -3204,8 +3204,8 @@
             ]
         },
         "relationship": [
-            "max_platonic_30",
-            "max_trust_30"
+            "max_trust_30",
+            "max_like_30"
         ],
         "intro": [
             "Ahh, this generation is so quick to violence these days...",
@@ -3231,9 +3231,9 @@
             ]
         },
         "relationship": [
-            "max_platonic_30",
             "min_dislike_30",
-            "max_trust_30"
+            "max_trust_30",
+            "max_like_30"
         ],
         "intro": [
             "I doubt you had much reason to murder somecat, but yah, you couldn't have waited until I died?",
@@ -3259,9 +3259,9 @@
             ]
         },
         "relationship": [
-            "max_platonic_30",
             "max_trust_30",
-            "they_grandparent"
+            "they_grandparent",
+            "max_like_30"
         ],
         "tags": [],
         "intro": [
@@ -3289,9 +3289,9 @@
             ]
         },
         "relationship": [
-            "max_platonic_30",
             "min_dislike_30",
-            "they_grandparent"
+            "they_grandparent",
+            "max_like_30"
         ],
         "tags": [],
         "intro": [
@@ -3314,7 +3314,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "[t_c glances at you with an exhasperated look.]",
@@ -3344,7 +3344,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_15"
+            "max_like_-15"
         ],
         "intro": [
             "For most of my long life, I though queens and mediators had it easy. They don't have to hunt for food, guard the Clan, particibate in wars...",
@@ -3375,7 +3375,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_30"
+            "max_like_-30"
         ],
         "intro": [
             "Eh? I asked for a warrior to help me, not a queen.",
@@ -3426,7 +3426,7 @@
             "shunned": true
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "How hypocritical. Everycat will tell you that elders are the wise members of the Clan. Why shun me just because my wisdom is a little less conventional?",
@@ -3523,7 +3523,7 @@
             ]
         },
         "relationship": [
-            "max_platonic_15"
+            "max_like_15"
         ],
         "intro": [
             "Are <i>all</i> cats your age this impulsive and thoughtless?",
@@ -3548,7 +3548,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_25"
+            "min_like_25"
         ],
         "intro": [
             "r_k said I'd make a good mentor, and I had to explain to {PRONOUN/r_k/object} that when you're an elder, you don't take on apprentices anymore. {PRONOUN/r_k/subject/CAP} seemed disappointed.",
@@ -3603,9 +3603,9 @@
             ]
         },
         "relationship": [
-            "max_platonic_30",
             "max_trust_30",
-            "they_grandparent"
+            "they_grandparent",
+            "max_like_30"
         ],
         "tags": [],
         "intro": [
@@ -3634,7 +3634,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "Ahh, young one, has the other apprentices been bothering you lately?",
@@ -3665,8 +3665,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_30",
-            "min_trust_15"
+            "min_trust_15",
+            "max_like_-30"
         ],
         "intro": [
             "[You noticed t_c was struggling to stand up from {PRONOUN/t_c/poss} nest. You decide to approach and help.]",
@@ -3741,12 +3741,25 @@
     },
     "elder_nightmares_rad1": {
         "y_c": {
-            "status": ["medicine cat", "medicine cat apprentice"]
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ]
         },
         "t_c": {
-            "status": ["elder"],
-            "cluster": ["cool","stable","sweet","upstanding"],
-            "condition": ["constant nightmares", "blind:any:false"]
+            "status": [
+                "elder"
+            ],
+            "cluster": [
+                "cool",
+                "stable",
+                "sweet",
+                "upstanding"
+            ],
+            "condition": [
+                "constant nightmares",
+                "blind:any:false"
+            ]
         },
         "intro": [
             "You don't need to fuss over me, y_c.",

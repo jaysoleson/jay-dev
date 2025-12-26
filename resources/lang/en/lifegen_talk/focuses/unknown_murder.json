@@ -93,8 +93,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_comfort_15"
+            "min_comfort_15",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -127,8 +127,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_30",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_30"
         ],
         "tags": [
             "focus"
@@ -156,7 +156,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -188,8 +188,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -293,8 +293,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "intro": [
             "Maybe I'm imagining it, but I feel like plike-fc_c-neurotic was even more nervous than usual the day before {PRONOUN/plike-fc_c-neurotic/subject} died.",
@@ -322,7 +322,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I never thought something like this would happen to plike-fc_c-neurotic. {PRONOUN/plike-fc_c-neurotic/subject/CAP} {VERB/plike-fc_c-neurotic/were/was} so careful! {PRONOUN/plike-fc_c-neurotic/subject/CAP} took every precaution!",
@@ -375,7 +375,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -410,7 +410,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -436,7 +436,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -463,8 +463,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -493,7 +493,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -553,7 +553,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -583,7 +583,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -612,7 +612,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -699,7 +699,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "tags": [
             "focus"
@@ -729,7 +729,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -760,7 +760,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -789,7 +789,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -937,7 +937,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -971,7 +971,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1003,7 +1003,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1037,7 +1037,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1074,7 +1074,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1112,7 +1112,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1138,7 +1138,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_40"
+            "max_like_-40"
         ],
         "tags": [
             "you_murderer",
@@ -1173,7 +1173,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_30"
+            "max_like_-30"
         ],
         "tags": [
             "you_murderer",
@@ -1205,7 +1205,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_20"
+            "max_like_-20"
         ],
         "tags": [
             "you_murderer",
@@ -1234,7 +1234,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1270,7 +1270,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1307,7 +1307,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1342,7 +1342,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_40"
+            "min_like_40"
         ],
         "tags": [
             "focus"
@@ -1374,7 +1374,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "focus"
@@ -1420,7 +1420,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1453,7 +1453,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "focus"
@@ -1484,8 +1484,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1517,8 +1517,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1543,8 +1543,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_30",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_30"
         ],
         "tags": [
             "focus"
@@ -1571,8 +1571,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "max_respect_15"
+            "max_respect_15",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1649,8 +1649,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_comfort_15"
+            "min_comfort_15",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1789,8 +1789,8 @@
             ]
         },
         "relationship": [
-            "max_platonic_30",
-            "min_dislike_10"
+            "min_dislike_10",
+            "max_like_30"
         ],
         "tags": [
             "focus",
@@ -1826,7 +1826,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_70"
+            "min_like_70"
         ],
         "tags": [
             "focus"
@@ -1871,7 +1871,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_40"
+            "max_like_-40"
         ],
         "tags": [
             "focus",
@@ -2057,7 +2057,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "tags": [
             "focus",
@@ -2229,7 +2229,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "focus",
@@ -2575,7 +2575,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_10"
+            "max_like_-10"
         ],
         "tags": [
             "focus"
@@ -2601,8 +2601,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_10",
-            "from_parent"
+            "from_parent",
+            "max_like_-10"
         ],
         "tags": [
             "focus"
@@ -2743,8 +2743,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "min_trust_35"
+            "min_trust_35",
+            "min_like_50"
         ],
         "intro": [
             "Hey, y_c? I uh, kinda have a secret to tell you...",

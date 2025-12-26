@@ -234,7 +234,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -553,7 +553,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -620,7 +620,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -644,7 +644,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -672,7 +672,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -738,7 +738,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -764,7 +764,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -912,7 +912,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -970,8 +970,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_romantic_20"
+            "min_romantic_20",
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -991,9 +991,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "min_romantic_20",
-            "min_respect_50"
+            "min_respect_50",
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -1013,9 +1013,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "min_romantic_20",
-            "min_respect_50"
+            "min_respect_50",
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -1089,7 +1089,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -1338,7 +1338,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -1363,7 +1363,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -1383,8 +1383,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_romantic_20"
+            "min_romantic_20",
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -1473,7 +1473,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -1497,7 +1497,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -1517,8 +1517,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_romantic_20"
+            "min_romantic_20",
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -1542,8 +1542,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_romantic_20"
+            "min_romantic_20",
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -1570,7 +1570,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -1597,7 +1597,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -1693,7 +1693,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -1831,7 +1831,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -2489,7 +2489,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -2512,7 +2512,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -3028,7 +3028,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -3083,7 +3083,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -3128,7 +3128,7 @@
             "beach"
         ],
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -3150,7 +3150,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -3208,7 +3208,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -3284,7 +3284,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -3381,7 +3381,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -3411,7 +3411,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -4365,7 +4365,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_10"
+            "max_like_-10"
         ],
         "tags": [
             "insult"
@@ -4729,7 +4729,7 @@
             ]
         },
         "relationship": [
-            "max_platonic_20"
+            "max_like_20"
         ],
         "tags": [
             "insult"
@@ -5083,7 +5083,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "tags": [
             "insult"
@@ -5777,7 +5777,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -5805,7 +5805,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -5832,7 +5832,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -5859,7 +5859,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -5886,7 +5886,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -6047,7 +6047,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "tags": [
             "insult"
@@ -6121,7 +6121,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "insult"
@@ -6152,7 +6152,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_25"
+            "min_like_25"
         ],
         "tags": [
             "insult"
@@ -6183,7 +6183,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -6212,7 +6212,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "tags": [
             "insult"
@@ -6243,7 +6243,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_40"
+            "min_like_40"
         ],
         "tags": [
             "insult"
@@ -6300,7 +6300,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_15"
+            "max_like_-15"
         ],
         "intro": [
             "...",
@@ -6503,7 +6503,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_15"
+            "max_like_-15"
         ],
         "tags": [
             "insult"
@@ -6514,11 +6514,15 @@
         ],
         "intro_scene_effects": {
             "relationship": {
-                "cats_to": ["t_c"],
-                "cats_from": ["y_c"],
+                "cats_to": [
+                    "t_c"
+                ],
+                "cats_from": [
+                    "y_c"
+                ],
                 "values": {
-                    "dislike": 1,
-                    "trust": -1
+                    "trust": -1,
+                    "like": -1
                 },
                 "mutual": true
             }
@@ -6545,8 +6549,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_10",
-            "min_dislike_10"
+            "min_dislike_10",
+            "min_like_10"
         ],
         "tags": [
             "insult"
@@ -6557,11 +6561,18 @@
         ],
         "intro_scene_effects": {
             "relationship": {
-                "cats_to": ["t_c"],
-                "cats_from": ["y_c"],
+                "cats_to": [
+                    "t_c"
+                ],
+                "cats_from": [
+                    "y_c"
+                ],
                 "values": {
-                    "dislike": 1,
-                    "trust": -1
+                    "trust": -1,
+                    "comfort": 1,
+                    "respect": 1,
+                    "like": -1,
+                    "romance": 1
                 },
                 "mutual": true
             }
@@ -6613,7 +6624,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "tags": [
             "insult"
@@ -6660,7 +6671,9 @@
             "condition": [
                 "blind:any:false"
             ],
-            "age": ["kitten"]
+            "age": [
+                "kitten"
+            ]
         },
         "relationship": [],
         "tags": [
@@ -6808,8 +6821,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_dislike_20"
+            "min_dislike_20",
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -6832,7 +6845,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -6855,7 +6868,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "insult"
@@ -6889,7 +6902,7 @@
     },
     "bothgrieving_insult_H1": {
         "y_c": {
-            "shunned":"any",
+            "shunned": "any",
             "condition": [
                 "grief stricken",
                 "blind:any:false"
@@ -6903,7 +6916,7 @@
                 "grief stricken",
                 "blind:any:false"
             ],
-            "shunned":"any",
+            "shunned": "any",
             "age": [
                 "not_newborn"
             ]

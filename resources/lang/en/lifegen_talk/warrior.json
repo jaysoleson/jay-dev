@@ -13,7 +13,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "..."
@@ -100,7 +100,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "I don't want to talk to you."
@@ -118,7 +118,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Talk to me again and I'll shred you."
@@ -136,7 +136,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Leave me alone."
@@ -154,7 +154,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Can't you see I'm busy?"
@@ -172,7 +172,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "You again? Haven't you done enough?"
@@ -317,8 +317,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "neutral"
+            "neutral",
+            "max_like_-50"
         ],
         "intro": [
             "[t_c paces back and forth in front of the warrior's den, muttering to {PRONOUN/t_c/self} and flexing {PRONOUN/t_c/poss} claws.]",
@@ -344,7 +344,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "[After a lot of pestering from the kits, you agree to show off some of the skills m_n taught you, and host a little training session.]",
@@ -527,7 +527,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [],
         "intro": [
@@ -565,8 +565,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "min_respect_50"
+            "min_respect_50",
+            "min_like_50"
         ],
         "intro": [
             "Get up, y_c! We gotta go on a special patrol to check the o_c_n border!",
@@ -593,9 +593,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "min_trust_50",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_20"
         ],
         "intro": [
             "Oh, hey, y_c ... Can I talk to you about something?",
@@ -625,7 +625,7 @@
         },
         "relationship": [
             "min_jealousy_50",
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Hmph. What makes you so great?",
@@ -654,14 +654,14 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
             "neutral",
             "adopted_sibling",
             "from_parent",
             "from_kit",
             "sibling",
             "half_sibling",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "max_like_-50"
         ],
         "intro": [
             "What do you want? Do you need something?",
@@ -696,9 +696,9 @@
             "newleaf"
         ],
         "relationship": [
-            "min_platonic_20",
             "from_your_kit",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "min_like_20"
         ],
         "intro": [
             "y_c, how about a family hunting session sometime?",
@@ -879,9 +879,9 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
             "neutral",
-            "sibling"
+            "sibling",
+            "max_like_-50"
         ],
         "intro": [
             "... Who are you?",
@@ -906,7 +906,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "YESSS! We're on patrol together today!",
@@ -932,8 +932,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "sibling"
+            "sibling",
+            "max_like_-50"
         ],
         "intro": [
             "Look, just because we're siblings doesn't mean that we're, like, friends, or anything.",
@@ -958,8 +958,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "adopted_sibling"
+            "adopted_sibling",
+            "max_like_-50"
         ],
         "intro": [
             "y_c, would you please stop following me around everywhere?",
@@ -984,8 +984,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_respect_50"
+            "min_respect_50",
+            "min_like_20"
         ],
         "intro": [
             "y_c, we gotta get on a patrol together. D'you think if we asked d_n, {PRONOUN/d_c/subject}'d let us???",
@@ -1031,7 +1031,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "Tch. Did you see what a snake-heart r_c was acting like earlier? And over a piece of prey, no less!",
@@ -1114,9 +1114,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "adopted_sibling",
-            "half_sibling"
+            "half_sibling",
+            "min_like_20"
         ],
         "intro": [
             "*Huff* *Huff*",
@@ -1307,7 +1307,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Hehe. Of course you'd never leave the nursery, y_c.",
@@ -1345,7 +1345,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Hmph. You may fight for peace, y_c, but I know it by another word - cowardice.",
@@ -1382,7 +1382,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Oh, absolutely not. No way a little apprentice is going to tell me what's right and what's wrong.",
@@ -1439,7 +1439,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Y'know, sometimes I worry about you, y_c. If anything ever tries to hurt you, then how will you defend yourself?",
@@ -1521,7 +1521,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c, if you ever need a warrior escort while gathering herbs, you'll come to me, right?",
@@ -2145,8 +2145,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_romantic_20"
+            "min_romantic_20",
+            "min_like_20"
         ],
         "intro": [
             "We have training together today?",
@@ -2202,8 +2202,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "neutral"
+            "neutral",
+            "min_like_20"
         ],
         "intro": [
             "Do you know how to defend yourself?",
@@ -2230,7 +2230,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Hm? You ... want my advice on catching birds?",
@@ -2256,7 +2256,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hm? You ... want my advice on catching birds?",
@@ -2284,8 +2284,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "I overheard a few of the warriors talking. They think you're doing well in your training.",
@@ -2336,7 +2336,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "y_c, if I'm going to be honest with you, I can't help but feel like you've become a bit...lazier with patrols.",
@@ -2688,7 +2688,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c, can I ask you something?",
@@ -2715,8 +2715,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_romantic_20"
+            "min_romantic_20",
+            "min_like_20"
         ],
         "intro": [
             "y_c! y_c! Are you busy right now?",
@@ -2766,8 +2766,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "neutral"
+            "neutral",
+            "max_like_-50"
         ],
         "intro": [
             "y_c, has y_a been out in the territory by {PRONOUN/y_a/self} recently?",
@@ -2793,7 +2793,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "Hey, y_c. You want to see this scar I got? It's new.",
@@ -2822,7 +2822,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey, y_c. Wanna spar?",
@@ -2871,7 +2871,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey. I know this is your favorite prey, so I caught it for you. I hope you like it.",
@@ -3221,9 +3221,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "neutral",
-            "from_mentor"
+            "from_mentor",
+            "min_like_20"
         ],
         "intro": [
             "[While the rest of the Clan is fast asleep in their nests, you are woken up by a paw poking you in the side.]",
@@ -3252,8 +3252,8 @@
         },
         "relationship": [
             "min_dislike_50",
-            "min_dislike_50",
-            "neutral"
+            "neutral",
+            "max_like_-50"
         ],
         "intro": [
             "[t_c shoves you away as you try to join {PRONOUN/t_c/poss} patrol.]",
@@ -4508,7 +4508,11 @@
             "cluster": [
                 "stable"
             ],
-            "status": ["warrior", "deputy", "leader"]
+            "status": [
+                "warrior",
+                "deputy",
+                "leader"
+            ]
         },
         "intro": [
             "[r_q runs through the camp. You swing helplessly in {PRONOUN/r_q/poss} jaws as {PRONOUN/r_q/subject} {VERB/r_q/hold/holds} you by the scruff. {PRONOUN/r_q/subject/CAP} {VERB/r_q/run/runs} up to t_c who's talking with t_a. The queen calls out their names, both cats simultaneously turn around.]",
@@ -5245,7 +5249,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "d_n assigned me to another dawn patrol. Do you think that's {PRONOUN/d_n/poss} way of saying I need to make up for not working hard enough?",
@@ -5273,8 +5277,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "min_trust_50"
+            "min_trust_50",
+            "min_like_50"
         ],
         "intro": [
             "[t_c sings to {PRONOUN/t_c/self} while the two of you sit alone in the warriors' den, sunlight glistening through the holes in the construction. Everycat else has long since started their day, except for you and t_c.]",
@@ -5301,8 +5305,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "from_mentor"
+            "from_mentor",
+            "min_like_50"
         ],
         "tags": [],
         "intro": [
@@ -5329,8 +5333,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "from_mentor"
+            "from_mentor",
+            "max_like_-50"
         ],
         "tags": [],
         "intro": [
@@ -5354,8 +5358,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_mentor"
+            "from_mentor",
+            "min_like_20"
         ],
         "intro": [
             "Hey, y_c! You did well on your patrol earlier.",
@@ -5437,7 +5441,7 @@
             "greenleaf"
         ],
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "Hi, y_c! StarClan, it's scorching outside!",
@@ -5698,8 +5702,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_20"
         ],
         "intro": [
             "d_n assigned me to the dawn patrol tomorrow. Last time {PRONOUN/d_n/subject} did that, I was so worried about missing it that I stayed up all night.",
@@ -5728,7 +5732,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Oh! Hi, y_c. I'm so, so sorry for missing the patrol this morning. I had a stomachache, so r_m said I should stay in camp and rest.",
@@ -5751,7 +5755,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "y_c, I need to tell you something. I'm really, really sorry!",
@@ -5782,7 +5786,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "t_a's having trouble getting the hunting crouch down. It's such an important skill, and {PRONOUN/t_a/subject} can't be a warrior if {PRONOUN/t_a/subject} {VERB/t_a/don't/doesn't} master it.",
@@ -5807,7 +5811,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10"
+            "min_like_-10"
         ],
         "intro": [
             "[t_c stops in the entryway of the medicine cat den, stomping twice to get your attention. In {PRONOUN/t_c/poss} mouth is a bundle of moss.]",
@@ -5835,7 +5839,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You approach t_c to ask a favor, but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} acknowledge you right away.]",
@@ -5925,8 +5929,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "max_trust_10"
+            "max_trust_10",
+            "min_like_20"
         ],
         "intro": [
             "You want to go on a hunting patrol together? Okay! Who else is going?",
@@ -5959,8 +5963,8 @@
             ]
         },
         "relationship": [
-            "max_platonic_10",
-            "min_dislike_20"
+            "min_dislike_20",
+            "max_like_10"
         ],
         "intro": [
             "You... want to know if I'm free to patrol with you? Is everycat else too busy?",
@@ -5991,7 +5995,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_40"
+            "min_like_40"
         ],
         "intro": [
             "[You toss and turn in your nest as you have been all morning, trying to find the easiest position to breathe in.]",
@@ -6043,7 +6047,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "connected"
@@ -6584,7 +6588,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "connected"
@@ -6625,7 +6629,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Why should I listen to you?",
@@ -6695,7 +6699,7 @@
             "leaffall"
         ],
         "relationship": [
-            "max_dislike_10"
+            "min_like_-10"
         ],
         "intro": [
             "[It hasn't rained in a while, but while on patrol with r_w and t_c, you discover a large patch of mud in the middle of the territory.]",
@@ -6734,7 +6738,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10"
+            "min_like_-10"
         ],
         "tags": [
             "connected"
@@ -6808,7 +6812,7 @@
             "newleaf"
         ],
         "relationship": [
-            "max_dislike_10"
+            "min_like_-10"
         ],
         "tags": [
             "connected"
@@ -6838,7 +6842,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "dislike-r_w-upstanding keeps bossing me around. {PRONOUN/dislike-r_w-upstanding/subject/CAP} {VERB/dislike-r_w-upstanding/keep/keeps} pointing out things that need to get done: the fresh-kill pile was disorganized, the hunting patrol was short one member, we're short on moss...",
@@ -6893,7 +6897,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "[You enter your den to see t_c running {PRONOUN/t_c/poss} paws over {PRONOUN/t_c/poss} nest, inspecting the moss so closely {PRONOUN/t_c/subject} {VERB/t_c/keep/keeps} bumping {PRONOUN/t_c/poss} nose into it.]",
@@ -7003,7 +7007,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You wake up to see t_c sitting in the entrance to the warriors' den, silhouetted by the moonlight.]",
@@ -7200,7 +7204,7 @@
             "leafbare"
         ],
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "I tracked a big rabbit halfway across the territory today! Not alone, of course... plike-r_w1 and plike-r_w2 helped me.",
@@ -7235,7 +7239,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "Oh, y_c! If... if you're free later today, would you mind joining me and t_a for a hunting lesson? We're going over how to catch birds today.",
@@ -7263,7 +7267,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "[t_c seems disheartened as you both return from a hunting patrol. You compliment the nice bird {PRONOUN/t_c/subject} caught, but t_c just nods absentmindedly.]",
@@ -7298,8 +7302,8 @@
             "beach"
         ],
         "relationship": [
-            "min_platonic_30",
-            "min_trust_15"
+            "min_trust_15",
+            "min_like_30"
         ],
         "intro": [
             "[t_c bursts into camp, wind-blown and shaking.]",
@@ -7359,7 +7363,7 @@
             ]
         },
         "relationship": [
-            "max_platonic_20"
+            "max_like_20"
         ],
         "intro": [
             "[As you walk home after a hunting patrol, t_c sneaks glances at the plump squirrel you're carrying.]",
@@ -7493,7 +7497,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey! Just got back from a hunting patrol and thought I'd stop by real quick! How are you feeling?",
@@ -7588,9 +7592,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "min_trust_50",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_20"
         ],
         "intro": [
             "I encountered a rather large bird out on patrol today. It would've made a great meal for the Clan.",
@@ -7849,7 +7853,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I met some kittypets on patrol today ... StarClan, I sure gave them a scare!",
@@ -7929,7 +7933,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "Oh, I'm so glad I get to talk to you again, y_c!",
@@ -8179,7 +8183,7 @@
             "leafbare"
         ],
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "[t_c stumbles back into camp shivering, covered with snow, and supported by plove-r_w. {PRONOUN/t_c/subject/CAP} {VERB/t_c/start/starts} towards the medicine den, but {VERB/t_c/pause/pauses} when {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you about to leave on a hunting patrol.]",
@@ -8270,7 +8274,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_25"
+            "min_like_25"
         ],
         "intro": [
             "Did you see neutral-r_w-silly all covered in grass?",
@@ -8342,7 +8346,7 @@
             "newleaf"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c, hello. The weather's lovely today.",
@@ -8373,8 +8377,8 @@
             ]
         },
         "relationship": [
-            "max_platonic_10",
-            "max_respect_10"
+            "max_respect_10",
+            "max_like_10"
         ],
         "intro": [
             "Hmph. Looks like they're just letting any cat become a medicine cat, now.",
@@ -8463,8 +8467,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_50"
+            "min_trust_50",
+            "min_like_20"
         ],
         "intro": [
             "[t_c awkwardly pads into the medicine den, poorly hiding a long scratch with one paw.]",
@@ -8527,8 +8531,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_25"
+            "min_trust_25",
+            "min_like_20"
         ],
         "intro": [
             "neutral-r_w-unlawful asked if I wanted to go hunt in o_c_n territory tomorrow...",
@@ -8612,7 +8616,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_25"
+            "min_like_25"
         ],
         "intro": [
             "I'm having a hard time being a good mentor to neutral-t_a-assertive. {PRONOUN/neutral-t_a-assertive/subject/CAP}{VERB/neutral-t_a-assertive/'re/'s} just so energetic, and {VERB/neutral-t_a-assertive/aren't/isn't} great at listening.",
@@ -8640,7 +8644,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_5"
+            "min_like_-5"
         ],
         "intro": [
             "[The wind is so loud tonight. You listen to it thrash the trees, too worried to sleep. With every distant crack of wood, you imagine a branch crashing into camp and crushing your den.]",
@@ -8783,7 +8787,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_25"
+            "min_like_25"
         ],
         "intro": [
             "StarClan, dislike-r_w-neurotic spent a full half-hour this morning reminding me to be careful. Stay away from the Thunderpath, don't investigate strange scents alone...'",
@@ -8840,7 +8844,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_25"
+            "min_like_25"
         ],
         "intro": [
             "r_w-upstanding's been helping me with my training these past few days, but I can't tell if {PRONOUN/r_w-upstanding/subject}{VERB/r_w-upstanding/'re/'s} doing it to be nice, or just to get l_n to notice {PRONOUN/r_w-upstanding/object}.",
@@ -8863,7 +8867,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I love going on patrol with plove-r_w-introspective.",
@@ -8923,7 +8927,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I don't really think plike-r_w1-neurotic and I work well together.",
@@ -8952,7 +8956,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[r_q catches you in the middle of a plot to sneak into the warrior's den, and is about to start scolding you, when t_c walks by.]",
@@ -9056,7 +9060,7 @@
             "min_trust_20",
             "from_your_kit",
             "from_adopted_kit",
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I've really been trying to convince l_n and d_n to let you patrol with me for fresh-kill, but they keep brushing me off.",
@@ -9086,8 +9090,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_25",
-            "from_mentor"
+            "from_mentor",
+            "min_like_25"
         ],
         "tags": [
             "not_accomplice",
@@ -9118,7 +9122,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey, y_c! I brought you back something from my last patrol. Take a look!",
@@ -9158,16 +9162,27 @@
     },
     "quilled_H1": {
         "y_c": {
-            "status": ["medicine cat", "medicine cat apprentice"],
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ],
             "age": [],
             "cluster": [],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
-            "status": ["warrior", "apprentice"],
+            "status": [
+                "warrior",
+                "apprentice"
+            ],
             "age": [],
             "cluster": [],
-            "condition": ["quilled by a porcupine", "blind:any:false"]
+            "condition": [
+                "quilled by a porcupine",
+                "blind:any:false"
+            ]
         },
         "intro": [
             "... Shut up. I know you find this funny.",
@@ -9177,16 +9192,30 @@
     },
     "heatexhaustion_H1": {
         "y_c": {
-            "status": ["medicine cat", "medicine cat apprentice"],
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ],
             "age": [],
             "cluster": [],
-            "condition": ["deaf:any:false"]
+            "condition": [
+                "deaf:any:false"
+            ]
         },
         "t_c": {
-            "status": ["warrior", "apprentice"],
+            "status": [
+                "warrior",
+                "apprentice"
+            ],
             "age": [],
-            "cluster": ["upstanding"],
-            "condition": ["heat exhaustion", "blind:any:false", "deaf:any:false"]
+            "cluster": [
+                "upstanding"
+            ],
+            "condition": [
+                "heat exhaustion",
+                "blind:any:false",
+                "deaf:any:false"
+            ]
         },
         "intro": [
             "[t_c was admitted to the medicine den due to {PRONOUN/t_c/poss} heat exhaustion, yet t_c has refused to stay in the den long.]",
@@ -9196,9 +9225,18 @@
     "heatexhaustion_H2": {
         "y_c": {},
         "t_c": {
-            "status": ["warrior", "apprentice"],
-            "age": ["senior adult", "adult"],
-            "condition": ["heat exhaustion", "blind:any:false"]
+            "status": [
+                "warrior",
+                "apprentice"
+            ],
+            "age": [
+                "senior adult",
+                "adult"
+            ],
+            "condition": [
+                "heat exhaustion",
+                "blind:any:false"
+            ]
         },
         "intro": [
             "I am a seasoned warrior - I do not get heat exhaustion! It's just the medicine cat's way to keep us in the dens.",
@@ -9207,52 +9245,93 @@
     },
     "upstanding_warrior_SQ1": {
         "y_c": {
-            "age": ["not_kitten", "not_adolescent"],
-            "condition": ["blind:any:false"]
+            "age": [
+                "not_kitten",
+                "not_adolescent"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
-            "status": ["warrior"],
-            "cluster": ["upstanding"],
-            "condition": ["blind:any:false"]
+            "status": [
+                "warrior"
+            ],
+            "cluster": [
+                "upstanding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
-        "relationship": ["max_dislike_10", "min_platonic_30"],
+        "relationship": [
+            "min_platonic_30",
+            "min_like_-10"
+        ],
         "intro": [
-           "Did you hear how neutral-d_n put me on the border patrol? I told {PRONOUN/neutral-d_n/object} that I felt that I'd be more effective hunting today, but {PRONOUN/neutral-d_n/subject} said {PRONOUN/neutral-d_n/subject}'d already organized the patrols and wouldn't change them at this point.",
-           "...Of course I respect that, but I still think that we should organize patrols for maximum efficiency."
+            "Did you hear how neutral-d_n put me on the border patrol? I told {PRONOUN/neutral-d_n/object} that I felt that I'd be more effective hunting today, but {PRONOUN/neutral-d_n/subject} said {PRONOUN/neutral-d_n/subject}'d already organized the patrols and wouldn't change them at this point.",
+            "...Of course I respect that, but I still think that we should organize patrols for maximum efficiency."
         ]
     },
     "upstanding_warrior_SQ2": {
         "y_c": {
-            "age": ["not_kitten", "not_adolescent"],
-            "condition": ["blind:any:false"]
+            "age": [
+                "not_kitten",
+                "not_adolescent"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
-            "status": ["warrior"],
-            "cluster": ["upstanding"],
-            "condition": ["blind:any:false"]
+            "status": [
+                "warrior"
+            ],
+            "cluster": [
+                "upstanding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
-        "relationship": ["max_dislike_10", "min_platonic_40"],
+        "relationship": [
+            "min_platonic_40",
+            "min_like_-10"
+        ],
         "intro": [
-           "I can't stand being on patrol with dislike-r_w-upstanding. {PRONOUN/dislike-r_w-upstanding/subject/CAP} always {VERB/dislike-r_w-upstanding/try/tries} to take control of the group, and {VERB/dislike-r_w-upstanding/tell/tells} us what routes we're going to take and how long we're going to hunt where...",
-           "{PRONOUN/dislike-r_w-upstanding/subject/CAP} never {VERB/dislike-r_w-upstanding/listen/listens} to anyone else, as if {PRONOUN/dislike-r_w-upstanding/subject} {VERB/dislike-r_w-upstanding/think/thinks} {PRONOUN/dislike-r_w-upstanding/subject}{VERB/dislike-r_w-upstanding/'re/'s} always right! It's infuriating.",
-           "[...You don't point out that you know another cat who often acts the same way.]"
+            "I can't stand being on patrol with dislike-r_w-upstanding. {PRONOUN/dislike-r_w-upstanding/subject/CAP} always {VERB/dislike-r_w-upstanding/try/tries} to take control of the group, and {VERB/dislike-r_w-upstanding/tell/tells} us what routes we're going to take and how long we're going to hunt where...",
+            "{PRONOUN/dislike-r_w-upstanding/subject/CAP} never {VERB/dislike-r_w-upstanding/listen/listens} to anyone else, as if {PRONOUN/dislike-r_w-upstanding/subject} {VERB/dislike-r_w-upstanding/think/thinks} {PRONOUN/dislike-r_w-upstanding/subject}{VERB/dislike-r_w-upstanding/'re/'s} always right! It's infuriating.",
+            "[...You don't point out that you know another cat who often acts the same way.]"
         ]
     },
     "upstanding_warrior_SQ3": {
         "y_c": {
-            "age": ["not_kitten"],
-            "condition": ["blind:any:false"]
+            "age": [
+                "not_kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
-            "status": ["warrior"],
-            "cluster": ["upstanding"],
-            "condition": ["blind:any:false"]
+            "status": [
+                "warrior"
+            ],
+            "cluster": [
+                "upstanding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
-        "relationship": ["max_dislike_10", "min_platonic_15"],
+        "relationship": [
+            "min_platonic_15",
+            "min_like_-10"
+        ],
         "intro": [
-           "dislike-r_w-cool skipped our border patrol this morning. Do you know what {PRONOUN/dislike-r_w-cool/subject} {VERB/dislike-r_w-cool/were/was} doing instead? If {PRONOUN/dislike-r_w-cool/subject} {VERB/dislike-r_w-cool/were/was} slacking off, I'm going to report {PRONOUN/dislike-r_w-cool/object} to d_n.",
-           "[You tell t_c that dislike-r_w-cool had a stomachache this morning. t_c rolls {PRONOUN/t_c/poss} eyes.]",
-           "Hmph. I doubt that."
+            "dislike-r_w-cool skipped our border patrol this morning. Do you know what {PRONOUN/dislike-r_w-cool/subject} {VERB/dislike-r_w-cool/were/was} doing instead? If {PRONOUN/dislike-r_w-cool/subject} {VERB/dislike-r_w-cool/were/was} slacking off, I'm going to report {PRONOUN/dislike-r_w-cool/object} to d_n.",
+            "[You tell t_c that dislike-r_w-cool had a stomachache this morning. t_c rolls {PRONOUN/t_c/poss} eyes.]",
+            "Hmph. I doubt that."
         ]
     }
 }

@@ -21,7 +21,7 @@ from ..ui.generate_box import get_box, BoxStyles
 from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
-
+from scripts.clan_package.settings import get_clan_setting
 
 
 
@@ -296,13 +296,13 @@ class DeputyScreen(Screens):
         pos_y = 20
         i = 0
         for cat in display_cats:
-            if game.clan.clan_settings["show fav"] and cat.favourite != 0:
+            if get_clan_setting("show fav") and cat.favourite != 0:
                 self.fav[str(i)] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((100 + pos_x, 365 + pos_y), (50, 50))),
                     pygame.transform.scale(
                         pygame.image.load(
                             f"resources/images/fav_marker_{cat.favourite}.png").convert_alpha(),
-                        (100, 100))
+                        (50, 50))
                 )
                 self.fav[str(i)].disable()
             self.cat_list_buttons["cat" + str(i)] = UISpriteButton(

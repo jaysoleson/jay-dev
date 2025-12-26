@@ -26,6 +26,7 @@ from scripts.utility import (
     shorten_text_to_fit,
     ui_scale_dimensions
 )
+from scripts.clan_package.settings import get_clan_setting
 from .Screens import Screens
 from ..game_structure.screen_settings import MANAGER
 from ..ui.generate_box import get_box, BoxStyles
@@ -624,7 +625,7 @@ class ElderStoryScreen(Screens):
         chunked_cats = self.chunks(self.current_listed_cats, 12)
         if chunked_cats:
             for cat in chunked_cats[self.page - 1]:
-                if game.clan.clan_settings["show fav"] and cat.favourite != 0:
+                if get_clan_setting("show fav")  and cat.favourite != 0:
                     _temp = pygame.transform.scale(
                                 pygame.image.load(
                                     f"resources/images/fav_marker_{cat.favourite}.png").convert_alpha(),

@@ -41,7 +41,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "war",
@@ -317,7 +319,9 @@
             "cluster": [
                 "unlawful"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "focus",
@@ -333,13 +337,17 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "focus",
@@ -363,7 +371,9 @@
             "status": [
                 "any"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "relationship": [
             "non-related"
@@ -382,7 +392,9 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "age": [
@@ -391,7 +403,9 @@
             "status": [
                 "any"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "relationship": [
             "non-related"
@@ -409,13 +423,17 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "status": [
                 "queen"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "relationship": [
             "non-related"
@@ -435,7 +453,9 @@
             ]
         },
         "t_c": {
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "relationship": [
             "from_parent"
@@ -452,14 +472,18 @@
     },
     "war_faith_H1": {
         "y_c": {
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "min_max_faith": [
                 0,
                 9
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "focus"
@@ -473,7 +497,9 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "status": [
@@ -483,7 +509,9 @@
                 0,
                 9
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "focus"
@@ -498,7 +526,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "min_max_faith": [
@@ -508,7 +538,9 @@
             "age": [
                 "not_kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "tags": [
             "focus"
@@ -522,13 +554,17 @@
             "status": [
                 "warrior"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
                 "neurotic"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "relationship": [
             "min_romantic_20",
@@ -551,13 +587,17 @@
                 "mediator",
                 "medicine cat"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
                 "neurotic"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "relationship": [
             "from_mate"
@@ -576,14 +616,18 @@
             "status": [
                 "warrior"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
                 "introspective",
                 "neurotic"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "relationship": [
             "from_mate"
@@ -597,7 +641,9 @@
     },
     "warfocus_SQ1": {
         "y_c": {
-            "condition": ["deaf:any:false"]
+            "condition": [
+                "deaf:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -606,7 +652,9 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["deaf:any:false"]
+            "condition": [
+                "deaf:any:false"
+            ]
         },
         "tags": [
             "focus"
@@ -631,11 +679,13 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_50"
+            "min_trust_50",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -663,7 +713,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -695,7 +745,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "focus"
@@ -747,7 +797,9 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -756,10 +808,12 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "focus"
@@ -776,7 +830,9 @@
             "age": [
                 "adult"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -785,11 +841,13 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_50"
+            "min_trust_50",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -807,7 +865,9 @@
                 "deputy",
                 "leader"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -818,8 +878,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_50"
+            "min_trust_50",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -835,7 +895,9 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -844,11 +906,13 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "relationship": [
-            "min_platonic_20",
-            "littermate"
+            "littermate",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -864,7 +928,9 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -873,11 +939,13 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "relationship": [
-            "min_platonic_20",
-            "littermate"
+            "littermate",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -893,7 +961,9 @@
                 "queen",
                 "queen's apprentice"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
             "cluster": [
@@ -902,10 +972,12 @@
             "age": [
                 "kitten"
             ],
-            "condition": ["blind:any:false"]
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -927,8 +999,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "littermate"
+            "littermate",
+            "min_like_50"
         ],
         "tags": [
             "focus"
@@ -958,9 +1030,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "min_trust_50",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1149,7 +1221,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -1213,7 +1285,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "focus"
@@ -1245,9 +1317,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
             "from_your_kit",
-            "from_adopted_kit"
+            "from_adopted_kit",
+            "min_like_50"
         ],
         "tags": [
             "focus"
@@ -1412,7 +1484,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "focus"
@@ -1448,7 +1520,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "focus",
@@ -1492,7 +1564,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "focus",
@@ -1526,7 +1598,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "focus",
@@ -1566,7 +1638,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "focus",
@@ -1767,7 +1839,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "focus"
@@ -1798,7 +1870,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "focus"
@@ -1998,7 +2070,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -2019,7 +2091,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -2051,7 +2123,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -2083,7 +2155,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -2140,7 +2212,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -2163,7 +2235,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -2195,14 +2267,14 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus",
             "connected"
         ],
         "intro": [
-            "[d_n is swatting at t_c.]", 
+            "[d_n is swatting at t_c.]",
             "|d_n|I know you're not really sick, t_c. We need all the warriors we can get for the next border patrol.",
             "Y'know, have you tried yelling just a little louder? I feel like that'd <i>really</i> convince me.",
             "[With a grunt of effort, t_c sluggishly rises to {PRONOUN/t_c/poss} paws and shakes scraps of moss out of {PRONOUN/t_c/poss} fur.]",
@@ -2230,7 +2302,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus",
@@ -2263,7 +2335,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus",
@@ -2328,7 +2400,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus",
@@ -2361,7 +2433,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus",
@@ -2403,7 +2475,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus",
@@ -2686,7 +2758,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "tags": [
             "focus"
@@ -2784,7 +2856,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -2811,7 +2883,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -2843,8 +2915,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_trust_50"
+            "min_trust_50",
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -2992,7 +3064,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus",
@@ -3022,7 +3094,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -3089,7 +3161,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "focus"
@@ -3626,9 +3698,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
             "min_platonic_50",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_20"
         ],
         "tags": [
             "focus"

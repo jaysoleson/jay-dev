@@ -252,8 +252,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "Ready for a badger ride, y_c? Hurry up and climb on!",
@@ -334,8 +334,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "What's that, y_c? You wanna play? Sure! You can be the leader, and I'll be the rogue.",
@@ -765,8 +765,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "*Sigh* My perfect little y_c ...",
@@ -784,8 +784,8 @@
         },
         "t_c": {},
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "*Gasp* Oh, look, t_m! y_c has your nose!",
@@ -808,8 +808,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "y_c? What's going on?",
@@ -834,8 +834,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "Alright, kiddo, time for your bath.",
@@ -856,8 +856,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "Hm? You wanna play moss-ball?",
@@ -1039,7 +1039,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "The forest hides many secrets, y_c.",
@@ -1172,7 +1172,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Rules are there for a reason, y_c.",
@@ -1267,8 +1267,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "Ready for a badger ride, y_c? Hurry up and climb on!",
@@ -1291,7 +1291,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Heh. Always nice to see a new little addition to the Clan."
@@ -1312,7 +1312,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Ah, StarClan, look at those little ears. So stinkin' adorable.",
@@ -1337,7 +1337,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "What a cute little guy!",
@@ -1356,7 +1356,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey, y_c. Watch this.",
@@ -1727,8 +1727,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "*Sigh* My perfect little y_c ...",
@@ -1751,8 +1751,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "y_c? What's going on?",
@@ -1780,8 +1780,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "Alright, kiddo, time for your bath.",
@@ -1805,8 +1805,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "Hm? You wanna play moss-ball?",
@@ -1973,7 +1973,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "Don't you have something better to be doing?",
@@ -2019,7 +2019,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hm? Why are you crying, y_c?",
@@ -2041,7 +2041,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hey, y_c. Look up there.",
@@ -2117,7 +2117,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Tch. Not now, y_c. I'm not interested in kit games.",
@@ -2151,8 +2151,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "y_c, why don't you go out and play with the other kits?",
@@ -2183,8 +2183,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "[r_q caught you being naughty and demanded to meet with your {PRONOUN/t_c/parent}, t_c, about it.]",
@@ -2215,8 +2215,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "Ah. Good morning, little one.",
@@ -2237,8 +2237,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "Look, y_c.",
@@ -2265,8 +2265,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "y_c, you want a badger ride?",
@@ -2295,8 +2295,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "Don't wander too far, y_c!",
@@ -2322,8 +2322,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "min_like_20"
         ],
         "intro": [
             "Hm? You and r_k wanna play outside?",
@@ -2387,8 +2387,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "non-related"
+            "non-related",
+            "min_like_20"
         ],
         "intro": [
             "What do you need?",
@@ -2434,7 +2434,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You see t_c sitting alone near the clearing and decide to approach {PRONOUN/t_c/object}.]",
@@ -2459,8 +2459,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "from_parent"
+            "from_parent",
+            "min_like_50"
         ],
         "intro": [
             "Hehe. That's my little y_c."
@@ -2481,8 +2481,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "from_parent"
+            "from_parent",
+            "min_like_50"
         ],
         "intro": [
             "y_c, what happened to your fur?",
@@ -2724,7 +2724,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You're playing a game of chase with t_c!]",
@@ -2799,7 +2799,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "Careful, y_c! Don't play near those thorns!",
@@ -2912,7 +2912,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c, do you know how to strike fear into the hearts of your enemies?",
@@ -3119,8 +3119,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "non-related"
+            "non-related",
+            "max_like_-50"
         ],
         "intro": [
             "Hmph. Great. Yet another mouth to feed.",
@@ -3148,8 +3148,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "non-related"
+            "non-related",
+            "max_like_-50"
         ],
         "intro": [
             "... So, are we just letting anyone into the Clan now, or ...?"
@@ -3972,7 +3972,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c deliberately looks around the camp for any cats, {PRONOUN/t_c/poss} eyes trailing back to you. You've been eating the left-overs-- which so happens to be crowfood.]",
@@ -4342,8 +4342,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "non-related"
+            "non-related",
+            "max_like_-50"
         ],
         "intro": [
             "Hey, mouse-brain! Watch where you're going!",
@@ -6535,7 +6535,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "What's the matter, kid? You hungry? Need somebody to take you to the dirtplace?",
@@ -6974,7 +6974,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_15"
+            "min_like_15"
         ],
         "intro": [
             "[You race up to t_c, ready to tell {PRONOUN/t_c/object} all about your day.]",
@@ -7575,7 +7575,7 @@
         },
         "relationship": [
             "from_parent",
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c licks your forehead absently.]",
@@ -8067,7 +8067,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Don't try to grow up too quickly, okay?",
@@ -8098,7 +8098,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You try to climb to the top of the nursery. It's exciting! As you climb higher, you can see more and more of the camp at once!]",
@@ -8125,7 +8125,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "connected"
@@ -8152,7 +8152,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "connected"
@@ -8192,7 +8192,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Have you thought about what kind of apprentice you want to be, y_c? You should think about it sooner rather than later.",
@@ -8227,8 +8227,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "max_platonic_50"
+            "max_platonic_50",
+            "min_like_20"
         ],
         "intro": [
             "You made up a new game? Okay, what are the rules?",
@@ -8368,7 +8368,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "Hey, kiddo. Uh, I'm kind of busy right now. Could we play later?",
@@ -8765,10 +8765,10 @@
             ]
         },
         "relationship": [
-            "min_platonic_10",
             "adopted_sibling",
             "sibling",
-            "half_sibling"
+            "half_sibling",
+            "min_like_10"
         ],
         "intro": [
             "[You can feel t_c curl into your nest around you, looking for any sort of comfort.]"
@@ -8926,7 +8926,7 @@
             ]
         },
         "relationship": [
-            "max_platonic_10"
+            "max_like_10"
         ],
         "intro": [
             "[You bounce up to t_c, jabbering about everything you've noticed today: a cool bird, and a weird smell, and r_w1 making a funny face when talking to r_w2...]",
@@ -8975,7 +8975,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "What do you think about having new kits in the nursery with you soon?",
@@ -9000,8 +9000,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "littermate"
+            "littermate",
+            "min_like_20"
         ],
         "intro": [
             "t_c, I need you to go ask t_p if we can go swimming today.",
@@ -9018,8 +9018,8 @@
         },
         "t_c": {},
         "relationship": [
-            "min_platonic_20",
-            "littermate"
+            "littermate",
+            "min_like_20"
         ],
         "intro": [
             "[You and your littermates have spent all day constructing a makeshift fort out of twigs and moss.]",
@@ -9261,8 +9261,8 @@
             ]
         },
         "relationship": [
-            "max_dislike_30",
-            "from_parent"
+            "from_parent",
+            "min_like_-30"
         ],
         "tags": [
             "not_murder_victim",
@@ -9292,8 +9292,8 @@
             ]
         },
         "relationship": [
-            "max_dislike_30",
-            "from_parent"
+            "from_parent",
+            "min_like_-30"
         ],
         "tags": [
             "not_murder_victim",
@@ -9323,8 +9323,8 @@
             ]
         },
         "relationship": [
-            "max_dislike_30",
-            "from_parent"
+            "from_parent",
+            "min_like_-30"
         ],
         "tags": [
             "not_murder_victim",
@@ -9355,8 +9355,8 @@
             ]
         },
         "relationship": [
-            "max_dislike_30",
-            "from_parent"
+            "from_parent",
+            "min_like_-30"
         ],
         "tags": [
             "not_murder_victim",
@@ -9386,8 +9386,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_30",
-            "from_parent"
+            "from_parent",
+            "max_like_-30"
         ],
         "tags": [
             "not_accomplice"
@@ -9414,7 +9414,7 @@
             "beach"
         ],
         "relationship": [
-            "max_dislike_10"
+            "min_like_-10"
         ],
         "intro": [
             "[You and r_k are playing with a crab claw plike-r_w found on the beach. It doesn't have any edible bits inside anymore, but it's bright red and has a thrillingly still-sharp edge.]",
@@ -9441,7 +9441,7 @@
             "beach"
         ],
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "[t_c brought a giant clump of kelp for you to play with! You wait impatiently as {PRONOUN/t_c/subject} {VERB/t_c/search/searches} through the fronds for anything unexpected or dangerous.]",
@@ -9471,7 +9471,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Once you're an apprentice, make sure to tell your mentor if you're worried about something, okay? Even if that makes you nervous.",
@@ -9530,7 +9530,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10"
+            "min_like_-10"
         ],
         "intro": [
             "What's that? You want me to tell you a story? Um... okay, let me think.",
@@ -9563,7 +9563,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10"
+            "min_like_-10"
         ],
         "tags": [
             "connected"
@@ -9624,7 +9624,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_10"
+            "min_like_10"
         ],
         "intro": [
             "[When t_c gathers you to tell a story, {PRONOUN/t_c/subject} {VERB/t_c/make/makes} sure to sign as well. When plike-r_k joins you, {PRONOUN/plike-r_k/subject} also {VERB/plike-r_k/translate/translates}!]",
@@ -9701,8 +9701,13 @@
     },
     "condition_J3": {
         "y_c": {
-            "condition": ["stomachache", "poisoned"],
-            "age": ["kitten"]
+            "condition": [
+                "stomachache",
+                "poisoned"
+            ],
+            "age": [
+                "kitten"
+            ]
         },
         "t_c": {},
         "relationship": [
@@ -9718,10 +9723,14 @@
     },
     "you_kit_J1": {
         "y_c": {
-        "age": ["kitten"]
+            "age": [
+                "kitten"
+            ]
         },
         "t_c": {
-        "age": ["not_kitten"]
+            "age": [
+                "not_kitten"
+            ]
         },
         "intro": [
             "[You've dug your way into the fresh-kill pile, doing your best to pretend to be a piece of prey. t_c wanders up to the pile for a meal and you stifle your laughter.]",
@@ -9733,9 +9742,14 @@
         ]
     },
     "allergies_J1": {
-        "season": ["newleaf", "greenleaf"],
+        "season": [
+            "newleaf",
+            "greenleaf"
+        ],
         "t_c": {
-            "condition": ["allergies:any:true"]
+            "condition": [
+                "allergies:any:true"
+            ]
         },
         "intro": [
             "[You trot in t_c's direction with a gift.]",
@@ -9749,295 +9763,495 @@
     },
     "you_kit_brooding_SQ1~1": {
         "y_c": {
-            "status": ["kitten"]
+            "status": [
+                "kitten"
+            ]
         },
         "t_c": {
-"status": ["medicine cat", "medicine cat apprentice"],
-            "cluster": ["brooding"],
-            "condition": ["blind:any:false"]
-},
-        "relationship": ["max_platonic_20"],
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "max_like_20"
+        ],
         "intro": [
             "I'm sorting herbs in here. Move.",
             "No, you can't watch. I'll turn my back and the next thing I know, you'll be playing in my marigold.",
             "Seriously. Leave."
-]
-},
-
- "you_kit_brooding_SQ2": {
+        ]
+    },
+    "you_kit_brooding_SQ2": {
         "y_c": {
-            "status": ["kitten"],
-            "condition": ["illness:none"]
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "illness:none"
+            ]
         },
         "t_c": {
-"status": ["medicine cat", "medicine cat apprentice"],
-            "cluster": ["brooding"],
-	"min_max_faith": [0,9]
-},
-        "relationship": ["max_platonic_20"],
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "min_max_faith": [
+                0,
+                9
+            ]
+        },
+        "relationship": [
+            "max_like_20"
+        ],
         "intro": [
             "You want what? Honey? Absolutely not.",
             "[t_c rolls {PRONOUN/t_c/poss} eyes.]",
             "Who told you to ask me for that? r_w-silly? StarClan, of course {PRONOUN/r_w-silly/subject} did...",
             "[t_c grumbles to {PRONOUN/t_c/self} for a bit before chasing you out of the medicine den.]"
-]
-},
-
- "you_kit_brooding_SQ3": {
+        ]
+    },
+    "you_kit_brooding_SQ3": {
         "y_c": {
-            "status": ["kitten"],
-            "condition": ["deaf:any:false"]
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ]
         },
         "t_c": {
-"status": ["medicine cat", "medicine cat apprentice"],
-            "cluster": ["brooding"],
-            "condition": ["blind:any:false", "deaf:any:false"]
-},
-        "relationship": ["max_platonic_20"],
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "relationship": [
+            "max_like_20"
+        ],
         "intro": [
             "[You hover behind t_c, watching as {PRONOUN/t_c/subject} {VERB/t_c/sort/sorts} through strong-smelling leaves. They all look so strange! And they seem so crunchy...]",
             "[As soon as you get within reach of their herbs, t_c suddenly grabs you by the scruff, drops you unceremoniously outside the den, and returns to {PRONOUN/t_c/poss} work with a huff.]"
-]
-},
-
- "you_kit_brooding_SQ4": {
+        ]
+    },
+    "you_kit_brooding_SQ4": {
         "y_c": {
-            "status": ["kitten"]
+            "status": [
+                "kitten"
+            ]
         },
         "t_c": {
-"status": ["medicine cat", "medicine cat apprentice"],
-            "cluster": ["brooding"],
-            "condition": ["blind:any:false"]
-},
-        "relationship": ["max_platonic_20"],
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "max_like_20"
+        ],
         "intro": [
             "[You creep over to the medicine den. t_c sits inside with {PRONOUN/t_c/poss} back to you, tending to r_s.]",
             "[Mustering all of your stealth skills, you take one step into the den, and...]",
             "y_c. Leave.",
             "[How did {PRONOUN/t_c/subject} even know you were there??]"
-]
-},
-
- "you_kit_brooding_SQ5": {
+        ]
+    },
+    "you_kit_brooding_SQ5": {
         "y_c": {
-            "status": ["kitten"],
-            "condition": ["blind:any:false"]
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
-"status": ["apprentice", "medicine cat apprentice", "queen's apprentice", "mediator apprentice"],
-            "cluster": ["brooding"],
-            "condition": ["blind:any:false"]
-},
-        "relationship": ["max_platonic_20"],
+            "status": [
+                "apprentice",
+                "medicine cat apprentice",
+                "queen's apprentice",
+                "mediator apprentice"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "max_like_20"
+        ],
         "intro": [
             "No, I won't show you what tm_n taught me today. Wait until you're an apprentice.",
             "[You follow t_c around camp, hoping {PRONOUN/t_c/subject}'ll relent, but {PRONOUN/t_c/subject} pointedly {VERB/t_c/ignore/ignores} you.]"
-]
-},
-
- "you_kit_brooding_SQ6": {
+        ]
+    },
+    "you_kit_brooding_SQ6": {
         "y_c": {
-            "status": ["kitten"],
-            "condition": ["deaf:any:false"]
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ]
         },
         "t_c": {
-"status": ["apprentice", "medicine cat apprentice", "queen's apprentice", "mediator apprentice"],
-            "cluster": ["brooding"],
-            "condition": ["blind:any:false", "deaf:any:false"]
-},
-        "relationship": ["max_platonic_25"],
+            "status": [
+                "apprentice",
+                "medicine cat apprentice",
+                "queen's apprentice",
+                "mediator apprentice"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "relationship": [
+            "max_like_25"
+        ],
         "intro": [
             "[t_c always seems so grumpy, especially for such a young cat, so you're startled when plike-r_a launches {PRONOUN/plike-r_a/self} at {PRONOUN/t_c/object} with a play-swipe. You freeze. Won't t_c snap at {PRONOUN/plike-r_a/object}?]",
             "[To your surprise, t_c dodges the swipe and retaliates with a gentle bat of their own. You glimpse {PRONOUN/t_c/poss} genuine, momentary smile.]",
             "[...Huh. Weird.]"
-]
-},
-
- "you_kit_brooding_SQ7": {
+        ]
+    },
+    "you_kit_brooding_SQ7": {
         "y_c": {
-            "status": ["kitten"],
-            "condition": ["blind:any:false"]
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
-"status": ["apprentice"],
-            "cluster": ["brooding"],
-            "condition": ["blind:any:false"]
-},
-        "relationship": ["max_platonic_20"],
+            "status": [
+                "apprentice"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "max_like_20"
+        ],
         "intro": [
             "I'm practicing, y_c. Move before I trip on you.",
             "Seriously. If you <i>need</i> to bother an apprentice, go get in dislike-r_a's way."
-]
-},
-
- "you_kit_brooding_SQ8": {
+        ]
+    },
+    "you_kit_brooding_SQ8": {
         "y_c": {
-            "status": ["kitten"],
-            "condition": ["blind:any:false"]
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
-"status": ["apprentice"],
-            "cluster": ["brooding"],
-            "condition": ["blind:any:false"]
-},
-        "relationship": ["max_platonic_20", "max_dislike_10"],
+            "status": [
+                "apprentice"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "max_dislike_10",
+            "max_like_20"
+        ],
         "intro": [
             "[You ask t_c what {PRONOUN/t_c/subject} and tm_n did today! You expect the apprentice to brush you off like usual, but instead {PRONOUN/t_c/subject} {VERB/t_c/pause/pauses}.]",
             "We... went hunting. Close to the stream. I caught a mouse.",
             "...tm_n said I did a good job."
-]
-},
-
- "you_kit_brooding_SQ9": {
+        ]
+    },
+    "you_kit_brooding_SQ9": {
         "y_c": {
-            "status": ["kitten"],
-            "condition": ["blind:any:false"]
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
-"age": ["not_kitten", "not_adolescent"],
-            "cluster": ["strict", "grumpy"],
-	"min_max_faith": [-1,9]
-},
-        "relationship": ["max_platonic_20"],
+            "age": [
+                "not_kitten",
+                "not_adolescent"
+            ],
+            "cluster": [
+                "strict",
+                "grumpy"
+            ],
+            "min_max_faith": [
+                -1,
+                9
+            ]
+        },
+        "relationship": [
+            "max_like_20"
+        ],
         "intro": [
             "Don't track mud into the dens, y_c!",
             "StarClan, it's hard enough to keep things tidy around here without kits bouncing around..."
-]
-},
-
- "you_kit_brooding_SQ10": {
+        ]
+    },
+    "you_kit_brooding_SQ10": {
         "y_c": {
-            "status": ["kitten"],
-            "condition": ["blind:any:false"]
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
-"status": ["queen", "queen's apprentice"],
-            "cluster": ["brooding"],
-            "condition": ["blind:any:false"]
-},
-        "relationship": ["max_platonic_20", "max_dislike_20"],
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "max_dislike_20",
+            "max_like_20"
+        ],
         "intro": [
             "Time for sleep, y_c. Come over here.",
             "No, you don't get five more minutes of mossball. If you stay up any longer you'll be a pain tomorrow.",
             "[Despite your protests, t_c grabs you by the scruff and plops you firmly in your nest.]",
             "Quiet down, now. I'm not going to tell you again."
-]
-},
-
- "you_kit_brooding_SQ11": {
+        ]
+    },
+    "you_kit_brooding_SQ11": {
         "y_c": {
-            "status": ["kitten"],
-            "condition": ["blind:any:false"]
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
-"status": ["deputy"],
-            "cluster": ["brooding", "upstanding"]
-},
-        "relationship": ["max_platonic_30", "max_dislike_20"],
+            "status": [
+                "deputy"
+            ],
+            "cluster": [
+                "brooding",
+                "upstanding"
+            ]
+        },
+        "relationship": [
+            "max_dislike_20",
+            "max_like_30"
+        ],
         "intro": [
             "[t_c is announcing patrol assignments! You stand amid the warriors, hoping t_c might play along and call your name.]",
             "...And finally, r_w1 and r_w2 will be hunting with me this evening. That's all. Dismissed.",
             "[Aw. No luck.]"
-]
-},
-
- "you_kit_brooding_SQ12": {
+        ]
+    },
+    "you_kit_brooding_SQ12": {
         "y_c": {
-            "status": ["kitten"],
-            "condition": ["blind:any:false"]
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
         },
         "t_c": {
-"status": ["not_queen", "not_queen's_apprentice"],
-            "age": ["not_kitten", "not_adolescent"],
-            "cluster": ["brooding"],
-            "condition": ["blind:any:false"]
-},
-        "relationship": ["max_platonic_15"],
+            "status": [
+                "not_queen",
+                "not_queen's_apprentice"
+            ],
+            "age": [
+                "not_kitten",
+                "not_adolescent"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "max_like_15"
+        ],
         "intro": [
             "Move aside, y_c. If I wanted kits hanging off of me every minute, I would've become a queen.",
             "Leave me alone before I call r_q."
-]
-},
-
- "you_kit_brooding_SQ13": {
+        ]
+    },
+    "you_kit_brooding_SQ13": {
         "y_c": {
-            "status": ["kitten"]
+            "status": [
+                "kitten"
+            ]
         },
         "t_c": {
-            "age": ["not_kitten", "not_adolescent"],
-            "cluster": ["brooding", "upstanding"]
-},
-        "relationship": ["from_your_parent", "from_adopted_parent"],
+            "age": [
+                "not_kitten",
+                "not_adolescent"
+            ],
+            "cluster": [
+                "brooding",
+                "upstanding"
+            ]
+        },
+        "relationship": [
+            "from_your_parent",
+            "from_adopted_parent"
+        ],
         "intro": [
             "y_c? What are you still doing up?",
             "[Your {PRONOUN/t_c/parent} looks down at you sternly.]",
             "It's dark. That means it's bedtime. Now close your eyes and try to fall asleep."
-]
-},
-"upstanding_general_you_kitten_SQ1": {
-    "y_c": {
-        "status": ["kitten"],
-        "condition": ["blind:any:false"]
+        ]
     },
-    "t_c": {
-        "status": ["warrior", "deputy", "leader"],
-        "cluster": ["upstanding"]
-},
-    "relationship": ["max_dislike_10"],
-    "intro": [
-       "[t_c is teaching r_a a battle move on the edge of camp. You creep closer, watching t_c run the apprentice through the exercise again and again.]",
-       "No, you're letting yourself get too unbalanced. An enemy will take advantage of that. Try once more... oh. Hello, y_c. Make sure you stay out of the way.",
-       "Yes, you can watch, but stay at least one tail-length behind me."
-]
-},
-
-"upstanding_general_you_kitten_SQ2": {
-    "y_c": {
-        "status": ["kitten"],
-        "condition": ["blind:any:false"]
+    "upstanding_general_you_kitten_SQ1": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "warrior",
+                "deputy",
+                "leader"
+            ],
+            "cluster": [
+                "upstanding"
+            ]
+        },
+        "relationship": [
+            "min_like_-10"
+        ],
+        "intro": [
+            "[t_c is teaching r_a a battle move on the edge of camp. You creep closer, watching t_c run the apprentice through the exercise again and again.]",
+            "No, you're letting yourself get too unbalanced. An enemy will take advantage of that. Try once more... oh. Hello, y_c. Make sure you stay out of the way.",
+            "Yes, you can watch, but stay at least one tail-length behind me."
+        ]
     },
-    "t_c": {
-        "age": ["adult", "senior adult", "senior"],
-        "cluster": ["upstanding", "stable"],
-        "condition": ["blind:any:false"]
-},
-    "intro": [
-       "[d_n and l_n are talking with an unfamiliar cat by l_n's den. You sneak closer to hear what they're saying, but are scooped up by t_c.]",
-       "Don't eavesdrop, y_c. And that conversation isn't for kits' ears, anyhow.",
-       "[t_c takes you back to the nursery and blocks your further escape attempts. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} no fun...]"
-]
-},
-
-"upstanding_general_you_kitten_SQ3": {
-    "y_c": {
-        "status": ["kitten"],
-        "condition": ["blind:any:false"]
+    "upstanding_general_you_kitten_SQ2": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "adult",
+                "senior adult",
+                "senior"
+            ],
+            "cluster": [
+                "upstanding",
+                "stable"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "[d_n and l_n are talking with an unfamiliar cat by l_n's den. You sneak closer to hear what they're saying, but are scooped up by t_c.]",
+            "Don't eavesdrop, y_c. And that conversation isn't for kits' ears, anyhow.",
+            "[t_c takes you back to the nursery and blocks your further escape attempts. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} no fun...]"
+        ]
     },
-    "t_c": {
-        "status": ["warrior", "deputy"],
-        "cluster": ["upstanding"],
-        "condition": ["blind:any:false"]
-},
-    "intro": [
-       "No, you can't come on our patrol! That's not what kits do.",
-       "My job is patrolling, hunting, and defending the Clan. Your job is to stay in camp and play games. That's just how things work. Can you do that for me?"
-]
-},
-
-"upstanding_general_you_kitten_SQ4": {
-    "y_c": {
-        "status": ["kitten"]
+    "upstanding_general_you_kitten_SQ3": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "warrior",
+                "deputy"
+            ],
+            "cluster": [
+                "upstanding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "No, you can't come on our patrol! That's not what kits do.",
+            "My job is patrolling, hunting, and defending the Clan. Your job is to stay in camp and play games. That's just how things work. Can you do that for me?"
+        ]
     },
-    "t_c": {
-        "status": ["warrior", "deputy"],
-        "cluster": ["upstanding"]
-},
-    "intro": [
-       "It's important to be on time, y_c. Punctuality is what keeps this Clan running.",
-       "[t_c eyes the members of {PRONOUN/t_c/poss} patrol, who are loitering by the fresh-kill pile. They don't seem in any hurry to head out.]",
-       "*sigh* When you're an apprentice, I hope you'll care more about punctuality than <i>some</i> of our Clanmates do."
-]
-}
-
-
+    "upstanding_general_you_kitten_SQ4": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "warrior",
+                "deputy"
+            ],
+            "cluster": [
+                "upstanding"
+            ]
+        },
+        "intro": [
+            "It's important to be on time, y_c. Punctuality is what keeps this Clan running.",
+            "[t_c eyes the members of {PRONOUN/t_c/poss} patrol, who are loitering by the fresh-kill pile. They don't seem in any hurry to head out.]",
+            "*sigh* When you're an apprentice, I hope you'll care more about punctuality than <i>some</i> of our Clanmates do."
+        ]
+    }
 }

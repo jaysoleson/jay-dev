@@ -2846,7 +2846,12 @@ class Cat:
         
         potential_mentors = []
         for c in Cat.all_cats_list:
-            if (c.dead or c.graduated_df) and (c.df or (not c.dead and c.joined_df)) and c.moons >= 6 and self.ID != c.ID:
+            if (
+                (c.dead or c.graduated_df) and
+                (c.status.group == CatGroup.DARK_FOREST or (not c.dead and c.joined_df))
+                and c.moons >= 6
+                and self.ID != c.ID
+                ):
                 potential_mentors.append(c)
 
         priority_mentors = []

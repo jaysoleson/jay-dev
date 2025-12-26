@@ -63,8 +63,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_50"
         ],
         "tags": [
             "clan_has_kits"
@@ -130,9 +130,9 @@
         },
         "relationship": [
             "min_platonic_20",
-            "min_platonic_20",
             "min_romantic_20",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_20"
         ],
         "intro": [
             "Hey, y_c ... do you ever get lonely sleeping here in the medicine den all by yourself? I know I would ...",
@@ -202,7 +202,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_50"
+            "min_like_50"
         ],
         "intro": [
             "*Sigh*",
@@ -229,7 +229,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Oh morning, y_c. Is there anything you need me to get you while I'm up?",
@@ -463,8 +463,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "neutral"
+            "neutral",
+            "min_like_20"
         ],
         "intro": [
             "y_c, can you believe it? I actually got to advise a real queen today! Eeee, so cool!!!",
@@ -493,7 +493,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "clan_has_kits"
@@ -827,7 +827,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c! I found something I think you're really gonna love!",
@@ -1271,8 +1271,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_20"
         ],
         "intro": [
             "[t_c seems surprised to see you rush in here in a panic.]",
@@ -1308,7 +1308,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "You know, it's kinda lonely in here... it feels cramped at times, and whilst I love being a queen's apprentice and helping out with the kits, I sometimes miss the companionship warriors have.",
@@ -1331,7 +1331,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Oh, y_c! I've been looking everywhere for you, how have you been?",
@@ -1845,7 +1845,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "clan_has_kits"
@@ -1956,7 +1956,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[t_c watches over the nursery, tail twitching anxiously.]",
@@ -1981,7 +1981,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "clan_has_kits"
@@ -2015,7 +2015,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "It feels really weird to become an apprentice, but still spend all my time in the same places I did when I was a kit.",
@@ -2046,7 +2046,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "intro": [
             "r_k-unlawful said {PRONOUN/r_k-unlawful/subject} didn't have to listen to me, because I'm basically still a kit too...",
@@ -2322,9 +2322,9 @@
             ]
         },
         "relationship": [
-            "min_platonic_15",
             "max_trust_10",
-            "from_your_apprentice"
+            "from_your_apprentice",
+            "min_like_15"
         ],
         "tags": [],
         "intro": [
@@ -2352,9 +2352,9 @@
             ]
         },
         "relationship": [
-            "max_platonic_30",
             "max_trust_30",
-            "from_your_apprentice"
+            "from_your_apprentice",
+            "max_like_30"
         ],
         "intro": [
             "[You almost bump into t_c at the entrance of the nursery.]",
@@ -2379,10 +2379,10 @@
             ]
         },
         "relationship": [
-            "min_platonic_40",
             "max_dislike_30",
             "max_trust_30",
-            "from_your_apprentice"
+            "from_your_apprentice",
+            "min_like_40"
         ],
         "tags": [
             "clan_has_kits"
@@ -2450,10 +2450,10 @@
             ]
         },
         "relationship": [
-            "max_platonic_30",
             "min_dislike_25",
             "max_trust_30",
-            "from_your_apprentice"
+            "from_your_apprentice",
+            "max_like_30"
         ],
         "intro": [
             "Uhh... I have duties at the nursery.",
@@ -2462,11 +2462,19 @@
     },
     "redcough_sam1": {
         "y_c": {
-            "status": ["medicine cat apprentice", "medicine cat"]
+            "status": [
+                "medicine cat apprentice",
+                "medicine cat"
+            ]
         },
         "t_c": {
-            "condition": ["redcough", "blind:any:false"],
-            "status": ["queen's apprentice"]
+            "condition": [
+                "redcough",
+                "blind:any:false"
+            ],
+            "status": [
+                "queen's apprentice"
+            ]
         },
         "intro": [
             "y_c? Will I be allowed to help with the kits again?",

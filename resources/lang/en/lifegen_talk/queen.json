@@ -206,8 +206,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "from_mentor"
+            "from_mentor",
+            "max_like_-50"
         ],
         "intro": [
             "Surprise assessment, y_c! What's the first thing you should do when a queen goes into labor?",
@@ -238,8 +238,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "from_mentor"
+            "from_mentor",
+            "max_like_-50"
         ],
         "intro": [
             "Surprise assessment, y_c! What's the first thing you should do when a queen goes into labor?",
@@ -358,9 +358,9 @@
         },
         "relationship": [
             "min_platonic_20",
-            "min_platonic_20",
             "min_romantic_20",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_20"
         ],
         "intro": [
             "Hey, y_c ... do you ever get lonely sleeping here in the medicine den all by yourself? I know I would ...",
@@ -550,7 +550,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c, Afternoon. How are you doing today?",
@@ -622,7 +622,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c? Is everything okay? You look a little... down.",
@@ -718,8 +718,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "neutral"
+            "neutral",
+            "min_like_20"
         ],
         "intro": [
             "*Sigh* StarClan, today was hard ...",
@@ -1414,7 +1414,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "StarClan, y_c, look at you ... could you really have been one of my kits here in the nursery just a few moons ago?",
@@ -1447,8 +1447,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_50"
         ],
         "tags": [
             "clan_has_kits"
@@ -1544,7 +1544,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "clan_has_kits"
@@ -1826,7 +1826,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Playing by yourself?",
@@ -2158,7 +2158,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "You're getting bigger, yanno?",
@@ -2240,7 +2240,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c, how's it been?",
@@ -2375,7 +2375,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Ah, y_c! You're filthy! Is everything alright?? Nothing happened, did it?",
@@ -2405,8 +2405,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_20",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_20"
         ],
         "intro": [
             "Oh hello, y_c! How has everything been going lately?",
@@ -2484,8 +2484,8 @@
             ]
         },
         "relationship": [
-            "min_platonic_50",
-            "min_comfort_50"
+            "min_comfort_50",
+            "min_like_50"
         ],
         "intro": [
             "[You run up to t_c and bury your nose in {PRONOUN/t_c/poss} fur, just needing a break after all the stress. {PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} surprised, but gently {VERB/t_c/rest/rests} {PRONOUN/t_c/poss} paw on your back, comforting you like a parent would.]",
@@ -2534,7 +2534,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "tags": [
             "clan_has_kits"
@@ -2619,7 +2619,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "y_c! It's time for r_k's moonly checkup!",
@@ -2794,7 +2794,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You overhear t_c speaking with r_k about the different roles a cat can have.]",
@@ -2884,7 +2884,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "[You were going to go get yourself some fresh kill when you trip, about to fall.]",
@@ -2914,7 +2914,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Hm, y_c? What's up?",
@@ -2950,7 +2950,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_50"
+            "max_like_-50"
         ],
         "intro": [
             "[t_c overhears you talking to one of the kits, and pulls you to the side.]",
@@ -3215,8 +3215,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "from_mentor"
+            "from_mentor",
+            "max_like_-50"
         ],
         "tags": [
             "clan_has_kits"
@@ -3296,7 +3296,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_30"
+            "min_like_30"
         ],
         "tags": [
             "clan_has_kits"
@@ -3364,7 +3364,7 @@
             ]
         },
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "I'm really excited for the kits to come! You're going to be a great {PRONOUN/y_c/parent}.",
@@ -3832,7 +3832,7 @@
             "leaffall"
         ],
         "relationship": [
-            "min_platonic_20"
+            "min_like_20"
         ],
         "intro": [
             "Good morning, y_c. It's lovely to see you.",

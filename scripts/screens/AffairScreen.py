@@ -15,6 +15,7 @@ from scripts.game_structure.ui_elements import (
     UISurfaceImageButton,
     UIImageButton
 )
+from scripts.clan_package.settings import get_clan_setting
 from scripts.screens.enums import GameScreen
 
 from ..cat.enums import CatAge, CatRank, CatGroup
@@ -403,7 +404,7 @@ class AffairScreen(Screens):
         pos_y = 20
         i = 0
         for cat in display_cats:
-            if game.clan.clan_settings["show fav"] and cat.favourite != 0:
+            if get_clan_setting("show fav") and cat.favourite != 0:
                 self.fav[str(i)] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((100 + pos_x, 365 + pos_y), (50, 50))),
                     pygame.transform.scale(

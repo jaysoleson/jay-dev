@@ -1159,13 +1159,11 @@ class PatrolScreen(Screens):
                     for c in Cat.all_cats_list:
                         if (
                             c.moons >= 6 and
-                            # not (c.dead and not c.df) and
-                            not c.dead and
+                            c.status.alive_in_player_clan and
                             c.in_camp and
                             c.ID != game.clan.your_cat.ID and
                             c.ID not in game.patrolled and
-                            not c.outside and c
-                            not in self.current_patrol and
+                            c.ID not in self.current_patrol and
                             not c.not_working()
                             ):
                             self.able_cats.append(c)

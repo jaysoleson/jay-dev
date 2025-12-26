@@ -1419,13 +1419,13 @@ class PatrolOutcome:
                 "o_c_n", f"{str(patrol.other_clan.name)}Clan"
             )
 
-        History.add_death(cat, death_text=final_death_history)
+        cat.history.add_death(death_text=final_death_history)
         if self.murder:
             for x in patrol.patrol_cats:
                 if x.ID != cat.ID:
                     other_cat = x
             
-            History.add_murders(cat, other_cat, True, f"{other_cat.name} killed this cat in the Dark Forest.")
+            cat.history.add_murders(other_cat, cat.ID, True, f"{other_cat.name} killed this cat in the Dark Forest.")
     
     def __handle_accs(self, cat: Cat, acc_list: str) -> str:
 
