@@ -351,7 +351,27 @@
         "gloomy",
         "sincere",
         "flamboyant",
-        "rebellious"
+        "rebellious",
+        "stoic",
+        "aloof",
+        "reserved",
+        "mellow",
+        "flexible",
+        "witty",
+        "methodical",
+        "justified",
+        "meek",
+        "cowardly",
+        "emotional",
+        "spontaneous",
+        "energetic",
+        "bouncy",
+        "trusting",
+        "OOOOO",
+        "disciplined",
+        "patient",
+        "humble",
+        "obsessive"
       ]
     },
     "kit_trait": {
@@ -372,7 +392,14 @@
         "sweet",
         "polite",
         "bossy",
-        "noisy"
+        "noisy",
+        "manipulative",
+        "leader-like",
+        "passionate",
+        "disciplined",
+        "patient",
+        "rebellious",
+        "honest"
       ]
     },
     "all_trait": {
