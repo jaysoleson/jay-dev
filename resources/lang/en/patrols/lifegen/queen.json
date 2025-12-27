@@ -2,10 +2,10 @@
     {
         "patrol_id": "life_queen_og1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -94,10 +94,10 @@
     {
         "patrol_id": "life_queen_og2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -184,10 +184,10 @@
     {
         "patrol_id": "life_queen_og3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -268,10 +268,10 @@
     {
         "patrol_id": "life_queen_og5",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -333,10 +333,10 @@
     {
         "patrol_id": "life_queen_R1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -394,10 +394,10 @@
     {
         "patrol_id": "life_queen_R2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -452,10 +452,10 @@
     {
         "patrol_id": "life_queen_R3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -515,10 +515,10 @@
     {
         "patrol_id": "life_queen_R4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -591,10 +591,10 @@
     {
         "patrol_id": "life_queen_R5",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -671,10 +671,10 @@
     {
         "patrol_id": "life_queen_R6",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -710,10 +710,10 @@
     {
         "patrol_id": "lg_queen_shunned_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -774,7 +774,7 @@
             "mountainous"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -881,10 +881,10 @@
     {
         "patrol_id": "life_queen_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -950,10 +950,10 @@
     {
         "patrol_id": "life_df_sam3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df_lifegen"
@@ -1037,10 +1037,10 @@
     {
         "patrol_id": "life_ur_sam2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "ur_lifegen"

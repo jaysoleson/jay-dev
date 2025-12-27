@@ -2,7 +2,7 @@
     {
         "patrol_id": "life_lead_og1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
             "leaf-bare"
@@ -37,10 +37,10 @@
     {
         "patrol_id": "life_lead_og2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -72,10 +72,10 @@
     {
         "patrol_id": "life_lead_og3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -107,10 +107,10 @@
     {
         "patrol_id": "life_lead_og4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -142,10 +142,10 @@
     {
         "patrol_id": "life_lead_og5",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -177,10 +177,10 @@
     {
         "patrol_id": "life_lead_og6",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -212,10 +212,10 @@
     {
         "patrol_id": "life_lead_og7",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -247,10 +247,10 @@
     {
         "patrol_id": "lg_leader_shunned_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -284,10 +284,10 @@
     {
         "patrol_id": "life_lead_CZ1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -329,10 +329,10 @@
     {
         "patrol_id": "life_lead_R1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -374,10 +374,10 @@
     {
         "patrol_id": "life_lead_R2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -419,10 +419,10 @@
     {
         "patrol_id": "life_lead_R3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -464,10 +464,10 @@
     {
         "patrol_id": "leaderinteract_DEAD_H1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "sc_lifegen"
@@ -559,10 +559,10 @@
 {
     	"patrol_id": "life_df_leader_rad1",
     	"biome": [
-        	"Any"
+        	"any"
     	],
     	"season": [
-        	"Any"
+        	"any"
     	],
     	"types": [
         	"df_lifegen"
@@ -611,10 +611,10 @@
        {
         "patrol_id": "leaderwithkits_H1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -708,10 +708,10 @@
    {
         "patrol_id": "simplestroll_leader_H1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"

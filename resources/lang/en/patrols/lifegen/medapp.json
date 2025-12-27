@@ -2,10 +2,10 @@
     {
         "patrol_id": "life_medapp_og1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -42,10 +42,10 @@
     {
         "patrol_id": "life_medapp_og2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -77,10 +77,10 @@
     {
         "patrol_id": "life_medapp_og3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -112,10 +112,10 @@
     {
         "patrol_id": "life_medapp_og4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -147,10 +147,10 @@
     {
         "patrol_id": "life_medapp_og5",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -182,10 +182,10 @@
     {
         "patrol_id": "life_medapp_og6",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -217,10 +217,10 @@
     {
         "patrol_id": "lg_medcatapp_shunned_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -254,10 +254,10 @@
     {
         "patrol_id": "life_sc_sam1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
         "sc_lifegen"

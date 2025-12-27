@@ -2,10 +2,10 @@
     {
         "patrol_id": "life_mediapp_og1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -83,10 +83,10 @@
     {
         "patrol_id": "life_mediapp_og2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -138,10 +138,10 @@
     {
         "patrol_id": "life_mediapp_og3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -202,10 +202,10 @@
     {
         "patrol_id": "life_mediapp_og4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -260,10 +260,10 @@
     {
         "patrol_id": "life_mediapp_og5",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -326,10 +326,10 @@
     {
         "patrol_id": "life_mediapp_og6",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -385,10 +385,10 @@
     {
         "patrol_id": "life_mediapp_og7",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -452,10 +452,10 @@
     {
         "patrol_id": "life_mediapp_og8",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -502,10 +502,10 @@
     {
         "patrol_id": "lg_mediatorapp_shunned_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -562,10 +562,10 @@
     {
         "patrol_id": "life_sc_sam2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "sc_lifegen"

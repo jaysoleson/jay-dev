@@ -2,10 +2,10 @@
     {
         "patrol_id": "life_warrior_og1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -148,10 +148,10 @@
     {
         "patrol_id": "life_warrior_og2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -299,10 +299,10 @@
     {
         "patrol_id": "life_warrior_og3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -456,10 +456,10 @@
     {
         "patrol_id": "life_warrior_og4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -586,10 +586,10 @@
     {
         "patrol_id": "life_warrior_og5",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -621,10 +621,10 @@
     {
         "patrol_id": "life_warrior_og6",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -702,10 +702,10 @@
     {
         "patrol_id": "life_warrior_og7",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -737,10 +737,10 @@
     {
         "patrol_id": "life_warrior_og8",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -772,10 +772,10 @@
     {
         "patrol_id": "life_warrior_og9",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -807,10 +807,10 @@
     {
         "patrol_id": "life_warrior_og10",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -842,10 +842,10 @@
     {
         "patrol_id": "life_warrior_og11",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -877,10 +877,10 @@
     {
         "patrol_id": "life_warrior_og12",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -965,10 +965,10 @@
     {
         "patrol_id": "life_warrior_og13",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -1033,10 +1033,10 @@
     {
         "patrol_id": "life_warrior_og14",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -1068,10 +1068,10 @@
     {
         "patrol_id": "life_warrior_og15",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -1103,10 +1103,10 @@
     {
         "patrol_id": "life_warrior_og16",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -1168,10 +1168,10 @@
     {
         "patrol_id": "life_warrior_og17",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -1260,10 +1260,10 @@
     {
         "patrol_id": "life_warrior_og18",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -1295,10 +1295,10 @@
     {
         "patrol_id": "life_warrior_og19",
         "biome": [
-            "Beach"
+            "beach"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -1413,7 +1413,7 @@
             "Beach"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -1448,7 +1448,7 @@
             "Beach"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -1483,7 +1483,7 @@
             "Beach"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -1515,10 +1515,10 @@
     {
         "patrol_id": "lg_shunned_warrior_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -1552,10 +1552,10 @@
     {
         "patrol_id": "LG_halloween_H1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -1645,10 +1645,10 @@
     {
         "patrol_id": "life_warrior_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"

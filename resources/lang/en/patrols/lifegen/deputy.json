@@ -2,10 +2,10 @@
     {
         "patrol_id": "lg_dep_og1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -37,10 +37,10 @@
     {
         "patrol_id": "lg_dep_og2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -72,10 +72,10 @@
     {
         "patrol_id": "lg_dep_og3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -107,7 +107,7 @@
     {
         "patrol_id": "lg_dep_og4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
             "leaf-bare"
@@ -142,10 +142,10 @@
     {
         "patrol_id": "lg_dep_og5",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -177,10 +177,10 @@
     {
         "patrol_id": "lg_dep_og6",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -212,10 +212,10 @@
     {
         "patrol_id": "lg_dep_og7",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -247,10 +247,10 @@
     {
         "patrol_id": "lg_dep_og8",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -282,10 +282,10 @@
     {
         "patrol_id": "lg_dep_og9",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -317,10 +317,10 @@
     {
         "patrol_id": "lg_dep_og10",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -352,10 +352,10 @@
     {
         "patrol_id": "lg_dep_og11",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -387,10 +387,10 @@
     {
         "patrol_id": "lg_dep_og12",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -422,7 +422,7 @@
     {
         "patrol_id": "lg_dep_og13",
         "biome": [
-            "Forest"
+            "forest"
         ],
         "season": [
             "Greenleaf"
@@ -457,10 +457,10 @@
     {
         "patrol_id": "lg_deputy_shunned_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -494,10 +494,10 @@
     {
         "patrol_id": "lg_deputy_shunned_J2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -531,10 +531,10 @@
     {
         "patrol_id": "life_dep_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -621,7 +621,7 @@
     {
         "patrol_id": "lifegen_deputy_SQ1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
             "leafbare"
@@ -730,10 +730,10 @@
     {
         "patrol_id": "dead_patrol_J3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "sc_lifegen"

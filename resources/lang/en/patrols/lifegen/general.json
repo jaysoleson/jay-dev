@@ -536,7 +536,7 @@
     {
         "patrol_id": "halloween_J2",
         "biome": [
-            "Forest"
+            "forest"
         ],
         "season": [
             "any"

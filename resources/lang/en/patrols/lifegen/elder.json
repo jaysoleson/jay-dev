@@ -2,10 +2,10 @@
     {
         "patrol_id": "lg_elder_og1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -37,10 +37,10 @@
     {
         "patrol_id": "lg_elder_og2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -98,10 +98,10 @@
     {
         "patrol_id": "lg_elder_og3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -133,10 +133,10 @@
     {
         "patrol_id": "lg_elder_og4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -168,10 +168,10 @@
     {
         "patrol_id": "lg_elder_og5",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -203,10 +203,10 @@
     {
         "patrol_id": "lg_elder_og6",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -238,10 +238,10 @@
     {
         "patrol_id": "lg_elder_og7",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -284,10 +284,10 @@
     {
         "patrol_id": "lg_elder_og8",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -319,10 +319,10 @@
     {
         "patrol_id": "lg_elder_og9",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -354,10 +354,10 @@
     {
         "patrol_id": "lg_elder_shunned_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -391,10 +391,10 @@
     {
         "patrol_id": "life_elder_R1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -426,10 +426,10 @@
     {
         "patrol_id": "life_elder_R2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -461,10 +461,10 @@
     {
         "patrol_id": "life_sc_sam4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "sc_lifegen"
@@ -516,10 +516,10 @@
     {
         "patrol_id": "life_df_elder_rad1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df_lifegen"

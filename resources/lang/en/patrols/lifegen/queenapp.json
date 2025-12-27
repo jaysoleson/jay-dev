@@ -2,10 +2,10 @@
     {
         "patrol_id": "life_qapp_og1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -116,10 +116,10 @@
     {
         "patrol_id": "life_qapp_og2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -204,10 +204,10 @@
     {
         "patrol_id": "life_qapp_og3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -280,10 +280,10 @@
     {
         "patrol_id": "life_qapp_og4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -382,10 +382,10 @@
     {
         "patrol_id": "life_qapp_R1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -427,10 +427,10 @@
     {
         "patrol_id": "life_qapp_R2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -472,10 +472,10 @@
     {
         "patrol_id": "lg_queenapp_shunned_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -532,10 +532,10 @@
     {
         "patrol_id": "life_queenappmusical_PS1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -598,10 +598,10 @@
     {
         "patrol_id": "life_sc_sam3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "sc_lifegen"
