@@ -753,12 +753,16 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "status": [
+                "apprentice",
+                "warrior"
             ]
         },
         "intro": [
             "Look, I know I can be reckless and headstrong and foolish and stubborn ...",
-            "But I didn't mean to steal r_c's catch! Seriously! And now {PRONOUN/r_c/subject}{VERB/t_c/'re/'s} acting all huffy about it ...",
-            "Any chance you could help me talk it out with {PRONOUN/r_c/object}?"
+            "But I didn't mean to steal r_w's catch! Seriously! And now {PRONOUN/r_w/subject}{VERB/r_w/'re/'s} acting all huffy about it ...",
+            "Any chance you could help me talk it out with {PRONOUN/r_w/object}?"
         ]
     },
     "assertive_medapp1": {
@@ -7368,31 +7372,6 @@
         "intro": [
             "[As you walk home after a hunting patrol, t_c sneaks glances at the plump squirrel you're carrying.]",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} doubtful that {PRONOUN/t_c/poss} two sparrows measure up to such an impressive catch.]"
-        ]
-    },
-    "assertivewarrior_mediatorapp3": {
-        "y_c": {
-            "status": [
-                "mediator apprentice",
-                "mediator"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "unlawful",
-                "cool",
-                "silly"
-            ],
-            "status": [
-                "apprentice",
-                "warrior"
-            ]
-        },
-        "intro": [
-            "Look, I know I can be reckless and headstrong and foolish and stubborn ...",
-            "But I didn't mean to steal r_w's catch! Seriously! And now {PRONOUN/r_w/subject}{VERB/r_w/'re/'s} acting all huffy about it ...",
-            "Any chance you could help me talk it out with {PRONOUN/r_w/object}?"
         ]
     },
     "cool_8": {

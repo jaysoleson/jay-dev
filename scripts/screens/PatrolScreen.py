@@ -1127,41 +1127,69 @@ class PatrolScreen(Screens):
         # ASSIGN TO ABLE CATS
         if switch_get_value(Switch.patrol_category) == "clangen":
             for the_cat in Cat.all_cats_list:
-                if the_cat.ID == game.clan.your_cat.ID:
-                    if "1" not in switch_get_value(Switch.patrolled) and not the_cat.dead and the_cat.in_camp and the_cat.status not in [
-                    'elder', 'kitten', 'mediator', 'mediator apprentice', 'queen', "queen's apprentice", "newborn"
-                        ] and not the_cat.status.is_outsider and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.shunned == 0:
+                if (
+                    the_cat.in_camp
+                    and the_cat.ID not in game.patrolled
+                    and the_cat.status.rank.is_allowed_to_patrol()
+                    and the_cat.status.alive_in_player_clan
+                    and the_cat not in self.current_patrol
+                    and not the_cat.not_working()
+                ):
+                    if (
+                        the_cat.status.rank == CatRank.NEWBORN
+                        or constants.CONFIG["fun"]["all_cats_are_newborn"]
+                    ):
+                        if constants.CONFIG["fun"]["newborns_can_patrol"]:
+                            self.able_cats.append(the_cat)
+                    else:
                         self.able_cats.append(the_cat)
-                elif not the_cat.dead and the_cat.in_camp and the_cat.ID not in game.patrolled and the_cat.status not in [
-                    'elder', 'kitten', 'mediator', 'mediator apprentice', 'queen', "queen's apprentice", "newborn"
-                ] and not the_cat.status.is_outsider and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.shunned == 0:
-                    self.able_cats.append(the_cat)
 
         elif switch_get_value(Switch.patrol_category) == "lifegen":
             the_cat = game.clan.your_cat
-            if (not the_cat.status.is_outsider or (the_cat.status.is_outsider and the_cat.dead)) and not the_cat.moons <= 0 and the_cat not in self.current_patrol and not the_cat.not_working() and "2" not in switch_get_value(Switch.patrolled):
-                self.able_cats.append(game.clan.your_cat)
+            if (
+                the_cat.status.alive_in_player_clan or
+                (the_cat.status.is_outsider and the_cat.dead) and
+                not the_cat.moons <= 0 and
+                the_cat not in self.current_patrol and
+                not the_cat.not_working() and
+                "2" not in switch_get_value(Switch.patrolled)
+                ):
+                self.able_cats.append(the_cat)
 
         elif switch_get_value(Switch.patrol_category) == "date":
             you = game.clan.your_cat
-            if not you.dead and "4" not in switch_get_value(Switch.patrolled) and not you.outside and not you.not_working():
+            if (
+                you.status.alive_in_player_clan and
+                "4" not in switch_get_value(Switch.patrolled) and
+                not you.not_working()
+                ):
                 if you not in self.current_patrol and not you.not_working():
                     self.current_patrol.insert(0, you)
                 for the_cat in Cat.all_cats_list:
-                    if the_cat.in_camp and the_cat.ID not in game.dated_cats and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.is_dateable(game.clan.your_cat):
+                    if (
+                        the_cat.in_camp and
+                        the_cat.status.alive_in_player_clan and
+                        the_cat.ID not in game.dated_cats and
+                        the_cat not in self.current_patrol and
+                        not the_cat.not_working() and
+                        the_cat.is_dateable(game.clan.your_cat)
+                        ):
                         self.able_cats.append(the_cat)
         else: # DF patrol
             the_cat = game.clan.your_cat
-            if not the_cat.dead and not the_cat.status.is_outsider and not the_cat.not_working():
+            if (
+                the_cat.status.alive_in_player_clan and
+                not the_cat.not_working()
+                ):
                 if "3" not in switch_get_value(Switch.patrolled):
                     if the_cat not in self.current_patrol:
-                        self.current_patrol.append(game.clan.your_cat)
+                        self.current_patrol.append(the_cat)
                     for c in Cat.all_cats_list:
                         if (
                             c.moons >= 6 and
                             c.status.alive_in_player_clan and
                             c.in_camp and
-                            c.ID != game.clan.your_cat.ID and
+                            c.ID != the_cat.ID and
                             c.ID not in game.patrolled and
                             c.ID not in self.current_patrol and
                             not c.not_working()

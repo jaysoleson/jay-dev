@@ -1375,46 +1375,25 @@ class Clan:
         }
     
     def load_accessories(self):
-        # CHECKMERGE
-        # completely redo
+        """
+        loads all accessories for cat inventories
+        when all accessories is toggled on
+        """
         if get_clan_setting('all accessories'):
-            for c in Cat.all_cats_list:
-                cat = c
-                age = cat.age
+            for cat in Cat.all_cats_list:
 
-                possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "TAIL2"]
-                acc_list = []
-                if "WILD" in possible_accs:
-                    acc_list.extend(Pelt.wild_accessories)
-                if "PLANT" in possible_accs:
-                    acc_list.extend(Pelt.plant_accessories)
-                if "COLLAR" in possible_accs:
-                    acc_list.extend(Pelt.collar_accessories)
-                # if "FLOWER" in possible_accs:
-                #     acc_list.extend(Pelt.flower_accessories)
-                # if "PLANT2" in possible_accs:
-                #     acc_list.extend(Pelt.plant2_accessories)
-                # if "SNAKE" in possible_accs:
-                #     acc_list.extend(Pelt.snake_accessories)
-                # if "SMALLANIMAL" in possible_accs:
-                #     acc_list.extend(Pelt.smallAnimal_accessories)
-                # if "DEADINSECT" in possible_accs:
-                #     acc_list.extend(Pelt.deadInsect_accessories)
-                if "ALIVEINSECT" in possible_accs:
-                    acc_list.extend(Pelt.aliveInsect_accessories)
-                # if "FRUIT" in possible_accs:
-                #     acc_list.extend(Pelt.fruit_accessories)
-                # if "CRAFTED" in possible_accs:
-                #     acc_list.extend(Pelt.crafted_accessories)
-                # if "TAIL2" in possible_accs:
-                #     acc_list.extend(Pelt.tail2_accessories)
-                if "NOTAIL" in c.pelt.scars or "HALFTAIL" in c.pelt.scars:
+                acc_list = Pelt.all_accessories
+                
+                if "NOTAIL" in cat.pelt.scars or "HALFTAIL" in cat.pelt.scars:
                     for acc in Pelt.tail_accessories:
                         if acc in acc_list:
                             try:
                                 acc_list.remove(acc)
                             except ValueError:
                                 print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
+                # LG
+                # CHECKMERGE: add a paw_Accessories category for this
+                # for ashy paws, dirty paws, etc
 
                 # if not c.pelt.inventory:
                 #     c.pelt.inventory = []

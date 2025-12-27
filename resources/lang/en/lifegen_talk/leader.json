@@ -417,33 +417,6 @@
             "But don't try to get me to watch my tongue. If someone's acting like a stupid piece of fox-dung, I'm gonna call them a stupid piece of fox-dung!!!"
         ]
     },
-    "assertivewarrior_mediatorapp2": {
-        "y_c": {
-            "status": [
-                "mediator apprentice",
-                "mediator"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "unlawful",
-                "cool",
-                "silly"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "intro": [
-            "Look, I know I can be reckless and headstrong and foolish and stubborn ...",
-            "But I didn't mean to steal r_c's catch! Seriously! And now {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} acting all huffy about it ...",
-            "Any chance you could help me talk it out with {PRONOUN/r_c/object}?"
-        ]
-    },
     "assertive_5": {
         "y_c": {
             "age": [

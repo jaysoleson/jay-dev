@@ -115,6 +115,11 @@ class ProfileScreen(Screens):
     conditions_tab = image_cache.load_image(
         "resources/images/conditions_tab_backdrop.png"
     ).convert_alpha()
+    # LG
+    # inventory
+    inventory_tab = image_cache.load_image(
+        "resources/images/inventory_tab_backdrop.png"
+    ).convert_alpha()
 
     df = image_cache.load_image("resources/images/buttons/exile_df.png").convert_alpha()
     sc = image_cache.load_image("resources/images/buttons/guide_sc.png").convert_alpha()
@@ -2753,6 +2758,7 @@ class ProfileScreen(Screens):
 
         self.close_current_tab()
         self.page = 0
+        self.the_cat.pelt.rebuild_sprite = True
 
 
         if previous_open_tab == 'accessories':
@@ -2763,9 +2769,7 @@ class ProfileScreen(Screens):
             rect.bottomleft = ui_scale_offset((89, 0))
             self.backstory_background = pygame_gui.elements.UIImage(
                 rect,
-                get_box(
-                    BoxStyles.ROUNDED_BOX, (620, 157), sides=(True, True, False, True)
-                ),
+                self.inventory_tab,
                 anchors={
                     "bottom": "bottom",
                     "bottom_target": self.conditions_tab_button,
@@ -2821,35 +2825,9 @@ class ProfileScreen(Screens):
     def open_accessories(self):
 
         cat = self.the_cat
-        age = cat.age
-        cat_sprite = str(cat.pelt.cat_sprites[cat.age])
 
-        # setting the cat_sprite (bc this makes things much easier)
-        if cat.not_working() and age != 'newborn' and constants.CONFIG['cat_sprites']['sick_sprites']:
-            if age in ['kitten', 'adolescent']:
-                cat_sprite = str(19)
-            else:
-                cat_sprite = str(18)
-        elif cat.pelt.paralyzed and age != 'newborn':
-            if age in ['kitten', 'adolescent']:
-                cat_sprite = str(17)
-            else:
-                if cat.pelt.length == 'long':
-                    cat_sprite = str(16)
-                else:
-                    cat_sprite = str(15)
-        else:
-            if age == 'elder' and not constants.CONFIG['fun']['all_cats_are_newborn']:
-                age = 'senior'
-
-            if constants.CONFIG['fun']['all_cats_are_newborn']:
-                cat_sprite = str(cat.pelt.cat_sprites['newborn'])
-            else:
-                cat_sprite = str(cat.pelt.cat_sprites[age])
-
-        pos_x = 10
+        pos_x = 2
         pos_y = 125
-        i = 0
 
         self.cat_list_buttons = {}
         self.accessory_buttons = {}
@@ -2859,12 +2837,12 @@ class ProfileScreen(Screens):
 
         # correcting duplicates
         acc_list = []
-        for acc in self.the_cat.pelt.inventory:
+        for acc in cat.pelt.inventory:
             if acc not in acc_list:
                 acc_list.append(acc)
             else:
-                # print("Removing duplicate", acc, "from", self.the_cat.name, "'s inventory.")
-                self.the_cat.pelt.inventory.remove(acc)
+                # print("Removing duplicate", acc, "from", cat.name, "'s inventory.")
+                cat.pelt.inventory.remove(acc)
 
         inventory_len = 0
         new_inv = []
@@ -2874,7 +2852,7 @@ class ProfileScreen(Screens):
         else:
             for ac in self.cat_inventory:
                 if ac and self.search_bar.get_text() and self.search_bar.get_text().lower() in ac.lower():
-                    inventory_len+=1
+                    inventory_len += 1
                     new_inv.append(ac)
         self.max_pages = math.ceil(inventory_len/18)
         
@@ -2888,10 +2866,10 @@ class ProfileScreen(Screens):
                 if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
                     self.inventory_display(cat, accessory, pos_x, pos_y)
                     self.accessories_list.append(accessory)
-                    pos_x += 60
+                    pos_x += 68
                     if pos_x >= 550:
-                        pos_x = 0
-                        pos_y += 60
+                        pos_x = 2
+                        pos_y += 73
 
     def toggle_relations_tab(self):
         """Opens relations tab"""
@@ -3744,7 +3722,7 @@ class ProfileScreen(Screens):
         """
         b_data = event.ui_element.blit_data[1]
         b_2data = []
-        pos_x = 10
+        pos_x = 2
         pos_y = 125
 
         for b in self.accessory_buttons.values():
@@ -3821,6 +3799,7 @@ class ProfileScreen(Screens):
             self.the_cat.pelt.accessory.remove(self.accessories_list[n])
         else:
             self.the_cat.pelt.accessory.append(self.accessories_list[n])
+        self.the_cat.pelt.rebuild_sprite = True
         for acc in self.accessory_buttons:
             self.accessory_buttons[acc].kill()
         for acc in self.cat_list_buttons:
@@ -3848,10 +3827,10 @@ class ProfileScreen(Screens):
             for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len + start_index)], start = start_index):
                 if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
                     self.inventory_display(cat, accessory, pos_x, pos_y)
-                    pos_x += 60
+                    pos_x += 68
                     if pos_x >= 550:
-                        pos_x = 0
-                        pos_y += 60
+                        pos_x = 2
+                        pos_y += 73
 
     def on_use(self):
         super().on_use()

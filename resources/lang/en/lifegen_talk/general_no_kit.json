@@ -25795,7 +25795,8 @@
         ],
         "intro": [
             "Good morning, y_c.",
-            "You might want to consider using another way to exit the camp."
+            "You might want to consider using another way to exit the camp.",
+            "... No reason."
         ]
     },
     "unlawful_platloveGuy1": {
@@ -25809,7 +25810,7 @@
             "min_like_50"
         ],
         "intro": [
-            "[t_c's eyes widen when they spot you, and {PRONOUN/t_c/subject} cover something with {PRONOUN/t_c/poss} body.]",
+            "[t_c's eyes widen when {PRONOUN/t_c/subject} {VERB/t_c/spot/spots} you, and {PRONOUN/t_c/subject} cover something with {PRONOUN/t_c/poss} body.]",
             "Oh y_c don't look! I know you're a terrible liar and I really don't want you to get in trouble for this one!"
         ]
     },

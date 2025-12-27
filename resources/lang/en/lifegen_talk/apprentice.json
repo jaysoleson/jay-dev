@@ -6381,6 +6381,9 @@
             "status": [
                 "mediator apprentice",
                 "mediator"
+            ],
+            "condition": [
+                "blind:any:false"
             ]
         },
         "t_c": {
@@ -6393,6 +6396,9 @@
             "status": [
                 "apprentice",
                 "warrior"
+            ],
+            "condition": [
+                "blind:any:false"
             ]
         },
         "intro": [
