@@ -410,7 +410,7 @@ class MoonplaceScreen(Screens):
                 text = text.replace("moonplace", moonplace)
                 text = text.replace("Moonplace", moonplace)
             if "yourcrush" in text:
-                if len(game.clan.your_cat.mates) > 0 or game.clan.your_cat.no_mates:
+                if len(game.clan.your_cat.mate) > 0 or game.clan.your_cat.no_mates:
                     return ""
                 crush = None
                 for c in self.get_living_cats():
@@ -427,7 +427,7 @@ class MoonplaceScreen(Screens):
                 else:
                     return ""
             if "theircrush" in text:
-                if len(cat.mates) > 0 or cat.no_mates:
+                if len(cat.mate) > 0 or cat.no_mates:
                     return ""
                 crush = None
                 for c in self.get_living_cats():
@@ -711,9 +711,9 @@ class MoonplaceScreen(Screens):
                     return ""
                 text = text.replace("t_p", str(parent.name))
             if "y_m" in text:
-                if game.clan.your_cat.mates is None or len(game.clan.your_cat.mates) == 0 or cat.ID in game.clan.your_cat.mates:
+                if game.clan.your_cat.mate is None or len(game.clan.your_cat.mate) == 0 or cat.ID in game.clan.your_cat.mate:
                     return ""
-                text = text.replace("y_m", str(Cat.fetch_cat(choice(game.clan.your_cat.mates)).name))
+                text = text.replace("y_m", str(Cat.fetch_cat(choice(game.clan.your_cat.mate)).name))
             if "tm_n" in text:
                 if cat.mentor is None:
                     return ""
@@ -734,9 +734,9 @@ class MoonplaceScreen(Screens):
 
             #their mate
             if "t_m" in text:
-                if cat.mates is None or len(cat.mates) == 0 or cat.ID in game.clan.your_cat.mates:
+                if cat.mate is None or len(cat.mate) == 0 or cat.ID in game.clan.your_cat.mate:
                     return ""
-                mate1 = Cat.fetch_cat(choice(cat.mates))
+                mate1 = Cat.fetch_cat(choice(cat.mate))
                 if mate1.outside or mate1.dead:
                     return ""
                 text = text.replace("t_m", str(mate1.name))

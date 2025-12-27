@@ -1044,7 +1044,7 @@ class TalkScreen(Screens):
                     if cat.ID in you.get_relatives():
                         continue
                 if "non-mates" in REL:
-                    if you.ID in cat.mates:
+                    if you.ID in cat.mate:
                         continue
 
                 # Family tags:
@@ -1070,7 +1070,7 @@ class TalkScreen(Screens):
                         if cat.df_mentor == you.ID:
                             fam = True
                     if "from_mate" in REL:
-                        if cat.ID in you.mates:
+                        if cat.ID in you.mate:
                             fam = True
                     if "from_parent" in REL or "from_your_parent" in REL:
                         if you.parent1:
@@ -1280,7 +1280,7 @@ class TalkScreen(Screens):
             
             if TAGS:
                 if "has_mate" in TAGS:
-                    if not cat.mates:
+                    if not cat.mate:
                         continue
 
             # FOCUS TAGS

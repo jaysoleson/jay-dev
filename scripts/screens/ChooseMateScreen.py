@@ -392,7 +392,7 @@ class ChooseMateScreen(Screens):
         if not self.selected_cat:
             return
 
-        if self.selected_cat.ID not in self.the_cat.mates:
+        if self.selected_cat.ID not in self.the_cat.mate:
             self.the_cat.set_mate(self.selected_cat)
 
         else:
@@ -410,7 +410,7 @@ class ChooseMateScreen(Screens):
         """Updates everything in the mates container, including the list of current mates,
         and the page"""
 
-        self.all_mates = self.chunks([Cat.fetch_cat(i) for i in self.the_cat.mates], 30)
+        self.all_mates = self.chunks([Cat.fetch_cat(i) for i in self.the_cat.mate], 30)
         self.update_mates_container_page()
 
     def update_mates_container_page(self):
@@ -897,9 +897,9 @@ class ChooseMateScreen(Screens):
         )
 
         info = self.the_cat.get_info_block()
-        if self.the_cat.mates:
-            info += f"\n{len(self.the_cat.mates)} " + i18n.t(
-                "general.mate", count=len(self.the_cat.mates)
+        if self.the_cat.mate:
+            info += f"\n{len(self.the_cat.mate)} " + i18n.t(
+                "general.mate", count=len(self.the_cat.mate)
             )
         self.current_cat_elements["info"] = pygame_gui.elements.UITextBox(
             info,
@@ -910,8 +910,8 @@ class ChooseMateScreen(Screens):
 
         if reset_selected_cat:
             self.selected_cat = None
-            if self.the_cat.mates:
-                self.selected_cat = Cat.fetch_cat(self.the_cat.mates[0])
+            if self.the_cat.mate:
+                self.selected_cat = Cat.fetch_cat(self.the_cat.mate[0])
             self.update_selected_cat()
 
         self.draw_tab_button()
@@ -940,7 +940,7 @@ class ChooseMateScreen(Screens):
 
         mates_tab_shown = False
         button_rect.bottomleft = ui_scale_offset((7, 8))
-        if self.the_cat.mates:
+        if self.the_cat.mate:
             self.tab_buttons["mates"] = UISurfaceImageButton(
                 button_rect,
                 "screens.choose_mate.current",
@@ -1056,8 +1056,8 @@ class ChooseMateScreen(Screens):
 
         info = self.selected_cat.get_info_block()
         if self.selected_cat.mate:
-            info += f"\n{len(self.selected_cat.mates)} " + i18n.t(
-                "general.mate", count=len(self.selected_cat.mates)
+            info += f"\n{len(self.selected_cat.mate)} " + i18n.t(
+                "general.mate", count=len(self.selected_cat.mate)
             )
 
         self.selected_cat_elements["info"] = pygame_gui.elements.UITextBox(
@@ -1072,7 +1072,7 @@ class ChooseMateScreen(Screens):
 
         self.toggle_mate.kill()
 
-        if self.selected_cat.ID in self.the_cat.mates:
+        if self.selected_cat.ID in self.the_cat.mate:
             self.toggle_mate = UISurfaceImageButton(
                 ui_scale(pygame.Rect((323, 310), (153, 30))),
                 "screens.choose_mate.unset_mate",
@@ -1215,7 +1215,7 @@ class ChooseMateScreen(Screens):
             and i.status.is_outsider == self.the_cat.status.is_outsider
             and i.status.group_ID == self.the_cat.status.group_ID
             and i.ID not in self.the_cat.mate
-            and (not self.single_only or not i.mates)
+            and (not self.single_only or not i.mate)
             and (
                 not self.have_kits_only
                 or get_clan_setting("same sex birth")

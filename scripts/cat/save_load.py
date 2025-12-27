@@ -72,8 +72,8 @@ def save_faded_cats(clanname, cat_class: Type["Cat"], game: "Game"):
         faded_ids.append(cat)
 
         # If they have a mate, break it up
-        if inter_cat.mates:
-            for mate_id in inter_cat.mates:
+        if inter_cat.mate:
+            for mate_id in inter_cat.mate:
                 if mate_id in cat_class.all_cats:
                     cat_class.all_cats[mate_id].unset_mate(inter_cat)
 

@@ -431,8 +431,8 @@ class Clan:
                         kit.parent1 = parent.ID
                         parent.inheritance.update_inheritance()
 
-                        if parent.mates:
-                            kit.parent2 = choice(parent.mates)
+                        if parent.mate:
+                            kit.parent2 = choice(parent.mate)
                             if not Cat.all_cats.get(kit.parent2).inheritance:
                                 Cat.all_cats.get(kit.parent2).inheritance = Inheritance(Cat.all_cats.get(kit.parent2))
                             Cat.all_cats.get(kit.parent2).inheritance.update_inheritance()
@@ -460,8 +460,8 @@ class Clan:
                             app.inheritance = Inheritance(app)
                         app.inheritance.update_inheritance()
                         parent.inheritance.update_inheritance()
-                        if parent.mates:
-                            app.parent2 = choice(parent.mates)
+                        if parent.mate:
+                            app.parent2 = choice(parent.mate)
                             if not Cat.all_cats.get(app.parent2).inheritance:
                                 Cat.all_cats.get(app.parent2).inheritance = Inheritance(Cat.all_cats.get(app.parent2))
                             app.inheritance.update_inheritance()
@@ -557,7 +557,7 @@ class Clan:
         """Generates up to three pairs of mates."""
 
         def get_adult_mateless_cat():
-            alive_cats = [i for i in Cat.all_cats.values() if i.moons >= 14 and not i.dead and not i.mates]
+            alive_cats = [i for i in Cat.all_cats.values() if i.moons >= 14 and not i.dead and not i.mate]
             if alive_cats:
                 return choice(alive_cats)
             return None
@@ -623,8 +623,8 @@ class Clan:
                         kit.parent1 = parent.ID
                         parent.inheritance.update_inheritance()
 
-                        if parent.mates:
-                            kit.parent2 = choice(parent.mates)
+                        if parent.mate:
+                            kit.parent2 = choice(parent.mate)
                             if not Cat.all_cats.get(kit.parent2).inheritance:
                                 Cat.all_cats.get(kit.parent2).inheritance = Inheritance(Cat.all_cats.get(kit.parent2))
                             Cat.all_cats.get(kit.parent2).inheritance.update_inheritance()
@@ -649,8 +649,8 @@ class Clan:
                         app.inheritance = Inheritance(app)
                     app.inheritance.update_inheritance()
                     parent.inheritance.update_inheritance()
-                    if parent.mates:
-                        app.parent2 = choice(parent.mates)
+                    if parent.mate:
+                        app.parent2 = choice(parent.mate)
                         if not Cat.all_cats.get(app.parent2).inheritance:
                             Cat.all_cats.get(app.parent2).inheritance = Inheritance(Cat.all_cats.get(app.parent2))
                         app.inheritance.update_inheritance()

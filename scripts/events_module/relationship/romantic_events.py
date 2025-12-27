@@ -165,7 +165,7 @@ class RomanticEvents:
             RomanticEvents.current_loaded_lang = i18n.config.get("locale")
 
         relevant_dict = deepcopy(RomanticEvents.ROMANTIC_INTERACTIONS)
-        if cat_to.ID in cat_from.mates and not cat_to.dead:
+        if cat_to.ID in cat_from.mate and not cat_to.dead:
             relevant_dict = deepcopy(RomanticEvents.MATE_INTERACTIONS)
 
         # check if it should be a positive or negative interaction
@@ -357,7 +357,7 @@ class RomanticEvents:
     def handle_breakup_events(cat: Cat):
         """Triggers and handles any events that results in a breakup"""
 
-        for x in cat.mates:
+        for x in cat.mate:
             mate_ob = Cat.fetch_cat(x)
             if not isinstance(mate_ob, Cat):
                 continue
@@ -369,10 +369,10 @@ class RomanticEvents:
     @staticmethod
     def handle_moving_on(cat):
         """Handles moving on from dead or outside mates"""
-        for mate_id in cat.mates:
+        for mate_id in cat.mate:
             if mate_id not in Cat.all_cats:
                 print(f"WARNING: Cat #{cat} has a invalid mate. It will be removed.")
-                cat.mates.remove(mate_id)
+                cat.mate.remove(mate_id)
                 continue
 
             cat_mate = Cat.fetch_cat(mate_id)
@@ -433,7 +433,7 @@ class RomanticEvents:
 
         RomanticEvents.rebuild_dicts()
 
-        if cat_from.ID not in cat_to.mates:
+        if cat_from.ID not in cat_to.mate:
             return False
 
         if cat_from.no_mates or cat_to.no_mates:
@@ -557,11 +557,11 @@ class RomanticEvents:
             return False
 
         alive_inclan_from_mates = [
-            mate for mate in cat_from.mates if cat_from.status.alive_in_player_clan
+            mate for mate in cat_from.mate if cat_from.status.alive_in_player_clan
         ]
         alive_inclan_to_mates = [
             mate
-            for mate in cat_to.mates
+            for mate in cat_to.mate
             if cat_to.fetch_cat(mate).status.alive_in_player_clan
         ]
         poly = len(alive_inclan_from_mates) > 0 or len(alive_inclan_to_mates) > 0
@@ -644,7 +644,7 @@ class RomanticEvents:
         Returns:
             bool (True or False)
         """
-        if cat_from.ID not in cat_to.mates:
+        if cat_from.ID not in cat_to.mate:
             return False
         
         # Moving on, not breakups, occur when one mate is dead or outside.
@@ -674,7 +674,7 @@ class RomanticEvents:
         if not cat_from.is_potential_mate(cat_to):
             return False, None
 
-        if cat_from.ID in cat_to.mates:
+        if cat_from.ID in cat_to.mate:
             return False, None
 
         # Gather relationships
@@ -702,12 +702,12 @@ class RomanticEvents:
 
         alive_inclan_from_mates = [
             mate
-            for mate in cat_from.mates
+            for mate in cat_from.mate
             if cat_from.fetch_cat(mate).status.alive_in_player_clan
         ]
         alive_inclan_to_mates = [
             mate
-            for mate in cat_to.mates
+            for mate in cat_to.mate
             if cat_to.fetch_cat(mate).status.alive_in_player_clan
         ]
         poly = len(alive_inclan_from_mates) > 0 or len(alive_inclan_to_mates) > 0
@@ -747,8 +747,8 @@ class RomanticEvents:
 
         # if poly:
         #     print("----- POLY-POLY-POLY", cat_from.name, cat_to.name)
-        #     print(cat_from.mates)
-        #     print(cat_to.mates)
+        #     print(cat_from.mate)
+        #     print(cat_to.mate)
         # else:
         #     print("BECOME MATES")
 
@@ -797,7 +797,7 @@ class RomanticEvents:
         all_mates_fulfill_current_to_new = True
         alive_inclan_from_mates = [
             mate
-            for mate in cat_from.mates
+            for mate in cat_from.mate
             if cat_from.fetch_cat(mate).status.alive_in_player_clan
         ]
         if len(alive_inclan_from_mates) > 0:
@@ -837,7 +837,7 @@ class RomanticEvents:
         all_mates_fulfill_current_to_new = True
         alive_inclan_to_mates = [
             mate
-            for mate in cat_to.mates
+            for mate in cat_to.mate
             if cat_to.fetch_cat(mate).status.alive_in_player_clan
         ]
         if len(alive_inclan_to_mates) > 0:
@@ -881,7 +881,7 @@ class RomanticEvents:
         if "[m_c_mates]" in mate_string:
             mate_names = [
                 str(cat_from.fetch_cat(mate_id).name)
-                for mate_id in cat_from.mates
+                for mate_id in cat_from.mate
                 if cat_from.fetch_cat(mate_id) is not None
                 and cat_from.fetch_cat(mate_id).status.alive_in_player_clan
             ]
@@ -897,7 +897,7 @@ class RomanticEvents:
         if "[r_c_mates]" in mate_string:
             mate_names = [
                 str(cat_to.fetch_cat(mate_id).name)
-                for mate_id in cat_to.mates
+                for mate_id in cat_to.mate
                 if cat_to.fetch_cat(mate_id) is not None
                 and cat_to.fetch_cat(mate_id).status.alive_in_player_clan
             ]
@@ -912,13 +912,13 @@ class RomanticEvents:
 
         if "(m_c_mate/mates)" in mate_string:
             insert = "mate"
-            if len(cat_from.mates) > 1:
+            if len(cat_from.mate) > 1:
                 insert = "mates"
             mate_string = mate_string.replace("(m_c_mate/mates)", insert)
 
         if "(r_c_mate/mates)" in mate_string:
             insert = "mate"
-            if len(cat_to.mates) > 1:
+            if len(cat_to.mate) > 1:
                 insert = "mates"
             mate_string = mate_string.replace("(r_c_mate/mates)", insert)
 
@@ -937,12 +937,12 @@ class RomanticEvents:
             poly_key = ""
             alive_inclan_from_mates = [
                 mate
-                for mate in cat_from.mates
+                for mate in cat_from.mate
                 if cat_from.fetch_cat(mate).status.alive_in_player_clan
             ]
             alive_inclan_to_mates = [
                 mate
-                for mate in cat_to.mates
+                for mate in cat_to.mate
                 if cat_to.fetch_cat(mate).status.alive_in_player_clan
             ]
             if len(alive_inclan_from_mates) > 0 and len(alive_inclan_to_mates) > 0:

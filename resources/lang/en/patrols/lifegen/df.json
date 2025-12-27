@@ -2,16 +2,15 @@
     {
         "patrol_id": "life_df_og1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
         ],
         "tags": [
-            "border",
             "new_cat"
         ],
         "patrol_art": "df_default",
@@ -169,17 +168,15 @@
     {
         "patrol_id": "life_df_og2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
         ],
-        "tags": [
-            "training"
-        ],
+        "tags": [],
         "patrol_art": "df_mentor",
         "min_cats": 1,
         "max_cats": 1,
@@ -295,10 +292,10 @@
     {
         "patrol_id": "life_df_og3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -366,10 +363,10 @@
     {
         "patrol_id": "life_df_og4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -421,10 +418,10 @@
     {
         "patrol_id": "life_df_og5",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -497,10 +494,10 @@
     {
         "patrol_id": "life_df_og6",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -638,10 +635,10 @@
     {
         "patrol_id": "life_df_og7",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -675,10 +672,10 @@
     {
         "patrol_id": "life_df_og8",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -853,10 +850,10 @@
     {
         "patrol_id": "life_df_og9",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -1058,10 +1055,10 @@
     {
         "patrol_id": "life_df_og10",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -1148,10 +1145,10 @@
     {
         "patrol_id": "life_df_og11",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -1326,10 +1323,10 @@
     {
         "patrol_id": "life_df_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -1424,10 +1421,10 @@
     {
         "patrol_id": "life_df_J2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -1528,10 +1525,10 @@
     {
         "patrol_id": "life_df_J3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -1635,10 +1632,10 @@
     {
         "patrol_id": "life_df_J4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -1832,10 +1829,10 @@
     {
         "patrol_id": "life_df_J5",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -1915,10 +1912,10 @@
     {
         "patrol_id": "life_df_J6",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -2097,10 +2094,10 @@
     {
         "patrol_id": "life_df_RBribe",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -2269,10 +2266,10 @@
     {
         "patrol_id": "life_df_R1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df",
@@ -2284,7 +2281,7 @@
         "max_cats": 2,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "The darkness of the forest looms eerily around the clearing as cats train in pairs. You're with r_c today - and {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} more experienced than you anticipated. You've only recently seen {PRONOUN/r_c/object} around so how {VERB/r_c/are/is} {PRONOUN/r_c/subject} this good? Are you missing something?",
+        "intro_text": "The darkness of the forest looms eerily around the clearing as cats train in pairs. You're with r_c today - and {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} more experienced than you anticipated. You've only recently seen {PRONOUN/r_c/object} around, so how {VERB/r_c/are/is} {PRONOUN/r_c/subject} this good? Are you missing something?",
         "decline_text": "Better not to think about it. You focus on the sparring instead of silly questions.",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -2416,10 +2413,10 @@
     {
         "patrol_id": "life_df_R2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df",
@@ -2644,10 +2641,10 @@
     {
         "patrol_id": "life_df_ant1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -2697,10 +2694,10 @@
     {
         "patrol_id": "life_df_ant2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -2771,10 +2768,10 @@
     {
         "patrol_id": "life_df_ant3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -2943,10 +2940,10 @@
     {
         "patrol_id": "life_df_TBS1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -3001,10 +2998,10 @@
     {
         "patrol_id": "life_df_TBS2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -3074,10 +3071,10 @@
     {
         "patrol_id": "df_template_TBS3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df"
@@ -3141,10 +3138,10 @@
     {
         "patrol_id": "life_df_ant4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -3188,10 +3185,10 @@
         {
             "patrol_id": "life_df_ant5",
             "biome": [
-                "Any"
+                "any"
             ],
             "season": [
-                "Any"
+                "any"
             ],
             "types": [
                 "lifegen"
@@ -3259,10 +3256,10 @@
         {
             "patrol_id": "life_df_ant6",
             "biome": [
-                "Any"
+                "any"
             ],
             "season": [
-                "Any"
+                "any"
             ],
             "types": [
                 "lifegen"
@@ -3311,10 +3308,10 @@
         {
             "patrol_id": "life_df_ant7",
             "biome": [
-                "Any"
+                "any"
             ],
             "season": [
-                "Any"
+                "any"
             ],
             "types": [
                 "lifegen"
@@ -3387,10 +3384,10 @@
         {
             "patrol_id": "life_df_ant8",
             "biome": [
-                "Any"
+                "any"
             ],
             "season": [
-                "Any"
+                "any"
             ],
             "types": [
                 "lifegen"
@@ -3430,10 +3427,10 @@
         {
             "patrol_id": "life_df_J7",
             "biome": [
-                "Any"
+                "any"
             ],
             "season": [
-                "Any"
+                "any"
             ],
             "types": [
                 "lifegen",
@@ -3523,10 +3520,10 @@
         {
             "patrol_id": "dfcat_patrol_J1",
             "biome": [
-                "Any"
+                "any"
             ],
             "season": [
-                "Any"
+                "any"
             ],
             "types": [
                 "lifegen"
@@ -3560,10 +3557,10 @@
         {
             "patrol_id": "dfcat_patrol_J2",
             "biome": [
-                "Any"
+                "any"
             ],
             "season": [
-                "Any"
+                "any"
             ],
             "types": [
                 "lifegen"

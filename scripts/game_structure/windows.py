@@ -2353,9 +2353,9 @@ class MateScreen(UIWindow):
 
         self.clan_name = str(game.clan.name + 'Clan')
         self.last_screen = last_screen
-        self.mates = switch_get_value(Switch.new_mate)
+        self.mate = switch_get_value(Switch.new_mate)
         self.pick_path_message = UITextBoxTweaked(
-            f"{self.mates.name} confesses their feelings to you.",
+            f"{self.mate.name} confesses their feelings to you.",
             ui_scale(pygame.Rect((20, 20), (260, -1))),
             line_spacing=1,
             object_id="#text_box_30_horizcenter",
@@ -2394,7 +2394,7 @@ class MateScreen(UIWindow):
                     self.pick_path_message.kill()
                     self.mediator_button.kill()
                     self.kill()
-                    game.clan.your_cat.set_mate(self.mates)
+                    game.clan.your_cat.set_mate(self.mate)
                     switch_set_value(Switch.accept, True)
 
                 elif event.ui_element == self.mediator_button:
@@ -2406,8 +2406,8 @@ class MateScreen(UIWindow):
                     self.pick_path_message.kill()
                     self.mediator_button.kill()
                     self.kill()
-                    self.mates.relationships[game.clan.your_cat.ID].romance = 0
-                    game.clan.your_cat.relationships[self.mates.ID].comfort -= 10
+                    self.mate.relationships[game.clan.your_cat.ID].romance = 0
+                    game.clan.your_cat.relationships[self.mate.ID].comfort -= 10
                     switch_set_value(Switch.reject, True)
             except:
                 print("error with mate screen")

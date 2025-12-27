@@ -268,7 +268,7 @@ class PatrolOutcome:
 
             text = lifegen_abbrev_text
             if lifegen_abbrev_text == "":
-                print("Lifegen: No abbrevs to adjust")
+                # print("Lifegen: No abbrevs to adjust")
                 text = self.text
         except Exception as e:
             print("Lifegen: Error adjusting abbrevs:", e)
@@ -1229,7 +1229,7 @@ class PatrolOutcome:
                         "encountered" in cat.history.beginning and
                         cat.history.beginning["encountered"] is True
                         ):
-                        if cat.ID in game.clan.your_cat.mates:
+                        if cat.ID in game.clan.your_cat.mate:
                             cat.thought = f"Is missing {game.clan.your_cat.name}"
                             results.append(f"You have spoken with {cat.name}.")
                         else:

@@ -49,7 +49,8 @@
               "any",
               "adult",
               "app",
-              "healer"
+              "healer",
+              "y_c"
             ]
           }
         },
@@ -265,7 +266,7 @@
         "description": "Controls the type of patrol.",
         "type": "array",
         "items": {
-          "enum": ["hunting", "herb_gathering", "border", "training"]
+          "enum": ["hunting", "herb_gathering", "border", "training", "df", "date", "lifegen"]
         }
       },
       "tags": {

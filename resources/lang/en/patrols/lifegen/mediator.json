@@ -2,10 +2,10 @@
     {
         "patrol_id": "life_medi_og1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -65,10 +65,10 @@
     {
         "patrol_id": "life_medi_og2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -126,10 +126,10 @@
     {
         "patrol_id": "life_medi_og3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -171,10 +171,10 @@
     {
         "patrol_id": "life_medi_og4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -216,10 +216,10 @@
     {
         "patrol_id": "life_medi_og5",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -251,10 +251,10 @@
     {
         "patrol_id": "lg_mediator_shunned_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -288,10 +288,10 @@
     {
         "patrol_id": "life_medi_R1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -323,10 +323,10 @@
     {
         "patrol_id": "life_medi_R2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -378,10 +378,10 @@
     {
     	"patrol_id": "life_mediator_rad1",
     	"biome": [
-        	"Any"
+        	"any"
     	],
     	"season": [
-        	"Any"
+        	"any"
     	],
     	"types": [
         	"lifegen"
@@ -445,10 +445,10 @@
     {
         "patrol_id": "dead_patrol_J4",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "sc_lifegen"
@@ -499,10 +499,10 @@
     {
     	"patrol_id": "sc_life_mediator_rad1",
     	"biome": [
-        	"Any"
+        	"any"
     	],
     	"season": [
-        	"Any"
+        	"any"
     	],
     	"types": [
         	"sc_lifegen"

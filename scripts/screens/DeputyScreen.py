@@ -20,7 +20,7 @@ from ..game_structure.screen_settings import MANAGER
 from ..ui.generate_box import get_box, BoxStyles
 from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
-from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
+from ..game_structure.game.switches import switch_set_value, Switch
 from scripts.clan_package.settings import get_clan_setting
 
 
@@ -36,15 +36,11 @@ class DeputyScreen(Screens):
         super().__init__(name)
         self.fav = {}
         self.list_page = None
-        self.next_cat = None
-        self.previous_cat = None
         self.next_page_button = None
         self.previous_page_button = None
         self.current_mentor_warning = None
         self.confirm_mentor = None
         self.back_button = None
-        self.next_cat_button = None
-        self.previous_cat_button = None
         self.mentor_icon = None
         self.app_frame = None
         self.mentor_frame = None
@@ -68,22 +64,6 @@ class DeputyScreen(Screens):
                     # self.update_buttons()
             elif event.ui_element == self.back_button:
                 self.change_screen(GameScreen.EVENTS)
-            elif event.ui_element == self.next_cat_button:
-                if isinstance(Cat.fetch_cat(self.next_cat), Cat):
-                    switch_set_value(Switch.cat, self.next_cat)
-                    self.update_cat_list()
-                    self.update_selected_cat()
-                    # self.update_buttons()
-                else:
-                    print("invalid next cat", self.next_cat)
-            elif event.ui_element == self.previous_cat_button:
-                if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
-                    switch_set_value(Switch.cat, self.previous_cat)
-                    self.update_cat_list()
-                    self.update_selected_cat()
-                    # self.update_buttons()
-                else:
-                    print("invalid previous cat", self.previous_cat)
             elif event.ui_element == self.next_page_button:
                 self.current_page += 1
                 self.update_cat_list()
@@ -180,43 +160,6 @@ class DeputyScreen(Screens):
         del self.previous_page_button
         self.next_page_button.kill()
         del self.next_page_button
-
-
-    def find_next_previous_cats(self):
-        """Determines where the previous and next buttons lead"""
-        is_instructor = False
-        if self.the_cat.dead and game.clan.instructor.ID == self.the_cat.ID:
-            is_instructor = True
-
-        self.previous_cat = 0
-        self.next_cat = 0
-        if self.the_cat.dead and not is_instructor and not self.the_cat.df:
-            self.previous_cat = game.clan.instructor.ID
-
-        if is_instructor:
-            self.next_cat = 1
-
-        for check_cat in Cat.all_cats_list:
-            if check_cat.ID == self.the_cat.ID:
-                self.next_cat = 1
-
-            if self.next_cat == 0 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
-                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
-                    and check_cat.df == self.the_cat.df:
-                self.previous_cat = check_cat.ID
-
-            elif self.next_cat == 1 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
-                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
-                    and check_cat.df == self.the_cat.df:
-                self.next_cat = check_cat.ID
-
-            elif int(self.next_cat) > 1:
-                break
-
-        if self.next_cat == 1:
-            self.next_cat = 0
 
     def change_cat(self, new_mentor=None):
         self.exit_screen()

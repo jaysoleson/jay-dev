@@ -88,7 +88,7 @@ def event_for_tags(tags: list, cat, other_cat=None, mentor_tags_fulfilled=None) 
                 return False
             if cat.moons <= 14 + cat.age_moons["kitten"][1]:
                 return False
-            if any(cat.fetch_cat(i).no_kits for i in cat.mates):
+            if any(cat.fetch_cat(i).no_kits for i in cat.mate):
                 return False
 
         if (
@@ -308,9 +308,9 @@ def event_for_cat(
             # just some preliminary checks to see if any of these are impossible for this cat
             if status == "siblings" and not cat.get_siblings():
                 return False
-            elif status == "mates" and not cat.mates:
+            elif status == "mates" and not cat.mate:
                 return False
-            elif status == "mates_with_pl" and p_l.ID not in cat.mates:
+            elif status == "mates_with_pl" and p_l.ID not in cat.mate:
                 return False
             elif status == "parent/child" and not cat.get_children():
                 return False
@@ -553,10 +553,10 @@ def _get_cats_with_rel_status(
         cat_list = [c for c in cat_list if c.ID in cat.get_siblings()]
         rel_status_list.remove("siblings")
     elif "mates" in rel_status_list:
-        cat_list = [c for c in cat_list if c.ID in cat.mates]
+        cat_list = [c for c in cat_list if c.ID in cat.mate]
         rel_status_list.remove("mates")
     elif "not_mates" in rel_status_list:
-        cat_list = [c for c in cat_list if c.ID not in cat.mates]
+        cat_list = [c for c in cat_list if c.ID not in cat.mate]
         rel_status_list.remove("not_mates")
     elif "parent/child" in rel_status_list:
         cat_list = [c for c in cat_list if c.ID in cat.get_children()]

@@ -244,7 +244,7 @@ class Patrol:
             # ---
 
             # Combined patrol_statuses catagories
-            if cat.status in ("medicine cat", "medicine cat apprentice"):
+            if cat.status.rank in (CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE):
                 if "healer cats" in self.patrol_statuses:
                     self.patrol_statuses["healer cats"] += 1
                 else:
@@ -325,7 +325,10 @@ class Patrol:
         elif len(patrol_cats) > 1 and switch_get_value(Switch.patrol_category) == 'df':
             # LG: if theres df cats on the patrol, r_c will always be DF
             # to make writing a bit more open
-            df_patrol_cats = [i for i in patrol_cats if i.df and i.ID != game.clan.your_cat.ID]
+            df_patrol_cats = [i for i in patrol_cats if (
+                i.status.group == CatGroup.DARK_FOREST and
+                i.ID != game.clan.your_cat.ID
+                )]
             if df_patrol_cats:
                 self.random_cat = choice(df_patrol_cats)
             else:
@@ -491,45 +494,45 @@ class Patrol:
             if game.clan.your_cat.shunned != 0:
                 murder_history = History.get_murders(game.clan.your_cat)
                 history = None
-                status = game.clan.your_cat.status
+                status = game.clan.your_cat.status.rank
                 if "is_murderer" in murder_history:
                     history = murder_history["is_murderer"]
                 else:
-                    status = game.clan.your_cat.status
+                    status = game.clan.your_cat.status.rank
                 if history:
                     if "demoted_from" in history[-1] and history[-1]["demoted_from"]:
                         status = history[-1]["demoted_from"]
                     else:
-                        status = game.clan.your_cat.status
+                        status = game.clan.your_cat.status.rank
                 else:
-                    status = game.clan.your_cat.status
+                    status = game.clan.your_cat.status.rank
             else:
-                status = game.clan.your_cat.status
+                status = game.clan.your_cat.status.rank
 
-            if status == 'kitten':
+            if status == CatRank.KITTEN:
                 possible_patrols.extend(self.generate_patrol_events(self.KIT_LIFEGEN))
             else:
                 possible_patrols.extend(self.generate_patrol_events(self.GEN_LIFEGEN))
 
-                if status == 'apprentice':
+                if status == CatRank.APPRENTICE:
                     possible_patrols.extend(self.generate_patrol_events(self.APP_LIFEGEN))
-                elif status == 'medicine cat apprentice':
+                elif status == CatRank.MEDICINE_APPRENTICE:
                     possible_patrols.extend(self.generate_patrol_events(self.MEDAPP_LIFEGEN))
-                elif status == 'mediator apprentice':
+                elif status == CatRank.MEDIATOR_APPRENTICE:
                     possible_patrols.extend(self.generate_patrol_events(self.MEDIATORAPP_LIFEGEN))
-                elif status == "queen's apprentice":
+                elif status == CatRank.QUEENS_APPRENTICE:
                     possible_patrols.extend(self.generate_patrol_events(self.QUEENAPP_LIFEGEN))
-                elif status == "queen":
+                elif status == CatRank.QUEENS_APPRENTICE:
                     possible_patrols.extend(self.generate_patrol_events(self.QUEEN_LIFEGEN))
-                elif status == 'medicine cat':
+                elif status == CatRank.MEDICINE_APPRENTICE:
                     possible_patrols.extend(self.generate_patrol_events(self.MED_LIFEGEN))
-                elif status == 'mediator':
+                elif status == CatRank.MEDIATOR:
                     possible_patrols.extend(self.generate_patrol_events(self.MEDIATOR_LIFEGEN))
-                elif status == 'deputy':
+                elif status == CatRank.DEPUTY:
                     possible_patrols.extend(self.generate_patrol_events(self.DEPUTY_LIFEGEN))
-                elif status == 'leader':
+                elif status == CatRank.LEADER:
                     possible_patrols.extend(self.generate_patrol_events(self.LEADER_LIFEGEN))
-                elif status == 'elder':
+                elif status == CatRank.ELDER:
                     possible_patrols.extend(self.generate_patrol_events(self.ELDER_LIFEGEN))
                 else:
                     possible_patrols.extend(self.generate_patrol_events(self.WARRIOR_LIFEGEN))
@@ -666,7 +669,7 @@ class Patrol:
 
         if (
             not love1.is_potential_mate(love2, for_love_interest=True)
-            and love1.ID not in love2.mates
+            and love1.ID not in love2.mate
         ):
             print("not a potential mate or current mate")
             return False
@@ -678,7 +681,7 @@ class Patrol:
 
         if (
             get_personality_compatibility(love1, love2) is True
-            or love1.ID in love2.mates
+            or love1.ID in love2.mate
         ):
             chance_of_romance_patrol -= 10
         else:
@@ -768,27 +771,27 @@ class Patrol:
                 # LG ---
                 # this problem is obviously coming from somewhere else,
                 # but this does work. lol
-                convert = {
-                    "healer cats": (
-                        self.patrol_statuses.get(CatRank.MEDICINE_CAT, 0) +
-                        self.patrol_statuses.get(CatRank.MEDICINE_APPRENTICE, 0)
-                        ),
-                    "normal adult": (
-                        self.patrol_statuses.get(CatRank.LEADER, 0) +
-                        self.patrol_statuses.get(CatRank.DEPUTY, 0) +
-                        self.patrol_statuses.get(CatRank.WARRIOR, 0)
-                    )
-                }
-                if sta in ["healer cats", "normal adult"]:
-                    if sta in convert:
-                        status_number = convert[sta]
-                    else:
-                        status_number = -1
-                else:
-                    status_number = self.patrol_statuses.get(sta, -1)
+                # convert = {
+                #     "healer cats": (
+                #         self.patrol_statuses.get(CatRank.MEDICINE_CAT, 0) +
+                #         self.patrol_statuses.get(CatRank.MEDICINE_APPRENTICE, 0)
+                #         ),
+                #     "normal adult": (
+                #         self.patrol_statuses.get(CatRank.LEADER, 0) +
+                #         self.patrol_statuses.get(CatRank.DEPUTY, 0) +
+                #         self.patrol_statuses.get(CatRank.WARRIOR, 0)
+                #     )
+                # }
+                # if sta in ["healer cats", "normal adult"]:
+                #     if sta in convert:
+                #         status_number = convert[sta]
+                #     else:
+                #         status_number = -1
+                # else:
+                #     status_number = self.patrol_statuses.get(sta, -1)
                 # -------
 
-                if not (num[0] <= status_number <= num[1]):
+                if not (num[0] <= self.patrol_statuses.get(sta, -1) <= num[1]):
                     flag = True
                     break
             
@@ -805,6 +808,7 @@ class Patrol:
                     print(
                         "DEBUG: requested patrol does not meet constraints (min max status)"
                     )
+                    print(patrol.min_max_status, self.patrol_statuses)
                 continue
 
             if not event_for_tags(patrol.tags, Cat, mentor_tags_fulfilled=has_mentor):
@@ -855,7 +859,6 @@ class Patrol:
                         print(
                             "DEBUG: requested patrol does not meet constraints (patrol type)"
                         )
-                        print("HERB GATHERING SKIP", patrol.types, patrol_type)
                     continue
 
             if switch_get_value(Switch.patrol_category) in ['lifegen', 'df', 'date']:
@@ -1089,19 +1092,19 @@ class Patrol:
 
         if success and switch_get_value(Switch.patrol_category) == 'date':
             try:
-                game.clan.your_cat.relationships[self.random_cat.ID].romantic_love += randint(1,5)
+                game.clan.your_cat.relationships[self.random_cat.ID].romance += randint(1,5)
                 game.clan.your_cat.relationships[self.random_cat.ID].trust += randint(1,5)
-                game.clan.your_cat.relationships[self.random_cat.ID].comfortable += randint(1,5)
-                self.random_cat.relationships[game.clan.your_cat.ID].romantic_love += randint(1,5)
+                game.clan.your_cat.relationships[self.random_cat.ID].comfort += randint(1,5)
+                self.random_cat.relationships[game.clan.your_cat.ID].romance += randint(1,5)
                 self.random_cat.relationships[game.clan.your_cat.ID].trust += randint(1,5)
-                self.random_cat.relationships[game.clan.your_cat.ID].comfortable += randint(1,5)
+                self.random_cat.relationships[game.clan.your_cat.ID].comfort += randint(1,5)
             except:
                 print("ERROR: handling relationship changes in date patrol")
         elif not success and switch_get_value(Switch.patrol_category) == 'date':
             try:
-                self.random_cat.relationships[game.clan.your_cat.ID].romantic_love -= randint(1,5)
+                self.random_cat.relationships[game.clan.your_cat.ID].romance -= randint(1,5)
                 self.random_cat.relationships[game.clan.your_cat.ID].trust -= randint(1,5)
-                self.random_cat.relationships[game.clan.your_cat.ID].comfortable -= randint(1,5)
+                self.random_cat.relationships[game.clan.your_cat.ID].comfort -= randint(1,5)
             except:
                 print("ERROR: handling relationship changes in date patrol")
 
@@ -1192,37 +1195,37 @@ class Patrol:
             else:
                 date = self.patrol_cats[0]
             if date.relationships.get(you.ID):
-                if date.relationships.get(you.ID).romantic_love > 50:
+                if date.relationships.get(you.ID).romance > 50:
                     success_chance += 40
-                elif date.relationships.get(you.ID).romantic_love > 40:
+                elif date.relationships.get(you.ID).romance > 40:
                     success_chance += 30
-                elif date.relationships.get(you.ID).romantic_love > 30:
+                elif date.relationships.get(you.ID).romance > 30:
                     success_chance += 20
-                elif date.relationships.get(you.ID).romantic_love > 10:
+                elif date.relationships.get(you.ID).romance > 10:
                     success_chance += 10
                 
-                if date.relationships.get(you.ID).platonic_like > 40:
+                if date.relationships.get(you.ID).like > 40:
                     success_chance += 15
-                elif date.relationships.get(you.ID).platonic_like > 30:
+                elif date.relationships.get(you.ID).like > 30:
                     success_chance += 10
-                elif date.relationships.get(you.ID).platonic_like > 20:
+                elif date.relationships.get(you.ID).like > 20:
                     success_chance += 5
                     
-                if date.relationships.get(you.ID).dislike > 50:
+                if date.relationships.get(you.ID).like < -50:
                     success_chance -= 50
-                if date.relationships.get(you.ID).dislike > 30:
+                if date.relationships.get(you.ID).like < -30:
                     success_chance -= 40
-                if date.relationships.get(you.ID).dislike > 20:
+                if date.relationships.get(you.ID).like < -20:
                     success_chance -= 30
-                if date.relationships.get(you.ID).dislike > 0:
+                if date.relationships.get(you.ID).like < -0:
                     success_chance -= 10
                 success_chance += random.randint(-20,20)
             success_chance = min(90, success_chance)
             success_chance = max(success_chance, 10)
             print(f"c: {c} chance: {success_chance}")
             if c < success_chance:
-                date.relationships.get(you.ID).romantic_love += 10
-                you.relationships.get(date.ID).romantic_love += 10
+                date.relationships.get(you.ID).romance += 10
+                you.relationships.get(date.ID).romance += 10
         if success_chance >= 120:
             success_chance = 115
             skill_updates += "success chance over 120, updated to 115"

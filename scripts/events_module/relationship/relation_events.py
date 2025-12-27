@@ -113,11 +113,11 @@ class Relation_Events:
         # if the cat has one or more mates, check how high the chance is,
         # that the cat interacts romantic with ANOTHER cat than their mate
         use_mate = False
-        if cat.mates:
+        if cat.mate:
             chance_number = constants.CONFIG["relationship"]["chance_romance_not_mate"]
 
             # the more mates the cat has, the less likely it will be that they interact with another cat romantically
-            for mate_id in cat.mates:
+            for mate_id in cat.mate:
                 chance_number -= int(cat.relationships[mate_id].romance / 20)
             use_mate = int(random.random() * chance_number)
 
@@ -126,7 +126,7 @@ class Relation_Events:
         if use_mate or cat.no_mates:
             cat_to_choose_from = [
                 cat.all_cats[mate_id]
-                for mate_id in cat.mates
+                for mate_id in cat.mate
                 if cat.all_cats[mate_id].status.alive_in_player_clan
             ]
 

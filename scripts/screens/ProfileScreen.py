@@ -864,13 +864,13 @@ class ProfileScreen(Screens):
                 )
             else:
                 self.the_cat.thought = i18n.t(
-                    "screens.profile.guide_thought_sc_not__following", clan=game.clan.displayname
+                    "screens.profile.guide_thought_sc_not_following", clan=game.clan.displayname
                 )
 
         if is_df_instructor:
             if game.clan.followingsc == True:
                 self.the_cat.thought = i18n.t(
-                    "screens.profile.guide_thought_df_not__following", clan=game.clan.displayname
+                    "screens.profile.guide_thought_df_not_following", clan=game.clan.displayname
                 )
             else:
                 self.the_cat.thought = i18n.t(
@@ -1349,12 +1349,12 @@ class ProfileScreen(Screens):
                     output += ' moons'
 
         # MATE
-        if len(the_cat.mates) > 0:
+        if len(the_cat.mate) > 0:
             output += "\n"
 
             mate_names = []
             # Grab the names of only the first two, since that's all we will display
-            for _m in the_cat.mates[:2]:
+            for _m in the_cat.mate[:2]:
                 mate_ob = Cat.fetch_cat(_m)
                 if not isinstance(mate_ob, Cat):
                     continue
@@ -1374,12 +1374,12 @@ class ProfileScreen(Screens):
 
             mate_block = ", ".join(mate_names)
 
-            if len(the_cat.mates) > 2:
+            if len(the_cat.mate) > 2:
                 mate_block = i18n.t(
                     "utility.items",
                     count=2,
                     item1=mate_block,
-                    item2=i18n.t("general.mate_extra", count=len(the_cat.mates) - 2),
+                    item2=i18n.t("general.mate_extra", count=len(the_cat.mate) - 2),
                 )
 
             output += i18n.t(
@@ -3093,11 +3093,11 @@ class ProfileScreen(Screens):
                 tool_tip_text='Have an affair with one of your clanmates',
                 starting_height=2, manager=MANAGER
             )
-            if len(game.clan.your_cat.mates) == 0 or game.clan.affair:
+            if len(game.clan.your_cat.mate) == 0 or game.clan.affair:
                 self.affair_button.disable()
-            if game.clan.your_cat.mates:
+            if game.clan.your_cat.mate:
                 alive_mate = False
-                for m in game.clan.your_cat.mates:
+                for m in game.clan.your_cat.mate:
                     if Cat.all_cats.get(m).dead == False:
                         alive_mate = True
                 if not alive_mate:

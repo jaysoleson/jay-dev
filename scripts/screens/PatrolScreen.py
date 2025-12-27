@@ -320,7 +320,7 @@ class PatrolScreen(Screens):
                 self.run_patrol_start, "start"
             )
         elif event.ui_element == self.elements.get("mate_button"):
-            self.selected_cat = self.mates
+            self.selected_cat = self.mate
             self.update_button()
             self.update_cat_images_buttons()
             self.update_selected_cat()
@@ -345,12 +345,12 @@ class PatrolScreen(Screens):
             self.update_button()
         elif event.ui_element == self.elements.get("cycle_mate_left_button"):
             self.selected_mate_index -= 1
-            self.mates = self.selected_cat.mates[self.selected_mate_index]
+            self.mate = self.selected_cat.mate[self.selected_mate_index]
             self.update_selected_cat()
             self.update_button()
         elif event.ui_element == self.elements.get("cycle_mate_right_button"):
             self.selected_mate_index += 1
-            self.mates = self.selected_cat.mates[self.selected_mate_index]
+            self.mate = self.selected_cat.mate[self.selected_mate_index]
             self.update_selected_cat()
             self.update_button()
 
@@ -419,7 +419,7 @@ class PatrolScreen(Screens):
                     manager=MANAGER,
                     anchors={"centerx": "centerx"},
                 )
-            elif self.selected_cat is None or len(self.current_patrol) >= 6:
+            elif self.selected_cat is None or len(self.current_patrol) >= self.max_cats:
                 self.elements["add_remove_cat"] = UISurfaceImageButton(
                     ui_scale(pygame.Rect((0, 460), (98, 30))),
                     "buttons.add_cat",
@@ -578,7 +578,7 @@ class PatrolScreen(Screens):
                     "cycle_mate_right_button" in self.elements
                     and "cycle_mate_left_button" in self.elements
                 ):
-                    if self.selected_mate_index == len(self.selected_cat.mates) - 1:
+                    if self.selected_mate_index == len(self.selected_cat.mate) - 1:
                         self.elements["cycle_mate_right_button"].disable()
                     else:
                         self.elements["cycle_mate_left_button"].enable()
@@ -588,7 +588,7 @@ class PatrolScreen(Screens):
                     else:
                         self.elements["cycle_mate_left_button"].enable()
 
-                    if len(self.selected_cat.mates) <= 0:
+                    if len(self.selected_cat.mate) <= 0:
                         self.elements["cycle_mate_left_button"].hide()
                         self.elements["cycle_mate_right_button"].hide()
 
@@ -1459,11 +1459,11 @@ class PatrolScreen(Screens):
             )
 
             # Show Cat's Mate, if they have one
-            if len(self.selected_cat.mates) > 0:
-                if self.selected_mate_index > len(self.selected_cat.mates) - 1:
+            if len(self.selected_cat.mate) > 0:
+                if self.selected_mate_index > len(self.selected_cat.mate) - 1:
                     self.selected_mate_index = 0
-                self.mates = Cat.fetch_cat(
-                    self.selected_cat.mates[self.selected_mate_index]
+                self.mate = Cat.fetch_cat(
+                    self.selected_cat.mate[self.selected_mate_index]
                 )
                 self.elements["mate_frame"] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((140, 190), (166, 170))), self.mate_frame
@@ -1471,12 +1471,12 @@ class PatrolScreen(Screens):
                 self.elements["mate_image"] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((150, 200), (100, 100))),
                     pygame.transform.scale(
-                        self.mates.sprite, ui_scale_dimensions((100, 100))
+                        self.mate.sprite, ui_scale_dimensions((100, 100))
                     ),
                     manager=MANAGER,
                 )
                 # Check for name length
-                name = str(self.mates.name)  # get name
+                name = str(self.mate.name)  # get name
                 if 10 <= len(name):  # check name length
                     short_name = name[0:9]
                     name = short_name + ".."
@@ -1495,7 +1495,7 @@ class PatrolScreen(Screens):
                     ui_scale(pygame.Rect((148, -4), (104, 26))),
                     (
                         "screens.patrol.select"
-                        if self.mates in self.able_cats
+                        if self.mate in self.able_cats
                         else "screens.patrol.unavailable"
                     ),
                     object_id="#patrol_select_button",
@@ -1503,11 +1503,11 @@ class PatrolScreen(Screens):
                     anchors={"top_target": self.elements["mate_frame"]},
                 )
                 # Disable mate_button if the cat is not able to go on a patrol
-                if self.mates not in self.able_cats:
+                if self.mate not in self.able_cats:
                     self.elements["mate_button"].disable()
 
                 # Buttons to cycle between mates
-                if len(self.selected_cat.mates) > 1:
+                if len(self.selected_cat.mate) > 1:
                     self.elements["cycle_mate_left_button"] = UISurfaceImageButton(
                         ui_scale(pygame.Rect((148, 390), (34, 34))),
                         Icon.ARROW_LEFT,

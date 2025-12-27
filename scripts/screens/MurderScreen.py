@@ -1512,7 +1512,7 @@ class MurderScreen(Screens):
 
             if "relationship" in murder_dict and murder_dict["relationship"]:
                 if "mates" in murder_dict["relationship"]:
-                    if cat_to_murder not in you.mates:
+                    if cat_to_murder not in you.mate:
                         continue
                 if "siblings" in murder_dict["relationship"]:
                     if cat_to_murder.ID not in you.inheritance.get_siblings():
@@ -2916,7 +2916,7 @@ class MurderScreen(Screens):
                 chance += 10
             if accomplice.status.rank in [CatRank.MEDICINE_CAT, CatRank.MEDIATOR, CatRank.DEPUTY, CatRank.LEADER]:
                 chance -= 20
-            if accomplice.ID in game.clan.your_cat.mates:
+            if accomplice.ID in game.clan.your_cat.mate:
                 chance += 50
             if game.clan.your_cat.is_related(accomplice, False):
                 chance += 30

@@ -2,10 +2,10 @@
     {
         "patrol_id": "LG_halloween_SQ1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -141,10 +141,10 @@
     {
         "patrol_id": "LG_halloween_SQ2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -307,7 +307,7 @@
                         "mutual": false,
                         "values": [
                             "comfort",
-                            "platonic"
+                            "like"
                         ],
                         "amount": 5
                     }
@@ -357,10 +357,10 @@
     {
         "patrol_id": "LG_halloween_SQ3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -432,10 +432,10 @@
     {
         "patrol_id": "halloween_med_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -539,7 +539,7 @@
             "Forest"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -594,10 +594,10 @@
     {
         "patrol_id": "gen_life_J2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -648,10 +648,10 @@
     {
         "patrol_id": "gen_life_J1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "lifegen"
@@ -725,10 +725,10 @@
     {
         "patrol_id": "lifegen_general_SQ1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Newleaf"
+            "newleaf"
         ],
         "types": [
             "lifegen"
@@ -852,10 +852,10 @@
     {
         "patrol_id": "gen_life_J3",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "leafbare"
+            "leaf-bare"
         ],
         "types": [
             "lifegen"
@@ -884,7 +884,7 @@
                         ],
                         "mutual": true,
                         "values": [
-                            "platonic"
+                            "like"
                         ],
                         "amount": 10
                     }
@@ -919,10 +919,10 @@
     {
         "patrol_id": "life_sc_patrol_rad1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "sc_lifegen"
@@ -999,10 +999,10 @@
     {
         "patrol_id": "life_df_newtrainee_rad1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df_lifegen"
@@ -1056,10 +1056,10 @@
 {
         "patrol_id": "life_df_sam1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df_lifegen"
@@ -1093,10 +1093,10 @@
    {
         "patrol_id": "cheshirecat_DEADDF_H1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df_lifegen"
@@ -1151,10 +1151,10 @@
 {
         "patrol_id": "dead_patrol_J5",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df_lifegen"
@@ -1216,10 +1216,10 @@
     {
         "patrol_id": "wanderingalone_URDEAD_H1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "ur_lifegen"
@@ -1266,10 +1266,10 @@
     {
         "patrol_id": "df_deadpatrol_E1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "df_lifegen"
@@ -1311,10 +1311,10 @@
     {
         "patrol_id": "ur_deadpatrol_E1",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "ur_lifegen"
@@ -1351,10 +1351,10 @@
     {
         "patrol_id": "dead_patrol_J2",
         "biome": [
-            "Any"
+            "any"
         ],
         "season": [
-            "Any"
+            "any"
         ],
         "types": [
             "sc_lifegen"

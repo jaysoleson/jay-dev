@@ -168,7 +168,7 @@ class GiftScreen(Screens):
             ui_scale(pygame.Rect((75, 360), (650, 226))), list_frame, starting_height=1
         )
         self.back_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((25, 60), (105, 30))),
+            ui_scale(pygame.Rect((25, 25), (105, 30))),
             "buttons.back",
             get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
