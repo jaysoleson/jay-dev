@@ -1982,9 +1982,8 @@ class MakeClanScreen(Screens):
         random_reverse = choice([True, False])
         
 
-        random_accessory = [choice(Pelt.plant_accessories + Pelt.wild_accessories + Pelt.collar_accessories
-        #                         #    + Pelt.flower_accessories + Pelt.plant2_accessories + Pelt.snake_accessories + Pelt.smallAnimal_accessories + Pelt.deadInsect_accessories + Pelt.aliveInsect_accessories + Pelt.fruit_accessories + Pelt.crafted_accessories + Pelt.tail2_accessories
-                                   )] if random.randint(1,5) == 1 else []
+        random_accessory = [
+            choice(Pelt.all_accessories)] if random.randint(1,5) == 1 else []
         
         self.newborn_pose=random.randint(0,2)
         self.kitten_sprite=random.randint(0,2)
@@ -2105,9 +2104,9 @@ class MakeClanScreen(Screens):
 
         # CREATE CUSTOM CAT
         if selected_cat:
-            self.custom_cat = self.selected_cat
+            self.custom_cat = Cat(moons=0, pelt=self.selected_cat.pelt, loading_cat=True)
         else:
-            self.custom_cat = Cat(moons=1, pelt=pelt2, loading_cat=True)
+            self.custom_cat = Cat(moons=0, pelt=pelt2, loading_cat=True)
 
         if self.custom_cat.pelt.length == 'long' and self.adult_pose < 9:
             pelt2.cat_sprites['young adult'] = self.adult_pose + 9
@@ -2124,7 +2123,7 @@ class MakeClanScreen(Screens):
     
     def get_acc_name(self, acc):
         """ grabs accessory names for display in the customiser """
-        acc_name = str(i18n.t(f"cat.accessories.{acc}", count=0)).capitalize()
+        acc_name = str(i18n.t(f"cat.accessories.{acc}", count=1)).capitalize()
         collar_found = False
         if acc in Pelt.collar_accessories:
             for style_type in sprites.COLLAR_DATA["style_data"]:
@@ -2132,7 +2131,7 @@ class MakeClanScreen(Screens):
                     for colour in color_list:
                         if f"{style}_{colour}" == acc:
                             collar_found = True
-                            acc_name = str(i18n.t(f"cat.accessories.{style}", count=0)).capitalize()
+                            acc_name = str(i18n.t(f"cat.accessories.{style}", count=1)).capitalize()
                             break
                         if collar_found:
                             break
@@ -2875,14 +2874,7 @@ class MakeClanScreen(Screens):
                     initial_text=self.previous_search_text,
                     manager=MANAGER
                     )
-                acc_list = (Pelt.plant_accessories + Pelt.wild_accessories +
-                    Pelt.collar_accessories
-                    # + Pelt.flower_accessories +
-                    # Pelt.plant2_accessories + Pelt.snake_accessories +
-                    # Pelt.smallAnimal_accessories + Pelt.deadInsect_accessories +
-                    # Pelt.aliveInsect_accessories + Pelt.fruit_accessories +
-                    # Pelt.crafted_accessories + Pelt.tail2_accessories
-                    )
+                acc_list = (Pelt.all_accessories)
                 if self.customiser_sort == "alphabetical":
                     acc_list.sort()
 
@@ -3280,14 +3272,7 @@ class MakeClanScreen(Screens):
                             next_scar = [scars[next_index]]
                         self.custom_cat.pelt.scars = next_scar
                     elif self.current_selection == "accessory":
-                        acc_list = (Pelt.plant_accessories + Pelt.wild_accessories +
-                            Pelt.collar_accessories
-                            # + Pelt.flower_accessories +
-                            # Pelt.plant2_accessories + Pelt.snake_accessories +
-                            # Pelt.smallAnimal_accessories + Pelt.deadInsect_accessories +
-                            # Pelt.aliveInsect_accessories + Pelt.fruit_accessories +
-                            # Pelt.crafted_accessories + Pelt.tail2_accessories
-                            )
+                        acc_list = (Pelt.all_accessories)
                         if self.customiser_sort == "alphabetical":
                             acc_list.sort()
 
@@ -3411,15 +3396,7 @@ class MakeClanScreen(Screens):
                         self.custom_cat.pelt.scars = [random.choice(Pelt.all_scars)]
                     elif self.current_selection == "accessory":
 
-                        acc_list = (
-                            Pelt.plant_accessories + Pelt.wild_accessories +
-                            Pelt.collar_accessories
-                            # + Pelt.flower_accessories +
-                            # Pelt.plant2_accessories + Pelt.snake_accessories +
-                            # Pelt.smallAnimal_accessories + Pelt.deadInsect_accessories +
-                            # Pelt.aliveInsect_accessories + Pelt.fruit_accessories +
-                            # Pelt.crafted_accessories + Pelt.tail2_accessories
-                            )
+                        acc_list = (Pelt.all_accessories)
                         new_acc_list = []
                         searched = self.search_text
                         if searched not in ["", "search"]:
@@ -3861,6 +3838,8 @@ class MakeClanScreen(Screens):
                 self.custom_cat = None
                 self.open_name_cat()
             elif event.ui_element == self.elements['previous_step']:
+                self.selected_cat = None
+                self.custom_cat = None
                 self.open_choose_leader()
 
     def update_disabled_buttons(self):
@@ -4031,7 +4010,7 @@ class MakeClanScreen(Screens):
 
                 if self.custom_cat.pelt.accessory:
                     self.elements["acc_name"] = pygame_gui.elements.UITextBox(
-                        str(i18n.t(self.get_acc_name(self.custom_cat.pelt.accessory[0]), count=0)),
+                        str(i18n.t(self.get_acc_name(self.custom_cat.pelt.accessory[0]), count=1)),
                         ui_scale(pygame.Rect((269, 470), (262, 75))),
                         object_id=get_text_box_theme("#text_box_30_horizcenter"),
                         manager=MANAGER

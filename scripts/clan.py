@@ -1400,8 +1400,8 @@ class Clan:
                 #     acc_list.extend(Pelt.smallAnimal_accessories)
                 # if "DEADINSECT" in possible_accs:
                 #     acc_list.extend(Pelt.deadInsect_accessories)
-                # if "ALIVEINSECT" in possible_accs:
-                #     acc_list.extend(Pelt.aliveInsect_accessories)
+                if "ALIVEINSECT" in possible_accs:
+                    acc_list.extend(Pelt.aliveInsect_accessories)
                 # if "FRUIT" in possible_accs:
                 #     acc_list.extend(Pelt.fruit_accessories)
                 # if "CRAFTED" in possible_accs:

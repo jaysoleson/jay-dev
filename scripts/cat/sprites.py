@@ -23,13 +23,13 @@ class Sprites:
     ) as read_file:
         POSE_DATA = ujson.loads(read_file.read())
 
+    # ACCESSORIES
+    # CHECKMERGE: LIFEGEN
     with open(
         "sprites/dicts/collar_sprite_data.json", "r", encoding="utf-8"
     ) as read_file:
         COLLAR_DATA = ujson.loads(read_file.read())
 
-    # CHECKMERGE
-    # ADD LIFEGEN ACCS BACK
     with open(
         "sprites/dicts/wild_sprite_data.json", "r", encoding="utf-8"
     ) as read_file:
@@ -40,6 +40,21 @@ class Sprites:
     ) as read_file:
         PLANT_DATA = ujson.loads(read_file.read())
 
+    # LG
+    with open(
+        "sprites/dicts/alive_insect_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        ALIVEINSECT_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/raincoat_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        RAINCOAT_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/sophisticated_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        SOPHISTICATED_DATA = ujson.loads(read_file.read())
+
+    # SCARS
     with open(
         "sprites/dicts/scar_sprite_data.json", "r", encoding="utf-8"
     ) as read_file:
@@ -256,6 +271,10 @@ class Sprites:
             self.PLANT_DATA,
             self.WILD_DATA,
             self.COLLAR_DATA,
+
+            self.ALIVEINSECT_DATA,
+            self.RAINCOAT_DATA,
+            self.SOPHISTICATED_DATA
         )
 
         # data jsons that have multiple associated spritesheets

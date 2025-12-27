@@ -1,0 +1,17 @@
+{
+    "spritesheet": "acc_raincoats",
+    "sprite_list": [
+        {
+            "PURPLERAINCOAT": "body",
+            "BLUERAINCOAT": "body",
+            "GREENRAINCOAT": "body",
+            "PINKRAINCOAT": "body",
+            "REDRAINCOAT": "body",
+            "LIMERAINCOAT": "body",
+            "ORANGERAINCOAT": "body"
+        },
+        {
+            "YELLOWRAINCOAT": "body"
+        }
+    ]
+}

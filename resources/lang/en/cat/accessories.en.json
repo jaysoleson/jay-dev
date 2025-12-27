@@ -358,6 +358,212 @@
             "zero": "colorful belled nylon collar",
             "many": "colorful belled nylon collars",
             "one": "colorful belled nylon collar"
+        },
+
+        "BROWN SNAIL": {
+            "zero": "brown snails",
+            "many": "brown snails",
+            "one": "brown snail"
+        },
+        "RED SNAIL": {
+            "zero": "red snails",
+            "many": "red snails",
+            "one": "red snail"
+        },
+        "WORM": {
+            "zero": "worms",
+            "many": "worms",
+            "one": "worm"
+        },
+        "BLUE SNAIL": {
+            "zero": "blue snails",
+            "many": "blue snails",
+            "one": "blue snail"
+        },
+        "ZEBRA ISOPOD": {
+            "zero": "zebra isopods",
+            "many": "zebra isopods",
+            "one": "zebra isopod"
+        },
+        "DUCKY ISOPOD": {
+            "zero": "ducky isopods",
+            "many": "ducky isopods",
+            "one": "ducky isopod"
+        },
+        "DAIRY COW ISOPOD": {
+            "zero": "dairy cow isopods",
+            "many": "dairy cow isopods",
+            "one": "dairy cow isopod"
+        },
+        "BEETLEJUICE ISOPOD": {
+            "zero": "beetlejuice isopods",
+            "many": "beetlejuice isopods",
+            "one": "beetlejuice isopod"
+        },
+        "BEE": {
+            "zero": "bees",
+            "many": "bees",
+            "one": "bee"
+        },
+        "RED LADYBUG": {
+            "zero": "ladybugs",
+            "many": "ladybugs",
+            "one": "ladybugs"
+        },
+        "ORANGE LADYBUG": {
+            "zero": "ladybugs",
+            "many": "ladybugs",
+            "one": "ladybugs"
+        },
+        "YELLOW LADYBUG": {
+            "zero": "ladybugs",
+            "many": "ladybugs",
+            "one": "ladybugs"
+        },
+        "PURPLERAINCOAT": {
+            "zero": "raincoats",
+            "many": "raincoats",
+            "one": "raincoat"
+        },
+        "BLUERAINCOAT": {
+            "zero": "raincoats",
+            "many": "raincoats",
+            "one": "raincoat"
+        },
+        "GREENRAINCOAT": {
+            "zero": "raincoats",
+            "many": "raincoats",
+            "one": "raincoat"
+        },
+        "PINKRAINCOAT": {
+            "zero": "raincoats",
+            "many": "raincoats",
+            "one": "raincoat"
+        },
+        "REDRAINCOAT": {
+            "zero": "raincoats",
+            "many": "raincoats",
+            "one": "raincoat"
+        },
+        "LIMERAINCOAT": {
+            "zero": "raincoats",
+            "many": "raincoats",
+            "one": "raincoat"
+        },
+        "ORANGERAINCOAT": {
+            "zero": "raincoats",
+            "many": "raincoats",
+            "one": "raincoat"
+        },
+        "YELLOWRAINCOAT": {
+            "zero": "raincoats",
+            "many": "raincoats",
+            "one": "raincoat"
+        },
+        "MOONHAT": {
+            "zero": "sleeping caps",
+            "many": "sleeping caps",
+            "one": "sleeping cap"
+        },
+        "FIDDLEHEADS":{
+            "zero": "fiddlehead ferns",
+            "many": "fiddlehead ferns",
+            "one": "fiddlehead fern"
+        },
+        "LANTERNS": {
+            "zero": "lanterns",
+            "many": "lanterns",
+            "one": "lantern"
+        },
+        "HEARTCHARMS":{
+            "zero": "heart charms",
+            "many": "heart charms",
+            "one": "heart charms"
+        },
+        "CELESTIALCHIMES": {
+            "zero": "celestial chimes",
+            "many": "celestial chimes",
+            "one": "celestial chimes"
+        },
+        "STARCHIMES": {
+            "zero": "star chimes",
+            "many": "star chimes",
+            "one": "star chimes"
+        },
+        "LUNARCHIMES": {
+            "zero": "lunar chimes",
+            "many": "lunar chimes",
+            "one": "lunar chimes"
+        },
+        "SILVERLUNARCHIMES": {
+            "zero": "silver lunar chimes",
+            "many": "silver lunar chimes",
+            "one": "silver lunar chimes"
+        },
+        "SPRINGFLOWERCORSAGE": {
+            "zero": "spring flower corsages",
+            "many": "spring flower corsages",
+            "one": "spring flower corsage"
+        },
+        "ORCHID": {
+            "zero": "orchids",
+            "many": "orchids",
+            "one": "orchid"
+        },
+        "SPRINGFLOWERS":{
+            "zero": "spring flowers",
+            "many": "spring flowers",
+            "one": "spring flowers"
+        },
+        "RADIO": {
+            "zero": "radio",
+            "many": "radio",
+            "one": "radio"
+        },
+        "SWANFEATHER": {
+            "zero": "swan feather",
+            "many": "swan feather",
+            "one": "swan feather"
+        },
+        "DRACULAPARROTFEATHER": {
+            "zero": "dracula parrot feather",
+            "many": "dracula parrot feather",
+            "one": "dracula parrot feather"
+        },
+        "JAYFEATHER": {
+            "zero": "jay feather",
+            "many": "jay feather",
+            "one": "jay feather"
+        },
+        "EAGLEFEATHER": {
+            "zero": "eagle feather",
+            "many": "eagle feather",
+            "one": "eagle feather"
+        },
+        "STARFLOWERS": {
+            "zero": "star flowers",
+            "many": "star flowers",
+            "one": "star flowers"
+        },
+        "HEARTLEAVES": {
+            "zero": "heart leaves",
+            "many": "heart leaves",
+            "one": "heart leaves"
+        },
+        "YELLOWWISTERIA": {
+            "zero": "yellow wisteria",
+            "many": "yellow wisteria",
+            "one": "yellow wisteria"
+        },
+        "HOLLY2": {
+            "zero": "holly leaves",
+            "many": "holly leaves",
+            "one": "holly leaves"
+        },
+        "HOLLYVINES": {
+            "zero": "holly vines",
+            "many": "holly vines",
+            "one": "holly vines"
         }
     }
 }

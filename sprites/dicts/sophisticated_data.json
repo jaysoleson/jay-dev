@@ -1,0 +1,32 @@
+{
+    "spritesheet": "acc_sophisticated",
+    "sprite_list": [
+        {
+            "MOONHAT": "head",
+            "FIDDLEHEADS": "head",
+            "LANTERNS": "body",
+            "HEARTCHARMS": "head",
+            "CELESTIALCHIMES": "body",
+            "STARCHIMES": "body",
+            "LUNARCHIMES": "body",
+            "SILVERLUNARCHIMES": "body"
+        },
+        {
+            "SPRINGFLOWERCORSAGE": "tail",
+            "ORCHID": "body",
+            "SPRINGFLOWERS": "head",
+            "RADIO": "body",
+            "SWANFEATHER": "body",
+            "DRACULAPARROTFEATHER": "body",
+            "JAYFEATHER": "body"
+        },
+        {
+            "EAGLEFEATHER": "body",
+            "STARFLOWERS": "body",
+            "HEARTLEAVES": "body",
+            "YELLOWWISTERIA": "body",
+            "HOLLY2": "body",
+            "HOLLYVINES": "body"
+        }
+    ]
+}

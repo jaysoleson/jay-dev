@@ -553,10 +553,10 @@ def _get_cats_with_rel_status(
         cat_list = [c for c in cat_list if c.ID in cat.get_siblings()]
         rel_status_list.remove("siblings")
     elif "mates" in rel_status_list:
-        cat_list = [c for c in cat_list if c.ID in cat.mate]
+        cat_list = [c for c in cat_list if c.ID in cat.mates]
         rel_status_list.remove("mates")
     elif "not_mates" in rel_status_list:
-        cat_list = [c for c in cat_list if c.ID not in cat.mate]
+        cat_list = [c for c in cat_list if c.ID not in cat.mates]
         rel_status_list.remove("not_mates")
     elif "parent/child" in rel_status_list:
         cat_list = [c for c in cat_list if c.ID in cat.get_children()]

@@ -32,7 +32,7 @@ from scripts.utility import (
 from scripts.game_structure import game
 from scripts.cat.skills import SkillPath
 from scripts.cat.cats import Cat, ILLNESSES, INJURIES, PERMANENT
-from scripts.cat.enums import CatRank
+from scripts.cat.enums import CatRank, CatGroup
 from scripts.cat.pelts import Pelt
 from scripts.cat_relations.relationship import Relationship
 from scripts.clan_resources.freshkill import (
@@ -537,10 +537,10 @@ class PatrolOutcome:
             # Residence
             if self.stat_residence:
                 if kitty.dead:
-                    if kitty.df:
+                    if kitty.status.group == CatGroup.DARK_FOREST:
                         if "df" in self.stat_residence:
                             actual_stat_cats.append(kitty)
-                    elif kitty.outside:
+                    elif kitty.status.group == CatGroup.UNKNOWN_RESIDENCE:
                         if "ur" in self.stat_residence:
                             actual_stat_cats.append(kitty)
                     else:
@@ -1429,6 +1429,7 @@ class PatrolOutcome:
     
     def __handle_accs(self, cat: Cat, acc_list: str) -> str:
 
+        # CHECKMERGE update this with new accs
         if "WILD" in acc_list:
             acc_list = Pelt.wild_accessories
         elif "COLLAR" in acc_list:

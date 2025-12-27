@@ -195,13 +195,63 @@ class Pelt:
         for sprite_list in sprites.COLLAR_DATA["sprite_list"]:
             collar_accessories.extend(sprite_list)
 
+    # LIFEGEN
+    aliveInsect_accessories = []
+    for sprite_list in sprites.ALIVEINSECT_DATA["sprite_list"]:
+        aliveInsect_accessories.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "tail":
+                tail_accessories.append(sprite)
+            elif sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+            elif sprite_list[sprite] == "head":
+                body_accessories.append(sprite)
+
+    raincoat_accessories = []
+    for sprite_list in sprites.RAINCOAT_DATA["sprite_list"]:
+        raincoat_accessories.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "tail":
+                tail_accessories.append(sprite)
+            elif sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+            elif sprite_list[sprite] == "head":
+                body_accessories.append(sprite)
+
+    sophisticated_accessories = []
+    for sprite_list in sprites.SOPHISTICATED_DATA["sprite_list"]:
+        sophisticated_accessories.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "tail":
+                tail_accessories.append(sprite)
+            elif sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+            elif sprite_list[sprite] == "head":
+                body_accessories.append(sprite)
+
     # this is used for acc-giving events, only change if you're adding a new category tag to the event filter
     # adding a category here will automatically update the event editor's options
     acc_categories = {
         "PLANT": plant_accessories,
         "WILD": wild_accessories,
         "COLLAR": collar_accessories,
+
+        "ALIVEINSECT": aliveInsect_accessories,
+        "RAINCOAT": raincoat_accessories,
+        "SOPHISTICATED": sophisticated_accessories,
     }
+
+    # LIFEGEN
+    # all accs list makes things easier for
+    # the inventory + customiser
+    all_accessories = (
+        plant_accessories +
+        wild_accessories +
+        collar_accessories +
+        aliveInsect_accessories +
+        raincoat_accessories +
+        sophisticated_accessories
+        )
 
     """Holds all appearance information for a cat. """
 
@@ -887,7 +937,7 @@ class Pelt:
 
         if acc_display_choice == 1:
             self.accessory = [
-                choice([choice(Pelt.plant_accessories), choice(Pelt.wild_accessories)])
+                choice([choice(Pelt.plant_accessories), choice(Pelt.wild_accessories), choice(Pelt.aliveInsect_accessories)])
             ]
         else:
             self.accessory = []

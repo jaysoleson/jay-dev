@@ -3129,7 +3129,38 @@ def generate_sprite(
                                     gradient_surface,
                                 ),
                                 (0, 0),
-                                # CHECKMERGE: LIFEGEN ACCS
+                            )
+
+                        # LIFEGEN
+                        elif accessory in cat.pelt.aliveInsect_accessories:
+                            sprite_name = f"{sprites.ALIVEINSECT_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            new_sprite.blit(
+                                _recolor_lineart(
+                                    sprites.sprites[sprite_name],
+                                    lineart_color,
+                                    gradient_surface,
+                                ),
+                                (0, 0),
+                            )
+                        elif accessory in cat.pelt.raincoat_accessories:
+                            sprite_name = f"{sprites.RAINCOAT_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            new_sprite.blit(
+                                _recolor_lineart(
+                                    sprites.sprites[sprite_name],
+                                    lineart_color,
+                                    gradient_surface,
+                                ),
+                                (0, 0),
+                            )
+                        elif accessory in cat.pelt.sophisticated_accessories:
+                            sprite_name = f"{sprites.SOPHISTICATED_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            new_sprite.blit(
+                                _recolor_lineart(
+                                    sprites.sprites[sprite_name],
+                                    lineart_color,
+                                    gradient_surface,
+                                ),
+                                (0, 0),
                             )
 
         if only_accessory:
@@ -4313,7 +4344,7 @@ def check_achievements(Cat, eventspage=False):
                 achievements.add("30")
             if cat.status.rank == CatRank.APPRENTICE and cat.name.prefix == "Pea" and cat.pelt.white_colours:
                 achievements.add("33")
-            if cat.status.rank == CatRank.KITTEN and cat.moons > 5:
+            if cat.status.rank == CatRank.KITTEN and cat.moons > 6:
                 achievements.add("34")
             if cat.backstory == 'dfkit' or cat.backstory == 'dfkit2':
                 achievements.add("35")

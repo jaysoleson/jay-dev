@@ -493,9 +493,13 @@ class ShortEvent:
             acc_list.extend(Pelt.plant_accessories)
         if "COLLAR" in possible_accs:
             acc_list.extend(Pelt.collar_accessories)
+        
+        # LIFEGEN
+        if "ALIVEINSECT" in possible_accs:
+            acc_list.extend(Pelt.aliveInsect_accessories)
 
         for acc in possible_accs:
-            if acc not in ("WILD", "PLANT", "COLLAR"):
+            if acc not in ("WILD", "PLANT", "COLLAR", "ALIVEINSECT"):
                 acc_list.append(acc)
 
         if hasattr(self.main_cat.pelt, "scars"):

@@ -479,7 +479,7 @@ class Events:
                 if game.clan.your_cat.shunned == 0:
                     self.check_retire()
 
-            if not int(random.random() * 15) and game.clan.your_cat.status.rank != CatRank.NEWBORN:
+            if not int(random.random() * 10) and game.clan.your_cat.status.rank != CatRank.NEWBORN:
                 self.gain_acc()
 
         elif game.clan.your_cat.dead and game.clan.your_cat.dead_for == 0:
@@ -497,27 +497,7 @@ class Events:
 
         game.clan.affair = False
         game.clan.exile_return = False
-
-        # ACHIEVEMENTS
         self.current_events.clear()
-
-        new_achievements = check_achievements(Cat, eventspage=True)
-
-        achievements_list = []
-        all_achievements = load_lang_resource("achievements.json")
-        for item in new_achievements:
-            achievements_list.append(f"<b>{all_achievements[item][0]}</b>")
-
-        
-        if achievements_list:
-            if len(achievements_list) == 1:
-                pre_string = "You've earned an achievement this moon: "
-            else:
-                pre_string = f"You've earned {len(achievements_list)} achievements this moon: "
-
-            string = adjust_list_text(achievements_list)
-            game.cur_events_list.insert(0, Single_Event((pre_string + string + "!"), "alert"))
-        # ---
 
         self.generate_dialogue_focus()
         self.checks = [
@@ -545,6 +525,25 @@ class Events:
                 game.save_events()
             except:
                 SaveError(traceback.format_exc())
+
+        # ACHIEVEMENTS
+        new_achievements = check_achievements(Cat, eventspage=True)
+
+        achievements_list = []
+        all_achievements = load_lang_resource("achievements.json")
+        for item in new_achievements:
+            achievements_list.append(f"<b>{all_achievements[item][0]}</b>")
+
+        
+        if achievements_list:
+            if len(achievements_list) == 1:
+                pre_string = "You've earned an achievement this moon: "
+            else:
+                pre_string = f"You've earned {len(achievements_list)} achievements this moon: "
+
+            string = adjust_list_text(achievements_list)
+            game.cur_events_list.insert(0, Single_Event((pre_string + string + "!"), "alert"))
+        # ---
     
     def add_freshkill(self):
         """Adds amount of freshkill needed for the Clan"""
@@ -606,45 +605,9 @@ class Events:
     def gain_acc(self):
         if get_clan_setting("all accessories"):
             return
-        possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "TAIL2"]
         acc_list = []
         # CHECKMERGE temp 
-        acc_list.extend(Pelt.tail_accessories)
-        acc_list.extend(Pelt.collar_accessories)
-        acc_list.extend(Pelt.body_accessories)
-        acc_list.extend(Pelt.head_accessories)
-
-        # if "WILD" in possible_accs:
-        #     acc_list.extend(Pelt.wild_accessories)
-        # if "PLANT" in possible_accs:
-        #     acc_list.extend(Pelt.plant_accessories)
-        # if "COLLAR" in possible_accs:
-        #     acc_list.extend(Pelt.collars)
-        # if "FLOWER" in possible_accs:
-        #     acc_list.extend(Pelt.flower_accessories)
-        # if "PLANT2" in possible_accs:
-        #     acc_list.extend(Pelt.plant2_accessories)
-        # if "SNAKE" in possible_accs:
-        #     acc_list.extend(Pelt.snake_accessories)
-        # if "SMALLANIMAL" in possible_accs:
-        #     acc_list.extend(Pelt.smallAnimal_accessories)
-        # if "DEADINSECT" in possible_accs:
-        #     acc_list.extend(Pelt.deadInsect_accessories)
-        # if "ALIVEINSECT" in possible_accs:
-        #     acc_list.extend(Pelt.aliveInsect_accessories)
-        # if "FRUIT" in possible_accs:
-        #     acc_list.extend(Pelt.fruit_accessories)
-        # if "CRAFTED" in possible_accs:
-        #     acc_list.extend(Pelt.crafted_accessories)
-        # if "TAIL2" in possible_accs:
-        #     acc_list.extend(Pelt.tail2_accessories)
-        # if "NOTAIL" in game.clan.your_cat.pelt.scars or "HALFTAIL" in game.clan.your_cat.pelt.scars:
-        #     for acc in Pelt.tail_accessories + Pelt.tail2_accessories:
-        #         if acc in acc_list:
-        #             try:
-        #                 acc_list.remove(acc)
-        #             except ValueError:
-        #                 print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
+        acc_list.extend(Pelt.all_accessories)
 
         if not game.clan.your_cat.pelt.inventory:
             game.clan.your_cat.pelt.inventory = []
@@ -1261,19 +1224,17 @@ class Events:
         ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.displayname) + "Clan")
         ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
         
-        if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside:
+        if game.clan.leader and game.clan.leader.status.alive_in_player_clan:
             ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), ceremony_txt)
             self.cat_dict["l_n"] = game.clan.leader
-        elif game.clan.deputy and not game.clan.deputy.dead and not game.clan.deputy.outside:
+        elif game.clan.deputy and game.clan.deputy.status.alive_in_player_clan:
             ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.deputy.name), ceremony_txt)
             self.cat_dict["d_n"] = game.clan.deputy
 
 
         random_honor = None
-        resource_dir = "resources/dicts/events/ceremonies/"
-        with open(f"{resource_dir}ceremony_traits.json",
-                encoding="ascii") as read_file:
-            TRAITS = ujson.loads(read_file.read())
+
+        TRAITS = load_lang_resource("events/ceremonies/ceremony_traits.json")
         try:
             random_honor = random.choice(TRAITS[game.clan.your_cat.personality.trait])
         except KeyError:
@@ -1291,10 +1252,10 @@ class Events:
         ceremony_txt = random.choice(self.b_txt['elder_ceremony'])
         ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.displayname) + "Clan")
         ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
-        if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside:
+        if game.clan.leader and game.clan.leader.status.alive_in_player_clan:
             ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), ceremony_txt)
             self.cat_dict["l_n"] = game.clan.leader
-        elif game.clan.deputy and not game.clan.deputy.dead and not game.clan.deputy.outside:
+        elif game.clan.deputy and game.clan.deputy.status.alive_in_player_clan:
             ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.deputy.name), ceremony_txt)
             self.cat_dict["l_n"] = game.clan.deputy
         process_text_dict = self.cat_dict.copy()
@@ -1314,10 +1275,10 @@ class Events:
                     encoding="ascii") as read_file:
                 self.d_txt = ujson.loads(read_file.read())
             ceremony_txt = random.choice(self.d_txt['gain_app ' + game.clan.your_cat.status])
-            if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside:
+            if game.clan.leader and game.clan.leader.status.alive_in_player_clan:
                 ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), ceremony_txt)
                 self.cat_dict["l_n"] = game.clan.leader
-            elif game.clan.deputy and not game.clan.deputy.dead and not game.clan.deputy.outside:
+            elif game.clan.deputy and game.clan.deputy.status.alive_in_player_clan:
                 ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.deputy.name), ceremony_txt)
                 self.cat_dict["l_n"] = game.clan.deputy
             app = Cat.all_cats[game.clan.your_cat.apprentice[-1]]
