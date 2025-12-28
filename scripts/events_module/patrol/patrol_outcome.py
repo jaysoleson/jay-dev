@@ -706,7 +706,11 @@ class PatrolOutcome:
 
         [_cat.become_lost() for _cat in cats_to_lose]
 
-        return " ".join(results)
+        return i18n.t(
+            "screens.patrol.lost_cats",
+            count=len(cats_to_lose),
+            cats=adjust_list_text([str(cat.name) for cat in cats_to_lose]),
+        )
     
     def _handle_df_convert(self, patrol:'Patrol') -> str:
         """ Handle converting cats to the DF in DF patrols """
@@ -897,43 +901,6 @@ class PatrolOutcome:
         
         if not self.accessory:
             return ""
-        
-        def gather_cat_objects(cat_list, patrol: 'Patrol') -> list:
-            out_set = set()
-            
-            for _cat in cat_list:
-                if _cat == "r_c":
-                    out_set.add(patrol.random_cat)
-                elif _cat == "p_l":
-                    out_set.add(patrol.patrol_leader)
-                elif _cat == "s_c":
-                    out_set.add(self.stat_cat)
-                # lifegen ------------------
-                elif _cat == "y_c":
-                    out_set.add(game.clan.your_cat)
-                elif _cat == "o_c1":
-                    out_set.add(patrol.patrol_cats[2])
-                # --------------------------
-                elif _cat == "app1" and len(patrol.patrol_apprentices) >= 1:
-                    out_set.add(patrol.patrol_apprentices[0])
-                elif _cat == "app2" and len(patrol.patrol_apprentices) >= 2:
-                    out_set.add(patrol.patrol_apprentices[1])
-                elif _cat == "patrol":
-                    out_set.update(patrol.patrol_cats)
-                elif _cat == "multi":
-                    cat_num = random.randint(1, max(1, len(patrol.patrol_cats) - 1))
-                    out_set.update(random.sample(patrol.patrol_cats, cat_num))
-                elif _cat == "some_clan":
-                    clan_cats = [x for x in Cat.all_cats_list if not (x.dead or x.outside)]
-                    out_set.update(random.sample(clan_cats, k=min(len(clan_cats), choice([2, 3, 4]))))
-                elif re.match(r"n_c:[0-9]+", _cat):
-                    index = re.match(r"n_c:([0-9]+)", _cat).group(1)
-                    index = int(index)
-                    if index < len(patrol.new_cats):
-                        out_set.update(patrol.new_cats[index])
-                    
-                    
-            return list(out_set)
         
         results = []
        
@@ -1341,13 +1308,14 @@ class PatrolOutcome:
                 "o_c_n", f"{str(patrol.other_clan.name)}Clan"
             )
 
+        other_cat = None
         cat.history.add_death(death_text=final_death_history)
         if self.murder:
             for x in patrol.patrol_cats:
                 if x.ID != cat.ID:
                     other_cat = x
-            
-            cat.history.add_murders(other_cat, cat.ID, True, f"{other_cat.name} killed this cat in the Dark Forest.")
+            if other_cat:
+                cat.history.add_murders(other_cat, cat.ID, True, f"{other_cat.name} killed this cat in the Dark Forest.")
     
     def __handle_accs(self, cat: Cat, acc_list: str) -> str:
 

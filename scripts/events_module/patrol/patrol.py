@@ -116,6 +116,9 @@ class Patrol:
         self.LEADER_LIFEGEN = None
         self.ELDER_LIFEGEN = None
 
+        self.DF_LIFEGEN = None
+        self.DATE_LIFEGEN = None
+
     def setup_patrol(self, patrol_cats: List[Cat], patrol_type: str) -> str:
         # Add cats
 
