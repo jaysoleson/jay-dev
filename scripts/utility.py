@@ -1826,7 +1826,6 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
                         inner_details[1] = f
                         break
         # ---
-        d = cat_pronouns_dict[inner_details[1]][1]
         if inner_details[1].upper() == "PLURAL":
             inner_details.pop(1)  # remove plural tag so it can be processed as normal
             catlist = []
