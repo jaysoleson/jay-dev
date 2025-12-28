@@ -133,8 +133,8 @@ class Pregnancy_Events:
 
         chance = Pregnancy_Events.get_balanced_kit_chance(cat, second_parent, is_affair, clan)
 
-        if (
-            not switch_get_value(Switch.have_kits) and
+        if (game.clan and
+            switch_get_value(Switch.have_kits) and
             game.clan.your_cat.ID == cat.ID and
             not game.clan.your_cat.dead and
             not game.clan.your_cat.status.is_outsider

@@ -309,6 +309,7 @@ class Clan:
         # CHECKMERGE other meds wtf
         # i also dk if the clan/cats saving is properly called here. check again
 
+        self.save_clan()
         # this has to be done after saving the first time
         # doing this without any previous clans will cause a crash otherwise
         if self.clan_age == "established":

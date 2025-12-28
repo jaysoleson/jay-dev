@@ -89,7 +89,7 @@ class MoonplaceScreen(Screens):
                 cat.dead and cat.status.group == CatGroup.STARCLAN
             )
         ]
-        self.the_cat = choice(starclan_cats)
+        self.the_cat = choice(self.starclan_cats)
 
         self.clan_name_bg = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((115, 438), (190, 35))),
