@@ -27,6 +27,7 @@ class TestEvents(unittest.TestCase):
             biome="Forest",
             camp_bg="camp1",
             symbol="ADDER0",
+            your_cat=create_cat(CatRank.KITTEN),
             game_mode="expanded",
             starting_members=[
                 create_cat(
