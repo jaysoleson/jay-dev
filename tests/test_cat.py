@@ -635,7 +635,7 @@ class TestNameRepr(unittest.TestCase):
                         suffix="test",
                         disable_random=True,
                     )
-                    cat.status.is_outsider = True
+                    cat.outside = True
                     cat.name.specsuffix_hidden = True
                     self.assertTrue(str(cat.name).endswith("test"))
 

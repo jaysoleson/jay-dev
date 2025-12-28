@@ -38,7 +38,8 @@
                     "In the middle of the hurricane, no one noticed when m_c was swept away from camp by the crashing waves."
                 ],
                 "history_text": {
-                    "reg_death": "m_c died in a hurricane."
+                    "reg_death": "m_c died in a hurricane.",
+                    "lead_death": "died in a hurricane"
                 }
             }
         }
@@ -87,8 +88,8 @@
                     "m_c decided to swim in the black goop. Unfortunately, that was {PRONOUN/m_c/poss} last swim."
                 ],
                 "history_text": {
-                    "lead_dead": "m_c died by consuming oil from an oil spill.",
-                    "reg_death": "died by consuming oil from an oil spill."
+                    "reg_death": "m_c died by consuming oil from an oil spill.",
+                    "lead_death": "died by consuming oil from an oil spill."
                 }
             }
         },

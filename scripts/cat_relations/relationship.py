@@ -42,7 +42,7 @@ class Relationship:
         self.chosen_interaction = None
         self.cat_from = cat_from
         self.cat_to = cat_to
-        self.mates = mates
+        self.mate = mates
         self.family = family
         self.opposite_relationship = (
             None  # link to opposite relationship will be created later
@@ -68,7 +68,7 @@ class Relationship:
         return {
             "cat_from_id": self.cat_from.ID,
             "cat_to_id": self.cat_to.ID,
-            "mates": self.mates,
+            "mates": self.mate,
             "family": self.family,
             "romance": self.romance,
             "like": self.like,
@@ -103,8 +103,8 @@ class Relationship:
             rebuild_relationship_dicts()
 
         # update relationship
-        if self.cat_to.ID in self.cat_from.mates:
-            self.mates = True
+        if self.cat_to.ID in self.cat_from.mate:
+            self.mate = True
 
         # check if opposite_relationship is here, otherwise creates it
         if self.opposite_relationship is None:
@@ -244,8 +244,8 @@ class Relationship:
 
         # LG: added o_c_n and c_n
         event_text = process_text(string, cat_dict)
-        if game.clan.all_clans:
-            event_text = event_text.replace("o_c_n", random.choice(game.clan.all_clans).name + "Clan")
+        if game.clan.all_other_clans:
+            event_text = event_text.replace("o_c_n", random.choice(game.clan.all_other_clans).name + "Clan")
         event_text = event_text.replace("c_n", game.clan.name + "Clan")
 
         return event_text
@@ -424,7 +424,7 @@ class Relationship:
                     value_weights[rel_type] += int(abs(attr / 10))
 
         # increase the chance of a romance interaction if they are already mates
-        if self.mates:
+        if self.mate:
             value_weights[RelType.ROMANCE] += 1
 
         # if a romance relationship is not possible, remove this type, but only if there are no mates
@@ -435,7 +435,7 @@ class Relationship:
         mate_to_from = self.cat_to.is_potential_mate(
             self.cat_from, for_love_interest=True
         )
-        if (not mate_from_to or not mate_to_from) and not self.mates:
+        if (not mate_from_to or not mate_to_from) and not self.mate:
             while RelType.ROMANCE in value_weights:
                 value_weights.pop(RelType.ROMANCE)
 

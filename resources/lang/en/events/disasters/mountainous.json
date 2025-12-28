@@ -82,7 +82,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died from fire-water during a volcanic eruption.",
-                    "lead_dead": "died during a volcanic eruption."
+                    "lead_death": "died during a volcanic eruption"
                 }
             }
         },
@@ -136,8 +136,8 @@
                     "After the explosion, c_n looked desperately for m_c but {PRONOUN/m_c/subject} {VERB/m_c/were/was} never found."
                 ],
                 "history_text": {
-                    "lead_dead": "m_c died from being squashed by flying rock.",
-                    "reg_death": "died from being squashed by flying rock."
+                    "reg_death": "m_c died from being squashed by flying rock.",
+                    "lead_death": "died from being squashed by flying rock."
                 }
             }
         }

@@ -55,13 +55,13 @@ class ShortEvent:
             season: List[str] = None,
             sub_type: List[str] = None,
             tags: List[str] = None,
-            weight: int = 0,
             text: str = "",
             new_accessory: List[str] = None,
             m_c=None,
             r_c=None,
             new_cat: List[list] = None,
             injury: list = None,
+            exclude_involved: list = None,
             history: list = None,
             relationships: list = None,
             outsider: dict = None,
@@ -493,9 +493,13 @@ class ShortEvent:
             acc_list.extend(Pelt.plant_accessories)
         if "COLLAR" in possible_accs:
             acc_list.extend(Pelt.collar_accessories)
+        
+        # LIFEGEN
+        if "ALIVEINSECT" in possible_accs:
+            acc_list.extend(Pelt.aliveInsect_accessories)
 
         for acc in possible_accs:
-            if acc not in ("WILD", "PLANT", "COLLAR"):
+            if acc not in ("WILD", "PLANT", "COLLAR", "ALIVEINSECT"):
                 acc_list.append(acc)
 
         if hasattr(self.main_cat.pelt, "scars"):
@@ -581,7 +585,7 @@ class ShortEvent:
             if cat.status.is_leader:
                 if "all_lives" in self.tags:
                     game.clan.leader_lives -= 10
-                elif "some_lives" in self.tags:
+                elif "some_lives" in self.tags and self.leads_current_life_count > 2:
                     game.clan.leader_lives -= randrange(
                         2, self.leads_current_life_count - 1
                     )

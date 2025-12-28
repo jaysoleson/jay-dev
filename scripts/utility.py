@@ -323,7 +323,7 @@ def create_new_cat_block(
         for index in adoptive_indexes:
             if in_event_cats[index].ID not in adoptive_parents:
                 adoptive_parents.append(in_event_cats[index].ID)
-                adoptive_parents.extend(in_event_cats[index].mates)
+                adoptive_parents.extend(in_event_cats[index].mate)
 
     # gather mates
     give_mates = []
@@ -437,7 +437,6 @@ def create_new_cat_block(
         if other_clan:
             cat_group = other_clan.group_ID
         else:
-    # CHECKMERGE: clan_status stuff for lg patrol new cats was here. figure that out
             cat_group = choice([x.group_ID for x in game.clan.all_other_clans])
     else:
         cat_social = choice([CatSocial.KITTYPET, CatSocial.LONER, "former Clancat"])
@@ -695,7 +694,7 @@ def create_new_cat_block(
 
             # SET MATES
             for inter_cat in give_mates:
-                if n_c == inter_cat or n_c.ID in inter_cat.mates:
+                if n_c == inter_cat or n_c.ID in inter_cat.mate:
                     continue
 
                 # this is some duplicate work, since this triggers inheritance re-calcs
@@ -1031,7 +1030,7 @@ def create_new_cat(
 
         # CHECKMERGE
         # ALL lifegen new_cat stuff. df, df mentors
-
+        new_cat.pelt.inventory = new_cat.pelt.accessory
         # newbie thought
         new_cat.thought = thought
 
@@ -1063,7 +1062,7 @@ def get_highest_romantic_relation(
     for rel in relationships:
         if rel.romance < 0:
             continue
-        if exclude_mate and rel.cat_from.ID in rel.cat_to.mates:
+        if exclude_mate and rel.cat_from.ID in rel.cat_to.mate:
             continue
         if potential_mate and not rel.cat_to.is_potential_mate(
             rel.cat_from, for_love_interest=True
@@ -1291,13 +1290,13 @@ def filter_relationship_type(
             return False
 
         # then if cats don't have the needed number of mates
-        if not all(len(i.mates) >= (len(group) - 1) for i in group):
+        if not all(len(i.mate) >= (len(group) - 1) for i in group):
             return False
 
         # Now the expensive test.  We have to see if everyone is mates with each other
         # Hopefully the cheaper tests mean this is only needed on events with a small number of cats
         for x in combinations(group, 2):
-            if x[0].ID not in x[1].mates:
+            if x[0].ID not in x[1].mate:
                 return False
         filter_list.remove("mates")
 
@@ -1311,7 +1310,7 @@ def filter_relationship_type(
         for cat in group:
             if cat.ID == patrol_leader.ID:
                 continue
-            if cat.ID not in patrol_leader.mates:
+            if cat.ID not in patrol_leader.mate:
                 return False
         filter_list.remove("mates_with_pl")
 
@@ -1319,7 +1318,7 @@ def filter_relationship_type(
     if "not_mates" in filter_list:
         # opposite of mate check
         for x in combinations(group, 2):
-            if x[0].ID in x[1].mates:
+            if x[0].ID in x[1].mate:
                 return False
         filter_list.remove("not_mates")
 
@@ -1407,7 +1406,7 @@ def filter_relationship_type(
 
     if "strangers" in filter_types and len(group) == 2:
         relationship = group[0].relationships[group[1].ID]
-        if relationship and (relationship.platonic_like < 1 or relationship.romantic_love < 1):
+        if relationship and (relationship.like < 1 or relationship.romance < 1):
             return False
     elif "strangers" in filter_types:
         return False
@@ -1533,9 +1532,8 @@ def gather_cat_objects(
         elif abbr == "app6" and len(event.patrol_apprentices) >= 6:
             out_set.add(event.patrol_apprentices[5])
         elif abbr == "clan":
-            out_set.update([x for x in Cat.all_cats_list if not (x.dead or x.outside or x.exiled)])
+            out_set.update(clan_cats)
         elif abbr == "some_clan":  # 1 / 8 of clan cats are affected
-            clan_cats = [x for x in Cat.all_cats_list if not (x.dead or x.outside or x.exiled)]
             # LG
             if len(clan_cats) < 2:
                 out_set.add(clan_cats[0])
@@ -1717,7 +1715,7 @@ def change_relationship_values(
             # here we just double-check that the cats are allowed to be romantic with each other
             if (
                 single_cat_from.is_potential_mate(single_cat_to, for_love_interest=True)
-                or single_cat_to.ID in single_cat_from.mates
+                or single_cat_to.ID in single_cat_from.mate
             ):
                 # now gain the romance
                 rel.romance += romance
@@ -1828,7 +1826,6 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
                         inner_details[1] = f
                         break
         # ---
-        d = cat_pronouns_dict[inner_details[1]][1]
         if inner_details[1].upper() == "PLURAL":
             inner_details.pop(1)  # remove plural tag so it can be processed as normal
             catlist = []
@@ -2410,7 +2407,7 @@ def event_text_adjust(
         if "acc_plural" in text:
             text = text.replace(
                 "acc_plural",
-                i18n.t(f"cat.accessories.{main_cat.pelt.accessories[-1]}", count=2),
+                i18n.t(f"cat.accessories.{main_cat.pelt.accessory[-1]}", count=2),
             )
 
         # acc_singular (only works for main_cat's acc)
@@ -2786,6 +2783,10 @@ def generate_sprite(
     acc_hidden=False,
     always_living=False,
     disable_sick_sprite=False,
+
+    # LG
+    only_accessory=False,
+    accessory_to_render=None
 ) -> pygame.Surface:
     """
     Generates the sprite for a cat, with optional arguments that will override certain things.
@@ -3070,8 +3071,24 @@ def generate_sprite(
         # draw accessories
         from scripts.cat.pelts import Pelt
 
-        if not acc_hidden and cat.pelt.accessory:
-            cat_accessories = cat.pelt.accessory
+        if only_accessory:
+            proceed = (
+                not acc_hidden
+            )
+        else:
+            proceed = (
+                not acc_hidden and cat.pelt.inventory
+            )
+
+        if proceed:
+            if only_accessory:
+                new_sprite = pygame.Surface(
+                    (sprites.size, sprites.size), pygame.HWSURFACE | pygame.SRCALPHA
+                )
+                cat_accessories = [accessory_to_render]
+            else:
+                cat_accessories = cat.pelt.accessory
+
             categories = [
                 "collar_accessories",
                 "tail_accessories",
@@ -3110,9 +3127,42 @@ def generate_sprite(
                                     gradient_surface,
                                 ),
                                 (0, 0),
-                                # CHECKMERGE: LIFEGEN ACCS
                             )
 
+                        # LIFEGEN
+                        elif accessory in cat.pelt.aliveInsect_accessories:
+                            sprite_name = f"{sprites.ALIVEINSECT_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            new_sprite.blit(
+                                _recolor_lineart(
+                                    sprites.sprites[sprite_name],
+                                    lineart_color,
+                                    gradient_surface,
+                                ),
+                                (0, 0),
+                            )
+                        elif accessory in cat.pelt.raincoat_accessories:
+                            sprite_name = f"{sprites.RAINCOAT_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            new_sprite.blit(
+                                _recolor_lineart(
+                                    sprites.sprites[sprite_name],
+                                    lineart_color,
+                                    gradient_surface,
+                                ),
+                                (0, 0),
+                            )
+                        elif accessory in cat.pelt.sophisticated_accessories:
+                            sprite_name = f"{sprites.SOPHISTICATED_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            new_sprite.blit(
+                                _recolor_lineart(
+                                    sprites.sprites[sprite_name],
+                                    lineart_color,
+                                    gradient_surface,
+                                ),
+                                (0, 0),
+                            )
+
+        if only_accessory:
+            return new_sprite
         # Apply fading fog
         if (
             cat.pelt.opacity <= 97
@@ -3277,28 +3327,32 @@ def abbrev_addons(t_c, r_c, cluster, x, rel, r):
         return False
     
     if (
+        # CHECKMERGE
+        # change these to be the rel tiers ("listens_to", "relates_to", "fancies") if i wanna be evil to the writers
             (
             rel and (
                 r_c.ID not in t_c.relationships) or
-                (r == "plike" and t_c.relationships[r_c.ID].platonic_like < 20) or
-                (r == "plove" and t_c.relationships[r_c.ID].platonic_like < 50) or
-                (r == "rlike" and t_c.relationships[r_c.ID].romantic_love < 10) or
-                (r == "rlove" and t_c.relationships[r_c.ID].romantic_love < 50) or
-                (r == "dislike" and t_c.relationships[r_c.ID].dislike < 15) or
-                (r == "hate" and t_c.relationships[r_c.ID].dislike < 50) or
-                (r == "jealous" and t_c.relationships[r_c.ID].jealousy < 20) or
+                (r == "plike" and t_c.relationships[r_c.ID].like < 20) or
+                (r == "plove" and t_c.relationships[r_c.ID].like < 50) or
+                (r == "dislike" and t_c.relationships[r_c.ID].like > -15) or
+                (r == "hate" and t_c.relationships[r_c.ID].like > -50) or
+                (r == "rlike" and t_c.relationships[r_c.ID].romance < 10) or
+                (r == "rlove" and t_c.relationships[r_c.ID].romance < 50) or
+                (r == "jealous" and t_c.relationships[r_c.ID].respect < -20) or
+                (r == "respect" and t_c.relationships[r_c.ID].respect < 20) or
                 (r == "trust" and t_c.relationships[r_c.ID].trust < 20) or
-                (r == "comfort" and t_c.relationships[r_c.ID].comfortable < 20) or 
-                (r == "respect" and t_c.relationships[r_c.ID].admiration < 20) or
+                (r == "comfort" and t_c.relationships[r_c.ID].comfort < 20) or 
                 (r == "neutral" and
                 ( 
-                    (t_c.relationships[r_c.ID].platonic_like > 20) or
-                    (t_c.relationships[r_c.ID].romantic_love > 20) or
-                    (t_c.relationships[r_c.ID].dislike > 20) or
-                    (t_c.relationships[r_c.ID].jealousy > 20) or
+                    (t_c.relationships[r_c.ID].like > 20) or
+                    (t_c.relationships[r_c.ID].like < -20) or
+                    (t_c.relationships[r_c.ID].romance > 20) or
+                    (t_c.relationships[r_c.ID].respect < -20) or
+                    (t_c.relationships[r_c.ID].respect > 20) or
                     (t_c.relationships[r_c.ID].trust > 20) or
-                    (t_c.relationships[r_c.ID].comfortable > 20) or
-                    (t_c.relationships[r_c.ID].admiration > 20)
+                    (t_c.relationships[r_c.ID].trust < -20) or
+                    (t_c.relationships[r_c.ID].comfort > 20) or
+                    (t_c.relationships[r_c.ID].comfort < -20)
                         
                     )
                 )
@@ -3346,28 +3400,28 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
     yourcrush = False if (
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
-        chosen_cat.ID in cat.mates or
-        chosen_cat.ID in you.mates or
+        chosen_cat.ID in cat.mate or
+        chosen_cat.ID in you.mate or
         not chosen_cat.is_dateable(you) or
-        len(you.mates) > 0 or
+        len(you.mate) > 0 or
         chosen_cat.status.is_outsider or
         chosen_cat.dead or
         chosen_cat not in you.relationships or
-        (chosen_cat in you.relationships and you.relationships[chosen_cat.ID].romantic_love < 20) or
+        (chosen_cat in you.relationships and you.relationships[chosen_cat.ID].romance < 20) or
         chosen_cat in current_cat_objects
     ) else True
 
     theircrush = False if (
         chosen_cat.ID == cat.ID or
         chosen_cat.ID == you.ID or
-        chosen_cat.ID in cat.mates or
-        chosen_cat.ID in you.mates or
+        chosen_cat.ID in cat.mate or
+        chosen_cat.ID in you.mate or
         not chosen_cat.is_dateable(cat) or
-        len(cat.mates) > 0 or
+        len(cat.mate) > 0 or
         chosen_cat.status.is_outsider or
         chosen_cat.dead or
         chosen_cat not in cat.relationships or
-        (chosen_cat in cat.relationships and cat.relationships[chosen_cat.ID].romantic_love < 15) or
+        (chosen_cat in cat.relationships and cat.relationships[chosen_cat.ID].romance < 15) or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3646,7 +3700,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.ID not in you.mates or
+        chosen_cat.ID not in you.mate or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3656,7 +3710,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.ID not in cat.mates or
+        chosen_cat.ID not in cat.mate or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3666,7 +3720,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        len(chosen_cat.mates) > 0 or
+        len(chosen_cat.mate) > 0 or
         chosen_cat.moons < 14 or
         "n_r2" not in text or
         chosen_cat in current_cat_objects
@@ -3684,7 +3738,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        len(chosen_cat.mates) > 0 or
+        len(chosen_cat.mate) > 0 or
         (n_r1_object and not chosen_cat.is_potential_mate(n_r1_object)) or
         n_r1_object is None or
         chosen_cat in current_cat_objects
@@ -4167,10 +4221,10 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                     for cat_id in cat.apprentice:
                         cat_choices.append(Cat.fetch_cat(cat_id))
                 elif abbrev_string in ["y_m"]:
-                    for cat_id in you.mates:
+                    for cat_id in you.mate:
                         cat_choices.append(Cat.fetch_cat(cat_id))
                 elif abbrev_string in ["t_m"]:
-                    for cat_id in cat.mates:
+                    for cat_id in cat.mate:
                         cat_choices.append(Cat.fetch_cat(cat_id))
                 elif abbrev_string in ["rdf_c", "d_c", "rur_c", "rsc_c"]:
                     cat_choices = [i for i in Cat.all_cats_list if i.dead]
@@ -4239,7 +4293,7 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
             if "o_c_n" in other_dict:
                 text = re.sub(r'(?<!\/)o_c_n(?!\/)', str(other_dict["o_c_n"].name) + "Clan", text)
             else:
-                other_clan = choice(game.clan.all_clans)
+                other_clan = choice(game.clan.all_other_clans)
                 if not other_clan:
                     return ""
                 other_dict["o_c_n"] = other_clan
@@ -4254,6 +4308,146 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
         text = text.replace("w_c", str(game.clan.war["enemy"]))
 
     return text
+
+def check_achievements(Cat, eventspage=False):
+    # CHECKMERGE
+    # this scares me 
+    you = game.clan.your_cat
+    achievements = set()
+    murder_history = you.history.murder
+    count_alive_cats = 0
+    if murder_history:
+        if 'is_murderer' in murder_history:
+            num_victims = len(murder_history["is_murderer"])
+            if num_victims >= 0:
+                achievements.add("1")
+            if num_victims >= 5:
+                achievements.add("2")
+            if num_victims >= 20:
+                achievements.add("3")
+            if num_victims >= 50:
+                achievements.add("4")
+    else:
+        if you.moons >= 120:
+            achievements.add("25")
+        
+
+    for cat in Cat.all_cats_list:
+        if cat.moons >= 0:
+            if cat.pelt.tortie_base and cat.gender == 'male':
+                achievements.add("5")
+            if cat.insulted:
+                achievements.add("29")
+            if (cat.name.prefix == "Coffee" and cat.name.suffix == "dot") or (cat.name.prefix == "Chibi" and cat.name.suffix == "Galaxies"):
+                achievements.add("30")
+            if cat.status.rank == CatRank.APPRENTICE and cat.name.prefix == "Pea" and cat.pelt.white_colours:
+                achievements.add("33")
+            if cat.status.rank == CatRank.KITTEN and cat.moons > 6:
+                achievements.add("34")
+            if cat.backstory == 'dfkit' or cat.backstory == 'dfkit2':
+                achievements.add("35")
+            ##WILDCARD check, because I've lost control of my life
+            ##Actual check for wildcardness
+            if cat.pelt.is_wildcard_tortie():
+                achievements.add("6")
+
+            ##code block for achievement 31
+            achieve31RankList = [CatRank.MEDIATOR, CatRank.WARRIOR, CatRank.LEADER]
+            achieve31UsedRanks = []
+            if len(cat.mate) >= 2:
+                catMateIDs = cat.mate.copy()
+                if cat.status.rank in achieve31RankList:
+                    achieve31UsedRanks.append(cat.status.rank)
+                    for cat in Cat.all_cats_list:
+                        if cat.ID in catMateIDs:
+                            if (cat.status.rank in achieve31RankList) and (cat.status.rank not in achieve31UsedRanks):
+                                achieve31UsedRanks.append(cat.status.rank)
+                        countranks = 0
+                        for i in achieve31UsedRanks:
+                            if i in achieve31RankList:
+                                countranks += 1
+                            if countranks >= 3:
+                                achievements.add("31")
+            ##achievement block to check MC has a df mate for achieve 36. Not a copy of above code. Above code checks for Any cats
+            mcMateIDs = you.mate 
+            #for loop list is in case you have multiple mates to search through. 
+            for i in mcMateIDs:
+                if cat.ID in mcMateIDs and you.dead is False:
+                    #Thank you Jay, for helping me figure out history stuff! 
+                    if cat.history:
+                        if cat.history.beginning:
+                            if "encountered" in cat.history.beginning and cat.history.beginning["encountered"] is True and cat.df is True:
+                                achievements.add("36")
+            #code for achievement 23 + 24
+            if game.clan.age >= 1:
+                if get_living_clan_cat_count(Cat) == 0:
+                    achievements.add('40')
+                elif get_living_clan_cat_count(Cat) == 1 and you.status.alive_in_player_clan:
+                    achievements.add('23')
+                elif get_living_clan_cat_count(Cat) >= 100:
+                    achievements.add('24')
+                elif get_living_clan_cat_count(Cat) >= 400:
+                    achievements.add('39')
+
+    if you.joined_df:
+        achievements.add("7")
+    
+    if len(you.former_apprentices) >= 1:
+        achievements.add("8")
+    if len(you.former_apprentices) >= 5:
+        achievements.add("9")
+    
+    if you.inheritance.get_children():
+        achievements.add("10")
+    for i in you.relationships.keys():
+        if you.relationships.get(i).like <= -60:
+            achievements.add("11")
+        if you.relationships.get(i).romance >= 60:
+            achievements.add('12')
+        
+    if len(you.mate) >= 5:
+        achievements.add('13')
+    if you.status.rank == CatRank.WARRIOR:
+        achievements.add('14')
+    elif you.status.rank == CatRank.MEDICINE_CAT:
+        achievements.add('15')
+    elif you.status.rank == CatRank.MEDIATOR:
+        achievements.add('16')
+    elif you.status.rank == CatRank.DEPUTY:
+        achievements.add('17')
+    elif you.status.rank == CatRank.LEADER:
+        achievements.add('18')
+    elif you.status.rank == CatRank.ELDER:
+        achievements.add('19')
+    elif you.status.rank == CatRank.QUEEN:
+        achievements.add('32')
+    
+    if you.moons >= 200:
+        achievements.add('20')
+    if you.status.is_exiled(CatGroup.PLAYER_CLAN_ID):
+        achievements.add('21')
+    elif you.status.is_outsider:
+        achievements.add('22')
+        
+    if you.experience >= 100:
+        achievements.add('26')
+    if you.experience >= 200:
+        achievements.add('27')
+    if you.experience >= 300:
+        achievements.add('28')
+    
+    for i in game.clan.achievements:
+        achievements.add(i)
+
+    new_achievements_list = []
+    for item in achievements:
+        if item not in game.clan.achievements:
+            game.clan.achievements.append(item)
+            if eventspage:
+                new_achievements_list.append(item)
+    if eventspage:
+        return new_achievements_list
+
 
 
 def quit(savesettings=False, clearevents=False):

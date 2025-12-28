@@ -77,7 +77,8 @@
                     "The search for water became m_c's final quest. With the territory suffering from a severe drought, {PRONOUN/m_c/subject} ventured beyond familiar lands. Sadly, {PRONOUN/m_c/subject} was found too late, collapsed near a dried-up riverbed, the earth cracked and dry beneath {PRONOUN/m_c/poss} outstretched paws"
                 ],
                 "history_text": {
-                    "reg_death": "m_c died from dehydration."
+                    "reg_death": "m_c died from dehydration.",
+                    "lead_death": "died from dehydration"
                 }
             }
         }
@@ -171,7 +172,8 @@
                     "The smoke and heat became too much for m_c, who suddenly collapsed and succumbed to the encroaching inferno."
                 ],
                 "history_text": {
-                    "reg_death": "m_c died in a wildfire."
+                    "reg_death": "m_c died in a wildfire.",
+                    "lead_death": "died in a wildfire"
                 }
             }
         }
@@ -234,7 +236,8 @@
                     "m_c was caught off-guard by a surge of water from the flood. The water's force pinned them against debris, and despite the rescue efforts, they did not survive."
                 ],
                 "history_text": {
-                    "reg_death": "m_c drowned."
+                    "reg_death": "m_c drowned.",
+                    "lead_death": "drowned"
                 }
             }
         }
@@ -307,7 +310,9 @@
         "priority": "secondary",
         "duration": 3,
         "rarity": null,
-        "trigger_events": [],
+        "trigger_events": [
+            "Hunting patrols have been coming back to camp with less and less prey recently. The leaders of every Clan in the territory begin to fear that a famine is on the horizon."
+        ],
         "progress_events": {
             "moon1": [
                 "The Clan hunts and scrounges for any hint of possible food, but they never seem to find enough.",
@@ -320,6 +325,9 @@
                 "Never before has the whispered prayers to StarClan over every catch seemed so heartful. All the cats of Clan can do with hunger dogging their pawsteps is their best. The rest is in the paws of the stars."
             ]
         },
+        "conclusion_events": [
+            "Prey has slowly begun to return to the territory."
+        ],
         "collateral_damage": {
             "injuries": [
                 "scrapes",
@@ -332,7 +340,8 @@
                     "Despite the noise from the raging storm, all of c_n could hear the sound of splitting wood before it crashed down on top of m_c."
                 ],
                 "history_text": {
-                    "reg_death": "m_c died in a horrible storm."
+                    "reg_death": "m_c died in a horrible storm.",
+                    "lead_death": "died in a horrible storm"
                 }
             }
         }
@@ -349,7 +358,11 @@
         "priority": "secondary",
         "duration": 3,
         "rarity": null,
-        "trigger_events": [],
+        "trigger_events": [
+            "It's to no one's surprise that the woods are losing their plants, the undergrowth drooping and wilted as the drought takes its toll.",
+            "med_name has been anticipating this, but it's still a huge blow to watch what should be peak herb gathering season turn into a desperate search for wilted dusty leaves.",
+            "The land, suffering under the heat of the drought, just can't support the normal plant life that should be growing under the forest canopy."
+        ],
         "progress_events": {
             "moon1": [
                 "As the herb stores dwindle, reactions are divided. Those who dismiss the healing help of herbs strut, unconcerned, but wiser minds have already begun to worry.",
@@ -379,7 +392,8 @@
                     "m_c's cough began as a minor irritation but grew worse as the moons passed. With the land devoid of healing herbs, no remedy could ease their suffering. The Clan watched as it became harder and harder for m_c to breathe -- and their next breath would never come."
                 ],
                 "history_text": {
-                    "reg_death": "m_c died when the land was too barren to grow herbs."
+                    "reg_death": "m_c died when the land was too barren to grow herbs.",
+                    "lead_death": "died when the land was too barren to grow herbs"
                 }
             }
         }
@@ -399,7 +413,11 @@
         "priority": "secondary",
         "duration": 3,
         "rarity": null,
-        "trigger_events": [],
+        "trigger_events": [
+            "The fire tore through the camp, destroying the carefully built dens and burning up the fresh-kill and herbs. The Clan must rebuild or move on.",
+            "Standing in camp after the fire burns itself out is devastating. The landscape is unrecognizable, like a skeleton of a familiar friend. Can c_n repair it? Should they even try?",
+            "What can c_n do, with nothing left? Their home is gone, eaten by the flames, and the Clan wavers with uncertainty. Do they rebuild, or move on?"
+        ],
         "progress_events": {
             "moon1": [
                 "It's both exhausting and heartbreaking, tearing down the battered remnants of what used to be a safe and whole home. But c_n grits their teeth and yowls encouragement to each other. Nothing will drive them from the forest, and they're determined to make this their home again.",
@@ -435,7 +453,8 @@
                     "m_c never saw the collapsing tree that killed them."
                 ],
                 "history_text": {
-                    "reg_death": "m_c died when their camp was being rebuilt."
+                    "reg_death": "m_c died when camp was being rebuilt.",
+                    "lead_death": "died when camp was being rebuilt"
                 }
             }
         }
@@ -535,7 +554,8 @@
                     "m_c bites into some sour-smelling fresh-kill just to ease the pain of hunger. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} found dead in {PRONOUN/m_c/poss} nest later that day."
                 ],
                 "history_text": {
-                    "reg_death": "m_c died during a prey sickness."
+                    "reg_death": "m_c died during a prey sickness.",
+                    "lead_death": "died during a prey sickness"
                 }
             }
         }

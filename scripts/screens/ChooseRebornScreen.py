@@ -7,17 +7,21 @@ from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.game_structure import game
 from scripts.game_structure.screen_settings import MANAGER
+from ..cat.enums import CatAge, CatRank, CatGroup
 
 from scripts.game_structure.ui_elements import (
     UISpriteButton,
     UISurfaceImageButton,
 )
+from scripts.screens.enums import GameScreen
+
 from scripts.utility import (
     get_text_box_theme,
     ui_scale,
     ui_scale_offset,
     ui_scale_dimensions
 )
+from scripts.clan_package.settings import get_clan_setting
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
 
 from ..ui.generate_box import get_box, BoxStyles
@@ -36,14 +40,10 @@ class ChooseRebornScreen(Screens):
         self.fav = {}
         self.list_page = None
         self.list_frame = None
-        self.next_cat = None
-        self.previous_cat = None
         self.next_page_button = None
         self.previous_page_button = None
         self.confirm_cat = None
         self.back_button = None
-        self.next_cat_button = None
-        self.previous_cat_button = None
         self.selected_cat_frame = None
         self.info = None
         self.heading = None
@@ -70,24 +70,8 @@ class ChooseRebornScreen(Screens):
 
                 # self.update_buttons()
             elif event.ui_element == self.back_button:
-                self.change_screen('profile screen')
+                self.change_screen(GameScreen.PROFILE)
                 switch_set_value(Switch.continue_after_death, False)
-            elif event.ui_element == self.next_cat_button:
-                if isinstance(Cat.fetch_cat(self.next_cat), Cat):
-                    switch_set_value(Switch.cat, self.next_cat)
-                    self.update_cat_list()
-                    self.update_selected_cat()
-                    # self.update_buttons()
-                else:
-                    print("invalid next cat", self.next_cat)
-            elif event.ui_element == self.previous_cat_button:
-                if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
-                    switch_set_value(Switch.cat, self.previous_cat)
-                    self.update_cat_list()
-                    self.update_selected_cat()
-                    # self.update_buttons()
-                else:
-                    print("invalid previous cat", self.previous_cat)
             elif event.ui_element == self.dead_tab:
                 self.selected_cat = None
                 self.current_list = "dead"
@@ -324,44 +308,7 @@ class ChooseRebornScreen(Screens):
 
         self.list_frame.kill()
 
-    def find_next_previous_cats(self):
-        """Determines where the previous and next buttons lead"""
-        is_instructor = False
-        if self.the_cat.dead and game.clan.instructor.ID == self.the_cat.ID:
-            is_instructor = True
-
-        self.previous_cat = 0
-        self.next_cat = 0
-        if self.the_cat.dead and not is_instructor and not self.the_cat.df:
-            self.previous_cat = game.clan.instructor.ID
-
-        if is_instructor:
-            self.next_cat = 1
-
-        for check_cat in Cat.all_cats_list:
-            if check_cat.ID == self.the_cat.ID:
-                self.next_cat = 1
-
-            if self.next_cat == 0 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
-                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
-                    and check_cat.df == self.the_cat.df:
-                self.previous_cat = check_cat.ID
-
-            elif self.next_cat == 1 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
-                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
-                    and check_cat.df == self.the_cat.df:
-                self.next_cat = check_cat.ID
-
-            elif int(self.next_cat) > 1:
-                break
-
-        if self.next_cat == 1:
-            self.next_cat = 0
-
     def change_cat(self, new_mentor=None):
-        self.exit_screen()
         game.cur_events_list.clear()
         game.clan.your_cat = new_mentor
 
@@ -372,9 +319,10 @@ class ChooseRebornScreen(Screens):
                 cat.talked_to = False
 
         switch_set_value(Switch.attended_half_moon, False)
-        if game.clan.your_cat.status not in ['newborn', 'kitten', 'apprentice', 'medicine cat apprentice', 'mediator apprentice', "queen's apprentice"]:
+        if game.clan.your_cat.status.rank.is_any_adult_warrior_like_rank():
             game.clan.your_cat.w_done = True
-        switch_set_value(Switch.cur_screen, 'events screen')
+        switch_set_value(Switch.cat, game.clan.your_cat.ID)
+        self.change_screen(GameScreen.PROFILE)
 
     def update_selected_cat(self):
         """Updates the image and information on the currently selected mentor"""
@@ -391,7 +339,7 @@ class ChooseRebornScreen(Screens):
                     manager=MANAGER,
                 )
 
-            info = self.selected_cat.status + "\n" + \
+            info = self.selected_cat.status.rank + "\n" + \
                    self.selected_cat.genderalign + "\n" + self.selected_cat.personality.trait + "\n"
             if self.selected_cat.moons < 1:
                 info += "???"
@@ -414,13 +362,11 @@ class ChooseRebornScreen(Screens):
                 object_id="#text_box_34_horizcenter", manager=MANAGER)
 
     def update_cat_list(self):
-        """Updates the cat sprite buttons. """
+        """Updates the cat sprite buttons."""
         valid_mentors = self.chunks(self.get_valid_cats(), 30)
 
-        # If the number of pages becomes smaller than the number of our current page, set
-        #   the current page to the last page
-        if self.current_page > len(valid_mentors):
-            self.list_page = len(valid_mentors)
+        # clamp current page to a valid page number
+        self.current_page = max(1, min(self.current_page, len(valid_mentors)))
 
         # Handle which next buttons are clickable.
         if len(valid_mentors) <= 1:
@@ -444,6 +390,8 @@ class ChooseRebornScreen(Screens):
             self.cat_list_buttons[ele].kill()
         self.cat_list_buttons = {}
 
+        self.update_tabs()
+
         for marker in self.fav:
             self.fav[marker].kill()
         self.fav = {}
@@ -452,7 +400,7 @@ class ChooseRebornScreen(Screens):
         pos_y = 20
         i = 0
         for cat in display_cats:
-            if game.clan.clan_settings["show fav"] and cat.favourite != 0:
+            if get_clan_setting("show fav") and cat.favourite != 0:
                 self.fav[str(i)] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((100 + pos_x, 365 + pos_y), (50, 50))),
                     pygame.transform.scale(
@@ -463,14 +411,16 @@ class ChooseRebornScreen(Screens):
                 self.fav[str(i)].disable()
             self.cat_list_buttons["cat" + str(i)] = UISpriteButton(
                 ui_scale(pygame.Rect((100 + pos_x, 365 + pos_y), (50, 50))),
-                cat.sprite, cat_object=cat, manager=MANAGER)
+                cat.sprite,
+                cat_object=cat,
+                manager=MANAGER,
+            )
             pos_x += 60
             if pos_x >= 550:
                 pos_x = 0
                 pos_y += 60
             i += 1
 
-        self.update_tabs()
 
     def update_tabs(self):
         if self.selected_cat and self.selected_cat.status in ["kittypet", "rogue", "loner", "former Clancat"]:
@@ -502,34 +452,24 @@ class ChooseRebornScreen(Screens):
             else:
                 if self.current_sublist == "darkforest":
                     if (
-                        cat.dead and
-                        cat.df and
-                        not cat.status.is_outsider and
+                        cat.status.group == CatGroup.DARK_FOREST and
                         not cat.ID == game.clan.your_cat.ID and
-                        not cat.ID == game.clan.instructor.ID and
                         not cat.ID == game.clan.demon.ID and
                         not cat.faded
                         ):
                         valid_mentors.append(cat)
                 elif self.current_sublist == "starclan":
                     if (
-                        cat.dead and
-                        not cat.df and
-                        not cat.status.is_outsider and
+                        cat.status.group == CatGroup.STARCLAN and
                         not cat.ID == game.clan.your_cat.ID and
                         not cat.ID == game.clan.instructor.ID and
-                        not cat.ID == game.clan.demon.ID and
                         not cat.faded
                         ):
                         valid_mentors.append(cat)
                 elif self.current_sublist == "unknown":
                     if (
-                        cat.dead and
-                        not cat.df and
-                        cat.status.is_outsider and
+                        cat.status.group == CatGroup.UNKNOWN_RESIDENCE and
                         not cat.ID == game.clan.your_cat.ID and
-                        not cat.ID == game.clan.instructor.ID and
-                        not cat.ID == game.clan.demon.ID and 
                         not cat.faded
                         ):
                         valid_mentors.append(cat)

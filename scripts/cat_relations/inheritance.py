@@ -36,7 +36,7 @@ class Inheritance:
 
     def __init__(self, cat, born=False):
         self.need_update = False
-        self.mates = None
+        self.mate = None
         self.other_mates = None
         self.kits = {}
         self.kits_mates = {}
@@ -64,7 +64,7 @@ class Inheritance:
     def update_inheritance(self):
         """Update inheritance of the given cat."""
         self.parents = {}
-        self.mates = {}
+        self.mate = {}
         self.kits = {}
         self.kits_mates = {}
         self.siblings = {}
@@ -195,9 +195,9 @@ class Inheritance:
         if cat_id in self.kits_mates:
             info["type"].append(self.kits_mates[cat_id]["type"])
             info["additional"].extend(self.kits_mates[cat_id]["additional"])
-        if cat_id in self.mates:
-            info["type"].append(self.mates[cat_id]["type"])
-            info["additional"].extend(self.mates[cat_id]["additional"])
+        if cat_id in self.mate:
+            info["type"].append(self.mate[cat_id]["type"])
+            info["additional"].extend(self.mate[cat_id]["additional"])
         return info
 
     def remove_parent(self, cat):
@@ -309,12 +309,12 @@ class Inheritance:
 
     def init_mates(self):
         """Create a mate relationship"""
-        for relevant_id in self.cat.mates:
+        for relevant_id in self.cat.mate:
             mate_rel = RelationType.NOT_BLOOD
             # they might be related, but only if it is not an adoption
             if relevant_id in self.all_involved:
                 mate_rel = self.get_exact_rel_type(relevant_id)
-            self.mates[relevant_id] = {
+            self.mate[relevant_id] = {
                 "type": mate_rel,
                 "additional": [i18n.t("inheritance.current_mate")],
             }
@@ -325,7 +325,7 @@ class Inheritance:
             # they might be related, but only if it is not an adoption
             if relevant_id in self.all_involved:
                 mate_rel = self.get_exact_rel_type(relevant_id)
-            self.mates[relevant_id] = {
+            self.mate[relevant_id] = {
                 "type": mate_rel,
                 "additional": [i18n.t("inheritance.prev_mate")],
             }
@@ -404,7 +404,7 @@ class Inheritance:
 
         # check for mates
         if inter_id in self.kits:
-            for mate_id in inter_cat.mates:
+            for mate_id in inter_cat.mate:
                 rel_type = RelationType.NOT_BLOOD
                 # they might be related, but only if it is not an adoption
                 if mate_id in self.all_involved:
@@ -479,7 +479,7 @@ class Inheritance:
             self.all_involved.append(inter_id)
             self.all_but_cousins.append(inter_id)
 
-            for mate_id in inter_cat.mates:
+            for mate_id in inter_cat.mate:
                 mate_rel = RelationType.NOT_BLOOD
                 # they might be related, but only if it is not an adoption
                 if mate_id in self.all_involved:
@@ -802,14 +802,14 @@ class Inheritance:
 
     def get_mates(self) -> list:
         """Returns a list of id's which are kits of a sibling, according to the inheritance hierarchy."""
-        return [key for key in self.mates.keys()]
+        return [key for key in self.mate.keys()]
 
     def get_exact_rel_type(self, cat_id):
         all_relations = []
         if cat_id in self.parents:
             all_relations.append(self.parents[cat_id])
-        if cat_id in self.mates:
-            all_relations.append(self.mates[cat_id])
+        if cat_id in self.mate:
+            all_relations.append(self.mate[cat_id])
         if cat_id in self.kits:
             all_relations.append(self.kits[cat_id])
         if cat_id in self.kits_mates:

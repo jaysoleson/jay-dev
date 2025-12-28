@@ -45,6 +45,10 @@
           {
             "type": "string",
             "pattern": "^mate:([_,0-9a-zA-Z]+)$"
+          },
+          {
+            "type": "string",
+            "pattern": "^residence:([_,0-9a-zA-Z]+)$"
           }
         ]
       }
@@ -295,7 +299,9 @@
         "exiled",
         "lost",
         "outside cat",
-        "clancat"
+        "clancat",
+        "queen",
+        "queen's apprentice"
       ]
     },
     "age": {
@@ -349,7 +355,27 @@
         "gloomy",
         "sincere",
         "flamboyant",
-        "rebellious"
+        "rebellious",
+        "stoic",
+        "aloof",
+        "reserved",
+        "mellow",
+        "flexible",
+        "witty",
+        "methodical",
+        "justified",
+        "meek",
+        "cowardly",
+        "emotional",
+        "spontaneous",
+        "energetic",
+        "bouncy",
+        "trusting",
+        "disciplined",
+        "patient",
+        "humble",
+        "obsessive",
+        "smug"
       ]
     },
     "kit_trait": {
@@ -370,7 +396,15 @@
         "sweet",
         "polite",
         "bossy",
-        "noisy"
+        "noisy",
+        "manipulative",
+        "leader-like",
+        "passionate",
+        "disciplined",
+        "patient",
+        "rebellious",
+        "honest",
+        "secretive"
       ]
     },
     "all_trait": {
@@ -518,11 +552,18 @@
             "clan",
             "some_clan",
             "patrol",
-            "multi"
+            "multi",
+            "y_c",
+            "o_c1",
+            "o_c2",
+            "o_c3"
           ]
         },
         {
           "pattern": "^n_c:[0-9]+$"
+        },
+        {
+          "type": "string"
         }
       ]
     }

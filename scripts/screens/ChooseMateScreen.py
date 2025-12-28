@@ -392,7 +392,7 @@ class ChooseMateScreen(Screens):
         if not self.selected_cat:
             return
 
-        if self.selected_cat.ID not in self.the_cat.mates:
+        if self.selected_cat.ID not in self.the_cat.mate:
             self.the_cat.set_mate(self.selected_cat)
 
         else:
@@ -410,7 +410,7 @@ class ChooseMateScreen(Screens):
         """Updates everything in the mates container, including the list of current mates,
         and the page"""
 
-        self.all_mates = self.chunks([Cat.fetch_cat(i) for i in self.the_cat.mates], 30)
+        self.all_mates = self.chunks([Cat.fetch_cat(i) for i in self.the_cat.mate], 30)
         self.update_mates_container_page()
 
     def update_mates_container_page(self):
@@ -482,7 +482,7 @@ class ChooseMateScreen(Screens):
         pos_y = 0
         i = 0
         for _mate in display_cats:
-            if game.clan.clan_settings["show fav"] and _mate.favourite != 0:
+            if get_clan_setting("show fav")  and _mate.favourite != 0:
                 self.fav[str(i)] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((pos_x, pos_y), (50, 50))),
                     pygame.transform.scale(
@@ -910,8 +910,8 @@ class ChooseMateScreen(Screens):
 
         if reset_selected_cat:
             self.selected_cat = None
-            if self.the_cat.mates:
-                self.selected_cat = Cat.fetch_cat(self.the_cat.mates[0])
+            if self.the_cat.mate:
+                self.selected_cat = Cat.fetch_cat(self.the_cat.mate[0])
             self.update_selected_cat()
 
         self.draw_tab_button()
@@ -940,7 +940,7 @@ class ChooseMateScreen(Screens):
 
         mates_tab_shown = False
         button_rect.bottomleft = ui_scale_offset((7, 8))
-        if self.the_cat.mates:
+        if self.the_cat.mate:
             self.tab_buttons["mates"] = UISurfaceImageButton(
                 button_rect,
                 "screens.choose_mate.current",
@@ -1072,7 +1072,7 @@ class ChooseMateScreen(Screens):
 
         self.toggle_mate.kill()
 
-        if self.selected_cat.ID in self.the_cat.mates:
+        if self.selected_cat.ID in self.the_cat.mate:
             self.toggle_mate = UISurfaceImageButton(
                 ui_scale(pygame.Rect((323, 310), (153, 30))),
                 "screens.choose_mate.unset_mate",

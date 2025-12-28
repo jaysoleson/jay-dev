@@ -12,8 +12,11 @@ from scripts.game_structure.ui_elements import (
     UIImageButton,
     UISpriteButton,
     UISurfaceImageButton,
-    UITextBoxTweaked
+    UITextBoxTweaked,
+    UIModifiedScrollingContainer
 )
+from scripts.screens.enums import GameScreen
+from ..cat.enums import CatAge, CatRank, CatGroup
 from ..game_structure.game.settings import game_setting_get
 
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
@@ -24,6 +27,7 @@ from scripts.utility import (
     shorten_text_to_fit,
     ui_scale_dimensions
 )
+from scripts.clan_package.settings import get_clan_setting
 from .Screens import Screens
 from ..game_structure.screen_settings import MANAGER
 from ..ui.generate_box import get_box, BoxStyles
@@ -35,7 +39,7 @@ class ElderStoryScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
         self.back_button = None
-        self.selected_elder = None
+        self.selected_elder = 0
         self.search_bar = None
         self.search_bar_image = None
         self.elder_elements = {}
@@ -66,7 +70,7 @@ class ElderStoryScreen(Screens):
                 self.stage = "cats"
                 self.selected_cats = []
                 self.cat_selection = None
-                self.change_screen("profile screen")
+                self.change_screen(GameScreen.PROFILE)
             elif event.ui_element == self.last_med:
                 self.selected_elder -= 1
                 self.update_elder_info()
@@ -188,8 +192,8 @@ class ElderStoryScreen(Screens):
         # Gather the elders:
         self.elders = []
         for cat in Cat.all_cats_list:
-            if cat.status == "elder" and not (
-                cat.dead or cat.status.is_outsider
+            if cat.status.rank == CatRank.ELDER and (
+                cat.status.alive_in_player_clan
             ):
                 self.elders.append(cat)
 
@@ -207,7 +211,7 @@ class ElderStoryScreen(Screens):
 
         # SIDEBAR
         self.back_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((25, 60), (105, 30))),
+            ui_scale(pygame.Rect((25, 25), (105, 30))),
             "buttons.back",
             get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
@@ -311,6 +315,7 @@ class ElderStoryScreen(Screens):
         if self.stage == "cats":
             self.results = None
             self.results_heading = None
+            self.results_container = None
             self.tell_story_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((53, 630), (200, 30))),
                 "tell a story",
@@ -437,12 +442,20 @@ class ElderStoryScreen(Screens):
                 container=self.story_container,
                 anchors={"centerx": "centerx"}
             )
+            self.results_container = UIModifiedScrollingContainer(
+                ui_scale(pygame.Rect((0, 140), (450, 250))),
+                starting_height=3,
+                manager=MANAGER,
+                allow_scroll_y=True,
+                container=self.story_container,
+                anchors={"centerx": "centerx"}
+            )
             self.results = UITextBoxTweaked(
                 "",
-                ui_scale(pygame.Rect((0, 140), (420, 250))),
+                ui_scale(pygame.Rect((0, 0), (390, -1))),
                 object_id=get_text_box_theme("#text_box_26_horizcenter"),
                 manager=MANAGER,
-                container=self.story_container,
+                container=self.results_container,
                 anchors={"centerx": "centerx"}
             )
 
@@ -454,7 +467,7 @@ class ElderStoryScreen(Screens):
             random_list = [
                 i for i in Cat.all_cats_list if (
                     i not in self.selected_cats and
-                    not i.dead and not i.outside and
+                    i.status.alive_in_player_clan and
                     (i.ID != self.elders[self.selected_elder].ID) and
                     i.ID not in game.mediated and
                     i.ID not in game.told_story and 
@@ -465,7 +478,7 @@ class ElderStoryScreen(Screens):
             random_list = [
                 i for i in Cat.all_cats_list if (
                     i not in self.selected_cats and
-                    not i.dead and not i.outside and
+                    i.status.alive_in_player_clan and
                     (i.ID != self.elders[self.selected_elder].ID)
                 )
             ]
@@ -585,7 +598,7 @@ class ElderStoryScreen(Screens):
             i
             for i in Cat.all_cats_list
             if (i.ID != self.elders[self.selected_elder].ID)
-            and not (i.dead or i.outside)
+            and i.status.alive_in_player_clan
             and i.moons > 0
             and i.ID not in game.told_story
         ]
@@ -622,7 +635,7 @@ class ElderStoryScreen(Screens):
         chunked_cats = self.chunks(self.current_listed_cats, 12)
         if chunked_cats:
             for cat in chunked_cats[self.page - 1]:
-                if game.clan.clan_settings["show fav"] and cat.favourite != 0:
+                if get_clan_setting("show fav")  and cat.favourite != 0:
                     _temp = pygame.transform.scale(
                                 pygame.image.load(
                                     f"resources/images/fav_marker_{cat.favourite}.png").convert_alpha(),
@@ -1023,6 +1036,9 @@ class ElderStoryScreen(Screens):
         if self.results_heading:
             self.results_heading.kill()
             del self.results_heading
+        if self.results_container:
+            self.results_container.kill()
+            del self.results_container
         self.random1.kill()
         del self.random1
         if self.error:

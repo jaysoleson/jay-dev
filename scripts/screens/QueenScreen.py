@@ -8,7 +8,12 @@ from scripts.utility import get_text_box_theme, pronoun_repl, get_personality_co
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.game_structure import game
-from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UISurfaceImageButton
+from scripts.game_structure.ui_elements import (
+    UIImageButton,
+    UISpriteButton,
+    UISurfaceImageButton,
+    UIDropDown
+    )
 from ..ui.generate_box import BoxStyles, get_box
 from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset
 from scripts.game_structure.screen_settings import MANAGER
@@ -16,7 +21,8 @@ from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
 from ..game_structure.game.settings import game_setting_get
-
+from scripts.screens.enums import GameScreen
+from scripts.clan_package.settings import get_clan_setting
 
 
 class QueenScreen(Screens):
@@ -32,15 +38,11 @@ class QueenScreen(Screens):
         super().__init__(name)
         self.fav = {}
         self.list_page = None
-        self.next_cat = None
-        self.previous_cat = None
         self.next_page_button = None
         self.previous_page_button = None
         self.current_mentor_warning = None
         self.confirm_mentor = None
         self.back_button = None
-        self.next_cat_button = None
-        self.previous_cat_button = None
         self.mentor_icon = None
         self.app_frame = None
         self.mentor_frame = None
@@ -60,23 +62,9 @@ class QueenScreen(Screens):
             elif event.ui_element == self.confirm_mentor and self.selected_cat:
                 if not self.selected_cat.dead:
                     self.update_selected_cat()
-                    self.change_cat(self.selected_cat)
+                    self.change_cat()
             elif event.ui_element == self.back_button:
-                self.change_screen('profile screen')
-            elif event.ui_element == self.next_cat_button:
-                if isinstance(Cat.fetch_cat(self.next_cat), Cat):
-                    switch_set_value(Switch.cat, self.next_cat)
-                    self.update_cat_list()
-                    self.update_selected_cat()
-                else:
-                    print("invalid next cat", self.next_cat)
-            elif event.ui_element == self.previous_cat_button:
-                if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
-                    switch_set_value(Switch.cat, self.previous_cat)
-                    self.update_cat_list()
-                    self.update_selected_cat()
-                else:
-                    print("invalid previous cat", self.previous_cat)
+                self.change_screen(GameScreen.PROFILE)
             elif event.ui_element == self.next_page_button:
                 self.current_page += 1
                 self.update_cat_list()
@@ -104,29 +92,23 @@ class QueenScreen(Screens):
                                                      ui_scale(pygame.Rect((150, 25), (500, 40))),
                                                      object_id=get_text_box_theme("#text_box_34_horizcenter"),
                                                      manager=MANAGER)
-        if game_setting_get("dark mode"):
-            if self.the_cat.did_activity:
-                self.heading2 = pygame_gui.elements.UITextBox("This queen already worked this moon.",
-                                                        ui_scale(pygame.Rect((265, 55), (500, 80))),
-                                                        object_id=get_text_box_theme("#text_box_26"),
-                                                        manager=MANAGER)
-            else:
-                self.heading2 = pygame_gui.elements.UITextBox("Nursery activities can impact a kit's stats.\nStats may affect the kit's future role and personality.",
-                                                        ui_scale(pygame.Rect((265, 55), (500, 80))),
-                                                        object_id=get_text_box_theme("#text_box_26"),
-                                                        manager=MANAGER)
 
+        if self.the_cat.did_activity:
+            self.heading2 = pygame_gui.elements.UITextBox(
+                "This queen already worked this moon.",
+                ui_scale(pygame.Rect((0, 55), (500, 80))),
+                object_id=get_text_box_theme("#text_box_26_horizcenter"),
+                manager=MANAGER,
+                anchors={"centerx": "centerx"}
+                )
         else:
-            if self.the_cat.did_activity:
-                self.heading2 = pygame_gui.elements.UITextBox("This queen already worked this moon.",
-                                                        ui_scale(pygame.Rect((265, 55), (500, 80))),
-                                                        object_id=get_text_box_theme("#text_box_26"),
-                                                        manager=MANAGER)
-            else:
-                self.heading2 = pygame_gui.elements.UITextBox("Nursery activities can impact a kit's stats.\nStats may affect the kit's future role and personality.",
-                                                        ui_scale(pygame.Rect((265, 55), (500, 80))),
-                                                        object_id=get_text_box_theme("#text_box_26"),
-                                                        manager=MANAGER)
+            self.heading2 = pygame_gui.elements.UITextBox(
+                "Nursery activities can impact a kit's stats.\n" +
+                "Stats may affect the kit's future role and personality.",
+                ui_scale(pygame.Rect((0, 55), (500, 80))),
+                object_id=get_text_box_theme("#text_box_26_horizcenter"),
+                manager=MANAGER,
+                anchors={"centerx": "centerx"})
 
         self.mentor_frame = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((415, 113), (281, 197))),
                                                         pygame.transform.scale(
@@ -158,8 +140,8 @@ class QueenScreen(Screens):
         )
 
         self.activity_text = pygame_gui.elements.UITextBox(
-            "Activity:",
-            ui_scale(pygame.Rect((55, 110), (150, 40))),
+            "Choose an activity!",
+            ui_scale(pygame.Rect((55, 110), (400, 40))),
             object_id=get_text_box_theme("#text_box_34_horizcenter"),
             manager=MANAGER
             )
@@ -170,6 +152,16 @@ class QueenScreen(Screens):
             ui_scale(pygame.Rect((100, 150), (150, 35))),
             manager=MANAGER
             )
+        
+        # CHECKMERGE redo. this screen lol
+        
+        # self.activities = UIDropDown(
+        #     pygame.Rect((60, 150), (150, 35)),
+        #     parent_text=self.activity,
+        #     item_list=["mossball", "playfight", "lecture", "clean", "tell story", "scavenger hunt"],
+        #     manager=MANAGER,
+        #     starting_selection=["mossball"]
+        # )
         
         self.confirm_mentor = UISurfaceImageButton(
             ui_scale(pygame.Rect((290, 150), (104, 34))),
@@ -234,44 +226,7 @@ class QueenScreen(Screens):
         del self.list_frame
 
 
-    def find_next_previous_cats(self):
-        """Determines where the previous and next buttons lead"""
-        is_instructor = False
-        if self.the_cat.dead and game.clan.instructor.ID == self.the_cat.ID:
-            is_instructor = True
-
-        self.previous_cat = 0
-        self.next_cat = 0
-        if self.the_cat.dead and not is_instructor and not self.the_cat.df:
-            self.previous_cat = game.clan.instructor.ID
-
-        if is_instructor:
-            self.next_cat = 1
-
-        for check_cat in Cat.all_cats_list:
-            if check_cat.ID == self.the_cat.ID:
-                self.next_cat = 1
-
-            if self.next_cat == 0 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
-                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
-                    and check_cat.df == self.the_cat.df:
-                self.previous_cat = check_cat.ID
-
-            elif self.next_cat == 1 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
-                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
-                    and check_cat.df == self.the_cat.df:
-                self.next_cat = check_cat.ID
-
-            elif int(self.next_cat) > 1:
-                break
-
-        if self.next_cat == 1:
-            self.next_cat = 0
-            
-
-    def change_cat(self, affair_cat=None):
+    def change_cat(self):
         RESOURCE_DIR = "resources/dicts/events/lifegen_events/"
         with open(f"{RESOURCE_DIR}nursery_activities.json", 'r') as read_file:
             display_events = ujson.loads(read_file.read())[self.activity]
@@ -346,13 +301,13 @@ class QueenScreen(Screens):
         elif compat is False:
             chance -= 5
 
-        if rel1.platonic_like > 30:
+        if rel1.like > 30:
             chance += 5
-        if rel1.dislike > 10:
+        if rel1.like < -10:
             chance -= 5
-        if rel2.platonic_like > 30:
+        if rel2.like > 30:
             chance += 5
-        if rel2.dislike > 10:
+        if rel2.like < -10:
             chance -= 5
         
         return randint(0, 100) < min(chance, 95)
@@ -444,7 +399,7 @@ class QueenScreen(Screens):
         pos_y = 20
         i = 0
         for cat in display_cats:
-            if game.clan.clan_settings["show fav"] and cat.favourite != 0:
+            if get_clan_setting("show fav")  and cat.favourite != 0:
                 self.fav[str(i)] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((100 + pos_x, 350 + pos_y), (50, 50))),
                     pygame.transform.scale(
@@ -468,7 +423,7 @@ class QueenScreen(Screens):
         # Behold! The uglest list comprehension ever created!
         valid_mates = [i for i in Cat.all_cats_list if
                        not i.faded
-                       and i.moons >=1 and i.moons < 6 and not i.dead and not i.outside]
+                       and i.moons >=1 and i.moons < 6 and i.status.alive_in_player_clan]
         
         return valid_mates
 

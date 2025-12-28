@@ -128,7 +128,6 @@ def _test():
         "yg_c": _r,
         "n_r1": _r,
         "n_r2": _r,
-        "theircrush": _r,
         "insert_siblings": _r,
         "o_c1": _r
     }
@@ -142,17 +141,16 @@ def _test():
                 continue
             if root == "resources\\dicts\\lifegen_talk\\old":
                 continue
-            if file.endswith(".json") and file not in [
+            if file.endswith(".json") and file not in (
                 "credits_text.json",
                 "clansettings.json",
                 "gamesettings.json",
             ):
                 path = os.path.join(root, file)
 
-                if "lifegen_talk/old" not in path:
-                    if not test_replacement_failure(path, replacement_dict):
-                        failed = True
-                        failed_files.append(path)
+                if not _test_replacement_failure(path, replacement_dict):
+                    failed = True
+                    failed_files.append(path)
 
     if failed:
         # Set the GITHUB_OUTPUT environment variable to the list of failed files

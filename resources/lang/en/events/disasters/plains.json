@@ -45,7 +45,8 @@
                     "During the tornado, m_c was desperately seeking shelter when suddenly, a flying piece of debris struck them. Despite their attempts to avoid the danger, the impact was too much. m_c was found after the storm had passed, a victim of the tornado's destructive path."
                 ],
                 "history_text": {
-                    "reg_death": "m_c died in a tornado."
+                    "reg_death": "m_c died in a tornado.",
+                    "lead_death": "died in a tornado"
                 }
             }
         }
@@ -102,7 +103,8 @@
                     "m_c died after eating a mouse that had been poisoned by Twolegs."
                 ],
                 "history_text": {
-                    "reg_death": "m_c was killed during a Twoleg invasion."
+                    "reg_death": "m_c was killed during a Twoleg invasion.",
+                    "lead_death": "was killed during a Twoleg invasion"
                 }
             }
         }

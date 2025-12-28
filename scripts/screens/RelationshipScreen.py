@@ -207,9 +207,7 @@ class RelationshipScreen(Screens):
                 self.apply_cat_filter()
                 self.update_cat_page()
             elif event.ui_element == self.checkboxes["show_you"]:
-                game.clan.clan_settings[
-                    "show only you"
-                ] = not game.clan.clan_settings["show only you"]
+                switch_clan_setting("show only you")
                 self.update_checkboxes()
                 self.apply_cat_filter()
                 self.update_cat_page()
@@ -422,7 +420,7 @@ class RelationshipScreen(Screens):
         )
 
         # LG: only you filter
-        if game.clan.clan_settings["show only you"]:
+        if get_clan_setting("show only you"):
             checkbox_type = "@checked_checkbox"
         else:
             checkbox_type = "@unchecked_checkbox"
@@ -519,7 +517,7 @@ class RelationshipScreen(Screens):
 
             related = False
             # Mate Heart
-            if len(self.the_cat.mates) > 0 and self.inspect_cat.ID in self.the_cat.mates:
+            if len(self.the_cat.mate) > 0 and self.inspect_cat.ID in self.the_cat.mate:
                 self.inspect_cat_elements["mate"] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((8, 8), (22, 20))),
                     pygame.transform.scale(
@@ -594,12 +592,12 @@ class RelationshipScreen(Screens):
 
             # Mate
             if (
-                len(self.inspect_cat.mates) > 0
-                and self.the_cat.ID not in self.inspect_cat.mates
+                len(self.inspect_cat.mate) > 0
+                and self.the_cat.ID not in self.inspect_cat.mate
             ):
                 col2.append(i18n.t("general.has_a_mate"))
             elif (
-                len(self.the_cat.mates) > 0 and self.inspect_cat.ID in self.the_cat.mates
+                len(self.the_cat.mate) > 0 and self.inspect_cat.ID in self.the_cat.mate
             ):
                 col2.append(i18n.t("general.has_a_mate", name=self.the_cat.name))
             else:
@@ -722,7 +720,7 @@ class RelationshipScreen(Screens):
             )
 
         # LG: you filter
-        if game.clan.clan_settings["show only you"]:
+        if get_clan_setting("show only you"):
             self.filtered_cats = list(
                 filter(lambda rel: rel.cat_to.ID == game.clan.your_cat.ID, self.filtered_cats)
             )
@@ -844,8 +842,8 @@ class RelationshipScreen(Screens):
         related = False
         # MATE
         if (
-            len(self.the_cat.mates) > 0
-            and the_relationship.cat_to.ID in self.the_cat.mates
+            len(self.the_cat.mate) > 0
+            and the_relationship.cat_to.ID in self.the_cat.mate
         ):
             self.relation_list_elements[
                 "mate_icon" + str(i)

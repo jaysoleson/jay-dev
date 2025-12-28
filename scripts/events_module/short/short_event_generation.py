@@ -225,8 +225,15 @@ def generate_event_objects(event_triggered, biome, frequency) -> list:
     :param biome: The biome to pull events for
     :param frequency: The frequency to pull events for
     """
+
     file_path = f"{event_triggered}/{biome}.json"
     load_name = f"{file_path}_{frequency}"
+
+    # LG
+    if event_triggered != "faith":
+        file_path = f"{event_triggered}/{biome}.json"
+    else:
+        file_path = f"{event_triggered}.json"
 
     try:
         if file_path in loaded_events:
@@ -241,6 +248,12 @@ def generate_event_objects(event_triggered, biome, frequency) -> list:
                 return event_list
             for event in events_dict:
                 event_text = event["event_text"] if "event_text" in event else None
+
+                # LG: this is for faith events
+                if isinstance(event_text, list):
+                    event_text = random.choice(event_text)
+                # ---
+
                 event_frequency = event["frequency"] if "frequency" in event else 4
 
                 if not event_text:
@@ -250,6 +263,7 @@ def generate_event_objects(event_triggered, biome, frequency) -> list:
                     print(
                         f"WARNING: some events resources which are used in generate_events have no 'event_text'."
                     )
+                    print("TYPE:", event_triggered)
                 if frequency != event_frequency:
                     continue
 

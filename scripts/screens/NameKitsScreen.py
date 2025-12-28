@@ -1,27 +1,18 @@
 import pygame.transform
 import pygame_gui.elements
-from random import choice, randint
-import ujson
 
-from scripts.cat_relations.inheritance import Inheritance
-from scripts.cat.history import History
-from scripts.event_class import Single_Event
-from scripts.events import events_class
 from .Screens import Screens
+from scripts.screens.enums import GameScreen
+from ..cat.enums import CatGroup
 
-from scripts.utility import get_personality_compatibility, get_text_box_theme, shorten_text_to_fit
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
-from scripts.cat.pelts import Pelt
-from scripts.game_structure.windows import GameOver, PickPath, DeathScreen
-from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
+from ..game_structure.game.switches import switch_set_value, Switch
 
 from scripts.game_structure import game
-from scripts.game_structure.windows import RelationshipLog
-from scripts.game_structure.propagating_thread import PropagatingThread
-from scripts.game_structure.ui_elements import UIImageButton, UITextBoxTweaked, UISpriteButton, UISurfaceImageButton
+from scripts.game_structure.ui_elements import UISpriteButton, UISurfaceImageButton
 from ..ui.generate_box import BoxStyles, get_box
-from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset
+from scripts.utility import get_text_box_theme, ui_scale
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
@@ -83,7 +74,7 @@ class NameKitsScreen(Screens):
                 for cat in Cat.all_cats_list:
                     if not cat.dead and not cat.status.is_outsider and cat.age == 'newborn' and cat.ID in game.clan.your_cat.inheritance.get_children() and cat.name.prefix.strip() == "":
                         cat.name.give_prefix(cat.pelt.eye_colour, cat.pelt.colour, game.clan.biome)
-                self.change_screen('events screen')
+                self.change_screen(GameScreen.EVENTS)
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
                     switch_set_value(Switch.cat, self.next_cat)
