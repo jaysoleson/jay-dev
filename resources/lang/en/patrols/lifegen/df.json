@@ -1033,8 +1033,8 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c was murdered in the Dark Forest.",
-                    "lead_death": "murdered in the Dark Forest"
+                    "reg_death": "m_c was murdered by r_c in the Dark Forest.",
+                    "lead_death": "murdered by r_c in the Dark Forest"
                 }
             }
         ]

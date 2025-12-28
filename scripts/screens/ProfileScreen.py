@@ -2250,7 +2250,7 @@ class ProfileScreen(Screens):
         """
         returns adjusted death history text
         """
-        text = None
+        text = ""
         death_history = self.the_cat.history.get_death_or_scars(death=True)
         murder_history = self.the_cat.history.murder
         moons = switch_get_value(Switch.show_history_moons)
@@ -2266,13 +2266,6 @@ class ProfileScreen(Screens):
                     main_cat=self.the_cat,
                     random_cat=Cat.fetch_cat(death["involved"]),
                 )
-                if "is_victim" in murder_history:
-                    for event in murder_history["is_victim"]:
-                        text = None
-                        # text = self.get_text_for_murder_event(event, death)
-                        if text is not None:
-                            found_murder = True  # Update the flag if a matching murder event is found
-                            break
 
                 if (
                     self.the_cat.status.is_leader
