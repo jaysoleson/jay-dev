@@ -56,6 +56,9 @@ class CatRank(StrEnum):
 
     def is_any_mediator_rank(self) -> bool:
         return self in (self.MEDIATOR, self.MEDIATOR_APPRENTICE)
+    
+    def is_any_queen_rank(self) -> bool:
+        return self in (self.QUEEN, self.QUEENS_APPRENTICE)
 
     def is_any_apprentice_rank(self) -> bool:
         return self in (

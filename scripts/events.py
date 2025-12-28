@@ -369,7 +369,7 @@ class Events:
                 game.freshkill_event_list.append(event_string)
 
         self.handle_focus()
-        switch_set_value(Switch.have_kits, True)
+        switch_set_value(Switch.have_kits, False)
         
         # Clear the list of cats that died this moon.
         game.just_died.clear()
@@ -1494,9 +1494,11 @@ class Events:
                 if evt not in game.cur_events_list:
                     game.cur_events_list.insert(0, evt)
         if random.randint(1,30) == 1:
+            # CHECKMERGE
+            # redo this........
             r_clanmate = Cat.all_cats.get(random.choice(game.clan.clan_cats))
             counter = 0
-            while r_clanmate.dead or r_clanmate.outside or r_clanmate.status in ['kitten', 'newborn', 'deputy', 'leader'] or r_clanmate.joined_df or r_clanmate.ID == game.clan.your_cat.ID:
+            while not r_clanmate.status.alive_in_player_clan or r_clanmate.status.rank in [CatRank.KITTEN, CatRank.NEWBORN, CatRank.DEPUTY, CatRank.LEADER] or r_clanmate.joined_df or r_clanmate.ID == game.clan.your_cat.ID:
                 counter+=1
                 if counter > 15:
                     return
@@ -2652,6 +2654,7 @@ class Events:
             # apprentice a kitten to either med or warrior
             if cat.moons == cat_class.age_moons[CatAge.ADOLESCENT][0]:
                 if cat.status.rank == CatRank.KITTEN:
+
                     med_cat_list = [
                         i
                         for i in Cat.all_cats_list
@@ -2721,6 +2724,12 @@ class Events:
                     if chance <= 0:
                         chance = 1
 
+                    if (
+                        switch_get_value(Switch.request_apprentice) and
+                        game.clan.your_cat.status.rank == CatRank.MEDICINE_CAT
+                        ):
+                        chance = 1
+
                     # edited below here for LG shunned ceremonies
                     self.ceremony_accessory = True
                     if not has_med_app and not int(random.random() * chance):
@@ -2760,6 +2769,13 @@ class Events:
 
                         chance += (cat.empathy * -1)
                         if chance <= 0:
+                            chance = 1
+
+
+                        if (
+                            switch_get_value(Switch.request_apprentice) and
+                            game.clan.your_cat.status.rank == CatRank.MEDIATOR
+                        ):
                             chance = 1
 
                         # Only become a mediator if there is already one in the clan.
@@ -2857,6 +2873,24 @@ class Events:
         old_name = str(cat.name)
         cat.rank_change(promoted_to)
         cat.rank_change_traits_skill(_ment)
+
+        # LG Request Apprentice switch
+        mentor_dict = {
+            CatRank.MEDICINE_APPRENTICE: [CatRank.MEDICINE_CAT],
+            CatRank.APPRENTICE: [
+                CatRank.WARRIOR,
+                CatRank.DEPUTY,
+                CatRank.LEADER,
+                CatRank.ELDER,
+            ],
+            CatRank.MEDIATOR_APPRENTICE: [CatRank.MEDIATOR],
+            CatRank.QUEENS_APPRENTICE: [CatRank.QUEEN]
+        }
+        if switch_get_value(Switch.request_apprentice):
+            if game.clan.your_cat.status.rank in mentor_dict[promoted_to]:
+                mentor = game.clan.your_cat
+                switch_set_value(Switch.request_apprentice, False)
+        # ---
 
         involved_cats = [cat.ID]  # Clearly, the cat the ceremony is about is involved.
 
@@ -3081,10 +3115,10 @@ class Events:
             new_ceremonies.append(ceremony)
 
         if promoted_to in [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
-            "queen's apprentice"
+            CatRank.APPRENTICE,
+            CatRank.MEDICINE_APPRENTICE,
+            CatRank.MEDIATOR_APPRENTICE,
+            CatRank.QUEENS_APPRENTICE
         ]:
             try:
                 ceremony_tags, ceremony_text = self.CEREMONY_TXT[

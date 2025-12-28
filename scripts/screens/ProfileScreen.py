@@ -507,15 +507,13 @@ class ProfileScreen(Screens):
                 ChangeCatToggles(self.the_cat)
         elif self.open_tab == 'your tab':
             if event.ui_element == self.have_kits_button:
-                if switch_get_value(Switch.have_kits):
+                if not switch_get_value(Switch.have_kits):
                     game.clan.your_cat.no_kits = False
-                    relation = Pregnancy_Events()
-                    relation.handle_having_kits(game.clan.your_cat, game.clan)
-                    switch_set_value(Switch.have_kits, False)
+                    switch_set_value(Switch.have_kits, True)
                     self.have_kits_button.disable()
             elif event.ui_element == self.request_apprentice_button:
                 if not switch_get_value(Switch.request_apprentice):
-                    switch_set_value(Switch.request_apprentice, False)
+                    switch_set_value(Switch.request_apprentice, True)
                     self.request_apprentice_button.disable()
             elif event.ui_element == self.gift_accessory_button:
                 self.change_screen(GameScreen.GIFT)
@@ -3192,10 +3190,17 @@ class ProfileScreen(Screens):
                 anchors={
                     "bottom_target": self.your_tab},
             )
-            if self.the_cat.age in ['young adult', 'adult', 'senior adult', 'senior'] and not self.the_cat.dead and not self.the_cat.status.is_outsider and switch_get_value(Switch.have_kits):
+            self.have_kits_button.disable()
+            if (
+                Pregnancy_Events.check_if_can_have_kits(
+                    self.the_cat,
+                    get_clan_setting("single parentage"),
+                    get_clan_setting("affair")
+                    ) and 
+                    self.the_cat.status.alive_in_player_clan and
+                    not switch_get_value(Switch.have_kits)
+                ):
                 self.have_kits_button.enable()
-            else:
-                self.have_kits_button.disable()
 
             self.request_apprentice_button = UISurfaceImageButton(
                     ui_scale(pygame.Rect((402, 544), (172, 36))),
@@ -3209,10 +3214,17 @@ class ProfileScreen(Screens):
                         "bottom_target": self.have_kits_button},
                 )
             
-            if self.the_cat.status in ['leader', 'deputy', 'medicine cat', 'mediator', 'queen', 'warrior'] and not self.the_cat.dead and not self.the_cat.status.is_outsider:
+            self.request_apprentice_button.disable()
+            if (
+                self.the_cat.status.rank in (
+                    CatRank.LEADER,
+                    CatRank.DEPUTY,
+                    CatRank.WARRIOR,
+                    CatRank.MEDIATOR,
+                    CatRank.QUEEN
+                ) and self.the_cat.status.alive_in_player_clan
+            ):
                 self.request_apprentice_button.enable()
-            else:
-                self.request_apprentice_button.disable()
             
             self.gift_accessory_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((402, 508), (172, 36))),
