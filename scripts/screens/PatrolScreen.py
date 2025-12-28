@@ -90,6 +90,7 @@ class PatrolScreen(Screens):
         switch_set_value(Switch.patrol_category, 'clangen')
 
         self.max_cats = 6
+        self.min_cats = 0
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_DOUBLE_CLICKED:
@@ -120,11 +121,11 @@ class PatrolScreen(Screens):
             self.selected_cat = None
             self.current_patrol.clear()
             self.elements['cat_icon'].disable()
-            if not game.clan.your_cat.dead and not game.clan.your_cat.status.is_outsider and game.clan.your_cat.joined_df and not game.clan.your_cat.not_working():
+            if game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.joined_df and not game.clan.your_cat.not_working():
                 self.elements['df_icon'].enable()
             else:
                 self.elements['df_icon'].disable()
-            if not game.clan.your_cat.dead and not game.clan.your_cat.status.is_outsider and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
+            if game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
                 self.elements['date_icon'].enable()
             else:
                 self.elements['date_icon'].disable()
@@ -139,7 +140,7 @@ class PatrolScreen(Screens):
             self.current_patrol.clear()
             self.elements['cat_icon'].enable()
             self.elements['df_icon'].disable()
-            if not game.clan.your_cat.dead and not game.clan.your_cat.status.is_outsider and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
+            if game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
                 self.elements['date_icon'].enable()
             else:
                 self.elements['date_icon'].disable()
@@ -397,12 +398,16 @@ class PatrolScreen(Screens):
         # default is six
         if switch_get_value(Switch.patrol_category) == "df":
             self.max_cats = 2
+            self.min_cats = 1
         elif switch_get_value(Switch.patrol_category) == "date":
             self.max_cats = 3
+            self.min_cats = 2
         elif switch_get_value(Switch.patrol_category) == "lifegen":
             self.max_cats = 1
+            self.min_cats = 1
         elif switch_get_value(Switch.patrol_category) == "clangen":
             self.max_cats = 6
+            self.min_cats = 1
         # ----------------------------------------------------
 
         if self.patrol_stage == 'choose_cats':
@@ -440,18 +445,21 @@ class PatrolScreen(Screens):
                 )
 
             # Update start patrol button
-            if not self.current_patrol:
+            self.elements["patrol_start"].enable()
+            if len(self.current_patrol) < self.min_cats:
                 self.elements["patrol_start"].disable()
-            else:
-                self.elements["patrol_start"].enable()
 
             # LIFEGEN ---------------------------------------
-            if switch_get_value(Switch.patrol_category) == "date":
-                if len(self.current_patrol) < 2:
+            if switch_get_value(Switch.patrol_category) == "lifegen":
+                if "2" in switch_get_value(Switch.patrolled):
                     self.elements["patrol_start"].disable()
-                else:
-                    self.elements["patrol_start"].enable()
-            # no date patrols alone. thats too sad ----------
+            elif switch_get_value(Switch.patrol_category) == "df":
+                if "3" in switch_get_value(Switch.patrolled):
+                    self.elements["patrol_start"].disable()
+            elif switch_get_value(Switch.patrol_category) == "date":
+                if "4" in switch_get_value(Switch.patrolled):
+                    self.elements["patrol_start"].disable()
+            #  ----------
 
             # Update add random cat buttons
             # Enable all the buttons, to reset them
@@ -1154,7 +1162,9 @@ class PatrolScreen(Screens):
                 not the_cat.not_working() and
                 "2" not in switch_get_value(Switch.patrolled)
                 ):
-                self.able_cats.append(the_cat)
+                if the_cat not in self.current_patrol and not the_cat.not_working():
+                    self.current_patrol.insert(0, the_cat)
+                # self.able_cats.append(the_cat)
 
         elif switch_get_value(Switch.patrol_category) == "date":
             you = game.clan.your_cat
@@ -1182,8 +1192,8 @@ class PatrolScreen(Screens):
                 not the_cat.not_working()
                 ):
                 if "3" not in switch_get_value(Switch.patrolled):
-                    if the_cat not in self.current_patrol:
-                        self.current_patrol.append(the_cat)
+                    if the_cat not in self.current_patrol and not the_cat.not_working():
+                        self.current_patrol.insert(0, the_cat)
                     for c in Cat.all_cats_list:
                         if (
                             c.moons >= 6 and

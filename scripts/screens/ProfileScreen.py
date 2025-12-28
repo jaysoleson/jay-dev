@@ -1867,7 +1867,7 @@ class ProfileScreen(Screens):
                     for colour in color_list:
                         if f"{style}_{colour}" == acc:
                             collar_found = True
-                            acc_name = str(i18n.t(f"cat.accessories.{style}", count=0)).capitalize()
+                            acc_name = str(i18n.t(f"cat.accessories.{style}", count=1)).capitalize()
                             break
                         if collar_found:
                             break
@@ -3279,9 +3279,8 @@ class ProfileScreen(Screens):
             )
 
             text = "screens.profile.exile"
-            if not self.the_cat.dead:
-              if self.the_cat.dead:
-                if self.the_cat in [game.clan.instructor, game.clan.demon]:
+            if self.the_cat.dead:
+                if self.the_cat.ID in [game.clan.instructor.ID, game.clan.demon.ID]:
                     text = "screens.profile.follow"
                     if self.the_cat == game.clan.instructor:
                         layer = self.sc
@@ -3297,14 +3296,14 @@ class ProfileScreen(Screens):
                         text = "screens.profile.guide_sc"
                         layer = self.sc
 
-                self.exile_layer = pygame_gui.elements.UIImage(
-                    ui_scale(pygame.Rect((578, 450), (172, 46))),
-                    pygame.transform.scale(
-                        layer,
-                        ui_scale_dimensions((172, 46)),
-                    ),
-                    starting_height=2,
-                )
+            self.exile_layer = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((578, 450), (172, 46))),
+                pygame.transform.scale(
+                    layer,
+                    ui_scale_dimensions((172, 46)),
+                ),
+                starting_height=2,
+            )
 
             self.exile_cat_button.set_text(text)
             if not self.the_cat.status.alive_in_player_clan:
@@ -3491,6 +3490,8 @@ class ProfileScreen(Screens):
             if self.exit_df_button:
                 self.exit_df_button.kill()
             self.affair_button.kill()
+            if hasattr(self, "exile_layer"):
+                self.exile_layer.kill()
         elif self.open_tab == 'history':
             self.backstory_background.kill()
             self.sub_tab_1.kill()

@@ -8304,7 +8304,7 @@
             "[t_c's whole face scrunches up on the word 'help', as if {PRONOUN/t_c/subject} tasted something bad.]",
             "I have a feeling l_n is upset with me, but I don't know why.",
             "Is it related to my performance? Is it something I said?",
-            "I was hoping you'd ... help me talk things out with them.",
+            "I was hoping you'd ... help me talk things out with {PRONOUN/l_n/object}.",
             "[There's that foul look again! t_c must really not be used to asking for help.]"
         ]
     },

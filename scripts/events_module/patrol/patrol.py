@@ -1268,8 +1268,6 @@ class Patrol:
                 ("DEPUTY_LIFEGEN", "lifegen/deputy.json"),
                 ("LEADER_LIFEGEN", "lifegen/leader.json"),
                 ("ELDER_LIFEGEN", "lifegen/elder.json"),
-                {"DF_LIFEGEN", "lifegen/df.json"},
-                {"DATE_LIFEGEN", "lifegen/date.json"}
 
             ]
         elif switch_get_value(Switch.patrol_category) == 'df':
