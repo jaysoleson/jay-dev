@@ -1135,7 +1135,7 @@ class ProfileScreen(Screens):
         else:
             y_pos = 65
 
-        if self.the_cat.status == 'leader' and not self.the_cat.dead:
+        if self.the_cat.status.rank == CatRank.LEADER and not self.the_cat.dead:
             self.profile_elements["leader_ceremony"] = UIImageButton(ui_scale(pygame.Rect(
                 (383, y_pos), (34, 34))),
                 "",
@@ -1143,7 +1143,7 @@ class ProfileScreen(Screens):
                 tool_tip_text="screens.profile.leader_ceremony",
                 manager=MANAGER,
             )
-        elif self.the_cat.status in ["mediator", "mediator apprentice"] and self.the_cat.moons >= 6:
+        elif self.the_cat.status.rank in [CatRank.MEDIATOR, CatRank.MEDIATOR_APPRENTICE] and self.the_cat.moons >= 6:
             self.profile_elements["mediation"] = UIImageButton(
                 ui_scale(pygame.Rect((383, y_pos), (34, 34))),
                 "",
@@ -1152,17 +1152,17 @@ class ProfileScreen(Screens):
             )
             if not self.the_cat.status.alive_in_player_clan:
                 self.profile_elements["mediation"].disable()
-        elif self.the_cat.status in ["queen", "queen's apprentice"] and self.the_cat.moons >= 6:
+        elif self.the_cat.status.rank in [CatRank.QUEEN, CatRank.QUEENS_APPRENTICE] and self.the_cat.moons >= 6:
             self.profile_elements["queen"] = UIImageButton(ui_scale(pygame.Rect(
                 (383, y_pos), (34, 34))),
                 "",
                 object_id="#queen_activity_button", manager=MANAGER
             )
-            if self.the_cat.dead or self.the_cat.status.is_outsider or self.the_cat.shunned > 0 or self.the_cat.not_working():
+            if not self.the_cat.status.alive_in_player_clan or self.the_cat.shunned > 0 or self.the_cat.not_working():
                 # check for not working because the queen screen doesnt have the "this cat is unable to work" thing
                 # like the mediator screen does
                 self.profile_elements["queen"].disable()
-        if self.the_cat.status in ["medicine cat", "medicine cat apprentice"] and self.the_cat.ID == game.clan.your_cat.ID and self.the_cat.moons >= 6:
+        if self.the_cat.status.rank in [CatRank.MEDICINE_APPRENTICE, CatRank.MEDICINE_CAT] and self.the_cat.ID == game.clan.your_cat.ID and self.the_cat.moons >= 6:
             self.profile_elements["halfmoon"] = UIImageButton(ui_scale(pygame.Rect(
                 (383, y_pos), (34, 34))),
                 "",
@@ -1175,15 +1175,15 @@ class ProfileScreen(Screens):
             elif switch_get_value(Switch.attended_half_moon):
                 self.profile_elements["halfmoon"].disable()
         elif (
-            self.the_cat.status in [
-                "queen's apprentice",
-                "mediator apprentice",
-                "apprentice"
+            self.the_cat.status.rank in [
+                CatRank.QUEENS_APPRENTICE,
+                CatRank.MEDIATOR_APPRENTICE,
+                CatRank.APPRENTICE
                 ] and
                 self.the_cat.ID == game.clan.your_cat.ID and
                 self.the_cat.moons >= 6
                 ):
-            if self.the_cat.status == "apprentice":
+            if self.the_cat.status.rank == CatRank.APPRENTICE:
                 self.profile_elements["halfmoon"] = UIImageButton(ui_scale(pygame.Rect(
                     (383, y_pos), (34, 34))),
                     "",
@@ -1199,11 +1199,11 @@ class ProfileScreen(Screens):
                 tool_tip_text= "You may visit the Moonplace once during your apprenticeship.",
                 manager=MANAGER
             )
-            if self.the_cat.dead or self.the_cat.status.is_outsider or self.the_cat.shunned > 0:
+            if not self.the_cat.status.alive_in_player_clan or self.the_cat.shunned > 0:
                 self.profile_elements["halfmoon"].disable()
             elif switch_get_value(Switch.attended_half_moon):
                 self.profile_elements["halfmoon"].disable()
-        elif self.the_cat.status == "elder":
+        elif self.the_cat.status.rank == CatRank.ELDER:
             self.profile_elements["story"] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((383, y_pos), (34, 34))),
                 Icon.NOTEPAD,
@@ -1214,7 +1214,7 @@ class ProfileScreen(Screens):
                 starting_height=2,
             )
            
-            if self.the_cat.dead or self.the_cat.status.is_outsider or self.the_cat.shunned > 0:
+            if not self.the_cat.status.alive_in_player_clan or self.the_cat.shunned > 0:
                 self.profile_elements["story"].disable()
         
         if self.the_cat.ID == game.clan.your_cat.ID and not game.clan.your_cat.dead:

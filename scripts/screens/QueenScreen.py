@@ -8,7 +8,12 @@ from scripts.utility import get_text_box_theme, pronoun_repl, get_personality_co
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.game_structure import game
-from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UISurfaceImageButton
+from scripts.game_structure.ui_elements import (
+    UIImageButton,
+    UISpriteButton,
+    UISurfaceImageButton,
+    UIDropDown
+    )
 from ..ui.generate_box import BoxStyles, get_box
 from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset
 from scripts.game_structure.screen_settings import MANAGER
@@ -87,29 +92,23 @@ class QueenScreen(Screens):
                                                      ui_scale(pygame.Rect((150, 25), (500, 40))),
                                                      object_id=get_text_box_theme("#text_box_34_horizcenter"),
                                                      manager=MANAGER)
-        if game_setting_get("dark mode"):
-            if self.the_cat.did_activity:
-                self.heading2 = pygame_gui.elements.UITextBox("This queen already worked this moon.",
-                                                        ui_scale(pygame.Rect((265, 55), (500, 80))),
-                                                        object_id=get_text_box_theme("#text_box_26"),
-                                                        manager=MANAGER)
-            else:
-                self.heading2 = pygame_gui.elements.UITextBox("Nursery activities can impact a kit's stats.\nStats may affect the kit's future role and personality.",
-                                                        ui_scale(pygame.Rect((265, 55), (500, 80))),
-                                                        object_id=get_text_box_theme("#text_box_26"),
-                                                        manager=MANAGER)
 
+        if self.the_cat.did_activity:
+            self.heading2 = pygame_gui.elements.UITextBox(
+                "This queen already worked this moon.",
+                ui_scale(pygame.Rect((0, 55), (500, 80))),
+                object_id=get_text_box_theme("#text_box_26_horizcenter"),
+                manager=MANAGER,
+                anchors={"centerx": "centerx"}
+                )
         else:
-            if self.the_cat.did_activity:
-                self.heading2 = pygame_gui.elements.UITextBox("This queen already worked this moon.",
-                                                        ui_scale(pygame.Rect((265, 55), (500, 80))),
-                                                        object_id=get_text_box_theme("#text_box_26"),
-                                                        manager=MANAGER)
-            else:
-                self.heading2 = pygame_gui.elements.UITextBox("Nursery activities can impact a kit's stats.\nStats may affect the kit's future role and personality.",
-                                                        ui_scale(pygame.Rect((265, 55), (500, 80))),
-                                                        object_id=get_text_box_theme("#text_box_26"),
-                                                        manager=MANAGER)
+            self.heading2 = pygame_gui.elements.UITextBox(
+                "Nursery activities can impact a kit's stats.\n" +
+                "Stats may affect the kit's future role and personality.",
+                ui_scale(pygame.Rect((0, 55), (500, 80))),
+                object_id=get_text_box_theme("#text_box_26_horizcenter"),
+                manager=MANAGER,
+                anchors={"centerx": "centerx"})
 
         self.mentor_frame = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((415, 113), (281, 197))),
                                                         pygame.transform.scale(
@@ -141,8 +140,8 @@ class QueenScreen(Screens):
         )
 
         self.activity_text = pygame_gui.elements.UITextBox(
-            "Activity:",
-            ui_scale(pygame.Rect((55, 110), (150, 40))),
+            "Choose an activity!",
+            ui_scale(pygame.Rect((55, 110), (400, 40))),
             object_id=get_text_box_theme("#text_box_34_horizcenter"),
             manager=MANAGER
             )
@@ -153,6 +152,16 @@ class QueenScreen(Screens):
             ui_scale(pygame.Rect((100, 150), (150, 35))),
             manager=MANAGER
             )
+        
+        # CHECKMERGE redo. this screen lol
+        
+        # self.activities = UIDropDown(
+        #     pygame.Rect((60, 150), (150, 35)),
+        #     parent_text=self.activity,
+        #     item_list=["mossball", "playfight", "lecture", "clean", "tell story", "scavenger hunt"],
+        #     manager=MANAGER,
+        #     starting_selection=["mossball"]
+        # )
         
         self.confirm_mentor = UISurfaceImageButton(
             ui_scale(pygame.Rect((290, 150), (104, 34))),
@@ -414,7 +423,7 @@ class QueenScreen(Screens):
         # Behold! The uglest list comprehension ever created!
         valid_mates = [i for i in Cat.all_cats_list if
                        not i.faded
-                       and i.moons >=1 and i.moons < 6 and not i.dead and not i.outside]
+                       and i.moons >=1 and i.moons < 6 and i.status.alive_in_player_clan]
         
         return valid_mates
 

@@ -103,6 +103,8 @@ def rebuild_all_screens():
         GameScreen.NAME_KITS: NameKitsScreen,
         GameScreen.CHOOSE_REBORN: ChooseRebornScreen,
         GameScreen.ACHIEVEMENTS: AchievementScreen,
+        GameScreen.ELDER_STORY: ElderStoryScreen,
+        GameScreen.QUEEN: QueenScreen
     }
 
     for enum, classobj in enum_to_class.items():

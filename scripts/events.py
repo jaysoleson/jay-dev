@@ -1399,7 +1399,7 @@ class Events:
         if len(game.clan.your_cat.mate) > 0:
             if random.randint(1,20) == 1:
                 mate1 = Cat.all_cats.get(random.choice(game.clan.your_cat.mate))
-                if mate1.dead or mate1.outside:
+                if not mate1.status.alive_in_player_clan:
                     return
                 ceremony_txt = random.choice(self.c_txt['mate_events'])
                 self.cat_dict["mate1"] = mate1
@@ -1413,7 +1413,7 @@ class Events:
             if get_clan_setting('affair'):
                 if random.randint(1,50) == 1:
                     mate1 = Cat.all_cats.get(random.choice(game.clan.your_cat.mate))
-                    if mate1.dead or mate1.outside:
+                    if not mate1.status.alive_in_player_clan:
                         return
                     ceremony_txt = random.choice(self.c_txt['affair_events'])
                     self.cat_dict["mate1"] = mate1
@@ -1430,7 +1430,7 @@ class Events:
                     if random.randint(1,50) != 1:
                         return
                     mate1 = Cat.all_cats.get(random.choice(game.clan.your_cat.mate))
-                    if mate1.dead or mate1.outside:
+                    if not mate1.status.alive_in_player_clan:
                         return
                 c = Cat.all_cats.get(random.choice(game.clan.clan_cats))
                 counter = 0

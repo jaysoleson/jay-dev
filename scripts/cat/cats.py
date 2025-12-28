@@ -3352,13 +3352,13 @@ class Cat:
         # SPEAKER, CLEVER, COOPERATIVE ?, INSIGHTFUL, MEDIATOR, STORY, LORE
         # also their relationship with the chosen cat
 
-        with open("resources/dicts/elder_stories.json", 'r') as r:
-            possible_stories = ujson.loads(r.read())
+        possible_stories = load_lang_resource("elder_stories.json")
 
         cat_effects = {}
         failed_cats = []
         if not cats:
             print("WARNING: elder_story called with no cats")
+            return
 
         for cat in cats:
             if elder.ID in cat.relationships:
@@ -3368,7 +3368,7 @@ class Cat:
                 relationship = cat.create_one_relationship(elder)
                 stranger = True
 
-            comfort = relationship.comfortable
+            comfort = relationship.comfort
             trust = relationship.trust
             platonic_like = relationship.like
             romantic_love = relationship.romance
