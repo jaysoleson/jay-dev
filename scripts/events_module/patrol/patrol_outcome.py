@@ -294,7 +294,8 @@ class PatrolOutcome:
         results.append(self._handle_death(patrol))
         results.append(self._handle_lost(patrol))
         # LG
-        results.append(self._handle_accessories(patrol))
+        if not get_clan_setting('all accessories'):
+            results.append(self._handle_accessories(patrol))
         results.append(self._handle_df_convert(patrol))
         results.append(self._handle_faith_changes(patrol))
         # ---
@@ -1314,19 +1315,19 @@ class PatrolOutcome:
             murderer.history.reveal_murder(victim=cat, murderer_id=murderer.ID, clan_reveal=False)
     
     def __handle_accs(self, cat: Cat, acc_list: str) -> str:
-
-        acc_list = [x for x in acc_list if x in Pelt.all_accessories and x not in cat.pelt.inventory]
+        # acc_list = [x for x in acc_list if x in Pelt.all_accessories and x not in cat.pelt.inventory]
         for item in acc_list:
             if item in Pelt.acc_categories:
                 acc_list.remove(item)
                 acc_list.extend(Pelt.acc_categories[item])
+            if item in cat.pelt.inventory:
+                acc_list.remove(item)
 
         if not acc_list:
             return None
 
         chosen_acc = choice(acc_list)
-        if chosen_acc not in cat.pelt.inventory:
-            cat.pelt.inventory.append(chosen_acc)
-            cat.pelt.accessory.append(chosen_acc)
+        cat.pelt.inventory.append(chosen_acc)
+        cat.pelt.accessory.append(chosen_acc)
 
         return chosen_acc

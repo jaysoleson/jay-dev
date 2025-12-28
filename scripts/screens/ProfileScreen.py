@@ -2609,17 +2609,16 @@ class ProfileScreen(Screens):
             moons_with = game.clan.age - self.the_cat.injuries[name]["moon_start"]
             insert = "general.had_injury_for"
 
-            if name == 'recovering from birth':
-                insert = 'has been recovering for'
-            elif name == 'pregnant':
-                insert = 'has been pregnant for'
-            elif name == 'guilt':
-                insert = 'has been troubled for'
-            
-            if moons_with != 1:
-                text_list.append(f"{insert} {moons_with} moons")
-            else:
-                text_list.append(f"{insert} 1 moon")
+            if name == "recovering from birth":
+                insert = "general.recovering_from_birth_for"
+            elif name == "pregnant":
+                insert = "general.pregnant_for"
+            elif name == "guilt":
+                insert = "general.guilty_for"
+
+            text_list.append(
+                i18n.t(insert, moons=i18n.t("general.moons_age", count=moons_with))
+            )
 
             # infected or festering
             if "complication" in keys:
