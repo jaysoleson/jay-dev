@@ -718,7 +718,9 @@ class PatrolOutcome:
         if not self.convert:
             return ""
         
-        cats_to_convert = gather_cat_objects(self.convert, patrol)
+        cats_to_convert = gather_cat_objects(
+            Cat, self.convert, patrol, self.stat_cat
+            )
         if not cats_to_convert:
             print(f"Something was indicated in convert, but no cats were indicated: {self.convert}")
             return ""
@@ -745,7 +747,7 @@ class PatrolOutcome:
             amount = block.get("amount")
             
             # Gather acual cat objects:
-            faith_cat_ob = gather_cat_objects(faith_cat, patrol)
+            faith_cat_ob = gather_cat_objects(Cat, faith_cat, patrol, self.stat_cat)
             
             # Remove any "None" that might have snuck in
             if None in faith_cat_ob:
@@ -779,8 +781,8 @@ class PatrolOutcome:
             victim = block.get("victim", ())
             
             # Gather acual cat objects:
-            murderer_ob = gather_cat_objects(murderer, patrol)
-            victim_ob = gather_cat_objects(victim, patrol)
+            murderer_ob = gather_cat_objects(Cat, murderer, patrol, self.stat_cat)
+            victim_ob = gather_cat_objects(Cat, victim, patrol, self.stat_cat)
             
             # Remove any "None" that might have snuck in
             if None in murderer_ob:
@@ -905,7 +907,7 @@ class PatrolOutcome:
         results = []
        
         for block in self.accessory:
-            cats = gather_cat_objects(block.get("cats", ()), patrol)
+            cats = gather_cat_objects(Cat, block.get("cats", ()), patrol, self.stat_cat)
             accessory = block.get("accessory", ())
             
             if not (cats and accessory):
