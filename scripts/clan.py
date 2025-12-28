@@ -848,7 +848,7 @@ class Clan:
         if self.your_cat:
             clan_data["your_cat"] = self.your_cat.ID
         else:
-            clan_data["your_cat"] = None
+            clan_data["your_cat"] = (choice([x for x in Cat.all_cats_list if x.status.alive_in_player_clan]).ID)
 
         if self.focus_cat:
             clan_data["focus_cat"] = self.focus_cat.ID
