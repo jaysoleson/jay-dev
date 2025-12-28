@@ -6,6 +6,7 @@ from scripts.cat.cats import create_cat, Cat
 from scripts.cat.enums import CatRank
 from scripts.cat.sprites import sprites
 from scripts.clan import Clan
+from scripts.cat_relations.inheritance import Inheritance
 from scripts.clan_package.settings import switch_clan_setting, set_clan_setting
 from scripts.events import events_class
 from scripts.game_structure import game
@@ -45,6 +46,9 @@ class TestEvents(unittest.TestCase):
             ],
             starting_season="Newleaf",
         )
+        # dpmo
+        game.clan.your_cat.inheritance = Inheritance(game.clan.your_cat)
+        # ---
         game.clan.create_clan()
         game.cur_events_list.clear()
         game.herb_events_list.clear()
