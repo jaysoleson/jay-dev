@@ -795,7 +795,6 @@ class Clan:
             "version_name": SAVE_VERSION_NUMBER,
             "version_commit": get_version_info().version_number,
             "source_build": get_version_info().is_source_build,
-            "your_cat": self.your_cat.ID,
             "murdered": self.murdered,
             "exile_return": self.exile_return,
             "affair": self.affair,
@@ -846,6 +845,12 @@ class Clan:
         clan_data["disaster_moon"] = self.disaster_moon
         clan_data["focus"] = self.focus
         clan_data["focus_moons"] = self.focus_moons
+
+        # YOUR CAT DATA
+        if self.your_cat:
+            clan_data["your_cat"] = self.your_cat.ID
+        else:
+            clan_data["your_cat"] = None
 
         if self.focus_cat:
             clan_data["focus_cat"] = self.focus_cat.ID
