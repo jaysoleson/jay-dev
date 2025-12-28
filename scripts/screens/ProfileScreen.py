@@ -3296,14 +3296,14 @@ class ProfileScreen(Screens):
                         text = "screens.profile.guide_sc"
                         layer = self.sc
 
-            self.exile_layer = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((578, 450), (172, 46))),
-                pygame.transform.scale(
-                    layer,
-                    ui_scale_dimensions((172, 46)),
-                ),
-                starting_height=2,
-            )
+                self.exile_layer = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((578, 450), (172, 46))),
+                    pygame.transform.scale(
+                        layer,
+                        ui_scale_dimensions((172, 46)),
+                    ),
+                    starting_height=2,
+                )
 
             self.exile_cat_button.set_text(text)
             if not self.the_cat.status.alive_in_player_clan:
