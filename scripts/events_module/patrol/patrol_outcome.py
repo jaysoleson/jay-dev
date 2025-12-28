@@ -714,34 +714,6 @@ class PatrolOutcome:
         if not self.convert:
             return ""
         
-        def gather_cat_objects(cat_list, patrol: 'Patrol') -> list: 
-            out_set = set()
-            
-            for _cat in cat_list:
-                if _cat == "r_c":
-                    out_set.add(patrol.random_cat)
-                elif _cat == "p_l":
-                    out_set.add(patrol.patrol_leader)
-                elif _cat == "s_c":
-                    out_set.add(self.stat_cat)
-                # lifegen ------------------
-                elif _cat == "y_c":
-                    out_set.add(game.clan.your_cat)
-                elif _cat == "o_c1":
-                    out_set.add(patrol.patrol_cats[2])
-                # --------------------------
-                elif _cat == "app1" and len(patrol.patrol_apprentices) >= 1:
-                    out_set.add(patrol.patrol_apprentices[0])
-                elif _cat == "app2" and len(patrol.patrol_apprentices) >= 2:
-                    out_set.add(patrol.patrol_apprentices[1])
-                elif _cat == "patrol":
-                    out_set.update(patrol.patrol_cats)
-                elif _cat == "multi":
-                    cats_dying = random.randint(1, max(1, len(patrol.patrol_cats) - 1))
-                    out_set.update(random.sample(patrol.patrol_cats, cats_dying))
-                    
-            return list(out_set)
-        
         cats_to_convert = gather_cat_objects(self.convert, patrol)
         if not cats_to_convert:
             print(f"Something was indicated in convert, but no cats were indicated: {self.convert}")
@@ -762,30 +734,6 @@ class PatrolOutcome:
         
         if not self.faith_effects:
             return ""
-        
-        def gather_cat_objects(cat_list, patrol: 'Patrol') -> list: 
-            out_set = set()
-            
-            for _cat in cat_list:
-                if _cat == "r_c":
-                    out_set.add(patrol.random_cat)
-                elif _cat == "p_l":
-                    out_set.add(patrol.patrol_leader)
-                elif _cat == "s_c":
-                    out_set.add(self.stat_cat)
-                elif _cat == "y_c":
-                    out_set.add(game.clan.your_cat)
-                elif _cat == "app1" and len(patrol.patrol_apprentices) >= 1:
-                    out_set.add(patrol.patrol_apprentices[0])
-                elif _cat == "app2" and len(patrol.patrol_apprentices) >= 2:
-                    out_set.add(patrol.patrol_apprentices[1])
-                elif _cat == "patrol":
-                    out_set.update(patrol.patrol_cats)
-                elif _cat == "multi":
-                    cats_dying = random.randint(1, max(1, len(patrol.patrol_cats) - 1))
-                    out_set.update(random.sample(patrol.patrol_cats, cats_dying))
-                    
-            return list(out_set)
         
         results = []
         for block in self.faith_effects:
@@ -820,38 +768,7 @@ class PatrolOutcome:
 
         if not self.murder:
             return ""
-        
-        def gather_cat_objects(cat_list, patrol: 'Patrol') -> list:
-            out_set = set()
-            
-            for _cat in cat_list:
-                if _cat == "r_c":
-                    out_set.add(patrol.random_cat)
-                elif _cat == "p_l":
-                    out_set.add(patrol.patrol_leader)
-                elif _cat == "s_c":
-                    out_set.add(self.stat_cat)
-                elif _cat == "y_c":
-                    out_set.add(game.clan.your_cat)
-                elif _cat == "app1" and len(patrol.patrol_apprentices) >= 1:
-                    out_set.add(patrol.patrol_apprentices[0])
-                elif _cat == "app2" and len(patrol.patrol_apprentices) >= 2:
-                    out_set.add(patrol.patrol_apprentices[1])
-                elif _cat == "patrol":
-                    out_set.update(patrol.patrol_cats)
-                elif _cat == "multi":
-                    cat_num = random.randint(1, max(1, len(patrol.patrol_cats) - 1))
-                    out_set.update(random.sample(patrol.patrol_cats, cat_num))
-                elif _cat == "some_clan":
-                    clan_cats = [x for x in Cat.all_cats_list if not (x.dead or x.outside)]
-                    out_set.update(random.sample(clan_cats, k=min(len(clan_cats), choice([2, 3, 4]))))
-                elif re.match(r"n_c:[0-9]+", _cat):
-                    index = re.match(r"n_c:([0-9]+)", _cat).group(1)
-                    index = int(index)
-                    if index < len(patrol.new_cats):
-                        out_set.update(patrol.new_cats[index])
-            return list(out_set)
-        
+
         results = []
         for block in self.murder:
             murderer = block.get("murderer", ())
@@ -871,7 +788,12 @@ class PatrolOutcome:
             victim_ob[-1].die()
 
             # add the murder to their history!
-            History.add_murders(victim_ob[-1], murderer_ob[-1], True, text=None, unrevealed_text=None)
+            murderer_ob[-1].history.add_murder(murderer_ob[-1].ID, victim_ob[-1])
+            murderer_ob[-1].history.reveal_murder(
+                victim=victim_ob[-1],
+                murderer_id=murderer_ob[-1].ID,
+                clan_reveal=False
+            )
 
         return " ".join(results)
           
@@ -1429,50 +1351,11 @@ class PatrolOutcome:
     
     def __handle_accs(self, cat: Cat, acc_list: str) -> str:
 
-        # CHECKMERGE update this with new accs
-        if "WILD" in acc_list:
-            acc_list = Pelt.wild_accessories
-        elif "COLLAR" in acc_list:
-            acc_list = Pelt.collars
-        elif "TAIL" in acc_list:
-            acc_list = Pelt.tail_accessories + Pelt.tail2_accessories
-        elif "SNAKE" in acc_list:
-            acc_list = Pelt.snake_accessories
-        elif "RABBIT" in acc_list:
-            acc_list = ["WHITE RABBIT", "BLACK RABBIT",
-                        "BROWN RABBIT", "FAWN RABBIT",
-                        "BROWN AND WHITE RABBIT", "BLACK AND WHITE RABBIT", "WHITE AND FAWN RABBIT",
-                        "BLACK VITILIGO RABBIT", "BROWN VITILIGO RABBIT", "FAWN VITILIGO RABBIT",
-                        "TAN RABBIT", "TAN AND WHITE RABBIT", "TAN VITILIGO RABBIT",
-                        "GRAY RABBIT", "GRAY AND WHITE RABBIT", "GRAY VITILIGO RABBIT"]
-        elif "BIRD" in acc_list:
-            acc_list = ["BLACKBIRD", "ROBIN", "JAY", "THRUSH", "CARDINAL", "MAGPIE", "CUBAN TROGON"]
-        elif "SQUIRREL" in acc_list:
-            acc_list = ["GRAY SQUIRREL", "RED SQUIRREL", "CRAB", "INDIAN GIANT SQUIRREL"]
-        elif "MOUSE" in acc_list:
-            acc_list = ["RAT", "WHITE MOUSE", "BLACK MOUSE", "GRAY MOUSE", "BROWN MOUSE"]
-        elif "SMALLANIMAL" in acc_list:
-            acc_list = Pelt.smallAnimal_accessories
-        elif "DEADINSECT" in acc_list:
-            acc_list = Pelt.deadInsect_accessories
-        elif "ALIVEINSECT" in acc_list:
-            acc_list = Pelt.aliveInsect_accessories
-        elif "FRUIT" in acc_list:
-            acc_list = Pelt.fruit_accessories + "BLUE BERRIES" + "BERRIES"
-        elif "CRAFTED" in acc_list:
-            acc_list = Pelt.crafted_accessories + 'WOODDRAGON'
-        elif "LEAF" in acc_list:
-            acc_list = ["MAPLE LEAF", "HOLLY", "HERBS", "DRY HERBS","OAK LEAVES", "CATMINT", "MAPLE SEED", "JUNIPER", "FERNS", "GOLD FERNS", "WHEAT", "BLACK WHEAT","CLOVERS", "CLOVER", "CHERRYPLUMLEAVES"]
-        elif "FLOWER" in acc_list:
-            acc_list = Pelt.flower_accessories + ['REDCROWN', 'YELLOWCROWN', 'LILY', 'CLOVERFLOWER']
-        elif "FLOWERCROWN" in acc_list:
-            acc_list = ['REDCROWN', 'YELLOWCROWN', "PINKFLOWERCROWN", "YELLOWFLOWERCROWN", "BLUEFLOWERCROWN", "PURPLEFLOWERCROWN", "FLOWERCROWN"]
-        else:
-            acc_list = [x for x in acc_list if x in Pelt.plant_accessories + Pelt.plant2_accessories + Pelt.wild_accessories +\
-        Pelt.tail_accessories + Pelt.collars + Pelt.flower_accessories + Pelt.snake_accessories + Pelt.smallAnimal_accessories + \
-        Pelt.deadInsect_accessories + Pelt.aliveInsect_accessories + Pelt.fruit_accessories + Pelt.crafted_accessories + \
-        Pelt.tail2_accessories
-                            and x not in cat.pelt.inventory]
+        acc_list = [x for x in acc_list if x in Pelt.all_accessories and x not in cat.pelt.inventory]
+        for item in acc_list:
+            if item in Pelt.acc_categories:
+                acc_list.remove(item)
+                acc_list.extend(Pelt.acc_categories[item])
 
         if not acc_list:
             return None

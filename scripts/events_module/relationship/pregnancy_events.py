@@ -446,10 +446,13 @@ class Pregnancy_Events:
             if other_cat and not other_cat.status.is_outsider:
                 adding_text = choice(events["birth"]["outside_in_clan"])
             event_list.append(adding_text)
-        elif other_cat.ID in cat.mate and not other_cat.dead and not other_cat.status.is_outsider:
+        elif other_cat.ID in cat.mate and other_cat.status.alive_in_player_clan:
             involved_cats.append(other_cat.ID)
-            event_list.append(choice(events["birth"]["two_parents"] + events["birth"][f"two_parents {game.clan.seasons[game.clan.age % 12]}"]))
-        elif other_cat.ID in cat.mate and other_cat.dead or other_cat.status.is_outsider:
+            cat_dict["r_c"] = other_cat
+            event_list.append(choice(events["birth"]["two_parents"]))
+        elif (
+            other_cat.ID in cat.mate and other_cat.dead or other_cat.status.is_outsider
+        ):
             involved_cats.append(other_cat.ID)
             cat_dict["r_c"] = other_cat
             # TODO: this seems odd, outsider mates are also treated as dead?
@@ -553,17 +556,20 @@ class Pregnancy_Events:
             Cat, print_event, main_cat=cat, random_cat=other_cat, clan=game.clan
         )
 
-        # display event
+        # LG faith effect
         if kits_amount != 0:
             for clan_cat in game.clan.clan_cats:
                 clan_cat_cat = Cat.fetch_cat(clan_cat)
                 if clan_cat_cat:
                     clan_cat_cat.faith+= round(random.uniform(0,1), 2)
+
+        # display event
         game.cur_events_list.append(
             Single_Event(
                 print_event, ["health", "birth_death"], involved_cats, cat_dict=cat_dict
             )
         )
+
 
     # ---------------------------------------------------------------------------- #
     #                          check if event is triggered                         #

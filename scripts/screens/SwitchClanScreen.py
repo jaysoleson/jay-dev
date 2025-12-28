@@ -10,6 +10,7 @@ from pygame_gui.elements import UIImage
 import os
 import ujson
 from scripts.housekeeping.datadir import get_save_dir
+from ..cat.enums import CatRank
 
 import scripts.game_structure.screen_settings
 from scripts.clan import Clan
@@ -176,6 +177,7 @@ class SwitchClanScreen(Screens):
 
         i = 0
         y_pos = 378
+        you = None
         for clan in self.clan_list[1:]:
             clan_age = ""
             try:
@@ -199,14 +201,14 @@ class SwitchClanScreen(Screens):
                         if item["ID"] == you:
                             # if theres a better way to do this Keep it to yourself
                             if item["name_suffix"] != "":
-                                if item["status"] in ["kitten", "newborn"]:
+                                if item["rank"] in [CatRank.KITTEN, CatRank.NEWBORN]:
                                     suffix = "kit"
-                                elif item["status"] in [
-                                    "apprentice", "queen's apprentice",
-                                    "mediator apprentice", "medicine cat apprentice"
+                                elif item["rank"] in [
+                                    CatRank.APPRENTICE, CatRank.QUEENS_APPRENTICE,
+                                    CatRank.MEDIATOR_APPRENTICE, CatRank.MEDICINE_APPRENTICE
                                     ]:
                                     suffix = "paw"
-                                elif item["status"] == "leader":
+                                elif item["rank"] == CatRank.LEADER:
                                     suffix = "star"
                                 else:
                                     suffix = item["name_suffix"]

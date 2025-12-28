@@ -492,7 +492,7 @@ class Patrol:
         elif switch_get_value(Switch.patrol_category) == 'lifegen':
 
             if game.clan.your_cat.shunned != 0:
-                murder_history = History.get_murders(game.clan.your_cat)
+                murder_history = game.clan.your_cat.history.murder
                 history = None
                 status = game.clan.your_cat.status.rank
                 if "is_murderer" in murder_history:
@@ -1249,8 +1249,35 @@ class Patrol:
         return (success_outcome if success else fail_outcome, success)
 
     def update_resources(self, biome_dir, leaf):
-        resource_dir = "resources/dicts/patrols/"
-        if switch_get_value(Switch.patrol_category) == 'clangen':
+        if switch_get_value(Switch.patrol_category) == 'lifegen':
+            resources = [
+                # LIFEGEN
+                ("GEN_LIFEGEN", "lifegen/general.json"),
+                ("KIT_LIFEGEN", "lifegen/kit.json"),
+                ("APP_LIFEGEN", "lifegen/app.json"),
+                ("MEDAPP_LIFEGEN", "lifegen/medapp.json"),
+                ("QUEENAPP_LIFEGEN", "lifegen/queenapp.json"),
+                ("MEDIATORAPP_LIFEGEN", "lifegen/mediatorapp.json"),
+                ("WARRIOR_LIFEGEN", "lifegen/warrior.json"),
+                ("MED_LIFEGEN", "lifegen/med.json"),
+                ("QUEEN_LIFEGEN", "lifegen/queen.json"),
+                ("MEDIATOR_LIFEGEN", "lifegen/mediator.json"),
+                ("DEPUTY_LIFEGEN", "lifegen/deputy.json"),
+                ("LEADER_LIFEGEN", "lifegen/leader.json"),
+                ("ELDER_LIFEGEN", "lifegen/elder.json"),
+                {"DF_LIFEGEN", "lifegen/df.json"},
+                {"DATE_LIFEGEN", "lifegen/date.json"}
+
+            ]
+        elif switch_get_value(Switch.patrol_category) == 'df':
+            resources = [
+                ("DF_LIFEGEN", "lifegen/df.json")
+            ]
+        elif switch_get_value(Switch.patrol_category) == 'date':
+            resources = [
+                ("DATE_LIFEGEN", "lifegen/date.json")
+            ]
+        else:
             resources = [
                 ("HUNTING_SZN", f"{biome_dir}hunting/{leaf}.json"),
                 ("HUNTING", f"{biome_dir}hunting/any.json"),
@@ -1271,32 +1298,6 @@ class Patrol:
                 ("MEDCAT_GEN", "general/medcat.json"),
                 ("TRAINING_GEN", "general/training.json"),
                 ("DISASTER", "disaster.json"),
-            ]
-        elif switch_get_value(Switch.patrol_category) == 'lifegen':
-            resources = [
-                # LIFEGEN
-                ("GEN_LIFEGEN", "lifegen/general.json"),
-                ("KIT_LIFEGEN", "lifegen/kit.json"),
-                ("APP_LIFEGEN", "lifegen/app.json"),
-                ("MEDAPP_LIFEGEN", "lifegen/medapp.json"),
-                ("QUEENAPP_LIFEGEN", "lifegen/queenapp.json"),
-                ("MEDIATORAPP_LIFEGEN", "lifegen/mediatorapp.json"),
-                ("WARRIOR_LIFEGEN", "lifegen/warrior.json"),
-                ("MED_LIFEGEN", "lifegen/med.json"),
-                ("QUEEN_LIFEGEN", "lifegen/queen.json"),
-                ("MEDIATOR_LIFEGEN", "lifegen/mediator.json"),
-                ("DEPUTY_LIFEGEN", "lifegen/deputy.json"),
-                ("LEADER_LIFEGEN", "lifegen/leader.json"),
-                ("ELDER_LIFEGEN", "lifegen/elder.json"),
-
-            ]
-        elif switch_get_value(Switch.patrol_category) == 'df':
-            resources = [
-                ("DF_LIFEGEN", "lifegen/df.json")
-            ]
-        elif switch_get_value(Switch.patrol_category) == 'date':
-            resources = [
-                ("DATE_LIFEGEN", "lifegen/date.json")
             ]
         for patrol_property, location in resources:
             try:
