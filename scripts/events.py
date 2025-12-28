@@ -113,6 +113,14 @@ class Events:
         """
         Handles the moon skipping of the whole Clan.
         """
+        if not game.clan.your_cat:
+            print(
+                "Are you playing a normal ClanGen save? Switch to a LifeGen save or create a new cat!")
+            print("Choosing random cat to play...")
+            game.clan.your_cat = random.choice(Cat.all_cats_list)
+            print("Chose " + str(game.clan.your_cat.name))
+            # for that moonskip test. ugh
+
         if self.checks == [-1,-1,-1] and game.clan.your_cat and game.clan.your_cat.inheritance:
             self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
             if game.clan.leader:
@@ -196,31 +204,34 @@ class Events:
         # Calling of "one_moon" functions.
         
         # LG: Disasters
-        disaster_text = load_lang_resource(f"events/disasters/{game.clan.biome.lower()}.json")
-        if not game.clan.disaster and random.randint(1,10) == 1:
-            for clan_cat in game.clan.clan_cats:
-                clan_cat_cat = Cat.fetch_cat(clan_cat)
-                if clan_cat_cat:
-                    clan_cat_cat.faith -= round(random.uniform(-1,0), 2)
+        # CHECKMERGE
+        # im gonna entirely redo how disasters are done. sorry coffee this code scares the shit out of me
+        # and it keeps failing build tests. like Crazy
+        # disaster_text = load_lang_resource(f"events/disasters/{game.clan.biome.lower()}.json")
+        # if not game.clan.disaster and random.randint(1,10) == 1:
+        #     for clan_cat in game.clan.clan_cats:
+        #         clan_cat_cat = Cat.fetch_cat(clan_cat)
+        #         if clan_cat_cat:
+        #             clan_cat_cat.faith -= round(random.uniform(-1,0), 2)
 
-            chosen_disaster_name = random.choice(list(disaster_text.keys()))
-            # CHECKMERGE add real filtering here
+        #     chosen_disaster_name = random.choice(list(disaster_text.keys()))
+        #     # CHECKMERGE add real filtering here
 
-            game.clan.disaster = chosen_disaster_name
+        #     game.clan.disaster = chosen_disaster_name
             
-            if Switch.next_possible_disaster:
-                current_disaster =  disaster_text.get(Switch.next_possible_disaster)
-            else:
-                current_disaster = disaster_text[chosen_disaster_name]
+        #     if Switch.next_possible_disaster:
+        #         current_disaster =  disaster_text.get(Switch.next_possible_disaster)
+        #     else:
+        #         current_disaster = disaster_text[chosen_disaster_name]
         
-        if game.clan.disaster and game.clan.disaster != "":
-            if game.clan.disaster == Switch.next_possible_disaster:
-                switch_set_value(Switch.next_possible_disaster, None)
-            for clan_cat in game.clan.clan_cats:
-                clan_cat_cat = Cat.fetch_cat(clan_cat)
-                if clan_cat_cat:
-                    clan_cat_cat.faith -= round(random.uniform(-0.1,0), 2)
-            self.handle_disaster(disaster_text[game.clan.disaster])
+        # if game.clan.disaster and game.clan.disaster != "":
+        #     if game.clan.disaster == Switch.next_possible_disaster:
+        #         switch_set_value(Switch.next_possible_disaster, None)
+        #     for clan_cat in game.clan.clan_cats:
+        #         clan_cat_cat = Cat.fetch_cat(clan_cat)
+        #         if clan_cat_cat:
+        #             clan_cat_cat.faith -= round(random.uniform(-0.1,0), 2)
+        #     self.handle_disaster(disaster_text[game.clan.disaster], resource=disaster_text)
         # ---
 
         other_clan_cats = [c for c in Cat.all_cats_list if c.status.is_other_clancat]
@@ -1215,11 +1226,11 @@ class Events:
         else:
             if game.clan.your_cat.forgiven < 10:
                 try:
-                    ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status + '_ceremony_no_mentor forgiven'])
+                    ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status.rank + '_ceremony_no_mentor forgiven'])
                 except:
-                    ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status + '_ceremony_no_mentor'])
+                    ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status.rank + '_ceremony_no_mentor'])
             else:
-                ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status + '_ceremony_no_mentor'])
+                ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status.rank + '_ceremony_no_mentor'])
         
         ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.displayname) + "Clan")
         ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
@@ -1274,7 +1285,7 @@ class Events:
             with open(f"{resource_dir}ceremonies.json",
                     encoding="ascii") as read_file:
                 self.d_txt = ujson.loads(read_file.read())
-            ceremony_txt = random.choice(self.d_txt['gain_app ' + game.clan.your_cat.status])
+            ceremony_txt = random.choice(self.d_txt['gain_app ' + game.clan.your_cat.status.rank])
             if game.clan.leader and game.clan.leader.status.alive_in_player_clan:
                 ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), ceremony_txt)
                 self.cat_dict["l_n"] = game.clan.leader
@@ -1423,7 +1434,7 @@ class Events:
                         return
                 c = Cat.all_cats.get(random.choice(game.clan.clan_cats))
                 counter = 0
-                while not c.relationships.get(game.clan.your_cat.ID) or c.relationships.get(game.clan.your_cat.ID).romantic_love < 10 or c.outside:
+                while not c.relationships.get(game.clan.your_cat.ID) or c.relationships.get(game.clan.your_cat.ID).romance < 10 or not c.status.alive_in_player_clan:
                     if counter == 15:
                         return
                     c = Cat.all_cats.get(random.choice(game.clan.clan_cats))
@@ -3592,7 +3603,7 @@ class Events:
                     sub_type=["murder"],
                 )
 
-    def handle_disaster(self, current_disaster):
+    def handle_disaster(self, current_disaster, resource=[]):
         if not current_disaster:
             return
 
@@ -3601,12 +3612,31 @@ class Events:
             event_string = random.choice(current_disaster["trigger_events"])
             game.clan.disaster_moon += 1
         elif current_moon < current_disaster["duration"]:
-            event_string = random.choice(current_disaster["progress_events"]["moon" + str(current_moon)])
+            
+            possible_events = current_disaster["progress_events"]["moon" + str(current_moon)]
+
+            if not game.clan.leader or not game.clan.deputy or not game.clan.medicine_cat:
+                for event in possible_events:
+                    if not game.clan.leader and "lead_name" in event:
+                        possible_events.remove(event)
+                    if not game.clan.deputy and "dep_name" in event:
+                        possible_events.remove(event)
+                    if not game.clan.medicine_cat and "med_name" in event:
+                        possible_events.remove(event)
+
+            event_string = random.choice(possible_events)
+
             game.clan.disaster_moon += 1
             self.handle_disaster_impacts(current_disaster)
-            if random.randint(1,30) == 1 and not game.clan.second_disaster and current_disaster["secondary_disasters"]:
+            if (
+                random.randint(1,30) == 1 and
+                not game.clan.second_disaster and
+                current_disaster["secondary_disasters"]
+                ):
                 game.clan.second_disaster = random.choice(list(current_disaster["secondary_disasters"].keys()))
-                secondary_event_string = random.choice(current_disaster["secondary_disasters"][game.clan.second_disaster]["trigger_events"])
+                secondary_event_string = random.choice(
+                    current_disaster["secondary_disasters"][game.clan.second_disaster]["trigger_events"]
+                    )
                 secondary_event_string = ongoing_event_text_adjust(Cat, secondary_event_string)
                 game.cur_events_list.append(
                         Single_Event(secondary_event_string, "alert"))
@@ -3619,7 +3649,7 @@ class Events:
         game.cur_events_list.insert(0, 
                         Single_Event(event_string, "alert"))
         if game.clan.second_disaster:
-            self.handle_second_disaster()
+            self.handle_second_disaster(resource=resource)
     
     def handle_disaster_impacts(self, current_disaster):      
         for i in range(random.randint(0,2)):
@@ -3649,30 +3679,53 @@ class Events:
                 else:
                     if "deaths" in current_disaster["collateral_damage"]:
                         if cat.status == "leader":
-                            cat.history.add_death(cat, death_text=current_disaster["collateral_damage"]["deaths"]["history_text"]["reg_death"][4:])
+                            cat.history.add_death(death_text=current_disaster["collateral_damage"]["deaths"]["history_text"]["lead_death"])
                         else:
-                            cat.history.add_death(cat, death_text=current_disaster["collateral_damage"]["deaths"]["history_text"]["reg_death"])
+                            cat.history.add_death(death_text=current_disaster["collateral_damage"]["deaths"]["history_text"]["reg_death"])
                         cat.die()
                         death_text = random.choice(current_disaster["collateral_damage"]["deaths"]["death_text"]).replace("m_c", str(cat.name)).replace("c_n", str(game.clan.displayname) + "Clan")
                         game.cur_events_list.insert(0,
                             Single_Event(death_text, "birth_death", cat.ID))
 
-    def handle_second_disaster(self):
-        resource_dir = "resources/dicts/events/disasters/"
-        disaster_text = {}
-        with open(f"{resource_dir}forest.json",
-                encoding="ascii") as read_file:
-            disaster_text = ujson.loads(read_file.read())
+    def handle_second_disaster(self, resource=None):
+        disaster_text = resource
+        if not resource:
+            return
         current_disaster = disaster_text.get(game.clan.second_disaster)
         current_moon = game.clan.second_disaster_moon
         if current_disaster and current_moon > 0 and current_moon < current_disaster["duration"]:
-            event_string = random.choice(current_disaster["progress_events"]["moon" + str(current_moon)])
+
+            possible_events = current_disaster["progress_events"]["moon" + str(current_moon)]
+
+            if not game.clan.leader or not game.clan.deputy or not game.clan.medicine_cat:
+                for event in possible_events:
+                    if not game.clan.leader and "lead_name" in event:
+                        possible_events.remove(event)
+                    if not game.clan.deputy and "dep_name" in event:
+                        possible_events.remove(event)
+                    if not game.clan.medicine_cat and "med_name" in event:
+                        possible_events.remove(event)
+
+            event_string = random.choice(possible_events)
             event_string = ongoing_event_text_adjust(Cat, event_string)
             game.clan.second_disaster_moon += 1
             game.cur_events_list.insert(0,
                         Single_Event(event_string, "alert"))
         elif current_disaster and current_moon == current_disaster["duration"]:
-            event_string = random.choice(current_disaster["conclusion_events"])
+
+            possible_events = current_disaster["conclusion_events"]
+
+            if not game.clan.leader or not game.clan.deputy or not game.clan.medicine_cat:
+                for event in possible_events:
+                    if not game.clan.leader and "lead_name" in event:
+                        possible_events.remove(event)
+                    if not game.clan.deputy and "dep_name" in event:
+                        possible_events.remove(event)
+                    if not game.clan.medicine_cat and "med_name" in event:
+                        possible_events.remove(event)
+
+            event_string = random.choice(possible_events)
+
             game.clan.second_disaster_moon = 0
             game.clan.second_disaster = ""
             event_string = ongoing_event_text_adjust(Cat, event_string)

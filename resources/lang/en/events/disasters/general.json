@@ -108,7 +108,8 @@
                     "The blizzard buried m_c so quickly under the snow that rescue efforts were futile."
                 ],
                 "history_text": {
-                    "reg_death": "m_c froze to death during a blizzard."
+                    "reg_death": "m_c froze to death during a blizzard.",
+                    "lead_death": "froze to death during a blizzard"
                 }
             }
         }
@@ -155,7 +156,8 @@
                     "m_c paces back and forth for warmth until their paws go numb and their vision blurs. Eventually, they sink to the frozen ground, and are unable to be roused."
                 ],
                 "history_text": {
-                    "reg_death": "m_c froze to death during a terrible cold."
+                    "reg_death": "m_c froze to death during a terrible cold.",
+                    "lead_death": "froze to death"
                 }
             }
         }
@@ -199,7 +201,8 @@
                     "m_c bites into some sour smelling fresh-kill just to ease the pain of hunger. They are found dead in their nest later that day."
                 ],
                 "history_text": {
-                    "reg_death": "m_c died during a prey sickness."
+                    "reg_death": "m_c died during a prey sickness.",
+                    "lead_death": "died during a prey sickness"
                 }
             }
         }
@@ -219,7 +222,9 @@
         "priority": "secondary",
         "duration": 3,
         "rarity": null,
-        "trigger_events": [],
+        "trigger_events": [
+            "Hunting patrols have been coming back to camp with less and less prey recently. The leaders of every Clan in the territory begin to fear that a famine is on the horizon."
+        ],
         "progress_events": {
             "moon1": [
                 "The Clan hunts and scrounges for any hint of possible food, but they never seem to find enough.",
@@ -246,7 +251,8 @@
                     "The famine weakened m_c to the core, and the cold seeped into their bones. One night, m_c curled up tighter in their nest and never woke up again."
                 ],
                 "history_text": {
-                    "reg_death": "m_c died during a famine."
+                    "reg_death": "m_c died during a famine.",
+                    "lead_death": "died during a famine"
                 }
             }
         }
@@ -324,7 +330,8 @@
                     "m_c's body was unable to handle the extreme temperatures, and despite fighting to survive, {PRONOUN/m_c/subject} slowly faded away."
                 ],
                 "history_text": {
-                    "reg_death": "m_c succumbed to the unbearable heat created by a heat wave."
+                    "reg_death": "m_c succumbed to the unbearable heat created by a heat wave.",
+                    "lead_death": "succumbed to the unbearable heat created by a heat wave"
                 }
             }
         }
@@ -451,7 +458,8 @@
                     "The search for water became m_c's final quest. With the territory suffering from a severe drought, {PRONOUN/m_c/subject} ventured beyond familiar lands. Sadly, {PRONOUN/m_c/subject} was found too late, collapsed near a dried-up riverbed, the earth cracked and dry beneath their outstretched paws"
                 ],
                 "history_text": {
-                    "reg_death": "m_c died from dehydration."
+                    "reg_death": "m_c died from dehydration.",
+                    "lead_death": "died from dehydration"
                 }
             }
         }

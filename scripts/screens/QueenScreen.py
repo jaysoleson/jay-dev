@@ -292,13 +292,13 @@ class QueenScreen(Screens):
         elif compat is False:
             chance -= 5
 
-        if rel1.platonic_like > 30:
+        if rel1.like > 30:
             chance += 5
-        if rel1.dislike > 10:
+        if rel1.like < -10:
             chance -= 5
-        if rel2.platonic_like > 30:
+        if rel2.like > 30:
             chance += 5
-        if rel2.dislike > 10:
+        if rel2.like < -10:
             chance -= 5
         
         return randint(0, 100) < min(chance, 95)

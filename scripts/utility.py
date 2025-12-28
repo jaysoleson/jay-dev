@@ -1406,7 +1406,7 @@ def filter_relationship_type(
 
     if "strangers" in filter_types and len(group) == 2:
         relationship = group[0].relationships[group[1].ID]
-        if relationship and (relationship.platonic_like < 1 or relationship.romantic_love < 1):
+        if relationship and (relationship.like < 1 or relationship.romance < 1):
             return False
     elif "strangers" in filter_types:
         return False
@@ -3407,7 +3407,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.status.is_outsider or
         chosen_cat.dead or
         chosen_cat not in you.relationships or
-        (chosen_cat in you.relationships and you.relationships[chosen_cat.ID].romantic_love < 20) or
+        (chosen_cat in you.relationships and you.relationships[chosen_cat.ID].romance < 20) or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3421,7 +3421,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.status.is_outsider or
         chosen_cat.dead or
         chosen_cat not in cat.relationships or
-        (chosen_cat in cat.relationships and cat.relationships[chosen_cat.ID].romantic_love < 15) or
+        (chosen_cat in cat.relationships and cat.relationships[chosen_cat.ID].romance < 15) or
         chosen_cat in current_cat_objects
     ) else True
 

@@ -3370,11 +3370,9 @@ class Cat:
 
             comfort = relationship.comfortable
             trust = relationship.trust
-            platonic_like = relationship.platonic_like
-            romantic_love = relationship.romantic_love
-            dislike = relationship.dislike
-            jealousy = relationship.jealousy
-            respect = relationship.admiration
+            platonic_like = relationship.like
+            romantic_love = relationship.romance
+            respect = relationship.respect
 
             if not stranger:
                 fail_chance = (
@@ -3382,9 +3380,7 @@ class Cat:
                     trust +
                     platonic_like +
                     romantic_love +
-                    respect -
-                    jealousy -
-                    dislike
+                    respect
                     )
             else:
                 fail_chance = 10

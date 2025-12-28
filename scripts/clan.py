@@ -1313,9 +1313,11 @@ class Clan:
             self.load_freshkill_pile(game.clan)
         
         # LG
-        # CHECKMERGE
         if "your_cat" in clan_data:
             game.clan.your_cat = Cat.all_cats[clan_data["your_cat"]]
+        else:
+            game.clan.your_cat = choice([x for x in Cat.all_cats_list if x.status.alive_in_player_clan]).ID
+            print("You don't have a cat! Choosing one for you.")
 
         if "murdered" in clan_data:
             if isinstance(clan_data["murdered"], bool):
