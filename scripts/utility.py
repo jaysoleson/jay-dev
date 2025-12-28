@@ -544,15 +544,12 @@ def create_new_cat_block(
             continue
         if match.group(1) == "ur":
             outside = True
-            alive = False
             thought = "Is intrigued by the living cat they just met"
             chosen_backstory = choice(BACKSTORIES["backstory_categories"]["starclan_backstories"])
             encountered_dead_ur = True
             break
         elif match.group(1) == "df":
-            df = True
             outside = False
-            alive = False
             thought = "Is annoyed with the living cat they just met"
             chosen_backstory = choice(BACKSTORIES["backstory_categories"]["df_backstories"])
             encountered_dead_df = True
@@ -561,9 +558,7 @@ def create_new_cat_block(
             # ^^ so they get a clan cat name
             break
         elif match.group(1) == "sc":
-            alive = False
             outside = False
-            df = False
             thought = "Is curious about the living cat they just met"
             chosen_backstory = choice(BACKSTORIES["backstory_categories"]["starclan_backstories"])
             # its annoying i have to do this here but oh welp
@@ -678,6 +673,13 @@ def create_new_cat_block(
             beginning = n_c.history.beginning
             if encountered_dead_df or encountered_dead_sc or encountered_dead_ur:
                 beginning['encountered'] = True
+                if encountered_dead_df:
+                    n_c.status.send_to_afterlife(CatGroup.DARK_FOREST_ID)
+                elif encountered_dead_ur:
+                    n_c.status.send_to_afterlife(CatGroup.UNKNOWN_RESIDENCE_ID)
+                elif encountered_dead_sc:
+                    n_c.status.send_to_afterlife(CatGroup.STARCLAN_ID)
+                n_c.dead_for = randint(game.clan.age, game.clan.age * 2)
             else:
                 beginning['encountered'] = False
 
