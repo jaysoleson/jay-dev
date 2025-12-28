@@ -4635,12 +4635,6 @@ class MakeClanScreen(Screens):
 
         if ID in game.clan.clan_cats:
             game.clan.clan_cats.remove(ID)
-        # if ID in game.clan.starclan_cats:
-        #     game.clan.starclan_cats.remove(ID)
-        # if ID in game.clan.unknown_cats:
-        #     game.clan.unknown_cats.remove(ID)
-        # if ID in game.clan.darkforest_cats:
-        #     game.clan.darkforest_cats.remove(ID)
 
 
     def save_clan(self):

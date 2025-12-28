@@ -10,7 +10,7 @@ from scripts.game_structure import image_cache
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
 from scripts.screens.enums import GameScreen
 
-from scripts.cat.enums import CatAge, CatRank
+from scripts.cat.enums import CatAge, CatRank, CatGroup
 from ..game_structure.game.settings import game_setting_set, game_setting_get
 from scripts.screens.enums import GameScreen
 
@@ -68,12 +68,12 @@ class MoonplaceScreen(Screens):
         self.created_choice_buttons = False
         self.choicepanel = False
         self.textbox_graphic = None
+        self.starclan_cats = []
 
 
 
     def screen_switches(self):
         super().screen_switches()
-        self.the_cat = Cat.all_cats.get(choice(game.clan.starclan_cats))
         switch_set_value(Switch.attended_half_moon, True)
         self.update_camp_bg()
         self.hide_menu_buttons()
@@ -83,6 +83,14 @@ class MoonplaceScreen(Screens):
         self.choicepanel = False
         self.created_choice_buttons = False
         self.profile_elements = {}
+
+        self.starclan_cats = [
+            cat for cat in Cat.all_cats_list if (
+                cat.dead and cat.status.group == CatGroup.STARCLAN
+            )
+        ]
+        self.the_cat = choice(starclan_cats)
+
         self.clan_name_bg = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((115, 438), (190, 35))),
             pygame.transform.scale(
@@ -387,7 +395,7 @@ class MoonplaceScreen(Screens):
             if "d_c" in t:
                 d_c_found = True
         if d_c_found:
-            dead_cat = str(Cat.all_cats.get(game.clan.starclan_cats[-1]).name)
+            dead_cat = str(Cat.all_cats.get(self.starclan_cats[-1]).name)
             text = [t1.replace("d_c", dead_cat) for t1 in text]
         return text
 
