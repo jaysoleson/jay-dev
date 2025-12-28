@@ -716,7 +716,7 @@
         "types": [
             "lifegen"
         ],
-        "tags": ["other_clan"],
+        "tags": [],
         "patrol_art": "fst_hunt_mice",
         "min_cats": 1,
         "max_cats": 2,

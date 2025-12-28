@@ -45,6 +45,10 @@
           {
             "type": "string",
             "pattern": "^mate:([_,0-9a-zA-Z]+)$"
+          },
+          {
+            "type": "string",
+            "pattern": "^residence:([_,0-9a-zA-Z]+)$"
           }
         ]
       }
@@ -367,11 +371,11 @@
         "energetic",
         "bouncy",
         "trusting",
-        "OOOOO",
         "disciplined",
         "patient",
         "humble",
-        "obsessive"
+        "obsessive",
+        "smug"
       ]
     },
     "kit_trait": {
@@ -399,7 +403,8 @@
         "disciplined",
         "patient",
         "rebellious",
-        "honest"
+        "honest",
+        "secretive"
       ]
     },
     "all_trait": {
@@ -548,11 +553,17 @@
             "some_clan",
             "patrol",
             "multi",
-            "y_c"
+            "y_c",
+            "o_c1",
+            "o_c2",
+            "o_c3"
           ]
         },
         {
           "pattern": "^n_c:[0-9]+$"
+        },
+        {
+          "type": "string"
         }
       ]
     }

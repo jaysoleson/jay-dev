@@ -418,7 +418,7 @@
                 "weight": 20
             },
             {
-                "test": "Your eyes soften. You understand the need to have alone time every now and then, with how chaotic life can be at times, so you halt your calls for the kitten to come back. Instead, you keep a careful eye on the kitten and don't mention their disappearance when they sneak back into the den.",
+                "text": "Your eyes soften. You understand the need to have alone time every now and then, with how chaotic life can be at times, so you halt your calls for the kitten to come back. Instead, you keep a careful eye on the kitten and don't mention their disappearance when they sneak back into the den.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -679,6 +679,7 @@
         "types": [
             "lifegen"
         ],
+        "tags": [],
         "patrol_art": "life_queen_R6",
         "min_cats": 1,
         "max_cats": 3,
@@ -814,13 +815,13 @@
                 ]
             },
             {
-                "text": "r_k pushes you to the edge of camp and directs you to a clearing, in which a medicine cat from another clan sits. They're surrounded by kittens and as they catch sight of you, they plead to be allowed in the clan. Though a bit hesitant, you allow the medicine cat to follow you back.",
+                "text": "r_k pushes you to the edge of camp and directs you to a clearing, in which a medicine cat from another Clan sits. They're surrounded by kittens and as they catch sight of you, they plead to be allowed in the Clan. Though a bit hesitant, you allow the medicine cat to follow you back.",
                 "exp": 10,
                 "weight": 5,
                 "new_cat": [
                     [
                         "age:has_kits",
-                        "background:medicine_cat"
+                        "status:medicine cat"
                     ],
                     [
                         "new_name",
@@ -978,21 +979,21 @@
                 "exp": 0,
                 "weight": 20,
                 "can_have_stat": ["p_l"],
-                "stat_skill": ["FIGHTER"]
+                "stat_skill": ["FIGHTER,1"]
             },
             {
                 "text": "You realize that you may not be the best at fighting, and probably never will be, but you can do other things! You're quite good at protecting the kits, for example, even without fighting. You decide that makes you happy enough, and continue to protect them with your innate skill.",
                 "exp": 0,
                 "weight": 20,
                 "can_have_stat": ["p_l"],
-                "stat_skill": ["GUARDIAN"]
+                "stat_skill": ["GUARDIAN,1"]
             },
             {
                 "text": "You realize that you may not be the best at fighting, and probably never will be, but you can do other things! You're quite good at creating safe places for the kits, for example, so you don't even need to protect them by fighting! That makes you happy enough, so you continue to do what you do best.",
                 "exp": 0,
                 "weight": 20,
                 "can_have_stat": ["p_l"],
-                "stat_skill": ["INNOVATOR", "THINKER"]
+                "stat_skill": ["INNOVATOR,1", "THINKER,1"]
             },
             {
                 "text": "When you ask rdf_c to help you, {PRONOUN/rdf_c/subject} {VERB/rdf_c/agree/agrees}, but {VERB/rdf_c/say/says} it'll come with a price. {PRONOUN/rdf_c/subject/CAP} {VERB/rdf_c/have/has} you do a few tasks to 'earn' the training, and you do them gladly. You'd do anything for the kits, after all. Once you've done the tasks, rdf_c eagerly teaches you anything you want to know.",
@@ -1060,7 +1061,7 @@
                 "exp": 0,
                 "weight": 5,
                 "new_cat": [
-                    ["meeting", "residence:ur", "clan_status", "status:kitten"]
+                    ["meeting", "residence:ur", "status:kitten"]
                 ]
             },
             {

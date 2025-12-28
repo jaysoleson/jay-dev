@@ -35,7 +35,7 @@
                     [
                         "meeting",
                         "residence:df",
-                        "clan_status",
+                        "clancat",
                         "status:warrior"
                     ]
                 ],
@@ -215,7 +215,7 @@
                     [
                         "meeting",
                         "residence:df",
-                        "clan_status",
+                        "clancat",
                         "status:warrior"
                     ]
                 ],
@@ -300,9 +300,7 @@
         "types": [
             "df"
         ],
-        "tags": [
-            "encounter"
-        ],
+        "tags": [],
         "patrol_art": "life_df_og3",
         "min_cats": 1,
         "max_cats": 1,
@@ -371,9 +369,7 @@
         "types": [
             "df"
         ],
-        "tags": [
-            "border"
-        ],
+        "tags": [],
         "patrol_art": "df_echoes",
         "min_cats": 1,
         "max_cats": 1,
@@ -391,7 +387,7 @@
                     [
                         "meeting",
                         "residence:df",
-                        "clan_status",
+                        "clancat",
                         "age:adolescent"
                     ]
                 ]
@@ -426,9 +422,7 @@
         "types": [
             "df"
         ],
-        "tags": [
-            "border"
-        ],
+        "tags": [],
         "patrol_art": "df_starcat",
         "min_cats": 1,
         "max_cats": 1,
@@ -462,7 +456,7 @@
                     [
                         "meeting",
                         "residence:df",
-                        "clan_status",
+                        "clancat",
                         "status:warrior",
                         "backstory:oldstarclan1"
                     ]
@@ -503,7 +497,6 @@
             "df"
         ],
         "tags": [
-            "border",
             "death"
         ],
         "patrol_art": "life_df_og6",
@@ -528,7 +521,7 @@
                     [
                         "meeting",
                         "residence:df",
-                        "clan_status"
+                        "clancat"
                     ]
                 ]
             },
@@ -643,9 +636,7 @@
         "types": [
             "df"
         ],
-        "tags": [
-            "border"
-        ],
+        "tags": [],
         "patrol_art": "df_Clanmate",
         "min_cats": 1,
         "max_cats": 1,
@@ -681,8 +672,6 @@
             "df"
         ],
         "tags": [
-            "border",
-            "non_lethal",
             "fellowtrainee"
         ],
         "patrol_art": "df_friendly",
@@ -818,9 +807,9 @@
                         ],
                         "mutual": false,
                         "values": [
-                            "dislike"
+                            "like"
                         ],
-                        "amount": 5
+                        "amount": -5
                     }
                 ]
             },
@@ -838,10 +827,10 @@
                         ],
                         "mutual": false,
                         "values": [
-                            "dislike",
-                            "jealousy"
+                            "like",
+                            "respect"
                         ],
-                        "amount": 5
+                        "amount": -5
                     }
                 ]
             }
@@ -858,9 +847,7 @@
         "types": [
             "df"
         ],
-        "tags": [
-            "border"
-        ],
+        "tags": [],
         "patrol_art": "df_friendly",
         "min_cats": 2,
         "max_cats": 2,
@@ -964,9 +951,9 @@
                         ],
                         "mutual": true,
                         "values": [
-                            "dislike"
+                            "like"
                         ],
-                        "amount": 5
+                        "amount": -5
                     }
                 ]
             }
@@ -986,9 +973,9 @@
                         ],
                         "mutual": false,
                         "values": [
-                            "dislike"
+                            "like"
                         ],
-                        "amount": 2
+                        "amount": -2
                     }
                 ]
             },
@@ -1006,9 +993,9 @@
                         ],
                         "mutual": true,
                         "values": [
-                            "dislike"
+                            "like"
                         ],
-                        "amount": 5
+                        "amount": -5
                     }
                 ],
                 "injury": [
@@ -1064,7 +1051,6 @@
             "df"
         ],
         "tags": [
-            "border",
             "fellowtrainee"
         ],
         "patrol_art": "df_friendly",
@@ -1092,7 +1078,7 @@
                         "values": [
                             "respect",
                             "trust",
-                            "platonic_love"
+                            "like"
                         ],
                         "amount": 2
                     }
@@ -1134,9 +1120,9 @@
                         ],
                         "mutual": false,
                         "values": [
-                            "dislike"
+                            "like"
                         ],
-                        "amount": 5
+                        "amount": -5
                     }
                 ]
             }
@@ -1154,7 +1140,6 @@
             "df"
         ],
         "tags": [
-            "border",
             "fellowtrainee"
         ],
         "patrol_art": "life_df_og11",
@@ -1203,7 +1188,7 @@
                             "trust",
                             "respect",
                             "comfort",
-                            "platonic_love"
+                            "like"
                         ],
                         "amount": 2
                     }
@@ -1276,9 +1261,9 @@
                         ],
                         "mutual": true,
                         "values": [
-                            "dislike"
+                            "like"
                         ],
-                        "amount": 5
+                        "amount": -5
                     }
                 ],
                 "injury": [
@@ -1332,7 +1317,6 @@
             "df"
         ],
         "tags": [
-            "border",
             "new_cat"
         ],
         "patrol_art": "df_default",
@@ -1352,7 +1336,7 @@
                     [
                         "meeting",
                         "residence:df",
-                        "clan_status",
+                        "clancat",
                         "status:kitten"
                     ]
                 ]
@@ -1430,7 +1414,6 @@
             "df"
         ],
         "tags": [
-            "border",
             "new_cat"
         ],
         "patrol_art": "df_default",
@@ -1459,7 +1442,7 @@
                     [
                         "meeting",
                         "residence:df",
-                        "clan_status"
+                        "clancat"
                     ]
                 ]
             },
@@ -1476,7 +1459,7 @@
                     [
                         "meeting",
                         "residence:df",
-                        "clan_status"
+                        "clancat"
                     ]
                 ]
             },
@@ -1534,7 +1517,6 @@
             "df"
         ],
         "tags": [
-            "border",
             "new_cat",
             "fellowtrainee"
         ],
@@ -1555,7 +1537,7 @@
                     [
                         "meeting",
                         "residence:df",
-                        "clan_status"
+                        "clancat"
                     ]
                 ]
             },
@@ -1641,7 +1623,6 @@
             "df"
         ],
         "tags": [
-            "border",
             "new_cat",
             "fellowtrainee"
         ],
@@ -1719,9 +1700,9 @@
                         ],
                         "mutual": true,
                         "values": [
-                            "dislike"
+                            "like"
                         ],
-                        "amount": 10
+                        "amount": -10
                     }
                 ]
             }
@@ -1757,7 +1738,7 @@
                         "mutual": true,
                         "values": [
                             "trust",
-                            "platonic_love"
+                            "like"
                         ],
                         "amount": -20
                     }
@@ -1837,9 +1818,7 @@
         "types": [
             "df"
         ],
-        "tags": [
-            "border"
-        ],
+        "tags": [],
         "patrol_art": "df_default",
         "min_cats": 2,
         "max_cats": 3,
@@ -1920,9 +1899,7 @@
         "types": [
             "df"
         ],
-        "tags": [
-            "border"
-        ],
+        "tags": [],
         "patrol_art": "df_default",
         "min_cats": 2,
         "max_cats": 2,
@@ -2027,9 +2004,9 @@
                         ],
                         "mutual": true,
                         "values": [
-                            "dislike"
+                            "like"
                         ],
-                        "amount": 10
+                        "amount": -10
                     }
                 ]
             }
@@ -2129,10 +2106,10 @@
                         "residence:df",
                         "age:has_kits",
                         "mate:p_l",
-                        "clan_status"
+                        "clancat"
                     ],
                     [
-                        "clan_status",
+                        "clancat",
                         "meeting",
                         "litter",
                         "residence:df",
@@ -2162,10 +2139,10 @@
                         "residence:df",
                         "age:mate",
                         "mate:p_l",
-                        "clan_status"
+                        "clancat"
                     ],
                     [
-                        "clan_status",
+                        "clancat",
                         "litter",
                         "parent:0",
                         "backstory:dfkit2",
@@ -2181,7 +2158,7 @@
                     [
                         "residence:df",
                         "meeting",
-                        "clan_status",
+                        "clancat",
                         "age:mate",
                         "mate:p_l",
                         "backstory:ostracized_warrior"
@@ -2196,7 +2173,7 @@
                     [
                         "meeting",
                         "residence:df",
-                        "clan_status",
+                        "clancat",
                         "age:mate",
                         "mate:p_l"
                     ]
@@ -2272,10 +2249,11 @@
             "any"
         ],
         "types": [
-            "df",
+            "df"
+        ],
+        "tags": [
             "fellowtrainee"
         ],
-        "tags": [],
         "patrol_art": "df_Clanmate",
         "min_cats": 2,
         "max_cats": 2,
@@ -2381,9 +2359,9 @@
                         ],
                         "mutual": false,
                         "values": [
-                            "dislike"
+                            "like"
                         ],
-                        "amount": 5
+                        "amount": -5
                     }
                 ]
             },
@@ -2419,10 +2397,11 @@
             "any"
         ],
         "types": [
-            "df",
+            "df"
+        ],
+        "tags": [
             "fellowtrainee"
         ],
-        "tags": [],
         "patrol_art": "life_df_og11",
         "min_cats": 2,
         "max_cats": 2,
@@ -2470,7 +2449,7 @@
                             "respect",
                             "comfort",
                             "trust",
-                            "platonic_love"
+                            "like"
                         ],
                         "amount": 5
                     }
@@ -2492,9 +2471,9 @@
                         ],
                         "mutual": true,
                         "values": [
-                            "dislike"
+                            "like"
                         ],
-                        "amount": 5
+                        "amount": -5
                     }
                 ]
             },
@@ -2592,9 +2571,9 @@
                         ],
                         "mutual": true,
                         "values": [
-                            "dislike"
+                            "like"
                         ],
-                        "amount": 10
+                        "amount": -10
                     }
                 ],
                 "injury": [
@@ -2678,7 +2657,7 @@
                             "y_c"
                         ],
                         "injuries": [
-                            "torn_pelt"
+                            "torn pelt"
                         ],
                         "scars": [
                             "SNAKETWO"
@@ -2722,7 +2701,7 @@
                     [
                         "meeting",
                         "residence:df",
-                        "clan_status"
+                        "clancat"
                     ]
                 ]
             }
@@ -2825,7 +2804,7 @@
                             "y_c"
                         ],
                         "injuries": [
-                            "torn_pelt"
+                            "torn pelt"
                         ],
                         "scars": [
                             "NECKBITE"
@@ -3112,9 +3091,6 @@
                         ],
                         "injuries": [
                             "raspy lungs"
-                        ],
-                        "scars": [
-                            "none"
                         ]
                     }
                 ],
@@ -3291,7 +3267,7 @@
                             "cats_to": ["r_c"],
                             "cats_from": ["p_l"],
                             "mutual": true,
-                            "values": ["platonic"],
+                            "values": ["like"],
                             "amount": 8
                         }
                     ]
@@ -3371,7 +3347,7 @@
                     "injury": [
                         {
                            "cats": ["y_c"],
-                           "injuries": ["claw_wound"],
+                           "injuries": ["claw-wound"],
                            "scars": ["NECKBITE"]
                         }
                     ],
@@ -3433,15 +3409,16 @@
                 "any"
             ],
             "types": [
-                "lifegen",
+                "lifegen"
+            ],
+            "tags": [
                 "shunned"
             ],
-            "tags": [],
             "patrol_art": "df_default",
             "min_cats": 1,
             "max_cats": 1,
             "min_max_status": {
-                "all apprentice": [
+                "all apprentices": [
                     -1,
                     0
                 ]

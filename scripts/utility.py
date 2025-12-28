@@ -437,7 +437,6 @@ def create_new_cat_block(
         if other_clan:
             cat_group = other_clan.group_ID
         else:
-    # CHECKMERGE: clan_status stuff for lg patrol new cats was here. figure that out
             cat_group = choice([x.group_ID for x in game.clan.all_other_clans])
     else:
         cat_social = choice([CatSocial.KITTYPET, CatSocial.LONER, "former Clancat"])

@@ -626,7 +626,7 @@
                 "exp": 0,
                 "weight": 20,
                 "can_have_stat": ["p_l"],
-                "stat_skill": ["CLEVER", "INNOVATOR", "KIT", "THINKER"]
+                "stat_skill": ["CLEVER,1", "INNOVATOR,1", "KIT,1", "THINKER,1"]
             }
         ],
         "fail_outcomes": [
@@ -635,7 +635,7 @@
                 "exp": 0,
                 "weight": 20,
                 "can_have_stat": ["r_k"],
-                "stat_skill": ["RUNNER"]
+                "stat_skill": ["RUNNER,1"]
             },
             {
                 "text": "You rush off, leaving the StarClan kit unsupervised. You manage to catch up to r_k, but turn around to realize that the StarClan kit has disappeared. You spend your time until r_k wakes up running between both kits, making sure they're both safe. You end up losing one of them a few times.",

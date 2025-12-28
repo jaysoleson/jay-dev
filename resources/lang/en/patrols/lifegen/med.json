@@ -427,8 +427,7 @@
                     "DARK,1"
                 ],
                 "new_cat": [
-                    "newdfcat",
-                    "backstory: oldstarClan2"
+                    ["residence:df", "backstory:oldstarclan2"]
                 ],
                 "can_have_stat": [
                     "p_l"
@@ -515,9 +514,7 @@
         "types": [
             "lifegen"
         ],
-        "tags": [
-            "lifegen"
-        ],
+        "tags": [],
         "patrol_art": "lg_medcat_default",
         "min_cats": 1,
         "max_cats": 1,

@@ -694,10 +694,9 @@
             "any"
         ],
         "types": [
-            "lifegen"
+            "date"
         ],
         "tags": [
-            "date",
             "you_med"
         ],
         "patrol_art": "date_default",
@@ -1174,10 +1173,9 @@
             "any"
         ],
         "types": [
-            "lifegen"
+            "date"
         ],
         "tags": [
-            "date",
             "df"
         ],
         "patrol_art": "df_training",
@@ -1228,10 +1226,9 @@
             "any"
         ],
         "types": [
-            "lifegen"
+            "date"
         ],
         "tags": [
-            "date",
             "df"
         ],
         "patrol_art": "date_default",
@@ -1281,10 +1278,9 @@
             "any"
         ],
         "types": [
-            "lifegen"
+            "date"
         ],
         "tags": [
-            "date",
             "df"
         ],
         "patrol_art": "date_default",
@@ -2094,6 +2090,7 @@
         "types": [
             "lifegen"
         ],
+        "tags": [],
         "patrol_art": "date_flowerfield",
         "min_cats": 2,
         "max_cats": 2,
@@ -2441,7 +2438,7 @@
             "mountainous"
         ],
         "season": [
-            "leafbare"
+            "leaf-bare"
         ],
         "types": [
             "date"

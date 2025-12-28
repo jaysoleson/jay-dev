@@ -1410,7 +1410,7 @@
     {
         "patrol_id": "life_warrior_og20",
         "biome": [
-            "Beach"
+            "beach"
         ],
         "season": [
             "any"
@@ -1445,7 +1445,7 @@
     {
         "patrol_id": "life_warrior_og21",
         "biome": [
-            "Beach"
+            "beach"
         ],
         "season": [
             "any"
@@ -1480,7 +1480,7 @@
     {
         "patrol_id": "life_warrior_og22",
         "biome": [
-            "Beach"
+            "beach"
         ],
         "season": [
             "any"
@@ -1689,8 +1689,8 @@
                         "cats_to": ["dislike-r_w"],
                         "cats_from": ["y_c"],
                         "mutual": true,
-                        "values": ["dislike"],
-                        "amount": 10
+                        "values": ["like"],
+                        "amount": -10
                     }
                 ]
             },
@@ -1705,15 +1705,15 @@
                         "cats_to": ["p_l"],
                         "cats_from": ["dislike-r_w"],
                         "mutual": false,
-                        "values": ["comfort", "platonic"],
+                        "values": ["comfort", "like"],
                         "amount": 10
                     },
                     {
                         "cats_to": ["p_l"],
                         "cats_from": ["dislike-r_w"],
                         "mutual": false,
-                        "values": ["dislike"],
-                        "amount": -5
+                        "values": ["like"],
+                        "amount": 5
                     }
                 ]
             },

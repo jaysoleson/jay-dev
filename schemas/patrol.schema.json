@@ -31,26 +31,40 @@
           "description": "Makes this a stat outcome which can occur if a stat cat can be found.",
           "type": "array",
           "items": {
-            "$ref": "common.schema.json#/definitions/trait"
+            "anyOf": [
+              {
+                "$ref": "common.schema.json#/definitions/trait"
+              },
+              {
+                "$ref": "common.schema.json#/definitions/kit_trait"
+              }
+            ]
           }
         },
         "can_have_stat": {
           "description": "Overrides default behavior or adds additional requirements for stat_cat picking.",
           "type": "array",
           "items": {
-            "enum": [
-              "p_l",
-              "r_c",
-              "app1",
-              "app2",
-              "not_pl",
-              "not_rc",
-              "not_pl_rc",
-              "any",
-              "adult",
-              "app",
-              "healer",
-              "y_c"
+            "anyOf": [
+              {
+                "enum": [
+                  "p_l",
+                  "r_c",
+                  "app1",
+                  "app2",
+                  "not_pl",
+                  "not_rc",
+                  "not_pl_rc",
+                  "any",
+                  "adult",
+                  "app",
+                  "healer"
+                ]
+              },
+              {
+                "type": "string",
+                "comment": "This is added for LifeGen, as generating a pattern for all of our abbrevs would be... crazy. Now, as long as it's a string, it's accepted. Not perfect, but it has to be done!"
+              }
             ]
           }
         },
@@ -266,7 +280,10 @@
         "description": "Controls the type of patrol.",
         "type": "array",
         "items": {
-          "enum": ["hunting", "herb_gathering", "border", "training", "df", "date", "lifegen"]
+          "enum": [
+            "hunting", "herb_gathering", "border", "training",
+            "df", "date", "lifegen", "df_lifegen", "sc_lifegen", "ur_lifegen"
+          ]
         }
       },
       "tags": {
@@ -290,7 +307,15 @@
                 "app3_mentored",
                 "app4_mentored",
                 "app5_mentored",
-                "app6_mentored"
+                "app6_mentored",
+
+                "shunned",
+                "bloodthirsty_only",
+                "you_med",
+                "df",
+                "death",
+                "fellowtrainee",
+                "clan_has_kits"
               ]
             },
             {
@@ -343,7 +368,14 @@
             "medicine cat apprentice",
             "healer cats",
             "normal adult",
-            "all apprentices"
+            "all apprentices",
+            "queen",
+            "queen's apprentice",
+            "elder",
+            "mediator",
+            "mediator apprentice",
+            "kitten",
+            "df"
           ]
         },
         "additionalProperties": {

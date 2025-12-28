@@ -629,7 +629,7 @@
                 "exp": 20,
                 "weight": 15,
                 "can_have_stat": ["p_l"],
-                "stat_skill": ["LANGUAGE,10"]
+                "stat_skill": ["LANGUAGE,1"]
             }
         ],
         "fail_outcomes": [
@@ -656,9 +656,7 @@
         "types": [
             "lifegen"
         ],
-        "tags": [
-            "other_clan"
-        ],
+        "tags": [],
         "patrol_art": "gen_happy_cat5",
         "min_cats": 1,
         "max_cats": 1,
@@ -689,7 +687,7 @@
                     [
                         "age:adult",
                         "backstory:otherclan1, otherclan2, otherclan7",
-                        "warrior",
+                        "status:warrior",
                         "new_name"
                     ]
                 ],

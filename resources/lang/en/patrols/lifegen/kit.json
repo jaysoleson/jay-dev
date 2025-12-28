@@ -678,7 +678,6 @@
             "lifegen"
         ],
         "tags": [
-            "border",
             "shunned"
         ],
         "patrol_art": "life_shunkit_Guy1",
@@ -1061,7 +1060,7 @@
                     [
                         "meeting",
                         "residence:df",
-                        "clan_status",
+                        "clancat",
                         "status:warrior"
                     ]
                 ]

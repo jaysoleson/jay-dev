@@ -425,7 +425,7 @@
             "forest"
         ],
         "season": [
-            "Greenleaf"
+            "greenleaf"
         ],
         "types": [
             "lifegen"
@@ -574,7 +574,7 @@
                         "cats_to": ["r_w1-neurotic"],
                         "cats_from": ["r_w2-brooding"],
                         "mutual": true,
-                        "values": ["platonic"],
+                        "values": ["like"],
                         "amount": 10
                     }
                 ]
@@ -624,7 +624,7 @@
             "any"
         ],
         "season": [
-            "leafbare"
+            "leaf-bare"
         ],
         "types": [
             "lifegen"

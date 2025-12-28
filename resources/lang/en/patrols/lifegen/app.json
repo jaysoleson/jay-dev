@@ -1222,7 +1222,7 @@
                     "INSIGHTFUL,1",
                     "MEDIATOR,1",
                     "SPEAKER,1",
-                    "TEACHER"
+                    "TEACHER,1"
                 ],
                 "can_have_stat": [
                     "p_l"

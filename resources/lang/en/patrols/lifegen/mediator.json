@@ -432,13 +432,15 @@
             	"text": "It quickly becomes apparent that l_n and d_n have very different ideas about how to handle these cats: your suggestions are either dismissed by one as too passive, or rejected by the other as too harsh. The two start arguing so intently about the matter, you have to abandon the discussion about the outsiders in favor of mediating d_n's and l_n's bickering.",
             	"exp": 0,
             	"weight": 20,
-            	"relationships": {
-                	"cats_to": ["p_l"],
-                	"cats_from": ["d_n", "l_n"],
-                	"mutual": true,
-                	"values": [ "respect" ],
-                	"amount": -5
-            	}
+            	"relationships": [
+                    {
+                        "cats_to": ["p_l"],
+                        "cats_from": ["d_n", "l_n"],
+                        "mutual": true,
+                        "values": [ "respect" ],
+                        "amount": -5
+                    }
+                ]
         	}
     	]
 	},
