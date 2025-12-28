@@ -411,7 +411,7 @@ class Clan:
                 return choice(alive_cats)
             return None
         
-        clan_kits = find_alive_cats_with_rank(Cat, [CatRank.NEWBORN, CatRank.KITTEN])
+        clan_kits = find_alive_cats_with_rank(Cat, [CatRank.KITTEN])
         clan_apps = find_alive_cats_with_rank(Cat, [
             CatRank.APPRENTICE,
             CatRank.MEDICINE_APPRENTICE,
@@ -426,7 +426,7 @@ class Clan:
             for kit in clan_kits:
                 if not kit.inheritance:
                     kit.inheritance = Inheritance(kit)
-                if kit.ID != game.clan.your_cat.ID and kit.backstory == "clanborn" and not kit.parent1:
+                if kit.backstory == "clanborn" and not kit.parent1:
                     parent = get_kit_parent()
                     if parent:
                         kit.parent1 = parent.ID
@@ -439,7 +439,7 @@ class Clan:
                             Cat.all_cats.get(kit.parent2).inheritance.update_inheritance()
 
                         for other_kit in clan_kits:
-                            if other_kit.ID != kit.ID and other_kit.ID != game.clan.your_cat.ID and kit.moons == other_kit.moons and not other_kit.parent1 and other_kit.backstory == "clanborn":
+                            if other_kit.ID != kit.ID and kit.moons == other_kit.moons and not other_kit.parent1 and other_kit.backstory == "clanborn":
                                 other_kit.parent1 = parent.ID
                                 parent.inheritance.update_inheritance()
                                 if kit.parent2:
@@ -448,8 +448,6 @@ class Clan:
                                     if not other_kit.inheritance:
                                         other_kit.inheritance = Inheritance(other_kit)
                 kit.inheritance.update_inheritance()
-
-
 
         if clan_apps:
             for app in clan_apps:
