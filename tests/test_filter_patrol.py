@@ -35,7 +35,7 @@ class TestRelationshipConstraintPatrols(unittest.TestCase):
         no_con_patrol_event = PatrolEvent(patrol_id="test2")
         no_con_patrol_event.relationship_constraints = []
 
-        test_clan = Clan(name="test")
+        test_clan = Clan(name="test", your_cat=Cat())
 
         # then
         patrol = Patrol()
@@ -91,7 +91,7 @@ class TestRelationshipConstraintPatrols(unittest.TestCase):
         no_con_patrol_event = PatrolEvent(patrol_id="test2")
         no_con_patrol_event.relationship_constraints = []
 
-        test_clan = Clan(name="test")
+        test_clan = Clan(name="test", your_cat=Cat())
 
         # then
         patrol = Patrol()
@@ -163,7 +163,7 @@ class TestRelationshipConstraintPatrols(unittest.TestCase):
         no_con_patrol_event = PatrolEvent(patrol_id="test2")
         no_con_patrol_event.relationship_constraints = []
 
-        test_clan = Clan(name="test")
+        test_clan = Clan(name="test", your_cat=Cat())
 
         # then
         patrol = Patrol()
@@ -242,7 +242,7 @@ class TestRelationshipConstraintPatrols(unittest.TestCase):
         no_con_patrol_event = PatrolEvent(patrol_id="test2")
         no_con_patrol_event.relationship_constraints = []
 
-        test_clan = Clan(name="test")
+        test_clan = Clan(name="test", your_cat=Cat())
 
         # then
         patrol = Patrol()
@@ -325,7 +325,7 @@ class TestRelationshipConstraintPatrols(unittest.TestCase):
         cat1.relationships[cat2.ID] = relationship1
         cat2.relationships[cat1.ID] = relationship2
 
-        test_clan = Clan(name="test")
+        test_clan = Clan(name="test", your_cat=Cat())
 
         # when - correct
         con_patrol_event = PatrolEvent(patrol_id="test1")
@@ -393,7 +393,7 @@ class TestRelationshipConstraintPatrols(unittest.TestCase):
         cat1.relationships[cat2.ID] = relationship1
         cat2.relationships[cat1.ID] = relationship2
 
-        test_clan = Clan(name="test")
+        test_clan = Clan(name="test", your_cat=Cat())
 
         # when - correct
         con_patrol_event = PatrolEvent(patrol_id="test1")
@@ -460,7 +460,7 @@ class TestRelationshipConstraintPatrols(unittest.TestCase):
         cat1.relationships[cat2.ID] = relationship1
         cat2.relationships[cat1.ID] = relationship2
 
-        test_clan = Clan(name="test")
+        test_clan = Clan(name="test", your_cat=Cat())
 
         # when - correct
         con_patrol_event = PatrolEvent(patrol_id="test1")
@@ -528,7 +528,7 @@ class TestRelationshipConstraintPatrols(unittest.TestCase):
         cat1.relationships[cat2.ID] = relationship1
         cat2.relationships[cat1.ID] = relationship2
 
-        test_clan = Clan(name="test")
+        test_clan = Clan(name="test", your_cat=Cat())
 
         # when - correct
         con_patrol_event = PatrolEvent(patrol_id="test1")
@@ -596,7 +596,7 @@ class TestRelationshipConstraintPatrols(unittest.TestCase):
         cat1.relationships[cat2.ID] = relationship1
         cat2.relationships[cat1.ID] = relationship2
 
-        test_clan = Clan(name="test")
+        test_clan = Clan(name="test", your_cat=Cat())
 
         # when - correct
         con_patrol_event = PatrolEvent(patrol_id="test1")
@@ -664,7 +664,7 @@ class TestRelationshipConstraintPatrols(unittest.TestCase):
         cat1.relationships[cat2.ID] = relationship1
         cat2.relationships[cat1.ID] = relationship2
 
-        test_clan = Clan(name="test")
+        test_clan = Clan(name="test", your_cat=Cat())
 
         # when - correct
         con_patrol_event = PatrolEvent(patrol_id="test1")
@@ -750,7 +750,7 @@ class TestRelationshipConstraintPatrols(unittest.TestCase):
         cat3.relationships[cat1.ID] = relationship3_1
         cat3.relationships[cat2.ID] = relationship3_2
 
-        test_clan = Clan(name="test")
+        test_clan = Clan(name="test", your_cat=Cat())
 
         # when - all is correct
         con_patrol_event = PatrolEvent(patrol_id="test1")
@@ -845,7 +845,7 @@ class TestRelationshipConstraintPatrols(unittest.TestCase):
         cat1.relationships[cat2.ID] = relationship1
         cat2.relationships[cat1.ID] = relationship2
 
-        test_clan = Clan(name="test")
+        test_clan = Clan(name="test", your_cat=Cat())
 
         # when - correct
         con_patrol_event = PatrolEvent(patrol_id="test1")
