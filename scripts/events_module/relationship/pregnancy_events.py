@@ -1202,7 +1202,8 @@ class Pregnancy_Events:
             inverse_chance = int(inverse_chance * 0.9)
 
         # LG
-        if game.clan.your_cat in (first_parent, second_parent) and switch_get_value(Switch.have_kits):
-            inverse_chance = 1
+        if game.clan and game.clan.your_cat:
+            if game.clan.your_cat in (first_parent, second_parent) and switch_get_value(Switch.have_kits):
+                inverse_chance = 1
 
         return inverse_chance
