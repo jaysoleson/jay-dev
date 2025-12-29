@@ -215,6 +215,7 @@
         },
         "had_injury_for": "has been hurt for %{moons}",
         "pregnant_for": "has been pregnant for %{moons}",
+        "guilty_for": "has been troubled for %{moons}",
         "recovering_from_birth_for": "has been recovering for %{moons}",
         "sick": "sick",
         "injured": "injured",

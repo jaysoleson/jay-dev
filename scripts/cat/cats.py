@@ -1225,7 +1225,7 @@ class Cat:
                 only be true for non-timeskip status changes."""
 
         old_rank = self.status.rank
-
+        
         # this is a private function, but it's meant to be used here.
         self.status._change_rank(new_rank)  # pylint: disable=protected-access
 
@@ -1237,16 +1237,6 @@ class Cat:
             if isinstance(fetched_cat, Cat):
                 fetched_cat.update_mentor()
 
-        if switch_get_value(Switch.request_apprentice) and self.mentor == game.clan.your_cat.ID:
-            if game.clan.your_cat.status.rank == CatRank.QUEEN:
-                self.status.rank =  CatRank.QUEENS_APPRENTICE
-            elif game.clan.your_cat.status.rank == CatRank.MEDIATOR:
-                self.status = CatRank.MEDIATOR_APPRENTICE
-            elif game.clan.your_cat.status.rank == CatRank.MEDICINE_CAT:
-                self.status = CatRank.MEDICINE_APPRENTICE
-            else:
-                self.status = CatRank.APPRENTICE
-            switch_set_value(Switch.request_apprentice, False)
 
         # If they have any apprentices, make sure they are still valid:
         if old_rank == CatRank.MEDICINE_CAT:
@@ -2819,9 +2809,8 @@ class Cat:
             if (
                 switch_get_value(Switch.request_apprentice) and
                 self.moons == 6 and
-                not game.clan.your_cat.dead and
-                not game.clan.your_cat.status.is_outsider and
-                game.clan.your_cat.status in [
+                game.clan.your_cat.status.alive_in_player_clan and
+                game.clan.your_cat.status.rank in [
                     CatRank.WARRIOR, CatRank.MEDICINE_CAT,
                     CatRank.MEDIATOR, CatRank.QUEEN,
                     CatRank.DEPUTY, CatRank.LEADER

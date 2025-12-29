@@ -289,12 +289,14 @@ class PatrolOutcome:
                                         other_clan=patrol.other_clan)
 
         # This order is important.
+        results.append(self._handle_murder(patrol))
+
         results.append(self._handle_death(patrol))
         results.append(self._handle_lost(patrol))
         # LG
-        results.append(self._handle_accessories(patrol))
+        if not get_clan_setting('all accessories'):
+            results.append(self._handle_accessories(patrol))
         results.append(self._handle_df_convert(patrol))
-        results.append(self._handle_murder(patrol))
         results.append(self._handle_faith_changes(patrol))
         # ---
         results.append(self._handle_condition_and_scars(patrol))
@@ -629,6 +631,8 @@ class PatrolOutcome:
         results = []
         catnames = []
         for _cat in cats_to_kill:
+            if _cat.dead:
+                continue
             if _cat.status.is_leader:
                 if "all_lives" in self.dead_cats:
                     game.clan.leader_lives = 0
@@ -661,7 +665,7 @@ class PatrolOutcome:
             # Kill Cat
             self.__handle_death_history(_cat, patrol)
             _cat.die(body)
-        if catnames is not []:
+        if catnames:
             results.append(
                 i18n.t(
                     "cat.history.regular_death",
@@ -716,6 +720,7 @@ class PatrolOutcome:
             _cat.joined_df = True
             _cat.df_join_moon = game.clan.age
             _cat.faith -= 1
+            _cat.update_df_mentor()
             
         return " ".join(results)
     
@@ -775,15 +780,9 @@ class PatrolOutcome:
                 victim_ob.remove(None)
 
             results.append(f"{murderer_ob[-1].name} has murdered {victim_ob[-1].name}.")
+            
+            self.__handle_death_history(cat=victim_ob[-1], patrol=patrol, murderer=murderer_ob[-1])
             victim_ob[-1].die()
-
-            # add the murder to their history!
-            murderer_ob[-1].history.add_murder(murderer_ob[-1].ID, victim_ob[-1])
-            murderer_ob[-1].history.reveal_murder(
-                victim=victim_ob[-1],
-                murderer_id=murderer_ob[-1].ID,
-                clan_reveal=False
-            )
 
         return " ".join(results)
           
@@ -1273,7 +1272,7 @@ class PatrolOutcome:
             condition=condition, death_text=final_death_history, scar_text=history_scar
         )
 
-    def __handle_death_history(self, cat: Cat, patrol: "Patrol") -> None:
+    def __handle_death_history(self, cat: Cat, patrol: "Patrol", murderer=None) -> None:
         """Handles adding death history, for dead cats."""
 
         if not (self.history_leader_death and self.history_reg_death):
@@ -1294,29 +1293,25 @@ class PatrolOutcome:
                 "o_c_n", f"{str(patrol.other_clan.name)}Clan"
             )
 
-        other_cat = None
-        cat.history.add_death(death_text=final_death_history)
-        if self.murder:
-            for x in patrol.patrol_cats:
-                if x.ID != cat.ID:
-                    other_cat = x
-            if other_cat:
-                cat.history.add_murders(other_cat, cat.ID, True, f"{other_cat.name} killed this cat in the Dark Forest.")
+        cat.history.add_death(death_text=final_death_history, other_cat=murderer)
+        if murderer:
+            murderer.history.add_murder(murderer_id=murderer.ID, victim=cat)
+            murderer.history.reveal_murder(victim=cat, murderer_id=murderer.ID, clan_reveal=False)
     
     def __handle_accs(self, cat: Cat, acc_list: str) -> str:
-
-        acc_list = [x for x in acc_list if x in Pelt.all_accessories and x not in cat.pelt.inventory]
+        # acc_list = [x for x in acc_list if x in Pelt.all_accessories and x not in cat.pelt.inventory]
         for item in acc_list:
             if item in Pelt.acc_categories:
                 acc_list.remove(item)
                 acc_list.extend(Pelt.acc_categories[item])
+            if item in cat.pelt.inventory:
+                acc_list.remove(item)
 
         if not acc_list:
             return None
 
         chosen_acc = choice(acc_list)
-        if chosen_acc not in cat.pelt.inventory:
-            cat.pelt.inventory.append(chosen_acc)
-            cat.pelt.accessory.append(chosen_acc)
+        cat.pelt.inventory.append(chosen_acc)
+        cat.pelt.accessory.append(chosen_acc)
 
         return chosen_acc

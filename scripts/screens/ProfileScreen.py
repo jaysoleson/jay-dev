@@ -507,15 +507,13 @@ class ProfileScreen(Screens):
                 ChangeCatToggles(self.the_cat)
         elif self.open_tab == 'your tab':
             if event.ui_element == self.have_kits_button:
-                if switch_get_value(Switch.have_kits):
+                if not switch_get_value(Switch.have_kits):
                     game.clan.your_cat.no_kits = False
-                    relation = Pregnancy_Events()
-                    relation.handle_having_kits(game.clan.your_cat, game.clan)
-                    switch_set_value(Switch.have_kits, False)
+                    switch_set_value(Switch.have_kits, True)
                     self.have_kits_button.disable()
             elif event.ui_element == self.request_apprentice_button:
                 if not switch_get_value(Switch.request_apprentice):
-                    switch_set_value(Switch.request_apprentice, False)
+                    switch_set_value(Switch.request_apprentice, True)
                     self.request_apprentice_button.disable()
             elif event.ui_element == self.gift_accessory_button:
                 self.change_screen(GameScreen.GIFT)
@@ -2252,7 +2250,7 @@ class ProfileScreen(Screens):
         """
         returns adjusted death history text
         """
-        text = None
+        text = ""
         death_history = self.the_cat.history.get_death_or_scars(death=True)
         murder_history = self.the_cat.history.murder
         moons = switch_get_value(Switch.show_history_moons)
@@ -2268,13 +2266,6 @@ class ProfileScreen(Screens):
                     main_cat=self.the_cat,
                     random_cat=Cat.fetch_cat(death["involved"]),
                 )
-                if "is_victim" in murder_history:
-                    for event in murder_history["is_victim"]:
-                        text = None
-                        # text = self.get_text_for_murder_event(event, death)
-                        if text is not None:
-                            found_murder = True  # Update the flag if a matching murder event is found
-                            break
 
                 if (
                     self.the_cat.status.is_leader
@@ -2618,17 +2609,16 @@ class ProfileScreen(Screens):
             moons_with = game.clan.age - self.the_cat.injuries[name]["moon_start"]
             insert = "general.had_injury_for"
 
-            if name == 'recovering from birth':
-                insert = 'has been recovering for'
-            elif name == 'pregnant':
-                insert = 'has been pregnant for'
-            elif name == 'guilt':
-                insert = 'has been troubled for'
-            
-            if moons_with != 1:
-                text_list.append(f"{insert} {moons_with} moons")
-            else:
-                text_list.append(f"{insert} 1 moon")
+            if name == "recovering from birth":
+                insert = "general.recovering_from_birth_for"
+            elif name == "pregnant":
+                insert = "general.pregnant_for"
+            elif name == "guilt":
+                insert = "general.guilty_for"
+
+            text_list.append(
+                i18n.t(insert, moons=i18n.t("general.moons_age", count=moons_with))
+            )
 
             # infected or festering
             if "complication" in keys:
@@ -3192,10 +3182,17 @@ class ProfileScreen(Screens):
                 anchors={
                     "bottom_target": self.your_tab},
             )
-            if self.the_cat.age in ['young adult', 'adult', 'senior adult', 'senior'] and not self.the_cat.dead and not self.the_cat.status.is_outsider and switch_get_value(Switch.have_kits):
+            self.have_kits_button.disable()
+            if (
+                Pregnancy_Events.check_if_can_have_kits(
+                    self.the_cat,
+                    get_clan_setting("single parentage"),
+                    get_clan_setting("affair")
+                    ) and 
+                    self.the_cat.status.alive_in_player_clan and
+                    not switch_get_value(Switch.have_kits)
+                ):
                 self.have_kits_button.enable()
-            else:
-                self.have_kits_button.disable()
 
             self.request_apprentice_button = UISurfaceImageButton(
                     ui_scale(pygame.Rect((402, 544), (172, 36))),
@@ -3209,10 +3206,17 @@ class ProfileScreen(Screens):
                         "bottom_target": self.have_kits_button},
                 )
             
-            if self.the_cat.status in ['leader', 'deputy', 'medicine cat', 'mediator', 'queen', 'warrior'] and not self.the_cat.dead and not self.the_cat.status.is_outsider:
+            self.request_apprentice_button.disable()
+            if (
+                self.the_cat.status.rank in (
+                    CatRank.LEADER,
+                    CatRank.DEPUTY,
+                    CatRank.WARRIOR,
+                    CatRank.MEDIATOR,
+                    CatRank.QUEEN
+                ) and self.the_cat.status.alive_in_player_clan
+            ):
                 self.request_apprentice_button.enable()
-            else:
-                self.request_apprentice_button.disable()
             
             self.gift_accessory_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((402, 508), (172, 36))),

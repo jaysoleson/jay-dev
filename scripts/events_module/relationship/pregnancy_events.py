@@ -132,14 +132,6 @@ class Pregnancy_Events:
                 return
 
         chance = Pregnancy_Events.get_balanced_kit_chance(cat, second_parent, is_affair, clan)
-
-        if (game.clan and
-            switch_get_value(Switch.have_kits) and
-            game.clan.your_cat.ID == cat.ID and
-            not game.clan.your_cat.dead and
-            not game.clan.your_cat.status.is_outsider
-            ):
-            chance = random.randint(0,3)
         
         if not int(random.random() * chance):
             # If you've reached here - congrats, kits!
@@ -582,6 +574,7 @@ class Pregnancy_Events:
             return False
 
         if cat.birth_cooldown > 0:
+
             return False
 
         if "recovering from birth" in cat.injuries:
@@ -1207,5 +1200,10 @@ class Pregnancy_Events:
         settings_allow = not second_parent and not get_clan_setting("single parentage")
         if settings_allow and Pregnancy_Events.biggest_family_is_big():
             inverse_chance = int(inverse_chance * 0.9)
+
+        # LG
+        if game.clan and game.clan.your_cat:
+            if game.clan.your_cat in (first_parent, second_parent) and switch_get_value(Switch.have_kits):
+                inverse_chance = 1
 
         return inverse_chance

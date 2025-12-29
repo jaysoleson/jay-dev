@@ -102,6 +102,7 @@ def rebuild_all_screens():
         GameScreen.MOONPLACE: MoonplaceScreen,
         GameScreen.NAME_KITS: NameKitsScreen,
         GameScreen.CHOOSE_REBORN: ChooseRebornScreen,
+        GameScreen.CHOOSE_DEPUTY: DeputyScreen,
         GameScreen.ACHIEVEMENTS: AchievementScreen,
         GameScreen.ELDER_STORY: ElderStoryScreen,
         GameScreen.QUEEN: QueenScreen

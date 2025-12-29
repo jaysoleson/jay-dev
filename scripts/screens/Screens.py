@@ -4,7 +4,7 @@ from scripts.utility import update_sprite
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 import pygame_gui
-from scripts.game_structure.windows import SaveCheck, EventLoading, RetireScreen, DeputyScreen, NameKitsWindow, MateScreen
+from scripts.game_structure.windows import SaveCheck, EventLoading, RetireScreen, ChooseDeputyWindow, NameKitsWindow, MateScreen
 from scripts.game_structure.propagating_thread import PropagatingThread
 from threading import current_thread
 from typing import Dict, Optional, Union
@@ -207,7 +207,7 @@ class Screens:
                 RetireScreen('events screen')
                 switch_remove_list_value(Switch.windows_dict, 'retire')
             elif 'deputy' in switch_get_value(Switch.windows_dict) and not switch_get_value(Switch.window_open):
-                DeputyScreen('events screen')
+                ChooseDeputyWindow('events screen')
                 switch_remove_list_value(Switch.windows_dict, 'deputy')
             elif 'mate' in switch_get_value(Switch.windows_dict) and not switch_get_value(Switch.window_open):
                 MateScreen('events screen')

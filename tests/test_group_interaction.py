@@ -22,6 +22,7 @@ class MainCatFiltering(unittest.TestCase):
         leader=None,
         deputy=None,
         medicine_cat=None,
+        your_cat=Cat(), 
         biome="Forest",
         camp_bg=None,
         game_mode="expanded",

@@ -43,7 +43,7 @@ from scripts.utility import (
 from scripts.cat.enums import CatRank
 from scripts.game_structure.ui_elements import UIImageButton, UIModifiedScrollingContainer, IDImageButton, UISpriteButton
 import random
-from scripts.game_structure.windows import GameOver, DeathScreen, PickPath
+from scripts.game_structure.windows import GameOver, DeathScreen, PickPath, ChooseDeputyWindow
 
 
 class EventsScreen(Screens):
@@ -178,6 +178,19 @@ class EventsScreen(Screens):
                         and game.clan.your_cat.status.rank == CatRank.KITTEN
                         ):
                     PickPath('events screen')
+                elif (
+                        game.clan.leader and
+                        game.clan.leader.ID == game.clan.your_cat.ID and
+                        game.clan.your_cat.shunned == 0 and
+                        (
+                            not game.clan.deputy or
+                            (
+                                game.clan.deputy and not game.clan.deputy.status.alive_in_player_clan
+                            )
+                        )
+                        ):
+                        print(game.clan.deputy)
+                        ChooseDeputyWindow('events screen')
                 else:
                     self.events_thread = self.loading_screen_start_work(
                         events_class.one_moon

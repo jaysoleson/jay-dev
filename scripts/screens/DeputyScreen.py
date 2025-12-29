@@ -15,6 +15,7 @@ from scripts.utility import (
     ui_scale_dimensions
 )
 from scripts.screens.enums import GameScreen
+from ..cat.enums import CatAge, CatRank, CatGroup
 
 from ..game_structure.screen_settings import MANAGER
 from ..ui.generate_box import get_box, BoxStyles
@@ -60,7 +61,7 @@ class DeputyScreen(Screens):
                 if not self.selected_cat.dead:
                     self.update_selected_cat()
 
-                    self.change_cat(self.selected_cat)
+                    self.change_cat()
                     # self.update_buttons()
             elif event.ui_element == self.back_button:
                 self.change_screen(GameScreen.EVENTS)
@@ -161,13 +162,12 @@ class DeputyScreen(Screens):
         self.next_page_button.kill()
         del self.next_page_button
 
-    def change_cat(self, new_mentor=None):
-        self.exit_screen()
-        game.cur_events_list.clear()
+    def change_cat(self):
+        # game.cur_events_list.clear()
         if game.clan.deputy:
-            game.clan.deputy.status_change('warrior')
-        new_mentor.status_change('deputy')
-        switch_set_value(Switch.cur_screen, 'events screen')
+            game.clan.deputy.rank_change(CatRank.WARRIOR)
+        game.clan.new_deputy(self.selected_cat)
+        self.change_screen(GameScreen.EVENTS)
 
 
     def update_selected_cat(self):
@@ -185,7 +185,7 @@ class DeputyScreen(Screens):
                     manager=MANAGER,
                 )
 
-            info = self.selected_cat.status + "\n" + \
+            info = self.selected_cat.status.rank + "\n" + \
                    self.selected_cat.genderalign + "\n" + self.selected_cat.personality.trait + "\n" + \
                    self.selected_cat.skills.skill_string(short=True)
 
@@ -261,7 +261,7 @@ class DeputyScreen(Screens):
         valid_mentors = []
 
         for cat in Cat.all_cats_list:
-            if not cat.dead and not cat.status.is_outsider and cat.status == "warrior":
+            if cat.status.alive_in_player_clan and cat.status.rank == CatRank.WARRIOR:
                 valid_mentors.append(cat)
         
         return valid_mentors

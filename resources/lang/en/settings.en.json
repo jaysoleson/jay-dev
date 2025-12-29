@@ -45,7 +45,7 @@
         "freshkill": "Enable auto freshkill",
         "freshkill_tooltip": "Your Clan will catch freshkill every moon without your help.",
         "all accessories": "Enable all accessories",
-        "all accessories_tooltip": "Give every accessory to every cat. If disabled later, they will keep the accessories they're wearing.",
+        "all accessories_tooltip": "Give every accessory to every cat. If disabled later, they will keep all accessories they've ever tried on.",
         "deputy": "Allow leaders to automatically choose a new deputy",
         "deputy_tooltip": "The Warrior Code rules will be taken into account when choosing a deputy.",
         "12_moon_graduation": "Disable experience-based apprentice graduation",
