@@ -4177,3 +4177,7 @@ class Events:
 
 
 events_class = Events()
+
+def one_moon(*args, **kwargs):
+    return events_class.one_moon(*args, **kwargs)
+
