@@ -2213,7 +2213,7 @@ class DeathScreen(UIWindow):
                 self.kill()
                 game.all_screens['events screen'].exit_screen()
 
-class DeputyScreen(UIWindow):
+class ChooseDeputyWindow(UIWindow):
     def __init__(self, last_screen):
         super().__init__(ui_scale(pygame.Rect((250, 200), (300, 180))),
                         window_display_title='Choose your deputy',
@@ -2265,15 +2265,15 @@ class DeputyScreen(UIWindow):
             elif event.ui_element == self.mediator_button:
                 game.last_screen_forupdate = None
                 if game.clan.deputy:
-                    game.clan.deputy.status_change('warrior')
+                    game.clan.deputy.rank_change(CatRank.WARRIOR)
                 switch_set_value(Switch.window_open, False)
 
-                switch_set_value(Switch.cur_screen, 'deputy screen')
+                game.last_screen_forupdate = switch_get_value(Switch.cur_screen)
+                switch_set_value(Switch.cur_screen, GameScreen.CHOOSE_DEPUTY)
                 self.begin_anew_button.kill()
                 self.pick_path_message.kill()
                 self.mediator_button.kill()
                 self.kill()
-                game.all_screens['events screen'].exit_screen()
 
 class NameKitsWindow(UIWindow):
     def __init__(self, last_screen):
@@ -2332,12 +2332,13 @@ class NameKitsWindow(UIWindow):
                     game.last_screen_forupdate = None
                     switch_set_value(Switch.window_open, False)
 
-                    switch_set_value(Switch.cur_screen, 'name kits screen')
+                    game.last_screen_forupdate = switch_get_value(Switch.cur_screen)
+                    switch_set_value(Switch.cur_screen, GameScreen.NAME_KITS)
+                    game.switch_screens = True
                     self.begin_anew_button.kill()
                     self.pick_path_message.kill()
                     self.mediator_button.kill()
                     self.kill()
-                    game.all_screens['events screen'].exit_screen()
             except:
                 print("failure with kits window")
 

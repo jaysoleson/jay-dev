@@ -126,8 +126,6 @@ class Pregnancy_Events:
         )
         if second_parent:
             if not can_have_kits:
-                if cat.ID == game.clan.your_cat.ID:
-                    print("returning here 2", second_parent.name)
                 return
         else:
             if not get_clan_setting("single parentage"):
@@ -1205,7 +1203,6 @@ class Pregnancy_Events:
 
         # LG
         if game.clan.your_cat in (first_parent, second_parent) and switch_get_value(Switch.have_kits):
-            print("CHANCE B4:", inverse_chance)
             inverse_chance = 1
 
         return inverse_chance

@@ -56,7 +56,7 @@ from scripts.game_structure.windows import (
     SaveError,
     RetireScreen,
     NameKitsWindow,
-    DeputyScreen
+    ChooseDeputyWindow
     )
 from scripts.utility import (
     change_clan_relations,
@@ -454,7 +454,7 @@ class Events:
         with open(f"{resource_dir}df.json",
                   encoding="ascii") as read_file:
             self.df_txt = ujson.loads(read_file.read())
-        if not game.clan.your_cat.dead and not game.clan.your_cat.status.is_outsider:
+        if game.clan.your_cat.status.alive_in_player_clan:
             if game.clan.your_cat.moons == 0:
                 self.generate_birth_event()
             elif game.clan.your_cat.moons < 6:
@@ -481,7 +481,6 @@ class Events:
                 self.generate_df_events()
             
             if game.clan.your_cat.moons >= 12:
-                self.check_leader(self.checks)
                 if game.clan.your_cat.shunned == 0:
                     self.check_gain_app(self.checks)
                 self.check_gain_mate(self.checks)
@@ -1380,14 +1379,7 @@ class Events:
                 switch_set_value(Switch.reject, False)
             except:
                 print("You rejected a cat but an event could not be shown")
-    
-    def check_leader(self, checks):
-        if game.clan.leader:
-            if checks[3] != game.clan.leader.ID and game.clan.your_cat.status.rank == CatRank.LEADER and not switch_get_value(Switch.window_open) and game.clan.your_cat.shunned == 0:
-                DeputyScreen('events screen')
-            elif checks[3] != game.clan.leader.ID and game.clan.your_cat.status.rank == CatRank.LEADER and game.clan.your_cat.shunned == 0:
-                switch_append_list_value(Switch.windows_dict, 'deputy')
-            
+   
     def check_gain_kits(self, checks):
         if len(game.clan.your_cat.inheritance.get_blood_kits()) > checks[2] and not switch_get_value(Switch.window_open):
             NameKitsWindow('events screen')

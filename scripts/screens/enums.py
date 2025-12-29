@@ -40,6 +40,7 @@ class GameScreen(StrEnum):
     ACHIEVEMENTS = "achievements_screen"
     AFFAIR = "affair_screen"
     CHOOSE_REBORN = "choose_reborn_screen"
+    CHOOSE_DEPUTY = "choose_deputy_screen"
     ELDER_STORY = "elder_story_screen"
     GIFT = "gift_screen"
     MOONPLACE = "moonplace_screen"
