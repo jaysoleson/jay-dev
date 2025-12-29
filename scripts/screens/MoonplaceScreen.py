@@ -11,7 +11,7 @@ from ..game_structure.game.switches import switch_set_value, switch_get_value, S
 from scripts.screens.enums import GameScreen
 
 from scripts.cat.enums import CatAge, CatRank, CatGroup
-from ..game_structure.game.settings import game_setting_set
+from ..game_structure.game.settings import game_setting_set, game_setting_get
 from scripts.screens.enums import GameScreen
 
 import pygame_gui
