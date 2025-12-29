@@ -1332,7 +1332,15 @@ class Clan:
             game.clan.exile_return = clan_data["exile_return"]
 
         if "achievements" in clan_data:
-            game.clan.achievements = clan_data["achievements"]
+            achievement_list = []
+            for item in clan_data["achievements"]:
+                if not isinstance(item, list):
+                    achievement_list.append([item, game.clan.your_cat.ID]
+                    )
+                else:
+                    achievement_list.append(item)
+
+            game.clan.achievements = achievement_list
         
         if "talks" in clan_data:
             game.clan.talks = clan_data["talks"]
