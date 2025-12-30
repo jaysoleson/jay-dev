@@ -109,6 +109,7 @@ class CatStanding(StrEnum):
     EXILED = "exiled"
     KNOWN = "known"
 
+    # LG
     SHUNNED = "shunned"
 
 

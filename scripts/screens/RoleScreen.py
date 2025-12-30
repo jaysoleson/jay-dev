@@ -89,10 +89,10 @@ class RoleScreen(Screens):
                 self.the_cat.rank_change(CatRank.MEDIATOR_APPRENTICE, resort=True)
                 self.update_selected_cat()
             elif event.ui_element == self.switch_queen_app:
-                self.the_cat.status_change("queen's apprentice", resort=True)
+                self.the_cat.rank_change(CatRank.QUEENS_APPRENTICE, resort=True)
                 self.update_selected_cat()
             elif event.ui_element == self.switch_queen:
-                self.the_cat.status_change("queen", resort=True)
+                self.the_cat.rank_change(CatRank.QUEEN, resort=True)
                 self.update_selected_cat()
 
         elif event.type == pygame.KEYDOWN and game_setting_get("keybinds"):
