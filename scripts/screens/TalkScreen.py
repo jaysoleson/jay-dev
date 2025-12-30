@@ -820,7 +820,7 @@ class TalkScreen(Screens):
             # this allows cats who were shunned and demoted from leader to
             # still get leaderlike dialogue
             # TODO: this is useless rn. do something
-            if you.shunned != 0:
+            if you.status.is_shunned():
                 murder_history = History.get_murders(you)
                 history = None
                 your_status = you.status.rank
@@ -869,37 +869,33 @@ class TalkScreen(Screens):
                 continue
 
             # FORGIVEN TAGS
-            youreforgiven = False
-            theyreforgiven = False
-
-            if you.forgiven < 11 and you.forgiven > 0:
-                youreforgiven = True
-
-            if cat.forgiven < 11 and cat.forgiven > 0:
-                theyreforgiven = True
-
-            if "forgiven" in YOU and YOU["forgiven"] is True and (you.shunned > 0 or not youreforgiven):
-                continue
-
-            if "forgiven" in CAT and CAT["forgiven"] is True and (cat.shunned > 0 or not theyreforgiven):
-                continue
+            if "forgiven" in YOU:
+                if YOU["forgiven"] and not you.status.is_forgiven():
+                    continue
+                elif not YOU["forgiven"] and you.status.is_forgiven():
+                    continue
+            if "forgiven" in CAT:
+                if CAT["forgiven"] and not cat.status.is_forgiven():
+                    continue
+                elif not CAT["forgiven"] and cat.status.is_forgiven():
+                    continue
 
             # SHUNNED TAGS
             if "shunned" in YOU:
-                if YOU["shunned"] is True and you.shunned == 0:
+                if YOU["shunned"] is True and not you.status.is_shunned():
                     continue
-                if YOU["shunned"] is False and you.shunned > 0:
+                if YOU["shunned"] is False and not you.status.is_shunned():
                     continue
             else:
-                if you.shunned > 0:
+                if you.status.is_shunned():
                     continue
             if "shunned" in CAT:
-                if CAT["shunned"] is True and cat.shunned == 0:
+                if CAT["shunned"] is True and not cat.status.is_shunned():
                     continue
-                if CAT["shunned"] is False and cat.shunned > 0:
+                if CAT["shunned"] is False and cat.status.is_shunned():
                     continue
             else:
-                if cat.shunned > 0:
+                if cat.status.is_shunned():
                     continue
 
             # CONDITIONS
@@ -1654,7 +1650,7 @@ class TalkScreen(Screens):
         add_on = add_on_map.get((you.dead, you.status.is_outsider), "")
         if "grief stricken" in you.illnesses:
             add_on += " g"
-        if you.shunned > 0:
+        if you.status.is_shunned():
             add_on += " sh"
         if "blind" in you.permanent_condition:
             add_on += " b"
@@ -1664,7 +1660,7 @@ class TalkScreen(Screens):
         add_on2 = add_on_map.get((cat.dead, cat.status.is_outsider), "")
         if "grief stricken" in cat.illnesses:
             add_on2 += " g"
-        if cat.shunned > 0:
+        if cat.status.is_shunned():
             add_on2 += " sh"
         if "blind" in cat.permanent_condition:
             add_on2 += " b"

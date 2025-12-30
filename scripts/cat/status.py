@@ -5,6 +5,7 @@ from typing import TypedDict, Optional, List, Dict
 
 from scripts.cat.enums import CatRank, CatSocial, CatStanding, CatAge, CatGroup
 from scripts.game_structure import game
+from scripts.game_structure import constants
 
 
 class Status:
@@ -448,7 +449,11 @@ class Status:
                 if duplicates > 1:
                     removed_index = record["standing"].index(new_standing)
                     record["standing"].pop(removed_index)
-                record["standing"].append(new_standing)
+                # LG
+                if new_standing == CatStanding.SHUNNED:
+                    record["standing"].append([new_standing, game.clan.age])
+                else:
+                    record["standing"].append(new_standing)
                 return
 
         self.standing_history.append(
@@ -465,6 +470,19 @@ class Status:
         rank = CatRank(new_social_status)
 
         self._modify_group(rank, standing_with_past_group=CatStanding.LOST)
+
+    def shun_from_group(self):
+        """
+        Removes cat from current group and changes their standing with that group to be shunned.
+        """
+        print("SHUNNING")
+
+        self.change_standing(CatStanding.SHUNNED)
+
+    def unshun_from_group(self):
+
+        print("UNSHUNNING")
+        self.change_standing(CatStanding.MEMBER)
 
     def exile_from_group(self):
         """
@@ -647,6 +665,43 @@ class Status:
                 return True
 
         return False
+    
+    def is_shunned(self, group_ID: str = None) -> bool:
+        """
+        Returns True if a cat is shunned within a group
+        :param group_ID: Use to specify the group the cat may have been shunned within. If no group is given, this will return True if the cat has been shunned from any group.
+        """
+
+        if not group_ID:
+            for entry in self.standing_history:
+                if isinstance(entry["standing"][-1], list):
+                    if entry["standing"][-1][0] == CatStanding.SHUNNED:
+                        return True
+            return False
+
+        # if group given
+        standing = self.get_standing_with_group(group_ID)
+
+        if standing and isinstance(standing[-1], list):
+            if standing[-1][0] == CatStanding.SHUNNED:
+                return True
+
+        return False
+    
+    def is_forgiven(self) -> bool:
+        standing = self.get_standing_with_group(CatGroup.PLAYER_CLAN_ID)
+        for item in standing:
+            if isinstance(item, list) and item[0] == CatStanding.SHUNNED:
+                if not self.is_shunned():
+                    moons_since_shun = (
+                        game.clan.age -
+                        item[1] -
+                        constants.CONFIG["lifegen"]["shunned_cat"]["max_shunned_moons"]
+                        )
+                    if moons_since_shun < constants.CONFIG["lifegen"]["shunned_cat"]["max_forgiven_moons"]:
+                        return True
+        return False
+        
 
     def is_exiled(self, group_ID: str = None) -> bool:
         """

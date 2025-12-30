@@ -83,31 +83,44 @@ def json_load():
             if "inventory" not in cat:
                 cat["inventory"] = cat["accessory"]
 
-            
-            # converting old accessories 
-            if "LADYBUG" in cat["inventory"]:
-                cat["inventory"].remove("LADYBUG")
-                cat["inventory"].append("LADYBUGS")
-            if "CHIMES" in cat["inventory"]:
-                cat["inventory"].remove("CHIMES")
-                cat["inventory"].append("CELESTIALCHIMES")
-            if "RAINCOAT" in cat["inventory"]:
-                cat["inventory"].remove("RAINCOAT")
-                cat["inventory"].append("YELLOWRAINCOAT")
+            # lifegen accessory change conversion
+            accessory_convert = {
+                "SMALL COMET": "COMET MOTH",
+                "LARGE COMET": "COMET MOTH",
+                "RASPBERRY2": "RASPBERRY",
+                "SMALL LUNA": "LUNA MOTH",
+                "LARGE LUNA": "LUNA MOTH",
+                "CHERRY2": "CHERRY",
+                "RAINCOAT": "YELLOWRAINCOAT",
+                "CHIMES": "CELESTIALCHIMES",
+                "LADYBUG": "LADYBUGS"
+            }
+            for acc in cat["inventory"].copy():
+                if acc in accessory_convert:
+                    if acc in cat['accessory']:
+                        cat['accessory'].remove(acc)
+                        if accessory_convert[acc]:
+                            cat['inventory'].append(accessory_convert[acc])
+                    print("Removing outdated accessory:", acc)
+                    cat['inventory'].remove(acc)
+                    if accessory_convert[acc]:
+                        cat['inventory'].append(accessory_convert[acc])
 
-            if "LADYBUG" in cat["accessory"]:
-                cat["accessory"].remove("LADYBUG")
-                cat["accessory"].append("LADYBUGS")
-            if "CHIMES" in cat["accessory"]:
-                cat["accessory"].remove("CHIMES")
-                cat["accessory"].append("CELESTIALCHIMES")
-            if "RAINCOAT" in cat["accessory"]:
-                cat["accessory"].remove("RAINCOAT")
-                cat["accessory"].append("YELLOWRAINCOAT")
+                elif acc not in Pelt.all_accessories:
+                    if acc in cat['accessory']:
+                        cat['accessory'].remove(acc)
+                    if acc in cat['inventory']:
+                        cat['inventory'].remove(acc)
             
+            for acc in cat['inventory']:
+                if acc not in Pelt.all_accessories:
+                    cat["inventory"].remove(acc)
             for acc in cat['accessory']:
+                if acc not in Pelt.all_accessories:
+                    cat["accessory"].remove(acc)
                 if acc not in cat["inventory"]:
                     cat["inventory"].append(acc)
+            
             # accounting for old saves
             # checks first if status is in the old format
             # if it is then we use the old info to provide an initial status dict
@@ -269,7 +282,6 @@ def json_load():
             new_cat.no_retire = cat["no_retire"] if "no_retire" in cat else False
             new_cat.no_faith = cat["no_faith"] if "no_faith" in cat else False
             new_cat.lock_faith = cat["lock_faith"] if "lock_faith" in cat else "flexible"
-            new_cat.shunned = cat["shunned"]
             new_cat.driven_out = cat["driven_out"] if "driven_out" in cat else False
 
             if "skill_dict" in cat:
@@ -329,7 +341,6 @@ def json_load():
             new_cat.experience = cat["experience"]
             new_cat.apprentice = cat["current_apprentice"]
             new_cat.former_apprentices = cat["former_apprentices"]
-            new_cat.shunned = cat["shunned"] if "shunned" in cat else False
             new_cat.faded_offspring = (
                 cat["faded_offspring"] if "faded_offspring" in cat else []
             )
@@ -343,7 +354,6 @@ def json_load():
             new_cat.flirted = cat['flirted'] if "flirted" in cat else False
             new_cat.backstory_str = cat["backstory_str"] if "backstory_str" in cat else ""
             new_cat.joined_df = cat["joined_df"] if "joined_df" in cat else False
-            new_cat.forgiven = cat["forgiven"] if "forgiven" in cat else 0
             new_cat.revives = cat["revives"] if "revives" in cat else 0
             new_cat.courage = cat["courage"] if "courage" in cat else 0
             new_cat.intelligence = cat["intelligence"] if "intelligence" in cat else 0
@@ -363,25 +373,25 @@ def json_load():
                     cat["died_by"] if "died_by" in cat else [],
                     cat["scar_event"] if "scar_event" in cat else [],
                 )
-            if "pronouns" in cat:
-                for lang in cat["pronouns"]:
-                    for prn_set in cat["pronouns"][lang]:
-                        if "sibling" not in prn_set:
-                            if new_cat.genderalign in ["male", "trans male"]:
-                                prn_set["sibling"] = "brother"
-                            elif new_cat.genderalign in ["female", "trans female"]:
-                                prn_set["sibling"] = "sister"
-                            else:
-                                prn_set["sibling"] = "sibling"
+            # if "pronouns" in cat:
+            #     for lang in cat["pronouns"]:
+            #         for prn_set in cat["pronouns"][lang]:
+            #             if "sibling" not in prn_set:
+            #                 if new_cat.genderalign in ["male", "trans male"]:
+            #                     prn_set["sibling"] = "brother"
+            #                 elif new_cat.genderalign in ["female", "trans female"]:
+            #                     prn_set["sibling"] = "sister"
+            #                 else:
+            #                     prn_set["sibling"] = "sibling"
 
             
-                        if "parent" not in prn_set:
-                            if new_cat.genderalign in ["male", "trans male"]:
-                                prn_set["parent"] = "father"
-                            elif new_cat.genderalign in ["female", "trans female"]:
-                                prn_set["parent"] = "mother"
-                            else:
-                                prn_set["parent"] = "parent"
+            #             if "parent" not in prn_set:
+            #                 if new_cat.genderalign in ["male", "trans male"]:
+            #                     prn_set["parent"] = "father"
+            #                 elif new_cat.genderalign in ["female", "trans female"]:
+            #                     prn_set["parent"] = "mother"
+            #                 else:
+            #                     prn_set["parent"] = "parent"
 
             new_cat.starclan_affinity = cat.get("starclan_affinity", 0)
             new_cat.dark_forest_affinity = cat.get("dark_forest_affinity", 0)

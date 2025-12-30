@@ -421,44 +421,44 @@
             "one": "ladybugs"
         },
         "PURPLERAINCOAT": {
-            "zero": "raincoats",
-            "many": "raincoats",
-            "one": "raincoat"
+            "zero": "purple raincoats",
+            "many": "purple raincoats",
+            "one": "purple raincoat"
         },
         "BLUERAINCOAT": {
-            "zero": "raincoats",
-            "many": "raincoats",
-            "one": "raincoat"
+            "zero": "blue raincoats",
+            "many": "blue raincoats",
+            "one": "blue raincoat"
         },
         "GREENRAINCOAT": {
-            "zero": "raincoats",
-            "many": "raincoats",
-            "one": "raincoat"
+            "zero": "green raincoats",
+            "many": "green raincoats",
+            "one": "green raincoat"
         },
         "PINKRAINCOAT": {
-            "zero": "raincoats",
-            "many": "raincoats",
-            "one": "raincoat"
+            "zero": "pink raincoats",
+            "many": "pink raincoats",
+            "one": "pink raincoat"
         },
         "REDRAINCOAT": {
-            "zero": "raincoats",
-            "many": "raincoats",
-            "one": "raincoat"
+            "zero": "red raincoats",
+            "many": "red raincoats",
+            "one": "red raincoat"
         },
         "LIMERAINCOAT": {
-            "zero": "raincoats",
-            "many": "raincoats",
-            "one": "raincoat"
+            "zero": "lime raincoats",
+            "many": "lime raincoats",
+            "one": "lime raincoat"
         },
         "ORANGERAINCOAT": {
-            "zero": "raincoats",
-            "many": "raincoats",
-            "one": "raincoat"
+            "zero": "orange raincoats",
+            "many": "orange raincoats",
+            "one": "orange raincoat"
         },
         "YELLOWRAINCOAT": {
-            "zero": "raincoats",
-            "many": "raincoats",
-            "one": "raincoat"
+            "zero": "yellow raincoats",
+            "many": "yellow raincoats",
+            "one": "yellow raincoat"
         },
         "MOONHAT": {
             "zero": "sleeping caps",
@@ -564,6 +564,71 @@
             "zero": "holly vines",
             "many": "holly vines",
             "one": "holly vines"
+        },
+        "LUNAR MOTH": {
+            "zero": "lunar moth wings",
+            "many": "lunar moth wings",
+            "one": "lunar moth wings"
+        },
+        "ROSY MAPLE MOTH": {
+            "zero": "rosy maple moth wings",
+            "many": "rosy maple moth wings",
+            "one": "rosy maple moth wings"
+        },
+        "MONARCH": {
+            "zero": "monarch butterfly wings",
+            "many": "monarch butterfly wings",
+            "one": "monarch butterfly wings"
+        },
+        "DAPPLED MONARCH": {
+            "zero": "dappled monarch wings",
+            "many": "dappled monarch wings",
+            "one": "dappled monarch wings"
+        },
+        "POLYPHEMUS MOTH": {
+            "zero": "polyphemus moth wings",
+            "many": "polyphemus moth wings",
+            "one": "polyphemus moth wings"
+        },
+        "MINT MOTH": {
+            "zero": "mint moth wings",
+            "many": "mint moth wings",
+            "one": "mint moth wings"
+        },
+        "ATLAS MOTH": {
+            "zero": "atlas moth wings",
+            "many": "atlas moth wings",
+            "one": "atlas moth wings"
+        },
+        "COMET MOTH": {
+            "zero": "comet moth wings",
+            "many": "comet moth wings",
+            "one": "comet moth wings"
+        },
+        "BLACKBERRY": {
+            "zero": "blackberry",
+            "many": "blackberry",
+            "one": "blackberry"
+        },
+        "GOLDEN RASPBERRY": {
+            "zero": "golden raspberry",
+            "many": "golden raspberry",
+            "one": "golden raspberry"
+        },
+        "YEW": {
+            "zero": "yew berry",
+            "many": "yew berry",
+            "one": "yew berry"
+        },
+        "ORANGE SLICE": {
+            "zero": "orange slice",
+            "many": "orange slice",
+            "one": "orange slice"
+        },
+        "SASKATOONS": {
+            "zero": "saskatoons",
+            "many": "bunch of saskatoons",
+            "one": "saskatoons"
         }
     }
 }
