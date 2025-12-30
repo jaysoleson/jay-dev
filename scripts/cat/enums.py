@@ -109,6 +109,9 @@ class CatStanding(StrEnum):
     EXILED = "exiled"
     KNOWN = "known"
 
+    # LG
+    SHUNNED = "shunned"
+
 
 class CatGroup(StrEnum):
     PLAYER_CLAN = "player_clan"

@@ -4462,14 +4462,17 @@ def check_achievements(Cat, eventspage=False):
         achievements.add('27')
     if you.experience >= 300:
         achievements.add('28')
-    
-    for i in game.clan.achievements:
-        achievements.add(i)
 
     new_achievements_list = []
     for item in achievements:
-        if item not in game.clan.achievements:
-            game.clan.achievements.append(item)
+        already_earned = False
+        for entry in game.clan.achievements:
+            if entry[0] == item:
+                already_earned = True
+                break
+
+        if not already_earned:
+            game.clan.achievements.append([item, game.clan.your_cat.ID])
             if eventspage:
                 new_achievements_list.append(item)
     if eventspage:

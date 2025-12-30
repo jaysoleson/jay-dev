@@ -19,21 +19,14 @@ import traceback
 import logging
 import random
 from html import escape
+from ..game_structure.game.settings import game_setting_get
 
 import pygame
 import pygame_gui
-import ujson
-from requests.exceptions import RequestException, Timeout
 
 from scripts.cat.cats import Cat
-from scripts.clan import Clan
-from scripts.cat.pelts import Pelt
-from scripts.game_structure import image_cache
-from scripts.game_structure.discord_rpc import _DiscordRPC
 from scripts.game_structure import game
-from scripts.game_structure.windows import DeleteCheck, UpdateAvailablePopup, ChangelogPopup, SaveError
 from scripts.utility import get_text_box_theme, check_achievements  # pylint: disable=redefined-builtin
-from scripts.cat.history import History
 from .Screens import Screens
 from ..housekeeping.datadir import get_data_dir, get_cache_dir
 from ..housekeeping.update import has_update, UpdateChannel, get_latest_version_number
@@ -57,24 +50,38 @@ class AchievementScreen(Screens):
         """
         super().screen_switches()
         
-        self.set_disabled_menu_buttons(["stats"])
         self.show_menu_buttons()
-        self.update_heading_text(f'{game.clan.displayname}Clan')
+        self.show_mute_buttons()
+        self.set_disabled_menu_buttons(["achievements"])
+        self.update_heading_text(f"{game.clan.displayname}Clan")
 
         a_txt = load_lang_resource("achievements.json")
 
         check_achievements(Cat)
 
         # Determine stats
-        stats_text = "Achievements:"
+        self.heading = pygame_gui.elements.UITextBox(
+            "<u>Achievements</u>",
+            ui_scale(pygame.Rect((0, 140), (600, 500))),
+            manager=MANAGER,
+            object_id=get_text_box_theme("#text_box_40_horizcenter"),
+            anchors={"centerx": "centerx"})
+
+        catname_colour = "#B5A17B" if game_setting_get('dark mode') else "#605546"
+        stats_text = ""
         for i in game.clan.achievements:
-            stats_text += f"\n <b>{a_txt[i][0]}</b> - {a_txt[i][1]}"
+            stats_text += (
+                f"\n <b>{a_txt[i[0]][0]}</b> - " +
+                f"{a_txt[i[0]][1]} " +
+                f"<font color='{catname_colour}'>({Cat.fetch_cat(i[1]).name})</font>"
+                )
 
         self.stats_box = pygame_gui.elements.UITextBox(
             stats_text,
-            ui_scale(pygame.Rect((100, 150), (600, 500))),
+            ui_scale(pygame.Rect((0, 170), (600, 500))),
             manager=MANAGER,
-            object_id=get_text_box_theme("#text_box_30_horizcenter"))
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            anchors={"centerx": "centerx"})
 
 
     def exit_screen(self):
@@ -83,6 +90,8 @@ class AchievementScreen(Screens):
         """
         self.stats_box.kill()
         del self.stats_box
+        self.heading.kill()
+        del self.heading
 
     def handle_event(self, event):
         """

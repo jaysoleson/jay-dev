@@ -16,7 +16,7 @@ import ujson  # type: ignore
 
 import scripts.game_structure.localization as pronouns
 from scripts.cat import save_load
-from scripts.cat.enums import CatAge, CatRank, CatSocial, CatGroup, CatCompatibility
+from scripts.cat.enums import CatAge, CatRank, CatSocial, CatGroup, CatStanding, CatCompatibility
 from scripts.cat.history import History
 from scripts.cat.names import Name
 from scripts.cat.pelts import Pelt
@@ -758,221 +758,34 @@ class Cat:
                 fetched_cat.update_mentor()
         self.update_mentor()
 
-# pylint: disable=f-string-without-interpolation
-    def handle_exile_returns(self):
-        """outside cats returnin"""
-       
-            
-        exiled_cats = [cat for cat in Cat.all_cats.values() if cat.status.is_exiled(CatGroup.PLAYER_CLAN) and not cat.dead]
-        
-        if len(exiled_cats) > 20:
-            run = randint(1,80)
-        elif len(exiled_cats) > 10:
-            run = randint(1,60)
-        elif len(exiled_cats) > 5:
-            run = randint(1,40)
-        else:
-            run = randint(1,20)
-        
-        if run == 2:
-
-            exiled_cat = choice(exiled_cats)
-
-            event_text = f"The entire Clan is shocked when {exiled_cat.name} shows up at the camp entrance. They asked to be let back into the Clan, "
-
-            allowchance = randint(1,3)
-            if allowchance == 1:
-                event_text = event_text + f"and, after a Clan meeting is held, it's decided that they will be allowed back in."
-                # exiled_cat.status.is_exiled(CatGroup.PLAYER_CLAN) = False
-                # CHECKMERGE unexile whatever
-                Cat.add_to_clan(exiled_cat)
-                if exiled_cat.moons > 119:
-                    exiled_cat.status = "elder"
-                elif exiled_cat.moons > 12:
-                    exiled_cat.status = "warrior"
-                elif exiled_cat.moons > 6:
-                    exiled_cat.status = "apprentice"
-                else:
-                    exiled_cat.status = "kitten"
-            else:
-                event_text = event_text + f"but the more vengeful of {game.clan.name}Clan's members chase them out and leave them with a few scars to remember their past home by."
-
-                scar = choice(["ONE", "TWO", "THREE", "TAILSCAR", "SNOUT", "CHEEK", "SIDE", "THROAT", "TAILBASE", "BELLY",
-                "LEGBITE", "NECKBITE", "FACE", "MANLEG", "MANTAIL", "BRIDGE", "RIGHTBLIND", "LEFTBLIND",
-                "BOTHBLIND", "CATBITE", "HINDLEG", "BACK", "SCRATCHSIDE", "CATBITETWO", "FOUR"])
-
-                exiled_cat.pelt.scars.append(scar if scar not in exiled_cat.pelt.scars and len(exiled_cat.pelt.scars) < 4 else None)
-
-            involved_cats = [exiled_cat.ID]
-            game.cur_events_list.append(Single_Event(event_text, ["misc"], involved_cats))
-
     def return_home(self):
         """
         Handles the outside MC attempting to return to the Clan
         """
 
-        you = game.clan.your_cat
-        if not you.outside:
-            return
-        
-        # murder_history = History.get_murders(you)
-        murder_history = you.history.murder
-        num_victims = 0
-        if murder_history:
-            if 'is_murderer' in murder_history:
-                num_victims = len(murder_history["is_murderer"])
+        event_types = ["misc"]
 
-        nice = you.personality.trait in ["charismatic", "confident", "flexible", "witty", "loyal", "responsible", "faithful", "compassionate", "sincere", "sweet", "polite"]
-        naughty = you.personality.trait in ["bloodthirsty", "sneaky", "manipulative", "strange", "rebellious", "troublesome", "stoic", "aloof", "cunning"]
-        acceptchance = randint(1,5)
-        killchance = randint(1,50)
-        return_home_upperbound = int(constants.CONFIG["lifegen"]["shunned_cat"]["return_home_chance"])
-        if you.exiled:
+        if not int(random() * constants.CONFIG["lifegen"]["shunned_cat"]["return_home_chance"]):
+            self.thought = "Is glad to be back"
+            event_string = event_text_adjust(
+                Cat,
+                text="The exiled m_c appears on the border one day, begging to be let back into the Clan. After taking a vote, c_n has decided to let {PRONOUN/m_c/object} back in.",
+                main_cat=self,
+                clan=game.clan
+            )
 
-            if num_victims == 0:
-                acceptchance = randint (1,4)
-                killchance = randint(1,40)
-            
-            elif num_victims == 1: # one victim
-                acceptchance = randint(1,8)
-                killchance = randint(1,30)
+            # remove the exile from their history so it wont display on their profile
+            self.status.add_to_group(CatGroup.PLAYER_CLAN_ID)
+            game.cur_events_list.insert(0, Single_Event(event_string, event_types, cats_involved=[self.ID]))
+            return True
 
-            elif num_victims < 4: # 2-3 victims
-                acceptchance = randint(1,15)
-                killchance = randint(1,30)
-
-            elif num_victims < 7: # 4-6 victims
-                acceptchance = randint(1,30)
-                killchance = randint(1,30)
-
-            elif num_victims < 10: # 7-9 victims
-                acceptchance = randint(1,30)
-                killchance = randint(1,12)
-
-            else: # 10+ victims?????!!?!
-                acceptchance = randint(1,40)
-                killchance = randint(1,10)
-
-        elif you.status in ["loner", "rogue", "kittypet", "former Clancat"]:
-        # can only be former clancat rn but this is just to cover bases 4 the future
-            if num_victims == 0:
-                acceptchance = randint(1,3)
-                killchance = randint(1,50)
-            
-            elif num_victims == 1: # one victim
-                if nice:
-                    acceptchance = randint (1,5)
-                    killchance = randint(1,40)
-                elif naughty:
-                    acceptchance = randint(1,10)
-                    killchance = randint(1,30)
-                else:
-                    acceptchance = randint(1,8)
-                    killchance = randint(1,30)
-
-            elif num_victims < 4: # 2-3 victims
-                if nice:
-                    acceptchance = randint (1,10)
-                    killchance = randint(1,35)
-                elif naughty:
-                    acceptchance = randint(1,20)
-                    killchance = randint(1,22)
-                else:
-                    acceptchance = randint(1,15)
-                    killchance = randint(1,30)
-
-            elif num_victims < 7: # 4-6 victims
-                if nice:
-                    acceptchance = randint (1,15)
-                    killchance = randint(1,30)
-                elif naughty:
-                    acceptchance = randint(1,30)
-                    killchance = randint(1,15)
-                else:
-                    acceptchance = randint(1,30)
-                    killchance = randint(1,30)
-
-            elif num_victims < 10: # 7-9 victims
-                if nice:
-                    acceptchance = randint (1,25)
-                    killchance = randint(1,20)
-                elif naughty:
-                    acceptchance = randint(1,35)
-                    killchance = randint(1,10)
-                else:
-                    acceptchance = randint(1,30)
-                    killchance = randint(1,12)
-
-            else: # 10+ victims?????!!?!
-                if nice:
-                    acceptchance = randint (1,35)
-                    killchance = randint(1,15)
-                elif naughty:
-                    acceptchance = randint(1,45)
-                    killchance = randint(1,8)
-                else:
-                    acceptchance = randint(1,40)
-                    killchance = randint(1,10)
-
-        if return_home_upperbound > 0:
-            acceptchance = randint(1, return_home_upperbound)
-
-        # print("RETURN CHANCES: ", return_home_upperbound)
-        # print("RNG: ", acceptchance)
-
-        if you.exiled:
-            event_text = f"You muster up your courage and turn to walk back home, hoping that your Clanmates will be able to forgive you. At the {game.clan.name}Clan border, you sit and wait for a patrol. <br>"
-
-        elif you.outside:
-            event_text = f"You're ready to return home-- you're sure of it. You hope that your Clanmates will take you back in as you head for the {game.clan.name}Clan border to wait for a patrol. <br> "
-        if acceptchance == 1:
-            event_text = event_text + f"When one finally comes, they're wary, but they agree to take you back to camp, and a Clan meeting is held. After much deliberation, it's decided that you will be allowed back home."
-            you.exiled = False
-            if you.moons > 119:
-                you.status_change("elder")
-            elif you.moons > 12:
-                you.status_change("warrior")
-            elif you.moons > 6:
-                you.status_change("apprentice")
-            else:
-                you.status_change("kitten")
-            you.thought = "Is happy to be home!"
-
-            if you.exiled:
-                you.exiled = False
-                
-            Cat.add_to_clan(you)
-
-        elif killchance == 1:
-            event_text = event_text + f"The patrol immediately meets you with hostility, and when you ask to visit camp, the more vengeful among the group instantly attack you, spitting at you that you don't deserve to step foot on {game.clan.name}Clan's territory after what you did. As your vision begins to blur, the last thing you hear is a former Clanmate damning you to the Dark Forest."
-            Cat.die(you)
-            if you.moons > 119:
-                you.status_change("elder")
-            elif you.moons > 12:
-                you.status_change("warrior")
-            elif you.moons > 6:
-                you.status_change("apprentice")
-            else:
-                you.status_change("kitten")
-            if you.exiled:
-                you.exiled = False
-        elif killchance in [2, 3, 4, 5, 6]:
-            event_text = event_text + choice ([ f"The patrol responds to your greeting with hisses and growls. Before you can even ask to head back to camp with them, a set of claws shoots towards you and you're met with the view of your blood hitting the grass. You don't have to be told twice-- you retreat back to your makeshift home.",
-            f"As soon as a patrol catches your eye, they erupt into hisses and yowls. You scramble to your paws, but you don't get away in time to avoid a fresh wound from an angry ex-clanmate. They scream after you that there will never be a place for you in {game.clan.name}Clan again."])
-
-            scar = choice(["ONE", "TWO", "THREE", "TAILSCAR", "SNOUT", "CHEEK", "SIDE", "THROAT", "TAILBASE", "BELLY",
-            "LEGBITE", "NECKBITE", "FACE", "MANLEG", "MANTAIL", "BRIDGE", "RIGHTBLIND", "LEFTBLIND",
-            "BOTHBLIND", "CATBITE", "HINDLEG", "BACK", "SCRATCHSIDE", "CATBITETWO", "FOUR"])
-
-            you.pelt.scars.append(scar if scar not in you.pelt.scars and len(you.pelt.scars) < 4 else None)
-            you.thought = "Licks their wounds"
-        else:
-            event_text = event_text + choice([ f"When one finally comes along, they meet you with wary eyes. A few of the more forthcoming members of the group share some Clan news, but when they turn to head back to camp, you're not invited, and the leader of the patrol lingers nearby until you turn to leave.",
-            f"Eventually, one finds you, but they aren't as happy to see you as you'd have liked. You share some pleasantries with a couple of kind patrol members, but the others stay silent and on edge. After a short talk, they turn to leave, making it clear that you're not to come with them.",
-            f"You wait for a long time. Eventually, you see the flicker of a bright pelt through the trees, but they quickly turn away, and as the sun starts to set, you reluctantly leave to find somewhere to sleep."])
-
-            you.thought = "Wants to try again"
-        game.cur_events_list.insert(0, Single_Event(event_text))
+        event_string = event_text_adjust(
+            Cat,
+            text="The exiled m_c appears on the border one day, begging to be let back into the Clan. c_n has declined to let m_c back in.",
+            main_cat=self,
+            clan=game.clan
+        )
+        game.cur_events_list.insert(0, Single_Event(event_string, event_types, cats_involved=[self.ID]))
 
     
     def grief(self, body: bool):

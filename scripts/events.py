@@ -2229,6 +2229,14 @@ class Events:
 
         self.handle_outside_EX(cat)
 
+        if (
+            cat.status.is_exiled(CatGroup.PLAYER_CLAN_ID) and
+            cat.ID != game.clan.your_cat.ID and
+            not int(random.random() * 30)
+            ):
+            if cat.return_home():
+                return
+
         cat.skills.progress_skill(cat)
         Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
 
@@ -2389,9 +2397,6 @@ class Events:
         # now we make sure ill and injured cats don't get interactions they shouldn't
         if cat.is_ill() or cat.is_injured():
             return
-
-        if cat.status.is_exiled(CatGroup.PLAYER_CLAN):
-            Cat.handle_exile_returns(self)
         
         self.invite_new_cats(cat)
         self.other_interactions(cat)
