@@ -207,6 +207,17 @@ class Pelt:
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
 
+    deadInsect_accessories = []
+    for sprite_list in sprites.DEADINSECT_DATA["sprite_list"]:
+        deadInsect_accessories.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "tail":
+                tail_accessories.append(sprite)
+            elif sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+            elif sprite_list[sprite] == "head":
+                body_accessories.append(sprite)
+
     raincoat_accessories = []
     for sprite_list in sprites.RAINCOAT_DATA["sprite_list"]:
         raincoat_accessories.extend(sprite_list)
@@ -229,6 +240,17 @@ class Pelt:
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
 
+    fruit_accessories = []
+    for sprite_list in sprites.FRUIT_DATA["sprite_list"]:
+        fruit_accessories.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "tail":
+                tail_accessories.append(sprite)
+            elif sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+            elif sprite_list[sprite] == "head":
+                body_accessories.append(sprite)
+
     # this is used for acc-giving events, only change if you're adding a new category tag to the event filter
     # adding a category here will automatically update the event editor's options
     acc_categories = {
@@ -237,8 +259,10 @@ class Pelt:
         "COLLAR": collar_accessories,
 
         "ALIVEINSECT": aliveInsect_accessories,
+        "DEADINSECT": deadInsect_accessories,
         "RAINCOAT": raincoat_accessories,
         "SOPHISTICATED": sophisticated_accessories,
+        "FRUIT": fruit_accessories
     }
 
     # LIFEGEN
@@ -250,7 +274,9 @@ class Pelt:
         collar_accessories +
         aliveInsect_accessories +
         raincoat_accessories +
-        sophisticated_accessories
+        sophisticated_accessories +
+        deadInsect_accessories +
+        fruit_accessories
         )
 
     """Holds all appearance information for a cat. """

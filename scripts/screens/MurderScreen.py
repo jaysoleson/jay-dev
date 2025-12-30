@@ -1727,6 +1727,15 @@ class MurderScreen(Screens):
             discovered = True
         else:
             discovered = False
+
+        game.clan.your_cat.history.add_murder(game.clan.your_cat.ID, cat_to_murder)
+        game.clan.your_cat.history.reveal_murder(
+            victim=cat_to_murder,
+            murderer_id=game.clan.your_cat.ID,
+            clan_reveal=discovered,
+            aware_individuals=[accomplice] if accomplice else [],
+            shunned_cat=game.clan.your_cat
+        )
             
         if discovered:
             if accomplice and accompliced:
@@ -1741,8 +1750,6 @@ class MurderScreen(Screens):
                         ["alert", "birth_death"],
                         [game.clan.your_cat.ID, cat_to_murder.ID, accomplice.ID]))
                 cat_to_murder.history.add_death(f"{you.name} and {accomplice.name} murdered this cat.")
-                you.history.add_murder(accomplice.ID, cat_to_murder)
-                you.history.add_murder(you.ID, cat_to_murder)
                 
                 accguiltchance = randint(1,2)
                 if accguiltchance == 1:
@@ -1764,14 +1771,11 @@ class MurderScreen(Screens):
                         ["alert", "birth_death"],
                         [game.clan.your_cat.ID, cat_to_murder.ID]))
                 cat_to_murder.history.add_death(f"{you.name} murdered this cat.")
-                you.history.add_murder(you.ID, cat_to_murder)
             self.choose_discover_punishment(you, cat_to_murder, accomplice, accompliced)
         else:
             if accomplice:
                 if accompliced:
                     cat_to_murder.history.add_death(f"{you.name} and {accomplice.name} murdered this cat.")
-                    you.history.add_murder(you.ID, cat_to_murder)
-                    accomplice.history.add_murder(accomplice.ID, cat_to_murder)
                     
                     if game.clan.your_cat.dead:
                         game.cur_events_list.insert(1, Single_Event(
@@ -1797,7 +1801,6 @@ class MurderScreen(Screens):
 
                 else:
                     cat_to_murder.history.add_death(f"{you.name} murdered this cat.")
-                    you.history.add_murder(you.ID, cat_to_murder)
                     
                     if game.clan.your_cat.dead:
                         game.cur_events_list.insert(1, Single_Event(
@@ -1811,7 +1814,6 @@ class MurderScreen(Screens):
                             [game.clan.your_cat.ID, accomplice.ID, cat_to_murder.ID]))
             else:
                 cat_to_murder.history.add_death(f"{you.name} murdered this cat.")
-                you.history.add_murder(you.ID, cat_to_murder)
                 
                 if game.clan.your_cat.dead:
                     game.cur_events_list.insert(1, Single_Event(
@@ -1858,32 +1860,6 @@ class MurderScreen(Screens):
             if game.clan.your_cat.dead:
                 return
             punishment_chance = 1
-
-        shunned_cats = []
-        if punishment_chance == 1:
-            shunned_cats = [you]
-        elif punishment_chance == 2:
-            shunned_cats = [accomplice]
-        else:
-            shunned_cats = [you, accomplice]
-
-        for kitty in shunned_cats:
-            if kitty is None:
-                continue
-            if not kitty.dead:
-                kitty.history.add_murder(kitty.ID, cat_to_murder)
-                kitty.history.reveal_murder(
-                    victim=cat_to_murder,
-                    murderer_id=kitty.ID,
-                    clan_reveal=True,
-                    aware_individuals=[]
-                )
-                if kitty.status.rank not in [CatRank.APPRENTICE, CatRank.KITTEN, CatRank.ELDER, CatRank.WARRIOR]:
-                    event_text = kitty.shunned_demotion()
-                    game.cur_events_list.insert(3, Single_Event(
-                        event_text,
-                        ["alert"],
-                        [game.clan.your_cat.ID]))
 
         if not accomplice or not accompliced:
             punishment_chance = 1
@@ -2347,7 +2323,7 @@ class MurderScreen(Screens):
         if not you_healthy:
             chance -= 10
 
-        if cat_to_murder.status.rank == CatRank.LEADER and cat_to_murder.shunned == 0 and cat_healthy:
+        if cat_to_murder.status.rank == CatRank.LEADER and not cat_to_murder.status.is_shunned() and cat_healthy:
             chance -= 10
 
         if cat_to_murder.moons < 6:

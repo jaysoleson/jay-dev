@@ -209,7 +209,7 @@ class ProfileScreen(Screens):
             if (
                 not self.the_cat.dead and
                 not game.clan.your_cat.dead and
-                game.clan.your_cat.shunned == 0
+                not game.clan.your_cat.status.is_shunned()
             ):
                 self.the_cat.relationships[game.clan.your_cat.ID].like += randint(0,5)
                 game.clan.your_cat.relationships[self.the_cat.ID].like += randint(0,5)
@@ -1156,7 +1156,7 @@ class ProfileScreen(Screens):
                 "",
                 object_id="#queen_activity_button", manager=MANAGER
             )
-            if not self.the_cat.status.alive_in_player_clan or self.the_cat.shunned > 0 or self.the_cat.not_working():
+            if not self.the_cat.status.alive_in_player_clan or self.the_cat.status.is_shunned() or self.the_cat.not_working():
                 # check for not working because the queen screen doesnt have the "this cat is unable to work" thing
                 # like the mediator screen does
                 self.profile_elements["queen"].disable()
@@ -1168,7 +1168,7 @@ class ProfileScreen(Screens):
                 tool_tip_text= "You may attend the half-moon gathering every six moons",
                 manager=MANAGER
             )
-            if self.the_cat.dead or self.the_cat.status.is_outsider or (game.clan.age % 6 != 0) or self.the_cat.shunned > 0:
+            if self.the_cat.dead or self.the_cat.status.is_outsider or (game.clan.age % 6 != 0) or self.the_cat.status.is_shunned():
                 self.profile_elements["halfmoon"].disable()
             elif switch_get_value(Switch.attended_half_moon):
                 self.profile_elements["halfmoon"].disable()
@@ -1197,7 +1197,7 @@ class ProfileScreen(Screens):
                 tool_tip_text= "You may visit the Moonplace once during your apprenticeship.",
                 manager=MANAGER
             )
-            if not self.the_cat.status.alive_in_player_clan or self.the_cat.shunned > 0:
+            if not self.the_cat.status.alive_in_player_clan or self.the_cat.status.is_shunned():
                 self.profile_elements["halfmoon"].disable()
             elif switch_get_value(Switch.attended_half_moon):
                 self.profile_elements["halfmoon"].disable()
@@ -1212,7 +1212,7 @@ class ProfileScreen(Screens):
                 starting_height=2,
             )
            
-            if not self.the_cat.status.alive_in_player_clan or self.the_cat.shunned > 0:
+            if not self.the_cat.status.alive_in_player_clan or self.the_cat.status.is_shunned():
                 self.profile_elements["story"].disable()
         
         if self.the_cat.ID == game.clan.your_cat.ID and not game.clan.your_cat.dead:
@@ -1394,46 +1394,6 @@ class ProfileScreen(Screens):
         """Generate the right column information"""
         output = ""
 
-        # STATUS
-        # CHECKMERGE: colours !
-        # if the_cat.status.is_lost():
-        #     output += "<font color='#FF0000'>lost</font>"
-        # elif the_cat.status.is_exiled():
-        #     output += "<font color='#FF0000'>exiled</font>"
-        # elif the_cat.shunned > 0 and not the_cat.dead:
-        #     if not the_cat.status.is_outsider:
-
-        #         # grabbing demoted statuses
-        #         murder_history = History.get_murders(the_cat)
-        #         history = None
-        #         status = the_cat.status
-        #         if "is_murderer" in murder_history:
-        #             history = murder_history["is_murderer"]
-        #         if history:
-        #             if "demoted_from" in history[-1] and history[-1]["demoted_from"]:
-        #                 status = history[-1]["demoted_from"]
-
-        #         if game_setting_get("dark mode"):
-        #             output += "<font color='#FF9999'>shunned " + status+ "</font>"
-        #         else:
-        #             output += "<font color='#950000'>shunned " + status + "</font>"
-        #     else:
-        #         output += the_cat.status
-        # elif the_cat.df:
-        #     if game_setting_get("dark mode"):
-        #         output += "<font color='#FF9999' >" + "Dark Forest "+ the_cat.status + "</font>"
-        #     else:
-        #         output += "<font color='#950000' >" + "Dark Forest "+ the_cat.status + "</font>"
-        # elif the_cat.dead and not the_cat.df and not the_cat.status.is_outsider:
-        #     if game_setting_get("dark mode"):
-        #         output += "<font color ='#A8BBFF'>" + "StarClan " + the_cat.status + "</font>"
-        #     else:
-        #         output += "<font color ='#2B3DC3'>" + "StarClan " + the_cat.status + "</font>"
-        # elif the_cat.dead and not the_cat.df and the_cat.status.is_outsider:
-        #     if game_setting_get("dark mode"):
-        #         output += "<font color ='#CE9DFF'>" + "ghost " + the_cat.status + "</font>"
-        #     else:
-        #         output += "<font color ='#450E7B'>" + "ghost " + the_cat.status + "</font>"
         # if cat is dead, we find their old clan name
         if the_cat.dead:
             old_clan = the_cat.status.get_last_living_group()
@@ -1480,6 +1440,10 @@ class ProfileScreen(Screens):
             output += "\n"
         elif the_cat.status.is_exiled():
             output += f"<font color='#FF0000'>{i18n.t('general.exiled', count=1)} {cat_clan}</font>"
+            # NEWLINE ----------
+            output += "\n"
+        elif the_cat.status.is_shunned():
+            output += f"<font color='#FF0000'>{i18n.t('general.shunned', count=1)}</font>"
             # NEWLINE ----------
             output += "\n"
 

@@ -208,7 +208,6 @@ class Cat:
         self._pronouns: Dict[str, List[Dict[str, Union[str, int]]]] = {}
         self.placement = None
         self.example = example
-        self.shunned = 0 # moons
         self.thought = ""
         self.genderalign = None
         self.birth_cooldown = 0
@@ -226,7 +225,6 @@ class Cat:
         self.insulted = False
         self.flirted = False
         self.joined_df = False
-        self.forgiven = 0
         self.revives = 0
 
 
@@ -2730,7 +2728,7 @@ class Cat:
         ):
             return False
         
-        if potential_mentor.moons <= 0 or potential_mentor.shunned:
+        if potential_mentor.moons <= 0 or potential_mentor.status.is_shunned():
             return False
         
         if game.clan and game.clan.your_cat and game.clan.age == 0 and potential_mentor.ID == game.clan.your_cat.ID:
@@ -2777,7 +2775,7 @@ class Cat:
         if (
             self.dead
             or self.status.is_outsider
-            or self.shunned
+            or self.status.is_shunned()
             or not self.status.rank.is_any_apprentice_rank()
         ):
             self.__remove_mentor()
@@ -3885,7 +3883,7 @@ class Cat:
 
     @staticmethod
     def rank_order(cat: Cat):
-        if cat.status.rank in Cat.rank_sort_order and not cat.shunned:
+        if cat.status.rank in Cat.rank_sort_order and not cat.status.is_shunned():
             return Cat.rank_sort_order.index(cat.status.rank)
         else:
             return 0
@@ -4115,7 +4113,6 @@ class Cat:
                 "accessory": self.pelt.accessory,
                 "experience": self.experience,
                 "dead_moons": self.dead_for,
-                "shunned": self.shunned,
                 "current_apprentice": list(self.apprentice),
                 "former_apprentices": list(self.former_apprentices),
                 "faded_offspring": self.faded_offspring,
@@ -4127,7 +4124,6 @@ class Cat:
                 "insulted": self.insulted if self.insulted else False,
                 "flirted": self.flirted if self.flirted else False,
                 "joined_df": self.joined_df if self.joined_df else False,
-                "forgiven": self.forgiven if self.forgiven and isinstance(self.forgiven, int) else 0,
                 "inventory": self.pelt.inventory if self.pelt.inventory else [],
                 "revives": self.revives if self.revives else 0,
                 "backstory_str": self.backstory_str if self.backstory_str else "",

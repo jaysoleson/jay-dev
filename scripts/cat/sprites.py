@@ -46,6 +46,10 @@ class Sprites:
     ) as read_file:
         ALIVEINSECT_DATA = ujson.loads(read_file.read())
     with open(
+        "sprites/dicts/dead_insect_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        DEADINSECT_DATA = ujson.loads(read_file.read())
+    with open(
         "sprites/dicts/raincoat_data.json", "r", encoding="utf-8"
     ) as read_file:
         RAINCOAT_DATA = ujson.loads(read_file.read())
@@ -53,6 +57,10 @@ class Sprites:
         "sprites/dicts/sophisticated_data.json", "r", encoding="utf-8"
     ) as read_file:
         SOPHISTICATED_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/fruit_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        FRUIT_DATA = ujson.loads(read_file.read())
 
     # SCARS
     with open(
@@ -273,8 +281,10 @@ class Sprites:
             self.COLLAR_DATA,
 
             self.ALIVEINSECT_DATA,
+            self.DEADINSECT_DATA,
             self.RAINCOAT_DATA,
-            self.SOPHISTICATED_DATA
+            self.SOPHISTICATED_DATA,
+            self.FRUIT_DATA,
         )
 
         # data jsons that have multiple associated spritesheets

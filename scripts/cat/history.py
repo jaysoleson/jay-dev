@@ -554,7 +554,7 @@ class History:
         clan_reveal: bool = False,
         aware_individuals: list = None,
         # LG
-        shunned: bool = False
+        shunned_cat = None
     ):
         """
         This adds reveal information to both the murderer and victim's history. This should be called from the murderer's history.
@@ -569,6 +569,8 @@ class History:
             if murder["victim"] == victim.ID:
                 if clan_reveal:
                     murder["revealed"]["to_clan"] = True
+                    if shunned_cat:
+                        shunned_cat.status.shun_from_group()
                 else:
                     murder["revealed"]["aware_individuals"].extend(aware_individuals)
 

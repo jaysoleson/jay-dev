@@ -351,7 +351,6 @@ class FreshkillPile:
                 fed_kits.extend(young_kits)
                 relevant_queens.append(queen)
         pregnant_cats = [cat for cat in living_cats if "pregnant" in cat.injuries and cat.ID not in queen_dict.keys()]
-        shunned_cats = [cat for cat in living_cats if cat.shunned]
 
 
         # first split nutrition information into low nutrition and satisfied
@@ -391,7 +390,7 @@ class FreshkillPile:
             needed_amount = feeding_amount
 
             # check for condition
-            if "pregnant" not in cat.injuries and cat.not_working() and not cat.shunned:
+            if "pregnant" not in cat.injuries and cat.not_working() and not cat.status.is_shunned():
                 if game.clan and game.clan.game_mode == "cruel season":
                     feeding_amount += CONDITION_INCREASE
                 needed_amount = feeding_amount

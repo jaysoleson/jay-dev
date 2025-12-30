@@ -3167,6 +3167,16 @@ def generate_sprite(
                                 ),
                                 (0, 0),
                             )
+                        elif accessory in cat.pelt.deadInsect_accessories:
+                            sprite_name = f"{sprites.DEADINSECT_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            new_sprite.blit(
+                                _recolor_lineart(
+                                    sprites.sprites[sprite_name],
+                                    lineart_color,
+                                    gradient_surface,
+                                ),
+                                (0, 0),
+                            )
                         elif accessory in cat.pelt.raincoat_accessories:
                             sprite_name = f"{sprites.RAINCOAT_DATA['spritesheet']}{accessory}{cat_sprite}"
                             new_sprite.blit(
@@ -3179,6 +3189,16 @@ def generate_sprite(
                             )
                         elif accessory in cat.pelt.sophisticated_accessories:
                             sprite_name = f"{sprites.SOPHISTICATED_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            new_sprite.blit(
+                                _recolor_lineart(
+                                    sprites.sprites[sprite_name],
+                                    lineart_color,
+                                    gradient_surface,
+                                ),
+                                (0, 0),
+                            )
+                        elif accessory in cat.pelt.fruit_accessories:
+                            sprite_name = f"{sprites.FRUIT_DATA['spritesheet']}{accessory}{cat_sprite}"
                             new_sprite.blit(
                                 _recolor_lineart(
                                     sprites.sprites[sprite_name],
@@ -3535,7 +3555,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.shunned == 0 or
+        not chosen_cat.status.is_shunned() or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3545,7 +3565,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
         chosen_cat.status != "warrior" or
-        chosen_cat.shunned == 0 or
+        not chosen_cat.status.is_shunned() or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3555,7 +3575,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
         chosen_cat.status not in ["kitten", "newborn"] or
-        chosen_cat.shunned == 0 or
+        not chosen_cat.status.is_shunned() or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3565,7 +3585,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
         chosen_cat.status != "apprentice" or
-        chosen_cat.shunned == 0 or
+        not chosen_cat.status.is_shunned() or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3575,7 +3595,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
         chosen_cat.status not in ["medicine cat", "medicine cat apprentice"] or
-        chosen_cat.shunned == 0 or
+        not chosen_cat.status.is_shunned() or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3585,7 +3605,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
         chosen_cat.status not in ["mediator", "mediator apprentice"] or
-        chosen_cat.shunned == 0 or
+        not chosen_cat.status.is_shunned() or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3595,7 +3615,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
         chosen_cat.status not in ["queen", "queen's apprentice"] or
-        chosen_cat.shunned == 0 or
+        not chosen_cat.status.is_shunned() or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3605,7 +3625,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
         chosen_cat.status != "elder" or
-        chosen_cat.shunned == 0 or
+        not chosen_cat.status.is_shunned() or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3978,7 +3998,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.status.is_outsider or
         not game.clan.leader or 
         chosen_cat.ID != game.clan.leader or
-        chosen_cat.shunned == 0 or
+        not chosen_cat.status.is_shunned() or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3990,7 +4010,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.status.is_outsider or
         not game.clan.deputy or
         chosen_cat.ID != game.clan.deputy or
-        chosen_cat.shunned == 0 or
+        not chosen_cat.status.is_shunned() or
         chosen_cat in current_cat_objects
     ) else True
 

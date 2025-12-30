@@ -181,7 +181,7 @@ class EventsScreen(Screens):
                 elif (
                         game.clan.leader and
                         game.clan.leader.ID == game.clan.your_cat.ID and
-                        game.clan.your_cat.shunned == 0 and
+                        not game.clan.your_cat.status.is_shunned() and
                         (
                             not game.clan.deputy or
                             (

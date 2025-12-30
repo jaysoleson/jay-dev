@@ -1975,7 +1975,7 @@ class MakeClanScreen(Screens):
 
         random_scars = [choice(Pelt.all_scars)] if random.randint(1,10) == 1 else []
 
-        random_tint = choice(["pink", "gray", "red", "orange", "black", "yellow", "purple", "blue","dilute","warmdilute","cooldilute"]) if random.randint(1, 4) != 1 else None
+        random_tint = choice(["pink", "gray", "red", "orange", "black", "yellow", "purple", "blue", "dilute","warmdilute","cooldilute"]) if random.randint(1, 4) != 1 else None
         random_white_patches_tint=choice(["offwhite", "cream", "darkcream", "gray", "pink"]) if random.randint(1,5) == 1 else None
         
         random_skin = choice(Pelt.skin_sprites)
@@ -2533,13 +2533,17 @@ class MakeClanScreen(Screens):
                 tint_x_pos = 256
                 tint_y_pos = 480
                 for tint in [
-                    "none", "pink", "gray", "red", "orange", "black",
+                    None, "pink", "gray", "red", "orange", "black",
                     "yellow", "purple", "blue", "dilute", "warmdilute", "cooldilute"
                     ]:
+                    if tint is None:
+                        btn = "none"
+                    else:
+                        btn = tint
                     self.tint_buttons[tint] = UIImageButton(
                         ui_scale(pygame.Rect((tint_x_pos, tint_y_pos), (40, 40))),
                         "",
-                        object_id=f"#tint_button_{tint}",
+                        object_id=f"#tint_button_{btn}",
                         manager=MANAGER
                         )
                     tint_x_pos += 50
@@ -2626,12 +2630,16 @@ class MakeClanScreen(Screens):
                 tint_x_pos = 268
                 tint_y_pos = 472
                 for tint in [
-                    "none", "offwhite", "cream", "darkcream", "gray", "pink"
+                    None, "offwhite", "cream", "darkcream", "gray", "pink"
                     ]:
+                    if tint is None:
+                        btn = "none"
+                    else:
+                        btn = tint
                     self.white_patches_tint_buttons[tint] = UIImageButton(
                         ui_scale(pygame.Rect((tint_x_pos, tint_y_pos), (40, 40))),
                         "",
-                        object_id=f"#tint_button_{tint}",
+                        object_id=f"#tint_button_{btn}",
                         manager=MANAGER
                         )
                     tint_x_pos += 45
@@ -2901,8 +2909,8 @@ class MakeClanScreen(Screens):
 
                     if acc != "None":
                         acc_name = self.get_acc_name(acc)
-                        if 15 <= len(acc_name):  # check name length
-                            short_name = str(acc_name)[0:13]
+                        if 11 <= len(acc_name):  # check name length
+                            short_name = str(acc_name)[0:9]
                             acc_name = short_name + '...'
                     else:
                         acc_name = acc

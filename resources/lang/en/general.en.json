@@ -103,6 +103,10 @@
             "one": "exiled from",
             "many": "exiled from"
         },
+        "shunned": {
+            "one": "shunned",
+            "many": "shunned"
+        },
         "lost": "lost",
         "mate": {
             "one": "mate",

@@ -494,7 +494,7 @@ class Patrol:
             possible_patrols.extend(self.generate_patrol_events(self.MEDCAT_GEN))
         elif switch_get_value(Switch.patrol_category) == 'lifegen':
 
-            if game.clan.your_cat.shunned != 0:
+            if game.clan.your_cat.status.is_shunned():
                 murder_history = game.clan.your_cat.history.murder
                 history = None
                 status = game.clan.your_cat.status.rank
@@ -887,15 +887,15 @@ class Patrol:
                                 continue
                             
                     if "shunned" in patrol.tags:
-                        if game.clan.your_cat.shunned == 0:
+                        if not game.clan.your_cat.status.is_shunned():
                             continue
                 else:
                     if "shunned" in patrol.tags:
-                        if game.clan.your_cat.shunned == 0:
+                        if not game.clan.your_cat.status.is_shunned():
                             continue
                     
                     if "shunned" not in patrol.tags and "df" not in patrol.tags:
-                        if game.clan.your_cat.shunned > 0:
+                        if game.clan.your_cat.status.is_shunned():
                             continue
                 if switch_get_value(Switch.patrol_category) == "date":
                     if "df" in patrol.tags:
