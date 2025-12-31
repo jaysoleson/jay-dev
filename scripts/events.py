@@ -1833,7 +1833,6 @@ class Events:
                 )
                 cat.rank_change(CatRank.MEDIATOR)
         # LG
-        # CHECKMERGE
         if get_clan_setting("become_med"):
             _ = constants.CONFIG["roles"]["become_med_chances"]
             if cat.status.rank in _ and not int(random.random() * _[cat.status.rank]):
@@ -2842,12 +2841,10 @@ class Events:
 
         Events.ceremony_lang = i18n.config.get("locale")
 
-    def ceremony(self, cat, promoted_to, preparedness="prepared", LG_TYPE=""):
+    def ceremony(self, cat, promoted_to, preparedness="prepared"):
         """
         promote cats and add to events list
         """
-        # CHECKMERGE
-        # check all function calls for LG_TYPE. not that i think that really worked tbh
         # ceremony = []
         _ment = Cat.fetch_cat(cat.mentor) if cat.mentor else None # Grab current mentor, if they have one, before it's removed. 
         old_name = str(cat.name)
@@ -3069,22 +3066,6 @@ class Events:
         # it's easier to do here lol
         new_ceremonies = []
         for ceremony in possible_ceremonies:
-            tags = self.CEREMONY_TXT[ceremony][0]
-            text = self.CEREMONY_TXT[ceremony][1]
-
-            if LG_TYPE == "shunned":
-                # a ceremony for a cat WHILE theyre shunned
-                if "shunned" not in tags:
-                    continue
-            
-            elif LG_TYPE == "forgiven":
-                # a ceremony for a cat returning to work after being forgiven
-                if "forgiven" not in tags:
-                    continue
-            
-            else:
-                if "forgiven" in tags or "shunned" in tags:
-                    continue
             
             new_ceremonies.append(ceremony)
 
@@ -3098,10 +3079,8 @@ class Events:
                 ceremony_tags, ceremony_text = self.CEREMONY_TXT[
                     random.choice(list(new_ceremonies))
                 ]
-                # print("working ceremony for", cat.name, LG_TYPE)
-                # print(new_ceremonies)
             except IndexError:
-                print("WARNING: A ceremony could not be chosen for", cat.name, LG_TYPE)
+                print("WARNING: A ceremony could not be chosen for", cat.name)
                 return
         else:
         # -------------------
@@ -3182,7 +3161,6 @@ class Events:
         #     self.ceremony_accessory = False
         #     return
         # old ^^
-        # CHECKMERGE: get rid of lifegen cat.accessories since bg is a list now anyway
         # check if cat already has max acc
         if cat.pelt.accessory and len(cat.pelt.accessory) == 3:
             self.ceremony_accessory = False

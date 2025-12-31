@@ -171,7 +171,6 @@ class EventsScreen(Screens):
                     return
                 if game.clan.your_cat.dead_for >= 2 and not switch_get_value(Switch.continue_after_death):
                     DeathScreen('events screen')
-                    # CHECKMERGE: check if opening windows has changed at all
                     return
                 elif (game.clan.your_cat.moons == 5
                         and game.clan.your_cat.status.alive_in_player_clan
