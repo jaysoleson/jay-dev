@@ -179,7 +179,7 @@ class SwitchClanScreen(Screens):
         y_pos = 378
         you = None
         for clan in self.clan_list[1:]:
-            clan_age = ""
+            clan_age = 0
             try:
                 # LIFEGEN: grabbing mc names for QOL display -------------------
                 clan_json_path = f"{get_save_dir()}/{clan}clan.json"
@@ -200,25 +200,26 @@ class SwitchClanScreen(Screens):
                     for item in clan_cats_json:
                         if item["ID"] == you:
                             # if theres a better way to do this Keep it to yourself
-                            if item["name_suffix"] != "":
-                                if item["rank"] in [CatRank.KITTEN, CatRank.NEWBORN]:
-                                    suffix = "kit"
-                                elif item["rank"] in [
-                                    CatRank.APPRENTICE, CatRank.QUEENS_APPRENTICE,
-                                    CatRank.MEDIATOR_APPRENTICE, CatRank.MEDICINE_APPRENTICE
-                                    ]:
-                                    suffix = "paw"
-                                elif item["rank"] == CatRank.LEADER:
-                                    suffix = "star"
-                                else:
-                                    suffix = item["name_suffix"]
+                            if isinstance(item['status'], dict):
+                                rank = item["status"]["group_history"][-1]["rank"]
+                            else:
+                                rank = item['status']
+                            if rank in [CatRank.KITTEN, CatRank.NEWBORN]:
+                                suffix = "kit"
+                            elif rank in [
+                                CatRank.APPRENTICE, CatRank.QUEENS_APPRENTICE,
+                                CatRank.MEDIATOR_APPRENTICE, CatRank.MEDICINE_APPRENTICE
+                                ]:
+                                suffix = "paw"
+                            elif rank == CatRank.LEADER:
+                                suffix = "star"
                             else:
                                 suffix = item["name_suffix"]
 
                             your_name = item["name_prefix"] + suffix
                             break
-            except:
-                pass
+            except Exception as e:
+                print("Error finding save information:", e)
             # ---------------------------------------------------------------------
 
             self.clan_name[-1].append(clan)
@@ -254,11 +255,10 @@ class SwitchClanScreen(Screens):
                 )
             )
             if your_name != "" and clan_age != "":
-                tooltext = f"{your_name}<br>Clan age: {clan_age} moons"
+                tooltext = f"<b>{your_name}</b><br>Clan age: {clan_age} moons"
             else:
-                print("Can't find info for", clan)
-                print(your_name, clan_age)
-                tooltext = ""
+                print("Can't find info for", clan + "Clan")
+                tooltext = None
             
             self.your_cat_buttons[-1].append(
                 UIImageButton(
@@ -273,7 +273,7 @@ class SwitchClanScreen(Screens):
                     object_id="#help_button",
                     manager=MANAGER,
                     starting_height=2,
-                    tool_tip_text=tooltext,
+                    tool_tip_text=tooltext if tooltext else None,
                     anchors={"top_target": self.clan_buttons[-1][-1]},
                 )
             )
