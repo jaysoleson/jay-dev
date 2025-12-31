@@ -1040,6 +1040,7 @@ class ProfileScreen(Screens):
                 (not self.the_cat.dead and not self.the_cat.status.is_outsider and game.clan.your_cat.status.is_outsider and not game.clan.your_cat.dead) or 
                 game.clan.your_cat.moons < 0 or
                 self.the_cat.ID == game.clan.your_cat.ID or
+                self.the_cat.status.group_ID in [clan.group_ID for clan in game.clan.all_other_clans] or 
                 ((game.clan.your_cat.dead or self.the_cat.dead) and dead_talk is False)
             ):
                 cant_talk = True
@@ -1063,6 +1064,7 @@ class ProfileScreen(Screens):
                 (not self.the_cat.dead and not self.the_cat.status.is_outsider and game.clan.your_cat.status.is_outsider and not game.clan.your_cat.dead) or 
                 game.clan.your_cat.moons < 0 or
                 self.the_cat.ID == game.clan.your_cat.ID or
+                self.the_cat.status.group_ID in [clan.group_ID for clan in game.clan.all_other_clans] or 
                 (game.clan.your_cat.dead is True or self.the_cat.dead is True and
                 dead_talk is False) or
 
@@ -1188,7 +1190,7 @@ class ProfileScreen(Screens):
                     tool_tip_text= "You may attend the half-moon gathering every six moons",
                     manager=MANAGER
                 )
-                if self.the_cat.dead or self.the_cat.status.is_outsider or (game.clan.age % 6 != 0) or self.the_cat.shunned > 0:
+                if self.the_cat.dead or self.the_cat.status.is_outsider or (game.clan.age % 6 != 0) or self.the_cat.status.is_shunned():
                     self.profile_elements["halfmoon"].disable()
                 elif switch_get_value(Switch.attended_half_moon):
                     self.profile_elements["halfmoon"].disable()

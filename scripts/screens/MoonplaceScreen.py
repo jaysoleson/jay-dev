@@ -7,7 +7,7 @@ from .Screens import Screens
 from scripts.utility import generate_sprite, get_cluster, find_alive_cats_with_rank, pronoun_repl, lifegen_text_adjust
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
-from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
+from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch, switch_append_list_value, switch_remove_list_value
 from scripts.screens.enums import GameScreen
 
 from scripts.cat.enums import CatAge, CatRank, CatGroup
@@ -251,7 +251,7 @@ class MoonplaceScreen(Screens):
         self.clock.tick(60)
 
     def handle_event(self, event):
-        if game.switches['window_open']:
+        if switch_get_value(Switch.window_open):
             pass
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
@@ -444,9 +444,11 @@ class MoonplaceScreen(Screens):
                             med_names[0]
             return template.replace("o_cn", f"{clan_name}Clan").replace("o_c_m", formatted_names)
 
-        other_clan = choice(game.switches["other_med_clan"])
-        clan_index = game.switches["other_med_clan"].index(other_clan)
-        med_cats = game.switches["other_med"][clan_index]
+        other_clan = choice(game.clan.all_other_clans)
+        med_cats = []
+        for cat in switch_get_value(Switch.other_meds):
+            if Cat.fetch_cat(cat).status.group_ID == other_clan.group_ID:
+                med_cats.append(Cat.fetch_cat(cat).name)
 
         med_count_key = "one_med" if len(med_cats) == 1 else "multi_med"
         temperament_key = f"general_greeting_{other_clan.temperament}_{med_count_key}"
@@ -473,58 +475,48 @@ class MoonplaceScreen(Screens):
     def handle_other_med(self):
         """Updates other Clans' medicine cats for the Moonplace."""
 
-        def generate_meds_for_clan() -> list:
-            """Generates 1-3 medicine cats (mostly full names, some apprentices)."""
-            return [
-                Name() if randint(1, 4) != 1 else Name(suffix="paw")
-                for _ in range(randint(1, 3))
-            ]
+        def generate_other_meds(clan, num):
+            """Generates cats for specified clan (mostly full names, some apprentices)."""
+            for _ in range(num):
+                is_apprentice = randint(1, 4) == 1
+                cat = Cat(
+                    name=Name()
+                )                
+                if is_apprentice:
+                    cat.rank_change(CatRank.MEDICINE_APPRENTICE)
+                else:
+                    cat.rank_change(CatRank.MEDICINE_CAT)
+                cat.status.add_to_group(clan.group_ID)
+                switch_append_list_value(Switch.other_meds, cat.ID)
 
-        def promote_apprentices(cat_list: list):
-            """Randomly promotes apps."""
-            for cat in cat_list:
-                if cat.suffix == "paw" and randint(1, 2) == 1:
-                    cat.give_suffix(None, None, None)
+        def simulate_death_other_meds(clan):
+            """Randomly removes a medicine cat from the specified clan."""
+            clan_meds = [cat_id for cat_id in switch_get_value(Switch.other_meds) 
+                        if Cat.fetch_cat(cat_id).status.group_ID == clan.group_ID]
+            
+            if clan_meds and randint(1, 3) == 1:
+                rand_med_cat = choice(clan_meds)
+                switch_remove_list_value(Switch.other_meds, rand_med_cat)
+        
+        def check_number_other_meds(clan):
+            """Count and replenish medicine cats for a clan."""
+            num_other_meds = 0
+            for cat in switch_get_value(Switch.other_meds):
+                if Cat.fetch_cat(cat).status.group_ID == clan.group_ID:
+                    num_other_meds += 1
 
-        def maybe_add_more_meds(cat_list: list):
-            """Fills in missing cats (to maintain at least 1-3 med cats)."""
-            if not cat_list:
-                cat_list.append(Name(suffix="paw"))
-            if len(cat_list) < 3 and randint(1, 5) == 1:
-                cat_list.append(Name(suffix="paw"))
+            if num_other_meds < 1:
+                generate_other_meds(clan, randint(1, 3))
+            elif num_other_meds == 1 and randint(1, 2) == 1:
+                generate_other_meds(clan, 1)
 
-        def randomly_remove_string(lists_of_strings):
-            """Randomly removes some meds to simulate death."""
-            for sublist in lists_of_strings:
-                sublist[:] = [s for s in sublist if randint(1, 10) != 1]
-            return lists_of_strings
-
-        if "other_med" not in game.switches:
-            game.switches["other_med"] = []
-            game.switches["other_med_clan"] = list(game.clan.all_other_clans)
-            game.switches["last_visited_moonplace"] = game.clan.age
-
-            for clan_name in game.clan.all_other_clans:
-                game.switches["other_med"].append(generate_meds_for_clan())
-
+        # initialize on first call
+        if not switch_get_value(Switch.other_meds):
+            switch_set_value(Switch.other_meds, [])
+            for clan in game.clan.all_other_clans:
+                generate_other_meds(clan, randint(1, 3))
         else:
-            if "other_med_clan" not in game.switches:
-                game.switches["other_med_clan"] = list(game.clan.all_other_clans)
-
-            # Promote apprentices occasionally
-            for clan_meds in game.switches["other_med"]:
-                promote_apprentices(clan_meds)
-
-            # Randomly remove some medicine cats (simulate time passing)
-            game.switches["other_med"] = randomly_remove_string(game.switches["other_med"])
-
-            # Replenish missing cats
-            for clan_meds in game.switches["other_med"]:
-                maybe_add_more_meds(clan_meds)
-
-    def randomly_remove_string(self, lists_of_strings):
-        """Randomly removes some entries from each list with 10% chance per item."""
-        for sublist in lists_of_strings:
-            sublist[:] = [s for s in sublist if randint(1, 10) != 1]
-        return lists_of_strings
-
+            for clan in game.clan.all_other_clans:
+                check_number_other_meds(clan)
+                simulate_death_other_meds(clan)
+                check_number_other_meds(clan)
