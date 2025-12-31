@@ -39,6 +39,7 @@ class Switch(StrEnum):
 
     # LG
     attended_half_moon = auto()
+    other_meds = auto()
     patrolled = auto()
     window_open = auto()
     patrol_category = auto()
@@ -84,6 +85,7 @@ _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
 
     # LIFEGEN
     "attended_half_moon": False,
+    "other_meds": [],
     "patrolled": [],
     "window_open": False,
     "patrol_category": "clangen",
