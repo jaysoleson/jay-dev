@@ -2352,7 +2352,7 @@ class Events:
             cat.thoughts()
             return
         
-        if not cat.status.alive_in_player_clan:
+        if cat.status.alive_in_player_clan:
             if not cat.status.is_shunned():
                 self.handle_apprentice_EX(cat)  # This must be before perform_ceremonies!
             # this HAS TO be before the cat.is_disabled() so that disabled kits can choose a med cat or mediator position
@@ -2635,7 +2635,6 @@ class Events:
             # apprentice a kitten to either med or warrior
             if cat.moons == cat_class.age_moons[CatAge.ADOLESCENT][0]:
                 if cat.status.rank == CatRank.KITTEN:
-
                     med_cat_list = [
                         i
                         for i in Cat.all_cats_list
@@ -2818,8 +2817,8 @@ class Events:
                         self.ceremony_accessory = True
                         self.gain_accessories(cat)
                     
-                    elif cat.status == "queen's apprentice":
-                        self.ceremony(cat, "queen", preparedness)
+                    elif cat.status.rank == CatRank.QUEENS_APPRENTICE:
+                        self.ceremony(cat, CatRank.QUEEN, preparedness)
                         self.ceremony_accessory = True
                         self.gain_accessories(cat)
 
@@ -3002,7 +3001,7 @@ class Events:
             # Gather for leader ---------------------------------------------------------
 
             tags = []
-            if game.clan.leader and game.clan.leader.status.alive_in_player_clan and not game.clan.leader.shunned:
+            if game.clan.leader and game.clan.leader.status.alive_in_player_clan and not game.clan.leader.status.is_shunned():
                 tags.append("yes_leader")
             else:
                 tags.append("no_leader")

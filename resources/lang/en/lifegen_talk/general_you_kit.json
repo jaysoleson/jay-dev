@@ -9991,7 +9991,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
+            "min_like_-10",
             "max_like_20"
         ],
         "intro": [
@@ -10053,7 +10053,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_20",
+            "min_like_-20",
             "max_like_20"
         ],
         "intro": [
@@ -10082,7 +10082,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_20",
+            "min_like_-20",
             "max_like_30"
         ],
         "intro": [

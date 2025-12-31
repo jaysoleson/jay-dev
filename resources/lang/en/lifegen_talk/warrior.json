@@ -624,7 +624,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50",
+            "max_respect_-50",
             "max_like_-50"
         ],
         "intro": [
@@ -3255,7 +3255,6 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
             "neutral",
             "max_like_-50"
         ],
@@ -5967,8 +5966,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_20",
-            "max_like_10"
+            "max_like_-20"
         ],
         "intro": [
             "You... want to know if I'm free to patrol with you? Is everycat else too busy?",

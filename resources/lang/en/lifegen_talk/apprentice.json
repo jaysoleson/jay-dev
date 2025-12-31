@@ -2100,7 +2100,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50",
+            "max_respect_-50",
             "max_like_-50"
         ],
         "intro": [
@@ -2217,7 +2217,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50"
+            "max_respect_-50"
         ],
         "intro": [
             "Hey, you, uh, did pretty good out there today at fighting practice ...",
@@ -2247,7 +2247,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50"
+            "max_respect_-50"
         ],
         "intro": [
             "Hey, so, remember when you cracked that joke today, and everybody laughed, and then I tried to be funny, and no one laughed?",
@@ -7805,7 +7805,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_35",
+            "min_like_-35",
             "max_like_-5"
         ],
         "intro": [

@@ -2380,7 +2380,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_30",
             "max_trust_30",
             "from_your_apprentice",
             "min_like_40"
@@ -2451,10 +2450,9 @@
             ]
         },
         "relationship": [
-            "min_dislike_25",
+            "max_like_-25",
             "max_trust_30",
-            "from_your_apprentice",
-            "max_like_30"
+            "from_your_apprentice"
         ],
         "intro": [
             "Uhh... I have duties at the nursery.",

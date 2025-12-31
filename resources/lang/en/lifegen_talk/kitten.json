@@ -15426,7 +15426,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_5",
             "from_kit",
             "min_like_10"
         ],
@@ -16179,7 +16178,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
+            "min_like_-10",
             "max_like_10"
         ],
         "intro": [
@@ -16856,7 +16855,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_5"
         ],
         "intro": [
@@ -16876,7 +16874,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_5"
         ],
         "intro": [

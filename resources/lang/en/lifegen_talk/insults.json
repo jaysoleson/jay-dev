@@ -6549,8 +6549,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_10",
-            "min_like_10"
+            "max_like_-10"
         ],
         "tags": [
             "insult"
@@ -6821,8 +6820,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_20",
-            "min_like_20"
+            "max_like_-20"
         ],
         "tags": [
             "insult"
@@ -7002,7 +7000,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_10"
+            "max_respect_-10"
         ],
         "tags": [
             "insult"
