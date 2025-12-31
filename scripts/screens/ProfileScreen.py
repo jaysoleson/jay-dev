@@ -1481,29 +1481,27 @@ class ProfileScreen(Screens):
 
         if the_cat.dead:
             if the_cat in [game.clan.instructor, game.clan.demon] or the_cat.status.is_outsider:
+                text = i18n.t(
+                    "general.past_no_group",
+                    rank=i18n.t(f"general.{the_cat.status.rank}", count=1),
+                )
+
                 if text_colour:
-                    output += f"<font color='{text_colour}'>{i18n.t(
-                        f"general.past_no_group",
-                        rank=i18n.t(f"general.{the_cat.status.rank}", count=1),
-                    )}</font>"
+                    output += f'<font color="{text_colour}">{text}</font>'
                 else:
-                    output += i18n.t(
-                        f"general.past_no_group",
-                        rank=i18n.t(f"general.{the_cat.status.rank}", count=1),
-                    )
+                    output += text
+
             else:
+                text = i18n.t(
+                    "general.past_group",
+                    group=cat_clan,
+                    rank=i18n.t(f"general.{the_cat.status.rank}", count=1),
+                )
+
                 if text_colour:
-                    output += f"<font color='{text_colour}'>{i18n.t(
-                        "general.past_group",
-                        group=cat_clan,
-                        rank=i18n.t(f"general.{the_cat.status.rank}", count=1),
-                    )}</font>"
+                    output += f'<font color="{text_colour}">{text}</font>'
                 else:
-                    output += i18n.t(
-                        "general.past_group",
-                        group=cat_clan,
-                        rank=i18n.t(f"general.{the_cat.status.rank}", count=1),
-                    )
+                    output += text
         elif the_cat.status.is_outsider:
             output += i18n.t(f"general.{the_cat.status.rank}", count=1)
         else:
