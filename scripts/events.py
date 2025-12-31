@@ -3082,12 +3082,6 @@ class Events:
                 # a ceremony for a cat returning to work after being forgiven
                 if "forgiven" not in tags:
                     continue
-                if (cat.moons - cat.shunned) > 5:
-                    if "shunned_as_apprentice" not in tags:
-                        continue
-                else:
-                    if "shunned_as_kit" not in tags:
-                        continue
             
             else:
                 if "forgiven" in tags or "shunned" in tags:

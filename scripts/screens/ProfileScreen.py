@@ -1171,7 +1171,7 @@ class ProfileScreen(Screens):
                     "",
                     object_id="#queen_activity_button", manager=MANAGER
                 )
-                if not self.the_cat.status.alive_in_player_clan or self.the_cat.shunned > 0 or self.the_cat.not_working():
+                if not self.the_cat.status.alive_in_player_clan or self.the_cat.status.is_shunned() or self.the_cat.not_working():
                     # check for not working because the queen screen doesnt have the "this cat is unable to work" thing
                     # like the mediator screen does
                     self.profile_elements["queen"].disable()
@@ -1188,7 +1188,7 @@ class ProfileScreen(Screens):
                     tool_tip_text= "You may attend the half-moon gathering every six moons",
                     manager=MANAGER
                 )
-                if self.the_cat.dead or self.the_cat.status.is_outsider or (game.clan.age % 6 != 0) or self.the_cat.shunned > 0:
+                if self.the_cat.dead or self.the_cat.status.is_outsider or (game.clan.age % 6 != 0) or self.the_cat.status.is_shunned():
                     self.profile_elements["halfmoon"].disable()
                 elif switch_get_value(Switch.attended_half_moon):
                     self.profile_elements["halfmoon"].disable()
@@ -1218,7 +1218,7 @@ class ProfileScreen(Screens):
                     tool_tip_text= "You may visit the Moonplace once during your apprenticeship.",
                     manager=MANAGER
                 )
-                if not self.the_cat.status.alive_in_player_clan or self.the_cat.shunned > 0:
+                if not self.the_cat.status.alive_in_player_clan or self.the_cat.status.is_shunned():
                     self.profile_elements["halfmoon"].disable()
                 elif switch_get_value(Switch.attended_half_moon):
                     self.profile_elements["halfmoon"].disable()
@@ -1233,7 +1233,7 @@ class ProfileScreen(Screens):
                     starting_height=2,
                 )
             
-                if not self.the_cat.status.alive_in_player_clan or self.the_cat.shunned > 0:
+                if not self.the_cat.status.alive_in_player_clan or self.the_cat.status.is_shunned():
                     self.profile_elements["story"].disable()
             
         if self.the_cat.ID == game.clan.your_cat.ID and not game.clan.your_cat.dead:
