@@ -3153,57 +3153,99 @@ def generate_sprite(
                                 (0, 0),
                             )
 
-                        # LIFEGEN
-                        elif accessory in cat.pelt.aliveInsect_accessories:
-                            sprite_name = f"{sprites.ALIVEINSECT_DATA['spritesheet']}{accessory}{cat_sprite}"
-                            new_sprite.blit(
-                                _recolor_lineart(
-                                    sprites.sprites[sprite_name],
-                                    lineart_color,
-                                    gradient_surface,
-                                ),
-                                (0, 0),
-                            )
-                        elif accessory in cat.pelt.deadInsect_accessories:
-                            sprite_name = f"{sprites.DEADINSECT_DATA['spritesheet']}{accessory}{cat_sprite}"
-                            new_sprite.blit(
-                                _recolor_lineart(
-                                    sprites.sprites[sprite_name],
-                                    lineart_color,
-                                    gradient_surface,
-                                ),
-                                (0, 0),
-                            )
-                        elif accessory in cat.pelt.raincoat_accessories:
-                            sprite_name = f"{sprites.RAINCOAT_DATA['spritesheet']}{accessory}{cat_sprite}"
-                            new_sprite.blit(
-                                _recolor_lineart(
-                                    sprites.sprites[sprite_name],
-                                    lineart_color,
-                                    gradient_surface,
-                                ),
-                                (0, 0),
-                            )
-                        elif accessory in cat.pelt.sophisticated_accessories:
-                            sprite_name = f"{sprites.SOPHISTICATED_DATA['spritesheet']}{accessory}{cat_sprite}"
-                            new_sprite.blit(
-                                _recolor_lineart(
-                                    sprites.sprites[sprite_name],
-                                    lineart_color,
-                                    gradient_surface,
-                                ),
-                                (0, 0),
-                            )
-                        elif accessory in cat.pelt.fruit_accessories:
-                            sprite_name = f"{sprites.FRUIT_DATA['spritesheet']}{accessory}{cat_sprite}"
-                            new_sprite.blit(
-                                _recolor_lineart(
-                                    sprites.sprites[sprite_name],
-                                    lineart_color,
-                                    gradient_surface,
-                                ),
-                                (0, 0),
-                            )
+                        else:
+                            # LIFEGEN
+                            pelt_acc_lists = [
+                                cat.pelt.aliveInsect_accessories,
+                                cat.pelt.deadInsect_accessories,
+                                cat.pelt.raincoat_accessories,
+                                cat.pelt.sophisticated_accessories,
+                                cat.pelt.fruit_accessories,
+                                cat.pelt.flower_crown_accessories
+
+                            ]
+                            acc_json_data = [
+                                sprites.ALIVEINSECT_DATA,
+                                sprites.DEADINSECT_DATA,
+                                sprites.RAINCOAT_DATA,
+                                sprites.SOPHISTICATED_DATA,
+                                sprites.FRUIT_DATA,
+                                sprites.FLOWERCROWNS_DATA
+                            ]
+
+                            for acc_list in pelt_acc_lists:
+                                if accessory in acc_list:
+                                    sprite_name = (
+                                        f"{acc_json_data[pelt_acc_lists.index(acc_list)]['spritesheet']}{accessory}{cat_sprite}"
+                                        )
+                                    new_sprite.blit(
+                                        _recolor_lineart(
+                                            sprites.sprites[sprite_name],
+                                            lineart_color,
+                                            gradient_surface,
+                                        ),
+                                        (0, 0),
+                                    )
+                            # if accessory in cat.pelt.aliveInsect_accessories:
+                            #     sprite_name = f"{sprites.ALIVEINSECT_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            #     new_sprite.blit(
+                            #         _recolor_lineart(
+                            #             sprites.sprites[sprite_name],
+                            #             lineart_color,
+                            #             gradient_surface,
+                            #         ),
+                            #         (0, 0),
+                            #     )
+                            # elif accessory in cat.pelt.deadInsect_accessories:
+                            #     sprite_name = f"{sprites.DEADINSECT_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            #     new_sprite.blit(
+                            #         _recolor_lineart(
+                            #             sprites.sprites[sprite_name],
+                            #             lineart_color,
+                            #             gradient_surface,
+                            #         ),
+                            #         (0, 0),
+                            #     )
+                            # elif accessory in cat.pelt.raincoat_accessories:
+                            #     sprite_name = f"{sprites.RAINCOAT_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            #     new_sprite.blit(
+                            #         _recolor_lineart(
+                            #             sprites.sprites[sprite_name],
+                            #             lineart_color,
+                            #             gradient_surface,
+                            #         ),
+                            #         (0, 0),
+                            #     )
+                            # elif accessory in cat.pelt.sophisticated_accessories:
+                            #     sprite_name = f"{sprites.SOPHISTICATED_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            #     new_sprite.blit(
+                            #         _recolor_lineart(
+                            #             sprites.sprites[sprite_name],
+                            #             lineart_color,
+                            #             gradient_surface,
+                            #         ),
+                            #         (0, 0),
+                            #     )
+                            # elif accessory in cat.pelt.fruit_accessories:
+                            #     sprite_name = f"{sprites.FRUIT_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            #     new_sprite.blit(
+                            #         _recolor_lineart(
+                            #             sprites.sprites[sprite_name],
+                            #             lineart_color,
+                            #             gradient_surface,
+                            #         ),
+                            #         (0, 0),
+                            #     )
+                            # elif accessory in cat.pelt.flower_crown_accessories:
+                            #     sprite_name = f"{sprites.FLOWERCROWNS_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            #     new_sprite.blit(
+                            #         _recolor_lineart(
+                            #             sprites.sprites[sprite_name],
+                            #             lineart_color,
+                            #             gradient_surface,
+                            #         ),
+                            #         (0, 0),
+                            #     )
 
         if only_accessory:
             return new_sprite

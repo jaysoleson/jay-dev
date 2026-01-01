@@ -60,6 +60,10 @@ class Sprites:
         "sprites/dicts/fruit_data.json", "r", encoding="utf-8"
     ) as read_file:
         FRUIT_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/flowercrowns_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        FLOWERCROWNS_DATA = ujson.loads(read_file.read())
 
     # SCARS
     with open(
@@ -284,6 +288,7 @@ class Sprites:
             self.RAINCOAT_DATA,
             self.SOPHISTICATED_DATA,
             self.FRUIT_DATA,
+            self.FLOWERCROWNS_DATA,
         )
 
         # data jsons that have multiple associated spritesheets

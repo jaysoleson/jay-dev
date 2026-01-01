@@ -93,7 +93,10 @@ def json_load():
                 "CHERRY2": "CHERRY",
                 "RAINCOAT": "YELLOWRAINCOAT",
                 "CHIMES": "CELESTIALCHIMES",
-                "LADYBUG": "LADYBUGS"
+                "LADYBUG": "LADYBUGS",
+                "YELLOWCROWN": "DANDELIONCROWN",
+                "REDCROWN": "POPPYCROWN",
+                "LILYPADCROWN": "LILYPADHAT"
             }
             for acc in cat["inventory"].copy():
                 if acc in accessory_convert:

@@ -629,6 +629,41 @@
             "zero": "saskatoons",
             "many": "bunch of saskatoons",
             "one": "saskatoons"
+        },
+        "PINKFLOWERCROWN": {
+            "zero": "pink flower crown",
+            "many": "pink flower crown",
+            "one": "pink flower crown"
+        },
+        "YELLOWFLOWERCROWN": {
+            "zero": "yellow flower crown",
+            "many": "yellow flower crown",
+            "one": "yellow flower crown"
+        },
+        "BLUEFLOWERCROWN": {
+            "zero": "blue flower crown",
+            "many": "blue flower crown",
+            "one": "blue flower crown"
+        },
+        "PURPLEFLOWERCROWN": {
+            "zero": "purple flower crown",
+            "many": "purple flower crown",
+            "one": "purple flower crown"
+        },
+        "DANDELIONCROWN": {
+            "zero": "dandelion crown",
+            "many": "dandelion crown",
+            "one": "dandelion crown"
+        },
+        "POPPYCROWN": {
+            "zero": "poppy crown",
+            "many": "poppy crown",
+            "one": "poppy crown"
+        },
+        "LILYPADHAT": {
+            "zero": "lilypad hat",
+            "many": "lilypad hat",
+            "one": "lilypad hat"
         }
     }
 }

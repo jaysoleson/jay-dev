@@ -248,6 +248,17 @@ class Pelt:
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
 
+    flower_crown_accessories = []
+    for sprite_list in sprites.FLOWERCROWNS_DATA["sprite_list"]:
+        flower_crown_accessories.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "tail":
+                tail_accessories.append(sprite)
+            elif sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+            elif sprite_list[sprite] == "head":
+                body_accessories.append(sprite)
+
     # this is used for acc-giving events, only change if you're adding a new category tag to the event filter
     # adding a category here will automatically update the event editor's options
     acc_categories = {
@@ -259,7 +270,8 @@ class Pelt:
         "DEADINSECT": deadInsect_accessories,
         "RAINCOAT": raincoat_accessories,
         "SOPHISTICATED": sophisticated_accessories,
-        "FRUIT": fruit_accessories
+        "FRUIT": fruit_accessories,
+        "FLOWERCROWN": flower_crown_accessories
     }
 
     # LIFEGEN
@@ -273,7 +285,8 @@ class Pelt:
         raincoat_accessories +
         sophisticated_accessories +
         deadInsect_accessories +
-        fruit_accessories
+        fruit_accessories +
+        flower_crown_accessories
         )
 
     """Holds all appearance information for a cat. """
