@@ -2277,7 +2277,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50",
+            "max_respect_-50",
             "max_like_-50"
         ],
         "intro": [
@@ -6145,7 +6145,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_35"
         ],
         "intro": [

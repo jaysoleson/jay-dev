@@ -282,34 +282,10 @@ def loading_animation(scale: float = 1):
     while not finished_loading:
         clock.tick(8)  # Loading screen is 8FPS
 
-        if game_setting_get('dark mode'):
-            b = 50
-            if game_setting_get('red_bg'):
-                if game.clan:
-                    if game.clan.your_cat:
-                        if not game.clan.your_cat.history:
-                            game.clan.your_cat.load_history()
-                        if game.clan.your_cat.history:
-                            if game.clan.your_cat.history.murder:
-                                if "is_murderer" in game.clan.your_cat.history.murder:
-                                    if len(game.clan.your_cat.history.murder["is_murderer"]) > 0:
-                                        for m in range(len(game.clan.your_cat.history.murder["is_murderer"])):
-                                            b -= 3
-            screen.fill((57, max(36,b), 36))
+        if game_setting_get("dark mode"):
+            screen.fill(constants.CONFIG["theme"]["dark_mode_background"])
         else:
-            b = 194
-            if game_setting_get('red bg'):
-                if game.clan:
-                    if game.clan.your_cat:
-                        if not game.clan.your_cat.history:
-                            game.clan.your_cat.load_history()
-                        if game.clan.your_cat.history:
-                            if game.clan.your_cat.history.murder:
-                                if "is_murderer" in game.clan.your_cat.history.murder:
-                                    if len(game.clan.your_cat.history.murder["is_murderer"]) > 0:
-                                        for m in range(len(game.clan.your_cat.history.murder["is_murderer"])):
-                                            b -= 1
-            screen.fill((206, max(b, 167), 168))
+            screen.fill(constants.CONFIG["theme"]["light_mode_background"])
 
         screen.blit(
             images[i], (x - images[i].get_width() / 2, y - images[i].get_height() / 2)

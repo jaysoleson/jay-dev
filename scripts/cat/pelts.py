@@ -157,9 +157,6 @@ class Pelt:
     body_accessories = []
     head_accessories = []
 
-    # CHECKMERGE
-    # LIFEGEN ACCS ADD BACK
-
     # here we create the master lists of each accessory type
     plant_accessories = []
     for sprite_list in sprites.PLANT_DATA["sprite_list"]:

@@ -407,6 +407,27 @@ def rebuild_mute(location: str):
         anchors=anchors,
     )
 
+def get_red_bg(dark_mode=False):
+    if dark_mode:
+        b = 50
+        b_alter = 3
+    else:
+        b = 194
+        b_alter = 4
+    if game.clan:
+        if game.clan.your_cat:
+            if not game.clan.your_cat.history:
+                game.clan.your_cat.load_history()
+            if game.clan.your_cat.history:
+                if game.clan.your_cat.history.murder:
+                    if "is_murderer" in game.clan.your_cat.history.murder:
+                        if len(game.clan.your_cat.history.murder["is_murderer"]) > 0:
+                            for m in range(len(game.clan.your_cat.history.murder["is_murderer"])):
+                                b -= b_alter
+    if dark_mode:
+        return [57, max(36,b), 36]
+    else:
+        return [206, max(b, 167), 168]
 
 def rebuild_bgs():
     global default_fullscreen_bgs
@@ -450,9 +471,17 @@ def rebuild_bgs():
         del game_box
 
     bg = pygame.Surface(scripts.game_structure.screen_settings.game_screen_size)
-    bg.fill(constants.CONFIG["theme"]["light_mode_background"])
     bg_dark = pygame.Surface(scripts.game_structure.screen_settings.game_screen_size)
-    bg_dark.fill(constants.CONFIG["theme"]["dark_mode_background"])
+
+    if game_setting_get("red_bg"):
+        light_fill = get_red_bg(False)
+        dark_fill = get_red_bg(True)
+    else:
+        light_fill = constants.CONFIG["theme"]["light_mode_background"]
+        dark_fill = constants.CONFIG["theme"]["dark_mode_background"]
+
+    bg.fill(light_fill)
+    bg_dark.fill(dark_fill)
 
     default_game_bgs = {
         "light": {"default": bg},

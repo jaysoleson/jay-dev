@@ -836,7 +836,7 @@ class PronounCreation(UIWindow):
 
     def __init__(self, cat):
         super().__init__(
-            ui_scale(pygame.Rect((80, 150), (650, 450))),
+            ui_scale(pygame.Rect((80, 100), (650, 550))),
             window_display_title="Create Cat Pronouns",
             object_id="#change_cat_gender_window",
             resizable=False,
@@ -862,13 +862,13 @@ class PronounCreation(UIWindow):
         )
 
         self.elements["core_container"] = pygame_gui.core.UIContainer(
-            ui_scale(pygame.Rect((0, 3), (375, 448))),
+            ui_scale(pygame.Rect((0, 3), (375, 548))),
             manager=MANAGER,
             container=self,
         )
         self.elements["core_box"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((4, 0), (375, 448))),
-            get_box(BoxStyles.FRAME, (375, 448), sides=(False, True, False, False)),
+            ui_scale(pygame.Rect((4, 0), (375, 548))),
+            get_box(BoxStyles.FRAME, (375, 548), sides=(False, True, False, False)),
             container=self.elements["core_container"],
             manager=MANAGER,
         )
@@ -884,8 +884,8 @@ class PronounCreation(UIWindow):
 
         # # Add the Demo frame to the sub-container
         self.elements["demo_frame"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((0, 4), (208, 288))),
-            get_box(BoxStyles.FRAME, (208, 288), sides=(False, True, True, True)),
+            ui_scale(pygame.Rect((0, 4), (208, 322))),
+            get_box(BoxStyles.FRAME, (208, 322), sides=(False, True, True, True)),
             manager=MANAGER,
             container=self.demo_container,
             anchors={"center": "center"},
@@ -1024,7 +1024,7 @@ class PronounCreation(UIWindow):
 
         self.buttons = {}
         self.buttons["save_pronouns"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 400), (73, 30))),
+            ui_scale(pygame.Rect((0, 470), (73, 30))),
             "buttons.save",
             get_button_dict(ButtonStyles.SQUOVAL, (73, 30)),
             object_id="@buttonstyles_squoval",
@@ -1035,7 +1035,7 @@ class PronounCreation(UIWindow):
 
         self.pronoun_added = pygame_gui.elements.UITextBox(
             f"windows.pronoun_confirm",
-            ui_scale(pygame.Rect((0, 375), (300, 40))),
+            ui_scale(pygame.Rect((0, 500), (300, 40))),
             visible=False,
             object_id="#text_box_30_horizleft",
             manager=MANAGER,

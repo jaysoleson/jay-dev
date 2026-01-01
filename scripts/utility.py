@@ -442,7 +442,6 @@ def create_new_cat_block(
     else:
         cat_social = choice([CatSocial.KITTYPET, CatSocial.LONER, "former Clancat"])
 
-    # CHECKMERGE: check that all the lg arguments (df, um. whatever else) are still here
     # LITTER
     litter = False
     if "litter" in attribute_list:
@@ -1031,8 +1030,6 @@ def create_new_cat(
         if not alive:
             new_cat.die()
 
-        # CHECKMERGE
-        # ALL lifegen new_cat stuff. df, df mentors
         new_cat.pelt.inventory = new_cat.pelt.accessory
         # newbie thought
         new_cat.thought = thought
@@ -4357,8 +4354,6 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
     return text
 
 def check_achievements(Cat, eventspage=False):
-    # CHECKMERGE
-    # this scares me 
     you = game.clan.your_cat
     achievements = set()
     murder_history = you.history.murder

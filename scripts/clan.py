@@ -346,9 +346,7 @@ class Clan:
         # set the starting season
         season_index = constants.SEASON_CALENDAR.index(self.starting_season)
         self.current_season = constants.SEASON_CALENDAR[season_index]
-    
-    # CHECKMERGE
-    # maybe just redo all of these functions tbh
+
     def generate_mates(self):
         """Generates up to three pairs of mates."""
 

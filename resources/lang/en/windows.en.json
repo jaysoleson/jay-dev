@@ -45,6 +45,8 @@
         "poss": "Possessive",
         "inposs": "Independent Possessive",
         "self": "Reflexive",
+        "parent": "Parent Title",
+        "sibling": "Sibling Title",
         "conju": "Conjugation: ",
         "conju1": "plural",
         "conju2": "singular",

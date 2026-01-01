@@ -24,7 +24,6 @@ class Sprites:
         POSE_DATA = ujson.loads(read_file.read())
 
     # ACCESSORIES
-    # CHECKMERGE: LIFEGEN
     with open(
         "sprites/dicts/collar_sprite_data.json", "r", encoding="utf-8"
     ) as read_file:

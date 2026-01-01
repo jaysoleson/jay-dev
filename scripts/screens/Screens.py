@@ -126,11 +126,18 @@ class Screens:
         self.work_done = {}
 
         bg = pygame.Surface(scripts.game_structure.screen_settings.game_screen_size)
-        bg.fill(constants.CONFIG["theme"]["light_mode_background"])
         bg_dark = pygame.Surface(
             scripts.game_structure.screen_settings.game_screen_size
         )
-        bg_dark.fill(constants.CONFIG["theme"]["dark_mode_background"])
+        if game_setting_get("red_bg"):
+            light_fill = scripts.screens.screens_core.screens_core.get_red_bg(False)
+            dark_fill = scripts.screens.screens_core.screens_core.get_red_bg(True)
+        else:
+            light_fill = constants.CONFIG["theme"]["light_mode_background"]
+            dark_fill = constants.CONFIG["theme"]["dark_mode_background"]
+
+        bg.fill(light_fill)
+        bg_dark.fill(dark_fill)
 
         self.game_bgs = {}
         self.fullscreen_bgs = {}

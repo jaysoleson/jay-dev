@@ -53,6 +53,10 @@
             "one": "queen",
             "many": "queens"
         },
+        "queen's apprentice": {
+            "one": "queen's apprentice",
+            "many": "queen's apprentices"
+        },
         "queen/pregnant": {
             "one": "queen/pregnant cat",
             "many": "queens/pregnant cats"
