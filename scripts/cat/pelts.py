@@ -275,8 +275,7 @@ class Pelt:
     }
 
     # LIFEGEN
-    # all accs list makes things easier for
-    # the inventory + customiser
+    # for the inventory + customiser
     all_accessories = (
         plant_accessories +
         wild_accessories +
@@ -288,6 +287,25 @@ class Pelt:
         fruit_accessories +
         flower_crown_accessories
         )
+
+    # for generate_sprite()
+    acc_list_of_lists = [
+        aliveInsect_accessories,
+        deadInsect_accessories,
+        raincoat_accessories,
+        sophisticated_accessories,
+        fruit_accessories,
+        flower_crown_accessories
+    ]
+    acc_data_list = [
+        sprites.ALIVEINSECT_DATA,
+        sprites.DEADINSECT_DATA,
+        sprites.RAINCOAT_DATA,
+        sprites.SOPHISTICATED_DATA,
+        sprites.FRUIT_DATA,
+        sprites.FLOWERCROWNS_DATA
+    ]
+    # ---
 
     """Holds all appearance information for a cat. """
 
