@@ -16,13 +16,13 @@ from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.game_structure import game
 from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UISurfaceImageButton
-from scripts.cat.sprites import sprites
 from ..ui.generate_box import BoxStyles, get_box
 from scripts.utility import get_text_box_theme, ui_scale
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
 from scripts.screens.enums import GameScreen
+from scripts.game_structure.game.settings import game_setting_get
 
 
 
@@ -75,6 +75,11 @@ class GiftScreen(Screens):
         self.accessory_buttons = {}
         self.selected_accessory = None
         self.cat_sprite = None
+
+        if game_setting_get("lifegen_sprite_changes"):
+            self.all_accs = (Pelt.all_lifegen_accessories)
+        else:
+            self.all_accs = (Pelt.all_clangen_accessories)
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
@@ -704,8 +709,7 @@ class GiftScreen(Screens):
             x_pos = 101
             y_pos = 129
 
-
-            if accessory in Pelt.all_accessories:
+            if accessory in self.all_accs:
                 acc_sprite = generate_sprite(self.the_cat, only_accessory=True, accessory_to_render=accessory)
                 
                 self.selected_acc_details[
@@ -852,7 +856,7 @@ class GiftScreen(Screens):
                 try:
                     if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
                         self.accessory_buttons[str(i)] = UIImageButton(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), "", tool_tip_text=accessory, object_id="#blank_button")
-                        if accessory in Pelt.all_accessories:
+                        if accessory in self.all_accs:
                             acc_sprite = generate_sprite(self.the_cat, only_accessory=True, accessory_to_render=accessory)
                             
                             self.cat_list_buttons[

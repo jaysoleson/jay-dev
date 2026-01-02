@@ -26,6 +26,11 @@
             "Enable background color to get more red as you murder more cats",
             true
         ],
+        "lifegen_sprite_changes": [
+            "LifeGen sprite changes",
+            "Enable LifeGen sprite additions, including new Unknown Residence lineart and new accessories. Disabling this can increase compatibility with ClanGen sprite mods.",
+            true
+        ],
         "fullscreen scaling": [
             "Ignore fullscreen scaling rules",
             "If enabled, fullscreen will display as large as possible (toggle fullscreen to update). This may include visual artifacts.",

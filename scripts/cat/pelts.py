@@ -10,6 +10,7 @@ from scripts.cat.sprites import sprites
 from scripts.game_structure import constants
 from scripts.game_structure.localization import get_lang_config
 from scripts.utility import adjust_list_text
+from scripts.game_structure.game.settings import game_setting_get
 
 
 class Pelt:
@@ -261,11 +262,16 @@ class Pelt:
 
     # this is used for acc-giving events, only change if you're adding a new category tag to the event filter
     # adding a category here will automatically update the event editor's options
-    acc_categories = {
+  
+    clangen_acc_categories = {
+        "PLANT": plant_accessories,
+        "WILD": wild_accessories,
+        "COLLAR": collar_accessories
+    }
+    lifegen_acc_categories = {
         "PLANT": plant_accessories,
         "WILD": wild_accessories,
         "COLLAR": collar_accessories,
-
         "ALIVEINSECT": aliveInsect_accessories,
         "DEADINSECT": deadInsect_accessories,
         "RAINCOAT": raincoat_accessories,
@@ -276,7 +282,7 @@ class Pelt:
 
     # LIFEGEN
     # for the inventory + customiser
-    all_accessories = (
+    all_lifegen_accessories = (
         plant_accessories +
         wild_accessories +
         collar_accessories +
@@ -288,7 +294,14 @@ class Pelt:
         flower_crown_accessories
         )
 
+    all_clangen_accessories = (
+        plant_accessories +
+        wild_accessories +
+        collar_accessories
+    )
+
     # for generate_sprite()
+    # these are JUST lifegen accessories
     acc_list_of_lists = [
         aliveInsect_accessories,
         deadInsect_accessories,

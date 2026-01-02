@@ -488,6 +488,7 @@ class ClanScreen(Screens):
             if Cat.all_cats[x].status.rank in (
                 CatRank.APPRENTICE,
                 CatRank.MEDIATOR_APPRENTICE,
+                CatRank.QUEENS_APPRENTICE
             ):
                 [
                     Cat.all_cats[x].placement,
@@ -524,7 +525,7 @@ class ClanScreen(Screens):
                 ] = self.choose_nonoverlapping_positions(
                     first_choices, all_dens, [20, 20, 20, 400, 1, 1, 1]
                 )
-            elif Cat.all_cats[x].status.rank in (CatRank.WARRIOR, CatRank.MEDIATOR):
+            elif Cat.all_cats[x].status.rank in (CatRank.WARRIOR, CatRank.MEDIATOR, CatRank.QUEEN):
                 [
                     Cat.all_cats[x].placement,
                     base_pos,

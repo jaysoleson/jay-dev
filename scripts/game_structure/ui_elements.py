@@ -1787,6 +1787,10 @@ class UICatListDisplay(UIContainer):
             ]
 
     def create_cat_button(self, i, kitty, container):
+        # LG
+        kitty.pelt.rebuild_sprite = True
+        # this allows sprites to update if the lifegen_sprite_changes setting
+        # ---
         self.cat_sprites[f"sprite{i}"] = UISpriteButton(
             ui_scale(pygame.Rect((0, 15), (50, 50))),
             kitty.sprite,
