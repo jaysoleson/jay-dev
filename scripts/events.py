@@ -480,7 +480,7 @@ class Events:
             self.generate_death_event()
         elif game.clan.your_cat.dead:
             self.generate_events()
-        elif game.clan.your_cat.status.is_exiled():
+        elif game.clan.your_cat.status.is_exiled(CatGroup.PLAYER_CLAN_ID):
             self.generate_exile_event()
             
         # LIFEGEN
@@ -2356,12 +2356,6 @@ class Events:
 
         self.handle_murder(cat)
         cat.faith += round(random.uniform(-0.2,0.2), 2)
-
-        if cat.status == 'deputy' and cat.ID != game.clan.your_cat.ID and game.clan.your_cat.status.rank == CatRank.DEPUTY and not game.clan.your_cat.dead and not (game.clan.your_cat.status.is_outsider or game.clan.your_cat.status.is_exiled(CatGroup.PLAYER_CLAN)):
-            cat.status = 'warrior'
-
-            if game.clan.deputy.ID != game.clan.your_cat.ID:
-                game.clan.deputy = game.clan.your_cat
 
         switch_set_value(Switch.skip_conditions, [])
 

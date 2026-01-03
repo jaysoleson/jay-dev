@@ -1472,19 +1472,10 @@ class ProfileScreen(Screens):
             output += f"<font color='#FF0000'>{i18n.t('general.lost', count=1)}</font>"
             # NEWLINE ----------
             output += "\n"
-        elif the_cat.status.is_exiled():
-            print(the_cat.name, "is exiled?")
-            # LG
-            for item in the_cat.status.standing_history:
-                if item["group"] == CatGroup.PLAYER_CLAN_ID:
-                    # LG addition: they only get te "exiled" text if they are Currently exiled
-                    # because right now, is_exiled() will be true if they were exiled ever, at any point
-                    # and in lifegen, cats can return
-                    # but i dont want to edit the clangen function. lest Issues Arise
-                    if CatStanding.EXILED == item["standing"][-1]:
-                        output += f"<font color='#FF0000'>{i18n.t('general.exiled', count=1)} {cat_clan}</font>"
-                        # NEWLINE ----------
-                        output += "\n"
+        elif the_cat.status.is_exiled(CatGroup.PLAYER_CLAN_ID):
+            output += f"<font color='#FF0000'>{i18n.t('general.exiled', count=1)} {cat_clan}</font>"
+            # NEWLINE ----------
+            output += "\n"
         elif the_cat.status.is_shunned():
             output += f"<font color='#FF0000'>{i18n.t('general.shunned', count=1)}</font>"
             # NEWLINE ----------
