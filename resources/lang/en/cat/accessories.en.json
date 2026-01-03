@@ -794,6 +794,76 @@
             "zero": "lilypad hat",
             "many": "lilypad hat",
             "one": "lilypad hat"
+        },
+        "TIDE": {
+            "zero": "tide crab",
+            "many": "tide crab",
+            "one": "tide crab"
+        },
+        "WOODDRAGON": {
+            "zero": "wooden dragon",
+            "many": "wooden dragon",
+            "one": "wooden dragon"
+        },
+        "TOAST": {
+            "zero": "toast",
+            "many": "piece of toast",
+            "one": "toast"
+        },
+        "TOASTBERRY": {
+            "zero": "toast",
+            "many": "piece of toast",
+            "one": "toast"
+        },
+        "TOASTGRAPE": {
+            "zero": "toast",
+            "many": "piece of toast",
+            "one": "toast"
+        },
+        "TOASTNUTELLA": {
+            "zero": "toast",
+            "many": "piece of toast",
+            "one": "toast"
+        },
+        "TOASTPB": {
+            "zero": "toast",
+            "many": "piece of toast",
+            "one": "toast"
+        },
+        "WINTERSTOAT": {
+            "zero": "winter stoat",
+            "many": "winter stoat",
+            "one": "winter stoat"
+        },
+        "BROWNSTOAT": {
+            "zero": "brown stoat",
+            "many": "brown stoat",
+            "one": "brown stoat"
+        },
+        "FAZBEAR": {
+            "zero": "fazbear plush",
+            "many": "fazbear plush",
+            "one": "fazbear plush"
+        },
+        "WHITEBEAR": {
+            "zero": "white bear plush",
+            "many": "white bear plush",
+            "one": "white bear plush"
+        },
+        "PANDA": {
+            "zero": "panda plush",
+            "many": "panda plush",
+            "one": "panda plush"
+        },
+        "BEAR": {
+            "zero": "bear plush",
+            "many": "bear plush",
+            "one": "bear plush"
+        },
+        "BROWNBEAR": {
+            "zero": "brown bear plush",
+            "many": "brown bear plush",
+            "one": "brown bear plush"
         }
     }
 }
