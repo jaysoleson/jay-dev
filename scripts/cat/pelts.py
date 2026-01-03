@@ -215,6 +215,17 @@ class Pelt:
                 body_accessories.append(sprite)
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
+    
+    plant2_accessories = []
+    for sprite_list in sprites.PLANT2_DATA["sprite_list"]:
+        plant2_accessories.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "tail":
+                tail_accessories.append(sprite)
+            elif sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+            elif sprite_list[sprite] == "head":
+                body_accessories.append(sprite)
 
     sophisticated_accessories = []
     for sprite_list in sprites.SOPHISTICATED_DATA["sprite_list"]:
@@ -260,6 +271,17 @@ class Pelt:
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
 
+    harness_accessories = []
+    for sprite_list in sprites.HARNESS_DATA["sprite_list"]:
+        harness_accessories.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "tail":
+                tail_accessories.append(sprite)
+            elif sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+            elif sprite_list[sprite] == "head":
+                body_accessories.append(sprite)
+
     # this is used for acc-giving events, only change if you're adding a new category tag to the event filter
     # adding a category here will automatically update the event editor's options
   
@@ -274,10 +296,12 @@ class Pelt:
         "COLLAR": collar_accessories,
         "ALIVEINSECT": aliveInsect_accessories,
         "DEADINSECT": deadInsect_accessories,
+        "PLANT2": plant2_accessories,
         "SOPHISTICATED": sophisticated_accessories,
         "FRUIT": fruit_accessories,
         "FLOWERCROWN": flower_crown_accessories,
-        "MISC": misc_accessories
+        "MISC": misc_accessories,
+        "HARNESS": harness_accessories
     }
 
     # LIFEGEN
@@ -287,11 +311,13 @@ class Pelt:
         wild_accessories +
         collar_accessories +
         aliveInsect_accessories +
+        plant2_accessories +
         sophisticated_accessories +
         deadInsect_accessories +
         fruit_accessories +
         flower_crown_accessories +
-        misc_accessories
+        misc_accessories +
+        harness_accessories
         )
 
     all_clangen_accessories = (
@@ -302,21 +328,27 @@ class Pelt:
 
     # for generate_sprite()
     # these are JUST lifegen accessories
+    # accessory lists not added here will not show up on sprites.
+    # so make sure to add it!
     acc_list_of_lists = [
         aliveInsect_accessories,
         deadInsect_accessories,
+        plant2_accessories,
         sophisticated_accessories,
         fruit_accessories,
         flower_crown_accessories,
-        misc_accessories
+        misc_accessories,
+        harness_accessories
     ]
     acc_data_list = [
         sprites.ALIVEINSECT_DATA,
         sprites.DEADINSECT_DATA,
+        sprites.PLANT2_DATA,
         sprites.SOPHISTICATED_DATA,
         sprites.FRUIT_DATA,
         sprites.FLOWERCROWNS_DATA,
-        sprites.MISC_ACCS_DATA
+        sprites.MISC_ACCS_DATA,
+        sprites.HARNESS_DATA,
     ]
     # ---
 
@@ -1004,7 +1036,16 @@ class Pelt:
 
         if acc_display_choice == 1:
             self.accessory = [
-                choice([choice(Pelt.plant_accessories), choice(Pelt.wild_accessories), choice(Pelt.aliveInsect_accessories)])
+                choice(
+                        [
+                            choice(Pelt.plant_accessories),
+                            choice(Pelt.wild_accessories),
+                            choice(Pelt.aliveInsect_accessories),
+                            choice(Pelt.deadInsect_accessories),
+                            choice(Pelt.fruit_accessories),
+                            choice(Pelt.plant2_accessories),
+                        ]
+                    )
             ]
         else:
             self.accessory = []

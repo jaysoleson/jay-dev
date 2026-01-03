@@ -864,6 +864,81 @@
             "zero": "brown bear plush",
             "many": "brown bear plush",
             "one": "brown bear plush"
+        },
+        "REDHARNESS": {
+            "zero": "red harness",
+            "many": "red harness",
+            "one": "red harness"
+        },
+        "NAVYHARNESS": {
+            "zero": "navy harness",
+            "many": "navy harness",
+            "one": "navy harness"
+        },
+        "YELLOWHARNESS": {
+            "zero": "yellow harness",
+            "many": "yellow harness",
+            "one": "yellow harness"
+        },
+        "TEALHARNESS": {
+            "zero": "teal harness",
+            "many": "teal harness",
+            "one": "teal harness"
+        },
+        "ORANGEHARNESS": {
+            "zero": "orange harness",
+            "many": "orange harness",
+            "one": "orange harness"
+        },
+        "GREENHARNESS": {
+            "zero": "green harness",
+            "many": "green harness",
+            "one": "green harness"
+        },
+        "MOSSHARNESS": {
+            "zero": "moss harness",
+            "many": "moss harness",
+            "one": "moss harness"
+        },
+        "RAINBOWHARNESS": {
+            "zero": "rainbow harness",
+            "many": "rainbow harness",
+            "one": "rainbow harness"
+        },
+        "BLACKHARNESS": {
+            "zero": "black harness",
+            "many": "black harness",
+            "one": "black harness"
+        },
+        "BEEHARNESS": {
+            "zero": "bee harness",
+            "many": "bee harness",
+            "one": "bee harness"
+        },
+        "CREAMHARNESS": {
+            "zero": "cream harness",
+            "many": "cream harness",
+            "one": "cream harness"
+        },
+        "PINKHARNESS": {
+            "zero": "pink harness",
+            "many": "pink harness",
+            "one": "pink harness"
+        },
+        "MAGENTAHARNESS": {
+            "zero": "magenta harness",
+            "many": "magenta harness",
+            "one": "magenta harness"
+        },
+        "PEACHHARNESS": {
+            "zero": "peach harness",
+            "many": "peach harness",
+            "one": "peach harness"
+        },
+        "VIOLETHARNESS": {
+            "zero": "violet harness",
+            "many": "violet harness",
+            "one": "violet harness"
         }
     }
 }
