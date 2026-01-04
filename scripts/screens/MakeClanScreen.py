@@ -2817,7 +2817,7 @@ class MakeClanScreen(Screens):
                         manager=MANAGER
                         )
                     self.heterochromia_names[str(colour)] = pygame_gui.elements.UITextBox(
-                        colour.capitalize(),
+                        str(colour).capitalize(),
                         ui_scale(pygame.Rect((0 + 32, eye_y_pos), (200, 34))),
                         object_id=get_text_box_theme("#text_box_30_horizleft"),
                         container=self.elements["scroll_container"],
@@ -3640,7 +3640,7 @@ class MakeClanScreen(Screens):
                         self.update_disabled_buttons()
                 for i in self.heterochromia_buttons.items():
                     if event.ui_element == self.heterochromia_buttons[i[0]]:
-                        self.custom_cat.pelt.eye_colour = i[0].upper() if i[0] != "None" else None
+                        self.custom_cat.pelt.eye_colour2 = i[0].upper() if i[0] != "None" else None
                         self.update_sprite()
                         self.update_disabled_buttons()
                 for i in self.skin_buttons.items():
@@ -3982,7 +3982,7 @@ class MakeClanScreen(Screens):
                 else:
                     self.eye_colour_buttons[i[0]].disable()
             for i in self.heterochromia_buttons.items():
-                if i[0] != str(self.custom_cat.pelt.eye_colour):
+                if i[0] != str(self.custom_cat.pelt.eye_colour2):
                     self.heterochromia_buttons[i[0]].enable()
                 else:
                     self.heterochromia_buttons[i[0]].disable()
