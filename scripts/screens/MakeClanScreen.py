@@ -3816,9 +3816,9 @@ class MakeClanScreen(Screens):
                 self.your_cat.genderalign = self.custom_cat.gender
 
                 if self.your_cat.genderalign == "male":
-                    self.your_cat.pronouns = [get_default_pronouns()["2"].copy()]
-                elif self.your_cat.genderalign == "female":
                     self.your_cat.pronouns = [get_default_pronouns()["1"].copy()]
+                elif self.your_cat.genderalign == "female":
+                    self.your_cat.pronouns = [get_default_pronouns()["2"].copy()]
                 else:
                     self.your_cat.pronouns = [get_default_pronouns()["0"].copy()]
 
