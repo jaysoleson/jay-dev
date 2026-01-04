@@ -8,11 +8,12 @@
             "TOASTBERRY": "head",
             "TOASTGRAPE": "head",
             "TOASTNUTELLA": "head",
-            "TOASTPB": "head"
+            "TOASTPB": "head",
+            "WATTLE": "body",
+            "CORKHAT": "head",
+            "ZOOKEEPER": "body"
         },
         {
-            "WINTERSTOAT": "body",
-            "BROWNSTOAT": "body",
             "FAZBEAR": "body",
             "WHITEBEAR": "body",
             "PANDA": "body",

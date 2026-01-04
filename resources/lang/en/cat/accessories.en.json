@@ -830,6 +830,21 @@
             "many": "piece of toast",
             "one": "toast"
         },
+        "WATTLE": {
+            "zero": "wattles",
+            "many": "bunch of wattles",
+            "one": "wattles"
+        },
+        "CORKHAT": {
+            "zero": "cork hat",
+            "many": "cork hat",
+            "one": "cork hat"
+        },
+        "ZOOKEEPER": {
+            "zero": "zookeeper uniform",
+            "many": "zookeeper uniform",
+            "one": "zookeeper uniform"
+        },
         "WINTERSTOAT": {
             "zero": "winter stoat",
             "many": "winter stoat",
@@ -939,6 +954,196 @@
             "zero": "violet harness",
             "many": "violet harness",
             "one": "violet harness"
+        },
+        "GRAY SQUIRREL": {
+            "zero": "gray squirrel",
+            "many": "gray squirrel",
+            "one": "gray squirrel"
+        },
+        "RED SQUIRREL": {
+            "zero": "red squirrel",
+            "many": "red squirrel",
+            "one": "red squirrel"
+        },
+        "CRAB": {
+            "zero": "crab",
+            "many": "crab",
+            "one": "crab"
+        },
+        "WHITE RABBIT": {
+            "zero": "white rabbit",
+            "many": "white rabbit",
+            "one": "white rabbit"
+        },
+        "BLACK RABBIT": {
+            "zero": "black rabbit",
+            "many": "black rabbit",
+            "one": "black rabbit"
+        },
+        "BROWN RABBIT": {
+            "zero": "brown rabbit",
+            "many": "brown rabbit",
+            "one": "brown rabbit"
+        },
+        "INDIAN GIANT SQUIRREL": {
+            "zero": "indian giant squirrel",
+            "many": "indian giant squirrel",
+            "one": "indian giant squirrel"
+        },
+        "FAWN RABBIT": {
+            "zero": "fawn rabbit",
+            "many": "fawn rabbit",
+            "one": "fawn rabbit"
+        },
+        "BROWN AND WHITE RABBIT": {
+            "zero": "brown and white rabbit",
+            "many": "brown and white rabbit",
+            "one": "brown and white rabbit"
+        },
+        "BLACK AND WHITE RABBIT": {
+            "zero": "black and white rabbit",
+            "many": "black and white rabbit",
+            "one": "black and white rabbit"
+        },
+        "WHITE AND FAWN RABBIT": {
+            "zero": "white and fawn rabbit",
+            "many": "white and fawn rabbit",
+            "one": "white and fawn rabbit"
+        },
+        "BLACK VITILIGO RABBIT": {
+            "zero": "black vitiligo rabbit",
+            "many": "black vitiligo rabbit",
+            "one": "black vitiligo rabbit"
+        },
+        "BROWN VITILIGO RABBIT": {
+            "zero": "brown vitiligo rabbit",
+            "many": "brown vitiligo rabbit",
+            "one": "brown vitiligo rabbit"
+        },
+        "FAWN VITILIGO RABBIT": {
+            "zero": "fawn vitiligo rabbit",
+            "many": "fawn vitiligo rabbit",
+            "one": "fawn vitiligo rabbit"
+        },
+        "BLACKBIRD": {
+            "zero": "blackbird friend",
+            "many": "blackbird friend",
+            "one": "blackbird friend"
+        },
+        "ROBIN": {
+            "zero": "robin friend",
+            "many": "robin friend",
+            "one": "robin friend"
+        },
+        "JAY": {
+            "zero": "jay friend",
+            "many": "jay friend",
+            "one": "jay friend"
+        },
+        "THRUSH": {
+            "zero": "thrush friend",
+            "many": "thrush friend",
+            "one": "thrush friend"
+        },
+        "CARDINAL": {
+            "zero": "cardinal friend",
+            "many": "cardinal friend",
+            "one": "cardinal friend"
+        },
+        "MAGPIE": {
+            "zero": "magpie friend",
+            "many": "magpie friend",
+            "one": "magpie friend"
+        },
+        "CUBAN TROGON": {
+            "zero": "cuban trogon friend",
+            "many": "cuban trogon friend",
+            "one": "cuban trogon friend"
+        },
+        "TAN RABBIT": {
+            "zero": "tan rabbit",
+            "many": "tan rabbit",
+            "one": "tan rabbit"
+        },
+        "TAN AND WHITE RABBIT": {
+            "zero": "tan and white rabbit",
+            "many": "tan and white rabbit",
+            "one": "tan and white rabbit"
+        },
+        "TAN VITILIGO RABBIT": {
+            "zero": "tan vitiligo rabbit",
+            "many": "tan vitiligo rabbit",
+            "one": "tan vitiligo rabbit"
+        },
+        "RAT": {
+            "zero": "rat",
+            "many": "rat",
+            "one": "rat"
+        },
+        "WHITE MOUSE": {
+            "zero": "white mouse",
+            "many": "white mouse",
+            "one": "white mouse"
+        },
+        "BLACK MOUSE": {
+            "zero": "black mouse",
+            "many": "black mouse",
+            "one": "black mouse"
+        },
+        "GRAY MOUSE": {
+            "zero": "gray mouse",
+            "many": "gray mouse",
+            "one": "gray mouse"
+        },
+        "BROWN MOUSE": {
+            "zero": "brown mouse",
+            "many": "brown mouse",
+            "one": "brown mouse"
+        },
+        "GRAY RABBIT": {
+            "zero": "gray rabbit",
+            "many": "gray rabbit",
+            "one": "gray rabbit"
+        },
+        "GRAY AND WHITE RABBIT": {
+            "zero": "gray and white rabbit",
+            "many": "gray and white rabbit",
+            "one": "gray and white rabbit"
+        },
+        "GRAY VITILIGO RABBIT": {
+            "zero": "gray vitiligo rabbit",
+            "many": "gray vitiligo rabbit",
+            "one": "gray vitiligo rabbit"
+        },
+        "RAINBOWLORIKEET": {
+            "zero": "rainbow lorikeet",
+            "many": "rainbow lorikeet",
+            "one": "rainbow lorikeet"
+        },
+        "BILBY": {
+            "zero": "bilby",
+            "many": "bilby",
+            "one": "bilby"
+        },
+        "GRASS SNAKE": {
+            "zero": "grass snake",
+            "many": "grass snake",
+            "one": "grass snake"
+        },
+        "BLUE RACER": {
+            "zero": "blue racer",
+            "many": "blue racer",
+            "one": "blue racer"
+        },
+        "WESTERN COACHWHIP": {
+            "zero": "western coachwhip",
+            "many": "western coachwhip",
+            "one": "western coachwhip"
+        },
+        "KINGSNAKE": {
+            "zero": "kingsnake",
+            "many": "kingsnake",
+            "one": "kingsnake"
         }
     }
 }
