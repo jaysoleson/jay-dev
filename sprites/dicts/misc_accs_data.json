@@ -1,0 +1,35 @@
+{
+    "spritesheet": "acc_misc",
+    "sprite_list": [
+        {
+            "TIDE": "body",
+            "WOODDRAGON": "body",
+            "TOAST": "head",
+            "TOASTBERRY": "head",
+            "TOASTGRAPE": "head",
+            "TOASTNUTELLA": "head",
+            "TOASTPB": "head"
+        },
+        {
+            "WINTERSTOAT": "body",
+            "BROWNSTOAT": "body",
+            "FAZBEAR": "body",
+            "WHITEBEAR": "body",
+            "PANDA": "body",
+            "BEAR": "body",
+            "BROWNBEAR": "body"
+        },
+        {
+            "PURPLERAINCOAT": "body",
+            "BLUERAINCOAT": "body",
+            "GREENRAINCOAT": "body",
+            "PINKRAINCOAT": "body",
+            "REDRAINCOAT": "body",
+            "LIMERAINCOAT": "body",
+            "ORANGERAINCOAT": "body"
+        },
+        {
+            "YELLOWRAINCOAT": "body"
+        }
+    ]
+}

@@ -24,6 +24,7 @@ from scripts.cat.save_load import (
     get_faded_ids,
     load_faded_cat_ids,
 )
+from scripts.game_structure.game.settings import game_setting_get
 from scripts.cat.sprites import sprites
 from scripts.clan_package.settings import save_clan_settings, load_clan_settings, get_clan_setting
 from scripts.clan_package.settings.clan_settings import reset_loaded_clan_settings
@@ -1393,8 +1394,10 @@ class Clan:
         """
         if get_clan_setting('all accessories'):
             for cat in Cat.all_cats_list:
-
-                acc_list = Pelt.all_accessories
+                if game_setting_get("lifegen_sprite_changes"):
+                    acc_list = Pelt.all_lifegen_accessories
+                else:
+                    acc_list = Pelt.all_clangen_accessories
                 
                 if "NOTAIL" in cat.pelt.scars or "HALFTAIL" in cat.pelt.scars:
                     for acc in Pelt.tail_accessories:

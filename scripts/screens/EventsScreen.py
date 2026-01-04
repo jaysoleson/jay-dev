@@ -1179,6 +1179,7 @@ class EventsScreen(Screens):
 
         if self.you:
             self.you.kill()
+        game.clan.your_cat.pelt.rebuild_sprite = True
         if game.clan.your_cat.moons != -1:
             self.you = UISpriteButton(
                 ui_scale(pygame.Rect((570, 100), (120, 120))),

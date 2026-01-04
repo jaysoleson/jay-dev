@@ -4,6 +4,8 @@
         "dark mode_tooltip": "Camp backgrounds will match with the mode: nighttime for dark mode and daytime for light mode.",
         "red_bg": "Red background",
         "red_bg_tooltip": "Enable background color to get more red as you murder more cats (you will need to reload the game to see this change)",
+        "lifegen_sprite_changes": "LifeGen sprite changes",
+        "lifegen_sprite_changes_tooltip": "Enable LifeGen sprite additions, including new Unknown Residence lineart and new accessories. Disabling this can increase compatibility with ClanGen sprite mods.",
         "fullscreen scaling": "Ignore fullscreen scaling rules",
         "fullscreen scaling_tooltip": "If enabled, fullscreen will display as large as possible (toggle fullscreen to update). This may include visual artifacts.",
         "no sprite antialiasing": "Disable sprite antialiasing",

@@ -807,18 +807,31 @@ class ProfileScreen(Screens):
         or for changes in the profile."""
         self.the_cat = Cat.all_cats.get(switch_get_value(Switch.cat))
 
-        # LG: accessory bull shit
+        # LG: accessories
         if get_clan_setting('all accessories'):
             self.cat_inventory = game.clan.load_accessories()
         else:
-            self.cat_inventory = self.the_cat.pelt.inventory
-        
-        # temp before i fix load_accessories
-        # self.cat_inventory = self.the_cat.pelt.inventory
+            if game_setting_get("lifegen_sprite_changes"):
+                self.cat_inventory = [
+                    i for i in self.the_cat.pelt.inventory
+                    if i in Pelt.all_lifegen_accessories
+                ]
+            else:
+                self.cat_inventory = [
+                    i for i in self.the_cat.pelt.inventory
+                    if i in Pelt.all_clangen_accessories
+                ]
 
         for acc in self.the_cat.pelt.accessory:
             if acc not in self.the_cat.pelt.inventory:
                 self.the_cat.pelt.inventory.append(acc)
+            
+            # remove invalid accs if theyre wearing them
+            # but don't remove from inventory
+            # this way, if lifegen accs are switched off then back on,
+            # cats can keep their accessories from before they were toggled off
+            if acc not in self.cat_inventory:
+                self.the_cat.pelt.accessory.remove(acc)
         # ---
 
         # use these attributes to create differing profiles for StarClan cats etc.
@@ -1459,19 +1472,10 @@ class ProfileScreen(Screens):
             output += f"<font color='#FF0000'>{i18n.t('general.lost', count=1)}</font>"
             # NEWLINE ----------
             output += "\n"
-        elif the_cat.status.is_exiled():
-            print(the_cat.name, "is exiled?")
-            # LG
-            for item in the_cat.status.standing_history:
-                if item["group"] == CatGroup.PLAYER_CLAN_ID:
-                    # LG addition: they only get te "exiled" text if they are Currently exiled
-                    # because right now, is_exiled() will be true if they were exiled ever, at any point
-                    # and in lifegen, cats can return
-                    # but i dont want to edit the clangen function. lest Issues Arise
-                    if CatStanding.EXILED == item["standing"][-1]:
-                        output += f"<font color='#FF0000'>{i18n.t('general.exiled', count=1)} {cat_clan}</font>"
-                        # NEWLINE ----------
-                        output += "\n"
+        elif the_cat.status.is_exiled(CatGroup.PLAYER_CLAN_ID):
+            output += f"<font color='#FF0000'>{i18n.t('general.exiled', count=1)} {cat_clan}</font>"
+            # NEWLINE ----------
+            output += "\n"
         elif the_cat.status.is_shunned():
             output += f"<font color='#FF0000'>{i18n.t('general.shunned', count=1)}</font>"
             # NEWLINE ----------
@@ -3759,8 +3763,13 @@ class ProfileScreen(Screens):
             "",
             object_id=button_id
             )
+        
+        if game_setting_get("lifegen_sprite_changes"):
+            all_accs = (Pelt.all_lifegen_accessories)
+        else:
+            all_accs = (Pelt.all_clangen_accessories)
 
-        if accessory in Pelt.all_accessories:
+        if accessory in all_accs:
             acc_sprite = generate_sprite(self.the_cat, only_accessory=True, accessory_to_render=accessory)
             self.cat_list_buttons[
                 str(cat) + str(accessory) + "_sprite"
@@ -3772,36 +3781,8 @@ class ProfileScreen(Screens):
     
     def generate_inventory(self, value, pos_x, pos_y):
         """
-        Puts together the inventory structure. Button locations, cat_sprite
+        Puts together the inventory structure.
         """
-
-        # CAT SPRITE
-        cat = self.the_cat
-        age = cat.age
-        cat_sprite = str(cat.pelt.cat_sprites[cat.age])
-
-        # setting the cat_sprite (bc this makes things much easier)
-        if cat.not_working() and age != 'newborn' and constants.CONFIG['cat_sprites']['sick_sprites']:
-            if age in ['kitten', 'adolescent']:
-                cat_sprite = str(19)
-            else:
-                cat_sprite = str(18)
-        elif cat.pelt.paralyzed and age != 'newborn':
-            if age in ['kitten', 'adolescent']:
-                cat_sprite = str(17)
-            else:
-                if cat.pelt.length == 'long':
-                    cat_sprite = str(16)
-                else:
-                    cat_sprite = str(15)
-        else:
-            if age == 'elder' and not constants.CONFIG['fun']['all_cats_are_newborn']:
-                age = 'senior'
-
-            if constants.CONFIG['fun']['all_cats_are_newborn']:
-                cat_sprite = str(cat.pelt.cat_sprites['newborn'])
-            else:
-                cat_sprite = str(cat.pelt.cat_sprites[age])
         
         # Preparing buttons
         n = value
@@ -3836,7 +3817,7 @@ class ProfileScreen(Screens):
         if self.cat_inventory:
             for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len + start_index)], start = start_index):
                 if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
-                    self.inventory_display(cat, accessory, pos_x, pos_y)
+                    self.inventory_display(self.the_cat, accessory, pos_x, pos_y)
                     pos_x += 68
                     if pos_x >= 550:
                         pos_x = 2

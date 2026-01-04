@@ -71,9 +71,9 @@ class AchievementScreen(Screens):
         stats_text = ""
         for i in game.clan.achievements:
             stats_text += (
-                f"\n <b>{a_txt[i[0]][0]}</b> - " +
-                f"{a_txt[i[0]][1]} " +
-                f"<font color='{catname_colour}'>({Cat.fetch_cat(i[1]).name})</font>"
+                f"\n <b>{a_txt[i[0]][0]}</b> - "
+                + f"{a_txt[i[0]][1]} "
+                # + f"<font color='{catname_colour}'>({Cat.fetch_cat(i[1]).name})</font>"
                 )
 
         self.stats_box = pygame_gui.elements.UITextBox(

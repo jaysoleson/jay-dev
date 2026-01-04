@@ -268,9 +268,9 @@ class Patrol:
                 else:
                     self.patrol_statuses["normal adult"] = 1
 
-            if switch_get_value(Switch.patrol_category) != "date":
+            if switch_get_value(Switch.patrol_category) == "clangen":
                 game.patrolled.append(cat.ID)
-            else:
+            elif switch_get_value(Switch.patrol_category) == "date":
                 game.dated_cats.append(cat.ID)
 
         #PATROL LEADER AND RANDOM CAT CAN NOT CHANGE AFTER SET-UP

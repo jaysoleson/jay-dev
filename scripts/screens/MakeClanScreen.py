@@ -138,6 +138,12 @@ class MakeClanScreen(Screens):
     # used in symbol screen only - parent container is in element dict
     text = {}
 
+    # LG: all accs
+    if game_setting_get("lifegen_sprite_changes"):
+        all_accs = (Pelt.all_lifegen_accessories)
+    else:
+        all_accs = (Pelt.all_clangen_accessories)
+
     def __init__(self, name="make_clan_screen"):
         super().__init__(name)
         # current page for symbol choosing
@@ -1983,7 +1989,7 @@ class MakeClanScreen(Screens):
         
 
         random_accessory = [
-            choice(Pelt.all_accessories)] if random.randint(1,5) == 1 else []
+            choice(self.all_accs)] if random.randint(1,5) == 1 else []
         
         self.newborn_pose=random.randint(0,2)
         self.kitten_sprite=random.randint(0,2)
@@ -2882,7 +2888,7 @@ class MakeClanScreen(Screens):
                     initial_text=self.previous_search_text,
                     manager=MANAGER
                     )
-                acc_list = (Pelt.all_accessories)
+                acc_list = (self.all_accs)
                 if self.customiser_sort == "alphabetical":
                     acc_list.sort()
 
@@ -3280,7 +3286,7 @@ class MakeClanScreen(Screens):
                             next_scar = [scars[next_index]]
                         self.custom_cat.pelt.scars = next_scar
                     elif self.current_selection == "accessory":
-                        acc_list = (Pelt.all_accessories)
+                        acc_list = (self.all_accs)
                         if self.customiser_sort == "alphabetical":
                             acc_list.sort()
 
@@ -3404,7 +3410,7 @@ class MakeClanScreen(Screens):
                         self.custom_cat.pelt.scars = [random.choice(Pelt.all_scars)]
                     elif self.current_selection == "accessory":
 
-                        acc_list = (Pelt.all_accessories)
+                        acc_list = (self.all_accs)
                         new_acc_list = []
                         searched = self.search_text
                         if searched not in ["", "search"]:

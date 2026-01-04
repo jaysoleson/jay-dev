@@ -129,6 +129,106 @@
             "many": "dry laurels",
             "one": "dried laurel"
         },
+        "SINGULARCLOVER": {
+            "zero": "clover",
+            "many": "clover",
+            "one": "clover"
+        },
+        "STICK": {
+            "zero": "stick",
+            "many": "stick",
+            "one": "stick"
+        },
+        "PUMPKIN": {
+            "zero": "pumpkin",
+            "many": "pumpkin",
+            "one": "pumpkin"
+        },
+        "MOSS": {
+            "zero": "moss",
+            "many": "moss",
+            "one": "moss bundle"
+        },
+        "IVY": {
+            "zero": "ivy leaf",
+            "many": "ivy leaves",
+            "one": "ivy leaf"
+        },
+        "MOSS PELT": {
+            "zero": "mossy pelt",
+            "many": "mossy pelt",
+            "one": "mossy pelt"
+        },
+        "REEDS": {
+            "zero": "reeds",
+            "many": "reeds",
+            "one": "bunch of reeds"
+        },
+        "BAMBOO": {
+            "zero": "bamboo",
+            "many": "bamboo",
+            "one": "bamboo"
+        },
+        "SEAWEED": {
+            "zero": "seaweed",
+            "many": "seaweed",
+            "one": "bunch of seaweed"
+        },
+        "DAISY CORSAGE": {
+            "zero": "daisy corsage",
+            "many": "daisy corsage",
+            "one": "daisy corsage"
+        },
+        "DAISIES": {
+            "zero": "daisies",
+            "many": "daisies",
+            "one": "daisies"
+        },
+        "DIANTHUS": {
+            "zero": "dianthus flowers",
+            "many": "dianthus flowers",
+            "one": "dianthus flower"
+        },
+        "BLEEDING HEARTS": {
+            "zero": "bleeding hearts",
+            "many": "bleeding hearts",
+            "one": "bleeding hearts"
+        },
+        "FRANGIPANI": {
+            "zero": "frangipani flowers",
+            "many": "frangipani flowers",
+            "one": "frangipani flower"
+        },
+        "BLUE GLORY": {
+            "zero": "blue glories",
+            "many": "blue glories",
+            "one": "blue glory"
+        },
+        "CATNIP FLOWER": {
+            "zero": "catnip flowers",
+            "many": "catnip flowers",
+            "one": "catnip flower"
+        },
+        "BLANKET FLOWER": {
+            "zero": "blanket flowers",
+            "many": "blanket flowers",
+            "one": "blanket flower"
+        },
+        "ALLIUM": {
+            "zero": "alliums",
+            "many": "alliums",
+            "one": "allium"
+        },
+        "LACELEAF": {
+            "zero": "laceleaves",
+            "many": "laceleaves",
+            "one": "laceleaf"
+        },
+        "PURPLE GLORY": {
+            "zero": "purple glories",
+            "many": "purple glories",
+            "one": "purple glory"
+        },
         "OAK LEAVES": {
             "zero": "oak leaves",
             "many": "oak leaves",
@@ -421,43 +521,43 @@
             "one": "ladybugs"
         },
         "PURPLERAINCOAT": {
-            "zero": "purple raincoats",
-            "many": "purple raincoats",
+            "zero": "purple raincoat",
+            "many": "purple raincoat",
             "one": "purple raincoat"
         },
         "BLUERAINCOAT": {
-            "zero": "blue raincoats",
-            "many": "blue raincoats",
+            "zero": "blue raincoat",
+            "many": "blue raincoat",
             "one": "blue raincoat"
         },
         "GREENRAINCOAT": {
-            "zero": "green raincoats",
-            "many": "green raincoats",
+            "zero": "green raincoat",
+            "many": "green raincoat",
             "one": "green raincoat"
         },
         "PINKRAINCOAT": {
-            "zero": "pink raincoats",
-            "many": "pink raincoats",
+            "zero": "pink raincoat",
+            "many": "pink raincoat",
             "one": "pink raincoat"
         },
         "REDRAINCOAT": {
-            "zero": "red raincoats",
-            "many": "red raincoats",
+            "zero": "red raincoat",
+            "many": "red raincoat",
             "one": "red raincoat"
         },
         "LIMERAINCOAT": {
-            "zero": "lime raincoats",
-            "many": "lime raincoats",
+            "zero": "lime raincoat",
+            "many": "lime raincoat",
             "one": "lime raincoat"
         },
         "ORANGERAINCOAT": {
-            "zero": "orange raincoats",
-            "many": "orange raincoats",
+            "zero": "orange raincoat",
+            "many": "orange raincoat",
             "one": "orange raincoat"
         },
         "YELLOWRAINCOAT": {
-            "zero": "yellow raincoats",
-            "many": "yellow raincoats",
+            "zero": "yellow raincoat",
+            "many": "yellow raincoat",
             "one": "yellow raincoat"
         },
         "MOONHAT": {
@@ -565,6 +665,36 @@
             "many": "holly vines",
             "one": "holly vines"
         },
+        "WILLOWBARK BAG": {
+            "zero": "willowbark bag",
+            "many": "willowbark bag",
+            "one": "willowbark bag"
+        },
+        "CLAY DAISY POT": {
+            "zero": "clay daisy pot",
+            "many": "clay daisy pot",
+            "one": "clay daisy pot"
+        },
+        "CLAY AMANITA POT": {
+            "zero": "clay amanita pot",
+            "many": "clay amanita pot",
+            "one": "clay amanita pot"
+        },
+        "CLAY BROWNCAP POT": {
+            "zero": "clay browncap pot",
+            "many": "clay browncap pot",
+            "one": "clay browncap pot"
+        },
+        "BIRD SKULL": {
+            "zero": "bird skull",
+            "many": "bird skull",
+            "one": "bird skull"
+        },
+        "LEAF BOW": {
+            "zero": "leaf bow",
+            "many": "leaf bow",
+            "one": "leaf bow"
+        },
         "LUNAR MOTH": {
             "zero": "lunar moth wings",
             "many": "lunar moth wings",
@@ -629,6 +759,186 @@
             "zero": "saskatoons",
             "many": "bunch of saskatoons",
             "one": "saskatoons"
+        },
+        "PINKFLOWERCROWN": {
+            "zero": "pink flower crown",
+            "many": "pink flower crown",
+            "one": "pink flower crown"
+        },
+        "YELLOWFLOWERCROWN": {
+            "zero": "yellow flower crown",
+            "many": "yellow flower crown",
+            "one": "yellow flower crown"
+        },
+        "BLUEFLOWERCROWN": {
+            "zero": "blue flower crown",
+            "many": "blue flower crown",
+            "one": "blue flower crown"
+        },
+        "PURPLEFLOWERCROWN": {
+            "zero": "purple flower crown",
+            "many": "purple flower crown",
+            "one": "purple flower crown"
+        },
+        "DANDELIONCROWN": {
+            "zero": "dandelion crown",
+            "many": "dandelion crown",
+            "one": "dandelion crown"
+        },
+        "POPPYCROWN": {
+            "zero": "poppy crown",
+            "many": "poppy crown",
+            "one": "poppy crown"
+        },
+        "LILYPADHAT": {
+            "zero": "lilypad hat",
+            "many": "lilypad hat",
+            "one": "lilypad hat"
+        },
+        "TIDE": {
+            "zero": "tide crab",
+            "many": "tide crab",
+            "one": "tide crab"
+        },
+        "WOODDRAGON": {
+            "zero": "wooden dragon",
+            "many": "wooden dragon",
+            "one": "wooden dragon"
+        },
+        "TOAST": {
+            "zero": "toast",
+            "many": "piece of toast",
+            "one": "toast"
+        },
+        "TOASTBERRY": {
+            "zero": "toast",
+            "many": "piece of toast",
+            "one": "toast"
+        },
+        "TOASTGRAPE": {
+            "zero": "toast",
+            "many": "piece of toast",
+            "one": "toast"
+        },
+        "TOASTNUTELLA": {
+            "zero": "toast",
+            "many": "piece of toast",
+            "one": "toast"
+        },
+        "TOASTPB": {
+            "zero": "toast",
+            "many": "piece of toast",
+            "one": "toast"
+        },
+        "WINTERSTOAT": {
+            "zero": "winter stoat",
+            "many": "winter stoat",
+            "one": "winter stoat"
+        },
+        "BROWNSTOAT": {
+            "zero": "brown stoat",
+            "many": "brown stoat",
+            "one": "brown stoat"
+        },
+        "FAZBEAR": {
+            "zero": "fazbear plush",
+            "many": "fazbear plush",
+            "one": "fazbear plush"
+        },
+        "WHITEBEAR": {
+            "zero": "white bear plush",
+            "many": "white bear plush",
+            "one": "white bear plush"
+        },
+        "PANDA": {
+            "zero": "panda plush",
+            "many": "panda plush",
+            "one": "panda plush"
+        },
+        "BEAR": {
+            "zero": "bear plush",
+            "many": "bear plush",
+            "one": "bear plush"
+        },
+        "BROWNBEAR": {
+            "zero": "brown bear plush",
+            "many": "brown bear plush",
+            "one": "brown bear plush"
+        },
+        "REDHARNESS": {
+            "zero": "red harness",
+            "many": "red harness",
+            "one": "red harness"
+        },
+        "NAVYHARNESS": {
+            "zero": "navy harness",
+            "many": "navy harness",
+            "one": "navy harness"
+        },
+        "YELLOWHARNESS": {
+            "zero": "yellow harness",
+            "many": "yellow harness",
+            "one": "yellow harness"
+        },
+        "TEALHARNESS": {
+            "zero": "teal harness",
+            "many": "teal harness",
+            "one": "teal harness"
+        },
+        "ORANGEHARNESS": {
+            "zero": "orange harness",
+            "many": "orange harness",
+            "one": "orange harness"
+        },
+        "GREENHARNESS": {
+            "zero": "green harness",
+            "many": "green harness",
+            "one": "green harness"
+        },
+        "MOSSHARNESS": {
+            "zero": "moss harness",
+            "many": "moss harness",
+            "one": "moss harness"
+        },
+        "RAINBOWHARNESS": {
+            "zero": "rainbow harness",
+            "many": "rainbow harness",
+            "one": "rainbow harness"
+        },
+        "BLACKHARNESS": {
+            "zero": "black harness",
+            "many": "black harness",
+            "one": "black harness"
+        },
+        "BEEHARNESS": {
+            "zero": "bee harness",
+            "many": "bee harness",
+            "one": "bee harness"
+        },
+        "CREAMHARNESS": {
+            "zero": "cream harness",
+            "many": "cream harness",
+            "one": "cream harness"
+        },
+        "PINKHARNESS": {
+            "zero": "pink harness",
+            "many": "pink harness",
+            "one": "pink harness"
+        },
+        "MAGENTAHARNESS": {
+            "zero": "magenta harness",
+            "many": "magenta harness",
+            "one": "magenta harness"
+        },
+        "PEACHHARNESS": {
+            "zero": "peach harness",
+            "many": "peach harness",
+            "one": "peach harness"
+        },
+        "VIOLETHARNESS": {
+            "zero": "violet harness",
+            "many": "violet harness",
+            "one": "violet harness"
         }
     }
 }

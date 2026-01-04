@@ -49,9 +49,9 @@ class Sprites:
     ) as read_file:
         DEADINSECT_DATA = ujson.loads(read_file.read())
     with open(
-        "sprites/dicts/raincoat_data.json", "r", encoding="utf-8"
+        "sprites/dicts/plant2_sprite_data.json", "r", encoding="utf-8"
     ) as read_file:
-        RAINCOAT_DATA = ujson.loads(read_file.read())
+        PLANT2_DATA = ujson.loads(read_file.read())
     with open(
         "sprites/dicts/sophisticated_data.json", "r", encoding="utf-8"
     ) as read_file:
@@ -60,6 +60,18 @@ class Sprites:
         "sprites/dicts/fruit_data.json", "r", encoding="utf-8"
     ) as read_file:
         FRUIT_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/flowercrowns_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        FLOWERCROWNS_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/misc_accs_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        MISC_ACCS_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/harness_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        HARNESS_DATA = ujson.loads(read_file.read())
 
     # SCARS
     with open(
@@ -281,9 +293,12 @@ class Sprites:
 
             self.ALIVEINSECT_DATA,
             self.DEADINSECT_DATA,
-            self.RAINCOAT_DATA,
+            self.PLANT2_DATA,
             self.SOPHISTICATED_DATA,
             self.FRUIT_DATA,
+            self.FLOWERCROWNS_DATA,
+            self.MISC_ACCS_DATA,
+            self.HARNESS_DATA,
         )
 
         # data jsons that have multiple associated spritesheets
@@ -297,6 +312,7 @@ class Sprites:
             "fadestarclan",
             "fadedarkforest",
             "fadeunknownresidence",
+            "lifegen_fadeunknownresidence",
             "symbols",
         ]
 
@@ -328,6 +344,7 @@ class Sprites:
             self.make_group("fadestarclan", (i, 0), f"fadestarclan{i}")
             self.make_group("fadedarkforest", (i, 0), f"fadedf{i}")
             self.make_group("fadeunknownresidence", (i, 0), f"fadeur{i}")
+            self.make_group("lifegen_fadeunknownresidence", (i, 0), f"lifegen_fadeur{i}")
 
         for data in data_jsons:
             # collar accs

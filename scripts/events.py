@@ -17,10 +17,8 @@ from enum import Enum
 
 import re
 
-from scripts.cat import save_load
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.pelts import Pelt
-from scripts.cat.history import History
 from scripts.cat.sprites import sprites
 
 from scripts.clan_resources.freshkill import FreshkillPile
@@ -29,6 +27,7 @@ from scripts.cat.enums import CatAge, CatRank, CatGroup, CatStanding, CatSocial
 from scripts.cat.names import Name
 from scripts.cat.save_load import save_cats, add_cat_to_fade_id
 from scripts.clan_package.settings import get_clan_setting, set_clan_setting
+from scripts.game_structure.game.settings import game_setting_get
 from scripts.clan_resources.freshkill import FRESHKILL_EVENT_ACTIVE
 from scripts.conditions import (
     medicine_cats_can_cover_clan,
@@ -481,7 +480,7 @@ class Events:
             self.generate_death_event()
         elif game.clan.your_cat.dead:
             self.generate_events()
-        elif game.clan.your_cat.status.is_exiled():
+        elif game.clan.your_cat.status.is_exiled(CatGroup.PLAYER_CLAN_ID):
             self.generate_exile_event()
             
         # LIFEGEN
@@ -601,8 +600,11 @@ class Events:
         if get_clan_setting("all accessories"):
             return
         acc_list = []
-        # CHECKMERGE temp 
-        acc_list.extend(Pelt.all_accessories)
+        # CHECKMERGE temp
+        if game_setting_get("lifegen_sprite_changes"):
+            acc_list.extend(Pelt.all_lifegen_accessories)
+        else:
+            acc_list.extend(Pelt.all_clangen_accessories)
 
         if not game.clan.your_cat.pelt.inventory:
             game.clan.your_cat.pelt.inventory = []
@@ -615,7 +617,7 @@ class Events:
             acc = random.choice(acc_list)
         game.clan.your_cat.pelt.inventory.append(acc)
         string = f"You found a new accessory, acc_singular! You choose to store it in a safe place for now."
-        string = string.replace("acc_singular", str(i18n.t(self.get_acc_name(acc).lower(), count=0)))
+        string = string.replace("acc_singular", str(i18n.t(self.get_acc_name(acc).lower(), count=1)))
         game.cur_events_list.insert(0, Single_Event(string, "alert", game.clan.your_cat.ID))
     
     def get_acc_name(self, acc):
@@ -1671,7 +1673,7 @@ class Events:
                                     "healer_backstories"
                                 ]
                             ):
-                                invited_cat.status._change_rank(CatRank.MEDICINE_CAT)
+                                invited_cat.change_rank(CatRank.MEDICINE_CAT)
                             # if cat is a little baby, check name
                             elif invited_cat.age in (CatAge.NEWBORN, CatAge.KITTEN):
                                 if not invited_cat.name.suffix:
@@ -1698,57 +1700,7 @@ class Events:
                                 involved_cats.append(kit_ID)
                                 kit = Cat.fetch_cat(kit_ID)
 
-                        invited_cats = [outsider_cat.ID]
-                        invited_cats.extend(additional_kits)
-
-                        for cat_ID in invited_cats:
-                            invited_cat = Cat.fetch_cat(cat_ID)
-                            if invited_cat.status.lower() in [
-                                "kittypet",
-                                "loner",
-                                "rogue",
-                                "former clancat",
-                                "exiled",
-                            ]:
-                                if (
-                                    "guided" in invited_cat.backstory
-                                    and invited_cat.status != "exiled"
-                                ):
-                                    invited_cat.backstory = "outsider1"
-
-                                if (
-                                    invited_cat.backstory
-                                    in BACKSTORIES["backstory_categories"][
-                                        "healer_backstories"
-                                    ]
-                                ):
-                                    invited_cat.status = "medicine cat"
-
-                                elif invited_cat.age in ["newborn", "kitten"]:
-                                    invited_cat.status = invited_cat.age
-                                    if not invited_cat.name.suffix:
-                                        invited_cat.name = Name(
-                                            invited_cat.name.prefix,
-                                            invited_cat.name.suffix,
-                                            game.clan.biome,
-                                            cat=invited_cat,
-                                        )
-                                        invited_cat.name.give_suffix(
-                                            pelt=None,
-                                            biome=game.clan.biome,
-                                            tortiepattern=None,
-                                        )
-                                        invited_cat.specsuffix_hidden = False
-
-                                elif invited_cat.age == "senior":
-                                    invited_cat.status = "elder"
-                                elif invited_cat.age == "adolescent":
-                                    invited_cat.status = "apprentice"
-                                    invited_cat.update_mentor()
-                                else:
-                                    invited_cat.status = "warrior"
-
-                            invited_cat.create_relationships_new_cat()
+                        invited_cat.create_relationships_new_cat()
 
                     # this handles ceremonies for cats coming into the clan
                     if invited_cats:
@@ -2164,6 +2116,7 @@ class Events:
                 * (1 - (cat.dead_for / age_to_fade) ** fading_speed)
                 + opacity_at_fade
             )
+            cat.pelt.rebuild_sprite = True
 
             # Deal with fading the cat if they are old enough.
             if cat.dead_for > age_to_fade:
@@ -2403,12 +2356,6 @@ class Events:
 
         self.handle_murder(cat)
         cat.faith += round(random.uniform(-0.2,0.2), 2)
-
-        if cat.status == 'deputy' and cat.ID != game.clan.your_cat.ID and game.clan.your_cat.status.rank == CatRank.DEPUTY and not game.clan.your_cat.dead and not (game.clan.your_cat.status.is_outsider or game.clan.your_cat.status.is_exiled(CatGroup.PLAYER_CLAN)):
-            cat.status = 'warrior'
-
-            if game.clan.deputy.ID != game.clan.your_cat.ID:
-                game.clan.deputy = game.clan.your_cat
 
         switch_set_value(Switch.skip_conditions, [])
 
