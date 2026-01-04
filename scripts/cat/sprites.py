@@ -69,6 +69,10 @@ class Sprites:
     ) as read_file:
         MISC_ACCS_DATA = ujson.loads(read_file.read())
     with open(
+        "sprites/dicts/misc2_accs_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        MISC2_ACCS_DATA = ujson.loads(read_file.read())
+    with open(
         "sprites/dicts/harness_data.json", "r", encoding="utf-8"
     ) as read_file:
         HARNESS_DATA = ujson.loads(read_file.read())
@@ -302,6 +306,7 @@ class Sprites:
             self.FRUIT_DATA,
             self.FLOWERCROWNS_DATA,
             self.MISC_ACCS_DATA,
+            self.MISC2_ACCS_DATA,
             self.HARNESS_DATA,
             self.SMALLANIMALS_DATA,
         )
