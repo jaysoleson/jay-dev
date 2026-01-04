@@ -491,6 +491,7 @@ class TestNameRepr(unittest.TestCase):
                     {"rank": CatRank.APPRENTICE},
                     {"rank": CatRank.MEDICINE_APPRENTICE},
                     {"rank": CatRank.MEDIATOR_APPRENTICE},
+                    {"rank": CatRank.QUEENS_APPRENTICE},
                 ],
                 6,
                 "test",
@@ -704,6 +705,8 @@ class TestSocialAssignment(unittest.TestCase):
             CatRank.DEPUTY,
             CatRank.LEADER,
             CatRank.ELDER,
+            CatRank.QUEEN,
+            CatRank.QUEENS_APPRENTICE
         )
 
         for rank in clancat_ranks:

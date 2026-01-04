@@ -1058,6 +1058,7 @@ class Cat:
             CatRank.APPRENTICE,
             CatRank.MEDICINE_APPRENTICE,
             CatRank.MEDIATOR_APPRENTICE,
+            CatRank.QUEENS_APPRENTICE,
             CatRank.MEDIATOR,
         ]:
             pass
