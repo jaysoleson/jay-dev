@@ -125,18 +125,18 @@ def rebuild_core(*, should_rebuild_bgs=True):
     )
 
     # LG
-    scale_rect = ui_scale(pygame.Rect((0, 0), (130, 30)))
-    scale_rect.topright = ui_scale_offset((-25, 5))
-    menu_buttons["achievements"] = UISurfaceImageButton(
-        scale_rect,
-        "screens.core.achievements",
-        get_button_dict(ButtonStyles.SQUOVAL, (130, 30)),
-        visible=False,
-        manager=MANAGER,
-        object_id=pygame_gui.core.ObjectID(class_id="@image_button", object_id=None),
-        starting_height=5,
-        anchors={"top_target": menu_buttons["clan_settings"], "right": "right"},
-    )
+    # scale_rect = ui_scale(pygame.Rect((0, 0), (130, 30)))
+    # scale_rect.topright = ui_scale_offset((-25, 5))
+    # menu_buttons["achievements"] = UISurfaceImageButton(
+    #     scale_rect,
+    #     "screens.core.achievements",
+    #     get_button_dict(ButtonStyles.SQUOVAL, (130, 30)),
+    #     visible=False,
+    #     manager=MANAGER,
+    #     object_id=pygame_gui.core.ObjectID(class_id="@image_button", object_id=None),
+    #     starting_height=5,
+    #     anchors={"top_target": menu_buttons["clan_settings"], "right": "right"},
+    # )
     # ---
     del scale_rect
 

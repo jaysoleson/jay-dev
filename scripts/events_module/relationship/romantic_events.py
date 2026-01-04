@@ -533,6 +533,10 @@ class RomanticEvents:
         return: bool if event is triggered or not
         """
 
+        if cat == game.clan.your_cat:
+            # mc cant confess without the player doing it
+            return False
+
         # get the highest romantic love relationships and
         rel_list = cat_from.relationships.values()
         highest_romantic_relation = get_highest_romantic_relation(
