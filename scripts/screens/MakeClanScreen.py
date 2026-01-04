@@ -65,19 +65,14 @@ class MakeClanScreen(Screens):
         ).convert_alpha(),
     }
     
-    leader_img = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/choose cat.png').convert_alpha(), (1600, 1400))
-    leader_img_dark = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/choose cat dark.png').convert_alpha(), (1600, 1400))
-    
     your_name_img = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/Your name screen.png').convert_alpha(), (1600, 1400))
+        'resources/images/pick_clan_screen/your_name_screen.png').convert_alpha(), (800, 700))
     your_name_img_dark = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/Your name screen darkmode.png').convert_alpha(), (1600, 1400))
+        'resources/images/pick_clan_screen/your_name_screen_dark.png').convert_alpha(), (800, 700))
     your_name_txt1 = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/your name text1.png').convert_alpha(), (796, 52))
+        'resources/images/pick_clan_screen/your_name_text_1.png').convert_alpha(), (796, 52))
     your_name_txt2 = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/your name text2.png').convert_alpha(), (536, 52))
+        'resources/images/pick_clan_screen/your_name_text_2.png').convert_alpha(), (536, 52))
     
     #images for the customizing screen
     sprite_preview_bg = pygame.transform.scale(pygame.image.load(
@@ -841,6 +836,17 @@ class MakeClanScreen(Screens):
             else:
                 self.elements["error"].hide()
                 self.elements['next_step'].enable()
+            # BG IMAGE BLIT
+            if game_setting_get("dark mode"):
+                image = MakeClanScreen.your_name_img_dark
+            else:
+                image = MakeClanScreen.your_name_img
+            # self.elements['background'] = pygame_gui.elements.UIImage(
+            #     ui_scale(pygame.Rect((0, 0), (800, 700))),
+            #     image,
+            #     manager=MANAGER
+            #     )
+            screen.blit(image, (0,0))
         if self.sub_screen == "choose symbol":
             if (
                 len(switch_get_value(Switch.disallowed_symbol_tags))
@@ -1610,18 +1616,12 @@ class MakeClanScreen(Screens):
                                                                     pygame.transform.scale(
                                                                         self.your_cat.sprite,
                                                                         (200, 200)), manager=MANAGER)
-        if game_setting_get("dark mode"):
-            self.elements['background'] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((0, 0), (800, 700))),
-                                                                    MakeClanScreen.your_name_img_dark, manager=MANAGER)
-        else:
-            self.elements['background'] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((0, 0), (800, 700))),
-                                                                    MakeClanScreen.your_name_img, manager=MANAGER)
 
         self.elements['text1'] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((220, 365), (393, 26))),
                                                                   MakeClanScreen.your_name_txt1, manager=MANAGER)
         self.elements['text2'] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((270, 400), (267, 26))),
                                                                   MakeClanScreen.your_name_txt2, manager=MANAGER)
-        self.elements['background'].disable()
+        # self.elements['background'].disable()
 
         self.elements["random"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((285, 447), (34, 34))),
@@ -1649,7 +1649,6 @@ class MakeClanScreen(Screens):
             manager=MANAGER,
             starting_height=2,
         )
-        self.elements["previous_step"].disable()
         self.elements["next_step"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((0, 620), (147, 30))),
             "buttons.next_step",
