@@ -271,9 +271,31 @@ class Pelt:
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
 
+    misc2_accessories = []
+    for sprite_list in sprites.MISC2_ACCS_DATA["sprite_list"]:
+        misc2_accessories.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "tail":
+                tail_accessories.append(sprite)
+            elif sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+            elif sprite_list[sprite] == "head":
+                body_accessories.append(sprite)
+
     harness_accessories = []
     for sprite_list in sprites.HARNESS_DATA["sprite_list"]:
         harness_accessories.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "tail":
+                tail_accessories.append(sprite)
+            elif sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+            elif sprite_list[sprite] == "head":
+                body_accessories.append(sprite)
+
+    smallanimals_accessories = []
+    for sprite_list in sprites.SMALLANIMALS_DATA["sprite_list"]:
+        smallanimals_accessories.extend(sprite_list)
         for sprite in sprite_list:
             if sprite_list[sprite] == "tail":
                 tail_accessories.append(sprite)
@@ -301,7 +323,9 @@ class Pelt:
         "FRUIT": fruit_accessories,
         "FLOWERCROWN": flower_crown_accessories,
         "MISC": misc_accessories,
-        "HARNESS": harness_accessories
+        "MISC2": misc2_accessories,
+        "HARNESS": harness_accessories,
+        "SMALLANIMALS": smallanimals_accessories,
     }
 
     # LIFEGEN
@@ -317,7 +341,9 @@ class Pelt:
         fruit_accessories +
         flower_crown_accessories +
         misc_accessories +
-        harness_accessories
+        misc2_accessories +
+        harness_accessories +
+        smallanimals_accessories
         )
 
     all_clangen_accessories = (
@@ -338,7 +364,9 @@ class Pelt:
         fruit_accessories,
         flower_crown_accessories,
         misc_accessories,
-        harness_accessories
+        misc2_accessories,
+        harness_accessories,
+        smallanimals_accessories,
     ]
     acc_data_list = [
         sprites.ALIVEINSECT_DATA,
@@ -348,7 +376,9 @@ class Pelt:
         sprites.FRUIT_DATA,
         sprites.FLOWERCROWNS_DATA,
         sprites.MISC_ACCS_DATA,
+        sprites.MISC2_ACCS_DATA,
         sprites.HARNESS_DATA,
+        sprites.SMALLANIMALS_DATA,
     ]
     # ---
 

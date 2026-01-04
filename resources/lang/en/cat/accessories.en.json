@@ -830,6 +830,21 @@
             "many": "piece of toast",
             "one": "toast"
         },
+        "WATTLE": {
+            "zero": "wattles",
+            "many": "bunch of wattles",
+            "one": "wattles"
+        },
+        "CORKHAT": {
+            "zero": "cork hat",
+            "many": "cork hat",
+            "one": "cork hat"
+        },
+        "ZOOKEEPER": {
+            "zero": "zookeeper uniform",
+            "many": "zookeeper uniform",
+            "one": "zookeeper uniform"
+        },
         "WINTERSTOAT": {
             "zero": "winter stoat",
             "many": "winter stoat",
@@ -939,6 +954,446 @@
             "zero": "violet harness",
             "many": "violet harness",
             "one": "violet harness"
+        },
+        "GRAY SQUIRREL": {
+            "zero": "gray squirrel",
+            "many": "gray squirrel",
+            "one": "gray squirrel"
+        },
+        "RED SQUIRREL": {
+            "zero": "red squirrel",
+            "many": "red squirrel",
+            "one": "red squirrel"
+        },
+        "CRAB": {
+            "zero": "crab",
+            "many": "crab",
+            "one": "crab"
+        },
+        "WHITE RABBIT": {
+            "zero": "white rabbit",
+            "many": "white rabbit",
+            "one": "white rabbit"
+        },
+        "BLACK RABBIT": {
+            "zero": "black rabbit",
+            "many": "black rabbit",
+            "one": "black rabbit"
+        },
+        "BROWN RABBIT": {
+            "zero": "brown rabbit",
+            "many": "brown rabbit",
+            "one": "brown rabbit"
+        },
+        "INDIAN GIANT SQUIRREL": {
+            "zero": "indian giant squirrel",
+            "many": "indian giant squirrel",
+            "one": "indian giant squirrel"
+        },
+        "FAWN RABBIT": {
+            "zero": "fawn rabbit",
+            "many": "fawn rabbit",
+            "one": "fawn rabbit"
+        },
+        "BROWN AND WHITE RABBIT": {
+            "zero": "brown and white rabbit",
+            "many": "brown and white rabbit",
+            "one": "brown and white rabbit"
+        },
+        "BLACK AND WHITE RABBIT": {
+            "zero": "black and white rabbit",
+            "many": "black and white rabbit",
+            "one": "black and white rabbit"
+        },
+        "WHITE AND FAWN RABBIT": {
+            "zero": "white and fawn rabbit",
+            "many": "white and fawn rabbit",
+            "one": "white and fawn rabbit"
+        },
+        "BLACK VITILIGO RABBIT": {
+            "zero": "black vitiligo rabbit",
+            "many": "black vitiligo rabbit",
+            "one": "black vitiligo rabbit"
+        },
+        "BROWN VITILIGO RABBIT": {
+            "zero": "brown vitiligo rabbit",
+            "many": "brown vitiligo rabbit",
+            "one": "brown vitiligo rabbit"
+        },
+        "FAWN VITILIGO RABBIT": {
+            "zero": "fawn vitiligo rabbit",
+            "many": "fawn vitiligo rabbit",
+            "one": "fawn vitiligo rabbit"
+        },
+        "BLACKBIRD": {
+            "zero": "blackbird friend",
+            "many": "blackbird friend",
+            "one": "blackbird friend"
+        },
+        "ROBIN": {
+            "zero": "robin friend",
+            "many": "robin friend",
+            "one": "robin friend"
+        },
+        "JAY": {
+            "zero": "jay friend",
+            "many": "jay friend",
+            "one": "jay friend"
+        },
+        "THRUSH": {
+            "zero": "thrush friend",
+            "many": "thrush friend",
+            "one": "thrush friend"
+        },
+        "CARDINAL": {
+            "zero": "cardinal friend",
+            "many": "cardinal friend",
+            "one": "cardinal friend"
+        },
+        "MAGPIE": {
+            "zero": "magpie friend",
+            "many": "magpie friend",
+            "one": "magpie friend"
+        },
+        "CUBAN TROGON": {
+            "zero": "cuban trogon friend",
+            "many": "cuban trogon friend",
+            "one": "cuban trogon friend"
+        },
+        "TAN RABBIT": {
+            "zero": "tan rabbit",
+            "many": "tan rabbit",
+            "one": "tan rabbit"
+        },
+        "TAN AND WHITE RABBIT": {
+            "zero": "tan and white rabbit",
+            "many": "tan and white rabbit",
+            "one": "tan and white rabbit"
+        },
+        "TAN VITILIGO RABBIT": {
+            "zero": "tan vitiligo rabbit",
+            "many": "tan vitiligo rabbit",
+            "one": "tan vitiligo rabbit"
+        },
+        "RAT": {
+            "zero": "rat",
+            "many": "rat",
+            "one": "rat"
+        },
+        "WHITE MOUSE": {
+            "zero": "white mouse",
+            "many": "white mouse",
+            "one": "white mouse"
+        },
+        "BLACK MOUSE": {
+            "zero": "black mouse",
+            "many": "black mouse",
+            "one": "black mouse"
+        },
+        "GRAY MOUSE": {
+            "zero": "gray mouse",
+            "many": "gray mouse",
+            "one": "gray mouse"
+        },
+        "BROWN MOUSE": {
+            "zero": "brown mouse",
+            "many": "brown mouse",
+            "one": "brown mouse"
+        },
+        "GRAY RABBIT": {
+            "zero": "gray rabbit",
+            "many": "gray rabbit",
+            "one": "gray rabbit"
+        },
+        "GRAY AND WHITE RABBIT": {
+            "zero": "gray and white rabbit",
+            "many": "gray and white rabbit",
+            "one": "gray and white rabbit"
+        },
+        "GRAY VITILIGO RABBIT": {
+            "zero": "gray vitiligo rabbit",
+            "many": "gray vitiligo rabbit",
+            "one": "gray vitiligo rabbit"
+        },
+        "RAINBOWLORIKEET": {
+            "zero": "rainbow lorikeet",
+            "many": "rainbow lorikeet",
+            "one": "rainbow lorikeet"
+        },
+        "BILBY": {
+            "zero": "bilby",
+            "many": "bilby",
+            "one": "bilby"
+        },
+        "GRASS SNAKE": {
+            "zero": "grass snake",
+            "many": "grass snake",
+            "one": "grass snake"
+        },
+        "BLUE RACER": {
+            "zero": "blue racer",
+            "many": "blue racer",
+            "one": "blue racer"
+        },
+        "WESTERN COACHWHIP": {
+            "zero": "western coachwhip",
+            "many": "western coachwhip",
+            "one": "western coachwhip"
+        },
+        "KINGSNAKE": {
+            "zero": "kingsnake",
+            "many": "kingsnake",
+            "one": "kingsnake"
+        },
+        "ORANGEBUTTERFLY": {
+            "zero": "orange butterfly",
+            "many": "orange butterfly",
+            "one": "orange butterfly"
+        },
+        "BLUEBUTTERFLY": {
+            "zero": "blue butterfly",
+            "many": "blue butterfly",
+            "one": "blue butterfly"
+        },
+        "BROWNPELT": {
+            "zero": "brown hide pelt",
+            "many": "brown hide pelt",
+            "one": "brown hide pelt"
+        },
+        "GRAYPELT": {
+            "zero": "gray hide pelt",
+            "many": "gray hide pelt",
+            "one": "gray hide pelt"
+        },
+        "BROWNMOSSPELT": {
+            "zero": "brown mossy pelt",
+            "many": "brown mossy pelt",
+            "one": "brown mossy pelt"
+        },
+        "GRAYMOSSPELT": {
+            "zero": "gray mossy pelt",
+            "many": "gray mossy pelt",
+            "one": "gray mossy pelt"
+        },
+        "FERN": {
+            "zero": "fern wrap",
+            "many": "fern wrap",
+            "one": "fern wrap"
+        },
+        "MOREFERN": {
+            "zero": "fern wrap",
+            "many": "fern wrap",
+            "one": "fern wrap"
+        },
+        "BLEEDINGVINES": {
+            "zero": "bleeding vines",
+            "many": "bleeding vines",
+            "one": "bleeding vines"
+        },
+        "BLEEDINGHEART": {
+            "zero": "bleeding heart",
+            "many": "bleeding heart",
+            "one": "bleeding heart"
+        },
+        "LILY": {
+            "zero": "lily",
+            "many": "lily",
+            "one": "lily"
+        },
+        "CHERRYBLOSSOM": {
+            "zero": "cherry blossom",
+            "many": "cherry blossom",
+            "one": "cherry blossom"
+        },
+        "TULIPPETALS": {
+            "zero": "tulip petals",
+            "many": "tulip petals",
+            "one": "tulip petals"
+        },
+        "CLOVERFLOWER": {
+            "zero": "cloverflower",
+            "many": "cloverflower",
+            "one": "cloverflower"
+        },
+        "PANSIES": {
+            "zero": "pansies",
+            "many": "pansies",
+            "one": "pansies"
+        },
+        "BELLFLOWERS": {
+            "zero": "bell flowers",
+            "many": "bell flowers",
+            "one": "bell flowers"
+        },
+        "SANVITALIAFLOWERS": {
+            "zero": "sanvitalia flowers",
+            "many": "sanvitalia flowers",
+            "one": "sanvitaliaf lowers"
+        },
+        "EGGSHELLS": {
+            "zero": "eggshells",
+            "many": "eggshells",
+            "one": "eggshells"
+        },
+        "BLUEEGGSHELLS": {
+            "zero": "blue eggshells",
+            "many": "blue eggshells",
+            "one": "blue eggshells"
+        },
+        "EASTEREGG": {
+            "zero": "easter egg",
+            "many": "easter egg",
+            "one": "easter egg"
+        },
+        "MINTLEAF": {
+            "zero": "mint leaf",
+            "many": "mint leaf",
+            "one": "mint leaf"
+        },
+        "STICKS": {
+            "zero": "sticks",
+            "many": "sticks",
+            "one": "sticks"
+        },
+        "SPINGFEATHERS": {
+            "zero": "sping feathers",
+            "many": "sping feathers",
+            "one": "sping feathers"
+        },
+        "SNAILSHELL": {
+            "zero": "snail shell",
+            "many": "snail shell",
+            "one": "snail shell"
+        },
+        "MUD": {
+            "zero": "mud",
+            "many": "mud",
+            "one": "mud"
+        },
+        "CHERRYPLUMLEAVES": {
+            "zero": "cherry plum leaves",
+            "many": "cherry plum leaves",
+            "one": "cherry plum leaves"
+        },
+        "CATKIN": {
+            "zero": "catkin",
+            "many": "catkin",
+            "one": "catkin"
+        },
+        "HONEYCOMB": {
+            "zero": "honeycomb",
+            "many": "honeycomb",
+            "one": "honeycomb"
+        },
+        "FLOWERCROWN": {
+            "zero": "flower crown",
+            "many": "flower crown",
+            "one": "flower crown"
+        },
+        "LILIESOFTHEVALLEY": {
+            "zero": "lilies of the valley",
+            "many": "lilies of the valley",
+            "one": "lilies of the valley"
+        },
+        "STRAWMANE": {
+            "zero": "straw mane",
+            "many": "straw mane",
+            "one": "straw mane"
+        },
+        "MISTLETOE": {
+            "zero": "mistletoe",
+            "many": "mistletoe",
+            "one": "mistletoe"
+        },
+        "REDPOINSETTIA": {
+            "zero": "red poinsettia",
+            "many": "red poinsettia",
+            "one": "red poinsettia"
+        },
+        "WHITEPOINSETTIA": {
+            "zero": "white poinsettia",
+            "many": "white poinsettia",
+            "one": "white poinsettia"
+        },
+        "COTONEASTERWREATH": {
+            "zero": "cotTon easter wreath",
+            "many": "cotTon easter wreath",
+            "one": "cotTon easter wreath"
+        },
+        "YEWS": {
+            "zero": "yews",
+            "many": "yews",
+            "one": "yews"
+        },
+        "CALLUNA": {
+            "zero": "calluna",
+            "many": "calluna",
+            "one": "calluna"
+        },
+        "TEETHCOLLAR": {
+            "zero": "teeth collar",
+            "many": "teeth collar",
+            "one": "teeth collar"
+        },
+        "DRIEDORANGE": {
+            "zero": "dried orange",
+            "many": "dried orange",
+            "one": "dried orange"
+        },
+        "ROESKULL": {
+            "zero": "roe skull",
+            "many": "roe skull",
+            "one": "roe skull"
+        },
+        "WOODENOAKANTLERS": {
+            "zero": "wooden oak antlers",
+            "many": "wooden oak antlers",
+            "one": "wooden oak antlers"
+        },
+        "WOODENBIRCHANTLERS": {
+            "zero": "wooden birch antlers",
+            "many": "wooden birch antlers",
+            "one": "wooden birch antlers"
+        },
+        "DOGWOOD": {
+            "zero": "dogwood",
+            "many": "dogwood",
+            "one": "dogwood"
+        },
+        "GRAYWOOL": {
+            "zero": "gray wool",
+            "many": "gray wool",
+            "one": "gray wool"
+        },
+        "BLACKWOOL": {
+            "zero": "black wool",
+            "many": "black wool",
+            "one": "black wool"
+        },
+        "CREAMWOOL": {
+            "zero": "cream wool",
+            "many": "cream wool",
+            "one": "cream wool"
+        },
+        "WHITEWOOL": {
+            "zero": "white wool",
+            "many": "white wool",
+            "one": "white wool"
+        },
+        "FIRBRANCHES": {
+            "zero": "fir branches",
+            "many": "fir branches",
+            "one": "fir branches"
+        },
+        "CORALBELLS": {
+            "zero": "coral bells",
+            "many": "coral bells",
+            "one": "coral bells"
+        },
+        "SLIVERDUSTPLANT": {
+            "zero": "sliver dust plant",
+            "many": "sliver dust plant",
+            "one": "sliver dust plant"
         }
     }
 }
