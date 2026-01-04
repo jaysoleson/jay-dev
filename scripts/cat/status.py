@@ -380,6 +380,7 @@ class Status:
                         CatRank.APPRENTICE,
                         CatRank.MEDIATOR_APPRENTICE,
                         CatRank.MEDICINE_APPRENTICE,
+                        CatRank.QUEENS_APPRENTICE
                     ]
                 )
             )
