@@ -113,6 +113,7 @@ def event_for_tags(tags: list, cat, other_cat=None, mentor_tags_fulfilled=None) 
                         CatRank.APPRENTICE,
                         CatRank.MEDIATOR_APPRENTICE,
                         CatRank.MEDICINE_APPRENTICE,
+                        CatRank.QUEENS_APPRENTICE
                     ],
                 ):
                     return False
