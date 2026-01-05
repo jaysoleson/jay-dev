@@ -24,7 +24,7 @@ Bugfixes:
 - Affairs are now usable! :tada:
 - "Indexerror: list index out of range" crashes
 - Customizer fixes
-- c_n and o_c_n appearing in events
+- Clan abbrevs appearing in events
 - Reduced long loading times when continuing with a new MC via "start a new life"
 - Renaming cats no longer risks duplicate names (ex: Moonmoon) on Clan creation 
 - LADYBUG tooltip is no longer bugged
