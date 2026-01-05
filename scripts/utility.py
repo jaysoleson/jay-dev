@@ -2301,7 +2301,7 @@ def event_text_adjust(
             replace_dict["s_c"] = (str(stat_cat.name), get_pronouns(stat_cat))
 
     # LIFEGEN ABBREVS
-    if game.current_screen == 'patrol screen':
+    if game.current_screen == 'patrol_screen':
         for cat in patrol_cat_dict.items():
             replace_dict[cat[0]] = (str(cat[1].name), choice(cat[1].pronouns))
 
@@ -4298,7 +4298,7 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                     counter += 1
                     if counter >= 30:
                         return ""
-                if game.current_screen == "patrol screen" and switch_get_value(Switch.patrol_category) == "date" and new_abbrev_string == "r_c":
+                if game.current_screen == "patrol_screen" and switch_get_value(Switch.patrol_category) == "date" and new_abbrev_string == "r_c":
                     continue
                 else:
                     text = add_to_cat_dict(new_abbrev_string, cluster, x, rel, r, alive_cat, text, cat_dict)
