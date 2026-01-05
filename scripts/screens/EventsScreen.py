@@ -169,7 +169,11 @@ class EventsScreen(Screens):
                 # ensure we can't run the same timeskip multiple times
                 if self.events_thread is not None and self.events_thread.is_alive():
                     return
-                if game.clan.your_cat.dead_for >= 2 and not switch_get_value(Switch.continue_after_death):
+                if (
+                    game.clan.your_cat.dead and
+                    game.clan.your_cat.ID in game.just_died and
+                    not switch_get_value(Switch.continue_after_death)
+                    ):
                     DeathScreen('events screen')
                     return
                 elif (game.clan.your_cat.moons == 5
@@ -412,7 +416,7 @@ class EventsScreen(Screens):
         )
 
         self.clan_info["symbol"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((137, 105), (100, 100))),
+            ui_scale(pygame.Rect((137, 130), (100, 100))),
             pygame.transform.scale(
                 clan_symbol_sprite(game.clan), ui_scale_dimensions((100, 100))
             ),
@@ -1182,12 +1186,16 @@ class EventsScreen(Screens):
         game.clan.your_cat.pelt.rebuild_sprite = True
         if game.clan.your_cat.moons != -1:
             self.you = UISpriteButton(
-                ui_scale(pygame.Rect((570, 100), (120, 120))),
+                ui_scale(pygame.Rect((550, 120), (120, 120))),
                 game.clan.your_cat.sprite,
                 cat_id=game.clan.your_cat.ID,
                 manager=MANAGER
                 )
-        if switch_get_value(Switch.continue_after_death) and game.clan.your_cat.moons >= 0:
+        if (
+            game.clan.your_cat.dead and
+            game.clan.your_cat.ID not in game.just_died and
+            game.clan.your_cat.moons >= 0
+            ):
             self.death_button.show()
         else:
             self.death_button.hide()

@@ -48,7 +48,9 @@
             "refugee4", "tragedy_survivor2", "guided2", "wandering_healer1"
         ],
         "kittypet_backstories": [
-            "kittypet1", "kittypet2", "kittypet3", "kittypet4", "refugee3", "tragedy_survivor3", "guided1", "refugee6"
+            "kittypet1", "kittypet2", "kittypet3", "kittypet4", "kittypet5",
+            "kittypet6", "kittypet7", "kittypet8", "kittypet9", "refugee3",
+            "tragedy_survivor3", "guided1", "refugee6"
         ],
         "former_clancat_backstories": [
             "otherclan1",

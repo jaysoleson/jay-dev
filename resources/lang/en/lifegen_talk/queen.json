@@ -4165,5 +4165,75 @@
             "|r_k|Really?! You don't stand a chance, y_c!",
             "|r_k|Ready, set, go!"
         ]
+    },
+    "queen_J1": {
+        "y_c": {
+            "age": [
+                "not_kitten",
+                "not_adolescent"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "queen"
+            ],
+            "cluster": [
+                "brooding",
+                "cool"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_like_-10",
+            "max_like_40"
+        ],
+        "tags": [
+            "clan_has_kits"
+        ],
+        "intro": [
+            "Hey, y_c. Brought you a piece of prey.",
+            "You're not hungry? Why? Is your tummy hurting?",
+            "... Sorry. I'm used to talking to kits. Just take the prey."
+        ]
+    },
+    "queen_J2": {
+        "y_c": {
+            "age": [
+                "not_kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "queen"
+            ],
+            "cluster": [
+                "assertive",
+                "cool",
+                "unlawful",
+                "stable",
+                "brooding",
+                "upstanding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "max_like_20"
+        ],
+        "intro": [
+            "Hi, y_c. Need something?",
+            "What do you mean, 'what am I doing'? I'm working, obviously.",
+            "My job isn't all kits and moss-ball, you know. Who do you think sweeps up the clearing and fixes the dens?",
+            "Yeah. Me. Now find somecat else to entertain you. I'm busy."
+        ]
     }
 }

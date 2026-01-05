@@ -593,7 +593,7 @@ class ShortEvent:
             if cat.status.is_leader:
                 if "all_lives" in self.tags:
                     game.clan.leader_lives -= 10
-                elif "some_lives" in self.tags and self.leads_current_life_count > 2:
+                elif "some_lives" in self.tags and self.leads_current_life_count > 3:
                     game.clan.leader_lives -= randrange(
                         2, self.leads_current_life_count - 1
                     )

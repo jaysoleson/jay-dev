@@ -11,6 +11,7 @@ import pygame
 import pygame_gui
 from pygame_gui.core import ObjectID
 from ..cat.enums import CatAge, CatRank, CatGroup
+from scripts.cat.skills import CatSkills
 
 import scripts.screens.screens_core.screens_core
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES, create_example_cats, create_cat
@@ -65,19 +66,14 @@ class MakeClanScreen(Screens):
         ).convert_alpha(),
     }
     
-    leader_img = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/choose cat.png').convert_alpha(), (1600, 1400))
-    leader_img_dark = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/choose cat dark.png').convert_alpha(), (1600, 1400))
-    
     your_name_img = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/Your name screen.png').convert_alpha(), (1600, 1400))
+        'resources/images/pick_clan_screen/your_name_screen.png').convert_alpha(), (800, 700))
     your_name_img_dark = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/Your name screen darkmode.png').convert_alpha(), (1600, 1400))
+        'resources/images/pick_clan_screen/your_name_screen_dark.png').convert_alpha(), (800, 700))
     your_name_txt1 = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/your name text1.png').convert_alpha(), (796, 52))
+        'resources/images/pick_clan_screen/your_name_text_1.png').convert_alpha(), (796, 52))
     your_name_txt2 = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/your name text2.png').convert_alpha(), (536, 52))
+        'resources/images/pick_clan_screen/your_name_text_2.png').convert_alpha(), (536, 52))
     
     #images for the customizing screen
     sprite_preview_bg = pygame.transform.scale(pygame.image.load(
@@ -206,11 +202,9 @@ class MakeClanScreen(Screens):
         self.current_members = []
 
         for skillpath in SkillPath:
-            count = 0
-            for skill in skillpath.value:
-                count += 1
-                if count == 1:
-                    self.skills.append(skill)
+            self.skills.append(skillpath)
+            print("APPENDING", skillpath)
+                    
 
         # NEW CUSTOMISER BUTTON DICTS
 
@@ -354,15 +348,6 @@ class MakeClanScreen(Screens):
 
             self.sex_buttons
             ]
-        
-        self.notail_accs = ['RED FEATHERS', 'BLUE FEATHERS', 'JAY FEATHERS', "SEAWEED",
-                            "DAISY CORSAGE", "GULL FEATHERS", "SPARROW FEATHERS", "CLOVER", "DAISY",
-                            "SPRINGFEATHERS", "CLOVER", "LAVENDERTAILWRAP", "CELESTIALCHIMES",
-                            "LUNARCHIMES", "SILVERLUNARCHIMES", "FLOWER MOSS", "SANVITALIAFLOWERS",
-                            "STARFLOWERS", "SHELL PACK", "MOSS2", "MUSHROOMS", "CLOVERS", "MUD", "LADYBUGS",
-                            "FIRBRANCHES", "CHERRYBLOSSOM", "MISTLETOE", "BROWNMOSSPELT", "BLEEDINGVINES",
-                            "BLEEDINGHEART", "MOREFERN", "GRAYMOSSPELT", "FERN", "YELLOWWISTERIA", "WATTLE", "SPRINGFLOWERCORSAGE"]
-        # god damn we have a lot of tail accessories
 
         # Buttons that appear on every screen.
         # self.menu_warning = pygame_gui.elements.UITextBox(
@@ -521,8 +506,12 @@ class MakeClanScreen(Screens):
             self.selected_cat = None
             self.open_name_cat()
         elif event.ui_element == self.elements['previous_step']:
-            self.clan_name = ""
-            self.open_name_clan()
+            if switch_get_value(Switch.customise_new_life):
+                self.change_screen(game.last_screen_forupdate)
+                switch_set_value(Switch.customise_new_life, False)
+            else:
+                self.clan_name = ""
+                self.open_name_clan()
         elif event.ui_element == self.elements['customize']:
             self.open_customize_cat()
             
@@ -841,6 +830,17 @@ class MakeClanScreen(Screens):
             else:
                 self.elements["error"].hide()
                 self.elements['next_step'].enable()
+            # BG IMAGE BLIT
+            if game_setting_get("dark mode"):
+                image = MakeClanScreen.your_name_img_dark
+            else:
+                image = MakeClanScreen.your_name_img
+            # self.elements['background'] = pygame_gui.elements.UIImage(
+            #     ui_scale(pygame.Rect((0, 0), (800, 700))),
+            #     image,
+            #     manager=MANAGER
+            #     )
+            screen.blit(image, (0,0))
         if self.sub_screen == "choose symbol":
             if (
                 len(switch_get_value(Switch.disallowed_symbol_tags))
@@ -1610,18 +1610,12 @@ class MakeClanScreen(Screens):
                                                                     pygame.transform.scale(
                                                                         self.your_cat.sprite,
                                                                         (200, 200)), manager=MANAGER)
-        if game_setting_get("dark mode"):
-            self.elements['background'] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((0, 0), (800, 700))),
-                                                                    MakeClanScreen.your_name_img_dark, manager=MANAGER)
-        else:
-            self.elements['background'] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((0, 0), (800, 700))),
-                                                                    MakeClanScreen.your_name_img, manager=MANAGER)
 
         self.elements['text1'] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((220, 365), (393, 26))),
                                                                   MakeClanScreen.your_name_txt1, manager=MANAGER)
         self.elements['text2'] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((270, 400), (267, 26))),
                                                                   MakeClanScreen.your_name_txt2, manager=MANAGER)
-        self.elements['background'].disable()
+        # self.elements['background'].disable()
 
         self.elements["random"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((285, 447), (34, 34))),
@@ -1649,7 +1643,6 @@ class MakeClanScreen(Screens):
             manager=MANAGER,
             starting_height=2,
         )
-        self.elements["previous_step"].disable()
         self.elements["next_step"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((0, 620), (147, 30))),
             "buttons.next_step",
@@ -2037,7 +2030,7 @@ class MakeClanScreen(Screens):
         self.custom_cat.gender = random.choice(["male", "female"])
 
         if self.permanent_condition == "born without a tail":
-            for i in self.notail_accs:
+            for i in Pelt.tail_accessories:
                 if i in self.custom_cat.pelt.accessory:
                     self.custom_cat.pelt.accessory = []
                     self.custom_cat.pelt.inventory = []
@@ -2137,7 +2130,13 @@ class MakeClanScreen(Screens):
                     for colour in color_list:
                         if f"{style}_{colour}" == acc:
                             collar_found = True
-                            acc_name = str(i18n.t(f"cat.accessories.{style}", count=1)).capitalize()
+                            # "colorful" gets to stay so we dont end up with
+                            # "rainbow colorful spiked leather collar"
+                            # thats just a mouthful
+                            if "colorful" in acc:
+                                acc_name = str(i18n.t(f"cat.accessories.{style}", count=1)).capitalize()
+                            else:
+                                acc_name = str(colour.replace("_", " ") + " " + i18n.t(f"cat.accessories.{style}", count=1)).capitalize()
                             break
                         if collar_found:
                             break
@@ -2817,7 +2816,7 @@ class MakeClanScreen(Screens):
                         manager=MANAGER
                         )
                     self.heterochromia_names[str(colour)] = pygame_gui.elements.UITextBox(
-                        colour.capitalize(),
+                        str(colour).capitalize(),
                         ui_scale(pygame.Rect((0 + 32, eye_y_pos), (200, 34))),
                         object_id=get_text_box_theme("#text_box_30_horizleft"),
                         container=self.elements["scroll_container"],
@@ -3078,21 +3077,26 @@ class MakeClanScreen(Screens):
 
             if self.current_selection == "skill":
                 for skill in self.skills:
-                    if 15 <= len(skill):
-                        short_name = str(skill)[0:13]
-                        skill_name = short_name + '...'
+                    if skill != "Random":
+                        skill_string = Skill.short_strings[skill]
                     else:
-                        skill_name = skill
+                        skill_string = skill
 
-                    self.skill_buttons[skill] = UIImageButton(
+                    if 15 <= len(skill_string):
+                        short_name = str(skill_string)[0:13]
+                        skill_name = short_name.capitalize() + '...'
+                    else:
+                        skill_name = skill_string.capitalize()
+
+                    self.skill_buttons[skill_string] = UIImageButton(
                         ui_scale(pygame.Rect((0, y_pos), (34, 34))),
                         "",
                         object_id="@unchecked_checkbox",
                         container=self.elements["scroll_container"],
                     )
 
-                    self.skill_names[skill] = pygame_gui.elements.UITextBox(
-                        skill_name.capitalize(),
+                    self.skill_names[skill_string] = pygame_gui.elements.UITextBox(
+                        skill_name,
                         ui_scale(pygame.Rect((0 + 32, y_pos), (200, 34))),
                         object_id=get_text_box_theme("#text_box_30_horizleft"),
                         container=self.elements["scroll_container"],
@@ -3421,7 +3425,7 @@ class MakeClanScreen(Screens):
                             new_acc_list = acc_list
 
                         if self.permanent_condition == "born without a tail":
-                            for i in self.notail_accs:
+                            for i in Pelt.tail_accessories:
                                 if i in new_acc_list:
                                     new_acc_list.remove(i)
                         
@@ -3640,7 +3644,7 @@ class MakeClanScreen(Screens):
                         self.update_disabled_buttons()
                 for i in self.heterochromia_buttons.items():
                     if event.ui_element == self.heterochromia_buttons[i[0]]:
-                        self.custom_cat.pelt.eye_colour = i[0].upper() if i[0] != "None" else None
+                        self.custom_cat.pelt.eye_colour2 = i[0].upper() if i[0] != "None" else None
                         self.update_sprite()
                         self.update_disabled_buttons()
                 for i in self.skin_buttons.items():
@@ -3817,9 +3821,9 @@ class MakeClanScreen(Screens):
                 self.your_cat.genderalign = self.custom_cat.gender
 
                 if self.your_cat.genderalign == "male":
-                    self.your_cat.pronouns = [get_default_pronouns()["2"].copy()]
-                elif self.your_cat.genderalign == "female":
                     self.your_cat.pronouns = [get_default_pronouns()["1"].copy()]
+                elif self.your_cat.genderalign == "female":
+                    self.your_cat.pronouns = [get_default_pronouns()["2"].copy()]
                 else:
                     self.your_cat.pronouns = [get_default_pronouns()["0"].copy()]
 
@@ -3846,7 +3850,11 @@ class MakeClanScreen(Screens):
                 self.your_cat.personality = Personality(trait=self.personality, kit_trait=True)
                 if self.skill == "Random":
                     self.skill = random.choice(self.skills)
-                self.your_cat.skills.primary = Skill.get_skill_from_string(Skill, self.skill, "True")
+                self.your_cat.skills = CatSkills({
+                    "primary": f"{self.skill},0,True",
+                    "secondary": None,
+                    "hidden": None
+                })
                 self.your_cat.lock_faith = self.faith
                 self.selected_cat = None
                 self.custom_cat = None
@@ -3982,7 +3990,7 @@ class MakeClanScreen(Screens):
                 else:
                     self.eye_colour_buttons[i[0]].disable()
             for i in self.heterochromia_buttons.items():
-                if i[0] != str(self.custom_cat.pelt.eye_colour):
+                if i[0] != str(self.custom_cat.pelt.eye_colour2):
                     self.heterochromia_buttons[i[0]].enable()
                 else:
                     self.heterochromia_buttons[i[0]].disable()
@@ -4011,11 +4019,17 @@ class MakeClanScreen(Screens):
                     else:
                         self.accessory_buttons[i[0]].disable()
                 if self.permanent_condition == "born without a tail":
-                    for acc in self.notail_accs:
-                        self.accessory_buttons[acc].disable()
+                    for acc in Pelt.tail_accessories:
+                        if acc in self.accessory_buttons:
+                            self.accessory_buttons[acc].disable()
+                        else:
+                            print(acc, "button not generated?")
                 if self.permanent_condition == "born without a leg":
                     for acc in ["ASHY PAWS", "MUD PAWS"]:
-                        self.accessory_buttons[acc].disable()
+                        if acc in self.accessory_buttons:
+                            self.accessory_buttons[acc].disable()
+                        else:
+                            print(acc, "button not generated?")
 
             if self.current_selection == "accessory":
                 if "acc_name" in self.elements:

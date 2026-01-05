@@ -349,8 +349,8 @@ class Screens:
         elif event.ui_element == Screens.menu_buttons["clan_settings"]:
             self.change_screen(GameScreen.CLAN_SETTINGS)
         # LG
-        elif event.ui_element == Screens.menu_buttons["achievements"]:
-            self.change_screen(GameScreen.ACHIEVEMENTS)
+        # elif event.ui_element == Screens.menu_buttons["achievements"]:
+        #     self.change_screen(GameScreen.ACHIEVEMENTS)
         # ---
         elif event.ui_element == Screens.menu_buttons["moons_n_seasons_arrow"]:
             switch_set_value(
