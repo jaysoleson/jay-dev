@@ -1046,17 +1046,20 @@ class ProfileScreen(Screens):
 
             # TALK
             cant_talk = False
-            dead_talk = self.get_dead_cat_talk()
+            cat = self.the_cat
+            you = game.clan.your_cat
 
-            if (
-                (not self.the_cat.dead and self.the_cat.status.is_outsider) or
-                (not self.the_cat.dead and not self.the_cat.status.is_outsider and game.clan.your_cat.status.is_outsider and not game.clan.your_cat.dead) or 
-                game.clan.your_cat.moons < 0 or
-                self.the_cat.ID == game.clan.your_cat.ID or
-                self.the_cat.status.group_ID in [clan.group_ID for clan in game.clan.all_other_clans] or 
-                ((game.clan.your_cat.dead or self.the_cat.dead) and dead_talk is False)
-            ):
-                cant_talk = True
+            # Check if the button should be enabled or not
+            for cat_to in [you, cat]:
+                for other_cat in [you, cat]:
+                    if other_cat != cat_to:
+                        cat_from = other_cat
+                        break
+                # validate
+                if not self.validate_talk(cat_to, cat_from):
+                    # break if we hit a false return
+                    cant_talk = True
+                    break
                 
             self.profile_elements["talk"] = UIImageButton(ui_scale(pygame.Rect(
                 (383, 105), (34, 34))),
@@ -1072,20 +1075,17 @@ class ProfileScreen(Screens):
 
             # INSULT
             cant_insult = False
-            if (
-                self.the_cat.status.is_outsider or
-                (not self.the_cat.dead and not self.the_cat.status.is_outsider and game.clan.your_cat.status.is_outsider and not game.clan.your_cat.dead) or 
-                game.clan.your_cat.moons < 0 or
-                self.the_cat.ID == game.clan.your_cat.ID or
-                self.the_cat.status.group_ID in [clan.group_ID for clan in game.clan.all_other_clans] or 
-                (game.clan.your_cat.dead is True or self.the_cat.dead is True and
-                dead_talk is False) or
+            cat = self.the_cat
+            you = game.clan.your_cat
 
-                game.clan.your_cat.dead or
-                self.the_cat.dead
-                # when/if dead insulting is added, these two lines can just be removed
-            ):
-                cant_insult = True
+            for cat_to in [you, cat]:
+                for other_cat in [you, cat]:
+                    if other_cat != cat_to:
+                        cat_from = other_cat
+                        break
+                if not self.validate_insult(cat_to, cat_from):
+                    cant_insult = True
+                    break
 
             self.profile_elements["insult"] = UIImageButton(ui_scale(pygame.Rect(
                 (423, 105), (34, 34))),
@@ -1100,20 +1100,17 @@ class ProfileScreen(Screens):
 
             # FLIRT
             cant_flirt = False
-            if (
-                self.the_cat.status.is_outsider or
-                game.clan.your_cat.moons < 0 or
-                self.the_cat.ID == game.clan.your_cat.ID or
-                (not self.the_cat.dead and not self.the_cat.status.is_outsider and game.clan.your_cat.status.is_outsider and not game.clan.your_cat.dead) or 
-                (game.clan.your_cat.dead is True or self.the_cat.dead is True and
-                dead_talk is False) or
-                not self.the_cat.is_dateable(game.clan.your_cat) or
+            cat = self.the_cat
+            you = game.clan.your_cat
 
-                game.clan.your_cat.dead or
-                self.the_cat.dead
-                # when/if dead flirting is added, these two lines can just be removed
-            ):
-                cant_flirt = True
+            for cat_to in [you, cat]:
+                for other_cat in [you, cat]:
+                    if other_cat != cat_to:
+                        cat_from = other_cat
+                        break
+                if not self.validate_flirt(cat_to, cat_from):
+                    cant_flirt = True
+                    break
 
             self.profile_elements["flirt"] = UIImageButton(ui_scale(pygame.Rect(
                 (343, 105), (34, 34))),
@@ -1121,7 +1118,7 @@ class ProfileScreen(Screens):
                 object_id="#flirt_button",
                 tool_tip_text="Flirt with this Cat", manager=MANAGER
             )
-            if self.the_cat.flirted:
+            if self.the_cat.flirted or cant_flirt:
                 self.profile_elements["flirt"].disable()
             elif cant_flirt:
                 self.profile_elements["flirt"].kill()
@@ -1135,7 +1132,7 @@ class ProfileScreen(Screens):
                 self.profile_elements["flirt"].enable()
 
         # WORK BUTTONS
-        # leader, mediator, queen, moonplace
+        # leader, mediator, elder, queen, moonplace
 
         if self.the_cat.ID == game.clan.your_cat.ID:
             y_pos = 105
@@ -3822,6 +3819,50 @@ class ProfileScreen(Screens):
                     if pos_x >= 550:
                         pos_x = 2
                         pos_y += 73
+    
+    def validate_insult(self, cat_to, cat_from):
+        if not self.validate_talk(cat_to, cat_from):
+            return False
+        if cat_to.dead:
+            return False
+        
+        return True
+
+    def validate_flirt(self, cat_to, cat_from):
+        if not self.validate_talk(cat_to, cat_from):
+            return False
+        if cat_to.dead:
+            return False
+        if not cat_to.is_dateable(cat_from):
+            return False
+
+        return True
+
+    def validate_talk(self, cat_to, cat_from):
+        if cat_to.dead:
+            if not cat_from.dead:
+                if (
+                    cat_to.status.group == CatGroup.STARCLAN and
+                    not cat_from.skills.meets_skill_requirement(SkillPath.STAR)
+                    ):
+                    return False
+                if (
+                    cat_to.status.group == CatGroup.DARK_FOREST and
+                    not cat_from.skills.meets_skill_requirement(SkillPath.DARK) and
+                    not cat_from.joined_df
+                    ):
+                    return False
+                if (
+                    cat_to.status.group == CatGroup.UNKNOWN_RESIDENCE and
+                    not cat_from.skills.meets_skill_requirement(SkillPath.GHOST)
+                ):
+                    return False
+        else:
+            if cat_from.status.alive_in_player_clan and not cat_to.status.alive_in_player_clan:
+                return False
+            
+        return True
+        
 
     def on_use(self):
         super().on_use()
