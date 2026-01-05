@@ -533,7 +533,7 @@ class RomanticEvents:
         return: bool if event is triggered or not
         """
 
-        if cat == game.clan.your_cat:
+        if cat_from == game.clan.your_cat:
             # mc cant confess without the player doing it
             return False
 

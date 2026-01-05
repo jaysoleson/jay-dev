@@ -741,6 +741,26 @@ class Cat:
         # mark the sprite as outdated
         self.pelt.rebuild_sprite = True
 
+    def revive(self):
+        """ LG: Revives a cat from the dead. """
+        self.revives += 1
+        print("REVIVE")
+
+        if self.status.rank == CatRank.LEADER:
+            if game.clan.leader_lives < 1:
+                game.clan.leader_lives = 1
+
+        return_to = self.status.get_last_living_group()
+        
+        if self.ID in Cat.dead_cats:
+            Cat.dead_cats.remove(self.ID)
+        
+        self.thought = "Is surprised to be back home"
+
+        self.status.add_to_group(return_to)
+        self.pelt.rebuild_sprite = True
+
+
     def exile(self):
         """This is used to send a cat into exile."""
 
@@ -2260,24 +2280,7 @@ class Cat:
                 acc
                 for acc in self.pelt.accessory
                 if acc
-                not in (
-                    "RED FEATHERS",
-                    "BLUE FEATHERS",
-                    "JAY FEATHERS",
-                    "GULL FEATHERS",
-                    "SPARROW FEATHERS",
-                    "CLOVER",
-                    "DAISY",
-                    "WISTERIA",
-                    "GOLDEN CREEPING JENNY",
-                    "SEAWEED",
-                    "DAISY CORSAGE",
-                    "SPRINGFEATHERS", "LAVENDERTAILWRAP", "CELESTIALCHIMES",
-                    "LUNARCHIMES", "SILVERLUNARCHIMES", "FLOWER MOSS", "SANVITALIAFLOWERS",
-                    "STARFLOWERS", "SHELL PACK", "MOSS2", "MUSHROOMS", "CLOVERS", "MUD", "LADYBUGS",
-                    "FIRBRANCHES", "CHERRYBLOSSOM", "MISTLETOE", "BROWNMOSSPELT", "BLEEDINGVINES",
-                    "BLEEDINGHEART", "MOREFERN", "GRAYMOSSPELT", "FERN", "YELLOWWISTERIA", "WATTLE", "SPRINGFLOWERCORSAGE"
-                )
+                not in Pelt.tail_accessories
             ]
         if "NOPAW" in self.pelt.scars:
             self.pelt.accessory = [

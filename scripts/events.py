@@ -281,77 +281,78 @@ class Events:
             shaken_cats = []
             extra_event = None
             event = None
+            # LG EDIT
             for ghost in Cat.dead_cats:
-                if not ghost.dead_for > 1:
+                if not ghost.dead_for > 1 and ghost.dead:
                     ghost_names.append(str(ghost.name))
-                else:
-                    continue # keeps cats who generate as dead out of death events
+                    # keeps cats who generate as dead out of death events
             insert = ""
             if ghost_names:
+                # only continue if there are. actual dead people
                 insert = adjust_list_text(ghost_names)
 
-            if len(Cat.dead_cats) > 1:
-                event = i18n.t(
-                    "hardcoded.event_deaths", count=len(Cat.dead_cats), insert=insert
-                )
-
-                if len(ghost_names) > 2:
-                    alive_cats = [
-                        kitty
-                        for kitty in Cat.all_cats.values()
-                        if kitty.status.alive_in_player_clan
-                    ]
-
-                    # finds a percentage of the living Clan to become shaken
-
-                    if len(alive_cats) == 0:
-                        return
-                    else:
-                        shaken_cats = random.sample(
-                            alive_cats,
-                            k=max(
-                                int((len(alive_cats) * random.randint(4, 6)) / 100),
-                                1,
-                            ),
-                        )
-
-                    shaken_cat_names = []
-                    for cat in shaken_cats:
-                        shaken_cat_names.append(str(cat.name))
-                        cat.get_injured(
-                            "shock",
-                            event_triggered=False,
-                            lethal=False,
-                            severity="minor",
-                        )
-
-                    insert = adjust_list_text(shaken_cat_names)
-
-                    extra_event = i18n.t(
-                        "hardcoded.event_shaken_grief",
-                        count=len(shaken_cat_names),
-                        insert=insert,
+                if len(Cat.dead_cats) > 1:
+                    event = i18n.t(
+                        "hardcoded.event_deaths", count=len(Cat.dead_cats), insert=insert
                     )
 
-            else:
-                event = i18n.t("hardcoded.event_deaths", count=1)
+                    if len(ghost_names) > 2:
+                        alive_cats = [
+                            kitty
+                            for kitty in Cat.all_cats.values()
+                            if kitty.status.alive_in_player_clan
+                        ]
 
-            game.cur_events_list.append(
-                Single_Event(
-                    event,
-                    ["birth_death"],
-                    [i.ID for i in Cat.dead_cats],
-                    cat_dict=(
-                        {"m_c": Cat.dead_cats[0]} if len(Cat.dead_cats) == 1 else None
-                    ),
-                )
-            )
-            if extra_event:
+                        # finds a percentage of the living Clan to become shaken
+
+                        if len(alive_cats) == 0:
+                            return
+                        else:
+                            shaken_cats = random.sample(
+                                alive_cats,
+                                k=max(
+                                    int((len(alive_cats) * random.randint(4, 6)) / 100),
+                                    1,
+                                ),
+                            )
+
+                        shaken_cat_names = []
+                        for cat in shaken_cats:
+                            shaken_cat_names.append(str(cat.name))
+                            cat.get_injured(
+                                "shock",
+                                event_triggered=False,
+                                lethal=False,
+                                severity="minor",
+                            )
+
+                        insert = adjust_list_text(shaken_cat_names)
+
+                        extra_event = i18n.t(
+                            "hardcoded.event_shaken_grief",
+                            count=len(shaken_cat_names),
+                            insert=insert,
+                        )
+
+                else:
+                    event = i18n.t("hardcoded.event_deaths", count=1)
+
                 game.cur_events_list.append(
                     Single_Event(
-                        extra_event, ["birth_death"], [i.ID for i in shaken_cats]
+                        event,
+                        ["birth_death"],
+                        [i.ID for i in Cat.dead_cats],
+                        cat_dict=(
+                            {"m_c": Cat.dead_cats[0]} if len(Cat.dead_cats) == 1 else None
+                        ),
                     )
                 )
+                if extra_event:
+                    game.cur_events_list.append(
+                        Single_Event(
+                            extra_event, ["birth_death"], [i.ID for i in shaken_cats]
+                        )
+                    )
             Cat.dead_cats.clear()
 
         if (

@@ -169,7 +169,11 @@ class EventsScreen(Screens):
                 # ensure we can't run the same timeskip multiple times
                 if self.events_thread is not None and self.events_thread.is_alive():
                     return
-                if game.clan.your_cat.dead_for >= 2 and not switch_get_value(Switch.continue_after_death):
+                if (
+                    game.clan.your_cat.dead and
+                    game.clan.your_cat.ID in game.just_died and
+                    not switch_get_value(Switch.continue_after_death)
+                    ):
                     DeathScreen('events screen')
                     return
                 elif (game.clan.your_cat.moons == 5
@@ -1187,7 +1191,11 @@ class EventsScreen(Screens):
                 cat_id=game.clan.your_cat.ID,
                 manager=MANAGER
                 )
-        if switch_get_value(Switch.continue_after_death) and game.clan.your_cat.moons >= 0:
+        if (
+            game.clan.your_cat.dead and
+            game.clan.your_cat.ID not in game.just_died and
+            game.clan.your_cat.moons >= 0
+            ):
             self.death_button.show()
         else:
             self.death_button.hide()
