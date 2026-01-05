@@ -31,7 +31,7 @@ from scripts.game_structure.ui_elements import (
     UISurfaceImageButton,
     UIModifiedScrollingContainer
 )
-from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset, create_new_cat
+from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset
 from scripts.utility import ui_scale_dimensions, generate_sprite
 from .Screens import Screens
 from .enums import GameScreen
@@ -203,7 +203,6 @@ class MakeClanScreen(Screens):
 
         for skillpath in SkillPath:
             self.skills.append(skillpath)
-            print("APPENDING", skillpath)
                     
 
         # NEW CUSTOMISER BUTTON DICTS
@@ -1945,7 +1944,7 @@ class MakeClanScreen(Screens):
     def randomize_custom_cat(self):
         permanent_conditions = ['born without a leg', 'weak leg', 'twisted leg', 'born without a tail', 'paralyzed', 'raspy lungs', 'wasting disease', 'blind', 'one bad eye', 'failing eyesight', 'partial hearing loss', 'deaf', 'constant joint pain', 'seizure prone', 'allergies', 'persistent headaches']
 
-        self.custom_cat = create_new_cat(Cat)[0]
+        self.custom_cat = Cat()
 
         pelt_options = []
         for category in Pelt.pelt_categories:
@@ -3850,11 +3849,7 @@ class MakeClanScreen(Screens):
                 self.your_cat.personality = Personality(trait=self.personality, kit_trait=True)
                 if self.skill == "Random":
                     self.skill = random.choice(self.skills)
-                self.your_cat.skills = CatSkills({
-                    "primary": f"{self.skill},0,True",
-                    "secondary": None,
-                    "hidden": None
-                })
+                self.your_cat.skills.primary = self.skill
                 self.your_cat.lock_faith = self.faith
                 self.selected_cat = None
                 self.custom_cat = None
