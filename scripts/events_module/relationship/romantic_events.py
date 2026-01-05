@@ -643,10 +643,8 @@ class RomanticEvents:
             )
         )
 
-        # CHECKMERGE
-        # not for merge but duped code in here too..... uggo
         if become_mate:
-            if cat_from.ID == game.clan.your_cat.ID or cat_to.ID == game.clan.your_cat.ID:
+            if (game.clan.your_cat in (cat_to, cat_from)):
                 if not switch_get_value(Switch.window_open):
                     if cat_from.ID == game.clan.your_cat.ID:
                         switch_set_value(Switch.new_mate, cat_to)
@@ -662,8 +660,6 @@ class RomanticEvents:
                         switch_append_list_value(Switch.windows_dict, 'mate')
             else:
                 cat_from.set_mate(cat_to)
-                mate_string = RomanticEvents.prepare_relationship_string(mate_string, cat_from, cat_to)
-                game.cur_events_list.append(Single_Event(mate_string, ["relation", "misc"], [cat_from.ID, cat_to.ID]))
 
         return True
 
