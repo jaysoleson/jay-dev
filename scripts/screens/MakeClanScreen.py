@@ -203,7 +203,6 @@ class MakeClanScreen(Screens):
 
         for skillpath in SkillPath:
             self.skills.append(skillpath)
-            print("APPENDING", skillpath)
                     
 
         # NEW CUSTOMISER BUTTON DICTS
@@ -3850,11 +3849,7 @@ class MakeClanScreen(Screens):
                 self.your_cat.personality = Personality(trait=self.personality, kit_trait=True)
                 if self.skill == "Random":
                     self.skill = random.choice(self.skills)
-                self.your_cat.skills = CatSkills({
-                    "primary": f"{self.skill},0,True",
-                    "secondary": None,
-                    "hidden": None
-                })
+                self.your_cat.skills.primary = self.skill
                 self.your_cat.lock_faith = self.faith
                 self.selected_cat = None
                 self.custom_cat = None
