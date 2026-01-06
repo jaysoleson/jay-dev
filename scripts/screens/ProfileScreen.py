@@ -3839,6 +3839,8 @@ class ProfileScreen(Screens):
         return True
 
     def validate_talk(self, cat_to, cat_from):
+        if cat_to.moons < 0:
+            return False
         if cat_to.dead:
             if not cat_from.dead:
                 if (

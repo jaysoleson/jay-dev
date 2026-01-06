@@ -63,12 +63,16 @@ class MakeClanScreen(Screens):
         "leader": pygame.image.load(
             "resources/images/pick_clan_screen/clan_light.png"
         ).convert_alpha(),
-    }
-    
-    your_name_img = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/your_name_screen.png').convert_alpha(), (800, 700))
-    your_name_img_dark = pygame.transform.scale(pygame.image.load(
-        'resources/images/pick_clan_screen/your_name_screen_dark.png').convert_alpha(), (800, 700))
+
+        "your_name": (
+            (pygame.image.load(
+            'resources/images/pick_clan_screen/your_name_screen.png'
+        ).convert_alpha())
+        if not game_setting_get("dark mode") else 
+            (pygame.image.load(
+                'resources/images/pick_clan_screen/your_name_screen_dark.png'
+            ).convert_alpha()))
+        }
     your_name_txt1 = pygame.transform.scale(pygame.image.load(
         'resources/images/pick_clan_screen/your_name_text_1.png').convert_alpha(), (796, 52))
     your_name_txt2 = pygame.transform.scale(pygame.image.load(
@@ -163,6 +167,10 @@ class MakeClanScreen(Screens):
         )
         self.leader_img = pygame.transform.scale(
             self.ui_images["leader"],
+            ui_scale_dimensions((800, 700)),
+        )
+        self.name_cat_img = pygame.transform.scale(
+            self.ui_images["your_name"],
             ui_scale_dimensions((800, 700)),
         )
 
@@ -804,7 +812,6 @@ class MakeClanScreen(Screens):
 
     def on_use(self):
         super().on_use()
-
         # Don't allow someone to enter no name for their clan
         if self.sub_screen == "name clan":
             if self.elements["name_entry"].get_text() == "":
@@ -831,17 +838,8 @@ class MakeClanScreen(Screens):
             else:
                 self.elements["error"].hide()
                 self.elements['next_step'].enable()
-            # BG IMAGE BLIT
-            if game_setting_get("dark mode"):
-                image = MakeClanScreen.your_name_img_dark
-            else:
-                image = MakeClanScreen.your_name_img
-            # self.elements['background'] = pygame_gui.elements.UIImage(
-            #     ui_scale(pygame.Rect((0, 0), (800, 700))),
-            #     image,
-            #     manager=MANAGER
-            #     )
-            screen.blit(image, (0,0))
+
+            screen.blit(self.name_cat_img, ui_scale_blit((0,0)))
         if self.sub_screen == "choose symbol":
             if (
                 len(switch_get_value(Switch.disallowed_symbol_tags))

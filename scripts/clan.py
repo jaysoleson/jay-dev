@@ -282,7 +282,7 @@ class Clan:
         for cat_id in Cat.all_cats:
             the_cat = Cat.all_cats.get(cat_id)
             the_cat.init_all_relationships()
-            if the_cat != self.instructor:
+            if the_cat not in (self.instructor, self.demon):
                 the_cat.backstory = "clan_founder"
             if the_cat.status.rank == CatRank.APPRENTICE:
                 the_cat.rank_change(CatRank.APPRENTICE)
@@ -319,7 +319,7 @@ class Clan:
             self.populate_sc()
             self.populate_ur()
             self.populate_df()
-        elif self.clan_age == "new":
+        else:
             self.generate_outsiders()
             self.generate_outsider_mates()
             self.generate_outsider_families()
@@ -545,11 +545,13 @@ class Clan:
         for i in range(randint(0,5)):
             outsider = create_new_cat(
                 Cat,
-                rank=choice([CatRank.LONER, CatRank.ROGUE]),
                 moons=randint(15, 120),
+                outside=True,
+                original_social=choice(
+                        (CatSocial.LONER, CatSocial.ROGUE, CatSocial.KITTYPET)
+                    ),
                 thought="Wanders around beyond the Clan's borders"
                 )[0]
-            outsider.history.beginning = None
 
     def generate_outsider_mates(self):
         """Generates up to three pairs of mates."""
