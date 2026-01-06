@@ -1536,42 +1536,43 @@ class MakeClanScreen(Screens):
                     ),
                     cat_object=game.choose_cats[u],
                 )
-            elif (
-                game.choose_cats[u]
-                in [self.leader, self.deputy, self.med_cat] + self.members
-            ):
-                self.elements["cat" + str(u)] = UISpriteButton(
-                    ui_scale(pygame.Rect((650, 130 + 50 * u), (50, 50))),
-                    game.choose_cats[u].sprite,
-                    cat_object=game.choose_cats[u],
-                    manager=MANAGER,
-                )
-                self.elements["cat" + str(u)].disable()
             else:
-                self.elements["cat" + str(u)] = UISpriteButton(
-                    ui_scale(pygame.Rect((column_poss[0], 130 + 50 * u), (50, 50))),
-                    game.choose_cats[u].sprite,
-                    cat_object=game.choose_cats[u], manager=MANAGER)
+                self.elements[
+                    "cat" + str(u)
+                    ] = UISpriteButton(
+                        ui_scale(pygame.Rect((column_poss[0], 130 + 50 * u), (50, 50))),
+                        pygame.transform.scale(
+                            game.choose_cats[u].sprite, ui_scale_dimensions((150, 150))
+                        ),
+                        cat_object=game.choose_cats[u], manager=MANAGER
+                        )
         for u in range(6, 12):
             if "cat" + str(u) in self.elements:
                 self.elements["cat" + str(u)].kill()
             if game.choose_cats[u] == selected:
-                self.elements["cat" + str(u)] = self.elements["cat" + str(u)] = UISpriteButton(
-                    ui_scale(pygame.Rect((270, 200), (150, 150))),
-                    pygame.transform.scale(game.choose_cats[u].sprite, (150, 150)),
-                    cat_object=game.choose_cats[u], manager=MANAGER)
-            elif game.choose_cats[u] in [self.leader, self.deputy, self.med_cat] + self.members:
-                self.elements["cat" + str(u)] = self.elements["cat" + str(u)] = UISpriteButton(
-                    ui_scale(pygame.Rect((270, 200), (150, 150))),
-                    pygame.transform.scale(game.choose_cats[u].sprite, (150, 150)),
-                    cat_object=game.choose_cats[u], manager=MANAGER)
+                self.elements[
+                    "cat" + str(u)
+                    ] = self.elements[
+                        "cat" + str(u)
+                        ] = UISpriteButton(
+                            ui_scale(pygame.Rect((270, 200), (150, 150))),
+                            pygame.transform.scale(
+                                game.choose_cats[u].sprite, ui_scale_dimensions((150, 150))
+                            ),
+                            cat_object=game.choose_cats[u], manager=MANAGER
+                            )
             else:
-                self.elements["cat" + str(u)] = UISpriteButton(
-                    ui_scale(
-                        pygame.Rect((column_poss[1], 130 + 50 * (u - 6)), (50, 50))
-                    ),
-                    game.choose_cats[u].sprite,
-                    cat_object=game.choose_cats[u], manager=MANAGER)
+                self.elements[
+                    "cat" + str(u)
+                        ] = UISpriteButton(
+                            ui_scale(
+                                pygame.Rect((column_poss[1], 130 + 50 * (u - 6)), (50, 50))
+                            ),
+                            pygame.transform.scale(
+                                game.choose_cats[u].sprite, ui_scale_dimensions((150, 150))
+                            ),
+                            cat_object=game.choose_cats[u], manager=MANAGER
+                            )
 
     def random_clan_name(self):
         clan_names = (
