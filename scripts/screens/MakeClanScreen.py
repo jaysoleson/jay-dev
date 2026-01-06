@@ -11,7 +11,6 @@ import pygame
 import pygame_gui
 from pygame_gui.core import ObjectID
 from ..cat.enums import CatAge, CatRank, CatGroup
-from scripts.cat.skills import CatSkills
 
 import scripts.screens.screens_core.screens_core
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES, create_example_cats, create_cat
@@ -202,8 +201,11 @@ class MakeClanScreen(Screens):
         self.current_members = []
 
         for skillpath in SkillPath:
-            self.skills.append(skillpath)
-                    
+            count = 0
+            for skill in skillpath.value:
+                count += 1
+                if count == 1:
+                    self.skills.append(skill)
 
         # NEW CUSTOMISER BUTTON DICTS
 
@@ -3077,25 +3079,23 @@ class MakeClanScreen(Screens):
             if self.current_selection == "skill":
                 for skill in self.skills:
                     if skill != "Random":
-                        skill_string = Skill.short_strings[skill]
+                        skillobj = Skill.get_skill_from_string(Skill, skill, "True", skill_object_only=True)
+                        skill_string = Skill.short_strings[skillobj]
                     else:
                         skill_string = skill
 
-                    if 15 <= len(skill_string):
-                        short_name = str(skill_string)[0:13]
-                        skill_name = short_name.capitalize() + '...'
-                    else:
-                        skill_name = skill_string.capitalize()
+                    if skill_string[0] != skill_string[0].upper():
+                        skill_string = skill_string.capitalize()
 
-                    self.skill_buttons[skill_string] = UIImageButton(
+                    self.skill_buttons[skill] = UIImageButton(
                         ui_scale(pygame.Rect((0, y_pos), (34, 34))),
                         "",
                         object_id="@unchecked_checkbox",
                         container=self.elements["scroll_container"],
                     )
 
-                    self.skill_names[skill_string] = pygame_gui.elements.UITextBox(
-                        skill_name,
+                    self.skill_names[skill] = pygame_gui.elements.UITextBox(
+                        skill_string,
                         ui_scale(pygame.Rect((0 + 32, y_pos), (200, 34))),
                         object_id=get_text_box_theme("#text_box_30_horizleft"),
                         container=self.elements["scroll_container"],
@@ -3849,7 +3849,7 @@ class MakeClanScreen(Screens):
                 self.your_cat.personality = Personality(trait=self.personality, kit_trait=True)
                 if self.skill == "Random":
                     self.skill = random.choice(self.skills)
-                self.your_cat.skills.primary = self.skill
+                self.your_cat.skills.primary = Skill.get_skill_from_string(Skill, self.skill, "True")
                 self.your_cat.lock_faith = self.faith
                 self.selected_cat = None
                 self.custom_cat = None
@@ -4072,7 +4072,7 @@ class MakeClanScreen(Screens):
                     self.elements["trait_name"].kill()
                     del self.elements["trait_name"]
 
-                if self.skill:
+                if self.personality:
                     self.elements["trait_name"] = pygame_gui.elements.UITextBox(
                         self.personality.capitalize(),
                         ui_scale(pygame.Rect((276, 470), (247, 49))),
@@ -4086,9 +4086,16 @@ class MakeClanScreen(Screens):
                     del self.elements["skill_name"]
 
                 if self.skill:
-                    skillname = self.skill[0].upper() + self.skill[1:]
+                    if self.skill != "Random":
+                        skillobj = Skill.get_skill_from_string(Skill, self.skill, "True", skill_object_only=True)
+                        skill_string = Skill.short_strings[skillobj]
+                    else:
+                        skill_string = self.skill
+                    if skill_string[0] != skill_string[0].upper():
+                        skill_string = skill_string.capitalize()
+
                     self.elements["skill_name"] = pygame_gui.elements.UITextBox(
-                        skillname,
+                        skill_string,
                         ui_scale(pygame.Rect((276, 470), (247, 49))),
                         object_id=get_text_box_theme("#text_box_30_horizcenter"),
                         manager=MANAGER

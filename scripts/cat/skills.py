@@ -442,7 +442,7 @@ class Skill:
         """Gets the string that is saved in the cat data"""
         return f"{self.path.name},{self.points},{self.interest_only}"
     
-    def get_skill_from_string(self, string, interest=False):
+    def get_skill_from_string(self, string, interest=False, skill_object_only=False):
         """Returns a SkillPath given a string skill"""
 
         # LG
@@ -453,6 +453,8 @@ class Skill:
         for skill in SkillPath:
             if string in skill.value:
                 index = skill.value.index(string)
+                if skill_object_only:
+                    return skill
                 return self.generate_from_save_string(f"{skill.name},{Skill.get_points_to_tier(self, tier=max(1,index))},{interest_string}")
             
         return "String not found in any Enum"
