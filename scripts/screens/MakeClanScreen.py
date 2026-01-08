@@ -1963,11 +1963,13 @@ class MakeClanScreen(Screens):
         random_eye_colour2 = choice(Pelt.all_eye_colours) if not int(random.random() * 10) else None
 
         tortie = True if random.randint(1,5) == 1 else False
-        random_tortie_base = choice(Pelt.all_pelt_colours) if tortie else None
+        random_tortie_base = choice(Pelt.pelt_patterns) if tortie else None
         random_tortie_colour = choice(Pelt.all_pelt_colours) if tortie else None
         random_tortie_markings = choice(Pelt.tortie_patches) if tortie else None
         random_tortie_pattern = choice(Pelt.pelt_patterns) if tortie else None
 
+        if tortie:
+            random_pelt_name = "Tortie"
         
         random_vitiligo = choice(Pelt.vitiligo_markings) if random.randint(1,20) == 1 else None
         random_points = choice(Pelt.point_markings) if random.randint(1,5) == 1 else None
@@ -2025,7 +2027,18 @@ class MakeClanScreen(Screens):
 
         # now non-pelt stuff
         self.skill = "Random"
-        self.personality = choice(['unruly','shy','impulsive','bullying','attention-seeker','daydreamer','charming','fearless','skittish','quiet','self-conscious','know-it-all','sweet','polite','bossy','noisy','smug','secretive','grumpy','manipulative','leader-like','passionate','disciplined','patient','rebellious','honest'])
+        self.personality = choice(
+            [
+                'unruly','shy','impulsive','bullying',
+                'attention-seeker','daydreamer','charming',
+                'fearless','skittish','quiet','self-conscious',
+                'know-it-all','sweet','polite','bossy',
+                'noisy','smug','secretive','grumpy',
+                'manipulative','leader-like',
+                'passionate','disciplined',
+                'patient','rebellious','honest'
+            ]
+        )
         self.permanent_condition = choice(permanent_conditions) if random.randint(1,30) == 1 else None
         self.custom_cat.gender = random.choice(["male", "female"])
 
@@ -2054,7 +2067,7 @@ class MakeClanScreen(Screens):
 
         self.faith = random.choice(["flexible", "starclan", "dark forest", "neutral"])
 
-        if self.custom_cat.pelt.name == "Tortie":
+        if tortie:
             self.tortie_enabled = True
         else:
             self.tortie_enabled = False
