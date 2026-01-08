@@ -1260,6 +1260,11 @@
             "many": "easter egg",
             "one": "easter egg"
         },
+        "FORSYTHIA": {
+            "zero": "forsythia",
+            "many": "forsythias",
+            "one": "forsythia"
+        },
         "MINTLEAF": {
             "zero": "mint leaf",
             "many": "mint leaf",
