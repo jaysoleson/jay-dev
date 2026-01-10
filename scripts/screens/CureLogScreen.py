@@ -363,7 +363,7 @@ class CureLogScreen(Screens):
             self.treatment_page = int(game.clan.infection["current_infection"])
 
             self.scroll_container = pygame_gui.elements.UIScrollingContainer(ui_scale(pygame.Rect(
-                (50, 175), (365, 300))),
+                (50, 175), (365, 370))),
                 allow_scroll_x=False,
                 manager=MANAGER
                 )
@@ -520,7 +520,6 @@ class CureLogScreen(Screens):
 
         logs = 0
         for treatment in current_treatments:
-
             # MOON TEXT
             if logs > 0:
                 # if its not the first log it gets anchored to the last one
@@ -551,9 +550,19 @@ class CureLogScreen(Screens):
                     successtext = "<font color='#136D05'>Cure Found!</font>"
             elif int(treatment['correct_herbs']) > 0:
                 if game.settings["dark mode"]:
-                    successtext = "<font color='#DBD076'>At least one effective herb</font>"
+                    colour = "#DBD076"
                 else:
-                    successtext = "<font color='#473B0A'>At least one effective herb</font>"
+                    colour = "#473B0A"
+
+                if game.clan.infection["infection_difficulty"] == "easy":
+                    if int(treatment['correct_herbs']) > 1:
+                        insert = "herbs"
+                    else:
+                        insert = "herb"
+                    text = f"{treatment['correct_herbs']} effective {insert}"
+                else:
+                    text = "At least one effective herb"
+                successtext = f"<font color='{colour}'>{text}</font>"
             else:
                 if game.settings["dark mode"]:
                     successtext = "<font color='#FF0000'>Zero Effective Herbs</font>"
@@ -587,7 +596,7 @@ class CureLogScreen(Screens):
             )
             logs += 1
         
-        self.scroll_container.set_scrollable_area_dimensions((500, 700))
+        self.scroll_container.set_scrollable_area_dimensions((500, logs * 120))
     
     def show_journal_stamps(self):
         self.check_achivements()

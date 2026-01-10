@@ -2895,6 +2895,83 @@ class ConfirmDisplayChanges(UIMessageWindow):
             self.kill()
         return super().process_event(event)
     
+class ChooseDifficulty(UIWindow):
+    """
+    popup prompting users to choose difficulty. only shows up for saves created before difficulty was implemented.
+    """
+    def __init__(self):
+        super().__init__(
+            ui_scale(pygame.Rect((150, 215), (500, 205))),
+            window_display_title="Choose Difficulty",
+            object_id="#change_cat_name_window",
+            resizable=False
+        )
+        self.chosen_difficulty = "hard"
+        self.heading = pygame_gui.elements.UITextBox(
+            "<b>The loaded Clan doesn't have an INFECTION difficulty!</b>",
+            ui_scale(pygame.Rect((0, 10), (460, 40))),
+            object_id="#text_box_30_horizcenter",
+            manager=MANAGER,
+            container=self,
+            anchors={"centerx": "centerx"}
+        )
+        self.subheading = pygame_gui.elements.UITextBox(
+            "Choose a difficulty below. This cannot be changed later.",
+            ui_scale(pygame.Rect((0, 30), (460, 40))),
+            object_id="#text_box_26_horizcenter",
+            manager=MANAGER,
+            container=self,
+            anchors={"centerx": "centerx"}
+        )
+        # btns
+        self.easy_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((135, 80), (100, 30))),
+            "easy",
+            get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+            tool_tip_text="A simpler experience than what you've played so far. When trying to find a cure, your log will show you exactly how many herbs you've gotten correct, and the infection will be a bit less aggressive.",
+            container=self
+        )
+        self.hard_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((255, 80), (100, 30))),
+            "hard",
+            get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
+            object_id="@buttonstyles_squoval",
+            tool_tip_text="The INFECTION experience you've been playing so far. You won't be shown specific herb counts when trying to find a cure, and the infection will be more aggressive.",
+            manager=MANAGER,
+            container=self
+        )
+        self.done_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 160), (80, 30))),
+            "done",
+            get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+            container=self,
+            anchors={"centerx": "centerx"}
+        )
+        self.update_buttons()
+    def process_event(self, event):
+        if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            if event.ui_element == self.easy_button:
+                self.chosen_difficulty = "easy"
+            elif event.ui_element == self.hard_button:
+                self.chosen_difficulty = "hard"
+            elif event.ui_element == self.done_button:
+                game.clan.infection["infection_difficulty"] = self.chosen_difficulty
+                self.kill()
+            self.update_buttons()
+        return super().process_event(event)
+    
+    def update_buttons(self):
+        if self.chosen_difficulty == "easy":
+            self.easy_button.disable()
+            self.hard_button.enable()
+        else:
+            self.easy_button.enable()
+            self.hard_button.disable()
+    
     # INF: password window
 class InputPassword(UIWindow):
     """password protection for my mods in closed betas"""

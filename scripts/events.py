@@ -1764,8 +1764,11 @@ class Events:
         if cats == []:
             return
         chance = 5
+
         if cat.quarantined:
-            chance = 1
+            if game.clan.infection["infection_difficulty"] == "easy":
+                return
+
         random_cat = random.choice(cats)
         if not int(random.random() * chance):
             cat_inftype = None

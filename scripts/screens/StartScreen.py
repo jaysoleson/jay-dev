@@ -31,7 +31,7 @@ from scripts.game_structure.game_essentials import (
     game,
 )
 from scripts.game_structure.ui_elements import UIImageButton, UISurfaceImageButton
-from scripts.game_structure.windows import UpdateAvailablePopup, ChangelogPopup, InputPassword
+from scripts.game_structure.windows import UpdateAvailablePopup, ChangelogPopup, InputPassword, ChooseDifficulty
 from scripts.utility import ui_scale, quit, ui_scale_dimensions
 from .Screens import Screens
 from ..game_structure.screen_settings import MANAGER
@@ -381,6 +381,11 @@ class StartScreen(Screens):
 
         # if input_password:
         #     InputPassword()
+
+        if game.clan:
+            if game.clan.infection:
+                if "infection_difficulty" in game.clan.infection and not game.clan.infection["infection_difficulty"]:
+                    ChooseDifficulty()
 
         self.warning_label_background = UISurfaceImageButton(
             ui_scale(pygame.Rect((50, 601), (700, 32))),

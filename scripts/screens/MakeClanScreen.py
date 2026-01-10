@@ -137,6 +137,7 @@ class MakeClanScreen(Screens):
     symbol_buttons = {}
 
     inftype_buttons = {}
+    infection_difficulty_buttons = {}
 
     # used in symbol screen only - parent container is in element dict
     text = {}
@@ -238,6 +239,7 @@ class MakeClanScreen(Screens):
             self.infection_options = ["fungal", "void", "parasitic"]
 
         self.infection_type = random.choice(self.infection_options)
+        self.infection_difficulty = "easy"
 
         game.choose_cats = {}
         self.skills = ["Random"]
@@ -527,6 +529,18 @@ class MakeClanScreen(Screens):
                     self.inftype_buttons["random_type"].enable()
                     self.infection_type = button
                     self.update_inftype_buttons()
+        for button in self.infection_difficulty_buttons:
+            if event.ui_element == self.infection_difficulty_buttons[button]:
+                self.infection_difficulty = button
+                self.update_infection_difficulty_buttons()
+    
+    def update_infection_difficulty_buttons(self):
+        for button in self.infection_difficulty_buttons:
+            if button == self.infection_difficulty:
+                self.infection_difficulty_buttons[button].disable()
+            else:
+                self.infection_difficulty_buttons[button].enable()
+
     
     def update_inftype_buttons(self, random=False):
         for item in self.inftype_buttons:
@@ -905,6 +919,10 @@ class MakeClanScreen(Screens):
         for item in self.inftype_buttons:
             self.inftype_buttons[item].kill()
         self.inftype_buttons = {}
+
+        for item in self.infection_difficulty_buttons:
+            self.infection_difficulty_buttons[item].kill()
+        self.infection_difficulty_buttons = {}
 
         return super().exit_screen()
 
@@ -1868,17 +1886,17 @@ class MakeClanScreen(Screens):
         
         if game.settings['dark mode']:
             self.elements["clan_size"] = pygame_gui.elements.UITextBox("This Clan will be... ",
-                                                              ui_scale(pygame.Rect((200, 85), (405, 25))),
+                                                              ui_scale(pygame.Rect((200, 50), (405, 25))),
                                                               object_id="#text_box_30_horizcenter_light",
                                                               manager=MANAGER)
         else:
             self.elements["clan_size"] = pygame_gui.elements.UITextBox("This Clan will be... ",
-                                                              ui_scale(pygame.Rect((200, 85), (405, 25))),
+                                                              ui_scale(pygame.Rect((200, 50), (405, 25))),
                                                               object_id="#text_box_30_horizcenter",
                                                               manager=MANAGER)
 
         self.elements["small"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((220, 120), (100, 30))),
+            ui_scale(pygame.Rect((220, 85), (100, 30))),
             "Small",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
             object_id="@buttonstyles_squoval",
@@ -1886,7 +1904,7 @@ class MakeClanScreen(Screens):
         )
 
         self.elements["medium"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((350, 120), (100, 30))),
+            ui_scale(pygame.Rect((350, 85), (100, 30))),
             "Medium",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
             object_id="@buttonstyles_squoval",
@@ -1894,7 +1912,7 @@ class MakeClanScreen(Screens):
         )
 
         self.elements["large"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((480, 120), (100, 30))),
+            ui_scale(pygame.Rect((480, 85), (100, 30))),
             "Large",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
             object_id="@buttonstyles_squoval",
@@ -1904,7 +1922,7 @@ class MakeClanScreen(Screens):
         self.elements["medium"].disable()
 
         self.elements["established"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((295, 170), (80, 30))),
+            ui_scale(pygame.Rect((295, 125), (80, 30))),
             "Old",
             get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
             object_id="@buttonstyles_squoval",
@@ -1912,7 +1930,7 @@ class MakeClanScreen(Screens):
             manager=MANAGER
         )
         self.elements["new"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((425, 170), (80, 30))),
+            ui_scale(pygame.Rect((425, 125), (80, 30))),
             "New",
             get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
             object_id="@buttonstyles_squoval",
@@ -1924,12 +1942,12 @@ class MakeClanScreen(Screens):
         # INF
         if game.settings['dark mode']:
             self.elements["infection_type"] = pygame_gui.elements.UITextBox("Your infection will be...",
-                                                              ui_scale(pygame.Rect((200, 245), (405, 25))),
+                                                              ui_scale(pygame.Rect((200, 180), (405, 25))),
                                                               object_id="#text_box_30_horizcenter_light",
                                                               manager=MANAGER)
         else:
             self.elements["infection_type"] = pygame_gui.elements.UITextBox("Your infection will be...",
-                                                              ui_scale(pygame.Rect((200, 245), (405, 25))),
+                                                              ui_scale(pygame.Rect((200, 180), (405, 25))),
                                                               object_id="#text_box_30_horizcenter",
                                                               manager=MANAGER)
         
@@ -1948,7 +1966,7 @@ class MakeClanScreen(Screens):
             ]
         }
         x_pos = 220
-        y_pos = 275
+        y_pos = 210
         for inftype in self.infection_options:
             if inftype in button_dict:
                 icon = button_dict[inftype][0] + " "
@@ -1982,7 +2000,7 @@ class MakeClanScreen(Screens):
                 y_pos += 45
         
         self.inftype_buttons["random_type"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((182, 275), (30, 30))),
+            ui_scale(pygame.Rect((182, 210), (30, 30))),
             Icon.DICE,
             get_button_dict(ButtonStyles.ICON, (30, 30)),
             object_id="@buttonstyles_icon",
@@ -1990,6 +2008,35 @@ class MakeClanScreen(Screens):
             manager=MANAGER
         )
         self.inftype_buttons["random_type"].enable()
+
+        # DIFFICULTY
+        self.elements["difficulty_label"] = pygame_gui.elements.UITextBox(
+            "Infection difficulty",
+            ui_scale(pygame.Rect((0, 270), (300, 40))),
+            object_id=ObjectID("#text_box_30_horizcenter", "#dark"),
+            manager=MANAGER,
+            anchors={"centerx": "centerx"}
+        )
+        
+        x_pos = 290
+        y_pos = 310
+        tooltip_dict = {
+            "easy": "The infection will be a bit easier to control. You will be given more information about correct herbs when trying to find the cure.",
+            "hard": "The infection will be more aggressive. You will be given less information about correct herbs when trying to find the cure."
+        }
+
+        for difficulty in ["easy", "hard"]:
+            self.infection_difficulty_buttons[difficulty] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((x_pos, y_pos), (100, 30))),
+                difficulty,
+                get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
+                object_id="@buttonstyles_squoval",
+                tool_tip_text=tooltip_dict[difficulty],
+                manager=MANAGER
+            )
+            x_pos += 120
+        self.update_infection_difficulty_buttons()
+
 
     def clan_name_header(self):
         self.elements["name_backdrop"] = pygame_gui.elements.UIImage(
@@ -2012,6 +2059,10 @@ class MakeClanScreen(Screens):
         for item in self.inftype_buttons:
             self.inftype_buttons[item].kill()
         self.inftype_buttons = {}
+
+        for item in self.infection_difficulty_buttons:
+            self.infection_difficulty_buttons[item].kill()
+        self.infection_difficulty_buttons = {}
 
         if game.settings['dark mode']:
             self.elements['background'] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((500, 1000), (600, 70))),
@@ -4797,6 +4848,7 @@ class MakeClanScreen(Screens):
                             your_cat=self.your_cat,
                             clan_age=self.clan_age)
             game.switches["make_clan_infection_type"] = self.infection_type.lower()
+            game.switches["infection_difficulty"] = self.infection_difficulty
             game.clan.your_cat.moons = -1
             game.clan.create_clan()
             if self.clan_age == "established":

@@ -276,7 +276,16 @@ class TreatmentScreen(Screens):
             if int(treatment['correct_herbs']) == 4:
                 successtext = "<font color='#136D05'>Cure Found!</font>"
             elif int(treatment['correct_herbs']) > 0:
-                successtext = "<font color='#473B0A'>At least one effective herb</font>"
+                colour = "#473B0A"
+                if game.clan.infection["infection_difficulty"] == "easy":
+                    if int(treatment['correct_herbs']) > 1:
+                        insert = "herbs"
+                    else:
+                        insert = "herb"
+                    text = f"{treatment['correct_herbs']} effective {insert}"
+                else:
+                    text = "At least one effective herb"
+                successtext = f"<font color='{colour}'>{text}</font>"
             else:
                 successtext = "<font color='#550D0D'>Zero Effective Herbs</font>"
 
@@ -881,24 +890,26 @@ class TreatmentScreen(Screens):
         return text
 
     def get_failure_chance(self, patient):
-        """ determine if the medcat will even be effective in attempting treatment.
-        if a treatment is failed, no information on the herbs is given to the player. """
+        """
+        determine if the medcat will even be effective in attempting treatment.
+        if a treatment is failed, no information on the herbs is given to the player.
+        returns "success", so return True means it did not fail
+        """
 
         stageone = True if "stage one infection" in patient.illnesses else False
         stagetwo = True if "stage two infection" in patient.illnesses else False
         stagethree = True if "stage three infection" in patient.illnesses else False
         stagefour = True if "stage four infection" in patient.illnesses else False
 
+        if stageone or stagetwo:
+            return True
+
         failchance = 0
 
-        if stageone:
-            failchance += 30
-        elif stagetwo:
-            failchance += 40
-        elif stagethree:
-            failchance += 60
+        if stagethree:
+            failchance += 70
         elif stagefour:
-            failchance += 80
+            failchance += 90
 
         if self.the_cat.status == "medicine cat":
             failchance = failchance * 0.8
@@ -976,7 +987,11 @@ class TreatmentScreen(Screens):
                 herbcount += 1
 
         successkey = ""
-        success = self.get_failure_chance(patient)
+
+        if game.clan.infection["infection_difficulty"] == "hard":
+            success = self.get_failure_chance(patient)
+        else:
+            success = True
 
         if correct == 4:
             success = True

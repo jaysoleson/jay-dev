@@ -590,6 +590,9 @@ class Game:
                 self.clan.infection["killed_infected"] = ""
             if "cured_infected" not in self.clan.infection:
                 self.clan.infection["cured_infected"] = ""
+
+            if "infection_difficulty" not in self.clan.infection:
+                self.clan.infection["infection_difficulty"] = None
             
             if "next_infection_allowed" in self.clan.infection:
                 self.clan.infection["allow_infection"] = self.clan.infection["next_infection_allowed"]
@@ -644,6 +647,7 @@ class Game:
                     "priority_herb": None,
                     "allow_infection": False,
                     "between_infections": False,
+                    "infection_difficulty": None,
                     "exiled_infected": "",
                     "killed_infected": "",
                     "cured_infected": "",

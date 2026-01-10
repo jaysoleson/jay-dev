@@ -160,7 +160,7 @@ class Clan:
         self.cure_attempt = False
         self.cure_discovered = False
         self.current_infection = "1"
-        self.infection_type = game.switches["make_clan_infection_type"]
+        self.infection_type = "fungal"
         self.treatments = []
         self.spread_by = "air"
         self.infection_moons = 0
@@ -168,6 +168,7 @@ class Clan:
         self.priority_herb = None
         self.allow_infection = False
         self.between_infections = False
+        self.infection_difficulty = None
 
         self.exiled_infected = ""
         self.killed_infected = ""
@@ -256,6 +257,7 @@ class Clan:
         """
 
         self.infection_type = game.switches["make_clan_infection_type"]
+        self.infection_difficulty = game.switches["infection_difficulty"]
 
         self.instructor = Cat(status=choice(["apprentice", "mediator apprentice", "medicine cat apprentice", "warrior",
                                             "medicine cat", "leader", "mediator", "queen", "queen's apprentice", "deputy", "elder"]),
@@ -300,6 +302,7 @@ class Clan:
             "priority_herb": None,
             "allow_infection": False,
             "between_infections": False,
+            "infection_difficulty": self.infection_difficulty,
             "exiled_infected": "",
             "killed_infected": "",
             "cured_infected": "",
@@ -900,6 +903,7 @@ class Clan:
             "priority_herb": self.infection["priority_herb"],
             "allow_infection": self.infection["allow_infection"],
             "between_infections": self.infection["between_infections"],
+            "infection_difficulty": self.infection["infection_difficulty"],
             "exiled_infected": self.infection["exiled_infected"],
             "killed_infected": self.infection["killed_infected"],
             "cured_infected": self.infection["cured_infected"],
