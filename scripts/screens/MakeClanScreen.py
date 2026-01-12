@@ -10,7 +10,7 @@ import i18n
 import pygame
 import pygame_gui
 from pygame_gui.core import ObjectID
-from ..cat.enums import CatAge, CatRank, CatGroup
+from ..cat.enums import CatAge, CatRank, CatGroup, CatSocial
 
 import scripts.screens.screens_core.screens_core
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES, create_example_cats, create_cat
@@ -207,6 +207,7 @@ class MakeClanScreen(Screens):
         game.choose_cats = {}
         self.skills = ["Random"]
         self.current_members = []
+        self.social = "clancat"
 
         for skillpath in SkillPath:
             count = 0
@@ -523,6 +524,22 @@ class MakeClanScreen(Screens):
                 self.open_name_clan()
         elif event.ui_element == self.elements['customize']:
             self.open_customize_cat()
+        elif event.ui_element == self.elements["clancat"]:
+            self.social = "clancat"
+            self.refresh_text_and_buttons()
+
+        elif event.ui_element == self.elements["kittypet"]:
+            self.social = "kittypet"
+            self.refresh_text_and_buttons()
+
+        elif event.ui_element == self.elements["loner"]:
+            self.social = "loner"
+            self.refresh_text_and_buttons()
+
+        elif event.ui_element == self.elements["rogue"]:
+            self.social = "rogue"
+            self.refresh_text_and_buttons()
+
             
     def handle_choose_name_event(self, event):
         if event.ui_element == self.elements['next_step']:
@@ -910,6 +927,29 @@ class MakeClanScreen(Screens):
         elif self.sub_screen in ("choose leader", "choose deputy", "choose med cat"):
             # select cat will always show bc all kittens are valid :3
             self.elements["select_cat"].show()
+            if self.social == "clancat":
+                self.elements["clancat"].disable()
+                self.elements["kittypet"].enable()
+                self.elements["loner"].enable()
+                self.elements["rogue"].enable()
+
+            elif self.social == "kittypet":
+                self.elements["clancat"].enable()
+                self.elements["kittypet"].disable()
+                self.elements["loner"].enable()
+                self.elements["rogue"].enable()
+
+            elif self.social == "loner":
+                self.elements["clancat"].enable()
+                self.elements["kittypet"].enable()
+                self.elements["loner"].disable()
+                self.elements["rogue"].enable()
+
+            elif self.social == "rogue":
+                self.elements["clancat"].enable()
+                self.elements["kittypet"].enable()
+                self.elements["loner"].enable()
+                self.elements["rogue"].disable()
         # Refresh the choose-members background to match number of cat's chosen.
         elif self.sub_screen == "choose members":
             if len(self.members) == 0:
@@ -1937,6 +1977,54 @@ class MakeClanScreen(Screens):
             manager=MANAGER,
             starting_height=2,
             tool_tip_text = "Customize your own cat"
+        )
+
+        if game_setting_get("dark mode"):
+            self.elements["start_as"] = pygame_gui.elements.UITextBox("Start as a... ",
+                                                              ui_scale(pygame.Rect((550, 150), (405, 25))),
+                                                              object_id="#text_box_30_horizcenter_light",
+                                                              manager=MANAGER)
+        else:
+            self.elements["start_as"] = pygame_gui.elements.UITextBox("Start as a... ",
+                                                              ui_scale(pygame.Rect((550, 150), (405, 25))),
+                                                              object_id="#text_box_30_horizcenter",
+                                                              manager=MANAGER)
+
+        self.elements["clancat"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((700, 200), (118, 30))),
+            "clancat",
+            get_button_dict(ButtonStyles.SQUOVAL, (118, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+            starting_height=2,
+            tool_tip_text="Start out as a Clan cat"
+        )
+        self.elements["kittypet"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((700, 250), (118, 30))),
+            "kittypet",
+            get_button_dict(ButtonStyles.SQUOVAL, (118, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+            starting_height=2,
+            tool_tip_text="Live comfortably with your housefolk"
+        )
+        self.elements["loner"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((700, 300), (118, 30))),
+            "loner",
+            get_button_dict(ButtonStyles.SQUOVAL, (118, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+            starting_height=2,
+            tool_tip_text="Wander the lands beyond Clan territories"
+        )
+        self.elements["rogue"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((700, 350), (118, 30))),
+            "rogue",
+            get_button_dict(ButtonStyles.SQUOVAL, (118, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+            starting_height=2,
+            tool_tip_text="Survive by your claws, owing loyalty to no one"
         )
 
         # draw cats to choose from
@@ -4704,8 +4792,10 @@ class MakeClanScreen(Screens):
             else:
                 clan_name = self.clan_name
             self.your_cat.create_inheritance_new_cat()
+            new_social = CatSocial(self.social) 
+            new_rank = CatRank(new_social)
+            self.your_cat.status._modify_group(new_rank=new_rank, new_group_ID=None)
 
-            # print("LEADER:", self.leader, "DEP:", self.deputy)
 
             game.clan = Clan(
                 name = clan_name,
