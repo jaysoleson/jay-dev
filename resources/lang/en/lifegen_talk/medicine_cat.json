@@ -3260,7 +3260,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50",
+            "max_respect_-50",
             "from_mentor"
         ],
         "tags": [
@@ -4663,7 +4663,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_15",
+            "min_like_-15",
             "max_like_50"
         ],
         "intro": [
@@ -5436,7 +5436,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
+            "min_like_-10",
             "max_like_30"
         ],
         "intro": [
@@ -5466,7 +5466,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
+            "min_like_-10",
             "max_like_20"
         ],
         "intro": [

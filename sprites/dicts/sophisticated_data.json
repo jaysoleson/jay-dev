@@ -27,6 +27,14 @@
             "YELLOWWISTERIA": "body",
             "HOLLY2": "body",
             "HOLLYVINES": "body"
+        },
+        {
+            "WILLOWBARK BAG": "body",
+            "CLAY DAISY POT": "body",
+            "CLAY AMANITA POT": "body",
+            "CLAY BROWNCAP POT": "body",
+            "BIRD SKULL": "head",
+            "LEAF BOW": "body"
         }
     ]
 }

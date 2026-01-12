@@ -11,6 +11,7 @@ from scripts.event_class import Single_Event
 from scripts.events_module.future.prep_and_trigger import prep_future_event
 from scripts.events_module.relationship.relation_events import Relation_Events
 from scripts.game_structure import localization, game
+from scripts.game_structure.game.settings import game_setting_get
 from scripts.utility import (
     create_new_cat_block,
     event_text_adjust,
@@ -487,19 +488,26 @@ class ShortEvent:
             self.types.append("misc")
         acc_list = []
         possible_accs = getattr(self, "new_accessory", [])
-        if "WILD" in possible_accs:
-            acc_list.extend(Pelt.wild_accessories)
-        if "PLANT" in possible_accs:
-            acc_list.extend(Pelt.plant_accessories)
-        if "COLLAR" in possible_accs:
-            acc_list.extend(Pelt.collar_accessories)
+        # if "WILD" in possible_accs:
+        #     acc_list.extend(Pelt.wild_accessories)
+        # if "PLANT" in possible_accs:
+        #     acc_list.extend(Pelt.plant_accessories)
+        # if "COLLAR" in possible_accs:
+        #     acc_list.extend(Pelt.collar_accessories)
         
         # LIFEGEN
-        if "ALIVEINSECT" in possible_accs:
-            acc_list.extend(Pelt.aliveInsect_accessories)
+        
+        if game_setting_get("lifegen_sprite_changes"):
+            categories = Pelt.lifegen_acc_categories
+        else:
+            categories = Pelt.clangen_acc_categories
+        
+        for category in categories:
+            if category in possible_accs:
+                acc_list.extend(categories[category])
 
         for acc in possible_accs:
-            if acc not in ("WILD", "PLANT", "COLLAR", "ALIVEINSECT"):
+            if acc not in categories:
                 acc_list.append(acc)
 
         if hasattr(self.main_cat.pelt, "scars"):
@@ -585,7 +593,7 @@ class ShortEvent:
             if cat.status.is_leader:
                 if "all_lives" in self.tags:
                     game.clan.leader_lives -= 10
-                elif "some_lives" in self.tags and self.leads_current_life_count > 2:
+                elif "some_lives" in self.tags and self.leads_current_life_count > 3:
                     game.clan.leader_lives -= randrange(
                         2, self.leads_current_life_count - 1
                     )

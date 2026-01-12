@@ -24,6 +24,7 @@ from scripts.cat.save_load import (
     get_faded_ids,
     load_faded_cat_ids,
 )
+from scripts.game_structure.game.settings import game_setting_get
 from scripts.cat.sprites import sprites
 from scripts.clan_package.settings import save_clan_settings, load_clan_settings, get_clan_setting
 from scripts.clan_package.settings.clan_settings import reset_loaded_clan_settings
@@ -281,7 +282,7 @@ class Clan:
         for cat_id in Cat.all_cats:
             the_cat = Cat.all_cats.get(cat_id)
             the_cat.init_all_relationships()
-            if the_cat != self.instructor:
+            if the_cat not in (self.instructor, self.demon):
                 the_cat.backstory = "clan_founder"
             if the_cat.status.rank == CatRank.APPRENTICE:
                 the_cat.rank_change(CatRank.APPRENTICE)
@@ -318,7 +319,7 @@ class Clan:
             self.populate_sc()
             self.populate_ur()
             self.populate_df()
-        elif self.clan_age == "new":
+        else:
             self.generate_outsiders()
             self.generate_outsider_mates()
             self.generate_outsider_families()
@@ -346,9 +347,7 @@ class Clan:
         # set the starting season
         season_index = constants.SEASON_CALENDAR.index(self.starting_season)
         self.current_season = constants.SEASON_CALENDAR[season_index]
-    
-    # CHECKMERGE
-    # maybe just redo all of these functions tbh
+
     def generate_mates(self):
         """Generates up to three pairs of mates."""
 
@@ -546,11 +545,13 @@ class Clan:
         for i in range(randint(0,5)):
             outsider = create_new_cat(
                 Cat,
-                rank=choice([CatRank.LONER, CatRank.ROGUE]),
                 moons=randint(15, 120),
+                outside=True,
+                original_social=choice(
+                        (CatSocial.LONER, CatSocial.ROGUE, CatSocial.KITTYPET)
+                    ),
                 thought="Wanders around beyond the Clan's borders"
                 )[0]
-            outsider.history.beginning = None
 
     def generate_outsider_mates(self):
         """Generates up to three pairs of mates."""
@@ -1395,8 +1396,10 @@ class Clan:
         """
         if get_clan_setting('all accessories'):
             for cat in Cat.all_cats_list:
-
-                acc_list = Pelt.all_accessories
+                if game_setting_get("lifegen_sprite_changes"):
+                    acc_list = Pelt.all_lifegen_accessories
+                else:
+                    acc_list = Pelt.all_clangen_accessories
                 
                 if "NOTAIL" in cat.pelt.scars or "HALFTAIL" in cat.pelt.scars:
                     for acc in Pelt.tail_accessories:

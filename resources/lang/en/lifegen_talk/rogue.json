@@ -61,7 +61,7 @@
             "Your kind can't just claim all of the territory!",
             "[You explain, once again, to the rogue that {PRONOUN/t_c/subject} {VERB/t_c/have/has} more territory and freedom than StarClan cats.]",
             "Yeah, well you better stay over there!",
-            "[Somethings never change, even when you're dead.]"
+            "[Some things never change, even when you're dead.]"
         ]
     },
     "sc_urrogue_ps_1": {

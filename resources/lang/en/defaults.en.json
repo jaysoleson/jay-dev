@@ -9,7 +9,7 @@
         "illness_death_event": "m_c was killed by {PRONOUN/m_c/poss} illness.",
         "illness_death_history": "m_c died to an illness.",
         "illness_death_history_leader": "died to an illness",
-        "injury_death_event": "m_c was kiled by {PRONOUN/m_c/poss} injuries.",
+        "injury_death_event": "m_c was killed by {PRONOUN/m_c/poss} injuries.",
         "injury_death_history": "m_c died to an injury.",
         "injury_death_history_leader": "died to an injury",
         "injury_healed_event": "m_c's %{injury} has healed.",

@@ -435,11 +435,12 @@
         ],
         "intro": [
             "It'll be okay. I promise.",
-            "[t_c is talking to a upset kit curled up against {PRONOUN/t_c/poss} side.]",
+            "[t_c is talking to an upset r_k, who is curled up against {PRONOUN/t_c/poss} side.]",
             "You don't need to try and force yourself to be something you're not. I get tired of talking to others too.",
             "You're still a wonderful part of c_n. Even if you need space sometimes... You'll always have cats who want to be around you, and see you.",
+            "|r_k|*Sniffle* ... Really?",
             "[You notice t_c is looking at you. {PRONOUN/t_c/subject/CAP} {VERB/t_c/smile/smiles} pleasantly, then returns {PRONOUN/t_c/poss} full attention to the kit.]",
-            "You'll never be forgotten, no matter what path your paws will lead you."
+            "Of course. You'll never be forgotten, no matter what path your paws will lead you."
         ]
     },
     "assertive_elder": {
@@ -2379,7 +2380,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_30",
             "max_trust_30",
             "from_your_apprentice",
             "min_like_40"
@@ -2450,10 +2450,9 @@
             ]
         },
         "relationship": [
-            "min_dislike_25",
+            "max_like_-25",
             "max_trust_30",
-            "from_your_apprentice",
-            "max_like_30"
+            "from_your_apprentice"
         ],
         "intro": [
             "Uhh... I have duties at the nursery.",

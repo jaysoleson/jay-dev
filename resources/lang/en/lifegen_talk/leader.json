@@ -4367,7 +4367,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_30",
             "from_parent",
             "min_like_30"
         ],

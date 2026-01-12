@@ -3748,7 +3748,7 @@
         },
         "intro": [
             "y_c!",
-            "I was just wondering, where did you get your shiny pebble? The one that sits in your nest- Sorry, I was having a peak but there was this weird shiny thing that just... Y'know, was shiny.",
+            "I was just wondering, where did you get your shiny pebble? The one that sits in your nest- Sorry, I was having a peek but there was this weird shiny thing that just... Y'know, was shiny.",
             "Near the stream, you mean out of camp? Dang it- wait, you'll get me one? Thank you, y_c!"
         ]
     },
@@ -14268,7 +14268,7 @@
             ]
         },
         "relationship": [
-            "max_like_-dislike"
+            "max_like_-30"
         ],
         "intro": [
             "Tsk, why did you get the bigger freshkill? That should be mine!",
@@ -14319,7 +14319,7 @@
             ]
         },
         "relationship": [
-            "max_like_-dislike"
+            "max_like_-30"
         ],
         "intro": [
             "[You find t_c sulking at the corner of the nursery, and decide to approach {PRONOUN/t_c/object}.]",
@@ -14344,7 +14344,7 @@
             ]
         },
         "relationship": [
-            "max_like_-dislike"
+            "max_like_-30"
         ],
         "intro": [
             "Don't you have something better to do? Like cleaning the Elders' den? Or taking out the stinky prey from the pile?",
@@ -14370,7 +14370,7 @@
             ]
         },
         "relationship": [
-            "max_like_-dislike"
+            "max_like_-30"
         ],
         "intro": [
             "Don't you have something better to do? Like chores or whatever?",
@@ -15426,7 +15426,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_5",
             "from_kit",
             "min_like_10"
         ],
@@ -16179,7 +16178,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
+            "min_like_-10",
             "max_like_10"
         ],
         "intro": [
@@ -16856,7 +16855,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_5"
         ],
         "intro": [
@@ -16876,7 +16874,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_5"
         ],
         "intro": [

@@ -93,7 +93,11 @@ def json_load():
                 "CHERRY2": "CHERRY",
                 "RAINCOAT": "YELLOWRAINCOAT",
                 "CHIMES": "CELESTIALCHIMES",
-                "LADYBUG": "LADYBUGS"
+                "LADYBUG": "LADYBUGS",
+                "YELLOWCROWN": "DANDELIONCROWN",
+                "REDCROWN": "POPPYCROWN",
+                "LILYPADCROWN": "LILYPADHAT",
+                "ACORN2": "ACORN"
             }
             for acc in cat["inventory"].copy():
                 if acc in accessory_convert:
@@ -106,17 +110,17 @@ def json_load():
                     if accessory_convert[acc]:
                         cat['inventory'].append(accessory_convert[acc])
 
-                elif acc not in Pelt.all_accessories:
+                elif acc not in (Pelt.all_clangen_accessories + Pelt.all_lifegen_accessories):
                     if acc in cat['accessory']:
                         cat['accessory'].remove(acc)
                     if acc in cat['inventory']:
                         cat['inventory'].remove(acc)
             
             for acc in cat['inventory']:
-                if acc not in Pelt.all_accessories:
+                if acc not in (Pelt.all_clangen_accessories + Pelt.all_lifegen_accessories):
                     cat["inventory"].remove(acc)
             for acc in cat['accessory']:
-                if acc not in Pelt.all_accessories:
+                if acc not in (Pelt.all_clangen_accessories + Pelt.all_lifegen_accessories):
                     cat["accessory"].remove(acc)
                 if acc not in cat["inventory"]:
                     cat["inventory"].append(acc)

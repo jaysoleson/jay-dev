@@ -15,6 +15,7 @@ from math import floor
 from random import choice, choices, randint, random, sample, randrange, getrandbits
 from sys import exit as sys_exit
 from typing import List, Tuple, TYPE_CHECKING, Type, Union, Optional
+from scripts.screens.enums import GameScreen
 
 import i18n
 import pygame
@@ -442,7 +443,6 @@ def create_new_cat_block(
     else:
         cat_social = choice([CatSocial.KITTYPET, CatSocial.LONER, "former Clancat"])
 
-    # CHECKMERGE: check that all the lg arguments (df, um. whatever else) are still here
     # LITTER
     litter = False
     if "litter" in attribute_list:
@@ -655,7 +655,6 @@ def create_new_cat_block(
             gender=gender,
             thought=thought,
             alive=alive,
-            df=df,
             outside=outside,
             parent1=parent1.ID if parent1 else None,
             parent2=parent2.ID if parent2 else None,
@@ -787,9 +786,6 @@ def create_new_cat(
     original_group: CatGroup = None,
     moons: int = None,
     gender: str = None,
-    # LG
-    df: bool = False,
-    # ---
     thought: str = None,
     alive: bool = True,
     outside: bool = False,
@@ -851,6 +847,7 @@ def create_new_cat(
             CatRank.APPRENTICE,
             CatRank.MEDICINE_APPRENTICE,
             CatRank.MEDIATOR_APPRENTICE,
+            CatRank.QUEENS_APPRENTICE
         ):
             moons = randint(6, 11)
         elif rank == CatRank.WARRIOR:
@@ -936,7 +933,7 @@ def create_new_cat(
                     # TODO: refactor this entire function to remove this call amongst other things
                     from scripts.cat.pelts import Pelt
 
-                    new_cat.pelt.accessory.append(choice(Pelt.collar_accessories))
+                    new_cat.pelt.accessory.append(choice(Pelt.collar_accessories + Pelt.harness_accessories))
 
             # try to give name from full loner name list
             elif original_social in (CatSocial.LONER, CatSocial.ROGUE) and bool(
@@ -1031,8 +1028,6 @@ def create_new_cat(
         if not alive:
             new_cat.die()
 
-        # CHECKMERGE
-        # ALL lifegen new_cat stuff. df, df mentors
         new_cat.pelt.inventory = new_cat.pelt.accessory
         # newbie thought
         new_cat.thought = thought
@@ -2307,7 +2302,7 @@ def event_text_adjust(
             replace_dict["s_c"] = (str(stat_cat.name), get_pronouns(stat_cat))
 
     # LIFEGEN ABBREVS
-    if game.current_screen == 'patrol screen':
+    if game.current_screen == GameScreen.PATROL:
         for cat in patrol_cat_dict.items():
             replace_dict[cat[0]] = (str(cat[1].name), choice(cat[1].pronouns))
 
@@ -3068,7 +3063,10 @@ def generate_sprite(
         if not dead:
             new_sprite.blit(sprites.sprites["lineart" + cat_sprite], (0, 0))
         elif cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
-            new_sprite.blit(sprites.sprites["lineart_ur" + cat_sprite], (0, 0))
+            if game_setting_get("lifegen_sprite_changes"):
+                new_sprite.blit(sprites.sprites["lifegen_lineart_ur" + cat_sprite], (0, 0))
+            else:
+                new_sprite.blit(sprites.sprites["lineart_ur" + cat_sprite], (0, 0))
         elif cat.status.group == CatGroup.DARK_FOREST:
             new_sprite.blit(sprites.sprites["lineart_df" + cat_sprite], (0, 0))
         elif dead:
@@ -3156,57 +3154,22 @@ def generate_sprite(
                                 (0, 0),
                             )
 
-                        # LIFEGEN
-                        elif accessory in cat.pelt.aliveInsect_accessories:
-                            sprite_name = f"{sprites.ALIVEINSECT_DATA['spritesheet']}{accessory}{cat_sprite}"
-                            new_sprite.blit(
-                                _recolor_lineart(
-                                    sprites.sprites[sprite_name],
-                                    lineart_color,
-                                    gradient_surface,
-                                ),
-                                (0, 0),
-                            )
-                        elif accessory in cat.pelt.deadInsect_accessories:
-                            sprite_name = f"{sprites.DEADINSECT_DATA['spritesheet']}{accessory}{cat_sprite}"
-                            new_sprite.blit(
-                                _recolor_lineart(
-                                    sprites.sprites[sprite_name],
-                                    lineart_color,
-                                    gradient_surface,
-                                ),
-                                (0, 0),
-                            )
-                        elif accessory in cat.pelt.raincoat_accessories:
-                            sprite_name = f"{sprites.RAINCOAT_DATA['spritesheet']}{accessory}{cat_sprite}"
-                            new_sprite.blit(
-                                _recolor_lineart(
-                                    sprites.sprites[sprite_name],
-                                    lineart_color,
-                                    gradient_surface,
-                                ),
-                                (0, 0),
-                            )
-                        elif accessory in cat.pelt.sophisticated_accessories:
-                            sprite_name = f"{sprites.SOPHISTICATED_DATA['spritesheet']}{accessory}{cat_sprite}"
-                            new_sprite.blit(
-                                _recolor_lineart(
-                                    sprites.sprites[sprite_name],
-                                    lineart_color,
-                                    gradient_surface,
-                                ),
-                                (0, 0),
-                            )
-                        elif accessory in cat.pelt.fruit_accessories:
-                            sprite_name = f"{sprites.FRUIT_DATA['spritesheet']}{accessory}{cat_sprite}"
-                            new_sprite.blit(
-                                _recolor_lineart(
-                                    sprites.sprites[sprite_name],
-                                    lineart_color,
-                                    gradient_surface,
-                                ),
-                                (0, 0),
-                            )
+                        else:
+                            if game_setting_get("lifegen_sprite_changes"):
+                                # LIFEGEN
+                                for acc_list in Pelt.acc_list_of_lists:
+                                    if accessory in acc_list:
+                                        sprite_name = (
+                                            f"{Pelt.acc_data_list[Pelt.acc_list_of_lists.index(acc_list)]['spritesheet']}{accessory}{cat_sprite}"
+                                            )
+                                        new_sprite.blit(
+                                            _recolor_lineart(
+                                                sprites.sprites[sprite_name],
+                                                lineart_color,
+                                                gradient_surface,
+                                            ),
+                                            (0, 0),
+                                        )
 
         if only_accessory:
             return new_sprite
@@ -3236,7 +3199,10 @@ def generate_sprite(
                 temp.blit(new_sprite, (0, 0))
                 new_sprite = temp
             elif cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
-                temp = sprites.sprites["fadeur" + stage + cat_sprite].copy()
+                if game_setting_get("lifegen_sprite_changes"):
+                    temp = sprites.sprites["lifegen_fadeur" + stage + cat_sprite].copy()
+                else:
+                    temp = sprites.sprites["fadeur" + stage + cat_sprite].copy()
                 temp.blit(new_sprite, (0, 0))
                 new_sprite = temp
             else:
@@ -3262,20 +3228,23 @@ def generate_sprite(
                     (0, 0),
                 )
             elif cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
-                # underlay
-                temp_sprite.blit(
-                    sprites.sprites["line_ur_overlay" + cat_sprite],
-                    (0, 0),
-                )
+                # LG UR lineart doesnt have an under/overlay
+                if not game_setting_get("lifegen_sprite_changes"):
+                    # underlay
+                    temp_sprite.blit(
+                        sprites.sprites["line_ur_overlay" + cat_sprite],
+                        (0, 0),
+                    )
 
                 # cat sprite
                 temp_sprite.blit(new_sprite, (0, 0))
 
-                # overlay
-                temp_sprite.blit(
-                    sprites.sprites["line_ur_overlay" + cat_sprite],
-                    (0, 0),
-                )
+                if not game_setting_get("lifegen_sprite_changes"):
+                    # overlay
+                    temp_sprite.blit(
+                        sprites.sprites["line_ur_overlay" + cat_sprite],
+                        (0, 0),
+                    )
             elif cat.status.group == CatGroup.DARK_FOREST:
                 # no underlay
 
@@ -4330,7 +4299,7 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                     counter += 1
                     if counter >= 30:
                         return ""
-                if game.current_screen == "patrol screen" and switch_get_value(Switch.patrol_category) == "date" and new_abbrev_string == "r_c":
+                if game.current_screen == GameScreen.PATROL and switch_get_value(Switch.patrol_category) == "date" and new_abbrev_string == "r_c":
                     continue
                 else:
                     text = add_to_cat_dict(new_abbrev_string, cluster, x, rel, r, alive_cat, text, cat_dict)
@@ -4357,8 +4326,6 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
     return text
 
 def check_achievements(Cat, eventspage=False):
-    # CHECKMERGE
-    # this scares me 
     you = game.clan.your_cat
     achievements = set()
     murder_history = you.history.murder

@@ -52,7 +52,7 @@ class AchievementScreen(Screens):
         
         self.show_menu_buttons()
         self.show_mute_buttons()
-        self.set_disabled_menu_buttons(["achievements"])
+        # self.set_disabled_menu_buttons(["achievements"])
         self.update_heading_text(f"{game.clan.displayname}Clan")
 
         a_txt = load_lang_resource("achievements.json")
@@ -71,9 +71,9 @@ class AchievementScreen(Screens):
         stats_text = ""
         for i in game.clan.achievements:
             stats_text += (
-                f"\n <b>{a_txt[i[0]][0]}</b> - " +
-                f"{a_txt[i[0]][1]} " +
-                f"<font color='{catname_colour}'>({Cat.fetch_cat(i[1]).name})</font>"
+                f"\n <b>{a_txt[i[0]][0]}</b> - "
+                + f"{a_txt[i[0]][1]} "
+                # + f"<font color='{catname_colour}'>({Cat.fetch_cat(i[1]).name})</font>"
                 )
 
         self.stats_box = pygame_gui.elements.UITextBox(

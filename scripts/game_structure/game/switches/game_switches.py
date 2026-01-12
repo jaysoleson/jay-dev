@@ -56,7 +56,6 @@ class Switch(StrEnum):
     customise_new_life = auto()
     talk_category = auto()
     accomplices = auto()
-    # CHECKMERGE: ctrl + f for each of these to make sure theye all good
 
 
 _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {

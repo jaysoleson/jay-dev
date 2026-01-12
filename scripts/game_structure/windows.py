@@ -836,7 +836,7 @@ class PronounCreation(UIWindow):
 
     def __init__(self, cat):
         super().__init__(
-            ui_scale(pygame.Rect((80, 150), (650, 450))),
+            ui_scale(pygame.Rect((80, 100), (650, 550))),
             window_display_title="Create Cat Pronouns",
             object_id="#change_cat_gender_window",
             resizable=False,
@@ -862,13 +862,13 @@ class PronounCreation(UIWindow):
         )
 
         self.elements["core_container"] = pygame_gui.core.UIContainer(
-            ui_scale(pygame.Rect((0, 3), (375, 448))),
+            ui_scale(pygame.Rect((0, 3), (375, 548))),
             manager=MANAGER,
             container=self,
         )
         self.elements["core_box"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((4, 0), (375, 448))),
-            get_box(BoxStyles.FRAME, (375, 448), sides=(False, True, False, False)),
+            ui_scale(pygame.Rect((4, 0), (375, 548))),
+            get_box(BoxStyles.FRAME, (375, 548), sides=(False, True, False, False)),
             container=self.elements["core_container"],
             manager=MANAGER,
         )
@@ -884,8 +884,8 @@ class PronounCreation(UIWindow):
 
         # # Add the Demo frame to the sub-container
         self.elements["demo_frame"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((0, 4), (208, 288))),
-            get_box(BoxStyles.FRAME, (208, 288), sides=(False, True, True, True)),
+            ui_scale(pygame.Rect((0, 4), (208, 322))),
+            get_box(BoxStyles.FRAME, (208, 322), sides=(False, True, True, True)),
             manager=MANAGER,
             container=self.demo_container,
             anchors={"center": "center"},
@@ -1024,7 +1024,7 @@ class PronounCreation(UIWindow):
 
         self.buttons = {}
         self.buttons["save_pronouns"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 400), (73, 30))),
+            ui_scale(pygame.Rect((0, 470), (73, 30))),
             "buttons.save",
             get_button_dict(ButtonStyles.SQUOVAL, (73, 30)),
             object_id="@buttonstyles_squoval",
@@ -1035,7 +1035,7 @@ class PronounCreation(UIWindow):
 
         self.pronoun_added = pygame_gui.elements.UITextBox(
             f"windows.pronoun_confirm",
-            ui_scale(pygame.Rect((0, 375), (300, 40))),
+            ui_scale(pygame.Rect((0, 500), (300, 40))),
             visible=False,
             object_id="#text_box_30_horizleft",
             manager=MANAGER,
@@ -2069,7 +2069,7 @@ class DeathScreen(UIWindow):
             object_id="@buttonstyles_squoval",
         )
 
-        self.mediator_button = UISurfaceImageButton(
+        self.switch_cats_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((35, 115), (170, 30))),
             Icon.CAT_HEAD + " Switch cats",
             get_button_dict(ButtonStyles.SQUOVAL, (170, 30)),
@@ -2077,7 +2077,7 @@ class DeathScreen(UIWindow):
             object_id="@buttonstyles_squoval",
         )
 
-        self.mediator_button2 = UISurfaceImageButton(
+        self.revive_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((265, 75), (170, 30))),
             Icon.STARCLAN + " Revive",
             get_button_dict(ButtonStyles.SQUOVAL, (170, 30)),
@@ -2085,7 +2085,7 @@ class DeathScreen(UIWindow):
             object_id="@buttonstyles_squoval",
         )
 
-        self.mediator_button4 = UISurfaceImageButton(
+        self.new_life_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((225, 115), (210, 30))),
             Icon.PAW + " Start a new life",
             get_button_dict(ButtonStyles.SQUOVAL, (210, 30)),
@@ -2093,23 +2093,25 @@ class DeathScreen(UIWindow):
             object_id="@buttonstyles_squoval",
         )
 
-        self.mediator_button3 = UIImageButton(
+        self.continue_dead_button = UIImageButton(
             ui_scale(pygame.Rect((115, 165), (249, 48))),
             "",
             object_id="#continue_dead_button",
             container=self,
         )
 
-        
-
         self.begin_anew_button.enable()
-        self.mediator_button.enable()
-        if game.clan.your_cat.revives < 5:
-            self.mediator_button2.enable()
-        if (game.clan.your_cat.dead_for >= constants.CONFIG["fading"]["age_to_fade"]) and not game.clan.your_cat.prevent_fading:
-            self.mediator_button2.disable()
-        self.mediator_button3.enable()
-        self.mediator_button4.enable()
+        self.switch_cats_button.enable()
+
+        self.revive_button.enable()
+        if (
+            ((game.clan.your_cat.dead_for >= constants.CONFIG["fading"]["age_to_fade"])
+            and not game.clan.your_cat.prevent_fading) or game.clan.your_cat.revives > 5
+            ):
+            self.revive_button.disable()
+
+        self.continue_dead_button.enable()
+        self.new_life_button.enable()
 
     def process_event(self, event):
         super().process_event(event)
@@ -2117,101 +2119,78 @@ class DeathScreen(UIWindow):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.begin_anew_button: 
                 game.last_screen_forupdate = switch_get_value(Switch.cur_screen)
-                switch_set_value(Switch.cur_screen, "start screen")
+                switch_set_value(Switch.cur_screen, GameScreen.START)
                 game.switch_screens = True
 
                 switch_set_value(Switch.continue_after_death, False)
 
                 self.begin_anew_button.kill()
                 self.pick_path_message.kill()
-                self.mediator_button.kill()
-                self.mediator_button2.kill()
-                self.mediator_button3.kill()
-                self.mediator_button4.kill()
+                self.switch_cats_button.kill()
+                self.revive_button.kill()
+                self.continue_dead_button.kill()
+                self.new_life_button.kill()
                 self.kill()
-                game.all_screens['events screen'].exit_screen()
-            elif event.ui_element == self.mediator_button:
+            elif event.ui_element == self.switch_cats_button:
                 switch_set_value(Switch.window_open, False)
 
                 game.last_screen_forupdate = switch_get_value(Switch.cur_screen)
-                switch_set_value(Switch.cur_screen, "choose reborn screen")
+                switch_set_value(Switch.cur_screen, GameScreen.CHOOSE_REBORN)
                 game.switch_screens = True
+                self.kill()
 
                 switch_set_value(Switch.continue_after_death, False)
                 self.begin_anew_button.kill()
                 self.pick_path_message.kill()
-                self.mediator_button.kill()
-                self.mediator_button2.kill()
-                self.mediator_button3.kill()
-                self.mediator_button4.kill()
+                self.switch_cats_button.kill()
+                self.revive_button.kill()
+                self.continue_dead_button.kill()
+                self.new_life_button.kill()
                 self.kill()
-                game.all_screens['events screen'].exit_screen()
-            elif event.ui_element == self.mediator_button2:
-                game.clan.your_cat.revives +=1
-                game.clan.your_cat.dead = False
-                game.clan.your_cat.status.add_to_group(CatGroup.PLAYER_CLAN_ID)
-                    # cant play as an outsider yet gotta cheese it for now
-                game.clan.your_cat.dead_for = 0
-                game.clan.your_cat.moons+=1
-                game.clan.your_cat.update_mentor()
+            elif event.ui_element == self.revive_button:
+                game.clan.your_cat.revive()
                 switch_set_value(Switch.continue_after_death, False)
-                you = game.clan.your_cat
-                
-                if you.moons == 0 and you.status.rank != CatRank.NEWBORN:
-                    you.rank_change(CatRank.NEWBORN)
-                elif you.moons < 6 and you.status.rank != CatRank.KITTEN:
-                    you.rank_change(CatRank.KITTEN)
-                elif you.moons >= 6 and you.status.rank in [CatRank.NEWBORN, CatRank.KITTEN]:
-                    you.rank_change(CatRank.APPRENTICE)
-
-                game.clan.your_cat.thought = "Is surprised to be back in the Clan"
                 switch_set_value(Switch.window_open, False)
 
                 game.last_screen_forupdate = switch_get_value(Switch.cur_screen)
-                switch_set_value(Switch.cur_screen, "start screen")
+                switch_set_value(Switch.cur_screen, GameScreen.EVENTS)
                 game.switch_screens = True
 
                 revival_json = load_lang_resource('events/lifegen_events/revival.json')
                 
-                game.next_events_list.append(Single_Event(choice(revival_json), 'alert'))
-                switch_set_value(Switch.cur_screen, 'events screen')
+                game.cur_events_list.append(Single_Event(choice(revival_json), 'alert'))
                 self.begin_anew_button.kill()
                 self.pick_path_message.kill()
-                self.mediator_button.kill()
-                self.mediator_button2.kill()
-                self.mediator_button3.kill()
-                self.mediator_button4.kill()
+                self.switch_cats_button.kill()
+                self.revive_button.kill()
+                self.continue_dead_button.kill()
+                self.new_life_button.kill()
                 self.kill()
-            elif event.ui_element == self.mediator_button3:
-                game.last_screen_forupdate = None
+            elif event.ui_element == self.continue_dead_button:
                 switch_set_value(Switch.window_open, False)
-
-                switch_set_value(Switch.cur_screen, "events screen")
-                
                 switch_set_value(Switch.continue_after_death, True)
                 self.begin_anew_button.kill()
                 self.pick_path_message.kill()
-                self.mediator_button.kill()
-                self.mediator_button2.kill()
-                self.mediator_button3.kill()
-                self.mediator_button4.kill()
+                self.switch_cats_button.kill()
+                self.revive_button.kill()
+                self.continue_dead_button.kill()
+                self.new_life_button.kill()
                 self.kill()
-            elif event.ui_element == self.mediator_button4:
-                game.last_screen_forupdate = None
+            elif event.ui_element == self.new_life_button:
                 switch_set_value(Switch.window_open, False)
-
                 switch_set_value(Switch.customise_new_life, True)
-                
-                switch_set_value(Switch.cur_screen, 'make clan screen')
                 switch_set_value(Switch.continue_after_death, False)
+                game.last_screen_forupdate = switch_get_value(Switch.cur_screen)
+                switch_set_value(Switch.cur_screen, GameScreen.MAKE_CLAN)
+                game.switch_screens = True
+
                 self.begin_anew_button.kill()
                 self.pick_path_message.kill()
-                self.mediator_button.kill()
-                self.mediator_button2.kill()
-                self.mediator_button3.kill()
-                self.mediator_button4.kill()
+                self.switch_cats_button.kill()
+                self.revive_button.kill()
+                self.continue_dead_button.kill()
+                self.new_life_button.kill()
                 self.kill()
-                game.all_screens['events screen'].exit_screen()
 
 class ChooseDeputyWindow(UIWindow):
     def __init__(self, last_screen):

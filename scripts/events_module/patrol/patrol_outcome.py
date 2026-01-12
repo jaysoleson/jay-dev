@@ -1299,11 +1299,14 @@ class PatrolOutcome:
             murderer.history.reveal_murder(victim=cat, murderer_id=murderer.ID, clan_reveal=False)
     
     def __handle_accs(self, cat: Cat, acc_list: str) -> str:
-        # acc_list = [x for x in acc_list if x in Pelt.all_accessories and x not in cat.pelt.inventory]
+        if game_setting_get("lifegen_sprite_changes"):
+            acc_categories = Pelt.lifegen_acc_categories
+        else:
+            acc_categories = Pelt.clangen_acc_categories
         for item in acc_list:
-            if item in Pelt.acc_categories:
+            if item in acc_categories:
                 acc_list.remove(item)
-                acc_list.extend(Pelt.acc_categories[item])
+                acc_list.extend(acc_categories[item])
             if item in cat.pelt.inventory:
                 acc_list.remove(item)
 

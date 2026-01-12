@@ -844,9 +844,9 @@ class TalkScreen(Screens):
                     if "grievingyou" in REL:
                         if dead_cat.ID != game.clan.your_cat.ID:
                             continue
-                    else:
-                        if dead_cat.ID == game.clan.your_cat.ID:
-                            continue
+                    # else:
+                    #     if dead_cat.ID == game.clan.your_cat.ID:
+                    #         continue
                 else:
                     if "grievingyou" in REL:
                         continue
@@ -859,9 +859,9 @@ class TalkScreen(Screens):
                     if "grievingthem" in REL:
                         if dead_cat.name != cat.name:
                             continue
-                    else:
-                        if dead_cat.name == cat.name:
-                            continue
+                    # else:
+                    #     if dead_cat.name == cat.name:
+                    #         continue
                 else:
                     if "grievingthem" in REL:
                         continue

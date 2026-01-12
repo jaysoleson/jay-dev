@@ -17,10 +17,8 @@ from enum import Enum
 
 import re
 
-from scripts.cat import save_load
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.pelts import Pelt
-from scripts.cat.history import History
 from scripts.cat.sprites import sprites
 
 from scripts.clan_resources.freshkill import FreshkillPile
@@ -29,6 +27,7 @@ from scripts.cat.enums import CatAge, CatRank, CatGroup, CatStanding, CatSocial
 from scripts.cat.names import Name
 from scripts.cat.save_load import save_cats, add_cat_to_fade_id
 from scripts.clan_package.settings import get_clan_setting, set_clan_setting
+from scripts.game_structure.game.settings import game_setting_get
 from scripts.clan_resources.freshkill import FRESHKILL_EVENT_ACTIVE
 from scripts.conditions import (
     medicine_cats_can_cover_clan,
@@ -282,77 +281,78 @@ class Events:
             shaken_cats = []
             extra_event = None
             event = None
+            # LG EDIT
             for ghost in Cat.dead_cats:
-                if not ghost.dead_for > 1:
+                if not ghost.dead_for > 1 and ghost.dead:
                     ghost_names.append(str(ghost.name))
-                else:
-                    continue # keeps cats who generate as dead out of death events
+                    # keeps cats who generate as dead out of death events
             insert = ""
             if ghost_names:
+                # only continue if there are. actual dead people
                 insert = adjust_list_text(ghost_names)
 
-            if len(Cat.dead_cats) > 1:
-                event = i18n.t(
-                    "hardcoded.event_deaths", count=len(Cat.dead_cats), insert=insert
-                )
-
-                if len(ghost_names) > 2:
-                    alive_cats = [
-                        kitty
-                        for kitty in Cat.all_cats.values()
-                        if kitty.status.alive_in_player_clan
-                    ]
-
-                    # finds a percentage of the living Clan to become shaken
-
-                    if len(alive_cats) == 0:
-                        return
-                    else:
-                        shaken_cats = random.sample(
-                            alive_cats,
-                            k=max(
-                                int((len(alive_cats) * random.randint(4, 6)) / 100),
-                                1,
-                            ),
-                        )
-
-                    shaken_cat_names = []
-                    for cat in shaken_cats:
-                        shaken_cat_names.append(str(cat.name))
-                        cat.get_injured(
-                            "shock",
-                            event_triggered=False,
-                            lethal=False,
-                            severity="minor",
-                        )
-
-                    insert = adjust_list_text(shaken_cat_names)
-
-                    extra_event = i18n.t(
-                        "hardcoded.event_shaken_grief",
-                        count=len(shaken_cat_names),
-                        insert=insert,
+                if len(Cat.dead_cats) > 1:
+                    event = i18n.t(
+                        "hardcoded.event_deaths", count=len(Cat.dead_cats), insert=insert
                     )
 
-            else:
-                event = i18n.t("hardcoded.event_deaths", count=1)
+                    if len(ghost_names) > 2:
+                        alive_cats = [
+                            kitty
+                            for kitty in Cat.all_cats.values()
+                            if kitty.status.alive_in_player_clan
+                        ]
 
-            game.cur_events_list.append(
-                Single_Event(
-                    event,
-                    ["birth_death"],
-                    [i.ID for i in Cat.dead_cats],
-                    cat_dict=(
-                        {"m_c": Cat.dead_cats[0]} if len(Cat.dead_cats) == 1 else None
-                    ),
-                )
-            )
-            if extra_event:
+                        # finds a percentage of the living Clan to become shaken
+
+                        if len(alive_cats) == 0:
+                            return
+                        else:
+                            shaken_cats = random.sample(
+                                alive_cats,
+                                k=max(
+                                    int((len(alive_cats) * random.randint(4, 6)) / 100),
+                                    1,
+                                ),
+                            )
+
+                        shaken_cat_names = []
+                        for cat in shaken_cats:
+                            shaken_cat_names.append(str(cat.name))
+                            cat.get_injured(
+                                "shock",
+                                event_triggered=False,
+                                lethal=False,
+                                severity="minor",
+                            )
+
+                        insert = adjust_list_text(shaken_cat_names)
+
+                        extra_event = i18n.t(
+                            "hardcoded.event_shaken_grief",
+                            count=len(shaken_cat_names),
+                            insert=insert,
+                        )
+
+                else:
+                    event = i18n.t("hardcoded.event_deaths", count=1)
+
                 game.cur_events_list.append(
                     Single_Event(
-                        extra_event, ["birth_death"], [i.ID for i in shaken_cats]
+                        event,
+                        ["birth_death"],
+                        [i.ID for i in Cat.dead_cats],
+                        cat_dict=(
+                            {"m_c": Cat.dead_cats[0]} if len(Cat.dead_cats) == 1 else None
+                        ),
                     )
                 )
+                if extra_event:
+                    game.cur_events_list.append(
+                        Single_Event(
+                            extra_event, ["birth_death"], [i.ID for i in shaken_cats]
+                        )
+                    )
             Cat.dead_cats.clear()
 
         if (
@@ -481,7 +481,7 @@ class Events:
             self.generate_death_event()
         elif game.clan.your_cat.dead:
             self.generate_events()
-        elif game.clan.your_cat.status.is_exiled():
+        elif game.clan.your_cat.status.is_exiled(CatGroup.PLAYER_CLAN_ID):
             self.generate_exile_event()
             
         # LIFEGEN
@@ -601,8 +601,11 @@ class Events:
         if get_clan_setting("all accessories"):
             return
         acc_list = []
-        # CHECKMERGE temp 
-        acc_list.extend(Pelt.all_accessories)
+        # CHECKMERGE temp
+        if game_setting_get("lifegen_sprite_changes"):
+            acc_list.extend(Pelt.all_lifegen_accessories)
+        else:
+            acc_list.extend(Pelt.all_clangen_accessories)
 
         if not game.clan.your_cat.pelt.inventory:
             game.clan.your_cat.pelt.inventory = []
@@ -615,7 +618,7 @@ class Events:
             acc = random.choice(acc_list)
         game.clan.your_cat.pelt.inventory.append(acc)
         string = f"You found a new accessory, acc_singular! You choose to store it in a safe place for now."
-        string = string.replace("acc_singular", str(i18n.t(self.get_acc_name(acc).lower(), count=0)))
+        string = string.replace("acc_singular", str(i18n.t(self.get_acc_name(acc).lower(), count=1)))
         game.cur_events_list.insert(0, Single_Event(string, "alert", game.clan.your_cat.ID))
     
     def get_acc_name(self, acc):
@@ -1671,7 +1674,7 @@ class Events:
                                     "healer_backstories"
                                 ]
                             ):
-                                invited_cat.status._change_rank(CatRank.MEDICINE_CAT)
+                                invited_cat.change_rank(CatRank.MEDICINE_CAT)
                             # if cat is a little baby, check name
                             elif invited_cat.age in (CatAge.NEWBORN, CatAge.KITTEN):
                                 if not invited_cat.name.suffix:
@@ -1698,57 +1701,7 @@ class Events:
                                 involved_cats.append(kit_ID)
                                 kit = Cat.fetch_cat(kit_ID)
 
-                        invited_cats = [outsider_cat.ID]
-                        invited_cats.extend(additional_kits)
-
-                        for cat_ID in invited_cats:
-                            invited_cat = Cat.fetch_cat(cat_ID)
-                            if invited_cat.status.lower() in [
-                                "kittypet",
-                                "loner",
-                                "rogue",
-                                "former clancat",
-                                "exiled",
-                            ]:
-                                if (
-                                    "guided" in invited_cat.backstory
-                                    and invited_cat.status != "exiled"
-                                ):
-                                    invited_cat.backstory = "outsider1"
-
-                                if (
-                                    invited_cat.backstory
-                                    in BACKSTORIES["backstory_categories"][
-                                        "healer_backstories"
-                                    ]
-                                ):
-                                    invited_cat.status = "medicine cat"
-
-                                elif invited_cat.age in ["newborn", "kitten"]:
-                                    invited_cat.status = invited_cat.age
-                                    if not invited_cat.name.suffix:
-                                        invited_cat.name = Name(
-                                            invited_cat.name.prefix,
-                                            invited_cat.name.suffix,
-                                            game.clan.biome,
-                                            cat=invited_cat,
-                                        )
-                                        invited_cat.name.give_suffix(
-                                            pelt=None,
-                                            biome=game.clan.biome,
-                                            tortiepattern=None,
-                                        )
-                                        invited_cat.specsuffix_hidden = False
-
-                                elif invited_cat.age == "senior":
-                                    invited_cat.status = "elder"
-                                elif invited_cat.age == "adolescent":
-                                    invited_cat.status = "apprentice"
-                                    invited_cat.update_mentor()
-                                else:
-                                    invited_cat.status = "warrior"
-
-                            invited_cat.create_relationships_new_cat()
+                        invited_cat.create_relationships_new_cat()
 
                     # this handles ceremonies for cats coming into the clan
                     if invited_cats:
@@ -1833,7 +1786,6 @@ class Events:
                 )
                 cat.rank_change(CatRank.MEDIATOR)
         # LG
-        # CHECKMERGE
         if get_clan_setting("become_med"):
             _ = constants.CONFIG["roles"]["become_med_chances"]
             if cat.status.rank in _ and not int(random.random() * _[cat.status.rank]):
@@ -2131,6 +2083,7 @@ class Events:
                 CatRank.APPRENTICE,
                 CatRank.MEDICINE_APPRENTICE,
                 CatRank.MEDIATOR_APPRENTICE,
+                CatRank.QUEENS_APPRENTICE,
                 CatRank.KITTEN,
                 CatRank.NEWBORN,
             ]:
@@ -2165,6 +2118,7 @@ class Events:
                 * (1 - (cat.dead_for / age_to_fade) ** fading_speed)
                 + opacity_at_fade
             )
+            cat.pelt.rebuild_sprite = True
 
             # Deal with fading the cat if they are old enough.
             if cat.dead_for > age_to_fade:
@@ -2352,7 +2306,7 @@ class Events:
             cat.thoughts()
             return
         
-        if not cat.status.alive_in_player_clan:
+        if cat.status.alive_in_player_clan:
             if not cat.status.is_shunned():
                 self.handle_apprentice_EX(cat)  # This must be before perform_ceremonies!
             # this HAS TO be before the cat.is_disabled() so that disabled kits can choose a med cat or mediator position
@@ -2404,12 +2358,6 @@ class Events:
 
         self.handle_murder(cat)
         cat.faith += round(random.uniform(-0.2,0.2), 2)
-
-        if cat.status == 'deputy' and cat.ID != game.clan.your_cat.ID and game.clan.your_cat.status.rank == CatRank.DEPUTY and not game.clan.your_cat.dead and not (game.clan.your_cat.status.is_outsider or game.clan.your_cat.status.is_exiled(CatGroup.PLAYER_CLAN)):
-            cat.status = 'warrior'
-
-            if game.clan.deputy.ID != game.clan.your_cat.ID:
-                game.clan.deputy = game.clan.your_cat
 
         switch_set_value(Switch.skip_conditions, [])
 
@@ -2635,7 +2583,6 @@ class Events:
             # apprentice a kitten to either med or warrior
             if cat.moons == cat_class.age_moons[CatAge.ADOLESCENT][0]:
                 if cat.status.rank == CatRank.KITTEN:
-
                     med_cat_list = [
                         i
                         for i in Cat.all_cats_list
@@ -2818,8 +2765,8 @@ class Events:
                         self.ceremony_accessory = True
                         self.gain_accessories(cat)
                     
-                    elif cat.status == "queen's apprentice":
-                        self.ceremony(cat, "queen", preparedness)
+                    elif cat.status.rank == CatRank.QUEENS_APPRENTICE:
+                        self.ceremony(cat, CatRank.QUEEN, preparedness)
                         self.ceremony_accessory = True
                         self.gain_accessories(cat)
 
@@ -2843,12 +2790,10 @@ class Events:
 
         Events.ceremony_lang = i18n.config.get("locale")
 
-    def ceremony(self, cat, promoted_to, preparedness="prepared", LG_TYPE=""):
+    def ceremony(self, cat, promoted_to, preparedness="prepared"):
         """
         promote cats and add to events list
         """
-        # CHECKMERGE
-        # check all function calls for LG_TYPE. not that i think that really worked tbh
         # ceremony = []
         _ment = Cat.fetch_cat(cat.mentor) if cat.mentor else None # Grab current mentor, if they have one, before it's removed. 
         old_name = str(cat.name)
@@ -3002,7 +2947,7 @@ class Events:
             # Gather for leader ---------------------------------------------------------
 
             tags = []
-            if game.clan.leader and game.clan.leader.status.alive_in_player_clan and not game.clan.leader.shunned:
+            if game.clan.leader and game.clan.leader.status.alive_in_player_clan and not game.clan.leader.status.is_shunned():
                 tags.append("yes_leader")
             else:
                 tags.append("no_leader")
@@ -3070,28 +3015,6 @@ class Events:
         # it's easier to do here lol
         new_ceremonies = []
         for ceremony in possible_ceremonies:
-            tags = self.CEREMONY_TXT[ceremony][0]
-            text = self.CEREMONY_TXT[ceremony][1]
-
-            if LG_TYPE == "shunned":
-                # a ceremony for a cat WHILE theyre shunned
-                if "shunned" not in tags:
-                    continue
-            
-            elif LG_TYPE == "forgiven":
-                # a ceremony for a cat returning to work after being forgiven
-                if "forgiven" not in tags:
-                    continue
-                if (cat.moons - cat.shunned) > 5:
-                    if "shunned_as_apprentice" not in tags:
-                        continue
-                else:
-                    if "shunned_as_kit" not in tags:
-                        continue
-            
-            else:
-                if "forgiven" in tags or "shunned" in tags:
-                    continue
             
             new_ceremonies.append(ceremony)
 
@@ -3105,10 +3028,8 @@ class Events:
                 ceremony_tags, ceremony_text = self.CEREMONY_TXT[
                     random.choice(list(new_ceremonies))
                 ]
-                # print("working ceremony for", cat.name, LG_TYPE)
-                # print(new_ceremonies)
             except IndexError:
-                print("WARNING: A ceremony could not be chosen for", cat.name, LG_TYPE)
+                print("WARNING: A ceremony could not be chosen for", cat.name)
                 return
         else:
         # -------------------
@@ -3189,7 +3110,6 @@ class Events:
         #     self.ceremony_accessory = False
         #     return
         # old ^^
-        # CHECKMERGE: get rid of lifegen cat.accessories since bg is a list now anyway
         # check if cat already has max acc
         if cat.pelt.accessory and len(cat.pelt.accessory) == 3:
             self.ceremony_accessory = False

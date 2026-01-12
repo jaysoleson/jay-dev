@@ -1155,11 +1155,10 @@ class PatrolScreen(Screens):
         elif switch_get_value(Switch.patrol_category) == "lifegen":
             the_cat = game.clan.your_cat
             if (
-                the_cat.status.alive_in_player_clan or
-                (the_cat.status.is_outsider and the_cat.dead) and
-                not the_cat.moons <= 0 and
+                (the_cat.status.alive_in_player_clan or
+                (the_cat.status.is_outsider and the_cat.dead)) and
+                the_cat.moons >= 1 and
                 the_cat not in self.current_patrol and
-                not the_cat.not_working() and
                 "2" not in switch_get_value(Switch.patrolled)
                 ):
                 if the_cat not in self.current_patrol and not the_cat.not_working():
@@ -1171,7 +1170,8 @@ class PatrolScreen(Screens):
             if (
                 you.status.alive_in_player_clan and
                 "4" not in switch_get_value(Switch.patrolled) and
-                not you.not_working()
+                not you.not_working() and
+                you.moons >= 14
                 ):
                 if you not in self.current_patrol and not you.not_working():
                     self.current_patrol.insert(0, you)

@@ -539,7 +539,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50"
+            "max_respect_-50"
         ],
         "intro": [
             "Hey, so, remember when you cracked that joke today, and everybody laughed, and then I tried to be funny, and no one laughed?",
@@ -2653,7 +2653,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50",
+            "max_respect_-50",
             "max_like_-50"
         ],
         "intro": [
@@ -3175,7 +3175,7 @@
             "shunned": "any"
         },
         "relationship": [
-            "min_jealousy_50",
+            "max_respect_-50",
             "max_like_-50"
         ],
         "intro": [
@@ -3410,7 +3410,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50"
+            "max_respect_-50"
         ],
         "intro": [
             "[You can feel t_c's eyes burrowing into your back.]",
@@ -3428,7 +3428,7 @@
             "shunned": "any"
         },
         "relationship": [
-            "min_jealousy_50"
+            "max_respect_-50"
         ],
         "intro": [
             "... What?",
@@ -3448,7 +3448,7 @@
             "shunned": "any"
         },
         "relationship": [
-            "min_jealousy_50"
+            "max_respect_-50"
         ],
         "intro": [
             "Tch... What do you want? Come to spread your superiority over us little cats, huh?",
@@ -3470,7 +3470,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50"
+            "max_respect_-50"
         ],
         "intro": [
             "Here, I've got a bit of advice for you.",
@@ -3491,7 +3491,7 @@
             "shunned": "any"
         },
         "relationship": [
-            "min_jealousy_50"
+            "max_respect_-50"
         ],
         "intro": [
             "...",
@@ -3510,7 +3510,7 @@
             "shunned": "any"
         },
         "relationship": [
-            "min_jealousy_50"
+            "max_respect_-50"
         ],
         "intro": [
             "[t_c makes eye contact with you, then immediately turns and leaves the camp.]",
@@ -10679,7 +10679,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50"
+            "max_respect_-50"
         ],
         "intro": [
             "If it isn't everycat's FAAAVORITE cat, y_c.",
@@ -10698,7 +10698,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50",
+            "max_respect_-50",
             "max_like_-25"
         ],
         "intro": [
@@ -11012,7 +11012,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50",
+            "max_respect_-50",
             "max_like_-50"
         ],
         "intro": [
@@ -16834,9 +16834,8 @@
             ]
         },
         "relationship": [
-            "min_dislike_50",
-            "neutral",
-            "max_like_-50"
+            "max_like_-50",
+            "neutral"
         ],
         "intro": [
             "y_c, you're not a kit anymore. Please at least try to start taking things more seriously, for the sake of the Clan."
@@ -17528,7 +17527,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50",
+            "max_respect_-50",
             "max_like_-50"
         ],
         "intro": [
@@ -20868,8 +20867,8 @@
             "shunned": "any"
         },
         "intro": [
-            "Where... <i>is</i> the Dark Forest? Are you, like, neighbours with StarClan? Can you, like, visit them?",
-            "Oh, yeah, I guess it makes sense you wouldn't be able to do that, haha."
+            "Where even is the Dark Forest? Are you, like, neighbours with StarClan? Can you, like, visit them?",
+            "Oh, yeah, I guess it makes sense you wouldn't be able to do that, heh."
         ]
     },
     "they_shunned_grieving": {
@@ -25102,7 +25101,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50"
+            "max_respect_-50"
         ],
         "intro": [
             "Hey, so, remember when you cracked that joke today, and everybody laughed, and then I tried to be funny, and no one laughed?",
@@ -26773,7 +26772,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_50"
+            "max_respect_-50"
         ],
         "intro": [
             "So... how's your... life going? All those... Things... That you get to do all the time? And those people you get to see? How are they?"
@@ -31489,7 +31488,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "max_like_50"
         ],
         "intro": [
@@ -37174,7 +37172,6 @@
             "greenleaf"
         ],
         "relationship": [
-            "max_dislike_5",
             "min_like_15"
         ],
         "intro": [
@@ -39522,8 +39519,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_20",
-            "max_like_30"
+            "max_like_-20"
         ],
         "tags": [
             "accomplice_refused"
@@ -39677,7 +39673,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "max_like_10"
         ],
         "tags": [
@@ -39778,10 +39773,9 @@
             ]
         },
         "relationship": [
-            "min_dislike_25",
+            "max_like_-25",
             "max_trust_30",
-            "from_your_apprentice",
-            "max_like_30"
+            "from_your_apprentice"
         ],
         "tags": [
             "not_murder_victim",
@@ -42086,7 +42080,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "adopted_parent",
             "from_parent",
             "min_like_15"
@@ -42345,8 +42338,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_20",
-            "max_like_20"
+            "max_like_-20"
         ],
         "intro": [
             "[You attempt to approach t_c while {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} sunbathing in the clearing, eyes closed.]",
@@ -42368,8 +42360,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_20",
-            "max_like_10"
+            "max_like_-20"
         ],
         "intro": [
             "What do you want?",
@@ -42391,8 +42382,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_20",
-            "max_like_10"
+            "max_like_-20"
         ],
         "intro": [
             "I found a grey hair on my back yesterday.",
@@ -42414,8 +42404,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_60",
-            "max_like_10"
+            "max_like_-60"
         ],
         "intro": [
             "You seriously don't give up, do you, y_c?",
@@ -42441,8 +42430,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_40",
-            "max_like_10"
+            "max_like_-40"
         ],
         "intro": [
             "Bunch of phonies, those StarClan cats. I've been praying for a moon that you'd stop talking to me."
@@ -42464,8 +42452,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_40",
-            "max_like_10"
+            "max_like_-40"
         ],
         "intro": [
             "You're asking me how I'm doing?",
@@ -42522,7 +42509,7 @@
             ]
         },
         "relationship": [
-            "min_jealousy_20",
+            "max_respect_-20",
             "max_like_20"
         ],
         "intro": [
@@ -42567,7 +42554,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_10"
         ],
         "intro": [
@@ -42736,7 +42722,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_5",
             "from_mentor",
             "min_like_10"
         ],
@@ -43281,8 +43266,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_5",
-            "max_like_20"
+            "max_like_-5"
         ],
         "intro": [
             "[t_c twitches, {PRONOUN/t_c/poss} eyes narrowing as {PRONOUN/t_c/subject} {VERB/t_c/ignore/ignores} the temptation to scratch at {PRONOUN/t_c/poss} pelt.]",
@@ -43475,7 +43459,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_5",
             "min_like_5"
         ],
         "intro": [
@@ -44889,7 +44872,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_15"
         ],
         "intro": [
@@ -44953,7 +44935,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_25"
         ],
         "intro": [
@@ -44984,7 +44965,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_25"
         ],
         "intro": [
@@ -45069,7 +45049,6 @@
         "relationship": [
             "from_your_parent",
             "from_adopted_parent",
-            "max_dislike_10",
             "min_like_50"
         ],
         "intro": [
@@ -45101,7 +45080,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_50"
         ],
         "intro": [
@@ -45130,7 +45108,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_25"
         ],
         "intro": [
@@ -45163,7 +45140,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_5",
             "min_like_20"
         ],
         "intro": [
@@ -45221,7 +45197,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_30"
         ],
         "intro": [
@@ -45250,7 +45225,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_40"
         ],
         "intro": [
@@ -45314,8 +45288,7 @@
             ]
         },
         "relationship": [
-            "min_dislike_20",
-            "max_like_10"
+            "max_like_-20"
         ],
         "intro": [
             "Don't cough on me. It's bad enough that you're not able to contribute... don't get the rest of us sick, too.",
@@ -45375,7 +45348,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_25"
         ],
         "intro": [
@@ -46186,7 +46158,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_20"
         ],
         "intro": [
@@ -46217,7 +46188,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_25"
         ],
         "intro": [
@@ -46363,7 +46333,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_30"
         ],
         "intro": [
@@ -46426,7 +46395,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_30"
         ],
         "intro": [
@@ -46456,7 +46424,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_40"
         ],
         "intro": [
@@ -46483,7 +46450,6 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
             "min_like_40"
         ],
         "intro": [

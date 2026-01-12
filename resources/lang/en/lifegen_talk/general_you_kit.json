@@ -1065,7 +1065,7 @@
             ]
         },
         "intro": [
-            "Never take things at face value, little kit. That's a lesson I'd had to learn."
+            "Never take things at face value, little kit. That's a lesson I had to learn."
         ]
     },
     "you_kitten_brooding2": {
@@ -9991,7 +9991,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_10",
+            "min_like_-10",
             "max_like_20"
         ],
         "intro": [
@@ -10053,7 +10053,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_20",
+            "min_like_-20",
             "max_like_20"
         ],
         "intro": [
@@ -10082,7 +10082,7 @@
             ]
         },
         "relationship": [
-            "max_dislike_20",
+            "min_like_-20",
             "max_like_30"
         ],
         "intro": [
