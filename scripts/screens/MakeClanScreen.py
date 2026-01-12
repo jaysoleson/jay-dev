@@ -926,7 +926,8 @@ class MakeClanScreen(Screens):
                 self.elements["next_step"].enable()
         elif self.sub_screen in ("choose leader", "choose deputy", "choose med cat"):
             # select cat will always show bc all kittens are valid :3
-            self.elements["select_cat"].show()
+            if self.selected_cat:
+                self.elements["select_cat"].show()
             if self.social == "clancat":
                 self.elements["clancat"].disable()
                 self.elements["kittypet"].enable()
@@ -1999,6 +2000,7 @@ class MakeClanScreen(Screens):
             starting_height=2,
             tool_tip_text="Start out as a Clan cat"
         )
+        self.elements["clancat"].disable()
         self.elements["kittypet"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((700, 250), (118, 30))),
             "kittypet",
@@ -4792,6 +4794,7 @@ class MakeClanScreen(Screens):
             else:
                 clan_name = self.clan_name
             self.your_cat.create_inheritance_new_cat()
+
             new_social = CatSocial(self.social) 
             new_rank = CatRank(new_social)
             self.your_cat.status._modify_group(new_rank=new_rank, new_group_ID=None)
