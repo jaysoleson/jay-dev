@@ -10,7 +10,7 @@ import i18n
 import pygame
 import pygame_gui
 from pygame_gui.core import ObjectID
-from ..cat.enums import CatAge, CatRank, CatGroup, CatSocial
+from ..cat.enums import CatAge, CatRank, CatGroup, CatSocial, CatStanding
 
 import scripts.screens.screens_core.screens_core
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES, create_example_cats, create_cat
@@ -4771,7 +4771,6 @@ class MakeClanScreen(Screens):
 
     def save_clan(self):
         if switch_get_value(Switch.customise_new_life):
-            # CHECKMERGE
             self.your_cat.create_inheritance_new_cat()
             game.clan.your_cat = self.your_cat
             game.clan.your_cat.moons = -1
@@ -4795,10 +4794,23 @@ class MakeClanScreen(Screens):
                 clan_name = self.clan_name
             self.your_cat.create_inheritance_new_cat()
 
-            new_social = CatSocial(self.social) 
-            new_rank = CatRank(new_social)
-            self.your_cat.status._modify_group(new_rank=new_rank, new_group_ID=None)
+            new_social = CatSocial(self.social)
+            if self.social != "clancat":
+                new_rank = CatRank(new_social)
+            else:
+                new_rank = CatRank.KITTEN
 
+            group_dict = {
+                "clancat": CatGroup.PLAYER_CLAN_ID,
+                "rogue": CatGroup.ROGUE_GROUP_ID,
+                "loner": CatGroup.LONER_GROUP_ID,
+                "kittypet": CatGroup.HOUSEHOLD_ID
+            }
+
+            self.your_cat.status.init_your_cat_status(
+                rank=new_rank,
+                group_ID=group_dict[self.social]
+                )
 
             game.clan = Clan(
                 name = clan_name,

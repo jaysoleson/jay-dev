@@ -1453,7 +1453,7 @@ class ProfileScreen(Screens):
         else:
             name = game.clan.displayname
 
-        if the_cat.status.is_exiled():
+        if the_cat.status.is_exiled(CatGroup.PLAYER_CLAN_ID):
             if not name:
                 name = [
                     c
@@ -1505,6 +1505,12 @@ class ProfileScreen(Screens):
                     output += f'<font color="{text_colour}">{text}</font>'
                 else:
                     output += text
+        elif the_cat.status.is_daylight_warrior():
+            output += i18n.t(
+                "general.daylight_warrior",
+                group=cat_clan,
+                rank=i18n.t(f"general.{the_cat.status.rank}", count=1),
+            )
         elif the_cat.status.is_outsider:
             output += i18n.t(f"general.{the_cat.status.rank}", count=1)
         else:

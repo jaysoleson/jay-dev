@@ -1166,6 +1166,18 @@ class Clan:
         
         if clan_data.get("used_group_IDs"):
             game.used_group_IDs = clan_data["used_group_IDs"]
+
+            # correct for new lifegen groups
+            if game.used_group_IDs['5'] != CatGroup.ROGUE_GROUP:
+                game.used_group_IDs['5'] = CatGroup.ROGUE_GROUP
+            if game.used_group_IDs['6'] != CatGroup.LONER_GROUP:
+                game.used_group_IDs['6'] = CatGroup.LONER_GROUP
+            if game.used_group_IDs['7'] != CatGroup.HOUSEHOLD:
+                game.used_group_IDs['7'] = CatGroup.HOUSEHOLD
+
+            # LG
+            self.convert_group_IDs()
+
             for ID in game.used_group_IDs:
                 game.used_group_IDs[ID] = CatGroup(game.used_group_IDs[ID])
 
@@ -1388,6 +1400,38 @@ class Clan:
             "version_commit": clan_data.get("version_commit"),
             "source_build": clan_data.get("source_build"),
         }
+    
+    def convert_group_IDs(self):
+        """
+        LIFEGEN FUNCTION
+        existing otherclan cats will now get a new group ID
+        so otherclan cats from old saves dont randomly join rogue groups and stuff
+        """
+
+        for cat in Cat.all_cats_list:
+            for group_ID in ["5", "6", "7"]:
+                for group in cat.status.standing_history.copy():
+                    if group['group'] == group_ID:
+                        index = cat.status.standing_history.index(group)
+                        cat.status.standing_history.remove(group)
+
+                        new_standing_block = {
+                            "group": "8",
+                            "standing": group["standing"],
+                            "near": group["near"]
+                        }
+                        cat.status.standing_history.insert(index, new_standing_block)
+                for group in cat.status.group_history.copy():
+                    if group['group'] == group_ID:
+                        index = cat.status.group_history.index(group)
+                        cat.status.group_history.remove(group)
+
+                        new_group_block = {
+                            "group": "8",
+                            "rank": group["rank"],
+                            "moons_as": group["moons_as"]
+                        }
+                        cat.status.group_history.insert(index, new_group_block)
     
     def load_accessories(self):
         """

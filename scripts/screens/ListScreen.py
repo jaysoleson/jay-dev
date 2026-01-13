@@ -741,6 +741,7 @@ class ListScreen(Screens):
         """
         grabs cats outside the clan
         """
+
         self.current_group = "cotc"
         self.death_status = "living"
         self.full_cat_list = []

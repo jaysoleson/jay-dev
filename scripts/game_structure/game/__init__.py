@@ -77,6 +77,11 @@ used_group_IDs: dict = {
     CatGroup.STARCLAN_ID: CatGroup.STARCLAN,
     CatGroup.UNKNOWN_RESIDENCE_ID: CatGroup.UNKNOWN_RESIDENCE,
     CatGroup.DARK_FOREST_ID: CatGroup.DARK_FOREST,
+
+    # LG
+    CatGroup.ROGUE_GROUP_ID: CatGroup.ROGUE_GROUP,
+    CatGroup.LONER_GROUP_ID: CatGroup.LONER_GROUP,
+    CatGroup.HOUSEHOLD_ID: CatGroup.HOUSEHOLD,
 }
 """Int IDs already in use. Key is the group ID, value is the group type."""
 
