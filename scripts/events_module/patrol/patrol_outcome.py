@@ -263,15 +263,18 @@ class PatrolOutcome:
         # This must be done before text processing so that the new cat's pronouns are generated first
         results = [self._handle_new_cats(patrol)]
         # lifegen random abbrev processing!
-        try:
-            lifegen_abbrev_text = lifegen_text_adjust(Cat, self.text, patrol.patrol_leader, patrol.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
+        if switch_get_value(Switch.patrol_category) != "clangen":
+            try:
+                lifegen_abbrev_text = lifegen_text_adjust(Cat, self.text, patrol.patrol_leader, patrol.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
 
-            text = lifegen_abbrev_text
-            if lifegen_abbrev_text == "":
-                # print("Lifegen: No abbrevs to adjust")
+                text = lifegen_abbrev_text
+                if lifegen_abbrev_text == "":
+                    # print("Lifegen: No abbrevs to adjust")
+                    text = self.text
+            except Exception as e:
+                print("Lifegen: Error adjusting abbrevs:", e)
                 text = self.text
-        except Exception as e:
-            print("Lifegen: Error adjusting abbrevs:", e)
+        else:
             text = self.text
 
         # the text has to be processed before - otherwise leader might be referenced with their warrior name

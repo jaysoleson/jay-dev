@@ -460,7 +460,8 @@ class ClanScreen(Screens):
             first_choices[x].extend(first_choices[x])
 
         for x in game.clan.clan_cats:
-            if not Cat.all_cats[x].status.alive_in_player_clan:
+            # if not Cat.all_cats[x].status.alive_in_player_clan:
+            if not Cat.all_cats[x].status.alive_in_your_cat_group:
                 continue
 
             base_pos = None
@@ -539,6 +540,16 @@ class ClanScreen(Screens):
                 ] = self.choose_nonoverlapping_positions(
                     first_choices, all_dens, [1, 200, 1, 1, 1, 1, 1]
                 )
+            # LG
+            # placing outsiders if youre outside
+            else:
+                [
+                    Cat.all_cats[x].placement,
+                    base_pos,
+                ] = self.choose_nonoverlapping_positions(
+                    first_choices, all_dens, [1, 1, 1, 1, 1, 60, 60]
+                )
+            # ---
             if not Cat.all_cats[x].placement:
                 # if a cat wasn't placed, it's because no spots remain
                 break

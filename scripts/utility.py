@@ -4060,6 +4060,11 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat in current_cat_objects
     ) else True
 
+    v_c = False if (
+        not game.clan.murdered or
+        ("victim" in game.clan.murdered and chosen_cat.ID != game.clan.murdered["victim"])
+    ) else True
+
     # now the abbrevs dict!
     # make sure to add new abbrevs here, or they won't get replaced!!!
     abbrevs = {
@@ -4125,7 +4130,8 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         "e_c": e_c,
         "fc_c": fc_c,
         "tg_c": tg_c,
-        "yg_c": yg_c
+        "yg_c": yg_c,
+        "v_c": v_c
     }
 
     return abbrevs

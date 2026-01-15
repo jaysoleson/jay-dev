@@ -10,7 +10,7 @@ import i18n
 import pygame
 import pygame_gui
 from pygame_gui.core import ObjectID
-from ..cat.enums import CatAge, CatRank, CatGroup, CatSocial
+from ..cat.enums import CatAge, CatRank, CatGroup, CatSocial, CatStanding
 
 import scripts.screens.screens_core.screens_core
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES, create_example_cats, create_cat
@@ -926,7 +926,8 @@ class MakeClanScreen(Screens):
                 self.elements["next_step"].enable()
         elif self.sub_screen in ("choose leader", "choose deputy", "choose med cat"):
             # select cat will always show bc all kittens are valid :3
-            self.elements["select_cat"].show()
+            if self.selected_cat:
+                self.elements["select_cat"].show()
             if self.social == "clancat":
                 self.elements["clancat"].disable()
                 self.elements["kittypet"].enable()
@@ -1576,42 +1577,43 @@ class MakeClanScreen(Screens):
                     ),
                     cat_object=game.choose_cats[u],
                 )
-            elif (
-                game.choose_cats[u]
-                in [self.leader, self.deputy, self.med_cat] + self.members
-            ):
-                self.elements["cat" + str(u)] = UISpriteButton(
-                    ui_scale(pygame.Rect((650, 130 + 50 * u), (50, 50))),
-                    game.choose_cats[u].sprite,
-                    cat_object=game.choose_cats[u],
-                    manager=MANAGER,
-                )
-                self.elements["cat" + str(u)].disable()
             else:
-                self.elements["cat" + str(u)] = UISpriteButton(
-                    ui_scale(pygame.Rect((column_poss[0], 130 + 50 * u), (50, 50))),
-                    game.choose_cats[u].sprite,
-                    cat_object=game.choose_cats[u], manager=MANAGER)
+                self.elements[
+                    "cat" + str(u)
+                    ] = UISpriteButton(
+                        ui_scale(pygame.Rect((column_poss[0], 130 + 50 * u), (50, 50))),
+                        pygame.transform.scale(
+                            game.choose_cats[u].sprite, ui_scale_dimensions((150, 150))
+                        ),
+                        cat_object=game.choose_cats[u], manager=MANAGER
+                        )
         for u in range(6, 12):
             if "cat" + str(u) in self.elements:
                 self.elements["cat" + str(u)].kill()
             if game.choose_cats[u] == selected:
-                self.elements["cat" + str(u)] = self.elements["cat" + str(u)] = UISpriteButton(
-                    ui_scale(pygame.Rect((270, 200), (150, 150))),
-                    pygame.transform.scale(game.choose_cats[u].sprite, (150, 150)),
-                    cat_object=game.choose_cats[u], manager=MANAGER)
-            elif game.choose_cats[u] in [self.leader, self.deputy, self.med_cat] + self.members:
-                self.elements["cat" + str(u)] = self.elements["cat" + str(u)] = UISpriteButton(
-                    ui_scale(pygame.Rect((270, 200), (150, 150))),
-                    pygame.transform.scale(game.choose_cats[u].sprite, (150, 150)),
-                    cat_object=game.choose_cats[u], manager=MANAGER)
+                self.elements[
+                    "cat" + str(u)
+                    ] = self.elements[
+                        "cat" + str(u)
+                        ] = UISpriteButton(
+                            ui_scale(pygame.Rect((270, 200), (150, 150))),
+                            pygame.transform.scale(
+                                game.choose_cats[u].sprite, ui_scale_dimensions((150, 150))
+                            ),
+                            cat_object=game.choose_cats[u], manager=MANAGER
+                            )
             else:
-                self.elements["cat" + str(u)] = UISpriteButton(
-                    ui_scale(
-                        pygame.Rect((column_poss[1], 130 + 50 * (u - 6)), (50, 50))
-                    ),
-                    game.choose_cats[u].sprite,
-                    cat_object=game.choose_cats[u], manager=MANAGER)
+                self.elements[
+                    "cat" + str(u)
+                        ] = UISpriteButton(
+                            ui_scale(
+                                pygame.Rect((column_poss[1], 130 + 50 * (u - 6)), (50, 50))
+                            ),
+                            pygame.transform.scale(
+                                game.choose_cats[u].sprite, ui_scale_dimensions((150, 150))
+                            ),
+                            cat_object=game.choose_cats[u], manager=MANAGER
+                            )
 
     def random_clan_name(self):
         clan_names = (
@@ -1998,6 +2000,7 @@ class MakeClanScreen(Screens):
             starting_height=2,
             tool_tip_text="Start out as a Clan cat"
         )
+        self.elements["clancat"].disable()
         self.elements["kittypet"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((700, 250), (118, 30))),
             "kittypet",
@@ -2050,11 +2053,13 @@ class MakeClanScreen(Screens):
         random_eye_colour2 = choice(Pelt.all_eye_colours) if not int(random.random() * 10) else None
 
         tortie = True if random.randint(1,5) == 1 else False
-        random_tortie_base = choice(Pelt.all_pelt_colours) if tortie else None
+        random_tortie_base = choice(Pelt.pelt_patterns) if tortie else None
         random_tortie_colour = choice(Pelt.all_pelt_colours) if tortie else None
         random_tortie_markings = choice(Pelt.tortie_patches) if tortie else None
         random_tortie_pattern = choice(Pelt.pelt_patterns) if tortie else None
 
+        if tortie:
+            random_pelt_name = "Tortie"
         
         random_vitiligo = choice(Pelt.vitiligo_markings) if random.randint(1,20) == 1 else None
         random_points = choice(Pelt.point_markings) if random.randint(1,5) == 1 else None
@@ -2112,7 +2117,18 @@ class MakeClanScreen(Screens):
 
         # now non-pelt stuff
         self.skill = "Random"
-        self.personality = choice(['unruly','shy','impulsive','bullying','attention-seeker','daydreamer','charming','fearless','skittish','quiet','self-conscious','know-it-all','sweet','polite','bossy','noisy','smug','secretive','grumpy','manipulative','leader-like','passionate','disciplined','patient','rebellious','honest'])
+        self.personality = choice(
+            [
+                'unruly','shy','impulsive','bullying',
+                'attention-seeker','daydreamer','charming',
+                'fearless','skittish','quiet','self-conscious',
+                'know-it-all','sweet','polite','bossy',
+                'noisy','smug','secretive','grumpy',
+                'manipulative','leader-like',
+                'passionate','disciplined',
+                'patient','rebellious','honest'
+            ]
+        )
         self.permanent_condition = choice(permanent_conditions) if random.randint(1,30) == 1 else None
         self.custom_cat.gender = random.choice(["male", "female"])
 
@@ -2141,7 +2157,7 @@ class MakeClanScreen(Screens):
 
         self.faith = random.choice(["flexible", "starclan", "dark forest", "neutral"])
 
-        if self.custom_cat.pelt.name == "Tortie":
+        if tortie:
             self.tortie_enabled = True
         else:
             self.tortie_enabled = False
@@ -4755,7 +4771,6 @@ class MakeClanScreen(Screens):
 
     def save_clan(self):
         if switch_get_value(Switch.customise_new_life):
-            # CHECKMERGE
             self.your_cat.create_inheritance_new_cat()
             game.clan.your_cat = self.your_cat
             game.clan.your_cat.moons = -1
@@ -4778,10 +4793,24 @@ class MakeClanScreen(Screens):
             else:
                 clan_name = self.clan_name
             self.your_cat.create_inheritance_new_cat()
-            new_social = CatSocial(self.social) 
-            new_rank = CatRank(new_social)
-            self.your_cat.status._modify_group(new_rank=new_rank, new_group_ID=None)
 
+            new_social = CatSocial(self.social)
+            if self.social != "clancat":
+                new_rank = CatRank(new_social)
+            else:
+                new_rank = CatRank.KITTEN
+
+            group_dict = {
+                "clancat": CatGroup.PLAYER_CLAN_ID,
+                "rogue": CatGroup.ROGUE_GROUP_ID,
+                "loner": CatGroup.LONER_GROUP_ID,
+                "kittypet": CatGroup.HOUSEHOLD_ID
+            }
+
+            self.your_cat.status.init_your_cat_status(
+                rank=new_rank,
+                group_ID=group_dict[self.social]
+                )
 
             game.clan = Clan(
                 name = clan_name,

@@ -111,6 +111,7 @@ class CatStanding(StrEnum):
 
     # LG
     SHUNNED = "shunned"
+    DAYLIGHT = "daylight"
 
 
 class CatGroup(StrEnum):
@@ -127,6 +128,15 @@ class CatGroup(StrEnum):
     STARCLAN_ID = "2"
     UNKNOWN_RESIDENCE_ID = "3"
     DARK_FOREST_ID = "4"
+
+    # LG
+    ROGUE_GROUP = "rogue_group"
+    LONER_GROUP = "loner_group"
+    HOUSEHOLD = "household"
+
+    ROGUE_GROUP_ID = "5"
+    LONER_GROUP_ID = "6"
+    HOUSEHOLD_ID = "7"
 
     def is_afterlife(self) -> bool:
         return self in (self.DARK_FOREST, self.STARCLAN, self.UNKNOWN_RESIDENCE)

@@ -235,7 +235,8 @@ class Events:
 
         other_clan_cats = [c for c in Cat.all_cats_list if c.status.is_other_clancat]
         for cat in Cat.all_cats_list.copy():
-            if cat.status.alive_in_player_clan or cat.status.group.is_afterlife():
+            # if cat.status.alive_in_player_clan or cat.status.group.is_afterlife():
+            if cat.status.alive_in_your_cat_group or cat.status.group.is_afterlife():
                 self.one_moon_cat(cat)
             elif not cat.status.group or cat.status.is_other_clancat:
                 self.one_moon_outside_cat(cat, other_clan_cats)
@@ -2216,7 +2217,6 @@ class Events:
             if standing and isinstance(standing[-1], list):
                 if standing[-1][0] == CatStanding.SHUNNED:
                     shunned_moons = game.clan.age - standing[-1][1]
-                    print(cat.name, "has been shunned for", shunned_moons, "moons")
 
             chance = constants.CONFIG["lifegen"]["shunned_cat"]["max_shunned_moons"] - shunned_moons
             # the chance scales as the cat gets closer to the limit

@@ -880,6 +880,21 @@
             "many": "brown bear plush",
             "one": "brown bear plush"
         },
+        "EGG": {
+            "zero": "egg",
+            "many": "egg",
+            "one": "egg"
+        },
+        "POPTABS": {
+            "zero": "pop tab necklace",
+            "many": "pop tab necklace",
+            "one": "pop tab necklace"
+        },
+        "BATHARNESS": {
+            "zero": "bat harness",
+            "many": "bat harness",
+            "one": "bat harness"
+        },
         "REDHARNESS": {
             "zero": "red harness",
             "many": "red harness",
@@ -1244,6 +1259,11 @@
             "zero": "easter egg",
             "many": "easter egg",
             "one": "easter egg"
+        },
+        "FORSYTHIA": {
+            "zero": "forsythia",
+            "many": "forsythias",
+            "one": "forsythia"
         },
         "MINTLEAF": {
             "zero": "mint leaf",

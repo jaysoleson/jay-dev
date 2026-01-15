@@ -597,7 +597,7 @@ class TestNameRepr(unittest.TestCase):
         Test that outsiders with hidden special suffixes return the correct name
         :return:
         """
-        game.used_group_IDs["5"] = CatGroup.OTHER_CLAN
+        game.used_group_IDs["8"] = CatGroup.OTHER_CLAN
         outsider_statuses = [
             {"rank": CatRank.LONER},
             {"rank": CatRank.ROGUE},
@@ -605,10 +605,10 @@ class TestNameRepr(unittest.TestCase):
         ]
         former_clancat_status = {
             "group_history": [
-                {"group": "5", "rank": CatRank.WARRIOR, "moons_as": 1},
+                {"group": "8", "rank": CatRank.WARRIOR, "moons_as": 1},
                 {"group": None, "rank": CatRank.LONER, "moons_as": 1},
             ],
-            "standing_history": [{"group": "5", "standing": ["member", "known"]}],
+            "standing_history": [{"group": "8", "standing": ["member", "known"]}],
         }
         exiled_status = {
             "group_history": [

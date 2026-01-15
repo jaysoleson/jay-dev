@@ -17,6 +17,7 @@
         "living_group": "%{group} %{rank}",
         "past_no_group": "past %{rank}",
         "past_group": "past %{group} %{rank}",
+        "daylight_warrior": "%{group} daylight %{rank}",
         "leader": {
             "one": "leader",
             "many": "leaders"
