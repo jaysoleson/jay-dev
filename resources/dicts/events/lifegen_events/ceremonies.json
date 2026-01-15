@@ -658,17 +658,57 @@
         "Your eyes, bright with unspoken stories and adventures, brim with tears. You're not ready to leave, there's still so much to do, so much to see. The comforting purrs of your Clanmates envelope you, their whispers echoing promises of strength and courage. Your body might be weak, but your spirit, a tiny flame, blazes defiantly as you breathe your last, your spirit leaping towards the stars.",
         "Your small body shakes as you struggle to stay awake, to stay alive. You're not ready to say goodbye, not ready to give up on your dreams of becoming a warrior. You struggle against the darkness, but it's too late, and everything goes black."
     ],
-    "death_app": [],
-    "death_medapp": [],
-    "death_mediapp": [],
-    "death_queenapp": [],
-    "death_elder": [],
+    "death_app": [
+        "Your paws feel unsteady and the world tilts beneath you. This wasn't how it was supposed to end, not before you earned your warrior name, not before you proved yourself!",
+        "The sounds around you fade away. You try your best to hold on, thinking desperately of your training, your dreams, the future you imagined -- but it all dissolves into silence."
+    ],
+    "death_medapp": [
+        "Your paws feel unsteady and the world tilts beneath you. This wasn't how it was supposed to end, not before you earned your full name, not before you proved yourself!",
+        "The sounds around you fade away. You try your best to hold on, thinking desperately of your training, your dreams, the future you imagined -- but it all dissolves into silence."
+
+    ],
+    "death_mediapp": [
+        "Your paws feel unsteady and the world tilts beneath you. This wasn't how it was supposed to end, not before you earned your full name, not before you proved yourself!",
+        "The sounds around you fade away. You try your best to hold on, thinking desperately of your training, your dreams, the future you imagined -- but it all dissolves into silence."
+
+    ],
+    "death_queenapp": [
+        "Your paws feel unsteady and the world tilts beneath you. This wasn't how it was supposed to end, not before you earned your full name, not before you proved yourself!",
+        "The sounds around you fade away. You try your best to hold on, thinking desperately of your training, your dreams, the future you imagined -- but it all dissolves into silence."
+    ],
+    "death_warrior": [
+
+    ],
+    "death_medcat": [
+
+    ],
+    "death_mediator": [
+
+    ],
+    "death_queen": [
+
+    ],
+    "death_elder": [
+
+    ],
     "death_leader": [
         "Your breath slows, each inhale more labored than the last. As the world around you blurs into shades of twilight, you think back to the life you've led. The lessons you've shared, the battles you've fought, the Clan you've led. It's a wave of nostalgia, heavy but soothing. You close your eyes, taking solace in knowing that your legacy will live on in the hearts of your Clan.",
         "As the shadows of your life start to gather, you can't help but reflect. The days spent leading your Clan, the choices you've made, the challenges you've faced. Have they been enough? You take a deep breath, comforted by the thought that your Clan will continue to thrive.",
         "Your breaths come out in ragged gasps, each one more effortful than the last. The pain begins to ebb away, replaced by a cold numbness that seeps into your paws. The territory, your home, starts to blur at the edges of your vision. You reflect on your life, the successes and failures, the joys and sorrows. As you draw your final breath, you find peace in knowing that you've done your best for your Clan.",
         "The world around you slows, each moment stretching out as if to allow you one final look at your beloved Clan. The scent of the territory, the chorus of the night creatures, the faint rustling of leaves, everything begins to fade. You cast a final gaze at your Clan, your heart swelling with pride. You've given everything, fought every battle, for them. As the darkness beckons, you surrender, knowing you've left your Clan stronger than ever.",
         "Your sight grows dim, the familiar sounds of the camp grow faint, the scent of your Clanmates a distant memory. The world around you fades into a grey haze. Yet, your mind is alive with memories. The battles you've won, the friendships you've made, the wisdom you've passed on. You've shaped a Clan, raised warriors. As you breathe your last, a sense of tranquility washes over you. You've fulfilled your duties and more. You've left a legacy that will echo through the generations."
+    ],
+    "death_deputy": [
+
+    ],
+    "death_kittypet": [
+
+    ],
+    "death_rogue": [
+
+    ],
+    "death_loner": [
+
     ],
     "death": [
         "Is this it? You wonder, while slipping slowly into the darkness, if you've made an impact on this world that you wouldn't regret.",
