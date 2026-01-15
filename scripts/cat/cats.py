@@ -4017,6 +4017,14 @@ class Cat:
             ),
             sorted_specific_list[idx - 1].ID if idx - 1 >= 0 else 0,
         )
+    
+    def get_cats_in_your_group(self):
+        return [
+            cat for cat in Cat.all_cats_list if (
+                game.clan.your_cat and
+                cat.status.group == game.clan.your_cat.status.group
+            )
+        ]
 
 # ---------------------------------------------------------------------------- #
 #                               END OF CAT CLASS                               #

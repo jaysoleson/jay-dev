@@ -149,6 +149,14 @@ def get_living_clan_cat_count(Cat):
         count += 1
     return count
 
+# LG
+def get_your_cat_group_count(Cat):
+    count = 0
+    for the_cat in Cat.all_cats.values():
+        if not the_cat.status.alive_in_your_cat_group:
+            continue
+        count += 1
+    return count
 
 def get_cats_same_age(Cat, cat, age_range=10):
     """
@@ -906,6 +914,7 @@ def create_new_cat(
 
         # now we actually add them to the clan, if they should be joining
         if not outside and alive:
+            print("adding to clan")
             new_cat.add_to_clan()
             # check if cat is the correct rank
             if new_cat.status.rank != rank:

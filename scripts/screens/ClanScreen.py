@@ -28,7 +28,7 @@ from ..cat.save_load import save_cats
 from ..clan_package.settings import get_clan_setting
 from ..clan_package.settings.clan_settings import switch_clan_setting
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
-from ..cat.enums import CatRank
+from ..cat.enums import CatRank, CatAge
 from ..ui.generate_button import ButtonStyles, get_button_dict
 
 
@@ -467,7 +467,7 @@ class ClanScreen(Screens):
             base_pos = None
             # Newborns are not meant to be placed. They are hiding.
             if (
-                Cat.all_cats[x].status.rank == CatRank.NEWBORN
+                Cat.all_cats[x].age == CatAge.NEWBORN
                 or constants.CONFIG["fun"]["all_cats_are_newborn"]
                 or Cat.all_cats[x].moons < 0
             ):

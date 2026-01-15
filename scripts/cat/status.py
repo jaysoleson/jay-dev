@@ -427,7 +427,6 @@ class Status:
             new_rank=rank,
             new_group_ID=group_ID,
         )
-        print(self.group)
 
     def _modify_group(
         self,

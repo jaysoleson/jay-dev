@@ -288,7 +288,7 @@ class Clan:
                 the_cat.rank_change(CatRank.APPRENTICE)
             the_cat.thoughts()
 
-        save_cats(game.clan.name, Cat, game)
+        # save_cats(game.clan.name, Cat, game)
         number_other_clans = randint(3, 5)
         for _ in range(number_other_clans):
             other_clan_names = [str(i.name) for i in self.all_other_clans] + [
@@ -901,6 +901,7 @@ class Clan:
             )
 
         load_clan_settings()
+        
 
         return version_info
 
@@ -1122,6 +1123,13 @@ class Clan:
         ) as read_file:  # pylint: disable=redefined-outer-name
             clan_data = ujson.loads(read_file.read())
 
+        # LG
+        if "your_cat" in clan_data:
+            your_cat = Cat.all_cats[clan_data["your_cat"]]
+        else:
+            print("You don't have a cat! Choosing one for you.")
+            your_cat = choice([x for x in Cat.all_cats_list if x.status.alive_in_your_cat_group]).ID
+
         if clan_data["leader"]:
             leader = Cat.all_cats[clan_data["leader"]]
             leader_lives = clan_data["leader_lives"]
@@ -1149,6 +1157,7 @@ class Clan:
             displayname=displayname,
             leader=leader,
             deputy=deputy,
+            your_cat=your_cat,
             medicine_cat=med_cat,
             biome=clan_data["biome"],
             camp_bg=clan_data["camp_bg"],
@@ -1315,6 +1324,7 @@ class Clan:
                 game.told_story = []
             else:
                 game.told_story = clan_data["told_story"]
+
         game.clan.clan_age = clan_data["clan_age"] if "clan_age" in clan_data else "established"
 
         self.load_pregnancy(game.clan)
@@ -1324,13 +1334,6 @@ class Clan:
         self.load_accessories()
         if game.clan.game_mode != "classic":
             self.load_freshkill_pile(game.clan)
-        
-        # LG
-        if "your_cat" in clan_data:
-            game.clan.your_cat = Cat.all_cats[clan_data["your_cat"]]
-        else:
-            game.clan.your_cat = choice([x for x in Cat.all_cats_list if x.status.alive_in_player_clan]).ID
-            print("You don't have a cat! Choosing one for you.")
 
         if "murdered" in clan_data:
             if isinstance(clan_data["murdered"], bool):
@@ -1410,28 +1413,29 @@ class Clan:
 
         for cat in Cat.all_cats_list:
             for group_ID in ["5", "6", "7"]:
-                for group in cat.status.standing_history.copy():
-                    if group['group'] == group_ID:
-                        index = cat.status.standing_history.index(group)
-                        cat.status.standing_history.remove(group)
+                if cat.status.rank.is_any_clancat_rank():
+                    for group in cat.status.standing_history.copy():
+                        if group['group'] == group_ID:
+                            index = cat.status.standing_history.index(group)
+                            cat.status.standing_history.remove(group)
 
-                        new_standing_block = {
-                            "group": "8",
-                            "standing": group["standing"],
-                            "near": group["near"]
-                        }
-                        cat.status.standing_history.insert(index, new_standing_block)
-                for group in cat.status.group_history.copy():
-                    if group['group'] == group_ID:
-                        index = cat.status.group_history.index(group)
-                        cat.status.group_history.remove(group)
+                            new_standing_block = {
+                                "group": "8",
+                                "standing": group["standing"],
+                                "near": group["near"]
+                            }
+                            cat.status.standing_history.insert(index, new_standing_block)
+                    for group in cat.status.group_history.copy():
+                        if group['group'] == group_ID:
+                            index = cat.status.group_history.index(group)
+                            cat.status.group_history.remove(group)
 
-                        new_group_block = {
-                            "group": "8",
-                            "rank": group["rank"],
-                            "moons_as": group["moons_as"]
-                        }
-                        cat.status.group_history.insert(index, new_group_block)
+                            new_group_block = {
+                                "group": "8",
+                                "rank": group["rank"],
+                                "moons_as": group["moons_as"]
+                            }
+                            cat.status.group_history.insert(index, new_group_block)
     
     def load_accessories(self):
         """

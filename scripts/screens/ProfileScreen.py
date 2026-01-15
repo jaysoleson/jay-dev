@@ -1427,17 +1427,23 @@ class ProfileScreen(Screens):
         
         # if cat is dead, we find their old clan name
         if the_cat.dead:
-            old_clan = the_cat.status.get_last_living_group()
-            if old_clan == CatGroup.PLAYER_CLAN_ID:
-                name = game.clan.displayname
-            # if they had an old clan that wasn't the player's, find it!
-            elif old_clan:
-                name = [
-                    c
-                    for c in game.clan.all_other_clans
-                    if c.group_ID == the_cat.status.get_last_living_group()
-                ][0].name
-            # otherwise they had no clan
+            # LG EDIT
+            old_clan_ID = the_cat.status.get_last_living_group()
+            old_clan = game.used_group_IDs[old_clan_ID]
+            # ---
+            if old_clan.is_any_clan_group():
+                if old_clan_ID == CatGroup.PLAYER_CLAN_ID:
+                    name = game.clan.displayname
+                # if they had an old clan that wasn't the player's, find it!
+                elif old_clan_ID:
+                    name = [
+                        c
+                        for c in game.clan.all_other_clans
+                        if c.group_ID == the_cat.status.get_last_living_group()
+                    ][0].name
+                # otherwise they had no clan
+                else:
+                    name = None
             else:
                 name = None
 
