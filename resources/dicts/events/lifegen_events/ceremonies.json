@@ -655,26 +655,40 @@
         "As you close your eyes, a comforting warmth envelops you. The noises of the camp fade, replaced by a gentle lullaby carried by the wind. You feel a soft presence cradling you, a familiar purr resonating in your ears. It's as if you're falling into an eternal sleep, surrounded by the love and warmth of your kin.",
         "Your little heart, filled with so much spirit, begins to slow. Around you, the world is fading... Everything mixes together, purrs, soft whispers, and the familiar scents of your Clan. The gentle grooming of your fur lulls you into a deep sleep, the sound of purrs faint around you.",
         "The world around you quiets down as you close your eyes and your breath slows. You wonder... if maybe, in the afterlife you'd get your warrior name.",
-        "Your eyes, bright with unspoken stories and adventures, brim with tears. You're not ready to leave, there's still so much to do, so much to see. The comforting purrs of your Clanmates envelope you, their whispers echoing promises of strength and courage. Your body might be weak, but your spirit, a tiny flame, blazes defiantly as you breathe your last, your spirit leaping towards the stars.",
+        "Your eyes, bright with unspoken stories and adventures, brim with tears. You're not ready to leave, there's still so much to do, so much to see.",
         "Your small body shakes as you struggle to stay awake, to stay alive. You're not ready to say goodbye, not ready to give up on your dreams of becoming a warrior. You struggle against the darkness, but it's too late, and everything goes black."
     ],
     "death_app": [
         "Your paws feel unsteady and the world tilts beneath you. This wasn't how it was supposed to end, not before you earned your warrior name, not before you proved yourself!",
-        "The sounds around you fade away. You try your best to hold on, thinking desperately of your training, your dreams, the future you imagined -- but it all dissolves into silence."
+        "The sounds around you fade away. You try your best to hold on, thinking desperately of your training, your dreams, the future you imagined -- but it all dissolves into silence.",
+        "Cold seeps into your bones as your strength finally gives out. Even if you don't make it to become a warrior, you hope you had made a difference anyway.",
+        "The world feels strangely distant now, as if you're watching it from far away. You hope your Clan knows you tried your best, even if your story ends before it truly began.",
+        "Your vision blurs, lights flickering at the edges of your vision. You just wanted more time... more sunrises, more patrols, more chances to be brave. The thought lingers as everything else fades.",
+        "As the territory dims around you, a single thought remains: you never got the chance to grow into who you were meant to be. The stars feel so, so far away."
     ],
     "death_medapp": [
         "Your paws feel unsteady and the world tilts beneath you. This wasn't how it was supposed to end, not before you earned your full name, not before you proved yourself!",
-        "The sounds around you fade away. You try your best to hold on, thinking desperately of your training, your dreams, the future you imagined -- but it all dissolves into silence."
-
+        "The sounds around you fade away. You try your best to hold on, thinking desperately of your training, your dreams, the future you imagined -- but it all dissolves into silence.",
+        "Cold seeps into your bones as your strength finally gives out. Even if you don't make it to become a full medicine cat, you hope you had made a difference anyway.",
+        "The world feels strangely distant now, as if you're watching it from far away. You hope your Clan knows you tried your best, even if your story ends before it truly began.",
+        "Your vision blurs, lights flickering at the edges of your vision. You just wanted more time... more sunrises, more dreams, more chances to help your Clanmates. The thought lingers as everything else fades.",
+        "As the territory dims around you, a single thought remains: you never got the chance to grow into who you were meant to be. The stars feel so, so far away."
     ],
     "death_mediapp": [
         "Your paws feel unsteady and the world tilts beneath you. This wasn't how it was supposed to end, not before you earned your full name, not before you proved yourself!",
-        "The sounds around you fade away. You try your best to hold on, thinking desperately of your training, your dreams, the future you imagined -- but it all dissolves into silence."
-
+        "The sounds around you fade away. You try your best to hold on, thinking desperately of your training, your dreams, the future you imagined -- but it all dissolves into silence.",
+        "Cold seeps into your bones as your strength finally gives out. Even if you don't make it to become a full mediator, you hope you had made a difference anyway.",
+        "The world feels strangely distant now, as if you're watching it from far away. You hope your Clan knows you tried your best, even if your story ends before it truly began.",
+        "Your vision blurs, lights flickering at the edges of your vision. You just wanted more time... more sunrises, more dreams, more chances to help your Clan find peace. The thought lingers as everything else fades.",
+        "As the territory dims around you, a single thought remains: you never got the chance to grow into who you were meant to be. The stars feel so, so far away."
     ],
     "death_queenapp": [
         "Your paws feel unsteady and the world tilts beneath you. This wasn't how it was supposed to end, not before you earned your full name, not before you proved yourself!",
-        "The sounds around you fade away. You try your best to hold on, thinking desperately of your training, your dreams, the future you imagined -- but it all dissolves into silence."
+        "The sounds around you fade away. You try your best to hold on, thinking desperately of your training, your dreams, the future you imagined -- but it all dissolves into silence.",
+        "Cold seeps into your bones as your strength finally gives out. Even if you don't make it to become a full queen, you hope you had made a difference anyway.",
+        "The world feels strangely distant now, as if you're watching it from far away. You hope your Clan knows you tried your best, even if your story ends before it truly began.",
+        "Your vision blurs, lights flickering at the edges of your vision. You just wanted more time... more sunrises, more dreams, more chances to raise kits into warriors. The thought lingers as everything else fades.",
+        "As the territory dims around you, a single thought remains: you never got the chance to grow into who you were meant to be. The stars feel so, so far away."
     ],
     "death_warrior": [
 
@@ -712,9 +726,6 @@
     ],
     "death": [
         "Is this it? You wonder, while slipping slowly into the darkness, if you've made an impact on this world that you wouldn't regret.",
-        "As you fade away, you can't help but think you've still got more to do, more to accomplish...",
-        "You feel the chill of the final dusk seeping into your fur. The edges of your vision blur, the sounds of the territory soften. As the stars in the sky merge into a comforting blanket of light, you can't help but reflect on your life. Have you made a difference?",
-        "An unusual calm washes over you, the sensation of paws barely grazing the earth. The world starts to spin, colors of the territory blending into a watercolor haze. As the darkness edges closer, you find peace in the memories of your life. The lives you've touched, the bonds you've built, the laughter, the love - it feels like an eternity lived in moments. You take one last breath and embrace the everlasting peace.",
-        "The pull of the darkness is gentle, like the ebbing of a slow-moving stream. Your limbs grow heavy and you lay your head down, eyes fixed on the starry sky. A sense of peace washes over you as you take stock of your life, of the bonds you've formed, the lessons you've learned, and the legacy you're leaving behind. With a soft sigh, you let go, and embrace the serenity of the darkness."
+        "As you fade away, you can't help but think you've still got more to do, more to accomplish..."
     ]
 }
