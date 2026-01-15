@@ -652,11 +652,12 @@
         "You and your mates welcome insert_kits into the world."
     ],
     "death_kit": [
-        "As you close your eyes, a comforting warmth envelops you. The noises of the camp fade, replaced by a gentle lullaby carried by the wind. You feel a soft presence cradling you, a familiar purr resonating in your ears. It's as if you're falling into an eternal sleep, surrounded by the love and warmth of your kin.",
+        "As you close your eyes, a comforting warmth envelops you. The noises of the camp fade, replaced by a gentle lullaby carried by the wind. You feel a soft presence cradling you, a familiar purr resonating in your ears as everything fades to black.",
         "Your little heart, filled with so much spirit, begins to slow. Around you, the world is fading... Everything mixes together, purrs, soft whispers, and the familiar scents of your Clan. The gentle grooming of your fur lulls you into a deep sleep, the sound of purrs faint around you.",
         "The world around you quiets down as you close your eyes and your breath slows. You wonder... if maybe, in the afterlife you'd get your warrior name.",
-        "Your eyes, bright with unspoken stories and adventures, brim with tears. You're not ready to leave, there's still so much to do, so much to see.",
-        "Your small body shakes as you struggle to stay awake, to stay alive. You're not ready to say goodbye, not ready to give up on your dreams of becoming a warrior. You struggle against the darkness, but it's too late, and everything goes black."
+        "Your eyes, bright with unspoken stories and adventures, brim with tears. You're not ready to leave, there's still so much to do, so much to see...",
+        "Your small body shakes as you struggle to stay awake, to stay alive. You're not ready to say goodbye, not ready to give up on your dreams. You struggle against the darkness, but it's too late, and everything goes black.",
+        "You don't understand what's happening -- only that you're very, very tired."
     ],
     "death_app": [
         "Your paws feel unsteady and the world tilts beneath you. This wasn't how it was supposed to end, not before you earned your warrior name, not before you proved yourself!",
@@ -694,6 +695,7 @@
 
     ],
     "death_medcat": [
+        "Your thoughts drift to every life you saved, and the ones you couldn't. The memories weight on you heavily, then slip away."
 
     ],
     "death_mediator": [
@@ -716,7 +718,10 @@
 
     ],
     "death_kittypet": [
-
+        "Your strength gives out as you wonder if your housefolk know how hard you tried to stay.",
+        "You hold on as long as you can, knowing how much it will hurt your housefolk to lose you.",
+        "As the world fades away, you wish you could tell your housefolk that you're not afraid, and that you're ready to rest.",
+        "You wonder who will refill your bowl, who will call your name, once you're gone."
     ],
     "death_rogue": [
 
@@ -726,6 +731,9 @@
     ],
     "death": [
         "Is this it? You wonder, while slipping slowly into the darkness, if you've made an impact on this world that you wouldn't regret.",
-        "As you fade away, you can't help but think you've still got more to do, more to accomplish..."
+        "As you fade away, you can't help but think you've still got more to do, more to accomplish...",
+        "So this is it.",
+        "The sounds around you grow distant, as if you're sinking beneath deep water. You stop fighting and let yourself drift.",
+        "You close your eyes, trusting that the path you followed was the right one, even if it led here."
     ]
 }
