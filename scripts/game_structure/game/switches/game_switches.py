@@ -22,6 +22,15 @@ class Switch(StrEnum):
     traceback = auto()
     biome = auto()
     camp_bg = auto()
+
+    # LG
+    current_camp_bg = auto()
+    # this stores the current bg of your cat
+    rogue_group_bg = auto()
+    loner_group_bg = auto()
+    household_bg = auto()
+    no_group_bg = auto()
+
     game_mode = auto()
     favorite_sub_tab = auto()
     root_cat = auto()
@@ -67,7 +76,12 @@ _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
     "error_message": "",
     "traceback": None,
     "biome": "",
+    "current_camp_bg": "",
     "camp_bg": "",
+    "rogue_group_bg": "",
+    "loner_group_bg": "",
+    "household_bg": "",
+    "no_group_bg": "",
     "game_mode": "",
     "favorite_sub_tab": None,
     "root_cat": None,

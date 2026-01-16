@@ -1749,7 +1749,7 @@ class Cat:
 
         game_mode = switch_get_value(Switch.game_mode)
         biome = switch_get_value(Switch.biome)
-        camp = switch_get_value(Switch.camp_bg)
+        camp = switch_get_value(Switch.current_camp_bg)
         try:
             season = game.clan.current_season
         except Exception:
@@ -4063,7 +4063,6 @@ def create_cat(rank, moons=None, biome=None):
             new_cat.pelt.scars.remove(scar)
 
     return new_cat
-
 
 # Twelve example cats
 def create_example_cats():

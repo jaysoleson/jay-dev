@@ -75,6 +75,10 @@ class Clan:
         medicine_cat=None,
         biome="Forest",
         camp_bg=None,
+        rogue_group_bg=None,
+        loner_group_bg=None,
+        household_bg=None,
+        no_group_bg=None,
         symbol=None,
         game_mode="classic",
         starting_members=None,
@@ -122,6 +126,12 @@ class Clan:
         self.biome = biome
         self.override_biome = None
         self.camp_bg = camp_bg
+       
+        self.rogue_group_bg = rogue_group_bg
+        self.loner_group_bg = loner_group_bg
+        self.household_bg = household_bg
+        self.no_group_bg = no_group_bg
+        
         self.chosen_symbol = symbol
         self.game_mode = game_mode
         self.pregnancy_data = {}
@@ -144,7 +154,13 @@ class Clan:
         self.custom_pronouns = {}
 
         switch_set_value(Switch.biome, biome)
+
         switch_set_value(Switch.camp_bg, camp_bg)
+        switch_set_value(Switch.rogue_group_bg, rogue_group_bg)
+        switch_set_value(Switch.loner_group_bg, loner_group_bg)
+        switch_set_value(Switch.household_bg, household_bg)
+        switch_set_value(Switch.no_group_bg, no_group_bg)
+
         switch_set_value(Switch.game_mode, game_mode)
 
         # Reputation is for loners/kittypets/outsiders in general that wish to join the clan.
@@ -324,6 +340,8 @@ class Clan:
             self.generate_outsider_mates()
             self.generate_outsider_families()
 
+        self.populate_your_group()
+
         # # create leader's ceremony
         # self.leader.generate_lead_ceremony()
         # lifegen commented out
@@ -334,10 +352,20 @@ class Clan:
         switch_set_value(Switch.clan_list, read_clans())
 
         # CHECK IF CAMP BG IS SET -fail-safe in case it gets set to None-
+        # LG: it WILL be set to None if the MC is born outside of it
         if switch_get_value(Switch.camp_bg) is None:
             random_camp_options = ["camp1", "camp2"]
             random_camp = choice(random_camp_options)
             switch_set_value(Switch.camp_bg, random_camp)
+        # LG
+        if not switch_get_value(Switch.rogue_group_bg):
+            switch_set_value(Switch.rogue_group_bg, "camp1")
+        if not switch_get_value(Switch.loner_group_bg):
+            switch_set_value(Switch.loner_group_bg, "camp1")
+        if not switch_get_value(Switch.household_bg):
+            switch_set_value(Switch.household_bg, "camp1")
+        if not switch_get_value(Switch.no_group_bg):
+            switch_set_value(Switch.no_group_bg, "camp1")
 
         # if no game mode chosen, set to Classic
         if switch_get_value(Switch.game_mode) == "":
@@ -656,6 +684,44 @@ class Clan:
                         app.inheritance.update_inheritance()
                         Cat.all_cats.get(app.parent2).inheritance.update_inheritance()
 
+    def populate_your_group(self):
+        group_ID = game.clan.your_cat.status.group_ID
+
+        info_dict = {
+            CatGroup.ROGUE_GROUP_ID: {
+                "range": [0, 5],
+                "social": CatSocial.ROGUE,
+                "rank": CatRank.ROGUE
+            },
+            CatGroup.LONER_GROUP_ID: {
+                "range": [0, 5],
+                "social": CatSocial.LONER,
+                "rank": CatRank.LONER
+            },
+            CatGroup.HOUSEHOLD_ID: {
+                "range": [0, 2],
+                "social": CatSocial.KITTYPET,
+                "rank": CatRank.KITTYPET
+            }
+        }
+
+        if group_ID not in info_dict:
+            return
+
+        for i in range(info_dict[group_ID]["range"][0], info_dict[group_ID]["range"][1]):
+            new_cat = create_new_cat(
+                Cat,
+                rank=info_dict[group_ID]["rank"],
+                original_social=info_dict[group_ID]["social"],
+                new_name=False,
+                outside=True,
+                thought="Is wandering around"
+                )[0]
+            new_cat.history.beginning = None
+            # print("Adding", new_cat.name, "to your group!")
+            # print(new_cat.ID)
+            self.add_cat(new_cat)
+            new_cat.status.add_to_group(group_ID)
 
     def add_cat(self, cat):  # cat is a 'Cat' object
         """Adds cat into the list of clan cats"""
@@ -777,7 +843,13 @@ class Clan:
             "displayname": self.displayname,
             "clanage": self.age,
             "biome": self.biome,
+
             "camp_bg": self.camp_bg,
+            "rogue_group_bg": self.rogue_group_bg,
+            "loner_group_bg": self.loner_group_bg,
+            "household_bg": self.household_bg,
+            "no_group_bg": self.no_group_bg,
+
             "clan_symbol": self.chosen_symbol,
             "gamemode": self.game_mode,
             "used_group_IDs": game.used_group_IDs,
@@ -1161,6 +1233,10 @@ class Clan:
             medicine_cat=med_cat,
             biome=clan_data["biome"],
             camp_bg=clan_data["camp_bg"],
+            rogue_group_bg=clan_data["rogue_group_bg"] if "rogue_group_bg" in clan_data else "camp1",
+            loner_group_bg=clan_data["loner_group_bg"] if "loner_group_bg" in clan_data else "camp1",
+            household_bg=clan_data["household_bg"] if "household_bg" in clan_data else "camp1",
+            no_group_bg=clan_data["no_group_bg"] if "no_group_bg" in clan_data else "camp1",
             game_mode=clan_data["gamemode"],
             self_run_init_functions=False,
         )

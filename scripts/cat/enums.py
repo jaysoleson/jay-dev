@@ -71,18 +71,24 @@ class CatRank(StrEnum):
     def is_any_adult_warrior_like_rank(self) -> bool:
         return self in (self.WARRIOR, self.DEPUTY, self.LEADER)
 
-    def is_allowed_to_patrol(self) -> bool:
+    def is_allowed_to_patrol(self, cat) -> bool:
         # newborn is not included in this because the constants.CONFIG["fun"] needs extra checks
-        if self.is_any_clancat_rank() and self not in (
-            self.ELDER,
-            self.KITTEN,
-            self.NEWBORN,
-            self.MEDIATOR,
-            self.MEDIATOR_APPRENTICE,
-            self.QUEEN,
-            self.QUEENS_APPRENTICE
-        ):
-            return True
+        if cat.status.alive_in_your_cat_group:
+            if cat.status.group.is_any_clan_group():
+                if self.is_any_clancat_rank() and self not in (
+                    self.ELDER,
+                    self.KITTEN,
+                    self.NEWBORN,
+                    self.MEDIATOR,
+                    self.MEDIATOR_APPRENTICE,
+                    self.QUEEN,
+                    self.QUEENS_APPRENTICE
+                ):
+                    return True
+            else:
+                if cat.moons >= 6:
+                    return True
+
         return False
 
     def is_active_clan_rank(self):

@@ -186,7 +186,7 @@ class Events:
         Pregnancy_Events.handle_pregnancy_age(game.clan)
         self.check_war()
         if get_clan_setting("freshkill"):
-            if get_clan_setting('freshkill'):
+            if game.clan.your_cat.status.group != CatGroup.HOUSEHOLD:
                 self.add_freshkill()
 
         if (
@@ -196,7 +196,7 @@ class Events:
             # feed the cats and update the nutrient status
             relevant_cats = list(
                 filter(
-                    lambda _cat: _cat.status.alive_in_player_clan,
+                    lambda _cat: _cat.status.alive_in_your_cat_group,
                     Cat.all_cats.values(),
                 )
             )
@@ -265,7 +265,7 @@ class Events:
             for ID in Cat.grief_strings.copy():
                 check_cat = Cat.all_cats.get(ID)
                 if isinstance(check_cat, Cat):
-                    if check_cat.dead or not check_cat.status.alive_in_player_clan:
+                    if check_cat.dead or not check_cat.status.alive_in_your_cat_group:
                         Cat.grief_strings.pop(ID)
 
             # Generate events
@@ -693,6 +693,9 @@ class Events:
                 kit.status.add_to_group(game.clan.your_cat.status.group_ID)
                 kit.status = game.clan.your_cat.status
                 kit.backstory = game.clan.your_cat.backstory
+                if not game.clan.your_cat.status.group.is_any_clan_group():
+                    kit.specsuffix_hidden = True
+                    kit.change_name(new_prefix=kit.name.prefix, new_suffix="")
             return kits
         
         def generate_outsider_parent(group=None, mate=None, dead=False):
@@ -856,9 +859,10 @@ class Events:
                 if birth_type == BirthType.ONE_ADOPTIVE_PARENT:
                     adoptive_parent1 = pick_valid_parent(adoptive=True)
                     adoptive_parents = [adoptive_parent1.ID]
-                    for cat in adoptive_parent1.mate:
-                        adoptive_parents.append(cat)
-                    birth_type = BirthType.TWO_ADOPTIVE_PARENTS
+                    if adoptive_parent1.mate:
+                        for cat in adoptive_parent1.mate:
+                            adoptive_parents.append(cat)
+                        birth_type = BirthType.TWO_ADOPTIVE_PARENTS
                 else:
                     adoptive_parent1 = pick_valid_parent(adoptive=True)
                     adoptive_parent2 = pick_valid_parent(adoptive_parent1, adoptive=True)
@@ -870,7 +874,7 @@ class Events:
                         adoptive_parents = [adoptive_parent1.ID]
 
                 # dead outsider parents
-                # create parent, kill them, assign thought
+                # create parent, assign thought
                 parent1 = generate_outsider_parent(dead=True)
                 parent1.thought = event_text_adjust(
                     Cat,
@@ -948,12 +952,8 @@ class Events:
 
             possible_birth_events = []
 
-            if siblings:
-                possible_birth_events.extend(self.b_txt[f"{birth_value}_siblings"]["gen"])
-                possible_birth_events.extend(self.b_txt[f"{birth_value}_siblings"][key_dict[game.clan.your_cat.status.group]])
-            else:
-                possible_birth_events.extend(self.b_txt[birth_value]["gen"])
-                possible_birth_events.extend(self.b_txt[birth_value][key_dict[game.clan.your_cat.status.group]])
+            possible_birth_events.extend(self.b_txt[birth_value]["gen"])
+            possible_birth_events.extend(self.b_txt[birth_value][key_dict[game.clan.your_cat.status.group]])
 
 
             birth_txt = random.choice(possible_birth_events)
@@ -967,11 +967,12 @@ class Events:
                     ] if adoptive_parents else [None, None],
                 BirthType.TWO_ADOPTIVE_PARENTS: [
                     Cat.fetch_cat(adoptive_parents[0]), Cat.fetch_cat(adoptive_parents[1])
-                    ] if adoptive_parents else [None, None],
+                    ] if adoptive_parents and len(adoptive_parents) > 1 else [None, None],
                 BirthType.ONE_OUTSIDER_PARENT: [parent1, None],
                 BirthType.TWO_OUTSIDER_PARENTS: [parent1, parent2],
                 BirthType.ALONE: [parent1, None]
             }
+            # this sucks
 
             your_parent_1 = parent_dict[birth_type][0]
             your_parent_2 = parent_dict[birth_type][1]
@@ -985,8 +986,25 @@ class Events:
                 other_clan=get_warring_clan() if game.clan.war else None
             )
 
-            sibling_insert = adjust_list_text([str(i.name) for i in siblings])
-            adjusted_birth_txt = adjusted_birth_txt.replace("insert_siblings", sibling_insert)
+            siblings_insert = adjust_list_text([str(i.name) for i in siblings])
+
+            if siblings:
+                if len(siblings) == 1:
+                    insert = "you and your {PRONOUN/m_c/sibling}, " + siblings_insert
+                    cap_insert = "You and your {PRONOUN/m_c/sibling}, " + siblings_insert
+                    insert = event_text_adjust(Cat, text=insert, main_cat=siblings[0])
+                    cap_insert = event_text_adjust(Cat, text=cap_insert, main_cat=siblings[0])
+                else:
+                    insert = f"you, {game.clan.your_cat.name}, and your siblings, {siblings_insert}"
+                    cap_insert = f"You, {game.clan.your_cat.name}, and your siblings, {siblings_insert}"
+            else:
+                insert = f"you, {game.clan.your_cat.name}"
+                cap_insert = f"You, {game.clan.your_cat.name}"
+
+            # adjusted_birth_txt = adjusted_birth_txt.replace("insert_siblings", sibling_insert)
+            adjusted_birth_txt = adjusted_birth_txt.replace("{insert}", insert)
+            adjusted_birth_txt = adjusted_birth_txt.replace("{cap_insert}", cap_insert)
+
             adjusted_birth_txt = adjusted_birth_txt.replace("y_c", str(game.clan.your_cat.name))
 
             if (

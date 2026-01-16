@@ -36,7 +36,9 @@ from scripts.utility import (
     get_cluster,
     pronoun_repl,
     lifegen_text_adjust,
-    shorten_text_to_fit
+    shorten_text_to_fit,
+    get_current_camp,
+    assign_new_bg
     )
 from scripts.game_structure.localization import (
     load_lang_resource
@@ -212,13 +214,12 @@ class TalkScreen(Screens):
     def update_camp_bg(self):
         light_dark = "dark" if game_setting_get("dark mode") else "light"
 
-        camp_bg_base_dir = "resources/images/camp_bg/"
         leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
-        camp_nr = game.clan.camp_bg
+
+        camp_bg_base_dir, camp_nr = get_current_camp()
 
         if camp_nr is None:
-            camp_nr = "camp1"
-            game.clan.camp_bg = camp_nr
+            assign_new_bg("camp1")
 
         available_biome = ["Forest", "Mountainous", "Plains", "Beach"]
         biome = game.clan.biome
@@ -656,7 +657,7 @@ class TalkScreen(Screens):
                 # former clancats only get their own file
                 # so we can write general dialogue about not knowing what a clan is
                 possible_texts.update(load_lang_resource("lifegen_talk/general_outsider.json"))
-                possible_texts.update(load_lang_resource("lifegen_talk/general_outsider.json"))
+                possible_texts.update(load_lang_resource(f"lifegen_talk/{cat.status.rank.replace(' ', '_')}.json"))
             else:
                 possible_texts.update(load_lang_resource(f"lifegen_talk/{cat.status.rank.replace(' ', '_')}.json"))
 
@@ -773,12 +774,17 @@ class TalkScreen(Screens):
                 AGE = YOU["age"]
             else:
                 AGE = []
-            if not self.validate_age(AGE, you,):
+            if not self.validate_age(AGE, you):
                 if talk_key == self.debug_dialogue:
                     print("Skipping debug dialogue", talk_key, ": validate_age(YOU)")
                 if not status_valid:
                     skip = True
                     
+            if not self.validate_group(YOU, you):
+                continue
+                    
+            if not self.validate_group(CAT, cat):
+                continue
 
             if "age" in CAT:
                 AGE = CAT["age"]
@@ -1400,6 +1406,13 @@ class TalkScreen(Screens):
                     return False
         return True
 
+    def validate_group(self, BLOCK, cat):
+        group_block = BLOCK["group"] if "group" in BLOCK else []
+        if not group_block:
+            return True
+        if cat.status.group not in group_block:
+            return False
+        return True
     
     # Filter Helpers
     def validate_status(self, BLOCK, cat, talk_key):

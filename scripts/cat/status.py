@@ -420,13 +420,19 @@ class Status:
     def init_your_cat_status(
             self,
             rank: CatRank,
-            group_ID: str = None,
-            standing: CatStanding = CatStanding.MEMBER
+            group_ID: str = None
     ):
+        # creates you cat's status history.
+        # clear initial player clan history that they generated with
+        self.group_history = []
+        self.standing_history = []
         self._modify_group(
             new_rank=rank,
             new_group_ID=group_ID,
         )
+        if group_ID != CatGroup.PLAYER_CLAN_ID:
+            # if theyre not in the player clan, make them Known to the player clan
+            self.change_standing(CatStanding.KNOWN, CatGroup.PLAYER_CLAN_ID)
 
     def _modify_group(
         self,

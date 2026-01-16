@@ -372,6 +372,18 @@ class ProfileScreen(Screens):
                 self.the_cat.pelt.accessory.clear()
                 self.build_inventory(event)
                 self.update_disabled_buttons_and_text()
+            elif "joinclan" in self.profile_elements and event.ui_element == self.profile_elements["joinclan"]:
+                print(self.the_cat.name, "is joining the Clan!")
+                print(self.the_cat.status.group_history)
+                print(self.the_cat.status.standing_history)
+                print("---")
+                self.the_cat.status.add_to_group(CatGroup.PLAYER_CLAN_ID, self.the_cat.age)
+                print(self.the_cat.status.group_history)
+                print(self.the_cat.status.standing_history)
+                print("---")
+                self.clear_profile()
+                self.build_profile()
+
             elif "talk" in self.profile_elements and event.ui_element == self.profile_elements["talk"]:
                 self.the_cat.talked_to = True
                 self.affect_relationship("talk")
@@ -1040,6 +1052,18 @@ class ProfileScreen(Screens):
                 object_id="@buttonstyles_icon",
             )
             
+        # TEST=
+        self.profile_elements["joinclan"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 35), (160, 30))),
+            "TEST: Join the Clan",
+            get_button_dict(ButtonStyles.SQUOVAL, (160, 30)),
+            object_id="@buttonstyles_squoval",
+            anchors={
+                "centerx": "centerx"
+            }
+        )
+        # ---
+
         # TALK BUTTONS
 
         if self.the_cat.ID != game.clan.your_cat.ID:
@@ -1429,19 +1453,22 @@ class ProfileScreen(Screens):
         if the_cat.dead:
             # LG EDIT
             old_clan_ID = the_cat.status.get_last_living_group()
-            old_clan = game.used_group_IDs[old_clan_ID]
-            # ---
-            if old_clan.is_any_clan_group():
-                if old_clan_ID == CatGroup.PLAYER_CLAN_ID:
-                    name = game.clan.displayname
-                # if they had an old clan that wasn't the player's, find it!
-                elif old_clan_ID:
-                    name = [
-                        c
-                        for c in game.clan.all_other_clans
-                        if c.group_ID == the_cat.status.get_last_living_group()
-                    ][0].name
-                # otherwise they had no clan
+            if old_clan_ID:
+                old_clan = game.used_group_IDs[old_clan_ID]
+                # ---
+                if old_clan.is_any_clan_group():
+                    if old_clan_ID == CatGroup.PLAYER_CLAN_ID:
+                        name = game.clan.displayname
+                    # if they had an old clan that wasn't the player's, find it!
+                    elif old_clan_ID:
+                        name = [
+                            c
+                            for c in game.clan.all_other_clans
+                            if c.group_ID == the_cat.status.get_last_living_group()
+                        ][0].name
+                    # otherwise they had no clan
+                    else:
+                        name = None
                 else:
                     name = None
             else:
