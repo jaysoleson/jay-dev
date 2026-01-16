@@ -1839,6 +1839,9 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
     # Add protection about the "insert" sometimes used
     if m.group(0) == "{insert}":
         return m.group(0)
+    # LG: this is used in mc birth events
+    if m.group(0) == "{cap_insert}":
+        return m.group(0)
 
     inner_details = m.group(1).split("/")
     out = None
