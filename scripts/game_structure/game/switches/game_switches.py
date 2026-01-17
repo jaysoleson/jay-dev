@@ -66,6 +66,9 @@ class Switch(StrEnum):
     talk_category = auto()
     accomplices = auto()
 
+    # the group the MC is attempting to switch to
+    change_group = auto()
+
 
 _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
     "cat": "",
@@ -115,7 +118,8 @@ _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
     "windows_dict": [],
     "customise_new_life": False,
     "talk_category": "talk",
-    "accomplices": []
+    "accomplices": [],
+    "change_group": None
 
 }
 """If you are somehow accessing this from outside game_switches.py, something has gone terribly wrong."""

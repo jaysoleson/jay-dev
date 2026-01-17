@@ -373,14 +373,7 @@ class ProfileScreen(Screens):
                 self.build_inventory(event)
                 self.update_disabled_buttons_and_text()
             elif "joinclan" in self.profile_elements and event.ui_element == self.profile_elements["joinclan"]:
-                print(self.the_cat.name, "is joining the Clan!")
-                print(self.the_cat.status.group_history)
-                print(self.the_cat.status.standing_history)
-                print("---")
-                self.the_cat.status.add_to_group(CatGroup.PLAYER_CLAN_ID, self.the_cat.age)
-                print(self.the_cat.status.group_history)
-                print(self.the_cat.status.standing_history)
-                print("---")
+                switch_set_value(Switch.change_group, CatGroup.PLAYER_CLAN_ID)
                 self.clear_profile()
                 self.build_profile()
 
@@ -1062,6 +1055,9 @@ class ProfileScreen(Screens):
                 "centerx": "centerx"
             }
         )
+        self.profile_elements["joinclan"].enable()
+        if switch_get_value(Switch.change_group):
+            self.profile_elements["joinclan"].disable()
         # ---
 
         # TALK BUTTONS

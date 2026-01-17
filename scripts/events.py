@@ -127,6 +127,7 @@ class Events:
         """
         Handles the moon skipping of the whole Clan.
         """
+        game.cur_events_list = []
         if not game.clan.your_cat:
             print(
                 "Are you playing a normal ClanGen save? Switch to a LifeGen save or create a new cat!")
@@ -134,6 +135,14 @@ class Events:
             game.clan.your_cat = random.choice(Cat.all_cats_list)
             print("Chose " + str(game.clan.your_cat.name))
             # for that moonskip test. ugh
+
+        if switch_get_value(Switch.change_group):
+            new_group_ID = switch_get_value(Switch.change_group)
+
+            game.clan.your_cat.status.add_to_group(new_group_ID, game.clan.your_cat.age)
+            self.change_group_events(new_group_ID)
+
+            switch_set_value(Switch.change_group, None)
 
         if self.checks == [-1,-1,-1] and game.clan.your_cat and game.clan.your_cat.inheritance:
             self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
@@ -147,7 +156,6 @@ class Events:
             self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), 0, None]
             if game.clan.leader:
                 self.checks[3] = game.clan.leader.ID
-        game.cur_events_list = []
         game.herb_events_list = []
         game.freshkill_events_list = []
         game.mediated = []
@@ -3875,33 +3883,52 @@ class Events:
                 # game.health_events_list.append(event)
                 break
     
+    def change_group_events(self, new_group_ID):
+        """
+        LG: Events for when the MC successfully switches groups.
+        """
+        event = "You have joined a new group: " + game.used_group_IDs[new_group_ID]
+        game.cur_events_list.append(
+            Single_Event(event, "alert", [game.clan.your_cat.ID])
+        )
+
     def exile_or_forgive(self, cat):
-        """ a shunned cat becoming exiled, or being forgiven"""
+        """
+        LG: a shunned cat becoming exiled or forgiven
+        """
         involved_cats = []
         involved_cats.append(cat.ID)
 
         if game.clan.your_cat.ID == cat.ID:
-            fate = random.randint(
-                1,
-                int((constants.CONFIG["lifegen"]["shunned_cat"]["exile_chance"][cat.age.replace(' ', '_')]) * 1.75)
-                )
+            fate = int((constants.CONFIG["lifegen"]["shunned_cat"]["exile_chance"][cat.age.replace(' ', '_')]) * 1.75)
         else:
-            fate = random.randint(
-                1,
-                int(constants.CONFIG["lifegen"]["shunned_cat"]["exile_chance"][cat.age.replace(' ', '_')])
-                )
+            fate = int(constants.CONFIG["lifegen"]["shunned_cat"]["exile_chance"][cat.age.replace(' ', '_')])
 
-        cat.status.unshun_from_group()
-        text = event_text_adjust(
-            Cat,
-            text=(
-                "m_c has been unshunned and welcomed back into c_n."
-                if cat.ID != game.clan.your_cat.ID
-                else "You have been unshunned and welcomed back into c_n."
-                ),
-            main_cat=cat,
-            clan=game.clan
-        )
+        if not int(random.random() * fate):
+            cat.status.exile_from_group(cat.status.group_ID)
+            text = event_text_adjust(
+                Cat,
+                text=(
+                    "m_c has been exiled from c_n."
+                    if cat.ID != game.clan.your_cat.ID
+                    else "You have been exiled from c_n."
+                    ),
+                main_cat=cat,
+                clan=game.clan
+            )
+        else:
+            cat.status.unshun_from_group(cat.status.group_ID)
+            text = event_text_adjust(
+                Cat,
+                text=(
+                    "m_c has been unshunned and welcomed back into c_n."
+                    if cat.ID != game.clan.your_cat.ID
+                    else "You have been unshunned and welcomed back into c_n."
+                    ),
+                main_cat=cat,
+                clan=game.clan
+            )
+
 
         game.cur_events_list.insert(0, Single_Event(text, ["alert", "misc"], involved_cats))
 
