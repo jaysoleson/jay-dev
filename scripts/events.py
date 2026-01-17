@@ -187,7 +187,7 @@ class Events:
         self.check_war()
         if get_clan_setting("freshkill"):
             if game.clan.your_cat.status.group != CatGroup.HOUSEHOLD:
-                self.add_freshkill()
+                self.auto_freshkill()
 
         if (
             game.clan.game_mode in ("expanded", "cruel season")
@@ -557,13 +557,20 @@ class Events:
             game.cur_events_list.insert(0, Single_Event((pre_string + string + "!"), "alert"))
         # ---
     
-    def add_freshkill(self):
+    def auto_freshkill(self):
         """Adds amount of freshkill needed for the Clan"""
         # auto freshkill toggle btw
+        # TODO: use this function to update the freshkill pile when
+        # the MC switches groups
         if not game.clan.freshkill_pile:
             game.clan.freshkill_pile = FreshkillPile()
 
-        game.clan.freshkill_pile.add_freshkill(game.clan.freshkill_pile.amount_food_needed())
+        current_amount = game.clan.freshkill_pile.total_amount
+        needed_amount = game.clan.freshkill_pile.amount_food_needed()
+        amount_to_add = 0
+        if current_amount < (needed_amount) * 2:
+            amount_to_add = (needed_amount - current_amount) * 2
+        game.clan.freshkill_pile.add_freshkill(amount_to_add)
 
     def generate_dialogue_focus(self):
         """Handles dialogue focus for each moon, generating conditional focuses for specific events (war, starving) or random chance focuses (valentines, quality of leadership)"""

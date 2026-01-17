@@ -70,6 +70,12 @@ class FreshkillPile:
                 the dictionary of the loaded pile from files
         """
         # the pile could be handled as a list but this makes it more readable
+        # LG moved all this stuff up here
+        self.nutrition_info = {}
+        self.living_cats = []
+        self.already_fed = []
+        self.needed_prey = 0
+        # ---
         if pile:
             self.pile = pile
             total = 0
@@ -77,17 +83,22 @@ class FreshkillPile:
                 total += v
             self.total_amount = total
         else:
+            # edited for LG
+            # non-clans wont start with the base 100,
+            # as a rogue group with three cats doesnt need all that
+            total_num = game.prey_config["start_amount"]
+            if game.clan:
+                if game.clan.your_cat:
+                    if not game.clan.your_cat.status.group.is_any_clan_group():
+                        total_num = (self.amount_food_needed() * 2)
+            # ---
             self.pile = {
-                "expires_in_4": game.prey_config["start_amount"],
+                "expires_in_4": total_num,
                 "expires_in_3": 0,
                 "expires_in_2": 0,
                 "expires_in_1": 0
             }
-            self.total_amount = game.prey_config["start_amount"]
-        self.nutrition_info = {}
-        self.living_cats = []
-        self.already_fed = []
-        self.needed_prey = 0
+            self.total_amount = total_num
 
     def add_freshkill(self, amount) -> None:
         """
