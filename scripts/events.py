@@ -141,6 +141,10 @@ class Events:
 
             game.clan.your_cat.status.add_to_group(new_group_ID, game.clan.your_cat.age)
             self.change_group_events(new_group_ID)
+            # this runs this skip regardless of auto freshkill setting so
+            # the new group will always have food
+            # otherwise, switching from a rogue group to a clan would starve them all
+            self.auto_freshkill()
 
             switch_set_value(Switch.change_group, None)
 
@@ -193,9 +197,6 @@ class Events:
         get_current_season()
         Pregnancy_Events.handle_pregnancy_age(game.clan)
         self.check_war()
-        if get_clan_setting("freshkill"):
-            if game.clan.your_cat.status.group != CatGroup.HOUSEHOLD:
-                self.auto_freshkill()
 
         if (
             game.clan.game_mode in ("expanded", "cruel season")
@@ -576,9 +577,9 @@ class Events:
         current_amount = game.clan.freshkill_pile.total_amount
         needed_amount = game.clan.freshkill_pile.amount_food_needed()
         amount_to_add = 0
-        if current_amount < (needed_amount) * 2:
+        if current_amount < (needed_amount):
             amount_to_add = (needed_amount - current_amount) * 2
-        game.clan.freshkill_pile.add_freshkill(amount_to_add)
+        return amount_to_add
 
     def generate_dialogue_focus(self):
         """Handles dialogue focus for each moon, generating conditional focuses for specific events (war, starving) or random chance focuses (valentines, quality of leadership)"""
@@ -1910,6 +1911,9 @@ class Events:
         game.freshkill_event_list.append(
             i18n.t("hardcoded.prey_catch_count", count=prey_amount)
         )
+        if get_clan_setting("freshkill"):
+            if game.clan.your_cat.status.group != CatGroup.HOUSEHOLD:
+                prey_amount = self.auto_freshkill()
         game.clan.freshkill_pile.add_freshkill(prey_amount)
 
     def handle_focus(self):
