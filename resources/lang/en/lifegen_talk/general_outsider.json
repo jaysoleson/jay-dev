@@ -71,7 +71,8 @@
             "shunned": true,
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "group": ["player_clan", "other_clan"]
         },
         "t_c": {
             "condition": [
@@ -133,6 +134,10 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "group": [
+                "player_clan",
+                "other_clan"
             ]
         },
         "t_c": {
@@ -160,6 +165,10 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "group": [
+                "player_clan",
+                "other_clan"
             ]
         },
         "t_c": {
@@ -221,6 +230,10 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "group": [
+                "player_clan",
+                "other_clan"
             ]
         },
         "t_c": {
@@ -405,6 +418,10 @@
         "y_c": {
             "age": [
                 "not_kitten"
+            ],
+            "group": [
+                "player_clan",
+                "other_clan"
             ]
         },
         "t_c": {
@@ -465,6 +482,10 @@
             ],
             "dead": [
                 "any"
+            ],
+            "group": [
+                "player_clan",
+                "other_clan"
             ]
         },
         "t_c": {
@@ -500,7 +521,12 @@
         ]
     },
     "alive_urourside_c": {
-        "y_c": {},
+        "y_c": {
+            "group": [
+                "player_clan",
+                "other_clan"
+            ]
+        },
         "t_c": {
             "dead": [
                 "ur"
@@ -706,6 +732,10 @@
             ],
             "age": [
                 "kitten"
+            ],
+            "group": [
+                "player_clan",
+                "other_clan"
             ]
         },
         "t_c": {

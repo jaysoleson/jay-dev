@@ -4658,5 +4658,53 @@
             "[t_c sways on {PRONOUN/t_c/poss} paws and t_m gently nudges {PRONOUN/t_c/object} back into {PRONOUN/t_c/poss} nest.]",
             "[Yeah... You're definitely keeping t_c in the medicine den. d_n can take over leading the clan until t_c is better.]"
         ]
+    },
+    "leader_sh_J21": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": true,
+            "status": [
+                "warrior",
+                "deputy",
+                "elder",
+                "apprentice"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": true,
+            "status": [
+                "leader"
+            ]
+        },
+        "intro": [
+            "Do you think I'll get to be leader again one day?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Yes.",
+                "next_scene": "leaderagain_yes"
+            },
+            "choice2": {
+                "text": "No.",
+                "next_scene": "leaderagain_no"
+            }
+        },
+        "leaderagain_yes": [
+            "Aha, I knew you believed in me!",
+            "When I become leader again, you can be my deputy, huh?",
+            "c_n will regret pushing us to the side...",
+            "[t_c has an odd glint in {PRONOUN/t_c/poss} eyes... Maybe you shouldn't be encouraging this.]"
+        ],
+        "leaderagain_no": [
+            "Really? But didn't I do a good job?",
+            "Yeah, I guess that's not really why I got kicked in the first place...",
+            "Whatever. I'll be leader again, you don't have to help me.",
+            "Way to lose your shot at deputy."
+        ]
     }
 }

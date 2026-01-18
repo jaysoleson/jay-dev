@@ -653,23 +653,15 @@ class TalkScreen(Screens):
         elif switch_get_value(Switch.talk_category) == "flirt":
             possible_texts.update(load_lang_resource("lifegen_talk/flirt.json"))
         else:
-            if cat.status.rank in [CatRank.ROGUE, CatRank.LONER, CatRank.KITTYPET]:
-                # former clancats only get their own file
-                # so we can write general dialogue about not knowing what a clan is
+            possible_texts.update(load_lang_resource(f"lifegen_talk/{cat.status.rank.replace(' ', '_')}.json"))
+            if cat.status.is_outsider:
                 possible_texts.update(load_lang_resource("lifegen_talk/general_outsider.json"))
-                possible_texts.update(load_lang_resource(f"lifegen_talk/{cat.status.rank.replace(' ', '_')}.json"))
             else:
-                possible_texts.update(load_lang_resource(f"lifegen_talk/{cat.status.rank.replace(' ', '_')}.json"))
-
                 if cat.status.rank != CatRank.NEWBORN:
                     # newborns will no longer participate in nuanced discussion
 
-                    possible_texts.update(load_lang_resource("lifegen_talk/choice_dialogue.json"))
-    
                     if not cat.status.rank.is_baby() and not you.status.rank.is_baby():
                         possible_texts.update(load_lang_resource("lifegen_talk/general_no_kit.json"))
-                        possible_texts.update(load_lang_resource("lifegen_talk/crush.json"))
-
 
                     if cat.age != CatAge.NEWBORN and you.age != CatAge.NEWBORN:
                         possible_texts.update(load_lang_resource("lifegen_talk/general_no_newborn.json"))
@@ -1410,6 +1402,10 @@ class TalkScreen(Screens):
         group_block = BLOCK["group"] if "group" in BLOCK else []
         if not group_block:
             return True
+        if "clan" in group_block and cat.status.group not in[CatGroup.PLAYER_CLAN, CatGroup.OTHER_CLAN]:
+            return False
+        if "not_clan" in group_block and cat.status.group in [CatGroup.PLAYER_CLAN, CatGroup.OTHER_CLAN]:
+            return False
         if cat.status.group not in group_block:
             return False
         return True
