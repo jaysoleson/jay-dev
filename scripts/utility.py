@@ -3471,7 +3471,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.status != "warrior" or
+        chosen_cat.status.rank != CatRank.WARRIOR or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3480,7 +3480,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.status not in ["kitten", "newborn"] or
+        chosen_cat.age not in [CatAge.KITTEN, CatAge.NEWBORN] or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3489,7 +3489,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.status != "apprentice" or
+        chosen_cat.status.rank != CatRank.APPRENTICE or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3498,7 +3498,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.status not in ["medicine cat", "medicine cat apprentice"] or
+        not chosen_cat.status.rank.is_any_medicine_rank() or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3507,7 +3507,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.status not in ["mediator", "mediator apprentice"] or
+        not chosen_cat.status.rank.is_any_mediator_rank() or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3516,7 +3516,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.status not in ["queen", "queen's apprentice"] or
+        chosen_cat.status.rank not in [CatRank.QUEEN, CatRank.QUEENS_APPRENTICE] or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3525,7 +3525,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.status != "elder" or
+        chosen_cat.status.rank != CatRank.ELDER or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3544,69 +3544,39 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.status != "warrior" or
+        chosen_cat.status.rank != CatRank.WARRIOR or
         not chosen_cat.status.is_shunned() or
         chosen_cat in current_cat_objects
     ) else True
 
     rsh_k = False if (
-        chosen_cat.ID == you.ID or
-        chosen_cat.ID == cat.ID or
-        chosen_cat.dead or
-        chosen_cat.status.is_outsider or
-        chosen_cat.status not in ["kitten", "newborn"] or
-        not chosen_cat.status.is_shunned() or
-        chosen_cat in current_cat_objects
+        not r_k or
+        (r_k and not chosen_cat.status.is_shunned()) 
     ) else True
 
     rsh_a = False if (
-        chosen_cat.ID == you.ID or
-        chosen_cat.ID == cat.ID or
-        chosen_cat.dead or
-        chosen_cat.status.is_outsider or
-        chosen_cat.status != "apprentice" or
-        not chosen_cat.status.is_shunned() or
-        chosen_cat in current_cat_objects
+        not r_a or
+        (r_a and not chosen_cat.status.is_shunned()) 
     ) else True
 
     rsh_m = False if (
-        chosen_cat.ID == you.ID or
-        chosen_cat.ID == cat.ID or
-        chosen_cat.dead or
-        chosen_cat.status.is_outsider or
-        chosen_cat.status not in ["medicine cat", "medicine cat apprentice"] or
-        not chosen_cat.status.is_shunned() or
-        chosen_cat in current_cat_objects
+        not r_m or
+        (r_m and not chosen_cat.status.is_shunned()) 
     ) else True
 
     rsh_d = False if (
-        chosen_cat.ID == you.ID or
-        chosen_cat.ID == cat.ID or
-        chosen_cat.dead or
-        chosen_cat.status.is_outsider or
-        chosen_cat.status not in ["mediator", "mediator apprentice"] or
-        not chosen_cat.status.is_shunned() or
-        chosen_cat in current_cat_objects
+        not r_d or
+        (r_d and not chosen_cat.status.is_shunned()) 
     ) else True
 
     rsh_q = False if (
-        chosen_cat.ID == you.ID or
-        chosen_cat.ID == cat.ID or
-        chosen_cat.dead or
-        chosen_cat.status.is_outsider or
-        chosen_cat.status not in ["queen", "queen's apprentice"] or
-        not chosen_cat.status.is_shunned() or
-        chosen_cat in current_cat_objects
+        not r_q or
+        (r_q and not chosen_cat.status.is_shunned()) 
     ) else True
 
     rsh_e = False if (
-        chosen_cat.ID == you.ID or
-        chosen_cat.ID == cat.ID or
-        chosen_cat.dead or
-        chosen_cat.status.is_outsider or
-        chosen_cat.status != "elder" or
-        not chosen_cat.status.is_shunned() or
-        chosen_cat in current_cat_objects
+        not r_e or
+        (r_e and not chosen_cat.status.is_shunned()) 
     ) else True
 
     # Random sick cat
@@ -3811,7 +3781,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.status != "warrior" or
+        chosen_cat.status.rank != CatRank.WARRIOR or
         chosen_cat in current_cat_objects
     ) else True
     
@@ -3820,7 +3790,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.status != "warrior" or
+        chosen_cat.status.rank != CatRank.WARRIOR or
         chosen_cat in current_cat_objects
     ) else True
     
@@ -3829,7 +3799,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.status != "warrior" or
+        chosen_cat.status.rank != CatRank.WARRIOR or
         chosen_cat in current_cat_objects
     ) else True
     
@@ -3838,7 +3808,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.status.is_outsider or
-        chosen_cat.status != "warrior" or
+        chosen_cat.status.rank != CatRank.WARRIOR or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -4035,8 +4005,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        not chosen_cat.status.is_outsider or
-        chosen_cat.status in ["rogue", "kittypet", "loner", "former Clancat"] or
+        not chosen_cat.status.is_lost() or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -4045,9 +4014,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        not chosen_cat.status.is_outsider or
-        chosen_cat.status == "exiled" or
-        not chosen_cat.status.is_exiled(CatGroup.PLAYER_CLAN) or
+        not chosen_cat.status.is_exiled(game.clan.your_cat.status.group_ID) or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -4094,6 +4061,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         "rsh_w": rsh_w,
         "rsh_a": rsh_a,
         "rsh_m": rsh_m,
+        "rsh_d": rsh_d,
         "rsh_q": rsh_q,
         "rsh_e": rsh_e,
         "n_r1": n_r1,
