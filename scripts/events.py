@@ -1440,17 +1440,47 @@ class Events:
             ceremony_txt = random.choice(self.b_txt['death_kit'])
             game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
         elif game.clan.your_cat.status.rank == CatRank.MEDICINE_APPRENTICE:
-            ceremony_txt = random.choice(self.b_txt['death_medapp'])
+            ceremony_txt = random.choice(self.b_txt['death_medapp'] + self.b_txt['death'])
             game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
         elif game.clan.your_cat.status.rank == CatRank.APPRENTICE:
-            ceremony_txt = random.choice(self.b_txt['death_app'])
+            ceremony_txt = random.choice(self.b_txt['death_app'] + self.b_txt['death'])
             game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
         elif game.clan.your_cat.status.rank == CatRank.MEDIATOR_APPRENTICE:
-            ceremony_txt = random.choice(self.b_txt['death_mediapp'])
+            ceremony_txt = random.choice(self.b_txt['death_mediapp'] + self.b_txt['death'])
+            game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
+        elif game.clan.your_cat.status.rank == CatRank.QUEENS_APPRENTICE:
+            ceremony_txt = random.choice(self.b_txt['death_queenapp'] + self.b_txt['death'])
+            game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
+        elif game.clan.your_cat.status.rank == CatRank.WARRIOR:
+            ceremony_txt = random.choice(self.b_txt['death_warrior'] + self.b_txt['death'])
+            game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
+        elif game.clan.your_cat.status.rank == CatRank.MEDICINE_CAT:
+            ceremony_txt = random.choice(self.b_txt['death_medcat'] + self.b_txt['death'])
+            game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
+        elif game.clan.your_cat.status.rank == CatRank.MEDIATOR:
+            ceremony_txt = random.choice(self.b_txt['death_mediator'] + self.b_txt['death'])
+            game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
+        elif game.clan.your_cat.status.rank == CatRank.QUEEN:
+            ceremony_txt = random.choice(self.b_txt['death_queen'] + self.b_txt['death'])
             game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
         elif game.clan.your_cat.status.rank == CatRank.ELDER:
-            ceremony_txt = random.choice(self.b_txt['death_elder'])
+            ceremony_txt = random.choice(self.b_txt['death_elder'] + self.b_txt['death'])
             game.cur_events_list.insert(1, Single_Event(ceremony_txt, "alert", game.clan.your_cat.ID))
+        elif game.clan.your_cat.status.rank == CatRank.LEADER:
+            ceremony_txt = random.choice(self.b_txt['death_leader'] + self.b_txt['death'])
+            game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
+        elif game.clan.your_cat.status.rank == CatRank.DEPUTY:
+            ceremony_txt = random.choice(self.b_txt['death_deputy'] + self.b_txt['death'])
+            game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
+        elif game.clan.your_cat.status == CatRank.ROGUE:
+            ceremony_txt = random.choice(self.b_txt['death_rogue'] + self.b_txt['death'])
+            game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
+        elif game.clan.your_cat.status == CatRank.KITTYPET:
+            ceremony_txt = random.choice(self.b_txt['death_kittypet'] + self.b_txt['death'])
+            game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
+        elif game.clan.your_cat.status == CatRank.LONER:
+            ceremony_txt = random.choice(self.b_txt['death_loner'] + self.b_txt['death'])
+            game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
         else:
             ceremony_txt = random.choice(self.b_txt['death'])
             game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
