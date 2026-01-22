@@ -748,7 +748,7 @@ class ListScreen(Screens):
         for the_cat in Cat.all_cats_list:
             if (
                 not the_cat.dead
-                and (the_cat.status.is_outsider or the_cat.status.is_other_clancat)
+                and not (the_cat.status.alive_in_player_clan)
                 and the_cat.status.is_near(CatGroup.PLAYER_CLAN_ID)
                 and the_cat.moons >= 0
             ):

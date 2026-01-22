@@ -70,6 +70,12 @@ class FreshkillPile:
                 the dictionary of the loaded pile from files
         """
         # the pile could be handled as a list but this makes it more readable
+        # LG moved all this stuff up here
+        self.nutrition_info = {}
+        self.living_cats = []
+        self.already_fed = []
+        self.needed_prey = 0
+        # ---
         if pile:
             self.pile = pile
             total = 0
@@ -77,17 +83,22 @@ class FreshkillPile:
                 total += v
             self.total_amount = total
         else:
+            # edited for LG
+            # non-clans wont start with the base 100,
+            # as a rogue group with three cats doesnt need all that
+            total_num = game.prey_config["start_amount"]
+            if game.clan:
+                if game.clan.your_cat:
+                    if not game.clan.your_cat.status.group.is_any_clan_group():
+                        total_num = (self.amount_food_needed() * 2)
+            # ---
             self.pile = {
-                "expires_in_4": game.prey_config["start_amount"],
+                "expires_in_4": total_num,
                 "expires_in_3": 0,
                 "expires_in_2": 0,
                 "expires_in_1": 0
             }
-            self.total_amount = game.prey_config["start_amount"]
-        self.nutrition_info = {}
-        self.living_cats = []
-        self.already_fed = []
-        self.needed_prey = 0
+            self.total_amount = total_num
 
     def add_freshkill(self, amount) -> None:
         """
@@ -133,7 +144,7 @@ class FreshkillPile:
         # kits under 3 months are feed by the queen
         for queen_id, their_kits in queen_dict.items():
             queen = Cat.fetch_cat(queen_id)
-            if queen and not queen.status.alive_in_player_clan:
+            if queen and not queen.status.alive_in_your_cat_group:
                 continue
             young_kits = [kit for kit in their_kits if kit.moons < 3]
             if len(young_kits) > 0:
@@ -143,7 +154,7 @@ class FreshkillPile:
             for cat in living_cats
             if "pregnant" in cat.injuries
             and cat.ID not in queen_dict.keys()
-            and cat.status.alive_in_player_clan
+            and cat.status.alive_in_your_cat_group
         ]
 
         # all normal status cats calculation
@@ -151,7 +162,7 @@ class FreshkillPile:
             [
                 PREY_REQUIREMENT[cat.status.rank]
                 for cat in living_cats
-                if not cat.status.rank.is_baby() and cat.status.alive_in_player_clan
+                if not cat.status.rank.is_baby() and cat.status.alive_in_your_cat_group
             ]
         )
         # increase the number for sick cats
@@ -171,7 +182,7 @@ class FreshkillPile:
             [
                 PREY_REQUIREMENT[cat.status.rank]
                 for cat in living_kits
-                if cat.status.alive_in_player_clan
+                if cat.status.alive_in_your_cat_group
             ]
         )
 
@@ -239,7 +250,7 @@ class FreshkillPile:
         :return int|float needed_prey: The amount of prey the Clan needs
         """
         living_cats = [
-            cat for cat in Cat.all_cats.values() if cat.status.alive_in_player_clan
+            cat for cat in Cat.all_cats.values() if cat.status.alive_in_your_cat_group
         ]
         self._update_needed_food(living_cats)
         return self.needed_prey

@@ -121,11 +121,11 @@ class PatrolScreen(Screens):
             self.selected_cat = None
             self.current_patrol.clear()
             self.elements['cat_icon'].disable()
-            if game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.joined_df and not game.clan.your_cat.not_working():
+            if game.clan.your_cat.status.alive_in_your_cat_group and game.clan.your_cat.joined_df and not game.clan.your_cat.not_working():
                 self.elements['df_icon'].enable()
             else:
                 self.elements['df_icon'].disable()
-            if game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
+            if game.clan.your_cat.status.alive_in_your_cat_group and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
                 self.elements['date_icon'].enable()
             else:
                 self.elements['date_icon'].disable()
@@ -140,7 +140,7 @@ class PatrolScreen(Screens):
             self.current_patrol.clear()
             self.elements['cat_icon'].enable()
             self.elements['df_icon'].disable()
-            if game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
+            if game.clan.your_cat.status.alive_in_your_cat_group and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
                 self.elements['date_icon'].enable()
             else:
                 self.elements['date_icon'].disable()
@@ -1138,8 +1138,8 @@ class PatrolScreen(Screens):
                 if (
                     the_cat.in_camp
                     and the_cat.ID not in game.patrolled
-                    and the_cat.status.rank.is_allowed_to_patrol()
-                    and the_cat.status.alive_in_player_clan
+                    and the_cat.status.rank.is_allowed_to_patrol(the_cat)
+                    and the_cat.status.alive_in_your_cat_group
                     and the_cat not in self.current_patrol
                     and not the_cat.not_working()
                 ):
@@ -1155,7 +1155,7 @@ class PatrolScreen(Screens):
         elif switch_get_value(Switch.patrol_category) == "lifegen":
             the_cat = game.clan.your_cat
             if (
-                (the_cat.status.alive_in_player_clan or
+                (the_cat.status.alive_in_your_cat_group or
                 (the_cat.status.is_outsider and the_cat.dead)) and
                 the_cat.moons >= 1 and
                 the_cat not in self.current_patrol and
@@ -1168,7 +1168,7 @@ class PatrolScreen(Screens):
         elif switch_get_value(Switch.patrol_category) == "date":
             you = game.clan.your_cat
             if (
-                you.status.alive_in_player_clan and
+                you.status.alive_in_your_cat_group and
                 "4" not in switch_get_value(Switch.patrolled) and
                 not you.not_working() and
                 you.moons >= 14
@@ -1178,7 +1178,7 @@ class PatrolScreen(Screens):
                 for the_cat in Cat.all_cats_list:
                     if (
                         the_cat.in_camp and
-                        the_cat.status.alive_in_player_clan and
+                        the_cat.status.alive_in_your_cat_group and
                         the_cat.ID not in game.dated_cats and
                         the_cat not in self.current_patrol and
                         not the_cat.not_working() and
@@ -1188,7 +1188,7 @@ class PatrolScreen(Screens):
         else: # DF patrol
             the_cat = game.clan.your_cat
             if (
-                the_cat.status.alive_in_player_clan and
+                the_cat.status.alive_in_your_cat_group and
                 not the_cat.not_working()
                 ):
                 if "3" not in switch_get_value(Switch.patrolled):
@@ -1197,7 +1197,7 @@ class PatrolScreen(Screens):
                     for c in Cat.all_cats_list:
                         if (
                             c.moons >= 6 and
-                            c.status.alive_in_player_clan and
+                            c.status.alive_in_your_cat_group and
                             c.in_camp and
                             c.ID != the_cat.ID and
                             c.ID not in game.patrolled and

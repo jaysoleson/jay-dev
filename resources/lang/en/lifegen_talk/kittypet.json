@@ -756,5 +756,42 @@
         "intro": [
             "I miss napping in the sun. I guess I just miss being alive in general."
         ]
+    },
+    "gen_alivekittypet_J1": {
+        "y_c": {
+            "age": ["newborn"],
+            "group": ["household"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "group": ["household"],
+            "cluster": ["assertive", "unlawful", "cool", "stable"],
+            "age": ["not_kitten", "not_adolescent"]
+        },
+        "intro": [
+            "I can't wait until you're big and strong, y_c. I'll show you all of the best places around the house.",
+            "I'll show you the rooms with the comfiest chairs, and which windows have the best views of all the birds outside.",
+            "I can even show you where the housefolk keep their food! But we have to be extra sneaky about taking it, okay?",
+            "Ah, you're so stinkin' cute they'll probably just let you have some!",
+            "What a blessing you are, little y_c."
+        ]
+    },
+    "gen_alivekittypet_J2": {
+        "y_c": {
+            "group": ["household"],
+            "age": ["kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "group": ["household"],
+            "cluster": ["brooding", "cool", "unlawful"],
+            "age": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "intro": [
+            "Hey!",
+            "Do you really have to be playing with my tail? This place is full of toys for you to choose from.",
+            "[You bat once more at t_c's tail and {PRONOUN/t_c/subject} {VERB/t_c/swipe/swipes} at you. You race away, giggling.]"
+        ]
     }
 }

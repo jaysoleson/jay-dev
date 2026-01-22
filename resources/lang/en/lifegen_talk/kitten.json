@@ -17048,5 +17048,947 @@
         "intro": [
             "Can sadness spread like a disease? I don't wanna be sad!"
         ]
+    },
+    "upstanding_kit10": {
+        "y_c": {},
+        "t_c": {
+            "cluster": [
+                "upstanding"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[t_c is sitting outside the nursery, {PRONOUN/t_c/poss} expression shifting between a look of awe and determination as {PRONOUN/t_c/subject} {VERB/t_c/watch/watches} l_n move about the camp.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Ask why]",
+                "next_scene": "ask_why"
+            },
+            "choice2": {
+                "text": "[Leave {PRONOUN/t_c/object} alone]",
+                "next_scene": "leave_them_alone"
+            }
+        },
+        "ask_why": [
+            "[You ask the kit why {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} so fascinated with l_n.]",
+            "Oh ... Well, I wanna be just like {PRONOUN/l_n/object} someday!",
+            "Smart ... Powerful ... The boss of everycat ....",
+            "[Yeesh. Kit's already plotting to take over the Clan!]"
+        ],
+        "leave_them_alone": [
+            "[You decide to leave the young cat to {PRONOUN/t_c/poss} own devices.]"
+        ]
+    },
+    "assertivekit_1": {
+        "y_c": {
+            "age": [
+                "not_kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive",
+                "unabashed",
+                "silly",
+                "upstanding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "y_c! y_c! Gimme a badger ride, c'mon, pleeease?",
+            "r_q is too busy! I need you to play with me!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Accept]",
+                "next_scene": "accept"
+            },
+            "choice2": {
+                "text": "[Decline]",
+                "next_scene": "decline"
+            }
+        },
+        "accept": [
+            "You will? YAYAYAYAYAY!!!",
+            "[Before you even get a chance to prepare, t_c tackles you from behind, squealing with delight as {PRONOUN/t_c/subject} {VERB/t_c/clamber/clambers} onto your shoulders.]"
+        ],
+        "decline": [
+            "What? You don't want to?!",
+            "Hmph! Meanie! I'll go find someone else to play with, then!",
+            "[t_c sticks {PRONOUN/t_c/poss} tongue out at you for good measure before bounding off to go bother plike-r_w for a ride.]",
+            "[For such a small cat, {PRONOUN/t_c/subject} {VERB/t_c/are/is} certainly not lacking in attitude.]"
+        ]
+    },
+    "assertivekit_7": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive",
+                "unlawful",
+                "cool"
+            ],
+            "age": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "Hmph. When are they gonna let us out of this stuffy old nursery?",
+            "I want to explore! And I just know, if they let us battle, I could be the best warrior this Clan has ever seen!!! I could probably take down two or three o_c_n cats, all by myself.",
+            "Hey ... maybe we could sneak out!",
+            "Yeah, I know it's against the rules! What are you, a scaredy-cat?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Let's do it!",
+                "next_scene": "lets_do_it"
+            },
+            "choice2": {
+                "text": "I don't know ...",
+                "next_scene": "i_dont_know"
+            }
+        },
+        "lets_do_it": [
+            "Hehehe, alright! I knew you weren't really a scaredy-cat!",
+            "[You and t_c devise an epic plan for how you're going to escape the nursery.]",
+            "[You spin tales of the amazing adventures you two will go on, the sights you'll see, the enemies you'll defeat.]",
+            "[It's incredible! ... Or, it would be, if r_q didn't overhear the entire thing.]",
+            "[You earn a scolding from the queen, but it was worth it to use your imagination with t_c for a little while.]"
+        ],
+        "i_dont_know": [
+            "Hmph. I should've known you'd be a chickenheart.",
+            "How are you ever gonna be a brave warrior if you can't even do this with me?"
+        ],
+        "i_dont_know_choices": {
+            "choice21": {
+                "text": "Well ... Okay.",
+                "next_scene": "lets_do_it"
+            },
+            "choice22": {
+                "text": "Maybe I don't wanna be a warrior!",
+                "next_scene": "dont_wanna_be_warrior"
+            }
+        },
+        "dont_wanna_be_warrior": [
+            "Don't wanna be a warrior? Like ... You wanna be a meddy cat, or something?",
+            "Why in StarClan's name would you want that?! Do you just wanna be trapped inside of camp forever?",
+            "Fine, then. I'll go find someone else to help me, if that's how you feel!",
+            "[t_c scampers off. {PRONOUN/t_c/subject/CAP} probably won't try to involve you in any more of {PRONOUN/t_c/poss} schemes any time soon.]"
+        ]
+    },
+    "assertivekit_9": {
+        "y_c": {
+            "status": [
+                "any"
+            ],
+            "age": [
+                "older"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "Hey, y_c! Wanna hear about all the things I like?",
+            "I like fresh-kill and leaves and puddles and rain and rainclouds and normal clouds and my friends and c_n and fighting and playing and sleeping and ...",
+            "[Oh, StarClan, t_c is going on forever, and you really have some stuff you need to get to today.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Stay and listen]",
+                "next_scene": "stay_and_listen"
+            },
+            "choice2": {
+                "text": "[Walk away]",
+                "next_scene": "walk_away"
+            }
+        },
+        "stay_and_listen": [
+            "[You plaster on a brave smile as t_c continues on {PRONOUN/t_c/poss} tirade.]",
+            "Plus, I like fishes, even though r_k thinks fishes are yucky, and I like snowflakes, and clouds, and flowers, and -- OOH, you wanna know what I REALLY like?"
+        ],
+        "stay_and_listen_choices": {
+            "choice11": {
+                "text": "What?",
+                "next_scene": "what"
+            }
+        },
+        "what": [
+            "You, silly!",
+            "[t_c headbutts your leg with a sweet purr.]",
+            "I'm just having so much fun talking to you!"
+        ],
+        "walk_away": [
+            "Wait, where are you going? I wasn't finished yet!",
+            "y_c! Come back!!!",
+            "Awh ...",
+            "[You end up getting your task done, but out of the corner of your eye, you can see little t_c slinking back into the nursery, tail drooping.]"
+        ]
+    },
+    "assertivekit_13": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "any"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive"
+            ],
+            "age": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_like_50"
+        ],
+        "intro": [
+            "y_c, we're always gonna be best friends, aren't we?",
+            "Promise me that, no matter what happens, we'll stay friends forever and ever and ever and ever and ever until the end of time!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I promise!",
+                "next_scene": "i_promise"
+            },
+            "choice2": {
+                "text": "Forever sounds like a long time ...",
+                "next_scene": "forever_sounds_long"
+            }
+        },
+        "i_promise": [
+            "Heehee! I knew it! Nothing's ever gonna tear us apart!",
+            "And if anything ever does, I'll drive it away with my killer battle moves! Rawr!",
+            "[t_c pounces on you, and the two of you play fight, breathless and giggling.]"
+        ],
+        "forever_sounds_long": [
+            "W-What? Well, yeah, I know it is, but ...",
+            "That's how long I want us to stay together!",
+            "Do you not think we can stay friends that long?",
+            "Hm ...",
+            "[t_c tucks {PRONOUN/t_c/poss} tail over {PRONOUN/t_c/poss} paws and stares apprehensively.]"
+        ]
+    },
+    "assertivekit_10": {
+        "y_c": {
+            "age": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive",
+                "unlawful"
+            ],
+            "condition": [
+                "blind:any:false",
+                "hearing"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "I dare you to go up to r_c and call {PRONOUN/r_c/object} a huge stinky dung-face!",
+            "You don't want to? Too bad! I already dared it!",
+            "And if you don't, I'll tell everycat in the nursery that you're the huge stinky dung-face!",
+            "The choice is yours ... Hehehe!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Okay ...",
+                "next_scene": "okay"
+            },
+            "choice2": {
+                "text": "No way!",
+                "next_scene": "no_way"
+            }
+        },
+        "okay": [
+            "[You find r_c and repeat the words to {PRONOUN/r_c/object}, somewhat half-heartedly.]",
+            "[{PRONOUN/r_c/subject/CAP} {VERB/r_c/seem/seems} confused, like you genuinely hurt {PRONOUN/r_c/poss} feelings ...]",
+            "[ ... But, when you report back to t_c, {PRONOUN/t_c/subject} {VERB/t_c/are/is} downright thrilled.]",
+            "Hehehe, alright, y_c!",
+            "I wonder what else I can get you to do ..."
+        ],
+        "no_way": [
+            "Okay! If that's what you choose, stinky dung-face! Ahahahhaa!",
+            "[There's no way {PRONOUN/t_c/subject} {VERB/t_c/call/calls} you that forever ... right?]",
+            "Stinky dung-face! Stinky dung-face! Hehehehe!"
+        ]
+    },
+    "assertivekit_14": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "any"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_trust_50",
+            "min_comfort_50",
+            "min_like_20"
+        ],
+        "intro": [
+            "y_c, do you ever get scared?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Yes",
+                "next_scene": "yes"
+            },
+            "choice2": {
+                "text": "No",
+                "next_scene": "no"
+            }
+        },
+        "yes": [
+            "Hmph. Don't you worry! You don't have to be scared when I'm around!",
+            "As soon as I'm big enough, I'm gonna get really strong and chase all the bad guys away!",
+            "I can be brave. I can keep you safe!"
+        ],
+        "no": [
+            "Really? Like, not ever? Not even once?",
+            "Not even during a loud thunderstorm, or when you're found out for doing something naughty?",
+            "Wow ... You must be really brave, y_c.",
+            "I wanna be just like that one day!"
+        ]
+    },
+    "assertivekit_17": {
+        "y_c": {
+            "age": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive",
+                "unlawful",
+                "cool",
+                "upstanding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_like_20"
+        ],
+        "intro": [
+            "What do you think our warrior names are gonna be?",
+            "I hope my name ends in '-claw'!!! That's a super tough name, isn't it?",
+            "A name to strike fear into the hearts of all my enemies! Rrraahhh!",
+            "What do you want your name to end in?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "-flame",
+                "next_scene": "flame"
+            },
+            "choice2": {
+                "text": "-claw",
+                "next_scene": "claw"
+            },
+            "choice3": {
+                "text": "-flower",
+                "next_scene": "flower"
+            }
+        },
+        "flame": [
+            "-flame? Hey, that's a pretty good one! I forgot about that one!",
+            "Is it too late for me to change my answer?"
+        ],
+        "claw": [
+            "Hey, you just copied me!",
+            "It could be kind of cool, though. Us, having matching names! Could you imagine?",
+            "We could be, like, a super-scary battling duo! Rawrr!"
+        ],
+        "flower": [
+            "-flower? Who do you think you're gonna be scaring off with a name like that?",
+            "Maybe someone with allergies?"
+        ]
+    },
+    "assertivekit_24": {
+        "y_c": {
+            "age": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "adopted_sibling",
+            "sibling",
+            "min_like_20"
+        ],
+        "intro": [
+            "y_c, family means forever, right? We're always gonna be together?",
+            "We're not gonna turn out like those siblings that fight all the time and stop liking each other, are we?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Of course not!",
+                "next_scene": "of_course_not"
+            },
+            "choice2": {
+                "text": "Well, anything is possible.",
+                "next_scene": "anything_possible"
+            }
+        },
+        "of_course_not": [
+            "Heh. Of course not. It was silly of me to even ask.",
+            "Why would I ever stop liking you?"
+        ],
+        "anything_possible": [
+            "W-What? You don't really mean that, do you?",
+            "What would ever happen to make me stop liking you?"
+        ]
+    },
+    "assertive_kit31": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive",
+                "unlawful",
+                "silly",
+                "upstanding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "from_your_kit",
+            "from_adopted_kit",
+            "min_like_20"
+        ],
+        "intro": [
+            "y_c, t_l won't play with me! Will you go tell {PRONOUN/t_l/object} that {PRONOUN/t_l/subject} {VERB/t_l/have/has} to?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Yes",
+                "next_scene": "yes"
+            },
+            "choice2": {
+                "text": "No",
+                "next_scene": "no"
+            },
+            "choice3": {
+                "text": "Why won't {PRONOUN/t_l/subject} play with you?",
+                "next_scene": "why_wont_they_play"
+            }
+        },
+        "yes": [
+            "[You chide t_l for excluding t_c and tell {PRONOUN/t_l/object} that {PRONOUN/t_l/subject} {VERB/t_l/have/has} to let {PRONOUN/t_l/poss} {PRONOUN/t_c/sibling} participate in the game.]",
+            "Ha! Take that! Now, you can't get mad at me for cheating anymore!",
+            "And you're never getting that moss-ball back, either!",
+            "[Yeesh ... Seems like t_c was actually the bully all along!]",
+            "[Maybe you were wrong to jump to conclusions. You'll really need to have a talk with {PRONOUN/t_c/object} about how to be a good playmate.]"
+        ],
+        "no": [
+            "What? You won't? But that's not fairrrr!",
+            "[t_c stalks across the nursery to go have a pout.]",
+            "[But, as soon as r_q suggests a game of moss-ball, {PRONOUN/t_c/poss} troubles are suddenly forgotten.]"
+        ],
+        "why_wont_they_play": [
+            "Hmph. Because {PRONOUN/t_l/subject}{VERB/t_l/'re/'s} a big baby, is why!",
+            "All I did was hide {PRONOUN/t_l/poss} moss-ball, and now {PRONOUN/t_l/subject} {VERB/t_l/think/thinks} I'm a cheater and {VERB/t_l/refuse/refuses} to play!",
+            "[Yeesh ... Seems like t_c was actually the bully all along!]",
+            "[You scold {PRONOUN/t_c/object} for {PRONOUN/t_c/poss} actions and demand that {PRONOUN/t_c/subject} return the moss-ball to t_l.]",
+            "What? But that's not fairrrr!",
+            "[t_c stalks across the nursery to go have a pout.]",
+            "[But, later, you see {PRONOUN/t_c/object} shyly return the moss-ball to {PRONOUN/t_c/poss} {PRONOUN/t_l/sibling} with a timid apology.]",
+            "[By the end of the day, the two siblings are playing together like normal again.]"
+        ]
+    },
+    "neurotic_kit_1": {
+        "y_c": {},
+        "t_c": {
+            "cluster": [
+                "neurotic"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_like_20"
+        ],
+        "intro": [
+            "Hey... y_c? W- What if l_n doesn't make me a warrior because I'm too much of a fraidy cat, like r_c said?",
+            "[t_c starts to tear up, trembling in place.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "{PRONOUN/l_n/subject/CAP} really said that to you?!",
+                "next_scene": "comfort"
+            },
+            "choice2": {
+                "text": "Of course you'll get to be a warrior!",
+                "next_scene": "confident_reassurance"
+            },
+            "choice3": {
+                "text": "Maybe it'd help if you were braver.",
+                "next_scene": "criticize"
+            }
+        },
+        "comfort": [
+            "Well ... Maybe it's not exactly what {PRONOUN/l_n/subject} said, but I know that {PRONOUN/l_n/subject} meant it!",
+            "... When {PRONOUN/l_n/subject} visited the nursery earlier to check up on all the kittens, I overheard {PRONOUN/l_n/subject} tell r_q that I might need a little 'extra help' ...",
+            "All because I was too scared to go up and say hi to {PRONOUN/l_n/object}, like the other kits.",
+            "I didn't wanna get in trouble. l_n is the boss of the entire Clan! One wrong word, and {PRONOUN/l_n/subject} {VERB/l_n/have/has} the power to kick you out for good.",
+            "Oh ... I don't know how I'm supposed to become a warrior at this rate. What if I mess everything up?",
+            "I don't know how the other kits find all of this so easy ...",
+            "Even the thought of becoming an apprentice makes me feel all dizzy!",
+            "Maybe I can just stay a kit forever ..."
+        ],
+        "confident_reassurance": [
+            "You really think so?",
+            "Oh ... But what if I don't even wanna be a warrior? What if I mess everything up?",
+            "I don't know how the other kits find all of this so easy ...",
+            "Even the thought of becoming an apprentice makes me feel all dizzy!",
+            "Maybe I can just stay a kit forever ..."
+        ],
+        "criticize": [
+            "Eep! Do you really think so?",
+            "[t_c starts to sob.]",
+            "I'm never gonna become a warrior at this rate!"
+        ]
+    },
+    "upstanding_choice3": {
+        "y_c": {
+            "status": [
+                "apprentice",
+                "medicine cat apprentice",
+                "mediator apprentice",
+                "queen's apprentice"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "upstanding"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[You're dragging a large pile of moss across the camp, intent on delivering it to the medicine den. t_c spots you in the middle of your task and perks up, racing over.]",
+            "y_c! y_c! Need a helping paw? I'm super good at carrying moss, I swear!",
+            "[t_c stares up at you with wide eyes, eagerly awaiting your response.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Send t_c back to the nursery.]",
+                "next_scene": "away"
+            },
+            "choice2": {
+                "text": "[Accept t_c's offer.]",
+                "next_scene": "accept"
+            }
+        },
+        "away": [
+            "[You shrug t_c off and tell {PRONOUN/t_c/object} to go back to the nursery. t_c looks hurt but doesn't protest as {PRONOUN/t_c/subject} slowly {VERB/t_c/pad/pads} away with {PRONOUN/t_c/poss} head hung low.]"
+        ],
+        "accept": [
+            "[You graciously accept t_c's offer and slide {PRONOUN/t_c/object} a portion of your moss. With {PRONOUN/t_c/poss} head held high and an extra spring in {PRONOUN/t_c/poss} step, the two of you successfully deliver the moss to the medicine den.]"
+        ]
+    },
+    "upstanding_choice5": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "upstanding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "Ughhh, when can I get out of this boring old camp already? I want to go out and catch all of the mouses and defend our territory from stinky o_c_n cats!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "It's 'mice'.",
+                "next_scene": "mice"
+            },
+            "choice2": {
+                "text": "Are you ready for apprenticeship?",
+                "next_scene": "you_apprentice"
+            }
+        },
+        "mice": [
+            "Ohhhh, okay!",
+            "Mices!"
+        ],
+        "you_apprentice": [
+            "You bet!! I'm gonna be the best apprentice in the entire Clan; just you wait!"
+        ]
+    },
+    "kitten_sh_J20": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": true
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "y_c! r_c told me you did something bad, and that's why no one wants to be your friend.",
+            "Did you? Did you do something bad?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Yes.",
+                "next_scene": "somethingbad_yes"
+            },
+            "choice2": {
+                "text": "No.",
+                "next_scene": "somethingbad_no"
+            }
+        },
+        "somethingbad_yes": [
+            "O- oh... what was it?",
+            "Actually, n-no, don't tell me... I'll just ask t_p.",
+            "[t_c turns to run for the nursery.]"
+        ],
+        "somethingbad_no": [
+            "Oh! I knew it! I knew you'd never do something bad, y_c!",
+            "Well, if no one wants to be your friend, I'll be your friend! Want to play some moss-ball?",
+            "[You tell {PRONOUN/t_c/object} that the queens probably wouldn't want that, since they don't like you.]",
+            "[But you offer to come back and play while they're asleep.]",
+            "Oh, okay! Yes, let's play tonight! I won't tell anyone, promise.",
+            "See you tonight!"
+        ]
+    },
+    "brooding_bullyAJ": {
+        "y_c": {
+            "age": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive",
+                "unlawful",
+                "brooding"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "What's the matter, y_c? Missing something?",
+            "[t_c holds your favorite moss-ball high above your head.]",
+            "What are you gonna do about it? Come take it from me?",
+            "Hahahaha!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Attack t_c.]",
+                "next_scene": "attack"
+            },
+            "choice2": {
+                "text": "[Tattle on t_c.]",
+                "next_scene": "tattle"
+            },
+            "choice3": {
+                "text": "[Leave t_c alone.]",
+                "next_scene": "leave"
+            }
+        },
+        "attack": [
+            "[You gather up your little haunches and spring at t_c, knocking {PRONOUN/t_c/object} off {PRONOUN/t_c/poss} paws and sending your moss-ball flying.]",
+            "[The two of you spend a few moments tussling in a whirl of fur, claws, and shrieks before a horrified r_q separates you.]",
+            "|r_q|y_c! That wasn't very nice! You owe t_c an apology."
+        ],
+        "attack_choices": {
+            "choice1": {
+                "text": "[Apologize]",
+                "next_scene": "apologize"
+            },
+            "choice2": {
+                "text": "[No regrets]",
+                "next_scene": "regrets"
+            }
+        },
+        "apologize": [
+            "[The shame of the battle courses hot through your veins. You can't meet t_c in the eye as you mumble out an apology.]",
+            "[t_c sniffs and flicks {PRONOUN/t_c/poss} tail, smug as anything.]",
+            "Yeah ... That's what I thought, y_c. Hehehe."
+        ],
+        "regrets": [
+            "[The queens always taught you that violence isn't the answer ... But with the thrill of the battle coursing hot through your veins, it's hard to come to terms with the fact that what you did might've been wrong.]",
+            "[You stick your tongue out at t_c and insist that you would do it again in a heartbeat.]",
+            "[The queens put you in timeout and your moss-ball is thrown away, but when you see the glint of fear in t_c's eye, all of it is made worth it.]",
+            "[Seems {PRONOUN/t_c/subject} won't be messing with you anymore!]"
+        ],
+        "tattle": [
+            "[You tug on r_q's tail and insist that t_c be punished for stealing your moss-ball from you.]",
+            "|r_q|t_c, it's not okay to steal. Here's your moss-ball back, y_c.",
+            "[t_c's attention stays fixed squarely on you, gaze steely and resentful.]",
+            "Some warrior you are. Can't even fight your own battles ...",
+            "[It seems this is a moment t_c won't soon forget.]",
+            "[Better watch your moss-ball twice as carefully from now on!]"
+        ],
+        "leave": [
+            "[You refuse to put up with t_c's stupid games. You spin around and walk back to your nest with your nose held high, unbothered.]",
+            "[t_c plays with your moss-ball for a little while, but quickly abandons it, bored by your lack of a reaction.]",
+            "[Seems {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} learned you're not a fun target.]"
+        ]
+    },
+    "brooding_shredAJ": {
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "unlawful",
+                "brooding"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[t_c is tearing all the moss in r_q's nest to shreds.]",
+            "[Should ... Should you try and stop {PRONOUN/t_c/object}?]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Intervene.]",
+                "next_scene": "intervene"
+            },
+            "choice2": {
+                "text": "[Let {PRONOUN/t_c/object} be.]",
+                "next_scene": "leave"
+            }
+        },
+        "intervene": [
+            "[You quickly pull t_c away from the nest, expecting {PRONOUN/t_c/object} to run off and find something else to do.]",
+            "[But, to your surprise, without missing a beat, {PRONOUN/t_c/subject} {VERB/t_c/sink/sinks} {PRONOUN/t_c/poss} little claws into your leg instead!]",
+            "Lemme go! Get your paws off me!",
+            "[As you pull {PRONOUN/t_c/object} off, a tuft of your fur goes with {PRONOUN/t_c/object}, like unhooking a little burr.]",
+            "Hahaha! I got you good!",
+            "[You sit t_c down and force {PRONOUN/t_c/object} to explain to you what happened. {PRONOUN/t_c/subject/CAP} {VERB/t_c/whine/whines} and {VERB/t_c/pout/pouts}.]",
+            "Ugh ... It just isn't fair! I was just trying to get back at r_q, is all!",
+            "['Get back at {PRONOUN/r_q/object} for what?']",
+            "For being a giant dung-faced mouse-brain, that's what.",
+            "... And for taking away my favorite toy.",
+            "Sure, I was hitting r_k with it, but still!",
+            "... I just can't stand getting bossed around all the time.",
+            "I can't wait until I'm big, like you are, y_c. Then, no one will be able to stop me from doing whatever I want.",
+            "[You consider telling the kit about Clan politics and responsibilities, but decide to spare {PRONOUN/t_c/object} the lecture, lest you lose another tuft of fur.]",
+            "[It's no doubt, the kit is trouble ... But, there's no denying {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} got a warrior's spirit.]",
+            "[{PRONOUN/t_c/subject/CAP}'ll be sure to make an interesting Clanmate one day.]"
+        ],
+        "leave": [
+            "[You decide to leave t_c to {PRONOUN/t_c/poss} own devices, the sounds of ripping moss and faint giggling following you out of the nursery.]",
+            "[Later, you see {PRONOUN/t_c/object} pouting in timeout, no doubt plotting {PRONOUN/t_c/poss} next scheme to get back at r_q for {PRONOUN/t_c/poss} punishment.]"
+        ]
+    },
+    "clouds_kitten_H1": {
+        "y_c": {
+            "age": [
+                "older"
+            ],
+            "status": [
+                "any"
+            ],
+            "backstory": [
+                "formerlyakittypet"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "kitten"
+            ]
+        },
+        "biome": [
+            "mountainous",
+            "plains"
+        ],
+        "relationship": [
+            "min_like_20"
+        ],
+        "intro": [
+            "I saw white, fluffy things today!! It looked like walking clouds.",
+            "A Twoleg was guiding them through the fields, maybe a bit too close but the clouds didn't seem to mind like we do!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "That's dangerous, y_c.",
+                "next_scene": "danger"
+            },
+            "choice2": {
+                "text": "Those are called sheep.",
+                "next_scene": "sheep"
+            },
+            "choice3": {
+                "text": "I think those are goats.",
+                "next_scene": "goat"
+            }
+        },
+        "danger": [
+            "But, but! It wasn't like I was really close to them!",
+            "r_q said observing things we don't understand is a great way to learn about it. So... why can't I watch Twolegs?",
+            "You were a kittypet once, you should understand me!"
+        ],
+        "sheep": [
+            "Really?? You're so cool y_c!",
+            "I know it's not suppose to interest me and I'll get in trouble for it but you won't tell on me, right?",
+            "Pretty pleaseeeee??"
+        ],
+        "goat": [
+            "Hmm, you don't sound so sure either, y_c...",
+            "It's okay! I'll just call them walking clouds for now. They don't need a fancy name for me to know they're fluffy and hang out with Twolegs!"
+        ]
+    },
+    "neurotic_choices_kitaboutrole_SQ7": {
+        "y_c": {
+            "age": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "neurotic"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_like_20"
+        ],
+        "intro": [
+            "Whatever I choose to do as an apprentice is what I'm gonna do my whole life!",
+            "How am I supposed to choose? What... what if I choose wrong?",
+            "[t_c stares at you, fidgeting, and waits for your advice. You consider reminding {PRONOUN/t_c/object} that you're just a kit, too, but instead tell t_c that {PRONOUN/t_c/subject} should choose the role...]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[...that's most interesting.]",
+                "next_scene": "interesting"
+            },
+            "choice2": {
+                "text": "[...with the best mentor.]",
+                "next_scene": "mentor"
+            },
+            "choice3": {
+                "text": "[...that you choose!]",
+                "next_scene": "your_choice"
+            }
+        },
+        "interesting": [
+            "That makes sense, but all of them are interesting! And scary at the same time.",
+            "And what if I think one of them is the most interesting now, but change my mind later?",
+            "Ahh, y_c... I really don't know. I don't want to have to decide."
+        ],
+        "mentor": [
+            "[If there's an adult t_c really, really wants to be {PRONOUN/t_c/poss} mentor, then of course {PRONOUN/t_c/subject} should choose the role that cat has.]",
+            "I guess... But I don't know who I want as a mentor. There are so many cats I don't know, and they're all kind of scary.",
+            "Maybe I should just ask plove-t_p if I can be {PRONOUN/plove-t_p/poss} apprentice... Then I don't have to meet anyone else."
+        ],
+        "your_choice": [
+            "[If {PRONOUN/t_c/subject} {VERB/t_c/choose/chooses} the same thing you do, then you can train together!]",
+            "[t_c's eyes widen. {PRONOUN/t_c/subject/CAP} {VERB/t_c/snuggle/snuggles} closer.]",
+            "Ohh... I didn't think of that. Okay."
+        ]
     }
 }

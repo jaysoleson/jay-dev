@@ -5659,5 +5659,153 @@
             "[t_c frowns and glances at the sky, as if {PRONOUN/t_c/subject} hadn't noticed the weather. {PRONOUN/t_c/subject/CAP} {VERB/t_c/aren't/isn't} even shivering...]",
             "...I guess."
         ]
+    },
+    "assertivemedcat_queen": {
+        "y_c": {
+            "status": [
+                "queen's apprentice",
+                "queen"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive",
+                "cool"
+            ],
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ]
+        },
+        "intro": [
+            "y_c! Just the cat I was looking for.",
+            "You'll be happy to know that I just gathered up some more borage this morning. Which, pop quiz, should help the queens with ... what?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Labor pains.",
+                "next_scene": "labor_pains"
+            },
+            "choice2": {
+                "text": "Milk production.",
+                "next_scene": "milk_production"
+            },
+            "choice3": {
+                "text": "Nausea.",
+                "next_scene": "nausea"
+            }
+        },
+        "labor_pains": [
+            "Er ... no, that's not right. Like, at all.",
+            "Hm ... maybe now'd be a good time to start your herbal training again ..."
+        ],
+        "milk_production": [
+            "Hehe, you got it! I should've known you'dve studied up.",
+            "If you ever need anything, don't hesitate! I'll be here in the den for ya any time."
+        ],
+        "nausea": [
+            "Er ... no, that's not right. Like, at all.",
+            "Hm ... maybe now'd be a good time to start your herbal training again ..."
+        ]
+    },
+    "assertivemedapp_4": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ]
+        },
+        "relationship": [
+            "non-mates",
+            "min_romance_20"
+        ],
+        "intro": [
+            "*Shudder* So many sick cats ... I gotta get out of this den, y_c. Come gather herbs with me later? We can make it into a contest!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I'd love to!",
+                "next_scene": "love_to"
+            },
+            "choice2": {
+                "text": "I can't ...",
+                "next_scene": "cant"
+            }
+        },
+        "love_to": [
+            "Sweet! It's a date! Hehe!",
+            "[t_c's eyes flash a little too intently for it to just be a joke.]"
+        ],
+        "cant": [
+            "Ah, mouse-dung. That's alright. I understand. You got your own duties to attend to.",
+            "[t_c's words are kind, but {PRONOUN/t_c/poss} eyes betray a disappointment that's a bit too deep to just be friendly.]"
+        ]
+    },
+    "assertive_mentor8": {
+        "y_c": {
+            "status": [
+                "medicine cat apprentice"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive",
+                "cool",
+                "silly"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "from_mentor"
+        ],
+        "intro": [
+            "Surprise assessment, y_c! What's the best way to dress a wound?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Cobwebs and chervil.",
+                "next_scene": "cobwebs_chervil"
+            },
+            "choice2": {
+                "text": "Yarrow.",
+                "next_scene": "yarrow"
+            },
+            "choice3": {
+                "text": "Cobwebs and comfrey.",
+                "next_scene": "cobwebs_comfrey"
+            }
+        },
+        "cobwebs_chervil": [
+            "That's close! But a bit too early. Chervil is only to be used AFTER a wound gets infected, not before.",
+            "It won't kill your patient, but still, not good to use valuable herbs on cats who don't need them!",
+            "Don't beat yourself up about it, though. You're doing a great job!"
+        ],
+        "yarrow": [
+            "Whoa, are you crazy?! You want a wounded patient puking all over the medicine den? Because that's just what you're asking for!",
+            "*Sigh* Maybe it's time to go over the fundamentals again ..."
+        ],
+        "cobwebs_comfrey": [
+            "Ding ding ding, you got it right! Hehe, I knew you would.",
+            "c_n is lucky to have an apprentice as smart as you on our medical staff."
+        ]
     }
 }

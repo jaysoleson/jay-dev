@@ -5427,5 +5427,153 @@
         "intro": [
             "You're having a hard day, too, huh?"
         ]
+    },
+    "cool_4_1_AJ": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "unabashed",
+                "silly"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "[t_c hums a catchy tune.]",
+            "Oh, hey y_c! I was coming up with a song.",
+            "Wanna hear it?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Yes.",
+                "next_scene": "yes"
+            },
+            "choice2": {
+                "text": "No.",
+                "next_scene": "no"
+            }
+        },
+        "yes": [
+            "Really? Hehe, alright!",
+            "It goes like ... Ahem.",
+            "'Oh c_n, oh c_n, oh how I love you, c_n!'",
+            "... Do you like it?"
+        ],
+        "yes_choices": {
+            "choice1": {
+                "text": "Love it!",
+                "next_scene": "love"
+            },
+            "choice2": {
+                "text": "Sounds familiar ...",
+                "next_scene": "familiar"
+            }
+        },
+        "love": [
+            "Aw, really? That's so sweet of you to say!",
+            "Tell you what, for all your support, I'll give you a shout out in the second verse!",
+            "It'll go like ... 'Oh y_c, oh y_c, my music writing partner!~"
+        ],
+        "familiar": [
+            "Wait, seriously? I didn't just rip someone else's song off without realizing, did I?",
+            "Okay, well, how about this one? I know for a fact that it's original.",
+            "'Happy c_n to you, happy c_n to you, happy c_n dear y_c ... Happy c_n to youuuu!~'"
+        ],
+        "no": [
+            "Aw. Well, that's alright. It's your call.",
+            "I need more time to workshop it, anyways."
+        ]
+    },
+    "cool_51AJ": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "introspective",
+                "silly"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_like_20"
+        ],
+        "intro": [
+            "Think there are other Clans out there?",
+            "Like, way far away. Not the Clans that we know.",
+            "Maybe there's even some Clans on the sun! Or the moon!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Maybe!",
+                "next_scene": "inquire"
+            },
+            "choice2": {
+                "text": "Seems unlikely.",
+                "next_scene": "buzzkill"
+            }
+        },
+        "inquire": [
+            "Say, y_c, maybe we could just leave all this behind and become members of SunClan?",
+            "It'd certainly be a lot more interesting than c_n ... But, probably a lot hotter, too.",
+            "On second thought, maybe I'm happy enough where I am ..."
+        ],
+        "buzzkill": [
+            "Aw, c'mon! You can't use your imagination even a little?",
+            "How do you know for a fact there <i>aren't</i> cats on the moon? You've never been there, have you?",
+            "Exactly! So both of us have the exact same chances of being right!"
+        ]
+    },
+    "sleepy_choicesAJ": {
+        "y_c": {
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "stable",
+                "brooding",
+                "upstanding"
+            ],
+            "age": [
+                "older"
+            ]
+        },
+        "intro": [
+            "[t_c sharply prods you with the side of a paw while you're lounging in camp.]",
+            "Look alive, y_c. Time to start the day.",
+            "I know you need your rest, but all c_n cats need to contribute, including you.",
+            "[With that, {PRONOUN/t_c/subject} {VERB/t_c/trot/trots} away with a swish of {PRONOUN/t_c/poss} tail.]",
+            "[You don't want to disappoint t_c, but the sun is so warm and you can feel your eyelids growing heavier by the second ... What should you do?]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Get up.]",
+                "next_scene": "rise"
+            },
+            "choice2": {
+                "text": "[Keep sleeping.]",
+                "next_scene": "sleep"
+            }
+        },
+        "rise": [
+            "[You reluctantly rise and stretch your limbs, shaking scraps of sleep from your fur.]",
+            "[It hurts to leave your comfy spot behind ... But t_c's approving nod from across camp makes everything worth it.]"
+        ],
+        "sleep": [
+            "[You roll over and tuck your nose underneath your paw, determined to get a few more minutes of sleep in before you have to start the day.]",
+            "[t_c doesn't disturb you again, but you can't help a pang of guilt when you see {PRONOUN/t_c/object} observing you sadly from across camp.]",
+            "[Was the extra sleep really worth it?]"
+        ]
     }
 }

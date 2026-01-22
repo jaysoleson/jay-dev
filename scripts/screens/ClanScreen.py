@@ -21,6 +21,8 @@ from scripts.utility import (
     ui_scale_dimensions,
     get_current_season,
     ui_scale_value,
+    get_current_camp,
+    assign_new_bg
 )
 from .Screens import Screens
 from .enums import GameScreen
@@ -28,7 +30,7 @@ from ..cat.save_load import save_cats
 from ..clan_package.settings import get_clan_setting
 from ..clan_package.settings.clan_settings import switch_clan_setting
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
-from ..cat.enums import CatRank
+from ..cat.enums import CatRank, CatAge, CatGroup
 from ..ui.generate_button import ButtonStyles, get_button_dict
 
 
@@ -353,13 +355,12 @@ class ClanScreen(Screens):
     def update_camp_bg(self):
         light_dark = "dark" if game_setting_get("dark mode") else "light"
 
-        camp_bg_base_dir = "resources/images/camp_bg/"
         leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
-        camp_nr = game.clan.camp_bg
+        camp_bg_base_dir, camp_nr = get_current_camp()
 
-        if camp_nr is None:
+        if not camp_nr:
             camp_nr = "camp1"
-            game.clan.camp_bg = camp_nr
+            assign_new_bg("camp1")
 
         available_biome = ["Forest", "Mountainous", "Plains", "Beach"]
         biome = game.clan.biome
@@ -467,7 +468,7 @@ class ClanScreen(Screens):
             base_pos = None
             # Newborns are not meant to be placed. They are hiding.
             if (
-                Cat.all_cats[x].status.rank == CatRank.NEWBORN
+                Cat.all_cats[x].age == CatAge.NEWBORN
                 or constants.CONFIG["fun"]["all_cats_are_newborn"]
                 or Cat.all_cats[x].moons < 0
             ):
@@ -547,7 +548,7 @@ class ClanScreen(Screens):
                     Cat.all_cats[x].placement,
                     base_pos,
                 ] = self.choose_nonoverlapping_positions(
-                    first_choices, all_dens, [1, 1, 1, 1, 1, 60, 60]
+                    first_choices, all_dens, [1, 100, 1, 1, 1, 100, 50]
                 )
             # ---
             if not Cat.all_cats[x].placement:
@@ -566,27 +567,39 @@ class ClanScreen(Screens):
             self.save_button.enable()
 
         self.label_toggle.kill()
-        if get_clan_setting("den labels"):
-            self.label_toggle = UIImageButton(
-                ui_scale(pygame.Rect((25, 641), (34, 34))),
-                "",
-                starting_height=2,
-                object_id="@checked_checkbox",
-            )
-            self.warrior_den_label.show()
-            self.clearing_label.show()
-            self.nursery_label.show()
-            self.app_den_label.show()
-            self.leader_den_label.show()
-            self.med_den_label.show()
-            self.elder_den_label.show()
+        if game.clan.your_cat.status.group.is_any_clan_group():
+            if get_clan_setting("den labels"):
+                self.label_toggle = UIImageButton(
+                    ui_scale(pygame.Rect((25, 641), (34, 34))),
+                    "",
+                    starting_height=2,
+                    object_id="@checked_checkbox",
+                )
+                self.warrior_den_label.show()
+                self.clearing_label.show()
+                self.nursery_label.show()
+                self.app_den_label.show()
+                self.leader_den_label.show()
+                self.med_den_label.show()
+                self.elder_den_label.show()
+            else:
+                self.label_toggle = UIImageButton(
+                    ui_scale(pygame.Rect((25, 641), (34, 34))),
+                    "",
+                    starting_height=2,
+                    object_id="@unchecked_checkbox",
+                )
+                self.warrior_den_label.hide()
+                self.clearing_label.hide()
+                self.nursery_label.hide()
+                self.app_den_label.hide()
+                self.leader_den_label.hide()
+                self.med_den_label.hide()
+                self.elder_den_label.hide()
         else:
-            self.label_toggle = UIImageButton(
-                ui_scale(pygame.Rect((25, 641), (34, 34))),
-                "",
-                starting_height=2,
-                object_id="@unchecked_checkbox",
-            )
+            self.show_den_labels.hide()
+            self.show_den_labels_text.hide()
+            self.label_toggle.hide()
             self.warrior_den_label.hide()
             self.clearing_label.hide()
             self.nursery_label.hide()

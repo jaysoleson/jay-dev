@@ -149,6 +149,14 @@ def get_living_clan_cat_count(Cat):
         count += 1
     return count
 
+# LG
+def get_your_cat_group_count(Cat):
+    count = 0
+    for the_cat in Cat.all_cats.values():
+        if not the_cat.status.alive_in_your_cat_group:
+            continue
+        count += 1
+    return count
 
 def get_cats_same_age(Cat, cat, age_range=10):
     """
@@ -1830,6 +1838,9 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
 
     # Add protection about the "insert" sometimes used
     if m.group(0) == "{insert}":
+        return m.group(0)
+    # LG: this is used in mc birth events
+    if m.group(0) == "{cap_insert}":
         return m.group(0)
 
     inner_details = m.group(1).split("/")
@@ -4470,8 +4481,46 @@ def check_achievements(Cat, eventspage=False):
                 new_achievements_list.append(item)
     if eventspage:
         return new_achievements_list
+    
+def get_current_camp():
+    """ LG """
+    if game.clan.your_cat:
+        if game.clan.your_cat.status.group in [CatGroup.PLAYER_CLAN, CatGroup.OTHER_CLAN]:
+            camp_nr = game.clan.camp_bg
+            camp_bg_base_dir = "resources/images/camp_bg/clancat"
+        elif game.clan.your_cat.status.group == CatGroup.ROGUE_GROUP:
+            camp_nr = game.clan.rogue_group_bg
+            camp_bg_base_dir = "resources/images/camp_bg/rogue"
+        elif game.clan.your_cat.status.group == CatGroup.LONER_GROUP:
+            camp_nr = game.clan.loner_group_bg
+            camp_bg_base_dir = "resources/images/camp_bg/loner"
+        elif game.clan.your_cat.status.group == CatGroup.HOUSEHOLD:
+            camp_nr = game.clan.household_bg
+            camp_bg_base_dir = "resources/images/camp_bg/kittypet"
+        else:
+            camp_nr = game.clan.no_group_bg
+            camp_bg_base_dir = "resources/images/camp_bg/none"
+    else:
+        camp_nr = game.clan.camp_bg
+        camp_bg_base_dir = "resources/images/camp_bg/clancat"
 
+    return camp_bg_base_dir, camp_nr
 
+def assign_new_bg(camp):
+    """ LG """
+    if game.clan.your_cat:
+        if game.clan.your_cat.status.group in [CatGroup.PLAYER_CLAN, CatGroup.OTHER_CLAN]:
+            game.clan.camp_bg = camp
+        elif game.clan.your_cat.status.group == CatGroup.ROGUE_GROUP:
+            game.clan.rogue_group_bg = camp
+        elif game.clan.your_cat.status.group == CatGroup.LONER_GROUP:
+            game.clan.loner_group_bg = camp
+        elif game.clan.your_cat.status.group == CatGroup.HOUSEHOLD:
+            game.clan.household_bg = camp
+        else:
+            game.clan.no_group_bg = camp
+    else:
+        game.clan.camp_bg = camp
 
 def quit(savesettings=False, clearevents=False):
     """

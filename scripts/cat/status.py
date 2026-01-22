@@ -325,7 +325,12 @@ class Status:
         """
         Returns True if the cat is currently part of the same group as your cat
         """
-        return self.group == game.clan.your_cat.status.group
+        # this fails tests bc it checks this before Clan exists
+        # so... nonecheck failsafe
+        if game.clan:
+            return self.group == game.clan.your_cat.status.group
+        else:
+            return self.alive_in_player_clan
 
     @property
     def is_outsider(self) -> bool:
@@ -420,14 +425,19 @@ class Status:
     def init_your_cat_status(
             self,
             rank: CatRank,
-            group_ID: str = None,
-            standing: CatStanding = CatStanding.MEMBER
+            group_ID: str = None
     ):
+        # creates you cat's status history.
+        # clear initial player clan history that they generated with
+        self.group_history = []
+        self.standing_history = []
         self._modify_group(
             new_rank=rank,
             new_group_ID=group_ID,
         )
-        print(self.group)
+        if group_ID != CatGroup.PLAYER_CLAN_ID:
+            # if theyre not in the player clan, make them Known to the player clan
+            self.change_standing(CatStanding.KNOWN, CatGroup.PLAYER_CLAN_ID)
 
     def _modify_group(
         self,
