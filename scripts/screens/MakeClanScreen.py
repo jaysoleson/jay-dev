@@ -1915,6 +1915,12 @@ class MakeClanScreen(Screens):
                     self.custom_cat.pelt.accessory = []
                     self.custom_cat.pelt.inventory = []
                     break
+        if self.permanent_condition == "born without a leg":
+            for i in Pelt.paw_accessories:
+                if i in self.custom_cat.pelt.accessory:
+                    self.custom_cat.pelt.accessory = []
+                    self.custom_cat.pelt.inventory = []
+                    break
 
         # scars for conditions
         self.custom_cat.pelt.paralyzed = True if self.permanent_condition == "paralyzed" else False
@@ -3306,6 +3312,10 @@ class MakeClanScreen(Screens):
                             for i in Pelt.tail_accessories:
                                 if i in new_acc_list:
                                     new_acc_list.remove(i)
+                        if self.permanent_condition == "born without a leg":
+                            for i in Pelt.paw_accessories:
+                                if i in new_acc_list:
+                                    new_acc_list.remove(i)
                         
                         acc = choice(new_acc_list)
 
@@ -3899,7 +3909,7 @@ class MakeClanScreen(Screens):
                         else:
                             print(acc, "button not generated?")
                 if self.permanent_condition == "born without a leg":
-                    for acc in ["ASHY PAWS", "MUD PAWS"]:
+                    for acc in Pelt.paw_accessories:
                         if acc in self.accessory_buttons:
                             self.accessory_buttons[acc].disable()
                         else:

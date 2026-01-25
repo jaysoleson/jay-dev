@@ -23,14 +23,11 @@ from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
 from scripts.screens.enums import GameScreen
 from scripts.game_structure.game.settings import game_setting_get
+from scripts.game_structure.localization import load_lang_resource
 
 
-
-with open("resources/dicts/events/lifegen_events/gift.json", "r") as read_file:
-    ACC_REACTION_TXT = ujson.loads(read_file.read())
-
-with open("resources/dicts/accessory_preferences.json", "r") as read_file:
-    ACC_REACTION = ujson.loads(read_file.read())
+ACC_REACTION_TXT = load_lang_resource("events/lifegen_events/gift.json")
+ACC_REACTION = load_lang_resource("accessory_preferences.json")
 
 class GiftScreen(Screens):
     selected_cat = None

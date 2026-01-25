@@ -1533,14 +1533,13 @@ class Clan:
                             except ValueError:
                                 print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
                 # LG
-                # CHECKMERGE: add a paw_Accessories category for this
-                # for ashy paws, dirty paws, etc
-
-                # if not c.pelt.inventory:
-                #     c.pelt.inventory = []
-                # for acc in acc_list:
-                #     if acc not in c.pelt.inventory:
-                #         c.pelt.inventory.append(acc)
+                if "NOPAW" in cat.pelt.scars:
+                    for acc in Pelt.paw_accessories:
+                        if acc in acc_list:
+                            try:
+                                acc_list.remove(acc)
+                            except ValueError:
+                                print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
                 return acc_list
 
     def load_pregnancy(self, clan):

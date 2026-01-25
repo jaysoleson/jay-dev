@@ -2286,16 +2286,7 @@ class Cat:
             self.pelt.accessory = [
                 acc
                 for acc in self.pelt.accessory
-                if acc not in [
-                    "VINE",
-                    "ASHY PAWS",
-                    "MUD PAWS",
-                    "MUD",
-                    "STARFLOWERS",
-                    "LAVENDERANKLET",
-                    "HOLLY2",
-                    "HOLLYVINES"
-                ]
+                if acc not in Pelt.paw_accessories
             ]
 
         condition = PERMANENT[name]
