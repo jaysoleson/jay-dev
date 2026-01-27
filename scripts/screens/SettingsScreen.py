@@ -585,7 +585,13 @@ class SettingsScreen(Screens):
             if os.path.exists(json_path):
                 with open(json_path, "r") as read_file:
                     infection_info = ujson.loads(read_file.read())
-                    inftype = infection_info[infection_info['current_infection']]["type"]
+                    if "current_infection" in infection_info:
+                        inftype = infection_info[infection_info['current_infection']]["type"]
+                    elif "infection_type" in infection_info:
+                        inftype = infection_info["infection_type"]
+                    else:
+                        print("No infection type found for save?")
+                        continue
                     in_use.append(inftype)
 
             conditions_folder = f"{get_save_dir()}/{clan}/conditions/"
