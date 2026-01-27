@@ -2908,7 +2908,7 @@ class ChooseDifficulty(UIWindow):
         )
         self.chosen_difficulty = "hard"
         self.heading = pygame_gui.elements.UITextBox(
-            "<b>The loaded Clan doesn't have an INFECTION difficulty!</b>",
+            "<b>This Clan doesn't have an INFECTION difficulty!</b>",
             ui_scale(pygame.Rect((0, 10), (460, 40))),
             object_id="#text_box_30_horizcenter",
             manager=MANAGER,
@@ -2960,6 +2960,7 @@ class ChooseDifficulty(UIWindow):
                 self.chosen_difficulty = "hard"
             elif event.ui_element == self.done_button:
                 game.clan.infection["infection_difficulty"] = self.chosen_difficulty
+                game.clan.save_clan()
                 self.kill()
             self.update_buttons()
         return super().process_event(event)

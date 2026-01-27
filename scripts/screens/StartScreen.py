@@ -382,11 +382,6 @@ class StartScreen(Screens):
         # if input_password:
         #     InputPassword()
 
-        if game.clan:
-            if game.clan.infection:
-                if "infection_difficulty" in game.clan.infection and not game.clan.infection["infection_difficulty"]:
-                    ChooseDifficulty()
-
         self.warning_label_background = UISurfaceImageButton(
             ui_scale(pygame.Rect((50, 601), (700, 32))),
             "",

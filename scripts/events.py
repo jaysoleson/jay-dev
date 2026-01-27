@@ -1908,13 +1908,16 @@ class Events:
 
             if (random.randint(1,10) == 1) or level_string == "fallen" or beginning:
                 events = other_clan_events[level_string]["general"]
-                events.extend(other_clan_events[level_string][inftype])
+                if inftype in other_clan_events[level_string]:
+                    events.extend(other_clan_events[level_string][inftype])
                 if addon:
                     events.extend(other_clan_events[level_string + addon]["general"])
-                    events.extend(other_clan_events[level_string + addon][inftype])
+                    if inftype in other_clan_events[level_string + addon]:
+                        events.extend(other_clan_events[level_string + addon][inftype])
                 if level_string == "fallen":
                     if game.clan.war["enemy"] == clan.name:
                         events.extend(other_clan_events[level_string + "_war"]["general"])
+                    if inftype in other_clan_events[level_string + "_war"]:
                         events.extend(other_clan_events[level_string + "_war"][inftype])
             else:
                 continue

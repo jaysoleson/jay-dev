@@ -25,6 +25,8 @@ from scripts.utility import (
 from .Screens import Screens
 from ..ui.generate_button import ButtonStyles, get_button_dict
 
+from scripts.game_structure.windows import ChooseDifficulty
+
 
 class ClanScreen(Screens):
     max_sprites_displayed = (
@@ -285,6 +287,10 @@ class ClanScreen(Screens):
         self.save_button_saving_state.hide()
 
         self.update_buttons_and_text()
+
+        if game.clan.infection:
+            if "infection_difficulty" in game.clan.infection and not game.clan.infection["infection_difficulty"]:
+                ChooseDifficulty()
 
     def exit_screen(self):
         # removes the cat sprites.
