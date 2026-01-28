@@ -306,7 +306,7 @@ class SettingsScreen(Screens):
             manager=MANAGER,
             anchors={"left_target": self.language_button},
         )
-        self.infection_button.disable()
+        # self.infection_button.disable()
         self.add_infection_type = UISurfaceImageButton(
             ui_scale(pygame.Rect((0, 0), (150, 30))),
             "",
@@ -544,7 +544,7 @@ class SettingsScreen(Screens):
         )
 
         self.checkboxes_text["inftypes"] = pygame_gui.elements.UITextBox(
-            """<b>Add a custom infection type!</b>\nView your infection types. Hitting 'update' will add a new infection type from the text box and delete any selected types. You will not be able to delete an infection type that is currently being used in a save. New types will not be saved until you Save with the button below.\n""",
+            """<b>EXPERIMENTAL: Add a custom infection type!</b>\nView your infection types. Hitting 'update' will add a new infection type from the text box and delete any selected types. You will not be able to delete an infection type that is currently being used in a save. New types will not be saved until you Save with the button below.\n<br>To play with a new infection type, you will need to add your four lineart files to the sprites folder.""",
             ui_scale(pygame.Rect((0, 120), (500, -1))),
             object_id=get_text_box_theme("#text_box_30_horizcenter"),
             manager=MANAGER,
@@ -595,20 +595,21 @@ class SettingsScreen(Screens):
                     in_use.append(inftype)
 
             conditions_folder = f"{get_save_dir()}/{clan}/conditions/"
-            for filename in os.listdir(conditions_folder):
-                json_path = conditions_folder + filename
+            if os.path.exists(conditions_folder):
+                for filename in os.listdir(conditions_folder):
+                    json_path = conditions_folder + filename
 
-                with open(json_path, "r") as read_file:
-                    conditions_data = ujson.loads(read_file.read())
-                    if 'illnesses' in conditions_data:
-                        for name, condition in conditions_data['illnesses'].items():
-                            if "type" in condition:
-                                if condition["type"] not in in_use:
-                                    in_use.append(condition["type"])
-                                    print("A cat has", condition["type"])
-                            if all(item in game.settings['custom infection types'] for item in in_use):
-                                break
-                break
+                    with open(json_path, "r") as read_file:
+                        conditions_data = ujson.loads(read_file.read())
+                        if 'illnesses' in conditions_data:
+                            for name, condition in conditions_data['illnesses'].items():
+                                if "type" in condition:
+                                    if condition["type"] not in in_use:
+                                        in_use.append(condition["type"])
+                                        print("A cat has", condition["type"])
+                                if all(item in game.settings['custom infection types'] for item in in_use):
+                                    break
+                    break
         i = 0
         for inftype in game.settings["custom infection types"]:
             # CHECKBOX
@@ -1079,7 +1080,7 @@ class SettingsScreen(Screens):
         """
         self.general_settings_button.enable()
         self.info_button.enable()
-        # self.infection_button.enable()
+        self.infection_button.enable()
         self.language_button.enable()
         self.audio_settings_button.enable()
 
