@@ -1185,13 +1185,6 @@ class TalkScreen(Screens):
 
             # ---
 
-            if "war" in TAGS:
-                if "at_war" in game.clan.war:
-                    if not game.clan.war["at_war"]:
-                        continue
-                else:
-                    continue
-
             if "clan_has_kits" in TAGS:
                 clan_has_kits = False
                 for c in Cat.all_cats_list:
@@ -1274,7 +1267,7 @@ class TalkScreen(Screens):
             
             if TAGS:
                 if "has_mate" in TAGS:
-                    if not cat.mate:
+                    if not cat.mate or (cat.mate and game.clan.your_cat.ID in cat.mate):
                         continue
 
             # FOCUS TAGS

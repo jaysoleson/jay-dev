@@ -217,19 +217,13 @@ class Scar_Events:
                 # clangen ^^
                 # lifegen vv
 
-                for acc in ['RED FEATHERS', 'BLUE FEATHERS', 'JAY FEATHERS', "SEAWEED",
-                            "DAISY CORSAGE", "GULL FEATHERS", "SPARROW FEATHERS", "CLOVER", "DAISY",
-                            "SPRINGFEATHERS", "CLOVER", "LAVENDERTAILWRAP", "CELESTIALCHIMES",
-                            "LUNARCHIMES", "SILVERLUNARCHIMES", "FLOWER MOSS", "SANVITALIAFLOWERS",
-                            "STARFLOWERS", "SHELL PACK", "MOSS2", "MUSHROOMS", "CLOVERS", "MUD", "LADYBUGS",
-                            "FIRBRANCHES", "CHERRYBLOSSOM", "MISTLETOE", "BROWNMOSSPELT", "BLEEDINGVINES",
-                            "BLEEDINGHEART", "MOREFERN", "GRAYMOSSPELT", "FERN"]:
+                for acc in cat.pelt.tail_accessories:
                     if acc in cat.pelt.accessory:
                         cat.pelt.accessory.remove(acc)
                     if acc in cat.pelt.inventory:
                         cat.pelt.inventory.remove(acc)
             if specialty == "NOPAW":
-                for acc in ["VINE", "ASHY PAWS", "MUD PAWS", "MUD", "STARFLOWERS", "LAVENDERANKLET", "HOLLY2", "HOLLYVINES"]:
+                for acc in cat.pelt.paw_accessories:
                     if acc in cat.pelt.accessory:
                         cat.pelt.accessory.remove(acc)
                     if acc in cat.pelt.inventory:

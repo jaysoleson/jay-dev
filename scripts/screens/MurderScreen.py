@@ -10,6 +10,7 @@ from scripts.game_structure import constants
 
 from scripts.screens.enums import GameScreen
 from scripts.cat.enums import CatRank, CatGroup, CatAge
+from scripts.game_structure.localization import load_lang_resource
 
 from .Screens import Screens
 from scripts.utility import get_text_box_theme, process_text, pronoun_repl, ui_scale_dimensions
@@ -1385,12 +1386,8 @@ class MurderScreen(Screens):
     def choose_murder_text(self, you, cat_to_murder, accomplice, accompliced):
         """chooses murder text. nuff said also chooses whether the mc is injured or dies"""
 
-        with open(f"{self.RESOURCE_DIR}murder.json",
-                encoding="ascii") as read_file:
-            self.m_txt = ujson.loads(read_file.read())
-        with open(f"{self.RESOURCE_DIR}murder_unsuccessful.json",
-                encoding="ascii") as read_file:
-            self.mu_txt = ujson.loads(read_file.read())
+        self.m_txt = load_lang_resource("events/lifegen_events/murder.json")
+        self.mu_txt = load_lang_resource("events/lifegen_events/murder_unsuccessful.json")
 
         leaddeath = randint(1,100)
        

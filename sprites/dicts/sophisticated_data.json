@@ -22,11 +22,14 @@
         },
         {
             "EAGLEFEATHER": "body",
-            "STARFLOWERS": "body",
+            "STARFLOWERS": "paws",
             "HEARTLEAVES": "body",
             "YELLOWWISTERIA": "body",
-            "HOLLY2": "body",
-            "HOLLYVINES": "body"
+            "HOLLYLEAVES": "body",
+            "HOLLYVINES": "body",
+            "LAVENDERHEADPIECE": "head",
+            "LAVENDERTAILWRAP": "tail",
+            "LAVENDERANKLET": "paws"
         },
         {
             "WILLOWBARK BAG": "body",

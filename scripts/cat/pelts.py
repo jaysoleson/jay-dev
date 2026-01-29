@@ -158,6 +158,9 @@ class Pelt:
     body_accessories = []
     head_accessories = []
 
+    # LG
+    paw_accessories = []
+
     # here we create the master lists of each accessory type
     plant_accessories = []
     for sprite_list in sprites.PLANT_DATA["sprite_list"]:
@@ -204,6 +207,8 @@ class Pelt:
                 body_accessories.append(sprite)
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
+            elif sprite_list[sprite] == "paws":
+                paw_accessories.append(sprite)
 
     deadInsect_accessories = []
     for sprite_list in sprites.DEADINSECT_DATA["sprite_list"]:
@@ -215,6 +220,8 @@ class Pelt:
                 body_accessories.append(sprite)
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
+            elif sprite_list[sprite] == "paws":
+                paw_accessories.append(sprite)
     
     plant2_accessories = []
     for sprite_list in sprites.PLANT2_DATA["sprite_list"]:
@@ -226,6 +233,8 @@ class Pelt:
                 body_accessories.append(sprite)
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
+            elif sprite_list[sprite] == "paws":
+                paw_accessories.append(sprite)
 
     sophisticated_accessories = []
     for sprite_list in sprites.SOPHISTICATED_DATA["sprite_list"]:
@@ -237,6 +246,8 @@ class Pelt:
                 body_accessories.append(sprite)
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
+            elif sprite_list[sprite] == "paws":
+                paw_accessories.append(sprite)
 
     fruit_accessories = []
     for sprite_list in sprites.FRUIT_DATA["sprite_list"]:
@@ -248,6 +259,8 @@ class Pelt:
                 body_accessories.append(sprite)
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
+            elif sprite_list[sprite] == "paws":
+                paw_accessories.append(sprite)
 
     flower_crown_accessories = []
     for sprite_list in sprites.FLOWERCROWNS_DATA["sprite_list"]:
@@ -259,6 +272,8 @@ class Pelt:
                 body_accessories.append(sprite)
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
+            elif sprite_list[sprite] == "paws":
+                paw_accessories.append(sprite)
 
     misc_accessories = []
     for sprite_list in sprites.MISC_ACCS_DATA["sprite_list"]:
@@ -270,6 +285,8 @@ class Pelt:
                 body_accessories.append(sprite)
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
+            elif sprite_list[sprite] == "paws":
+                paw_accessories.append(sprite)
 
     misc2_accessories = []
     for sprite_list in sprites.MISC2_ACCS_DATA["sprite_list"]:
@@ -281,6 +298,8 @@ class Pelt:
                 body_accessories.append(sprite)
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
+            elif sprite_list[sprite] == "paws":
+                paw_accessories.append(sprite)
 
     harness_accessories = []
     for sprite_list in sprites.HARNESS_DATA["sprite_list"]:
@@ -292,6 +311,8 @@ class Pelt:
                 body_accessories.append(sprite)
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
+            elif sprite_list[sprite] == "paws":
+                paw_accessories.append(sprite)
 
     smallanimals_accessories = []
     for sprite_list in sprites.SMALLANIMALS_DATA["sprite_list"]:
@@ -303,6 +324,21 @@ class Pelt:
                 body_accessories.append(sprite)
             elif sprite_list[sprite] == "head":
                 body_accessories.append(sprite)
+            elif sprite_list[sprite] == "paws":
+                paw_accessories.append(sprite)
+
+    wild2_accessories = []
+    for sprite_list in sprites.WILD2_DATA["sprite_list"]:
+        wild2_accessories.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "tail":
+                tail_accessories.append(sprite)
+            elif sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+            elif sprite_list[sprite] == "head":
+                body_accessories.append(sprite)
+            elif sprite_list[sprite] == "paws":
+                paw_accessories.append(sprite)
 
     # this is used for acc-giving events, only change if you're adding a new category tag to the event filter
     # adding a category here will automatically update the event editor's options
@@ -326,6 +362,7 @@ class Pelt:
         "MISC2": misc2_accessories,
         "HARNESS": harness_accessories,
         "SMALLANIMALS": smallanimals_accessories,
+        "WILD2": wild2_accessories
     }
 
     # LIFEGEN
@@ -343,7 +380,8 @@ class Pelt:
         misc_accessories +
         misc2_accessories +
         harness_accessories +
-        smallanimals_accessories
+        smallanimals_accessories +
+        wild2_accessories
         )
 
     all_clangen_accessories = (
@@ -367,6 +405,7 @@ class Pelt:
         misc2_accessories,
         harness_accessories,
         smallanimals_accessories,
+        wild2_accessories
     ]
     acc_data_list = [
         sprites.ALIVEINSECT_DATA,
@@ -379,6 +418,7 @@ class Pelt:
         sprites.MISC2_ACCS_DATA,
         sprites.HARNESS_DATA,
         sprites.SMALLANIMALS_DATA,
+        sprites.WILD2_DATA
     ]
     # ---
 

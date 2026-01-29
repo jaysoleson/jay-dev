@@ -655,7 +655,7 @@
             "many": "yellow wisteria",
             "one": "yellow wisteria"
         },
-        "HOLLY2": {
+        "HOLLYLEAVES": {
             "zero": "holly leaves",
             "many": "holly leaves",
             "one": "holly leaves"
@@ -664,6 +664,21 @@
             "zero": "holly vines",
             "many": "holly vines",
             "one": "holly vines"
+        },
+        "LAVENDERHEADPIECE": {
+            "zero": "lavender headpiece",
+            "many": "lavender headpiece",
+            "one": "lavender headpiece"
+        },
+        "LAVENDERTAILWRAP": {
+            "zero": "lavender tail wrap",
+            "many": "lavender tail wrap",
+            "one": "lavender tail wrap"
+        },
+        "LAVENDERANKLET": {
+            "zero": "lavender anklet",
+            "many": "lavender anklet",
+            "one": "lavender anklet"
         },
         "WILLOWBARK BAG": {
             "zero": "willowbark bag",
@@ -1414,6 +1429,91 @@
             "zero": "sliver dust plant",
             "many": "sliver dust plant",
             "one": "sliver dust plant"
+        },
+        "LILYPAD": {
+            "zero": "lilypad",
+            "many": "lilypad",
+            "one": "lilypad"
+        },
+        "LARGE DEATHBERRY": {
+            "zero": "large deathberry vine",
+            "many": "large vine of deathberries",
+            "one": "large deathberry vine"
+        },
+        "SMALL DEATHBERRY": {
+            "zero": "small deathberry vine",
+            "many": "small vine of deathberries",
+            "one": "small deathberry vine"
+        },
+        "ACORN": {
+            "zero": "acorn",
+            "many": "acorn",
+            "one": "acorn"
+        },
+        "PINECONE": {
+            "zero": "pinecone",
+            "many": "pinecone",
+            "one": "pinecone"
+        },
+        "VINE": {
+            "zero": "vine",
+            "many": "vines",
+            "one": "vine"
+        },
+        "CHERRY": {
+            "zero": "cherries",
+            "many": "cherries",
+            "one": "cherry bunch"
+        },
+        "BLEEDING HEART BRANCH": {
+            "zero": "bleeding hearts",
+            "many": "bleeding hearts",
+            "one": "bleeding hearts"
+        },
+        "SHELL PACK": {
+            "zero": "seashells",
+            "many": "seashells",
+            "one": "seashells"
+        },
+        "WHEAT": {
+            "zero": "wheat stalk",
+            "many": "wheat",
+            "one": "wheat stalk"
+        },
+        "BLACK WHEAT": {
+            "zero": "black wheat stalk",
+            "many": "black wheat",
+            "one": "black wheat stalk"
+        },
+        "GOLD FERNS": {
+            "zero": "golden ferns",
+            "many": "golden ferns",
+            "one": "golden fern"
+        },
+        "MUD PAWS": {
+            "zero": "muddy paws",
+            "many": "muddy paws",
+            "one": "muddy paws"
+        },
+        "ASHY PAWS": {
+            "zero": "ashy paws",
+            "many": "ashy paws",
+            "one": "ashy paws"
+        },
+        "BERRIES": {
+            "zero": "berries",
+            "many": "berries",
+            "one": "berry bunch"
+        },
+        "FLOWER MOSS": {
+            "zero": "flowering moss",
+            "many": "flowering moss",
+            "one": "flowering mossy pelt"
+        },
+        "MUSHROOMS": {
+            "zero": "mushrooms",
+            "many": "mushrooms",
+            "one": "mushroom patch"
         }
     }
 }
