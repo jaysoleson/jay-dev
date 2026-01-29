@@ -2,7 +2,7 @@ name: Docker Build and Push
 
 on:
   push:
-    branches: [ "development" ]
+    branches: [ "LifeGen-dev" ]
     paths:
       - ".github/workflows/build-docs.yml"
       - "Dockerfile"
@@ -29,7 +29,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ${{ secrets.REGISTRY_URL }}/clangen/clangen-docs
+            ${{ secrets.REGISTRY_URL }}/lifegen/lifegen-docs
           tags: |
             type=sha
             type=raw,value=latest,enable={{is_default_branch}}
@@ -59,4 +59,4 @@ jobs:
           method: kubeconfig
           kubeconfig: ${{ secrets.DOCS_RESTART_KUBECONFIG }}
       - name: Restart deployment
-        run: kubectl rollout restart deployment/clangen-docs -n clangen
+        run: kubectl rollout restart deployment/lifegen-docs -n lifegen-docs
