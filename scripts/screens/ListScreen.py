@@ -490,7 +490,10 @@ class ListScreen(Screens):
         self.cat_display.clear_display()
         self.cat_display = None
         self.list_screen_container.kill()
-        self.update_heading_text(self.clan_name)
+        if game.clan.your_cat.status.is_outsider:
+            self.update_heading_text("Your Territory")
+        else:
+            self.update_heading_text(self.clan_name)
 
     def on_use(self):
         super().on_use()
@@ -695,7 +698,10 @@ class ListScreen(Screens):
         """
         if self.current_group == "your_clan":
             self.set_bg(None)
-            self.update_heading_text(self.clan_name)
+            if game.clan.your_cat.status.is_outsider:
+                self.update_heading_text("Your Territory")
+            else:
+                self.update_heading_text(self.clan_name)
         elif self.current_group == "cotc":
             self.set_bg(None)
             self.update_heading_text("general.cotc")
