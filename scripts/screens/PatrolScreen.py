@@ -15,12 +15,9 @@ from scripts.game_structure.ui_elements import (
 )
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
 
-from scripts.utility import (
-    get_text_box_theme,
-    ui_scale,
-    shorten_text_to_fit,
-    ui_scale_dimensions
-)
+from ..ui.theme import get_text_box_theme
+from ..events_module.text_adjust import shorten_text_to_fit
+from ..ui.scale import ui_scale, ui_scale_dimensions
 from .Screens import Screens
 from .enums import GameScreen
 from ..clan_package.settings import get_clan_setting
@@ -384,7 +381,7 @@ class PatrolScreen(Screens):
 
     def screen_switches(self):
         super().screen_switches()
-        self.set_disabled_menu_buttons(["patrol_screen"])
+        self.set_disabled_menu_buttons(["patrols"])
         self.update_heading_text(f"{game.clan.displayname}Clan")
         self.show_mute_buttons()
         self.show_menu_buttons()
@@ -1663,10 +1660,6 @@ class PatrolScreen(Screens):
         self.loading_screen_on_use(
             self.proceed_patrol_thread, self.open_patrol_complete_screen
         )
-
-    @staticmethod
-    def chunks(L, n):
-        return [L[x : x + n] for x in range(0, len(L), n)]
 
     @staticmethod
     def get_list_text(patrol_list):

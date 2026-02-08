@@ -114,6 +114,7 @@ class CatStanding(StrEnum):
     LOST = "lost"
     EXILED = "exiled"
     KNOWN = "known"
+    UNKNOWN = "unknown"
 
     # LG
     SHUNNED = "shunned"
