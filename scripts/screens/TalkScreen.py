@@ -20,6 +20,7 @@ from scripts.game_structure import constants
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
 from ..game_structure.game.settings import game_setting_get
 from ..cat.enums import CatRank, CatGroup, CatAge
+from ..ui.scale import ui_scale, ui_scale_dimensions
 
 import pygame_gui
 from scripts.game_structure import game
@@ -27,19 +28,16 @@ from scripts.housekeeping.version import VERSION_NAME
 from scripts.special_dates import get_special_date, contains_special_date_tag
 # pylint: disable=consider-using-dict-items
 # pylint: disable=consider-using-enumerate
-from scripts.utility import (
-    ui_scale,
-    get_current_season,
-    ui_scale_dimensions,
-    change_relationship_values,
-    generate_sprite,
-    get_cluster,
+from scripts.cat.sprites.display_sprites import generate_sprite
+from scripts.events_module.text_adjust import (
     pronoun_repl,
-    lifegen_text_adjust,
-    shorten_text_to_fit,
-    get_current_camp,
-    assign_new_bg
-    )
+    shorten_text_to_fit
+)
+from scripts.events_module.consequences import (
+    change_relationship_values
+)
+
+from scripts.lifegen_utility import get_current_camp, assign_new_bg, get_cluster, lifegen_text_adjust
 from scripts.game_structure.localization import (
     load_lang_resource
 )
@@ -295,7 +293,7 @@ class TalkScreen(Screens):
             },
         )
 
-        self.set_bg(get_current_season())
+        self.set_bg(game.clan.current_season)
 
     def on_use(self):
         super().on_use()

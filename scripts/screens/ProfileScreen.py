@@ -7,11 +7,9 @@ import pygame
 
 from ..cat.history import History
 from ..housekeeping.datadir import get_save_dir
-from ..game_structure.windows import ChangeCatName, KillCat, ChangeCatToggles
 from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
 
 from scripts.game_structure import constants
-
 
 import ujson
 
@@ -19,7 +17,6 @@ from scripts.lifegen_utility import get_cluster
 
 from .Screens import Screens
 
-from scripts.utility import get_text_box_theme, shorten_text_to_fit
 from scripts.cat.cats import Cat, BACKSTORIES
 from scripts.cat.pelts import Pelt
 from scripts.game_structure import image_cache
@@ -28,7 +25,6 @@ from re import sub
 from scripts.cat.skills import SkillPath
 
 import math
-from scripts.cat.sprites import sprites
 from random import choice
 from re import sub
 
@@ -74,6 +70,7 @@ from ..ui.generate_box import get_box, BoxStyles
 from ..ui.generate_button import ButtonStyles, get_button_dict
 from ..ui.icon import Icon
 from ..ui.windows.leave_clan import LeaveClanWindow
+from scripts.cat.sprites.display_sprites import generate_sprite
 
 
 # ---------------------------------------------------------------------------- #
@@ -622,11 +619,6 @@ class ProfileScreen(Screens):
                 self.update_disabled_buttons_and_text()
             elif event.ui_element == self.leave_clan_button:
                 LeaveClanWindow(self.the_cat)
-            elif event.ui_element == self.destroy_accessory_button:
-                self.the_cat.pelt.accessory = []
-                self.clear_profile()
-                self.build_profile()
-                self.update_disabled_buttons_and_text()
         # History Tab
         elif self.open_tab == "history":
             if event.ui_element == self.sub_tab_1:
@@ -1216,18 +1208,6 @@ class ProfileScreen(Screens):
                     tool_tip_text="screens.profile.leader_ceremony",
                     manager=MANAGER,
                 )
-            elif (
-                self.the_cat.status.rank in (CatRank.MEDIATOR, CatRank.MEDIATOR_APPRENTICE) and
-                self.the_cat.moons >= 6
-                ):
-                self.profile_elements["mediation"] = UIImageButton(
-                    ui_scale(pygame.Rect((383, y_pos), (34, 34))),
-                    "",
-                    object_id="#mediation_button",
-                    manager=MANAGER,
-                )
-                if not self.the_cat.status.alive_in_player_clan:
-                    self.profile_elements["mediation"].disable()
             elif (
                 self.the_cat.status.rank in (CatRank.QUEEN, CatRank.QUEENS_APPRENTICE) and
                 self.the_cat.status.alive_in_player_clan and
@@ -3386,19 +3366,7 @@ class ProfileScreen(Screens):
                 # if the cat is dead, then we remove the leave_clan button and change the destroy_acc button's anchor
                 if self.leave_clan_button:
                     self.leave_clan_button.kill()
-                if self.destroy_accessory_button:
-                    self.destroy_accessory_button.kill()
 
-                self.destroy_accessory_button = UISurfaceImageButton(
-                    ui_scale(pygame.Rect((578, 0), (172, 36))),
-                    "screens.profile.destroy_accessory",
-                    get_button_dict(ButtonStyles.LADDER_BOTTOM, (172, 36)),
-                    object_id="@buttonstyles_ladder_bottom",
-                    tool_tip_text="screens.profile.destroy_accessory_tooltip",
-                    starting_height=2,
-                    manager=MANAGER,
-                    anchors={"top_target": self.kill_cat_button},
-                )
                 if self.the_cat.ID != game.clan.your_cat.ID:
                     self.murder_cat_button.hide()
                     if self.join_df_button:
@@ -3439,12 +3407,6 @@ class ProfileScreen(Screens):
 
             # SET EXILE BUTTON TEXT
             self.exile_cat_button.set_text(text)
-
-            # SET ACC STATE
-            if self.the_cat.pelt.accessory:
-                self.destroy_accessory_button.enable()
-            else:
-                self.destroy_accessory_button.disable()
 
         # LG TABS
         elif self.open_tab == "accessories":

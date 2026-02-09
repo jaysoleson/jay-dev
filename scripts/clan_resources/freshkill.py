@@ -85,7 +85,7 @@ class FreshkillPile:
             # edited for LG
             # non-clans wont start with the base 100,
             # as a rogue group with three cats doesnt need all that
-            total_num = game.prey_config["start_amount"]
+            total_num = constants.PREY_CONFIG["start_amount"]
             if game.clan:
                 if game.clan.your_cat:
                     if not game.clan.your_cat.status.group.is_any_clan_group():

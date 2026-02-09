@@ -17,6 +17,7 @@ from scripts.cat.cats import Cat, cat_class, BACKSTORIES, create_example_cats, c
 from scripts.cat.pronouns import get_default_pronouns
 from scripts.cat.pelts import Pelt
 from scripts.cat.personality import Personality
+from scripts.cat.sprites.display_sprites import generate_sprite
 from scripts.cat.names import names
 from scripts.clan import Clan
 from scripts.events_module.patrol.patrol import Patrol

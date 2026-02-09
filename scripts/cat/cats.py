@@ -44,18 +44,19 @@ from scripts.events_module.generate_events import GenerateEvents
 from scripts.game_structure import image_cache, constants, game
 from scripts.game_structure.game.save_load import safe_save
 from scripts.game_structure.game.settings import game_setting_get
-from scripts.game_structure.game.switches import switch_get_value, Switch, switch_set_value
+from scripts.game_structure.game.switches import switch_get_value, Switch
 from scripts.game_structure.localization import load_lang_resource
 from scripts.game_structure.screen_settings import screen
 from scripts.housekeeping.datadir import get_save_dir
 from scripts.cat.sprites.display_sprites import update_sprite, update_mask
 from scripts.events_module.text_adjust import (
     event_text_adjust,
-    leader_ceremony_text_adjust,
-    get_cluster
+    leader_ceremony_text_adjust
 )
 from scripts.events_module.event_filters import get_personality_compatibility
 from scripts.clan_package.get_clan_cats import find_alive_cats_with_rank
+
+from scripts.lifegen_utility import get_cluster
 
 import scripts.game_structure.screen_settings
 

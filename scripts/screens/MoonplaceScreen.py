@@ -1,30 +1,33 @@
-from random import choice, choices, randint
+from random import choice, randint
 import pygame
 import ujson
 import re
 from .Screens import Screens
 
-from scripts.utility import generate_sprite, get_cluster, find_alive_cats_with_rank, pronoun_repl, lifegen_text_adjust
+from scripts.lifegen_utility import lifegen_text_adjust
+from ..ui.scale import ui_scale, ui_scale_dimensions
+from scripts.cat.sprites.display_sprites import generate_sprite
+from scripts.clan_package.get_clan_cats import find_alive_cats_with_rank
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch, switch_append_list_value, switch_remove_list_value
 from scripts.screens.enums import GameScreen
 
-from scripts.cat.enums import CatAge, CatRank, CatGroup
-from ..game_structure.game.settings import game_setting_set, game_setting_get
-from scripts.screens.enums import GameScreen
+from scripts.cat.enums import CatRank, CatGroup
+from ..game_structure.game.settings import game_setting_get
 
 import pygame_gui
 from scripts.game_structure import game
 from enum import Enum  # pylint: disable=no-name-in-module
-from scripts.cat.names import names, Name
-from scripts.utility import ui_scale, get_current_season, ui_scale_dimensions, find_alive_cats_with_rank
+from scripts.cat.names import Name
 from scripts.game_structure.screen_settings import MANAGER
 from scripts.game_structure.ui_elements import (
-    UIImageButton,
     UISurfaceImageButton,
 )
 from ..ui.generate_button import ButtonStyles, get_button_dict
+from scripts.events_module.text_adjust import (
+    pronoun_repl
+)
 
 
 class RelationType(Enum):
@@ -213,7 +216,7 @@ class MoonplaceScreen(Screens):
             },
         )
 
-        self.set_bg(get_current_season())
+        self.set_bg(game.clan.current_season)
     def on_use(self):
         super().on_use()
         now = pygame.time.get_ticks()

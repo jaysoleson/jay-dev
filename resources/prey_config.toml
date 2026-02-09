@@ -65,6 +65,9 @@ feeding_order = [
     kitten = 0.5
     newborn = 0.25
 
+    queen = 2
+    "queen's apprentice" = 1.5
+
 # the bonus prey a hunter skill cat will catch according to exp rank
 [hunter_exp_bonus]
     untrained = 0.1

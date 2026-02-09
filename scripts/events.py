@@ -51,8 +51,7 @@ from scripts.game_structure.game.switches import (
     switch_append_list_value
 )
 from scripts.events_module.consequences import (
-    create_new_cat,
-    change_relationship_values,
+    create_new_cat
 )
 from scripts.game_structure import game
 from scripts.game_structure.localization import load_lang_resource
@@ -78,6 +77,7 @@ from scripts.clan_package.get_clan_cats import (
 )
 
 from scripts.ui.windows.retire_prompt import RetireWindow
+from scripts.ui.windows.name_kits import NameKitsWindow
 from scripts.lifegen_utility import lifegen_text_adjust, get_cluster, check_achievements, get_your_cat_group_count
 
 class BirthType(Enum):
@@ -125,6 +125,8 @@ def one_moon():
     """
 
     global new_cat_invited
+    global checks
+    # i have no idea what checks does. coffee help
     
     game.cur_events_list = []
     game.herb_events_list = []
@@ -1363,64 +1365,51 @@ def process_text(text):
     return text
 
 def generate_lifegen_events():
-    resource_dir = "resources/dicts/events/lifegen_events/events/"
+    resource_dir = "events/lifegen_events/events/"
     
     if game.clan.your_cat.dead:
         if game.clan.your_cat.status.group == CatGroup.STARCLAN:
-            resource_dir = "resources/dicts/events/lifegen_events/events_dead_sc/"
+            resource_dir = "events/lifegen_events/events_dead_sc/"
         elif game.clan.your_cat.status.group == CatGroup.DARK_FOREST:
-            resource_dir = "resources/dicts/events/lifegen_events/events_dead_df/"
+            resource_dir = "events/lifegen_events/events_dead_df/"
         elif game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
-            resource_dir = "resources/dicts/events/lifegen_events/events_dead_ur/"
+            resource_dir = "events/lifegen_events/events_dead_ur/"
 
     elif game.clan.your_cat.status.is_shunned() and game.clan.your_cat.status.alive_in_player_clan:
-        resource_dir = "resources/dicts/events/lifegen_events/shunned/"
+        resource_dir = "events/lifegen_events/shunned/"
 
+    loaded_events = []
+
+    loaded_events.append(load_lang_resource(resource_dir + "general_no_kit.json"))
+    loaded_events.append(load_lang_resource(resource_dir + "general.json"))
+    if (
+        game.clan.your_cat.status.rank.is_any_clancat_rank() or
+        game.clan.your_cat.status.rank in (
+            CatRank.ROGUE, CatRank.KITTYPET, CatRank.LONER
+            )
+        ):    
+        loaded_events.append(load_lang_resource(resource_dir + (game.clan.your_cat.status.rank).replace("_", " ") + ".json"))
     
-    all_events = {}
-    if game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.status.rank != CatRank.NEWBORN or (game.clan.your_cat.status.rank == CatRank.NEWBORN and game.clan.your_cat.dead):
-        with open(f"{resource_dir}{game.clan.your_cat.status.rank}.json",
-                encoding="ascii") as read_file:
-            all_events = ujson.loads(read_file.read())
+    if game.clan.your_cat.status.is_exiled():
+        loaded_events.append(load_lang_resource(resource_dir + "exiled.json"))
     
-    # CHECKMERGE
-    # this is probably foine but it sucks redo it
-    general_no_kit_events = {}
-    if game.clan.your_cat.status.rank not in [CatRank.NEWBORN, CatRank.KITTEN] and not game.clan.your_cat.status.is_shunned() and not game.clan.your_cat.dead:
-        with open(f"{resource_dir}general_no_kit.json", encoding="ascii") as read_file:
-            general_no_kit_events = ujson.loads(read_file.read())
-
-    with open(f"{resource_dir}general.json",
-            encoding="ascii") as read_file:
-        general_events = ujson.loads(read_file.read())
-
-    status = game.clan.your_cat.status.rank
-    if status == CatRank.ELDER and game.clan.your_cat.moons < 100:
-        status = "young elder"
-    with open(f"{resource_dir}{status}.json", encoding="ascii") as read_file:
-        all_events = ujson.loads(read_file.read())
+    if game.clan.your_cat.status.rank == CatRank.ELDER and game.clan.your_cat.moons < 100:
+        loaded_events.append(load_lang_resource(resource_dir + "young elder.json"))
 
     possible_events = []
-    try:
-        possible_events = all_events[f"{status} general"]
-    except:
-        pass
-    possible_events += general_events["general general"]
-    if game.clan.your_cat.status.rank not in [CatRank.NEWBORN, CatRank.KITTEN] and not game.clan.your_cat.status.is_shunned() and not game.clan.your_cat.dead:
-        possible_events += general_no_kit_events["general general"]
-
-    # Add old events
-    if not all_events:
-        return
-    if f"{status} old" in all_events:
-        possible_events = possible_events + all_events[f"{status} old"]
-
     cluster, second_cluster = get_cluster(game.clan.your_cat.personality.trait)
 
-    if cluster:
-        possible_events = possible_events + all_events[f"{status} {cluster}"] + general_events[f"general {cluster}"]
-    if second_cluster:
-        possible_events = possible_events + all_events[f"{status} {second_cluster}"] + general_events[f"general {second_cluster}"]
+    for event_dict in loaded_events:
+        try:
+            possible_events.extend(event_dict["general"])
+            possible_events.extend(event_dict[cluster])
+            if second_cluster:
+                possible_events.extend(event_dict[second_cluster])
+        except Exception as e:
+            print("ERROR Generating LifeGen Events:", e)
+
+    if not possible_events:
+        return
 
     for i in range(random.randint(0,5)):
         involved_cats = []
@@ -1434,11 +1423,12 @@ def generate_lifegen_events():
                 event = random.choice(possible_events)
                 current_event = process_text(event)
 
-            if event not in game.cur_events_list:
+            event_obj = Single_Event(current_event, "alert", [i for i in involved_cats])
+            if event_obj not in game.cur_events_list:
                 # add the cats from lifegen events to involved cats
                 for i in cat_dict.items():
                     involved_cats.append(i[1].ID)
-                game.cur_events_list.insert(0, Single_Event(current_event, "alert", [i for i in involved_cats]))
+                game.cur_events_list.insert(0, event_obj)
         else:
             print('No possible events?')
 
@@ -1922,11 +1912,11 @@ def get_moon_freshkill():
 
     prey_amount = 0
     for cat in healthy_hunter:
-        lower_value = game.prey_config["auto_warrior_prey"][0]
-        upper_value = game.prey_config["auto_warrior_prey"][1]
+        lower_value = constants.PREY_CONFIG["auto_warrior_prey"][0]
+        upper_value = constants.PREY_CONFIG["auto_warrior_prey"][1]
         if cat.status.rank == CatRank.APPRENTICE:
-            lower_value = game.prey_config["auto_apprentice_prey"][0]
-            upper_value = game.prey_config["auto_apprentice_prey"][1]
+            lower_value = constants.PREY_CONFIG["auto_apprentice_prey"][0]
+            upper_value = constants.PREY_CONFIG["auto_apprentice_prey"][1]
 
         prey_amount += random.randint(lower_value, upper_value)
     game.freshkill_event_list.append(
@@ -2256,7 +2246,7 @@ def one_moon_cat(cat):
         return
 
     if cat.dead:
-        cat.thoughts()
+        cat.get_new_thought()
         if cat.ID in game.just_died:
             cat.moons += 1
         else:
@@ -2358,7 +2348,7 @@ def one_moon_cat(cat):
     # newborns don't do much
     if cat.status.rank == CatRank.NEWBORN:
         cat.relationship_interaction()
-        cat.thoughts()
+        cat.get_new_thought()
         return
     
     if cat.status.alive_in_player_clan:
@@ -3448,6 +3438,9 @@ def invite_new_cats(cat):
     """
     new cats
     """
+
+    global new_cat_invited
+
     if constants.CONFIG["event_generation"]["debug_type_override"] == "new_cat":
         create_short_event(
             event_type="new_cat",
@@ -3476,7 +3469,6 @@ def invite_new_cats(cat):
         base_chance = 300
 
     reputation = game.clan.reputation
-    reputation = 80
     # hostile
     if 1 <= reputation <= 30:
         if clan_size < 10:

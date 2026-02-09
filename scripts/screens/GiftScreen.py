@@ -1,29 +1,33 @@
 import pygame.transform
 import pygame_gui.elements
 from random import choice, randint
-import ujson
 import math
 import re
 import i18n
 from scripts.game_structure import constants
 from scripts.cat.pelts import Pelt
-from ..cat.enums import CatAge, CatRank, CatGroup
+from ..cat.enums import CatGroup
+from scripts.cat.sprites.display_sprites import generate_sprite
 
 
 from .Screens import Screens
-from scripts.utility import get_text_box_theme, get_cluster, pronoun_repl, generate_sprite, ui_scale_dimensions
+
+from scripts.ui.theme import get_text_box_theme
+from scripts.ui.scale import ui_scale, ui_scale_dimensions
+from ..events_module.text_adjust import pronoun_repl
+
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.game_structure import game
 from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UISurfaceImageButton
 from ..ui.generate_box import BoxStyles, get_box
-from scripts.utility import get_text_box_theme, ui_scale
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
 from scripts.screens.enums import GameScreen
 from scripts.game_structure.game.settings import game_setting_get
 from scripts.game_structure.localization import load_lang_resource
+from scripts.lifegen_utility import get_cluster
 
 
 ACC_REACTION_TXT = load_lang_resource("events/lifegen_events/gift.json")

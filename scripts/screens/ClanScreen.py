@@ -21,7 +21,7 @@ from .enums import GameScreen
 from ..clan_package.settings import get_clan_setting
 from ..clan_package.settings.clan_settings import switch_clan_setting
 from ..game_structure.game.switches import switch_set_value, Switch
-from ..cat.enums import CatRank
+from ..cat.enums import CatRank, CatAge
 from ..ui.elements.save_button import UISaveButton
 from ..ui.generate_button import ButtonStyles, get_button_dict
 

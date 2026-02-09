@@ -1,17 +1,15 @@
 import pygame
 
-from scripts.utility import update_sprite
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 import pygame_gui
-from scripts.game_structure.windows import SaveCheck, EventLoading, ChooseDeputyWindow, NameKitsWindow
+
 from scripts.ui.windows.retire_prompt import RetireWindow
 from scripts.ui.windows.mate_prompt import MateWindow
 from scripts.game_structure.propagating_thread import PropagatingThread
 from threading import current_thread
 from typing import Dict, Optional, Union
 
-import pygame
 import pygame_gui
 import ujson
 
@@ -25,8 +23,7 @@ from scripts.game_structure.game.switches import (
     switch_set_value,
     switch_get_value,
     Switch,
-    switch_remove_list_value,
-    switch_append_list_value
+    switch_remove_list_value
 )
 from scripts.game_structure.propagating_thread import PropagatingThread
 from scripts.game_structure.screen_settings import (
@@ -37,6 +34,8 @@ from scripts.ui.windows.freshkill import FreshkillManagementWindow
 from scripts.ui.windows.herbs import HerbManagementWindow
 from scripts.ui.windows.save_check import SaveCheckWindow
 from scripts.ui.event_load_animation import EventLoadingAnimation
+from scripts.ui.windows.choose_deputy import ChooseDeputyWindow
+from scripts.ui.windows.name_kits import NameKitsWindow
 from scripts.screens.enums import GameScreen
 from scripts.ui.scale import ui_scale_blit
 from scripts.game_structure import game

@@ -3,16 +3,18 @@ import pygame_gui.elements
 
 from .Screens import Screens
 from scripts.screens.enums import GameScreen
-from ..cat.enums import CatGroup, CatAge, CatRank
+from ..cat.enums import CatAge
 
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
-from ..game_structure.game.switches import switch_set_value, Switch
 
 from scripts.game_structure import game
 from scripts.game_structure.ui_elements import UISpriteButton, UISurfaceImageButton
 from ..ui.generate_box import BoxStyles, get_box
-from scripts.utility import get_text_box_theme, ui_scale
+
+from scripts.ui.theme import get_text_box_theme
+from scripts.ui.scale import ui_scale
+
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon

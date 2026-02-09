@@ -1,5 +1,5 @@
 {
-    "mediator general": [
+    "general": [
         "r_k insists that you be the referee for {PRONOUN/r_k/poss} game in order to prevent the other kits from cheating.",
         "You're called to settle an argument between two cats, only to find out they're arguing over what piece of prey is the best, and getting far too heated about it.",
         "A queen in the nursery calls you over, thanking you for settling an argument between the kits earlier. Apparently they see you as a hero now.",
@@ -18,22 +18,22 @@
         "You mediate a group of warriors after a friendly prey-catching competition gets heated.",
         "You help r_w sort through {PRONOUN/r_w/poss} complicated feelings about another cat."
     ],
-    "mediator assertive": [],
-    "mediator brooding": [],
-    "mediator cool": [],
-    "mediator upstanding": [],
-    "mediator introspective": [
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [
         "Word of a dispute between apprentices across the border catches your attention and you quickly race to scold the apprentices involved, stressing the importance of keeping Clan relations in good shape."
     ],
-    "mediator neurotic": [
+    "neurotic": [
         "You accompany l_n to o_c_n to resolve a border dispute. With so many unfamiliar eyes on your pelt, you stumble over your words, but the arrival of the other Clan's mediator puts you more at ease."
     ],
-    "mediator silly": [],
-    "mediator stable": [],
-    "mediator sweet": [],
-    "mediator unabashed": [],
-    "mediator unlawful": [],
-    "mediator rare": [
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": [
         "After a practical joke goes worse than expected, you comfort the targeted cats and make sure the pranksters understand why bringing a wasp nest into camp is a terrible idea.",
         "Unexpectedly harsh weather means more tasks to do around camp. You help l_n and d_n delegate jobs."
     ]

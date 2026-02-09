@@ -8,13 +8,7 @@ import logging
 
 from scripts.cat.cats import Cat
 from scripts.cat.enums import CatAge, CatRank
-from scripts.cat.history import History
-from scripts.cat.pelts import Pelt
-from scripts.conditions import get_amount_cat_for_one_medic
-from scripts.utility import event_text_adjust, change_relationship_values, change_clan_relations, \
-    history_text_adjust
-from scripts.events_module.generate_events import GenerateEvents
-from scripts.game_structure.windows import RetireScreen
+from scripts.ui.windows.retire_prompt import RetireWindow
 
 from scripts.clan_package.settings import get_clan_setting
 from scripts.clan_resources.freshkill import (
@@ -1061,7 +1055,7 @@ class Condition_Events:
                         game.cur_events_list.append(
                                 Single_Event(event, "ceremony", retire_involved))
                     elif not switch_get_value(Switch.window_open):
-                        RetireScreen('events screen')
+                        RetireWindow('events screen')
                     elif switch_get_value(Switch.window_open) and 'retire' not in switch_get_value(Switch.windows_dict):
                         switch_append_list_value(Switch.windows_dict, 'retire')
 

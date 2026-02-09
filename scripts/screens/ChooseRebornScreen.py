@@ -7,7 +7,7 @@ from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.game_structure import game
 from scripts.game_structure.screen_settings import MANAGER
-from ..cat.enums import CatAge, CatRank, CatGroup
+from ..cat.enums import CatGroup
 
 from scripts.game_structure.ui_elements import (
     UISpriteButton,
@@ -15,14 +15,11 @@ from scripts.game_structure.ui_elements import (
 )
 from scripts.screens.enums import GameScreen
 
-from scripts.utility import (
-    get_text_box_theme,
-    ui_scale,
-    ui_scale_offset,
-    ui_scale_dimensions
-)
+from scripts.ui.theme import get_text_box_theme
+from scripts.ui.scale import ui_scale, ui_scale_offset, ui_scale_dimensions
+
 from scripts.clan_package.settings import get_clan_setting
-from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
+from ..game_structure.game.switches import switch_set_value, Switch
 
 from ..ui.generate_box import get_box, BoxStyles
 from ..ui.generate_button import get_button_dict, ButtonStyles

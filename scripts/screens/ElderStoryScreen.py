@@ -16,17 +16,15 @@ from scripts.game_structure.ui_elements import (
     UIModifiedScrollingContainer
 )
 from scripts.screens.enums import GameScreen
-from ..cat.enums import CatAge, CatRank, CatGroup
+from ..cat.enums import CatRank
 from ..game_structure.game.settings import game_setting_get
 
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
 
-from scripts.utility import (
-    get_text_box_theme,
-    ui_scale,
-    shorten_text_to_fit,
-    ui_scale_dimensions
-)
+from scripts.ui.theme import get_text_box_theme
+from scripts.ui.scale import ui_scale, ui_scale_dimensions
+from ..events_module.text_adjust import shorten_text_to_fit
+
 from scripts.clan_package.settings import get_clan_setting
 from .Screens import Screens
 from ..game_structure.screen_settings import MANAGER

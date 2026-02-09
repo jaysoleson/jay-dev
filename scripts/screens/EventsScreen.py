@@ -453,6 +453,15 @@ class EventsScreen(Screens):
             starting_height=1,
             manager=MANAGER,
         )
+        # LG
+        self.you = UISpriteButton(
+            ui_scale(pygame.Rect((550, 120), (120, 120))),
+            game.clan.your_cat.sprite,
+            cat_id=game.clan.your_cat.ID,
+            manager=MANAGER
+            )
+        if game.clan.your_cat.moons < 0:
+            self.you.hide()
 
         self.clan_info["symbol"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((137, 130), (100, 100))),
