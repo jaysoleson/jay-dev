@@ -28,7 +28,7 @@ from scripts.clan_package.cotc import change_clan_reputation, change_clan_relati
 from scripts.game_structure import game
 from scripts.cat.skills import SkillPath
 from scripts.cat.cats import Cat, ILLNESSES, INJURIES, PERMANENT
-from scripts.cat.enums import CatRank, CatAge
+from scripts.cat.enums import CatRank, CatGroup
 from scripts.cat.pelts import Pelt
 from scripts.cat_relations.relationship import Relationship
 from scripts.clan_resources.freshkill import (

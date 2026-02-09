@@ -23,6 +23,8 @@ from scripts.game_structure.ui_elements import (
     IDImageButton,
     UISurfaceImageButton,
     CatButton,
+    UISpriteButton,
+    UIImageButton
 )
 from scripts.screens.screens_core.screens_core import rebuild_moon_n_season_indicator
 from scripts.ui.elements.save_button import UISaveButton
@@ -44,10 +46,8 @@ from scripts.ui.scale import (
  
 # LG
 from scripts.cat.enums import CatRank
-from scripts.game_structure.ui_elements import UIImageButton, UIModifiedScrollingContainer, IDImageButton, UISpriteButton
 import random
 
-from scripts.ui.windows.game_over import GameOverWindow
 from scripts.ui.windows.death_window import DeathScreen
 from scripts.ui.windows.pick_path import PickPath
 from scripts.ui.windows.choose_deputy import ChooseDeputyWindow
@@ -196,18 +196,18 @@ class EventsScreen(Screens):
                         ):
                     PickPath('events screen')
                 elif (
-                        game.clan.leader and
-                        game.clan.leader.ID == game.clan.your_cat.ID and
-                        not game.clan.your_cat.status.is_shunned() and
+                    game.clan.leader and
+                    game.clan.leader.ID == game.clan.your_cat.ID and
+                    not game.clan.your_cat.status.is_shunned() and
+                    (
+                        not game.clan.deputy or
                         (
-                            not game.clan.deputy or
-                            (
-                                game.clan.deputy and not game.clan.deputy.status.alive_in_player_clan
-                            )
+                            game.clan.deputy and not game.clan.deputy.status.alive_in_player_clan
                         )
-                        ):
-                        print(game.clan.deputy)
-                        ChooseDeputyWindow('events screen')
+                    )
+                    ):
+                    print(game.clan.deputy)
+                    ChooseDeputyWindow('events screen')
                 else:
                     self.timeskip_button.disable()
                     self.events_thread = self.loading_screen_start_work(events.one_moon)
