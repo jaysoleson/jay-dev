@@ -18,10 +18,9 @@ from scripts.ui.scale import ui_scale
 
 class MateWindow(GameWindow):
     def __init__(self, last_screen):
-        super().__init__(ui_scale(pygame.Rect((250, 200), (300, 150))),
-                         window_display_title='Choose your mate',
-                         object_id='#game_over_window',
-                         resizable=False)
+        super().__init__(
+            ui_scale(pygame.Rect((250, 200), (300, 150))),
+        )
         self.set_blocking(True)
         switch_set_value(Switch.window_open, True)
 

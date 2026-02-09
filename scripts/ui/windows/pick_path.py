@@ -23,10 +23,9 @@ from scripts.cat.enums import (
 
 class PickPath(GameWindow):
     def __init__(self, last_screen):
-        super().__init__(ui_scale(pygame.Rect((220, 175), (400, 250))),
-                         window_display_title='Choose your Path',
-                         object_id='#game_over_window',
-                         resizable=False)
+        super().__init__(
+            ui_scale(pygame.Rect((220, 175), (400, 250))),
+        )
         self.set_blocking(True)
         switch_set_value(Switch.window_open, True)
 

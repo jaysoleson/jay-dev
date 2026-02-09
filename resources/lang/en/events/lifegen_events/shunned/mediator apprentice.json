@@ -1,5 +1,5 @@
 {
-    "mediator apprentice general": [
+    "general": [
         "You start to feel bad about disappointing your mentor.",
         "Clan meetings become a burden. Instead of working out disputes, you're the subject of them. No one seems to trust your judgment anymore.",
         "The deputy reassigns you to mundane tasks. You're not involved in any important discussions or decision making.",
@@ -15,16 +15,16 @@
         "You're asked to stay at camp when it becomes time for the next Gathering.",
         "You wonder if becoming a mediator is the right path for you."
     ],
-    "mediator apprentice assertive": [],
-    "mediator apprentice brooding": [],
-    "mediator apprentice cool": [],
-    "mediator apprentice upstanding": [],
-    "mediator apprentice introspective": [],
-    "mediator apprentice neurotic": [],
-    "mediator apprentice silly": [],
-    "mediator apprentice stable": [],
-    "mediator apprentice sweet": [],
-    "mediator apprentice unabashed": [],
-    "mediator apprentice unlawful": [],
-    "mediator apprentice rare": []
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

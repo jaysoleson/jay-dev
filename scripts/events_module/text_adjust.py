@@ -20,6 +20,8 @@ from scripts.game_structure import localization, game
 from scripts.game_structure.game import switch_get_value, Switch
 from scripts.game_structure.localization import load_lang_resource, get_lang_config
 
+from scripts.screens.enums import GameScreen
+
 if TYPE_CHECKING:
     from scripts.cat.cats import Cat
 
@@ -337,6 +339,9 @@ def event_text_adjust(
     Cat: Type["Cat"],
     text,
     *,
+    # LG
+    patrol_cat_dict={},
+    # ---
     patrol_leader=None,
     main_cat=None,
     random_cat=None,
@@ -354,6 +359,7 @@ def event_text_adjust(
     handles finding abbreviations in the text and replacing them appropriately, returns the adjusted text
     :param Cat Cat: always pass the Cat class
     :param str text: the text being adjusted
+    :param dict patrol_cat_dict: LIFEGEN: dict to hold random cat abbrevs in LG patrols
     :param Cat patrol_leader: Cat object for patrol_leader (p_l), if present
     :param Cat main_cat: Cat object for main_cat (m_c), if present
     :param Cat random_cat: Cat object for random_cat (r_c), if present
@@ -415,6 +421,11 @@ def event_text_adjust(
     if "s_c" in text:
         if stat_cat:
             replace_dict["s_c"] = (str(stat_cat.name), get_pronouns(stat_cat))
+
+    # LIFEGEN ABBREVS
+    if game.current_screen == GameScreen.PATROL:
+        for cat in patrol_cat_dict.items():
+            replace_dict[cat[0]] = (str(cat[1].name), choice(cat[1].pronouns))
 
     # other_cats
     if patrol_cats:

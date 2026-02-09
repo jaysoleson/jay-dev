@@ -40,7 +40,6 @@ from scripts.clan_resources.freshkill import (
 )
 
 from scripts.game_structure.game.switches import (
-    switch_set_value,
     switch_get_value,
     Switch,
 )
@@ -93,6 +92,7 @@ class PatrolOutcome:
         future_event: Dict = None,
         min_max_status: Dict = None,
     ):
+        self.weight = 1
 
         self.success = success
         self.antagonize = antagonize
@@ -146,6 +146,7 @@ class PatrolOutcome:
         self.stat_cluster = stat_cluster if stat_cluster is not None else []
         self.stat_faith = stat_faith if stat_faith is not None else []
         self.stat_residence = stat_residence if stat_residence is not None else []
+        self.murder = murder if murder is not None else []
         self.convert = convert if convert is not None else []
         self.faith_effects = faith_effects if faith_effects is not None else []
         self.accessory = accessory if accessory is not None else []
@@ -911,7 +912,7 @@ class PatrolOutcome:
 
         return " ".join(results)
             
-    def _handle_rep_changes(self, patrol:'Patrol') -> str:
+    def _handle_rep_changes(self) -> str:
         """ Handles any changes in outsider rep"""
 
         if not isinstance(self.outsider_rep, int):

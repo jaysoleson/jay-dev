@@ -4,7 +4,7 @@ import pygame_gui
 from scripts.game_structure import game
 from scripts.game_structure.ui_elements import (
     UISurfaceImageButton,
-    UIImageButton,
+    UITextBoxTweaked,
 )
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
 from scripts.ui.windows.window_base_class import GameWindow
@@ -16,10 +16,9 @@ from scripts.game_structure.game.switches import (
 
 class RetireWindow(GameWindow):
     def __init__(self, last_screen):
-        super().__init__(ui_scale(pygame.Rect((250, 200), (300, 150))),
-                         window_display_title='Choose to retire',
-                         object_id='#game_over_window',
-                         resizable=False)
+        super().__init__(
+            ui_scale(pygame.Rect((250, 200), (300, 150))),
+        )
         self.set_blocking(True)
         switch_set_value(Switch.window_open, True)
 

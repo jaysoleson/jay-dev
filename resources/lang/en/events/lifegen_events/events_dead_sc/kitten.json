@@ -1,5 +1,5 @@
 {
-    "kitten general": [
+    "general": [
         "As you look down on the apprentices of c_n, you wish you'd lived long enough to become a 'paw'.",
         "The nests in StarClan are cosy, but you still feel jealous of all of the living c_n kits who get to sleep in the nursery.",
         "You run around StarClan territory with rsc_c, yelling, laughing, and never getting tired.",
@@ -11,14 +11,14 @@
         "You wonder if there's a word for a parent who has lost their kit.",
         "r_q_song is singing to the kits in the nursery today, and you feel left out. Instead of being down there listening to r_q_song, you're up here in StarClan, just watching the clan go by without you."
     ],
-    "kitten assertive": [],
-    "kitten brooding": [],
-    "kitten cool": [],
-    "kitten upstanding": [],
-    "kitten introspective": [],
-    "kitten neurotic": [],
-    "kitten silly": [],
-    "kitten stable": [
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [
         "You wish you had a chance to prove yourself... StarClan had other plans.",
         "You question what the warriors mean when they say you were too young.",
         "A queen of StarClan grooms your fur and gives you as many cuddles as you want.",
@@ -26,8 +26,8 @@
         "You accidentally stumble off a cloud after playing a game with another kitten. They watch you fall slowly from the sky only to fall down with you. You both drift back down to the ground, then excitedly begin to climb into the air once more.",
         "You ponder what games you could play in StarClan."
     ],
-    "kitten sweet": [],
-    "kitten unabashed": [],
-    "kitten unlawful": [],
-    "kitten rare": []
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

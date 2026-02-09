@@ -286,9 +286,9 @@ def one_moon():
                         Single_Event(_val[0], ["birth_death", "relation"],
                                     _val[1]))
                     Cat.fetch_cat(cat_id).faith -= round(random.uniform(-1,0), 2)
-        
-        
-            
+
+
+
         Cat.grief_strings.clear()
 
     if Cat.dead_cats:
@@ -452,13 +452,9 @@ def one_moon():
     
     # BIRTH EVENTS
     b_txt = load_lang_resource("events/birth_events.json")
+    c_txt = load_lang_resource("events/lifegen_events/events.json")
+    df_txt = load_lang_resource("events/lifegen_events/df.json")
 
-    with open(f"{resource_dir}events.json",
-                encoding="ascii") as read_file:
-        c_txt = ujson.loads(read_file.read())
-    with open(f"{resource_dir}df.json",
-                encoding="ascii") as read_file:
-        df_txt = ujson.loads(read_file.read())
     if game.clan.your_cat.status.alive_in_your_cat_group:
         if game.clan.your_cat.moons == 0:
             generate_birth_event()
@@ -1227,6 +1223,9 @@ def generate_birth_event():
             c.init_all_relationships()
         
     def handle_birth_event(birth_type, parent1, parent2, adoptive_parents, siblings):
+
+        global b_txt
+
         birth_value = birth_type.value
 
         key_dict = {
@@ -1380,8 +1379,16 @@ def generate_lifegen_events():
 
     loaded_events = []
 
-    loaded_events.append(load_lang_resource(resource_dir + "general_no_kit.json"))
-    loaded_events.append(load_lang_resource(resource_dir + "general.json"))
+    try: 
+        loaded_events.append(load_lang_resource(resource_dir + "general_no_kit.json"))
+    except:
+        pass
+    try:
+        loaded_events.append(load_lang_resource(resource_dir + "general.json"))
+    except:
+        pass
+    # lazy
+
     if (
         game.clan.your_cat.status.rank.is_any_clancat_rank() or
         game.clan.your_cat.status.rank in (
@@ -1434,6 +1441,8 @@ def generate_lifegen_events():
 
         
 def generate_kit_events():
+    global c_txt
+
     # Parent events for moons 1-5
     if game.clan.your_cat.parent1:
         parents_txt = {1: "one_parent", 2: "two_parents"}
@@ -1821,6 +1830,8 @@ def generate_exile_event():
         game.cur_events_list.insert(0, evt)
         
 def generate_df_events():
+    global df_txt
+
     if random.randint(1,3) == 1:
         possible_events = df_txt["general"]
         if not game.clan.your_cat.graduated_df:

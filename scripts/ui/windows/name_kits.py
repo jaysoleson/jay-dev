@@ -18,17 +18,16 @@ from scripts.screens.enums import GameScreen
 
 class NameKitsWindow(GameWindow):
     def __init__(self, last_screen):
-        super().__init__(ui_scale(pygame.Rect((250, 200), (300, 150))),
-                         window_display_title='Name Kits',
-                         object_id='#game_over_window',
-                         resizable=False)
+        super().__init__(
+            ui_scale(pygame.Rect((250, 200), (300, 150))),
+        )
         self.set_blocking(True)
         switch_set_value(Switch.window_open, True)
 
         self.clan_name = str(game.clan.name + 'Clan')
         self.last_screen = last_screen
         self.pick_path_message = UITextBoxTweaked(
-            f"<b>You have kits!</b>\nWhat will you name them?",
+            "<b>You have kits!</b>\nWhat will you name them?",
             ui_scale(pygame.Rect((20, 20), (250, -1))),
             line_spacing=1,
             object_id="#text_box_30_horizcenter",

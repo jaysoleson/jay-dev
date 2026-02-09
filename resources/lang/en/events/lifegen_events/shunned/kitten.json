@@ -1,5 +1,5 @@
 {
-    "kitten general": [
+    "general": [
         "The older cats are watching you with a wariness in their eyes that wasn't there before.",
         "You beg one of the queens to play and they snap at you to quiet down.",
         "You overhear whispers about you amongst the older cats.",
@@ -14,16 +14,16 @@
         "You overhear the leader debating whether your apprenticeship should be delayed.",
         "You are left alone more often than not."
     ],
-    "kitten assertive": [],
-    "kitten brooding": [],
-    "kitten cool": [],
-    "kitten upstanding": [],
-    "kitten introspective": [],
-    "kitten neurotic": [],
-    "kitten silly": [],
-    "kitten stable": [],
-    "kitten sweet": [],
-    "kitten unabashed": [],
-    "kitten unlawful": [],
-    "kitten rare": []
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

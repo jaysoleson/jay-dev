@@ -23,11 +23,9 @@ from scripts.game_structure.localization import load_lang_resource
 
 class DeathScreen(GameWindow):
     def __init__(self, last_screen):
-        super().__init__(ui_scale(pygame.Rect((155, 175), (490, 250))),
-                         window_display_title='You have died',
-                         object_id='#game_over_window',
-                         resizable=False)
-        self.set_blocking(True)
+        super().__init__(
+            ui_scale(pygame.Rect((155, 175), (490, 250))),
+        )
         switch_set_value(Switch.window_open, True)
 
         self.clan_name = str(game.clan.name + 'Clan')

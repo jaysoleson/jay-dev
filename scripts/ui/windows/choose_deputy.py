@@ -15,13 +15,13 @@ from scripts.game_structure.game.switches import (
 )
 from scripts.ui.scale import ui_scale
 from scripts.screens.enums import GameScreen
+from scripts.cat.enums import CatRank
 
 class ChooseDeputyWindow(GameWindow):
     def __init__(self, last_screen):
-        super().__init__(ui_scale(pygame.Rect((250, 200), (300, 180))),
-                        window_display_title='Choose your deputy',
-                        object_id='#game_over_window',
-                        resizable=False)
+        super().__init__(
+            ui_scale(pygame.Rect((250, 200), (300, 180))),
+        )
         self.set_blocking(True)
         switch_set_value(Switch.window_open, True)
 

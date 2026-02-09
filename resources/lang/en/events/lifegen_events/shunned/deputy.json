@@ -1,5 +1,5 @@
 {
-    "deputy general": [
+    "general": [
         "You reflect on the events that brought you here, wondering what sort of leader you'd be in an alternate reality.",
         "The current c_n seems to be overwhelmed. You remember making the same fumbles. Unfortunately, you're unable to offer them advice.",
         "Patrol assignments become tense, with many warriors wary of being sent out alone with you.",
@@ -15,16 +15,16 @@
         "Warriors subtly challenge your authority, a silent rebellion growing in the ranks.",
         "You feel a sense of unease and tension during Clan meetings, your previous position of respect now tainted by your actions."
     ],
-    "deputy assertive": [],
-    "deputy brooding": [],
-    "deputy cool": [],
-    "deputy upstanding": [],
-    "deputy introspective": [],
-    "deputy neurotic": [],
-    "deputy silly": [],
-    "deputy stable": [],
-    "deputy sweet": [],
-    "deputy unabashed": [],
-    "deputy unlawful": [],
-    "deputy rare": []
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

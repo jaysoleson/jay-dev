@@ -16,7 +16,6 @@ from scripts.game_structure.game.switches import (
     switch_set_value,
     switch_set_dict_value,
 )
-from scripts.cat.enums import CatGroup
 from scripts.game_structure import game
 from scripts.game_structure.screen_settings import MANAGER
 from scripts.game_structure.ui_elements import (
@@ -455,7 +454,7 @@ class EventsScreen(Screens):
         )
         # LG
         self.you = UISpriteButton(
-            ui_scale(pygame.Rect((550, 120), (120, 120))),
+            ui_scale(pygame.Rect((560, 100), (120, 120))),
             game.clan.your_cat.sprite,
             cat_id=game.clan.your_cat.ID,
             manager=MANAGER
@@ -464,11 +463,11 @@ class EventsScreen(Screens):
             self.you.hide()
 
         self.clan_info["symbol"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((137, 130), (100, 100))),
+            ui_scale(pygame.Rect((117, 120), (100, 100))),
             pygame.transform.scale(
                 clan_symbol_sprite(game.clan), ui_scale_dimensions((100, 100))
             ),
-            object_id=f"clan_symbol",
+            object_id="clan_symbol",
             starting_height=1,
             container=self.event_screen_container,
             manager=MANAGER,
@@ -602,7 +601,7 @@ class EventsScreen(Screens):
 
         # lifegen continue after death button
         self.death_button = UIImageButton(
-            ui_scale(pygame.Rect((500, 218), (34, 34))),
+            ui_scale(pygame.Rect((700, 218), (34, 34))),
             "",
             object_id="#warrior",
             tool_tip_text="Revive",
@@ -1372,7 +1371,7 @@ class EventsScreen(Screens):
         game.clan.your_cat.pelt.rebuild_sprite = True
         if game.clan.your_cat.moons != -1:
             self.you = UISpriteButton(
-                ui_scale(pygame.Rect((550, 120), (120, 120))),
+                ui_scale(pygame.Rect((560, 100), (120, 120))),
                 game.clan.your_cat.sprite,
                 cat_id=game.clan.your_cat.ID,
                 manager=MANAGER
