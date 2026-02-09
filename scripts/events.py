@@ -450,9 +450,9 @@ class Events:
         if game.clan.your_cat.status.alive_in_your_cat_group:
             if game.clan.your_cat.moons == 0:
                 self.generate_birth_event()
-            elif game.clan.your_cat.moons < 6:
+            elif game.clan.your_cat.moons < 6 and not game.clan.your_cat.status.is_outsider:
                 self.generate_kit_events() 
-            elif game.clan.your_cat.moons == 6:
+            elif game.clan.your_cat.moons == 6 and not game.clan.your_cat.status.is_outsider:
                 self.generate_app_ceremony()
             elif game.clan.your_cat.status.rank.is_any_apprentice_rank():
                 self.generate_events()
@@ -464,7 +464,7 @@ class Events:
                     CatRank.QUEEN
                     ) and
                     not game.clan.your_cat.w_done and
-                    not game.clan.your_cat.status.is_shunned()
+                    not game.clan.your_cat.status.is_shunned() and not game.clan.your_cat.status.is_outsider
                     ):
                 self.generate_ceremony()
             elif game.clan.your_cat.status.rank != CatRank.ELDER and game.clan.your_cat.moons != 119:
@@ -1094,51 +1094,44 @@ class Events:
         return text
     
     def generate_events(self):
-        resource_dir = "resources/dicts/events/lifegen_events/events/"
+        resource_dir = "events/lifegen_events/events/"
         
         if game.clan.your_cat.dead:
             if game.clan.your_cat.status.group == CatGroup.STARCLAN:
-                resource_dir = "resources/dicts/events/lifegen_events/events_dead_sc/"
+                resource_dir = "events/lifegen_events/events_dead_sc/"
             elif game.clan.your_cat.status.group == CatGroup.DARK_FOREST:
-                resource_dir = "resources/dicts/events/lifegen_events/events_dead_df/"
+                resource_dir = "events/lifegen_events/events_dead_df/"
             elif game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
-                resource_dir = "resources/dicts/events/lifegen_events/events_dead_ur/"
+                resource_dir = "events/lifegen_events/events_dead_ur/"
 
         elif game.clan.your_cat.status.is_shunned() and game.clan.your_cat.status.alive_in_player_clan:
-            resource_dir = "resources/dicts/events/lifegen_events/shunned/"
+            resource_dir = "events/lifegen_events/shunned/"
 
         
         all_events = {}
-        if game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.status.rank != CatRank.NEWBORN or (game.clan.your_cat.status.rank == CatRank.NEWBORN and game.clan.your_cat.dead):
-            with open(f"{resource_dir}{game.clan.your_cat.status.rank}.json",
-                    encoding="ascii") as read_file:
-                all_events = ujson.loads(read_file.read())
+        if (game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.status.rank != CatRank.NEWBORN) or (game.clan.your_cat.status.rank == CatRank.NEWBORN and game.clan.your_cat.dead) or (game.clan.your_cat.status.is_outsider and game.clan.your_cat.age != CatAge.NEWBORN):
+            all_events = load_lang_resource(f"{resource_dir}{game.clan.your_cat.status.rank.value}.json")
         
         # CHECKMERGE
         # this is probably foine but it sucks redo it
         general_no_kit_events = {}
-        if game.clan.your_cat.status.rank not in [CatRank.NEWBORN, CatRank.KITTEN] and not game.clan.your_cat.status.is_shunned() and not game.clan.your_cat.dead:
-            with open(f"{resource_dir}general_no_kit.json", encoding="ascii") as read_file:
-                general_no_kit_events = ujson.loads(read_file.read())
+        if game.clan.your_cat.status.rank not in [CatRank.NEWBORN, CatRank.KITTEN] and not game.clan.your_cat.status.is_shunned() and not game.clan.your_cat.dead and not game.clan.your_cat.status.is_outsider:
+            general_no_kit_events = load_lang_resource(f"{resource_dir}general_no_kit.json")
+        
+        general_events = load_lang_resource(f"{resource_dir}general.json")
 
-        with open(f"{resource_dir}general.json",
-                encoding="ascii") as read_file:
-            general_events = ujson.loads(read_file.read())
-
-        status = game.clan.your_cat.status.rank
-        if status == CatRank.ELDER and game.clan.your_cat.moons < 100:
+        status = game.clan.your_cat.status.rank.value
+        if game.clan.your_cat.status.rank == CatRank.ELDER and game.clan.your_cat.moons < 100:
             status = "young elder"
-        with open(f"{resource_dir}{status}.json", encoding="ascii") as read_file:
-            all_events = ujson.loads(read_file.read())
+            
+        all_events = load_lang_resource(f"{resource_dir}{status}.json")
 
-        possible_events = []
-        try:
-            possible_events = all_events[f"{status} general"]
-        except:
-            pass
-        possible_events += general_events["general general"]
-        if game.clan.your_cat.status.rank not in [CatRank.NEWBORN, CatRank.KITTEN] and not game.clan.your_cat.status.is_shunned() and not game.clan.your_cat.dead:
-            possible_events += general_no_kit_events["general general"]
+        possible_events = all_events[f"{status} general"]
+
+        if not game.clan.your_cat.status.is_outsider:
+            possible_events += general_events["general general"]
+            if game.clan.your_cat.status.rank not in [CatRank.NEWBORN, CatRank.KITTEN] and not game.clan.your_cat.status.is_shunned() and not game.clan.your_cat.dead:
+                possible_events += general_no_kit_events["general general"]
 
         # Add old events
         if not all_events:
@@ -1172,6 +1165,9 @@ class Events:
                     self.current_events.insert(0, event)
                     game.cur_events_list.insert(0, Single_Event(current_event, "alert", [i for i in involved_cats]))
             else:
+                if not possible_events:
+                    print("No possible events for", status)
+                    print("Available keys:", all_events.keys())
                 print('No possible events?')
   
             
