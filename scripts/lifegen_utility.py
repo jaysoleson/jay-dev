@@ -1,4 +1,4 @@
-
+import ujson
 import re
 from random import choice
 from scripts.game_structure import game
@@ -12,21 +12,13 @@ from scripts.game_structure.game.switches import switch_get_value, Switch
 from scripts.screens.enums import GameScreen
 
 def get_cluster(trait):
-    # Mapping traits to their respective clusters
-    trait_to_clusters = {
-        "assertive": ["bloodthirsty", "fierce", "bold", "daring", "confident", "arrogant", "competitive", "smug", "impulsive", "noisy"],
-        "brooding": ["bloodthirsty", "cold", "gloomy", "strict", "vengeful", "grumpy", "bullying", "secretive", "aloof", "stoic", "reserved"],
-        "cool": ["charismatic", "cunning", "arrogant", "charming", "manipulative", "leader-like", "passionate", "witty", "flexible", "mellow", "flamboyant"],
-        "upstanding": ["righteous", "ambitious", "strict", "competitive", "responsible", "bossy", "know-it-all", "leader-like", "smug", "loyal", "justified", "methodical"],
-        "introspective": ["lonesome", "righteous", "calm", "wise", "thoughtful", "quiet", "daydreamer", "flexible", "mellow", "self-conscious"],
-        "neurotic": ["nervous", "insecure", "lonesome", "quiet", "secretive", "careful", "meek", "cowardly", "emotional", "self-conscious", "skittish", "shy"],
-        "silly": ["troublesome", "childish", "playful", "strange", "noisy", "attention-seeker", "rebellious", "bouncy", "energetic", "spontaneous"],
-        "stable": ["loyal", "responsible", "wise", "faithful", "polite", "disciplined", "patient", "passionate", "witty", "trusting"],
-        "sweet": ["compassionate", "faithful", "loving", "oblivious", "sincere", "sweet", "polite", "daydreamer", "trusting", "humble", "emotional"],
-        "unabashed": ["childish", "confident", "bold", "shameless", "strange", "oblivious", "flamboyant", "impulsive", "noisy", "honest", "spontaneous", "fearless"],
-        "unlawful": ["adventurous", "sneaky", "rebellious", "manipulative", "obsessive", "aloof", "stoic", "cunning", "troublesome", "unruly"]
-    }
-    clusters = [key for key, values in trait_to_clusters.items() if trait in values]
+    """
+    Returns the cluster(s) for a given trait.
+    """
+    with open("resources/dicts/cluster_map.json", "r", encoding="utf-8") as file:
+        cluster_map = ujson.load(file)
+
+    clusters = [key for key, values in cluster_map.items() if trait in values]
 
     # Assign cluster and second_cluster based on the length of clusters list
     cluster = clusters[0] if clusters else "stable"
