@@ -339,11 +339,6 @@ class Clan:
                 )
             other_clan = OtherClan(name=other_clan_name)
             self.all_other_clans.append(other_clan)
-        
-        # if 'other_med' in game.switches:
-        #     del game.switches['other_med']
-        # CHECKMERGE other meds wtf
-        # i also dk if the clan/cats saving is properly called here. check again
 
         self.save_clan()
         # this has to be done after saving the first time
@@ -700,6 +695,8 @@ class Clan:
                         Cat.all_cats.get(app.parent2).inheritance.update_inheritance()
 
     def populate_your_group(self):
+        if not game.clan.your_cat:
+            return
         group_ID = game.clan.your_cat.status.group_ID
 
         info_dict = {

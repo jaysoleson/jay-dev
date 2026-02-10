@@ -35,6 +35,8 @@ feeding_order = [
         "elder",
         "medicine cat",
         "medicine cat apprentice",
+        "queen",
+        "queen's apprentice",
         "apprentice",
         "mediator apprentice",
         "warrior",
@@ -67,6 +69,10 @@ feeding_order = [
 
     queen = 2
     "queen's apprentice" = 1.5
+
+    loner = 3
+    rogue = 3
+    kittypet = 0
 
 # the bonus prey a hunter skill cat will catch according to exp rank
 [hunter_exp_bonus]

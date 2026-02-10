@@ -70,6 +70,7 @@ class FreshkillPile:
         """
         # the pile could be handled as a list but this makes it more readable
         # LG moved all this stuff up here
+        self.timeskip_feed = False
         self.nutrition_info = {}
         self.living_cats = []
         self.already_fed = []

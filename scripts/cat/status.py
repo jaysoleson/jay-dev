@@ -325,12 +325,11 @@ class Status:
         """
         Returns True if the cat is currently part of the same group as your cat
         """
+        if not game.clan.your_cat or not game.clan:
+            return self.alive_in_player_clan
         # this fails tests bc it checks this before Clan exists
         # so... nonecheck failsafe
-        if game.clan:
-            return self.group == game.clan.your_cat.status.group
-        else:
-            return self.alive_in_player_clan
+        return self.group == game.clan.your_cat.status.group
 
     @property
     def is_outsider(self) -> bool:
