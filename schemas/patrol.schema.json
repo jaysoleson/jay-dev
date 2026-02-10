@@ -529,7 +529,13 @@
         "hunting",
         "herb_gathering",
         "border",
-        "training"
+        "training",
+        "lifegen",
+        "df",
+        "date",
+        "sc_lifegen",
+        "ur_lifegen",
+        "df_lifegen"
       ],
       "title": "PatrolType",
       "type": "string"
