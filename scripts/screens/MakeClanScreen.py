@@ -3330,7 +3330,7 @@ class MakeClanScreen(Screens):
                         if self.permanent_condition == "born without a leg":
                             self.custom_cat.pelt.scars = ["NOPAW"]
                         else:
-                            if "NOPAW" in self.scars:
+                            if "NOPAW" in self.custom_cat.pelt.scars:
                                 self.custom_cat.pelt.scars.remove("NOPAW")
                         if self.permanent_condition == "born without a tail":
                             self.custom_cat.pelt.scars = ["NOTAIL"]
@@ -4037,7 +4037,7 @@ class MakeClanScreen(Screens):
         else:
             if self.custom_cat.pelt.name in ["single", "singlecolour", "Singlecolour"]:
                 print("Correcting pelt name:", self.custom_cat.pelt.name, "| Report as LifeGen bug!")
-                self.self.custom_cat.pelt.name = "SingleColour"
+                self.custom_cat.pelt.name = "SingleColour"
 
         self.custom_cat.moons = 1
         self.custom_cat.age = CatAge.KITTEN
