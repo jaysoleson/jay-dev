@@ -939,6 +939,26 @@ def filter_relationship_type(
         if is_exclusionary and not qualifies:
             return False
         filter_list.remove("app/mentor")
+    
+    # LG
+    if "df_app/df_mentor" in filter_types:
+        if len(group) != 2:
+            return False
+        if not group[0].ID in group[1].df_apprentices:
+            return False
+        
+    if "df_mentor/df_app" in filter_types:
+        if len(group) != 2:
+            return False
+        if not group[1].ID in group[0].df_apprentices:
+            return False
+
+    if "strangers" in filter_types and len(group) == 2:
+        relationship = group[0].relationships[group[1].ID]
+        if relationship and (relationship.like < 1 or relationship.romance < 1):
+            return False
+    elif "strangers" in filter_types:
+        return False
 
     # return early if there's nothing left to check
     if not filter_list and is_exclusionary:

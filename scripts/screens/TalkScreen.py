@@ -817,7 +817,7 @@ class TalkScreen(Screens):
             # still get leaderlike dialogue
             # TODO: this is useless rn. do something
             if you.status.is_shunned():
-                murder_history = History.get_murders(you)
+                murder_history = you.history.murder
                 history = None
                 your_status = you.status.rank
                 if "is_murderer" in murder_history:

@@ -410,7 +410,7 @@ class Clan:
             same_age_cats = []
             random_cat = get_adult_mateless_cat()
             if random_cat:
-                same_age_cats = get_possible_mates(random_cat)
+                same_age_cats = get_possible_mates(random_cat)[0]
 
             if same_age_cats:
                 random_mate_cat = choice(same_age_cats)
@@ -611,7 +611,7 @@ class Clan:
             same_age_cats = []
             random_cat = get_adult_mateless_cat()
             if random_cat:
-                same_age_cats = get_possible_mates(random_cat)
+                same_age_cats = get_possible_mates(random_cat)[0]
 
             if same_age_cats:
                 random_mate_cat = choice(same_age_cats)
