@@ -696,7 +696,8 @@ dev_tools = false
 [lifegen]
   [lifegen.debug]
     debug_ensure_focus = ""
-    debug_ensure_dialogue = ""
+    debug_ensure_dialogue = "rel_test_dialogue"
+    debug_dialogue_override_filtering = false
     debug_meow_error_locating = false
 
   [lifegen.shunned_cat]

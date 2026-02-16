@@ -1,0 +1,88 @@
+{
+    "testdialogue": {
+        "cats": {
+            "t_c": {
+                "rank": ["warrior", "apprentice", "deputy"]
+            },
+            "y_c": {
+                "rank": ["not_leader"],
+                "group": ["player_clan"]
+            },
+            "r_c:0": {
+                "group": ["none"],
+                "rank": ["kittypet"]
+            },
+            "r_c:1": {
+                "rank": ["leader"],
+                "cluster": ["stable", "introspective", "cool"]
+            }
+        },
+        "intro": [
+            "Hey, y_c. Check it out. This kittypet found me on patrol. Said {PRONOUN/r_c:0/subject} wanted to see the camp.",
+            "|r_c:0|Hello! You have a wonderful home here.",
+            "|r_c:0|I'd like to meet whoever's in charge here, if you don't mind."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Let's find r_c:1!",
+                "next_scene": "Scene1"
+            },
+            "choice2": {
+                "text": "That's not a good idea.",
+                "next_scene": "Scene2"
+            }
+        },
+        "Scene2": [
+            "|r_c:0|Oh... I understand. Maybe I shouldn't have imposed.",
+            "Don't worry about it. I'll show you the way out.",
+            "|r_c:0|Thank you. And it's been nice to speak with you, y_c."
+        ],
+        "Scene1": [
+            "|r_c:1|Hm? What's all this? Have you invited a friend over, t_c?",
+            "r_c:0 here wanted to check out Clan life. I figured I could show {PRONOUN/r_c:0/object} around.",
+            "|r_c:0|You have a wonderful camp.",
+            "|r_c:1|Thank you. It's getting a bit cloudy outside. Let's speak in my den.",
+            "|r_c:1|t_c and y_c, you're dismissed for now.",
+            "|r_c:1|Don't be shy, r_c:0. Now, where are you from?"
+        ]
+    },
+    "testdialogue1": {
+        "cats": {
+            "y_c": {
+                "conditions": ["hearing"]
+            },
+            "t_c": {
+                "conditions": ["hearing"]
+            },
+            "r_c:0": {
+                "conditions": ["deaf:any:true"]
+            }
+        },
+        "intro": [
+            "Hey, y_c! r_c:0 has been teaching me some sign language. It's super cool!",
+            "[t_c moves {PRONOUN/t_c/poss} paws in a whirlwind, then looks to you with a smile.]",
+            "I just said I like to eat mice!",
+            "Or did I say mice like to eat me..?",
+            "Oh, goodness. I need to ask r_c:0. I'll be right back."
+        ]
+    },
+    "rel_test_dialogue": {
+        "cats": {
+            "y_c": {},
+            "t_c": {},
+            "r_c:0": {},
+            "r_c:1": {},
+            "r_c:2": {}
+        },
+        "relationships": [
+            {
+                "cats_from": ["r_c:0"],
+                "cats_to": ["r_c:1"],
+                "relationship": ["mates"]
+            }
+        ],
+        "intro": [
+            "r_c:0 and r_c:1 smooch"
+        ]
+    }
+}

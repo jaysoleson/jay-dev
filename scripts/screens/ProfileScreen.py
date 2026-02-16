@@ -378,7 +378,7 @@ class ProfileScreen(Screens):
             #     self.build_profile()
 
             elif "talk" in self.profile_elements and event.ui_element == self.profile_elements["talk"]:
-                self.the_cat.talked_to = True
+                # self.the_cat.talked_to = True
                 self.affect_relationship("talk")
 
                 switch_set_value(Switch.talk_category, 'talk')
