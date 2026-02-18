@@ -30,7 +30,8 @@ from scripts.utility import (
     shorten_text_to_fit,
     get_current_camp,
     assign_new_bg,
-    process_text
+    process_text,
+    event_text_adjust
     )
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import ButtonStyles, get_button_dict
@@ -42,6 +43,7 @@ class TalkScreen(Screens):
         super().__init__(name)
         self.the_cat = None
         self.speaking_cat = None
+        self.other_clan = None
         self.clock = pygame.time.Clock()
         self.typing_delay = 20
         self.next_frame_time = pygame.time.get_ticks() + self.typing_delay
@@ -85,6 +87,7 @@ class TalkScreen(Screens):
         self.the_cat = Cat.all_cats.get(switch_get_value(Switch.cat))
         self.dialogue_class = Dialogue(cat=self.the_cat, you=game.clan.your_cat)
         self.speaking_cat = self.the_cat
+        self.other_clan = choice(game.clan.all_other_clans)
 
         self.cat_dict.clear()
         self.other_dict.clear()
@@ -197,7 +200,15 @@ class TalkScreen(Screens):
 
         processed_text = process_text(text, process_text_dict)
 
-        return processed_text
+        # event text adjust for clan name
+        final_text = event_text_adjust(
+            Cat,
+            text=processed_text,
+            clan=game.clan,
+            other_clan=self.other_clan
+        )
+
+        return final_text
 
     def exit_screen(self):
         self.dialogue_box.kill()
@@ -313,11 +324,13 @@ class TalkScreen(Screens):
     def create_choice_buttons(self):
         """
         Creates choice buttons when necessary.
+        If not, it ends the dialogue.
         """
         y_pos = 0
         if f"{self.current_scene}_choices" not in self.chosen_text_value:
             self.paw.visible = True
             self.created_choice_buttons = True
+            self.dialogue_class.handle_scene_effects(self.current_scene, self.chosen_text_value)
             return
 
         for c in self.chosen_text_value[f"{self.current_scene}_choices"]:
@@ -329,7 +342,7 @@ class TalkScreen(Screens):
             self.choice_buttons[scene] = UIImageButton(
                 ui_scale(pygame.Rect((390, 427 + y_pos), (34, 34))),
                 text = "",
-                object_id="#talk_button",
+                object_id="#dialogue_choice_button",
                 manager=MANAGER
                 )
 
@@ -429,17 +442,7 @@ class TalkScreen(Screens):
             # speaking cat only gets replaced if there Is one
             if speaking_cat:
                 self.speaking_cat = speaking_cat
-            
-            # Redo cat_name and cat_image to account for different cats speaking.
-            self.speaking_cat_elements["cat_image"].kill()
-            self.speaking_cat_elements["cat_image"] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((35, 450), (200, 200))),
-                pygame.transform.scale(
-                generate_sprite(self.speaking_cat),
-                (200, 200)),
-                manager=MANAGER
-                )
-            
+
             self.speaking_cat_elements["cat_name"].kill()
             short_name = shorten_text_to_fit(str(self.speaking_cat.name), 320, 40)
             self.speaking_cat_elements["cat_name"] = pygame_gui.elements.UITextBox(
@@ -449,7 +452,17 @@ class TalkScreen(Screens):
                 manager=MANAGER
                 )
 
-            # get rid of the |abbrev|
+            # Redo cat_name and cat_image to account for different cats speaking.
+            self.speaking_cat_elements["cat_image"].kill()
+            self.speaking_cat_elements["cat_image"] = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((35, 450), (200, 200))),
+                pygame.transform.scale(
+                generate_sprite(self.speaking_cat),
+                (200, 200)),
+                manager=MANAGER
+                )
+
+            # get rid of the |abbrev| if its there
             if "|" in self.texts[self.text_index]:
                 self.texts[self.text_index] = self.texts[self.text_index].split("|")[-1]
 
@@ -467,9 +480,11 @@ class TalkScreen(Screens):
                 self.frame_index += 1
                 self.next_frame_time = now + self.typing_delay
                 # sound_manager.play("button_press")
+        # the end of the line
         if self.text_index == len(self.text_frames) - 1:
             if self.frame_index == len(self.text_frames[self.text_index]) - 1:
                 if not self.created_choice_buttons:
+                    # TODO: fix the naming of this stuff so its clearer
                     self.create_choice_buttons()
                 if not self.meow:
                     if "[" not in self.texts[self.text_index]:

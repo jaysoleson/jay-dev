@@ -823,10 +823,18 @@ class CatSkills:
             if self.primary:
                 if path == self.primary.path and self.primary.tier >= min_tier:
                     return True
+                # LG
+                if path != self.primary.path and min_tier == -1:
+                    return True
+                # --
 
             if self.secondary:
                 if path == self.secondary.path and self.secondary.tier >= min_tier:
                     return True
+                # LG
+                if path != self.secondary.path and min_tier == -1:
+                    return True
+                # --
 
         return False
 

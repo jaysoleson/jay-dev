@@ -6,6 +6,9 @@ from scripts.game_structure.game.switches import switch_get_value, Switch
 from scripts.game_structure.localization import load_lang_resource
 from scripts.cat.enums import CatRank, CatGroup, CatAge
 from scripts.cat.cats import Cat, BACKSTORIES
+from scripts.utility import get_cluster
+
+# pylint: disable=consider-using-dict-items
 
 class Dialogue():
     def __init__(
@@ -54,35 +57,30 @@ class Dialogue():
                                 f"{resource_dir}/general_no_kit.json"
                                 )
                             )
-
                     if self.cat.age != CatAge.NEWBORN and self.you.age != CatAge.NEWBORN:
                         possible_texts.update(
                             load_lang_resource(
                                 f"{resource_dir}/general_no_newborn.json"
                                 )
                             )
-
                     if not self.cat.status.rank.is_baby() and self.you.status.rank.is_baby():
                         possible_texts.update(
                             load_lang_resource(
                                 f"{resource_dir}/general_you_kit.json"
                                 )
                             )
-
                     if game.clan.focus:
                         possible_texts.update(
                             load_lang_resource(
                                 f"{resource_dir}/focuses/{game.clan.focus}.json"
                                 )
                             )
-
                     if special_date:
                         possible_texts.update(
                             load_lang_resource(
                                 f"{resource_dir}/focuses/{special_date.patrol_tag}.json"
                                 )
                             )
-
                     if constants.CONFIG['fun']['april_fools']:
                         possible_texts.update(
                             load_lang_resource(
@@ -108,6 +106,7 @@ class Dialogue():
 
         for key, block in possible_texts.items():
             chosen_cat_dict = {}
+            # print("Checking", key)
             if "cats" in block:
                 skip = False
                 for abbrev in block["cats"]:
@@ -132,103 +131,6 @@ class Dialogue():
 
         return possible_dialogue
 
-    def __filter_relationships(self, abbrevs, block, possible_cats_dict):
-        """
-        Chooses final cats based on relationship constraints.
-        Not a 'filter' in the same way the other filter functions are.
-        """
-        rel_block = block["relationships"] if "relationships" in block else []
-        new_dict = {}
-
-        for relationship in rel_block:
-            from_abbrev = relationship["cats_from"][0]
-            to_abbrev = relationship["cats_to"][0]
-            # TODO: remove indexes later so it works for all abbrevs
-            # easier said than done.....................
-
-            to_cat_list = possible_cats_dict[to_abbrev].copy()
-            from_cat_list = possible_cats_dict[from_abbrev].copy()
-            random.shuffle(from_cat_list)
-            # without shuffle, the same cat will always be at the top.
-            # meaning theyll show up in dialogue more frequently than everyone else
-            # cant have that! we are equal opportunity
-
-            if (
-                "parent/child" in relationship["relationship"] or
-                "child/parent" in relationship["relationship"]
-                ):
-                child_found = False
-                for from_cat in from_cat_list:
-                    for to_cat in to_cat_list:
-                        valid = self.__check_valid(
-                            to_abbrev, to_cat, from_abbrev, from_cat, new_dict
-                        )
-                        if not valid:
-                            continue
-
-                        parent_valid = False
-                        if "parent/child" in relationship["relationship"]:
-                            parent_valid = from_cat.is_parent(to_cat)
-                        elif "child/parent" in relationship["relationship"]:
-                            parent_valid = to_cat.is_parent(from_cat)
-
-                        if parent_valid:
-                            if from_abbrev not in new_dict:
-                                new_dict[from_abbrev] = from_cat
-                            if to_abbrev not in new_dict:
-                                new_dict[to_abbrev] = to_cat
-                            child_found = True
-
-                        if child_found:
-                            break
-                    if child_found:
-                        break
-                if not child_found:
-                    return {}
-            if (
-                "mates" in relationship["relationship"] or
-                "ex-mates" in relationship["relationship"]
-                ):
-                mates_found = False
-                for from_cat in from_cat_list:
-                    for to_cat in to_cat_list:
-                        valid = self.__check_valid(
-                            to_abbrev, to_cat, from_abbrev, from_cat, new_dict
-                        )
-                        if not valid:
-                            continue
-
-                        mates_valid = False
-                        if "mates" in relationship["relationship"]:
-                            mates_valid = to_cat.ID in from_cat.mate
-                        elif "ex-mates" in relationship["relationship"]:
-                            mates_valid = to_cat.ID in from_cat.previous_mates
-
-                        if mates_valid:
-                            if from_abbrev not in new_dict:
-                                new_dict[from_abbrev] = from_cat
-                            if to_abbrev not in new_dict:
-                                new_dict[to_abbrev] = to_cat
-                            mates_found = True
-
-                        if mates_found:
-                            break
-                    if mates_found:
-                        break
-                if not mates_found:
-                    return {}
-
-        for abbrev in abbrevs:
-            if abbrev not in new_dict:
-                new_dict[abbrev] = random.choice(possible_cats_dict[abbrev])
-
-        return new_dict
-
-
-    def _populate_cat_dict(self, key, possible_cats_dict):
-        self.dialogue_cat_dict[key] = possible_cats_dict
-
-
     def _validate_cat(self, abbrev, block, possible_cats):
         """
         Validates each cat block.
@@ -238,7 +140,6 @@ class Dialogue():
         the dialogue is filtered out.
         """
         cat_block = block["cats"]
-        rel_block = block["relationships"] if "relationships" in block else []
 
         if not cat_block[abbrev]:
             # if the r_c is completely unconstrained,
@@ -251,21 +152,27 @@ class Dialogue():
         else:
             # filtering functions!
             # filters that make the most change are done first.
-            possible_cats = self.__filter_dead(cat_block[abbrev], possible_cats)
-            possible_cats = self.__filter_group(cat_block[abbrev], possible_cats)
-            possible_cats = self.__filter_standing(cat_block[abbrev], possible_cats)
+            possible_cats = self.__filter_dead(cat_block[abbrev], possible_cats.copy())
+            possible_cats = self.__filter_group(cat_block[abbrev], possible_cats.copy())
+            possible_cats = self.__filter_standing(cat_block[abbrev], possible_cats.copy())
 
-            possible_cats = self.__filter_age(cat_block[abbrev], possible_cats)
-            possible_cats = self.__filter_rank(cat_block[abbrev], possible_cats)
-            possible_cats = self.__filter_skill(cat_block[abbrev], possible_cats)
-            possible_cats = self.__filter_backstory(cat_block[abbrev], possible_cats)
-            possible_cats = self.__filter_faith(cat_block[abbrev], possible_cats)
+            possible_cats = self.__filter_age(cat_block[abbrev], possible_cats.copy())
+            possible_cats = self.__filter_rank(cat_block[abbrev], possible_cats.copy())
+            possible_cats = self.__filter_skill(cat_block[abbrev], possible_cats.copy())
+            possible_cats = self.__filter_cluster(cat_block[abbrev], possible_cats.copy())
+            possible_cats = self.__filter_backstory(cat_block[abbrev], possible_cats.copy())
+            possible_cats = self.__filter_faith(cat_block[abbrev], possible_cats.copy())
 
         # conditions are filtered either way for deaf/blind/grieving stuff
-        possible_cats = self.__filter_conditions(cat_block[abbrev], possible_cats)
+        possible_cats = self.__filter_conditions(cat_block[abbrev], possible_cats.copy())
+
+        if abbrev == "t_c" and self.cat not in possible_cats:
+            return []
+        if abbrev == "y_c" and self.you not in possible_cats:
+            return []
         
         possible_cat_dict = {}
-        possible_cat_dict[abbrev] = possible_cats
+        possible_cat_dict[abbrev] = possible_cats.copy()
 
         return possible_cats
 
@@ -278,7 +185,7 @@ class Dialogue():
     def choose_dialogue(self, possible_dialogue):
         """
         Makes a final selection.
-        Returns the dict object.
+        Returns the key and the dict object.
         """
         possible_dialogue = self.filter_dialogue(possible_dialogue)
         if not possible_dialogue:
@@ -448,6 +355,20 @@ class Dialogue():
 
 
         return possible_cats
+    
+    def __filter_cluster(self, abbrev_block, possible_cats):
+        if "cluster" not in abbrev_block:
+            return possible_cats
+        for cat in possible_cats.copy():
+            cluster1, cluster2 = get_cluster(cat.personality.trait)
+            if (
+                cluster1 not in abbrev_block["cluster"] and
+                cluster2 not in abbrev_block["cluster"] and
+                cat.personality.trait not in abbrev_block["cluster"]
+            ):
+                possible_cats.remove(cat)
+        
+        return possible_cats
 
     def __filter_backstory(self, abbrev_block, possible_cats):
 
@@ -567,6 +488,7 @@ class Dialogue():
                         if tag == "hearing":
                             if "deaf" in cat.permanent_condition:
                                 possible_cats.remove(cat)
+                                deaf_tagged = False
                                 break
                         elif tag == "grief stricken":
                             grief_tagged = True
@@ -580,13 +502,230 @@ class Dialogue():
 
             if "blind" in cat.permanent_condition and not blind_tagged and cat in possible_cats:
                 possible_cats.remove(cat)
-            if "deaf" in cat.permanent_condition and not deaf_tagged and cat in possible_cats:
+            if (
+                (
+                    "deaf" in cat.permanent_condition and
+                    cat.permanent_condition["deaf"]["born_with"] is True
+                )
+                and not deaf_tagged
+                and cat in possible_cats
+                ):
                 possible_cats.remove(cat)
 
             if "grief stricken" in cat.illnesses and not grief_tagged and cat in possible_cats:
                 possible_cats.remove(cat)
 
         return possible_cats
+    
+    def __filter_relationships(self, abbrevs, block, possible_cats_dict):
+        """
+        Chooses final cats based on relationship constraints.
+        Not a 'filter' in the same way the other filter functions are. More of a selection tool.
+        """
+        # TODO: fix??? this is SO nested it pisses me off. idk if theres much i can do though
+        rel_block = block["relationships"] if "relationships" in block else []
+        new_dict = {
+            "y_c": self.you,
+            "t_c": self.cat
+        }
+
+        for relationship in rel_block:
+            for rel_tag in relationship["relationship"]:
+
+                # substitute for a "rel_found" bool, as, with multiple relationships,
+                # you cant depend on a true or false.
+                # check how many relationships are valid vs. how many we need to be.
+                # if these arent the same number at the end, the dialogue will be filtered out.
+                valid_rels = 0
+                rels_to_check = 0
+
+                # get our initial count before we start looping
+                for FROM in relationship["cats_from"]:
+                    for TO in relationship["cats_to"]:
+                        if TO != FROM:
+                            rels_to_check += 1
+
+                # begin 500 nested for loops!
+                for FROM in relationship["cats_from"]:
+                    if valid_rels == rels_to_check:
+                        continue
+                    for TO in relationship["cats_to"]:
+                        if valid_rels == rels_to_check:
+                            continue
+                        if TO == FROM:
+                            continue
+                        
+                        # Grab our possible cats depending on the abbrev
+                        to_cat_list = possible_cats_dict[TO].copy()
+                        from_cat_list = possible_cats_dict[FROM].copy()
+                        
+                        # shuffle so the same cat isnt always on top
+                        random.shuffle(to_cat_list)
+                        random.shuffle(from_cat_list)
+
+                        # if the cat is already here, don't replace them
+                        if FROM in new_dict:
+                            from_cat_list = [new_dict[FROM]]
+                        if TO in new_dict:
+                            to_cat_list = [new_dict[TO]]
+
+                        # now begin finding cats
+                        match_found = False
+                        for from_cat in from_cat_list:
+                            if valid_rels == rels_to_check:
+                                continue
+                            if match_found:
+                                continue
+                            for to_cat in to_cat_list:
+                                if valid_rels == rels_to_check:
+                                    continue
+                                if match_found:
+                                    continue
+                                rel_valid = False
+                                # this will check is the abbrev and cat are valid.
+                                # ensures r_c's are never self.you or self.cat and similar checks.
+                                valid = self.__check_valid(
+                                    TO, to_cat, FROM, from_cat, new_dict
+                                )
+
+                                # special logic for the different types of relationship
+                                if valid:
+                                    if rel_tag == "mates":
+                                        rel_valid = to_cat.ID in from_cat.mate
+                                    elif rel_tag == "ex-mates":
+                                        rel_valid = to_cat.ID in from_cat.previous_mates
+
+                                    elif rel_tag == "parent/child":
+                                        rel_valid = (
+                                            from_cat.is_parent(to_cat) or
+                                            from_cat.ID in to_cat.adoptive_parents
+                                            )
+                                    elif rel_tag == "child/parent":
+                                        rel_valid = (
+                                            to_cat.is_parent(from_cat) or
+                                            to_cat.ID in from_cat.adoptive_parents
+                                            )
+                                    elif rel_tag == "birth parent/birth child":
+                                        rel_valid = from_cat.is_parent(to_cat)
+                                    elif rel_tag == "birth child/birth parent":
+                                        rel_valid = to_cat.is_parent(from_cat)
+                                    elif rel_tag == "adoptive parent/adoptive child":
+                                        rel_valid = from_cat.ID in to_cat.adoptive_parents
+                                    elif rel_tag == "adoptive child/adoptive parent":
+                                        rel_valid = to_cat.ID in from_cat.adoptive_parents
+
+                                    elif rel_tag == "app/mentor":
+                                        rel_valid = from_cat.ID in to_cat.apprentice
+                                    elif rel_tag == "mentor/app":
+                                        rel_valid = to_cat.ID in from_cat.apprentice
+                                    elif rel_tag == "df app/df mentor":
+                                        rel_valid = from_cat.ID in to_cat.df_apprentices
+                                    elif rel_tag == "df mentor/df app":
+                                        rel_valid = to_cat.ID in from_cat.df_apprentices
+                                    else:
+                                        # now check rel value tags
+                                        rel_valid = True
+                                        try:
+                                            attributes = rel_tag.split("_")
+                                        except:
+                                            print(f"WARNING: Invalid relationship tag ({rel_tag})")
+                                            rel_valid = False
+                                        if to_cat.ID not in from_cat.relationships:
+                                            rel_valid = False
+                                        else:
+                                            if "min" in rel_tag:
+                                                if attributes[1] == "like":
+                                                    if (
+                                                        from_cat.relationships[to_cat.ID].like <
+                                                        int(attributes[2])
+                                                        ):
+                                                        rel_valid = False
+                                                elif attributes[1] == "romance":
+                                                    if (
+                                                        from_cat.relationships[to_cat.ID].romance <
+                                                        int(attributes[2])
+                                                        ):
+                                                        rel_valid = False
+                                                elif attributes[1] == "respect":
+                                                    if (
+                                                        from_cat.relationships[to_cat.ID].respect <
+                                                        int(attributes[2])
+                                                        ):
+                                                        rel_valid = False
+                                                elif attributes[1] == "trust":
+                                                    if (
+                                                        from_cat.relationships[to_cat.ID].trust <
+                                                        int(attributes[2])
+                                                        ):
+                                                        rel_valid = False
+                                                elif attributes[1] == "comfort":
+                                                    if (
+                                                        from_cat.relationships[to_cat.ID].comfort <
+                                                        int(attributes[2])
+                                                        ):
+                                                        rel_valid = False
+                                                else:
+                                                    print(f"WARNING: Invalid relationship tag ({rel_tag})")
+                                                    rel_valid = False
+                                            elif "max" in rel_tag:
+                                                if attributes[1] == "like":
+                                                    if (
+                                                        from_cat.relationships[to_cat.ID].like >
+                                                        int(attributes[2])
+                                                        ):
+                                                        rel_valid = False
+                                                elif attributes[1] == "romance":
+                                                    if (
+                                                        from_cat.relationships[to_cat.ID].romance >
+                                                        int(attributes[2])
+                                                        ):
+                                                        rel_valid = False
+                                                elif attributes[1] == "respect":
+                                                    if (
+                                                        from_cat.relationships[to_cat.ID].respect >
+                                                        int(attributes[2])
+                                                        ):
+                                                        rel_valid = False
+                                                elif attributes[1] == "trust":
+                                                    if (
+                                                        from_cat.relationships[to_cat.ID].trust >
+                                                        int(attributes[2])
+                                                        ):
+                                                        rel_valid = False
+                                                elif attributes[1] == "comfort":
+                                                    if (
+                                                        from_cat.relationships[to_cat.ID].comfort >
+                                                        int(attributes[2])
+                                                        ):
+                                                        rel_valid = False
+                                                else:
+                                                    print(f"WARNING: Invalid relationship tag ({rel_tag})")
+                                                    rel_valid = False
+
+                                    if rel_valid:
+                                        valid_rels += 1
+                                        if FROM not in new_dict:
+                                            new_dict[FROM] = from_cat
+                                            match_found = True
+                                        if TO not in new_dict:
+                                            new_dict[TO] = to_cat
+                                            match_found = True
+
+                if valid_rels != rels_to_check:
+                    return {}
+
+        for abbrev in abbrevs:
+            if abbrev not in new_dict and abbrev not in ("t_c", "y_c"):
+                options = possible_cats_dict[abbrev]
+                for existing_cat in new_dict:
+                    if new_dict[existing_cat] in options:
+                        options.remove(new_dict[existing_cat])
+                if not options:
+                    return {}
+                chosen_cat = random.choice(options)
+                new_dict[abbrev] = chosen_cat
+
+        return new_dict
     
     # ---------------------------------------------------------------------- #
     #                                HELPERS                                 #
@@ -596,7 +735,8 @@ class Dialogue():
         """
         Checks abbrevs and cats during filtering.
         If y_c and t_c abbrevs are constrained in relationships, they're special cases.
-        Reject any cats that aren't self.you or self.cat when necessary, and don't let them become an r_c.
+        Reject any cats that aren't self.you or self.cat when necessary,
+        and don't let them become an r_c.
         """
         valid = True
         if to_abbrev == "y_c" and to_cat != self.you:
@@ -622,19 +762,28 @@ class Dialogue():
         if to_abbrev in self.cat_dict:
             valid = False
 
-        if from_abbrev in new_dict:
-            valid = False
-        if to_abbrev in new_dict:
-            valid = False
-
         for key, value in new_dict.items():
-            if value == from_cat:
+            if value == from_cat and key != from_abbrev:
                 valid = False
                 break
-            if value == to_cat:
+            if value == to_cat and key != to_abbrev:
                 valid = False
                 break
 
         return valid
 
+    def _populate_cat_dict(self, key, possible_cats_dict):
+        self.dialogue_cat_dict[key] = possible_cats_dict
 
+    # ---------------------------------------------------------------------- #
+    #                            SCENE EFFECTS                               #
+    # ---------------------------------------------------------------------- #
+
+    def handle_scene_effects(self, current_scene, dialogue_object):
+        """
+        Handles scene effects such as accessories, relationship changes, and more.
+        """
+        # TODO: scene effects!
+        if f"{current_scene}_scene_effects" in dialogue_object:
+            print("Scene effects for:", current_scene)
+            print(dialogue_object[f"{current_scene}_scene_effects"])

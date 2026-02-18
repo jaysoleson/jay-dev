@@ -1,5 +1,5 @@
 {
-    "testdialogue": {
+    "outsider_visit_J1": {
         "cats": {
             "t_c": {
                 "rank": ["warrior", "apprentice", "deputy"]
@@ -46,7 +46,7 @@
             "|r_c:1|Don't be shy, r_c:0. Now, where are you from?"
         ]
     },
-    "testdialogue1": {
+    "signlanguage_J1": {
         "cats": {
             "y_c": {
                 "conditions": ["hearing"]
@@ -66,23 +66,274 @@
             "Oh, goodness. I need to ask r_c:0. I'll be right back."
         ]
     },
-    "rel_test_dialogue": {
+    "deputy_request_J0": {
+        "cats": {
+            "y_c": {
+                "rank": ["warrior"],
+                "group": ["player_clan"]
+            },
+            "t_c": {
+                "rank": ["deputy"]
+            },
+            "r_c:0": {
+                "rank": ["warrior"]
+            },
+            "r_c:1": {
+                "rank": ["warrior"]
+            },
+            "r_c:2": {
+                "rank": ["warrior"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["max_like_15"]
+            }
+        ],
+        "intro": [
+            "y_c, grab a couple other warriors and go check out the o_c_n border, will you? We heard barking in the area the other day.",
+            "Come right back if you find something."
+        ]
+    },
+    "parent_child_J1": {
         "cats": {
             "y_c": {},
-            "t_c": {},
-            "r_c:0": {},
-            "r_c:1": {},
-            "r_c:2": {}
+            "t_c": {
+                "age": ["adolescent"],
+                "rank": ["apprentice"],
+                "cluster": ["sweet", "stable", "introspective", "unabashed", "upstanding"]
+            },
+            "r_c:0": {
+                "rank": ["apprentice", "warrior", "deputy"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["child/parent", "min_like_30"]
+            }
+        ],
+        "intro": [
+            "y_c! Look, I caught you a blackbird on patrol today. It's just about the fattest blackbird I've ever seen! You hungry?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "hungry_no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "hungry_yes"
+            }
+        },
+        "hungry_no": [
+            "Aw, really? Well, I don't want it sitting too long and going bad...",
+            "I'll share it with r_c:0. {PRONOUN/r_c:0/subject/CAP}{VERB/r_c:0/'re/'s} the one who helped me catch it.",
+            "Bye, y_c. I love you!"
+        ],
+        "hungry_yes": [
+            "Awesome! Here you go, then! Enjoy!",
+            "[t_c bounces away as you settle down to enjoy your meal. What a thoughtful kit. How did you get so lucky?]"
+        ],
+        "hungry_yes_scene_effects": {
+            "accessory": {
+                "cat": ["y_c"],
+                "accessory": ["BLUE FEATHERS"],
+                "addition": "choice"
+            }
+        }
+    },
+    "apprentice_J1": {
+        "cats": {
+            "y_c": {
+                "rank": ["medicine cat apprentice"]
+            },
+            "t_c": {
+                "rank": ["medicine cat"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["y_c"],
+                "cats_to": ["t_c"],
+                "relationship": ["min_like_-5"]
+            }
+        ],
+        "intro": [
+            "y_c, can you grab me some ragwort, please?",
+            "[There's a whole wack of herbs in front of you. You grab the...]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Small purple flowers",
+                "next_scene": "lungwort"
+            },
+            "choice2": {
+                "text": "Clumpy yellow flowers",
+                "next_scene": "tansy"
+            },
+            "choice3": {
+                "text": "Thin yellow flowers",
+                "next_scene": "ragwort"
+            }
+        },
+        "lungwort": [
+            "Thank you-- Oh! Not quite. This is lungwort.",
+            "Easy to mix up. The names are pretty similar. Ragwort is that one over there. Yellow, with thin petals.",
+            "[You drop the lungwort and pick up a clump of ragwort to hand to t_c.]",
+            "Thanks, y_c."
+        ],
+        "tansy": [
+            "That's tansy, not ragwort. They're both yellow, so I can see the confusion.",
+            "Don't worry about it. You're learning. Ragwort is that one over there, with the thin petals.",
+            "Keep that in mind for next time."
+        ],
+        "ragwort": [
+            "Correct! Thank you!",
+            "No, I don't actually need it for anything. I was just testing you. Congrats, hehe."
+        ]
+    },
+    "apprentice_J2": {
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "conditions": ["illness:any"]
+            },
+            "r_c:0": {
+                "rank": ["queen", "leader", "deputy", "elder"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["y_c"],
+                "cats_to": ["t_c"],
+                "relationship": ["app/mentor"]
+            }
+        ],
+        "intro": [
+            "Hey, there, y_c. Uh, I'm still a bit under the weather. Not in a very... 'teaching' mood right now.",
+            "Let's take a break from training today. Go have something to eat, and maybe ask r_c:0 if you can help {PRONOUN/r_c:0/object} with anything."
+        ]
+    },
+    "apprentice_J3": {
+        "cats": {
+            "y_c": {
+                "rank": ["warrior", "deputy", "leader"]
+            },
+            "t_c": {
+                "rank": ["warrior", "deputy"]
+            },
+            "r_c:0": {
+                "rank": ["apprentice"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["mentor/app"]
+            }
+        ],
+        "intro": [
+            "Hey, y_c, would you mind taking r_c:0 out for some training? {PRONOUN/r_c:0/subject/CAP}{VERB/r_c:0/'re/'s} really itching to get out today, but I'm not in the mood."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Your apprentice, your problem.",
+                "next_scene": "training_no"
+            },
+            "choice2": {
+                "text": "Sure I can!",
+                "next_scene": "training_yes"
+            }
+        },
+        "training_no": [
+            "What? Oh, come on!",
+            "Fine. I'll do it. But keep this in mind next time you try to ask me for a favour!"
+        ],
+        "training_yes": [
+            "Thanks, y_c! r_c:0 will really appreciate it.",
+            "{PRONOUN/r_c:0/subject/CAP} told me {PRONOUN/r_c:0/subject} wanted to climb some trees today, so... good luck with that. Hehe."
+        ]
+    },
+    "gen_J1": {
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "cluster": ["sweet", "neurotic", "unabashed", "upstanding", "stable"]
+            },
+            "r_c:0": {
+                "cluster": ["brooding", "cool", "unlawful", "assertive", "upstanding"]
+            }
         },
         "relationships": [
             {
                 "cats_from": ["r_c:0"],
-                "cats_to": ["r_c:1"],
-                "relationship": ["mates"]
+                "cats_to": ["t_c"],
+                "relationship": ["max_like_-10"]
             }
         ],
         "intro": [
-            "r_c:0 and r_c:1 smooch"
+            "Whoo! I'm in a good mood today, y_c!",
+            "I feel like I could run up a mountain! Or conquer all the Clans!",
+            "Maybe even... stand up to r_c:0.",
+            "|r_c:0|What?",
+            "Eep! Nothing!"
+        ]
+    },
+    "gen_J2": {
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "cluster": ["assertive", "unlawful", "stable", "cool"]
+            },
+            "r_c:0": {
+                "age": ["young adult", "adult", "senior adult", "senior"]
+            },
+            "r_c:1": {
+                "age": ["young adult", "adult", "senior adult", "senior"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:1"],
+                "relationship": ["min_respect_5"]
+            }
+        ],
+        "intro": [
+            "Hey, y_c. Settle a debate for me. What are those fluffy white animals called? Those ones that Twolegs keep?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Beavers?",
+                "next_scene": "beavers"
+            },
+            "choice2": {
+                "text": "Cows?",
+                "next_scene": "cows"
+            },
+            "choice3": {
+                "text": "Sheep?",
+                "next_scene": "sheep"
+            }
+        },
+        "beavers": [
+            "What? No way. Aren't those those weird... toothy things that block up rivers?",
+            "Some help you are! I'll just ask r_c:1."
+        ],
+        "cows": [
+            "Aha! Told you, r_c:0! They're cows!",
+            "|r_c:0|No way, the fluffy ones are sheep! The spotty ones are cows!",
+            "[t_c and r_c:0 wander away, bickering loudly.]",
+            "[... Maybe that wasn't the right answer.]"
+        ],
+        "sheep": [
+            "What?! Aw, no, does that mean r_c:0 was right?",
+            "|r_c:0|Told you!"
         ]
     }
 }
