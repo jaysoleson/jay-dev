@@ -4122,7 +4122,18 @@
         "intro": [
             "[You feel the air shift as something - or somecat - gets close to smacking your nose. Darn t_c is trying to attack you!]",
             "[You swipe back with your claws, but don't touch anything solid. Rats.]"
-        ]
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": ["t_c"],
+                "cats_from": ["y_c"],
+                "values": {
+                    "trust": -1,
+                    "like": -1
+                },
+                "mutual": true
+            }
+        }
     },
     "attack_insult_H2": {
         "cats": {
@@ -4145,7 +4156,21 @@
         "intro": [
             "[In response to your insults, t_c puts you in a headlock and buddy kicks your side.]",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/let/lets} you go a moment after the assault. It feels like you were let off easy.]"
-        ]
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": ["t_c"],
+                "cats_from": ["y_c"],
+                "values": {
+                    "trust": -1,
+                    "comfort": 1,
+                    "respect": 1,
+                    "like": -1,
+                    "romance": 1
+                },
+                "mutual": true
+            }
+        }
     },
     "mcgrievingonly_insult_H1": {
         "cats": {

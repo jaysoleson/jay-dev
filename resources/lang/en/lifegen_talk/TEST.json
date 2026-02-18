@@ -335,5 +335,16 @@
             "What?! Aw, no, does that mean r_c:0 was right?",
             "|r_c:0|Told you!"
         ]
+    },
+    "test": {
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "skill": ["LORE,1", "TUNNELER,-1"]
+            }
+        },
+        "intro": [
+            "I have the LORE skill, but not the tunneller skill."
+        ]
     }
 }

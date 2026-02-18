@@ -821,20 +821,34 @@ class CatSkills:
                 return True
         elif isinstance(path, SkillPath):
             if self.primary:
-                if path == self.primary.path and self.primary.tier >= min_tier:
-                    return True
                 # LG
-                if path != self.primary.path and min_tier == -1:
-                    return True
+                if min_tier == -1:
+                    if path != self.primary.path and (
+                        (
+                            not self.secondary or
+                            (self.secondary and path != self.secondary.path)
+                        )
+                    ):
+                        return True
+                else:
                 # --
+                    if path == self.primary.path and self.primary.tier >= min_tier:
+                        return True
 
             if self.secondary:
-                if path == self.secondary.path and self.secondary.tier >= min_tier:
-                    return True
                 # LG
-                if path != self.secondary.path and min_tier == -1:
-                    return True
+                if min_tier == -1:
+                    if path != self.secondary.path and (
+                        (
+                            not self.primary or
+                            (self.primary and path != self.primary.path)
+                        )
+                    ):
+                        return True
+                else:
                 # --
+                    if path == self.secondary.path and self.secondary.tier >= min_tier:
+                        return True
 
         return False
 

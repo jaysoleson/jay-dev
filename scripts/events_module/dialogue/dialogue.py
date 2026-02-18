@@ -320,11 +320,26 @@ class Dialogue():
         if "rank" not in abbrev_block:
             return possible_cats
         for cat in possible_cats.copy():
-            if f"not_{cat.status.rank}" in abbrev_block["rank"]:
+            if (
+                f"not_{cat.status.rank}" in abbrev_block["rank"] or
+                f"not_{cat.status.rank.replace(' ', '_')}" in abbrev_block["rank"]
+                ):
                 possible_cats.remove(cat)
             elif (
+                "df_trainee" in abbrev_block["rank"] and
+                    not (cat.joined_df)
+                ): possible_cats.remove(cat)
+            elif (
+                "not_df_trainee" in abbrev_block["rank"] and
+                    (cat.joined_df)
+                ): possible_cats.remove(cat)
+            elif (
+                "guide" in abbrev_block["rank"] and
+                    cat not in (game.clan.instructor, game.clan.demon)
+                ): possible_cats.remove(cat)
+            elif (
                 cat.status.rank not in abbrev_block["rank"] and
-            cat.status.rank.replace(' ', '_') not in abbrev_block["rank"]
+                cat.status.rank.replace(' ', '_') not in abbrev_block["rank"]
                 ):
                 possible_cats.remove(cat)
         return possible_cats
@@ -333,25 +348,28 @@ class Dialogue():
         if "skill" not in abbrev_block:
             return possible_cats
         for cat in possible_cats.copy():
-            primary_string = f"{cat.skills.primary.path.name},{cat.skills.primary.points}"
-            secondary_string = ""
-            if cat.skills.secondary:
-                secondary_string = f"{cat.skills.secondary.path.name},{cat.skills.secondary.points}"
+            skill_met = False
+            # if the skill tag is negative (tier is -1), the cat cant have Any of the negative skills.
+            # they'll only need one of the positive skills to get the dialogue
+            # negative and positive skill tags can be combined!
+            # so like ["LORE,1", "OMEN,-1"] is possible, for example.
+            neg_skills_met = 0
+            neg_skills = 0
+            for tag in abbrev_block["skill"]:
+                tier = int(tag.split(",")[1])
+                if tier == -1:
+                    neg_skills += 1
+                if cat.skills.meets_skill_requirement(tag.split(",")[0], tier):
+                    if tier == -1:
+                        neg_skills_met += 1
+                    else:
+                        skill_met = True
 
             if (
-                f"not_{primary_string}" in abbrev_block["skill"] or
-                f"not_{secondary_string}" in abbrev_block["skill"]
-            ):
+                not skill_met or
+                (neg_skills > 0 and neg_skills != neg_skills_met)
+                ):
                 possible_cats.remove(cat)
-                continue
-            else:
-                skill_met = False
-                for tag in abbrev_block["skill"]:
-                    if cat.skills.meets_skill_requirement(tag.split(",")[0], int(tag.split(",")[1])):
-                        skill_met = True
-                        break
-                if not skill_met:
-                    possible_cats.remove(cat)
 
 
         return possible_cats
@@ -462,6 +480,14 @@ class Dialogue():
                                 break
                         if condition == "illness" and born_with == "any":
                             if not cat.is_ill():
+                                possible_cats.remove(cat)
+                                break
+                        if condition == "injury" and born_with == "none":
+                            if cat.is_injured():
+                                possible_cats.remove(cat)
+                                break
+                        if condition == "illness" and born_with == "none":
+                            if cat.is_ill():
                                 possible_cats.remove(cat)
                                 break
 
@@ -592,6 +618,8 @@ class Dialogue():
                                 if valid:
                                     if rel_tag == "mates":
                                         rel_valid = to_cat.ID in from_cat.mate
+                                    elif rel_tag == "non-mates":
+                                        rel_valid = to_cat.ID not in from_cat.mate
                                     elif rel_tag == "ex-mates":
                                         rel_valid = to_cat.ID in from_cat.previous_mates
 
@@ -613,6 +641,7 @@ class Dialogue():
                                         rel_valid = from_cat.ID in to_cat.adoptive_parents
                                     elif rel_tag == "adoptive child/adoptive parent":
                                         rel_valid = to_cat.ID in from_cat.adoptive_parents
+                                    # TODO: all other rels in all_resources rel tags
 
                                     elif rel_tag == "app/mentor":
                                         rel_valid = from_cat.ID in to_cat.apprentice

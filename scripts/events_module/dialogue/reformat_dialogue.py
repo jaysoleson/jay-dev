@@ -5,7 +5,7 @@ import re
 # swaps lifegen abbrevs out for r_c:{index} abbrevs
 # this will NOT work on dialogue that has alreayd been reformatted. it will goof it up
 
-DEBUG_KEY = "parent_issues_1"
+DEBUG_KEY = ""
 
 def load_json(path):
     with open(path, 'r') as read_file:
@@ -215,7 +215,6 @@ for FILE in file_names:
                             # grab the conversion from the json
                             new_cat_info = abbrev_convert[lone_abbrev]
                             # girl what the hell
-                            debug_print(dialogue_key, ("1", new_cat_info))
 
                             line = line.replace(full_abbrev, random_cat_abbrev)
 
@@ -303,6 +302,8 @@ for FILE in file_names:
 
                             line = line.replace(full_abbrev, random_cat_abbrev)
                     SCENES[key][choice_key]["text"] = line
+            elif isinstance(block, dict) and "_scene_effects" in key:
+                SCENES[key] = block
 
         new_block = {}
         # now assign everything to the new block!

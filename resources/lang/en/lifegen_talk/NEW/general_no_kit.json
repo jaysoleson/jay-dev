@@ -573,7 +573,14 @@
             "I know this is your favorite color, and you miss exploring the territory. So I knew I just had to bring it to you.",
             "Yeah, yeah, don't get all soft on me, hehe. Wanna grab a meal together?",
             "[You have gained an accessory!]"
-        ]
+        ],
+        "intro_scene_effects": {
+            "inventory": {
+                "cats_to": ["y_c"],
+                "accessory": ["JAYFEATHER", "DRACULAPARROTFEATHER", "SWANFEATHER", "EAGLEFEATHER"],
+                "addition": "choice"
+            }
+        }
     },
     "assertivewarrior_mediatorapp_3": {
         "cats": {
@@ -36562,7 +36569,14 @@
             "It looks amazing on you! You're like the coolest kittypet ever!",
             "[You're not sure if that's a good thing or not...]",
             "[You've gained a new accessory!]"
-        ]
+        ],
+        "intro_scene_effects": {
+            "inventory": {
+                "cats_to": ["y_c"],
+                "accessory": ["CYANBOW", "LIMEBOW", "WHITEBOW", "PINKBOW", "CRIMSONBOW", "RAINBOWBOW"],
+                "addition": "choice"
+            }
+        }
     },
     "introspective_silly_sam1": {
         "cats": {
