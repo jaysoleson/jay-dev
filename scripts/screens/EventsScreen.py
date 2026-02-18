@@ -15,6 +15,7 @@ from scripts.game_structure.game.switches import (
     switch_set_value,
     switch_set_dict_value,
 )
+from scripts.cat.enums import CatGroup
 from scripts.game_structure import game
 from scripts.game_structure.screen_settings import MANAGER
 from scripts.game_structure.ui_elements import (
@@ -613,7 +614,10 @@ class EventsScreen(Screens):
 
         # Draw and disable the correct menu buttons.
         self.set_disabled_menu_buttons(["events_screen"])
-        self.update_heading_text(f"{game.clan.displayname}Clan")
+        if game.clan.your_cat.status.is_outsider:
+            self.update_heading_text("Your Territory")
+        else:
+            self.update_heading_text(game.clan.name)
         self.show_menu_buttons()
 
     def display_change_save(self) -> Dict:

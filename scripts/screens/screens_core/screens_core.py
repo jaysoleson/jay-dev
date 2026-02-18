@@ -20,6 +20,7 @@ from scripts.utility import (
     ui_scale_blit,
     get_text_box_theme,
     ui_scale_value,
+    get_current_camp
 )
 
 game_frame: Optional[pygame.Surface] = None
@@ -216,7 +217,7 @@ def rebuild_core(*, should_rebuild_bgs=True):
     if get_version_info().is_source_build or get_version_info().is_dev():
         dev_watermark = pygame_gui.elements.UILabel(
             ui_scale(pygame.Rect((545, 660), (300, 50))),
-            "Build: " + version_number.text,
+            "LGDEV: " + version_number.text,
             object_id="#dev_watermark",
             text_kwargs={"ver": version_number.text},
         )
@@ -567,14 +568,14 @@ def rebuild_bgs():
 
 
 def get_camp_bgs():
-    camp_bg_base_dir = "resources/images/camp_bg/"
     leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
     available_biome = ["forest", "mountainous", "plains", "beach"]
 
     try:
-        camp_nr = game.clan.camp_bg
+        camp_bg_base_dir, camp_nr = get_current_camp()
         biome = game.clan.biome.lower()
     except AttributeError:
+        camp_bg_base_dir = "resources/images/camp_bg/clancat/"
         camp_nr = "camp1"
         biome = available_biome[0]
 

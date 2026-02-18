@@ -372,6 +372,11 @@ class ProfileScreen(Screens):
                 self.the_cat.pelt.accessory.clear()
                 self.build_inventory(event)
                 self.update_disabled_buttons_and_text()
+            elif "joinclan" in self.profile_elements and event.ui_element == self.profile_elements["joinclan"]:
+                switch_set_value(Switch.change_group, CatGroup.PLAYER_CLAN_ID)
+                self.clear_profile()
+                self.build_profile()
+
             elif "talk" in self.profile_elements and event.ui_element == self.profile_elements["talk"]:
                 self.the_cat.talked_to = True
                 self.affect_relationship("talk")
@@ -1040,6 +1045,21 @@ class ProfileScreen(Screens):
                 object_id="@buttonstyles_icon",
             )
             
+        # TEST=
+        self.profile_elements["joinclan"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 35), (160, 30))),
+            "TEST: Join the Clan",
+            get_button_dict(ButtonStyles.SQUOVAL, (160, 30)),
+            object_id="@buttonstyles_squoval",
+            anchors={
+                "centerx": "centerx"
+            }
+        )
+        self.profile_elements["joinclan"].enable()
+        if switch_get_value(Switch.change_group):
+            self.profile_elements["joinclan"].disable()
+        # ---
+
         # TALK BUTTONS
 
         if self.the_cat.ID != game.clan.your_cat.ID:
@@ -1427,17 +1447,26 @@ class ProfileScreen(Screens):
         
         # if cat is dead, we find their old clan name
         if the_cat.dead:
-            old_clan = the_cat.status.get_last_living_group()
-            if old_clan == CatGroup.PLAYER_CLAN_ID:
-                name = game.clan.displayname
-            # if they had an old clan that wasn't the player's, find it!
-            elif old_clan:
-                name = [
-                    c
-                    for c in game.clan.all_other_clans
-                    if c.group_ID == the_cat.status.get_last_living_group()
-                ][0].name
-            # otherwise they had no clan
+            # LG EDIT
+            old_clan_ID = the_cat.status.get_last_living_group()
+            if old_clan_ID:
+                old_clan = game.used_group_IDs[old_clan_ID]
+                # ---
+                if old_clan.is_any_clan_group():
+                    if old_clan_ID == CatGroup.PLAYER_CLAN_ID:
+                        name = game.clan.displayname
+                    # if they had an old clan that wasn't the player's, find it!
+                    elif old_clan_ID:
+                        name = [
+                            c
+                            for c in game.clan.all_other_clans
+                            if c.group_ID == the_cat.status.get_last_living_group()
+                        ][0].name
+                    # otherwise they had no clan
+                    else:
+                        name = None
+                else:
+                    name = None
             else:
                 name = None
 
@@ -1453,7 +1482,7 @@ class ProfileScreen(Screens):
         else:
             name = game.clan.displayname
 
-        if the_cat.status.is_exiled():
+        if the_cat.status.is_exiled(CatGroup.PLAYER_CLAN_ID):
             if not name:
                 name = [
                     c
@@ -1505,6 +1534,12 @@ class ProfileScreen(Screens):
                     output += f'<font color="{text_colour}">{text}</font>'
                 else:
                     output += text
+        elif the_cat.status.is_daylight_warrior():
+            output += i18n.t(
+                "general.daylight_warrior",
+                group=cat_clan,
+                rank=i18n.t(f"general.{the_cat.status.rank}", count=1),
+            )
         elif the_cat.status.is_outsider:
             output += i18n.t(f"general.{the_cat.status.rank}", count=1)
         else:

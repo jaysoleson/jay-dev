@@ -1,0 +1,161 @@
+{
+    "birth_two_parents": {
+        "gen": [
+            "The first sight that greets your curious gaze is the faces of your parents, m_c and r_c, their eyes shimmering with a warmth and love for {insert}, that fills the den. Nestled into the soft bedding of moss and feathers, their gentle purrs vibrating against your tiny body, this nest becomes the canvas upon which your life begins. Welcome to the world, y_c."
+        ],
+        "clan": [
+            "Under the soft, silvery glow of the moon, {insert}, are born to m_c and r_c. Nestled in the warm, mossy den, you are surrounded by the comforting scent of your family. The murmur of the Clan outside the nursery is a distant lullaby as you drift to sleep.",
+            "On a very usual and normal day in c_n, a very special kit is born. You may not have the sharpest eyes or the steadiest paws yet, but the comforting voices of m_c and r_c promise the greatness {insert}, are born for.",
+            "You can't make much out during your first moon in c_n. Sights, sounds, smells ... and the comforting presences of m_c and r_c, snuggling close to {insert} every night.",
+            "The vibrant rays of the morning sun filter through the bramble entrance of the nursery as you open your eyes for the first time. The faces of m_c and r_c beam down at you, their eyes full of love and warmth. The den, scented with milk and moss, becomes your safe haven as the adventures of the Clan wait for {insert}, in the world outside.",
+            "As the sun sets and paints the sky with shades of red and orange, {insert}, are welcomed into the world by m_c and r_c. The scent of the nursery, a mixture of milk, moss, and warmth, wraps around you like a soft blanket. The distant sounds of the Clan members seem like a lullaby, gently soothing you into sleep.",
+            "As the Clan's voices blend with the rustling of the wind outside the nursery, your life begins under the watchful eyes of m_c and r_c. Bathed in the warm hues of dawn, {insert}, are surrounded by the familiar scent of your family. As m_c coos at you and r_c makes a silly face, you laugh for the first time.",
+            "In the gentle hush of twilight, {insert}, are brought into the world by m_c and r_c. Tucked into the comforting folds of the nursery, the delicate scent of fresh moss and milk surrounds you. The distant sounds of the Clan carry into the den, their whispered voices dancing on the breeze, blending with the soft rustle of leaves outside, lulling you into a peaceful slumber. Welcome to the world, y_c.",
+            "With a blink, your eyes flutter open for the first time, revealing a world full of colors and shapes. The dim light of the nursery filters through the bramble entrance, casting long shadows on the den walls. The faces of your parents, m_c and r_c, come into focus, their eyes gleaming with an unspoken emotion as they nuzzle you close. The nursery, filled with the scent of milk and moss, becomes the whole world for {insert}."
+        ],
+        "rogue_group": [],
+        "loner_group": [],
+        "kittypet": [],
+        "none": []
+    },
+    "birth_no_parents": {
+        "gen": [],
+        "clan": [
+            "Orphaned, {insert}, were brought into the Clan, but your reception has been far from warm. Clanmates whisper about your unknown background, their apprehension clear in their guarded glances. But you're not disheartened. Instead, their doubt serves as motivation, pushing you to prove your worth and carve your place among them.",
+            "{cap_insert}, found without a trace of your origins, were taken into the Clan, though not without hesitation. The murmurs about the strain you'll put on their resources and the mystery of your past are hard to ignore. But you remain steadfast, using their doubts as fuel to work harder and prove that you deserve to be a part of the Clan.",
+            "{cap_insert}, were found with no known kin, and while the Clan gave you shelter, not all are content about the situation. Their uncertainty about your past, their doubts about the worth of nurturing you are evident. Yet, you bear their skepticism with grace and resolve, your heart set on proving them wrong and becoming a valuable member of the Clan.",
+            "{cap_insert}, were discovered alone, no sign of your family or origins to be found. Although the Clan took you in, there's a sense of suspicion in the air, a wariness about your unknown that is hard to ignore. Despite this, you're determined to earn their trust and respect, to show that you can contribute to the Clan's wellbeing.",
+            "As the first rays of dawn break the horizon, {insert} are birthed into a world of solitary silence. Your den is a cocoon of quiet, untouched by the communal chatter of a Clan, your only company the whispers of the wind and the soft rustle of leaves outside. Where are your parents? As your tiny form shivers against the cool floor, the strength within you flickers like a beacon, the silent promise of a future forged by the determination to survive. Welcome to the world, y_c.",
+            "Despite not knowing who your parents are, the Clan welcomes {insert}, with open hearts. The scent of milk and moss filling the nursery offers a comforting sense of home, a promise of love, acceptance, and endless adventures.",
+            "In the quiet of the nursery, you open your eyes for the first time since being found in the Clan's territory, abandoned shortly after being born. The scents of milk and moss envelop {insert}, a comforting embrace in this strange new world.",
+            "You were discovered alone and abandoned, but now, {insert}, are cradled by the warmth of the Clan's nursery. Nestled against the soft feathers of your nest, the scent of milk soothes you. Your Clan will be your new family.",
+            "Found alone within the Clan's territory, {insert}, are welcomed into the nursery's warm embrace. The scent of milk, moss, and the familiar purrs of your newfound family fill the den. Welcome to the world, little one.",
+            "Abandoned and alone when you were discovered, your life begins anew in the arms of the Clan. {cap_insert}, are welcomed by the soft whispers of the Clan, their warm purrs echoing in the nursery. The scent of milk and moss wraps around you, a constant reminder of your newfound family and home.",
+            "Once lost and alone, {insert}, are now found and surrounded by the love of the Clan. The soft rustle of moss beneath you, the sweet scent of milk, and the comforting murmurs of your new family fill the nursery. Your past may be a mystery, but the promise of a future in the Clan brings you comfort.",
+            "{cap_insert}, were discovered on the territory, left alone to the mercy of the wild. Now, you are tucked safe in the warmth of the Clan's nursery, surrounded by the scent of milk.",
+            "Found on the Clan's territory, {insert}, face a wary reception. The Clanmates murmur about extra resources needed to raise you, their glances sharp and questioning. Still, you harbor a determination within your small form. You will prove yourself to be more than they believe you to be."
+        ],
+        "rogue_group": [
+            "{cap_insert}, were discovered on the territory, left alone to the mercy of the wild. Now, you are tucked safe in a warm nest, surrounded by the scent of milk."
+        ],
+        "loner_group": [
+            "{cap_insert}, were discovered on the territory, left alone to the mercy of the wild. Now, you are tucked safe in a warm nest, surrounded by the scent of milk."
+        ],
+        "kittypet": [
+            "{cap_insert}, were discovered by your housefolk, left alone to the mercy of the Twolegplace. Now, you are wrapped safe in a warm blanket, surrounded by the scent of milk."
+        ],
+        "none": [
+            "{cap_insert} awaken in the world completely alone, with no parents to shelter you. Growing up this way will prove a challenge, but you are y_c, toughest kitten in the territory."
+        ]
+    },
+    "birth_one_adoptive_parent": {
+        "gen": [
+            "Bathed in the twilight's glow, you emerge into the world, cradled within the warmth of your nest. A pair of caring eyes - your adoptive {PRONOUN/m_c/parent}, m_c - gaze down at {insert}, {PRONOUN/m_c/poss} purrs echoing the heartbeat you've grown familiar with. {PRONOUN/m_c/poss/CAP} scent envelops you, a mix of milk and love. Soft murmurs reach your ears, distant and comforting. Welcome to the world, y_c."
+        ],
+        "clan": [
+            "Bathed in the twilight's glow, you emerge into the world, cradled within the warmth of the nursery. A pair of caring eyes - your adoptive {PRONOUN/m_c/parent}, m_c - gaze down at {insert}, {PRONOUN/m_c/poss} purrs echoing the heartbeat you've grown familiar with. {PRONOUN/m_c/poss/CAP} scent envelops you, a mix of milk and love. The Clan's soft murmurs reach your ears, distant and comforting. Welcome to the world, y_c."
+        ],
+        "rogue_group": [],
+        "loner_group": [],
+        "kittypet": [],
+        "none": []
+    },
+    "birth_two_adoptive_parents": {
+        "gen": [
+            "You open your eyes for the first time to the loving gaze of m_c and r_c. They are not your birth parents, yet their warmth and affection form a comforting cocoon around {insert}. The scent of milk soothes you into a peaceful sleep. Welcome to the world, little one.",
+            "Born into the world with no known parents, {insert}, are embraced by the love of m_c and r_c. Their welcoming purrs echo all around you, wrapping you in a comforting blanket of affection.",
+            "m_c and r_c might not be your birth parents, but their love is no less sincere. As {insert}, snuggle into your comforting nest, their warm purrs resonate throughout the den.",
+            "As you enter the world, {insert}, find yourself in the caring embrace of m_c and r_c. Despite not being your birth parents, their purrs and the warmth they provide make their nest feel like home.",
+            "Beneath a sky full of stars, {insert}, are born into this world without known parents. However, m_c and r_c, with their boundless love and warmth, have adopted you. They gaze at you lovingly, as if you were their own."
+        ],
+        "clan": [
+            "Bathed in the twilight's glow, you emerge into the world, cradled within the warmth of the nursery. Your adoptive parents - m_c and r_c - gaze down at {insert}, their purrs echoing the heartbeat you've grown familiar with. Their scent envelops you, a mix of milk and love. The Clan's soft murmurs reach your ears, distant and comforting. Welcome to the world, y_c.",
+            "You blink your eyes open for the first time, greeted by the warmth and affection of m_c and r_c. Their love for {insert}, though not bound by blood, feels no less genuine. The scent of milk and feathers in the nursery and the murmurs of the Clan beyond become your first comfort, your first welcome into the world."
+        ],
+        "rogue_group": [],
+        "loner_group": [],
+        "kittypet": [],
+        "none": []
+    },
+    "birth_one_parent": {
+        "gen": [
+            "As the moon reaches its apex in the velvety night sky, {insert}, are brought into existence, nestled within the sanctuary of the nursery. The solitary figure of your {PRONOUN/m_c/parent}, m_c, watches over you. {PRONOUN/m_c/poss/CAP} eyes, twin pools of love and protection, are your guiding stars in this uncharted world. The scent of milk fills your senses, a reminder of home, of family, of belonging. Your journey is only just beginning, y_c!"
+        ],
+        "clan": [
+            "You can't make much out during your first moon in c_n. Sights, sounds, smells ... and the comforting presences of m_c, snuggling close to you every night.",
+            "As twilight settles over the camp, {insert}, are welcomed into this world by m_c. {PRONOUN/m_c/poss/CAP} purrs and the scent of moss and milk bring comfort as you snuggle closer. The Clan's distant voices become a melodic lullaby, carrying promises of a future filled with love, camaraderie, and adventure.",
+            "With the early morning light filtering through the den, {insert}, blink open your eyes. You're greeted by the gentle gaze of m_c, {PRONOUN/m_c/poss} soft purrs echoing in the nursery. The scent of fresh moss and milk fills the den, a reminder of the bond you share.",
+            "Under the silver glow of the moon, {insert}, are born. m_c, with {PRONOUN/m_c/poss} comforting purrs and warm nuzzles, assures you of {PRONOUN/m_c/poss} love. The scent of the nursery, a comforting blend of milk, moss, and m_c, creates an atmosphere of safety. The Clan's soft murmurs beyond the nursery lull you into your first peaceful slumber.",
+            "In the comforting shelter of the nursery, m_c welcomes {insert}, into the world. {PRONOUN/m_c/poss/CAP} scent and warmth provide a haven as you snuggle into the soft moss. The gentle hum of the Clan's voices float through the den, whispering tales of courage and camaraderie, a promise of your future.",
+            "The break of dawn brings {insert}, into the world. You nestle into the warmth of m_c, {PRONOUN/m_c/poss} loving purrs echoing through the nursery. {PRONOUN/m_c/poss/CAP} scent, mingled with that of the milk and moss, wraps around you, a testament to your shared bond. The distant chatter of the Clan welcomes you into a world of adventure.",
+            "As the night blankets the world in quiet, {insert}, are born into the care of m_c. {PRONOUN/m_c/poss/CAP} soft purrs provide a soothing lullaby, {PRONOUN/m_c/poss} scent mixed with that of milk and feathers becomes your comfort. The murmurs of the Clan beyond the nursery walls promise a future of belonging.",
+            "As the moon reaches its apex in the velvety night sky, you are brought into existence, nestled within the sanctuary of the nursery. The solitary figure of your {PRONOUN/m_c/parent}, m_c, watches over {insert}, {PRONOUN/m_c/poss} gentle purrs soothing against the backdrop of the quiet Clan. {PRONOUN/m_c/poss/CAP} eyes, twin pools of love and protection, are your guiding stars in this uncharted world. The scent of milk and moss fills your senses, a reminder of home, of family, of belonging. Your journey is only just beginning, y_c!"
+        ],
+        "rogue_group": [],
+        "loner_group": [],
+        "kittypet": [],
+        "none": []
+    },
+    "birth_one_parent_outsider": {
+        "gen": [],
+        "clan": [
+            "The Clan's murmurs echo with curiosity as you and m_c, a stranger to this territory, stand at the edge of the camp. Nestled securely against your {PRONOUN/m_c/parent}'s warm fur, the world feels vast and unfamiliar. As the leader grants {insert} permission to stay, hope flickers in m_c's eyes, a silent promise of a brighter future.",
+            "The Clan's eyes dart between you and m_c, an outsider with a past unknown to the community. Tucked beneath your parent's protective tail, the camp's sights and sounds overwhelm your senses. As the leader warmly welcomes {insert}, m_c's relieved sigh promises you tales of adventures and lessons from beyond the Clan's borders.",
+            "Suspicion laces the Clan's whispers as m_c, bearing the scent of distant lands, gently places {insert} at the heart of the gathering. With your tiny mewls echoing the vastness of your new world, the Clan watches intently. The leader's nod of acceptance draws a soft purr from m_c, signifying the start of a new chapter filled with trust and unity.",
+            "The Clan gazes upon you and m_c with a mix of intrigue and caution. With each step your {PRONOUN/m_c/parent} takes, {PRONOUN/m_c/poss} determination to shield {insert} from the uncertain glances is evident. The leader, sensing the resilience in m_c's stance, grants you both sanctuary. It's a fresh beginning, promising challenges, but also hope.",
+            "The Clan's elders share tales of rare instances when outsiders have been embraced into their midst. As m_c, a figure from such tales, holds {insert} tenderly, the camp is rife with anticipation. Recognizing the potential for growth and stories yet untold, the leader integrates your family, setting the stage for a melding of past experiences and future promises."
+        ],
+        "rogue_group": [
+           "A mysterious outsider arrives to the group one day, {insert} following behind. Among murmurs of welcome, curiosity, and skepticism, you and m_c are promised a home, and with it, the promise of a new beginning."
+        ],
+        "loner_group": [
+            "A mysterious outsider arrives to the group one day, {insert} following behind. Among murmurs of welcome, curiosity, and skepticism, you and m_c are promised a home, and with it, the promise of a new beginning."
+        ],
+        "kittypet": [
+            "A lone cat arrives at a doorstep in the Twolegplace one day, {insert} following behind. Your family is taken inside, promised a home of warmth and love."
+        ],
+        "none": [
+            "{cap_insert}, are born to m_c in the solitude of the territory. Without a group to belong to, m_c pledges to keep you safe in the harshness of the wild."
+        ]
+    },
+    "birth_two_parent_outsiders": {
+        "gen": [],
+        "clan": [
+            "The Clan's murmurs echo with curiosity as you and m_c and r_c, strangers to this territory, stand at the edge of the camp. Nestled securely against your parent's warm fur, the world feels vast and unfamiliar. As the leader grants your family permission to stay, hope flickers in m_c's eyes, a silent promise of a brighter future.",
+            "The Clan's eyes dart between m_c and r_c, outsiders with a past unknown to the community. Tucked beneath your {PRONOUN/m_c/parent}'s protective tail, the camp's sights and sounds overwhelm your senses. As the leader warmly welcomes {insert}, m_c's relieved sigh promises you tales of adventures and lessons from beyond the Clan's borders.",
+            "Suspicion laces the Clan's whispers as m_c and r_c, bearing the scent of distant lands, gently place {insert} at the heart of the gathering. With your tiny mewls echoing the vastness of your new world, the Clan watches intently. The leader's nod of acceptance draws a soft purr from m_c, signifying the start of a new chapter filled with trust and unity.",
+            "The Clan gazes upon {insert}, m_c, and r_c with a mix of intrigue and caution. With each step your parent takes, {PRONOUN/m_c/poss} determination to shield you from the uncertain glances is evident. The leader, sensing the resilience in m_c's stance, grants you both sanctuary. It's a fresh beginning, promising challenges, but also hope.",
+            "The Clan's elders share tales of rare instances when outsiders have been embraced into their midst. As m_c and r_c, figures from such tales, hold you tenderly, the camp is rife with anticipation. Recognizing the potential for growth and stories yet untold, the leader integrates your family, setting the stage for a melding of past experiences and future promises."
+        ],
+        "rogue_group": [
+            "Two mysterious outsiders arrive to the group one day with {insert} following behind. Among murmurs of welcome, curiosity, and skepticism, you, m_c, and r_c are given a home, and with it, the promise of a new beginning."
+        ],
+        "loner_group": [
+            "Two mysterious outsiders arrive to the group one day with {insert} following behind. Among murmurs of welcome, curiosity, and skepticism, you, m_c, and r_c are given a home, and with it, the promise of a new beginning."
+        ],
+        "kittypet": [
+            "Two cats arrive at a doorstep in the Twolegplace one day, {insert} following behind. m_c, r_c, and their kits are taken inside, promised a home of warmth and love."
+        ],
+        "none": [
+            "{cap_insert}, are born to m_c in the solitude of the territory. Without a group to belong to, m_c pledges to keep this kit safe in the harshness of the wild."
+        ]
+    },
+    "birth_alone": {
+        "gen": [],
+        "clan": [
+            "{cap_insert} awaken in the world completely alone, with no parents to shelter you. Growing up this way will prove a challenge, but you are y_c, toughest kitten in the territory."
+        ],
+        "rogue_group": [
+            "{cap_insert} awaken in the world completely alone, with no parents to shelter you. Growing up this way will prove a challenge, but you are y_c, toughest kitten in the territory."
+        ],
+        "kittypet": [
+            "{cap_insert} awaken in a Twoleg den with no parents to be found. Your housefolk take good care of you, and all you know for your first few moments of life is milk, warmth, and love."
+        ],
+        "loner_group": [
+            "{cap_insert} awaken in the world completely alone, with no parents to shelter you. Growing up this way will prove a challenge, but you are y_c, toughest kitten in the territory."
+        ],
+        "none": [
+            "{cap_insert} awaken in the world completely alone, with no parents to shelter you. Growing up this way will prove a challenge, but you are y_c, toughest kitten in the territory."
+        ]
+    }
+}

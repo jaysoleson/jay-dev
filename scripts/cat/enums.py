@@ -71,18 +71,24 @@ class CatRank(StrEnum):
     def is_any_adult_warrior_like_rank(self) -> bool:
         return self in (self.WARRIOR, self.DEPUTY, self.LEADER)
 
-    def is_allowed_to_patrol(self) -> bool:
+    def is_allowed_to_patrol(self, cat) -> bool:
         # newborn is not included in this because the constants.CONFIG["fun"] needs extra checks
-        if self.is_any_clancat_rank() and self not in (
-            self.ELDER,
-            self.KITTEN,
-            self.NEWBORN,
-            self.MEDIATOR,
-            self.MEDIATOR_APPRENTICE,
-            self.QUEEN,
-            self.QUEENS_APPRENTICE
-        ):
-            return True
+        if cat.status.alive_in_your_cat_group:
+            if cat.status.group.is_any_clan_group():
+                if self.is_any_clancat_rank() and self not in (
+                    self.ELDER,
+                    self.KITTEN,
+                    self.NEWBORN,
+                    self.MEDIATOR,
+                    self.MEDIATOR_APPRENTICE,
+                    self.QUEEN,
+                    self.QUEENS_APPRENTICE
+                ):
+                    return True
+            else:
+                if cat.moons >= 6:
+                    return True
+
         return False
 
     def is_active_clan_rank(self):
@@ -111,6 +117,7 @@ class CatStanding(StrEnum):
 
     # LG
     SHUNNED = "shunned"
+    DAYLIGHT = "daylight"
 
 
 class CatGroup(StrEnum):
@@ -128,6 +135,15 @@ class CatGroup(StrEnum):
     UNKNOWN_RESIDENCE_ID = "3"
     DARK_FOREST_ID = "4"
 
+    # LG
+    ROGUE_GROUP = "rogue_group"
+    LONER_GROUP = "loner_group"
+    HOUSEHOLD = "household"
+
+    ROGUE_GROUP_ID = "5"
+    LONER_GROUP_ID = "6"
+    HOUSEHOLD_ID = "7"
+
     def is_afterlife(self) -> bool:
         return self in (self.DARK_FOREST, self.STARCLAN, self.UNKNOWN_RESIDENCE)
 
@@ -136,7 +152,27 @@ class CatGroup(StrEnum):
             self.PLAYER_CLAN,
             self.OTHER_CLAN,
         )
-
+    
+    # LG
+    def get_all_outside_groups_IDs(self):
+        """ 
+        Returns a list of groups that the specified cat is NOT a part of. 
+        Called from a cat's group object
+        """
+        return_groups= []
+        all_groups = {
+            CatGroup.PLAYER_CLAN: CatGroup.PLAYER_CLAN_ID,
+            CatGroup.ROGUE_GROUP: CatGroup.ROGUE_GROUP_ID,
+            CatGroup.LONER_GROUP: CatGroup.LONER_GROUP_ID,
+            CatGroup.HOUSEHOLD: CatGroup.HOUSEHOLD_ID,
+            CatGroup.NONE: None
+        }
+        for i in all_groups:
+            if i == self:
+                continue
+            else:
+                return_groups.append(all_groups[i])
+        return return_groups
 
 class CatCompatibility(Enum):
     NEGATIVE = auto()

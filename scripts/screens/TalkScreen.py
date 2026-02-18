@@ -36,7 +36,9 @@ from scripts.utility import (
     get_cluster,
     pronoun_repl,
     lifegen_text_adjust,
-    shorten_text_to_fit
+    shorten_text_to_fit,
+    get_current_camp,
+    assign_new_bg
     )
 from scripts.game_structure.localization import (
     load_lang_resource
@@ -212,13 +214,12 @@ class TalkScreen(Screens):
     def update_camp_bg(self):
         light_dark = "dark" if game_setting_get("dark mode") else "light"
 
-        camp_bg_base_dir = "resources/images/camp_bg/"
         leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
-        camp_nr = game.clan.camp_bg
+
+        camp_bg_base_dir, camp_nr = get_current_camp()
 
         if camp_nr is None:
-            camp_nr = "camp1"
-            game.clan.camp_bg = camp_nr
+            assign_new_bg("camp1")
 
         available_biome = ["Forest", "Mountainous", "Plains", "Beach"]
         biome = game.clan.biome
@@ -652,23 +653,15 @@ class TalkScreen(Screens):
         elif switch_get_value(Switch.talk_category) == "flirt":
             possible_texts.update(load_lang_resource("lifegen_talk/flirt.json"))
         else:
-            if cat.status.rank in [CatRank.ROGUE, CatRank.LONER, CatRank.KITTYPET]:
-                # former clancats only get their own file
-                # so we can write general dialogue about not knowing what a clan is
-                possible_texts.update(load_lang_resource("lifegen_talk/general_outsider.json"))
+            possible_texts.update(load_lang_resource(f"lifegen_talk/{cat.status.rank.replace(' ', '_')}.json"))
+            if cat.status.is_outsider:
                 possible_texts.update(load_lang_resource("lifegen_talk/general_outsider.json"))
             else:
-                possible_texts.update(load_lang_resource(f"lifegen_talk/{cat.status.rank.replace(' ', '_')}.json"))
-
                 if cat.status.rank != CatRank.NEWBORN:
                     # newborns will no longer participate in nuanced discussion
 
-                    possible_texts.update(load_lang_resource("lifegen_talk/choice_dialogue.json"))
-    
                     if not cat.status.rank.is_baby() and not you.status.rank.is_baby():
                         possible_texts.update(load_lang_resource("lifegen_talk/general_no_kit.json"))
-                        possible_texts.update(load_lang_resource("lifegen_talk/crush.json"))
-
 
                     if cat.age != CatAge.NEWBORN and you.age != CatAge.NEWBORN:
                         possible_texts.update(load_lang_resource("lifegen_talk/general_no_newborn.json"))
@@ -773,12 +766,17 @@ class TalkScreen(Screens):
                 AGE = YOU["age"]
             else:
                 AGE = []
-            if not self.validate_age(AGE, you,):
+            if not self.validate_age(AGE, you):
                 if talk_key == self.debug_dialogue:
                     print("Skipping debug dialogue", talk_key, ": validate_age(YOU)")
                 if not status_valid:
                     skip = True
                     
+            if not self.validate_group(YOU, you):
+                continue
+                    
+            if not self.validate_group(CAT, cat):
+                continue
 
             if "age" in CAT:
                 AGE = CAT["age"]
@@ -1187,13 +1185,6 @@ class TalkScreen(Screens):
 
             # ---
 
-            if "war" in TAGS:
-                if "at_war" in game.clan.war:
-                    if not game.clan.war["at_war"]:
-                        continue
-                else:
-                    continue
-
             if "clan_has_kits" in TAGS:
                 clan_has_kits = False
                 for c in Cat.all_cats_list:
@@ -1276,7 +1267,7 @@ class TalkScreen(Screens):
             
             if TAGS:
                 if "has_mate" in TAGS:
-                    if not cat.mate:
+                    if not cat.mate or (cat.mate and game.clan.your_cat.ID in cat.mate):
                         continue
 
             # FOCUS TAGS
@@ -1400,6 +1391,17 @@ class TalkScreen(Screens):
                     return False
         return True
 
+    def validate_group(self, BLOCK, cat):
+        group_block = BLOCK["group"] if "group" in BLOCK else []
+        if not group_block:
+            return True
+        if "clan" in group_block and cat.status.group not in[CatGroup.PLAYER_CLAN, CatGroup.OTHER_CLAN]:
+            return False
+        if "not_clan" in group_block and cat.status.group in [CatGroup.PLAYER_CLAN, CatGroup.OTHER_CLAN]:
+            return False
+        if cat.status.group not in group_block:
+            return False
+        return True
     
     # Filter Helpers
     def validate_status(self, BLOCK, cat, talk_key):

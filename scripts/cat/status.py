@@ -318,6 +318,19 @@ class Status:
         Returns True if the cat is currently part of the player clan.
         """
         return self.group == CatGroup.PLAYER_CLAN
+    
+    # LG
+    @property
+    def alive_in_your_cat_group(self) -> bool:
+        """
+        Returns True if the cat is currently part of the same group as your cat
+        """
+        # this fails tests bc it checks this before Clan exists
+        # so... nonecheck failsafe
+        if game.clan:
+            return self.group == game.clan.your_cat.status.group
+        else:
+            return self.alive_in_player_clan
 
     @property
     def is_outsider(self) -> bool:
@@ -408,6 +421,24 @@ class Status:
         """
         self.group_history[-1]["moons_as"] += 1
 
+    # LIFEGEN
+    def init_your_cat_status(
+            self,
+            rank: CatRank,
+            group_ID: str = None
+    ):
+        # creates you cat's status history.
+        # clear initial player clan history that they generated with
+        self.group_history = []
+        self.standing_history = []
+        self._modify_group(
+            new_rank=rank,
+            new_group_ID=group_ID,
+        )
+        if group_ID != CatGroup.PLAYER_CLAN_ID:
+            # if theyre not in the player clan, make them Known to the player clan
+            self.change_standing(CatStanding.KNOWN, CatGroup.PLAYER_CLAN_ID)
+
     def _modify_group(
         self,
         new_rank: CatRank,
@@ -476,13 +507,10 @@ class Status:
         """
         Removes cat from current group and changes their standing with that group to be shunned.
         """
-        print("SHUNNING")
 
         self.change_standing(CatStanding.SHUNNED)
 
     def unshun_from_group(self):
-
-        print("UNSHUNNING")
         self.change_standing(CatStanding.MEMBER)
 
     def exile_from_group(self):
@@ -703,6 +731,20 @@ class Status:
                         return True
         return False
         
+    def is_daylight_warrior(self, group_ID: str = None) -> bool:
+        """ 
+        LG: Returns True if a cat is a daylight warrior!
+        """
+        if not group_ID:
+            for entry in self.standing_history:
+                if CatStanding.DAYLIGHT in entry["standing"]:
+                    return True
+            return False
+
+        # if group given
+        standing = self.get_standing_with_group(group_ID)
+
+        return standing and standing[-1] == CatStanding.DAYLIGHT
 
     def is_exiled(self, group_ID: str = None) -> bool:
         """

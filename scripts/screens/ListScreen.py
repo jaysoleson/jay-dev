@@ -490,7 +490,10 @@ class ListScreen(Screens):
         self.cat_display.clear_display()
         self.cat_display = None
         self.list_screen_container.kill()
-        self.update_heading_text(self.clan_name)
+        if game.clan.your_cat.status.is_outsider:
+            self.update_heading_text("Your Territory")
+        else:
+            self.update_heading_text(self.clan_name)
 
     def on_use(self):
         super().on_use()
@@ -695,7 +698,10 @@ class ListScreen(Screens):
         """
         if self.current_group == "your_clan":
             self.set_bg(None)
-            self.update_heading_text(self.clan_name)
+            if game.clan.your_cat.status.is_outsider:
+                self.update_heading_text("Your Territory")
+            else:
+                self.update_heading_text(self.clan_name)
         elif self.current_group == "cotc":
             self.set_bg(None)
             self.update_heading_text("general.cotc")
@@ -741,13 +747,14 @@ class ListScreen(Screens):
         """
         grabs cats outside the clan
         """
+
         self.current_group = "cotc"
         self.death_status = "living"
         self.full_cat_list = []
         for the_cat in Cat.all_cats_list:
             if (
                 not the_cat.dead
-                and (the_cat.status.is_outsider or the_cat.status.is_other_clancat)
+                and not (the_cat.status.alive_in_player_clan)
                 and the_cat.status.is_near(CatGroup.PLAYER_CLAN_ID)
                 and the_cat.moons >= 0
             ):

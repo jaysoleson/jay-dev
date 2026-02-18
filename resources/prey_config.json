@@ -32,7 +32,11 @@
         "elder": 1.5,
         "queen/pregnant": 4,
         "kitten": 0.5,
-        "newborn": 0.2
+        "newborn": 0.2,
+
+        "rogue": 1.5,
+        "loner": 1.5,
+        "kittypet": 1.5
     },
     "feeding_order":[
         "newborn",
@@ -48,7 +52,11 @@
         "warrior",
         "mediator",
         "deputy",
-        "leader"
+        "leader",
+
+        "kittypet",
+        "loner",
+        "rogue"
     ],
     "hunter_bonus": {"1": 1, "2": 2, "3": 3},
     "hunter_exp_bonus": {

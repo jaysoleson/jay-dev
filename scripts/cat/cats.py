@@ -1749,7 +1749,7 @@ class Cat:
 
         game_mode = switch_get_value(Switch.game_mode)
         biome = switch_get_value(Switch.biome)
-        camp = switch_get_value(Switch.camp_bg)
+        camp = switch_get_value(Switch.current_camp_bg)
         try:
             season = game.clan.current_season
         except Exception:
@@ -2286,16 +2286,7 @@ class Cat:
             self.pelt.accessory = [
                 acc
                 for acc in self.pelt.accessory
-                if acc not in [
-                    "VINE",
-                    "ASHY PAWS",
-                    "MUD PAWS",
-                    "MUD",
-                    "STARFLOWERS",
-                    "LAVENDERANKLET",
-                    "HOLLY2",
-                    "HOLLYVINES"
-                ]
+                if acc not in Pelt.paw_accessories
             ]
 
         condition = PERMANENT[name]
@@ -4017,6 +4008,14 @@ class Cat:
             ),
             sorted_specific_list[idx - 1].ID if idx - 1 >= 0 else 0,
         )
+    
+    def get_cats_in_your_group(self):
+        return [
+            cat for cat in Cat.all_cats_list if (
+                game.clan.your_cat and
+                cat.status.group == game.clan.your_cat.status.group
+            )
+        ]
 
 # ---------------------------------------------------------------------------- #
 #                               END OF CAT CLASS                               #
@@ -4055,7 +4054,6 @@ def create_cat(rank, moons=None, biome=None):
             new_cat.pelt.scars.remove(scar)
 
     return new_cat
-
 
 # Twelve example cats
 def create_example_cats():

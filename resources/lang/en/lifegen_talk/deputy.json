@@ -6151,5 +6151,54 @@
             "dislike-r_w-unlawful snuck out of camp one time too many. I just assigned {PRONOUN/dislike-r_w-unlawful/object} to early patrols for the rest of the week.",
             "{PRONOUN/dislike-r_w-unlawful/subject/CAP} {VERB/dislike-r_w-unlawful/need/needs} to learn that the rules aren't some joke. And furthermore, {PRONOUN/dislike-r_w-unlawful/subject} {VERB/dislike-r_w-unlawful/need/needs} to learn that I'll enforce them."
         ]
+    },
+    "neurotic_choices_leadertoshunneddeputy_SQ8": {
+        "y_c": {
+            "status": [
+                "leader"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "neurotic"
+            ],
+            "shunned": true,
+            "status": [
+                "deputy"
+            ]
+        },
+        "relationship": [
+            "max_trust_15",
+            "max_like_30"
+        ],
+        "intro": [
+            "[At the sight of you striding towards {PRONOUN/t_c/object}, t_c shrinks back.]",
+            "y_c... I'm sorry, I really am. I didn't... I never wanted..."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I trusted you.",
+                "next_scene": "trust"
+            },
+            "choice2": {
+                "text": "Why?",
+                "next_scene": "why"
+            },
+            "choice3": {
+                "text": "[Say nothing.]",
+                "next_scene": "nothing"
+            }
+        },
+        "trust": [
+            "[t_c was your deputy. You had <i>trusted</i> {PRONOUN/t_c/object} to be your successor. What was worth throwing away that trust like this?]",
+            "[t_c can't meet your eyes. {PRONOUN/t_c/subject/CAP} {VERB/t_c/say/says} nothing.]"
+        ],
+        "why": [
+            "[t_c seems to have expected a condemnation or an insult, but the question stops {PRONOUN/t_c/object} short.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/fumble/fumbles} with {PRONOUN/t_c/poss} words for a second before shaking {PRONOUN/t_c/poss} head, {PRONOUN/t_c/poss} whiskers drooping.]"
+        ],
+        "nothing": [
+            "[You look t_c in the eyes. {PRONOUN/t_c/subject/CAP} {VERB/t_c/hold/holds} your gaze for a half-second before looking away.]"
+        ]
     }
 }

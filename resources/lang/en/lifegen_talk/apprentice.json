@@ -7935,5 +7935,623 @@
             "Why does everycat act like learning the warrior code is some kind of huge chore? I memorized it right after I became an apprentice.",
             "It's the rules that guide our lives! They're not hard to remember if you live by them!"
         ]
+    },
+    "assertiveapp_medapp3": {
+        "y_c": {
+            "status": [
+                "medicine cat apprentice",
+                "medicine cat"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive",
+                "silly",
+                "upstanding"
+            ],
+            "age": [
+                "younger"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "apprentice",
+                "warrior"
+            ]
+        },
+        "intro": [
+            "Hey, y_c ... is it really true that you can talk to StarClan?",
+            "Whoa! That's so cool! What does StarClan say that I'm gonna do? Am I gonna be strong? Am I destined for greatness?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Yes!",
+                "next_scene": "yes"
+            },
+            "choice2": {
+                "text": "No.",
+                "next_scene": "no"
+            },
+            "choice3": {
+                "text": "It doesn't work like that.",
+                "next_scene": "doesnt_work_like_that"
+            }
+        },
+        "yes": [
+            "Really?! StarClan said that about me?",
+            "So, what does this mean? Am I a prophecy cat? Am I gonna save the Clan?!",
+            "I can't wait to tell l_n about this!",
+            "[t_c dashes out of the den with an excited squeal.]",
+            "[You better tell {PRONOUN/t_c/object} the truth, before {PRONOUN/t_c/subject} {VERB/t_c/land/lands} {PRONOUN/t_c/self} in a whole world of disappointment.]"
+        ],
+        "no": [
+            "What? Seriously? StarClan said that about me?",
+            "Hmph. Well, what does StarClan know anyways?",
+            "I'll show them ... I'll become the strongest warrior this Clan has ever seen! Then, StarClan will be begging to make prophecies about me!",
+            "[t_c stalks out of the medicine den with a huff. {PRONOUN/t_c/subject/CAP} probably won't be asking about StarClan again any time soon.]"
+        ],
+        "doesnt_work_like_that": [
+            "... It doesn't work like that? Awh. That's no fun.",
+            "Well, if StarClan ever mentions me, you'll let me know, won't you?"
+        ]
+    },
+    "assertive_app1": {
+        "y_c": {
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive",
+                "cool"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "intro": [
+            "Did you see r_c-neurotic earlier today, y_c? Oh, StarClan, it was the funniest thing ever!",
+            "{PRONOUN/r_c-neurotic/subject/CAP} mistook a twig for a snake and flew, like, five fox-lengths into the air! Hahahaha!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Hilarious!",
+                "next_scene": "hilarious"
+            },
+            "choice2": {
+                "text": "That's not very funny ...",
+                "next_scene": "not_very_funny"
+            }
+        },
+        "hilarious": [
+            "Hahaha, I knew you'd appreciate it!",
+            "Say, I know this place out on the territory with some huge sticks ... Think we can make {PRONOUN/r_c-neurotic/object} do it again?",
+            "Maybe {PRONOUN/r_c-neurotic/subject}'ll go six fox-lengths this time!"
+        ],
+        "not_very_funny": [
+            "No? Since when were you above that type of humor?",
+            "You gotta lighten up, y_c. You don't have to take everything so seriously all the time! It'll give you gray hairs."
+        ]
+    },
+    "assertive_apprentice3": {
+        "y_c": {
+            "status": [
+                "apprentice"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive",
+                "upstanding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "apprentice"
+            ]
+        },
+        "intro": [
+            "y_c, when do you think we'll get to fight in a real warrior battle?",
+            "I know we've been practicing our fighting moves, but practice is nothing compared to the real thing.",
+            "I'm just itching to tear into some o_c_n fur! That'll show them how a real c_n cat does it!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I hope we get to battle right away!",
+                "next_scene": "hope_battle_right_away"
+            },
+            "choice2": {
+                "text": "I hope we never have to battle ...",
+                "next_scene": "hope_never_battle"
+            }
+        },
+        "hope_battle_right_away": [
+            "Say, maybe there's a way we can both get what we want!",
+            "You can be an o_c_n warrior, and I'll be the c_n warrior.",
+            "Ready? I'll give you a running start!"
+        ],
+        "hope_never_battle": [
+            "Huh? Really? How do you ever expect to be a decent warrior with that attitude?",
+            "I dunno what type of stuff m_n's been teaching you, but maybe you should come and train with me and tm_n sometime.",
+            "Then, you'll learn just how fun fighting can be!"
+        ]
+    },
+    "assertive_apprentice5": {
+        "y_c": {
+            "age": [
+                "adolescent"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "apprentice"
+            ]
+        },
+        "relationship": [
+            "min_like_20"
+        ],
+        "intro": [
+            "[t_c tackles you from behind.]",
+            "Rahhh! o_c_n warrior, feel my wrath!",
+            "Hehe, don't worry! It's just me, y_c. Did I scare you?",
+            "That's a move tm_n just taught me. Cool, huh? I can't wait to try it out for real!",
+            "Has m_n taught you anything cool yet?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Yes!",
+                "next_scene": "yes"
+            },
+            "choice2": {
+                "text": "Not really ...",
+                "next_scene": "not_really"
+            }
+        },
+        "yes": [
+            "Hehe, alright! You'll have to show me sometime!",
+            "Hey, maybe we can organize some kind of awesome joint-training session with all of the apprentices! That way, we can make sure all our bases are covered.",
+            "I bet I could get r_a on board, at least!"
+        ],
+        "not_really": [
+            "Really? Wow, I never realized that m_n was such a cruddy mentor!",
+            "If you ever wanna learn some moves, I could always teach you!",
+            "We could have our own little training sessions. It'd be like tm_n was your mentor-by-proxy!",
+            "Just let me know!"
+        ]
+    },
+    "assertive_apprentice26": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "assertive",
+                "sweet"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "apprentice"
+            ]
+        },
+        "relationship": [
+            "min_like_20"
+        ],
+        "intro": [
+            "[You notice that t_c isn't acting like {PRONOUN/t_c/poss} usual, energetic self. You ask {PRONOUN/t_c/object} what's wrong.]",
+            "*Sigh* Oh, it's nothing really ...",
+            "It's just that ... Sometimes, I feel so behind my denmates. Not just in training, but in everything!",
+            "Everybody else seems to already have everything figured out. What they want to do with their lives, their places in the Clan, who they're going to become mates with ... I just don't know any of that stuff!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Assure t_c]",
+                "next_scene": "assure"
+            },
+            "choice2": {
+                "text": "[Comfort t_c]",
+                "next_scene": "comfort"
+            },
+            "choice3": {
+                "text": "[Reality check t_c]",
+                "next_scene": "reality_check"
+            }
+        },
+        "assure": [
+            "[You tell t_c to keep {PRONOUN/t_c/poss} chin up, as cats {PRONOUN/t_c/poss} age have less figured out than it seems.]",
+            "... You really think so?",
+            "I guess I never even considered that other apprentices could feel the same way that I do.",
+            "We never really talk about stuff like this around the apprentice's den. Everybody acts so grown up all the time. But I guess, on the outside, I do too.",
+            "Maybe it would help if we were all more honest.",
+            "Thanks for the advice, y_c."
+        ],
+        "comfort": [
+            "[You wrap your tail around t_c's shoulders and purr that {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} an amazing young cat who you're sure has a bright future ahead.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/smile/smiles} at you, seeming to appreciate the gesture, but something in {PRONOUN/t_c/poss} gaze tells you that you still haven't fully assuaged {PRONOUN/t_c/poss} worries ...]"
+        ],
+        "reality_check": [
+            "[You tell t_c that {PRONOUN/t_c/subject} can't run away from the important decisions forever, especially at {PRONOUN/t_c/poss} age when those decisions are so critical.]",
+            "[With every word out of your mouth, {PRONOUN/t_c/poss} eyes seem to widen more with worry.]",
+            "Man ... I guess I really am behind!",
+            "Thanks for helping me realize that, y_c ... Even though it multiplied my stress by, like, a thousand."
+        ]
+    },
+    "neurotic_app": {
+        "y_c": {
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "neurotic"
+            ],
+            "status": [
+                "apprentice"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "intro": [
+            "[t_c comes in from the hunting patrol, staring at {PRONOUN/t_c/poss} paws self-consciously as the rest of the patrol adds their catches to the freshkill pile.]",
+            "[tm_n gently reassures {PRONOUN/t_c/object} that {PRONOUN/t_c/subject} tried {PRONOUN/t_c/poss} best, but t_c just glances away, clearly upset.]",
+            "How am I ever gonna be a real warrior if I can't even catch my own prey ...?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Comfort.]",
+                "next_scene": "comfort"
+            },
+            "choice2": {
+                "text": "[Leave alone.]",
+                "next_scene": "leave_alone"
+            }
+        },
+        "comfort": [
+            "[You tell t_c that everycat struggles with hunting sometimes and {PRONOUN/t_c/subject}'ll get the hang of it eventually.]",
+            "You're telling me you noticed I did bad on my patrol?",
+            "Do you think the entire Clan is talking about it?",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} at you for a second, eyes wide and impressionable, then {VERB/t_c/look/looks} away.]",
+            "Uhm. Thanks, I guess.",
+            "[Seems {PRONOUN/t_c/subject} didn't respond well to your sympathy.]"
+        ],
+        "leave_alone": [
+            "[You decide to not embarrass t_c any further.]"
+        ]
+    },
+    "broodingapp_toapp4": {
+        "y_c": {},
+        "t_c": {
+            "cluster": [
+                "brooding"
+            ],
+            "status": [
+                "apprentice"
+            ]
+        },
+        "relationship": [
+            "from_your_apprentice",
+            "min_like_20"
+        ],
+        "intro": [
+            "[t_c coldly drops a bird at your paws.]",
+            "Before you ask, yes, I did go onto the territory without your permission.",
+            "It was early morning. This bird was perching in camp and I chased after it. There was no time to wake you.",
+            "If you have a problem with it, I'd recommend taking it up with d_n.",
+            "But I'm not gonna apologize, because I'm not sorry."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Praise your apprentice.]",
+                "next_scene": "praise_apprentice"
+            },
+            "choice2": {
+                "text": "[Scold your apprentice.]",
+                "next_scene": "scold_apprentice"
+            }
+        },
+        "praise_apprentice": [
+            "[You compliment t_c on {PRONOUN/t_c/poss} initiative. {PRONOUN/t_c/subject/CAP} {VERB/t_c/blink/blinks}, surprised, then {VERB/t_c/break/breaks} into a rare smile.]",
+            "Guess I'll just put this on the freshkill pile, then. Heh."
+        ],
+        "scold_apprentice": [
+            "[You chastise t_c on {PRONOUN/t_c/poss} flippant attitude.]",
+            "Tch. I already told you, I don't care.",
+            "I got the bird, just like you taught me! It was an advanced catch! Shouldn't you be proud of me?",
+            "I can guarantee you, whoever eats this bird is gonna be grateful. But if you'd rather grab it out of their mouth because it was caught 'illegally', be my guest.",
+            "[t_c stalks off, coldly dropping the bird on the freshkill pile. Seems like you'll have to find another way to discipline {PRONOUN/t_c/object}.]"
+        ]
+    },
+    "upstanding_choice4": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "upstanding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "apprentice"
+            ]
+        },
+        "intro": [
+            "Hey there y_c, what's up? Do you need anything?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Teach me some battle moves!",
+                "next_scene": "battle"
+            },
+            "choice2": {
+                "text": "Can you give me a badger ride?",
+                "next_scene": "badger"
+            }
+        },
+        "battle": [
+            "Oh, sorry y_c, I'm in a bit of a time crunch right now. I have to gather some moss for r_m and help r_a patch up the apprentice den, all before sunset!",
+            "But first, I have to go join r_w's patrol."
+        ],
+        "battle_choices": {
+            "choice1": {
+                "text": "Can I come with you?",
+                "next_scene": "patrol"
+            },
+            "choice2": {
+                "text": "What about a badger ride?",
+                "next_scene": "badger"
+            }
+        },
+        "patrol": [
+            "Haha, no."
+        ],
+        "patrol_choices": {
+            "choice1": {
+                "text": "Pleeeease?",
+                "next_scene": "beg"
+            }
+        },
+        "beg": [
+            "No way! You know the rules, and I am not putting my tail on the line so you can frolic around outside of camp.",
+            "What if you got lost? What if you ran into a big, hungry fox? These rules are here for a reason, y_c. I don't want you to get hurt."
+        ],
+        "badger": [
+            "But r_w's patrol...",
+            "[t_c shakes {PRONOUN/t_c/poss} head, sighing as {PRONOUN/t_c/subject} {VERB/t_c/crouch/crouches} low enough for you to climb onto their back.]",
+            "...Fine. Here, climb onto my shoulder and- hey! Careful with those claws!",
+            "[You hook your claws into {PRONOUN/t_c/poss} fur, squealing with delight as {PRONOUN/t_c/subject} {VERB/t_c/lumber/lumbers} around the clearing.]"
+        ]
+    },
+    "neurotic_choice_apprenticepractice_SQ19": {
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "neurotic"
+            ],
+            "status": [
+                "apprentice"
+            ]
+        },
+        "relationship": [
+            "max_trust_15"
+        ],
+        "intro": [
+            "[t_c has been just outside of camp, practicing {PRONOUN/t_c/poss} hunting crouch, for hours now. From the spot you've chosen to eat your fresh-kill, you can just glimpse {PRONOUN/t_c/object}.]",
+            "[{PRONOUN/t_c/poss/CAP} crouch isn't perfect, but it's good! t_c is quiet, and moves smoothly, and is careful where to put {PRONOUN/t_c/poss} paws.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/notice/notices} you watching, and immediately {VERB/t_c/stumble/stumbles}.]",
+            "Oh, uh... hi, y_c.",
+            "Sorry, I know this looks messy. I just wanted to practice on my own a bit, to get better.",
+            "If it's okay, could you... not watch me? Please?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Compliment them.]",
+                "next_scene": "compliment"
+            },
+            "choice2": {
+                "text": "[Look away.]",
+                "next_scene": "away"
+            },
+            "choice3": {
+                "text": "[Tell them to rest.]",
+                "next_scene": "rest"
+            }
+        },
+        "compliment": [
+            "[You tell t_c that {PRONOUN/t_c/poss} crouch looks great! {PRONOUN/t_c/poss/CAP} practice has clearly been paying off.]",
+            "Ah... Thanks? But it's okay, you don't have to say that.",
+            "I felt really awkward and unbalanced during training today. I know that I really need to improve... I don't want to fall behind.",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/smile/smiles} hesitantly and {VERB/t_c/move/moves} behind a bush so it's harder for you to watch them, then {VERB/t_c/return/returns} to practicing.]"
+        ],
+        "away": [
+            "[You nod and look away. You hear t_c move to a more obscured location to continue practicing.]"
+        ],
+        "rest": [
+            "[t_c's been practicing for a while. Taking breaks is just as important!]",
+            "[The apprentice hesitates. {PRONOUN/t_c/subject/CAP} {VERB/t_c/start/starts} to say something but {VERB/t_c/cut/cuts} {PRONOUN/t_c/self} off, seemingly uncomfortable arguing with you.]",
+            "[Finally, {PRONOUN/t_c/subject} just {VERB/t_c/nod/nods} and {VERB/t_c/come/comes} back into camp to grab a piece of prey, although you wonder whether {PRONOUN/t_c/subject}'ll keep practicing when you're not looking.]"
+        ]
+    },
+    "neurotic_choices_yourapprentice_SQ20": {
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "neurotic"
+            ],
+            "status": [
+                "apprentice"
+            ]
+        },
+        "relationship": [
+            "neutral",
+            "from_your_apprentice"
+        ],
+        "intro": [
+            "[t_c seems disheartened as {PRONOUN/t_c/subject} {VERB/t_c/follow/follows} you back to camp after a training session. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} even less talkative than usual, and can't seem to meet your eyes.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Ask if {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} okay.]",
+                "next_scene": "ask"
+            },
+            "choice2": {
+                "text": "[Stay quiet.]",
+                "next_scene": "quiet"
+            }
+        },
+        "ask": [
+            "[t_c jumps at your question. {PRONOUN/t_c/subject/CAP} {VERB/t_c/hesitate/hesitates}, then {VERB/t_c/nod/nods}.]",
+            "[You remind {PRONOUN/t_c/object} that you're {PRONOUN/t_c/poss} mentor, and are always here to talk if {PRONOUN/t_c/subject} {VERB/t_c/want/wants}. t_c nods again, harder this time, but still doesn't say anything.]",
+            "[When you reach camp, t_c mews a soft 'thank you', then pads directly over to plove-r_c and flops down beside {PRONOUN/plove-r_c/object}. The two start talking, but you can't make out any words.]",
+            "[Even if t_c isn't comfortable talking with you, you suppose it's good that {PRONOUN/t_c/subject} can open up to someone.]"
+        ],
+        "quiet": [
+            "[You stay silent as you lead your apprentice back to camp. {PRONOUN/t_c/subject/CAP} {VERB/t_c/mew/mews} a soft 'thank you', then {VERB/t_c/pad/pads} directly over to plove-r_c and {VERB/t_c/flop/flops} down beside {PRONOUN/plove-r_c/object}.]",
+            "[You see the two talking, but can't make out any words.]",
+            "[Even if t_c isn't comfortable talking with you, you suppose it's good that {PRONOUN/t_c/subject} can open up to someone.]"
+        ]
+    },
+    "neurotic_choice_yourapprentice_SQ21": {
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "neurotic"
+            ],
+            "status": [
+                "apprentice"
+            ]
+        },
+        "relationship": [
+            "from_your_apprentice"
+        ],
+        "intro": [
+            "[You watch t_c prepare to catch a squirrel. {PRONOUN/t_c/subject/CAP} {VERB/t_c/sink/sinks} into a hunter's crouch, {VERB/t_c/take/takes} a moment to position {PRONOUN/t_c/poss} paws perfectly, {VERB/t_c/wriggle/wriggles} as {PRONOUN/t_c/subject} {VERB/t_c/wind/winds} up to leap, and...]",
+            "[Right as t_c springs forward, the squirrel notices {PRONOUN/t_c/object} and dives to the side. t_c tries to adjust {PRONOUN/t_c/poss} trajectory midair, but fails and crashes unceremoniously to the ground instead.]",
+            "Oof!",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/scramble/scrambles} to {PRONOUN/t_c/poss} paws and {VERB/t_c/look/looks} around wildly for the squirrel, but it's already vanished. t_c slowly looks back at you, {PRONOUN/t_c/poss} tail drooping.]",
+            "Sorry. I thought I had it, but... yeah. I'm really sorry."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Do you know what you did wrong?",
+                "next_scene": "question"
+            },
+            "choice2": {
+                "text": "Don't worry.",
+                "next_scene": "no_worry"
+            },
+            "choice3": {
+                "text": "Why can't you catch anything?!",
+                "next_scene": "criticize"
+            }
+        },
+        "question": [
+            "Um... well, my paws weren't quite in the right place, and I think I wasn't low enough, and I probably brushed against something without realizing it, so the squirrel heard...",
+            "[You cut t_c off and tell {PRONOUN/t_c/object} that {PRONOUN/t_c/poss} crouch was actually quite good, and {PRONOUN/t_c/subject} {VERB/t_c/were/was} very careful not to brush anything.]",
+            "[In the future, maybe {PRONOUN/t_c/subject} could move a bit quicker so the squirrel has less time to notice {PRONOUN/t_c/object}, but even then, it might get away.]",
+            "[You remind t_c that sometimes, {PRONOUN/t_c/subject}'ll get unlucky and prey will escape, but {PRONOUN/t_c/subject}'ll have more chances. {PRONOUN/t_c/subject/CAP} just {VERB/t_c/have/has} to try not to get flustered by {PRONOUN/t_c/poss} failures.]",
+            "[t_c nods, takes a deep breath, and follows your gaze as you look towards another squirrel. {PRONOUN/t_c/subject/CAP} {VERB/t_c/drop/drops} into a crouch again, ready to continue.]"
+        ],
+        "no_worry": [
+            "[You remind t_c that the territory is full of squirrels, and that {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} still learning! {PRONOUN/t_c/subject/CAP}'ll have  another chance, and the most important thing is to not get discouraged.]",
+            "I... I know. I'm trying, but it's hard. I really, really thought I had that one.",
+            "[You acknowledge your apprentice's disappointment, but notice another squirrel and quickly point it out. t_c takes a deep breath and drops into a crouch again, ready to continue.]"
+        ],
+        "criticize": [
+            "[t_c backs away, looking at {PRONOUN/t_c/poss} paws. {PRONOUN/t_c/poss/CAP} voice shakes.]",
+            "I... I'm sorry! I was trying, and I thought I had it, and I must've messed up but I don't really know how...",
+            "[You continue hunting with t_c, but every failed catch makes {PRONOUN/t_c/object} even more anxious. When you return to camp, {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} a nervous wreck.]"
+        ]
+    },
+    "neurotic_choices_apprenticecrush_SQ26": {
+        "y_c": {
+            "age": [
+                "adult"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "neurotic"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "apprentice"
+            ]
+        },
+        "relationship": [
+            "min_comfort_15",
+            "min_like_30"
+        ],
+        "intro": [
+            "[t_c stands awkwardly beside you for a few minutes, clearly trying to work up the nerve to say something. Finally, {PRONOUN/t_c/subject} {VERB/t_c/clear/clears} {PRONOUN/t_c/poss} throat.]",
+            "How... how did you know you liked y_m? In like, a... you know...",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/fumble/fumbles} for a few moments before going silent.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "In a romantic way?",
+                "next_scene": "ask"
+            },
+            "choice2": {
+                "text": "[Wait.]",
+                "next_scene": "quiet"
+            }
+        },
+        "ask": [
+            "[t_c shrinks into {PRONOUN/t_c/self}. {PRONOUN/t_c/subject/CAP} {VERB/t_c/nod/nods}.]",
+            "I... um... I'm trying to figure out whether I like someone in that way? And I don't know what that feels like.",
+            "Is it usually this hard to tell? Everything's kind of confusing.",
+            "[You agree that sometimes it's hard. You let t_c stumble through {PRONOUN/t_c/poss} thoughts, and try your best to give {PRONOUN/t_c/object} advice.]"
+        ],
+        "quiet": [
+            "[You wait. t_c crunches a leaf under one paw, then sighs.]",
+            "Never mind. What've you been doing today? Did you notice that big bird above the camp earlier?"
+        ]
     }
 }
