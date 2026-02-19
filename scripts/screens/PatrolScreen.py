@@ -385,7 +385,10 @@ class PatrolScreen(Screens):
     def screen_switches(self):
         super().screen_switches()
         self.set_disabled_menu_buttons(["patrol_screen"])
-        self.update_heading_text(f"{game.clan.displayname}Clan")
+        if game.clan.your_cat.status.is_outsider:
+            self.update_heading_text("Your Territory")
+        else:
+            self.update_heading_text(self.clan_name)
         self.show_mute_buttons()
         self.show_menu_buttons()
         self.open_choose_cats_screen()

@@ -52,7 +52,10 @@ class AllegiancesScreen(Screens):
         self.show_menu_buttons()
         self.show_mute_buttons()
         self.set_disabled_menu_buttons(["allegiances"])
-        self.update_heading_text(f"{game.clan.displayname}Clan")
+        if game.clan.your_cat.status.is_outsider:
+            self.update_heading_text("Your Territory")
+        else:
+            self.update_heading_text(self.clan_name)
         allegiance_list = self.get_allegiances_text()
 
         self.scroll_container = UIModifiedScrollingContainer(

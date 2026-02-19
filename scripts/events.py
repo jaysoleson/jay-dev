@@ -450,9 +450,9 @@ class Events:
         if game.clan.your_cat.status.alive_in_your_cat_group:
             if game.clan.your_cat.moons == 0:
                 self.generate_birth_event()
-            elif game.clan.your_cat.moons < 6:
+            elif game.clan.your_cat.moons < 6 and not game.clan.your_cat.status.is_outsider:
                 self.generate_kit_events() 
-            elif game.clan.your_cat.moons == 6:
+            elif game.clan.your_cat.moons == 6 and not game.clan.your_cat.status.is_outsider:
                 self.generate_app_ceremony()
             elif game.clan.your_cat.status.rank.is_any_apprentice_rank():
                 self.generate_events()
@@ -464,7 +464,7 @@ class Events:
                     CatRank.QUEEN
                     ) and
                     not game.clan.your_cat.w_done and
-                    not game.clan.your_cat.status.is_shunned()
+                    not game.clan.your_cat.status.is_shunned() and not game.clan.your_cat.status.is_outsider
                     ):
                 self.generate_ceremony()
             elif game.clan.your_cat.status.rank != CatRank.ELDER and game.clan.your_cat.moons != 119:
@@ -1094,51 +1094,44 @@ class Events:
         return text
     
     def generate_events(self):
-        resource_dir = "resources/dicts/events/lifegen_events/events/"
+        resource_dir = "events/lifegen_events/events/"
         
         if game.clan.your_cat.dead:
             if game.clan.your_cat.status.group == CatGroup.STARCLAN:
-                resource_dir = "resources/dicts/events/lifegen_events/events_dead_sc/"
+                resource_dir = "events/lifegen_events/events_dead_sc/"
             elif game.clan.your_cat.status.group == CatGroup.DARK_FOREST:
-                resource_dir = "resources/dicts/events/lifegen_events/events_dead_df/"
+                resource_dir = "events/lifegen_events/events_dead_df/"
             elif game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
-                resource_dir = "resources/dicts/events/lifegen_events/events_dead_ur/"
+                resource_dir = "events/lifegen_events/events_dead_ur/"
 
         elif game.clan.your_cat.status.is_shunned() and game.clan.your_cat.status.alive_in_player_clan:
-            resource_dir = "resources/dicts/events/lifegen_events/shunned/"
+            resource_dir = "events/lifegen_events/shunned/"
 
         
         all_events = {}
-        if game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.status.rank != CatRank.NEWBORN or (game.clan.your_cat.status.rank == CatRank.NEWBORN and game.clan.your_cat.dead):
-            with open(f"{resource_dir}{game.clan.your_cat.status.rank}.json",
-                    encoding="ascii") as read_file:
-                all_events = ujson.loads(read_file.read())
+        if (game.clan.your_cat.status.alive_in_player_clan and game.clan.your_cat.status.rank != CatRank.NEWBORN) or (game.clan.your_cat.status.rank == CatRank.NEWBORN and game.clan.your_cat.dead) or (game.clan.your_cat.status.is_outsider and game.clan.your_cat.age != CatAge.NEWBORN):
+            all_events = load_lang_resource(f"{resource_dir}{game.clan.your_cat.status.rank.value}.json")
         
         # CHECKMERGE
         # this is probably foine but it sucks redo it
         general_no_kit_events = {}
-        if game.clan.your_cat.status.rank not in [CatRank.NEWBORN, CatRank.KITTEN] and not game.clan.your_cat.status.is_shunned() and not game.clan.your_cat.dead:
-            with open(f"{resource_dir}general_no_kit.json", encoding="ascii") as read_file:
-                general_no_kit_events = ujson.loads(read_file.read())
+        if game.clan.your_cat.status.rank not in [CatRank.NEWBORN, CatRank.KITTEN] and not game.clan.your_cat.status.is_shunned() and not game.clan.your_cat.dead and not game.clan.your_cat.status.is_outsider:
+            general_no_kit_events = load_lang_resource(f"{resource_dir}general_no_kit.json")
+        
+        general_events = load_lang_resource(f"{resource_dir}general.json")
 
-        with open(f"{resource_dir}general.json",
-                encoding="ascii") as read_file:
-            general_events = ujson.loads(read_file.read())
-
-        status = game.clan.your_cat.status.rank
-        if status == CatRank.ELDER and game.clan.your_cat.moons < 100:
+        status = game.clan.your_cat.status.rank.value
+        if game.clan.your_cat.status.rank == CatRank.ELDER and game.clan.your_cat.moons < 100:
             status = "young elder"
-        with open(f"{resource_dir}{status}.json", encoding="ascii") as read_file:
-            all_events = ujson.loads(read_file.read())
+            
+        all_events = load_lang_resource(f"{resource_dir}{status}.json")
 
-        possible_events = []
-        try:
-            possible_events = all_events[f"{status} general"]
-        except:
-            pass
-        possible_events += general_events["general general"]
-        if game.clan.your_cat.status.rank not in [CatRank.NEWBORN, CatRank.KITTEN] and not game.clan.your_cat.status.is_shunned() and not game.clan.your_cat.dead:
-            possible_events += general_no_kit_events["general general"]
+        possible_events = all_events[f"{status} general"]
+
+        if not game.clan.your_cat.status.is_outsider:
+            possible_events += general_events["general general"]
+            if game.clan.your_cat.status.rank not in [CatRank.NEWBORN, CatRank.KITTEN] and not game.clan.your_cat.status.is_shunned() and not game.clan.your_cat.dead:
+                possible_events += general_no_kit_events["general general"]
 
         # Add old events
         if not all_events:
@@ -1172,6 +1165,9 @@ class Events:
                     self.current_events.insert(0, event)
                     game.cur_events_list.insert(0, Single_Event(current_event, "alert", [i for i in involved_cats]))
             else:
+                if not possible_events:
+                    print("No possible events for", status)
+                    print("Available keys:", all_events.keys())
                 print('No possible events?')
   
             
@@ -2416,6 +2412,8 @@ class Events:
                 self.handle_apprentice_EX(cat)  # This must be before perform_ceremonies!
             # this HAS TO be before the cat.is_disabled() so that disabled kits can choose a med cat or mediator position
             self.perform_ceremonies(cat)
+        elif cat.status.is_outsider and not cat.dead and cat.ID == game.clan.your_cat.ID:
+            self.perform_aging_ceremony(cat)
         cat.skills.progress_skill(cat) # This must be done after ceremonies. 
 
         # check for death/reveal/risks/retire caused by permanent conditions
@@ -2895,12 +2893,84 @@ class Events:
 
         Events.ceremony_lang = i18n.config.get("locale")
 
+    def perform_aging_ceremony(self, cat):
+        """
+        ceremonies for outsiders
+        """
+        if cat.moons == cat_class.age_moons[CatAge.ADOLESCENT][0] or cat.moons == cat_class.age_moons[CatAge.YOUNG_ADULT][0] or cat.moons == cat_class.age_moons[CatAge.SENIOR][0]:
+            self.load_ceremonies()
+            possible_ceremonies = set()
+            possible_ceremonies.update(self.ceremony_id_by_tag[cat.status.rank])
+            possible_ceremonies.intersection(self.ceremony_id_by_tag[str(cat.age)])
+            ceremony_tags, ceremony_text = self.CEREMONY_TXT[
+                    random.choice(list(possible_ceremonies))
+                ]
+            dead_parents = []
+            living_parents = []
+            involved_cats = []
+            traits = load_lang_resource("events/ceremonies/ceremony_traits.json")
+            try:
+                random_honor = random.choice(traits[cat.personality.trait])
+            except KeyError:
+                random_honor = i18n.t("defaults.ceremony_honor")
+            for p in [cat.parent1, cat.parent2]:
+                    if Cat.fetch_cat(p):
+                        if Cat.fetch_cat(p).dead:
+                            dead_parents.append(Cat.fetch_cat(p))
+                        elif (
+                            Cat.fetch_cat(p).status.alive_in_player_clan
+                            and Cat.fetch_cat(p).status.rank != CatRank.LEADER
+                        ):
+                            living_parents.append(Cat.fetch_cat(p))
+            try:
+                ceremony_tags, ceremony_text = self.CEREMONY_TXT[
+                    random.choice(list(possible_ceremonies))
+                ]
+            except IndexError:
+                print("WARNING: A ceremony could not be chosen for", cat.name)
+                return
+            (
+                ceremony_text,
+                involved_living_parent,
+                involved_dead_parent,
+            ) = ceremony_text_adjust(
+                Cat,
+                ceremony_text,
+                cat,
+                dead_mentor=None,
+                random_honor=random_honor,
+                old_name="None",
+                mentor=None,
+                previous_alive_mentor=None,
+                living_parents=living_parents,
+                dead_parents=dead_parents,
+            )
+            for tag in ceremony_tags:
+                
+                if tag == "alive2_parents" and len(living_parents) >= 2:
+                    for c in living_parents[:2]:
+                        involved_cats.append(c.ID)
+                elif tag == "alive1_parents" and involved_living_parent:
+                    involved_cats.append(involved_living_parent.ID)
+                elif tag == "dead2_parents" and len(dead_parents) >= 2:
+                    for c in dead_parents[:2]:
+                        involved_cats.append(c.ID)
+                elif tag == "dead1_parent" and involved_dead_parent:
+                    involved_cats.append(involved_dead_parent.ID)
+
+            # remove duplicates
+            involved_cats = list(set(involved_cats))
+
+            game.cur_events_list.append(
+                Single_Event(ceremony_text, "ceremony", involved_cats)
+            )
+
     def ceremony(self, cat, promoted_to, preparedness="prepared"):
         """
         promote cats and add to events list
         """
         # ceremony = []
-        _ment = Cat.fetch_cat(cat.mentor) if cat.mentor else None # Grab current mentor, if they have one, before it's removed. 
+        _ment = Cat.fetch_cat(cat.mentor) if cat.mentor else None # Grab current mentor, if they have one, before it's removed.
         old_name = str(cat.name)
         cat.rank_change(promoted_to)
         cat.rank_change_traits_skill(_ment)
