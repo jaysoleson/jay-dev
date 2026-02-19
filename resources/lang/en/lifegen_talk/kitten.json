@@ -17990,5 +17990,518 @@
             "[t_c's eyes widen. {PRONOUN/t_c/subject/CAP} {VERB/t_c/snuggle/snuggles} closer.]",
             "Ohh... I didn't think of that. Okay."
         ]
+    },
+    "artistankit_tonotnewborn_JOL": {
+        "season": [
+            "newleaf",
+            "greenleaf"
+        ],
+        "y_c": {
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "kitten"
+            ],
+            "skill": [
+                "ARTISTAN,0"
+            ]
+        },
+        "intro": [
+            "Just a few more of these, and... there!",
+            "[t_c beams proudly as you approach, stepping aside to reveal the nursery.]",
+            "[A variety of flowers are woven into the entryway, and colorful pebbles glisten in a pattern where the den meets the earth.]",
+            "What do you think, y_c?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "The queens will appreciate this.",
+                "next_scene": "appreciate"
+            },
+            "choice2": {
+                "text": "It's not safe for the younger kits.",
+                "next_scene": "scold"
+            }
+        },
+        "appreciate": [
+            "[t_c shuffles {PRONOUN/t_c/poss} paws excitedly.]",
+            "Really? You think so? I can't wait for them to see!"
+        ],
+        "scold": [
+            "[t_c's smile falls away and {PRONOUN/t_c/subject} visibly {VERB/t_c/droops/droop}, looking over {PRONOUN/t_c/poss} work with an ashamed wince.]",
+            "Oh... I should probably get rid of all of this then, huh..."
+        ],
+        "appreciate_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 5,
+                    "respect": 5,
+                    "comfort": 5,
+                    "trust": 5
+                },
+                "mutual": false
+            }
+        },
+        "scold_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": -5,
+                    "respect": 5,
+                    "comfort": -5,
+                    "trust": -5
+                },
+                "mutual": false
+            }
+        }
+    },
+    "neurotickit_shytonotkit_JOL": {
+        "y_c": {
+            "status": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "kitten"
+            ],
+            "cluster": [
+                "neurotic"
+            ]
+        },
+        "intro": [
+            "[While tucking into a Sunhigh meal, you feel eyes boring into the back of your head.]",
+            "[Looking around camp, it doesn't take you long to find the source. Little as {PRONOUN/t_c/subject} may be, t_c isn't exactly the best at hiding.]",
+            "[{PRONOUN/t_c/subject/CAP}  {VERB/t_c/watches/watch} you eat from the sidelines of camp with eyes big as moons.]",
+            "[You lean over, offering a wordless opening at your side, but the moment t_c realizes that {PRONOUN/t_c/subject} {VERB/t_c/has/have} been spotted, {PRONOUN/t_c/subject} {VERB/t_c/skitters/skitter} off.]"
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 5
+                },
+                "mutual": true
+            }
+        }
+    },
+    "campartistan_tokit_JOL": {
+        "y_c": {
+            "age": [
+                "not_kitten"
+            ],
+            "skill": [
+                "ARTISTAN,1",
+                "CAMP,1"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "kitten"
+            ],
+            "skill": [
+                "ARTISTAN,0",
+                "CAMP,0"
+            ]
+        },
+        "intro": [
+            "[While repairing one of the dens in camp, you feel a tiny paw prod your haunch.]",
+            "[t_c looks up at you, eyes wide with admiration.]",
+            "Can I help?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I'll show you how.",
+                "next_scene": "help"
+            },
+            "choice2": {
+                "text": "No.",
+                "next_scene": "nohelp"
+            }
+        },
+        "help": [
+            "[You take t_c by the paw and teach {PRONOUN/m_c/object} the ways of den repair.]",
+            "[The task takes a bit longer than it would on your own, but t_c is enthusiastic and picks up your lessons more quickly than expected.]",
+            "y_c, this is so much fun! I wanna help a whole lot from now on, and get just as great at this as you someday!"
+        ],
+        "nohelp": [
+            "Oh... okay."
+        ],
+        "help_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 10,
+                    "respect": 10,
+                    "trust": 5
+                },
+                "mutual": false
+            }
+        },
+        "nohelp_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": -5,
+                    "respect": 5
+                },
+                "mutual": false
+            }
+        }
+    },
+    "admiringdarkfighter_kit_JOL": {
+        "y_c": {
+            "status": [
+                "warrior",
+                "deputy"
+            ],
+            "age": [
+                "not_kitten",
+                "not_adolescent"
+            ],
+            "cluster": [
+                "assertive",
+                "unlawful"
+            ],
+            "skill": [
+                "FIGHTER",
+                "DARK"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "not_newborn",
+                "kitten"
+            ],
+            "cluster": [
+                "assertive",
+                "unlawful"
+            ],
+            "skill": [
+                "FIGHTER,0",
+                "DARK,0"
+            ]
+        },
+        "intro": [
+            "[t_c has been following you since you returned from a border patrol.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/imitate/imitates} your posture and mannerisms down to the smallest movement- and {VERB/t_c/feign/feigns} innocence whenever you look in {PRONOUN/t_c/poss} direction.]",
+            "[Finally, you catch {PRONOUN/t_c/object} in the act. {PRONOUN/t_c/poss/CAP} imitation crumples and t_c stares at you, terrified eyes stretched moon-wide.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Why are you doing that?",
+                "next_scene": "whycopy"
+            },
+            "choice2": {
+                "text": "Knock it off!",
+                "next_scene": "stopcopy"
+            }
+        },
+        "whycopy": [
+            "I want to learn how to be like you, y_c!",
+            "[t_c gulps, closing {PRONOUN/t_c/poss} eyes tightly and digging {PRONOUN/t_c/poss} tiny, needle-like claws into the dirt as though to steel {PRONOUN/t_c/self} for the question that would follow.]",
+            "Can you be my mentor when it's my turn to be an apprentice?! I promise that I'll listen to everything you say, and catch you a mouse every morning once I know how!"
+        ],
+        "stopcopy": [
+            "S-sorry y_c!",
+            "[t_c scurries off with an uncharacteristic yelp.]"
+        ],
+        "whycopy_choices": {
+            "choice1": {
+                "text": "It's not up to me.",
+                "next_scene": "notmychoice"
+            },
+            "choice2": {
+                "text": "I'll see what I can do.",
+                "next_scene": "wellsee"
+            },
+            "choice3": {
+                "text": "Every morning?",
+                "next_scene": "everymorning"
+            }
+        },
+        "notmychoice": [
+            "[t_c's ears droop, but {PRONOUN/t_c/poss} only seem momentarily deterred. As t_c perks up and dashes across camp, you hear the parting words;]",
+            "I'll go talk to l_n!"
+        ],
+        "wellsee": [
+            "Thank you so much!",
+            "[By the way that t_c's eyes sparkle, you can tell that you've just made {PRONOUN/t_c/poss} moon.]"
+        ],
+        "everymorning": [
+            "Seriously! Every single morning, even in Leafbare!",
+            "[Somehow, you doubt that. But the determination is impressive.]"
+        ],
+        "stopcopy_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 1,
+                    "respect": 3
+                },
+                "mutual": true
+            }
+        },
+        "notmychoice_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 4,
+                    "respect": 5
+                },
+                "mutual": true
+            }
+        },
+        "wellsee_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 7,
+                    "respect": 5,
+                    "trust": 5
+                },
+                "mutual": true
+            }
+        },
+        "everymorning_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 5,
+                    "respect": 5,
+                    "comfort": 2,
+                    "trust": 3
+                },
+                "mutual": true
+            }
+        }
+    },
+    "silly_kit_avix1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "kitten"
+            ],
+            "cluster": [
+                "silly",
+                "unabashed"
+            ]
+        },
+        "tags": [
+            "clan_has_kits"
+        ],
+        "intro": [
+            "[The sun is shining directly onto a popular spot in the clearing, yet no cats seem to be nearby. You take this as an opportunity to warm yourself up.]",
+            "[Unfortunately for you, it turns out t_c and r_k are having a race that everycat except you seems to be aware of. You only discover this after t_c runs face-first into you.]",
+            "Sorry, y_c! I have to win this race!",
+            "[t_c dashes off like nothing ever happened.]"
+        ]
+    },
+    "sandtrip_kit_avix1": {
+        "biome": [
+            "desert",
+            "beach"
+        ],
+        "y_c": {
+            "condition": [
+                "deaf:any:true"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "kitten"
+            ],
+            "cluster": [
+                "neurotic"
+            ],
+            "condition": [
+                "deaf:any:true",
+                "blind:any:true"
+            ]
+        },
+        "intro": [
+            "[You watch as t_c's foot gets caught in a dip in the sand and {PRONOUN/t_c/subject} unceremoniously {VERB/t_c/fall/falls} flat on {PRONOUN/t_c/poss} face.}",
+            "[t_c pauses for a just a moment before breaking out in tears, running off to hide in the nursery.]"
+        ]
+    },
+    "sandtrip_kit_avix2": {
+        "biome": [
+            "desert",
+            "beach"
+        ],
+        "y_c": {
+            "condition": [
+                "deaf:any:true"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "kitten"
+            ],
+            "cluster": [
+                "cool",
+                "assertive",
+                "unabashed",
+                "brooding",
+                "unlawful"
+            ],
+            "condition": [
+                "deaf:any:true",
+                "blind:any:true"
+            ]
+        },
+        "intro": [
+            "[You watch as t_c's foot gets caught in a dip in the sand and {PRONOUN/t_c/subject} unceremoniously {VERB/t_c/fall/falls} flat on {PRONOUN/t_c/poss} face.}",
+            "[Despite {PRONOUN/t_c/poss} size, the trip hardly hinders {PRONOUN/t_c/object}. {PRONOUN/t_c/subject/CAP} saunter off with the confidence of an apprentice after their first successful hunt.]"
+        ]
+    },
+    "sandtrip_kit_avix3": {
+        "biome": [
+            "desert",
+            "beach"
+        ],
+        "y_c": {
+            "condition": [
+                "deaf:any:true"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "kitten"
+            ],
+            "cluster": [
+                "upstanding",
+                "introspective",
+                "silly",
+                "stable",
+                "sweet"
+            ],
+            "condition": [
+                "deaf:any:true",
+                "blind:any:true"
+            ]
+        },
+        "intro": [
+            "[You watch as t_c's foot gets caught in a dip in the sand and {PRONOUN/t_c/subject} unceremoniously {VERB/t_c/fall/falls} flat on {PRONOUN/t_c/poss} face.}",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/sit/sits} in the sand and {VERB/t_c/sniffle/sniffles}, but soon {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} distracted and {VERB/t_c/are/is} back up and running.]"
+        ]
+    },
+    "sh_dfkit_avix1": {
+        "y_c": {
+            "status": [
+                "not_kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": true
+        },
+        "t_c": {
+            "status": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "df"
+            ]
+        },
+        "intro": [
+            "Wow, y_c! That was super cool! You should show me some tricks soon!"
+        ]
+    },
+    "sh_dfkit_avix2": {
+        "y_c": {
+            "age": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": true
+        },
+        "t_c": {
+            "status": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "df"
+            ]
+        },
+        "intro": [
+            "That was awesome! I knew you could do it y_c!"
+        ]
+    },
+    "sh_dfkit_avix3": {
+        "y_c": {
+            "age": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": true
+        },
+        "t_c": {
+            "status": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "df"
+            ]
+        },
+        "intro": [
+            "Your Clanmates suck, y_c. You can always play with me, though!"
+        ]
     }
 }
