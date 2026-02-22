@@ -9864,5 +9864,396 @@
             "[You silently turn and walk away, leaving your {PRONOUN/t_c/sibling} standing alone. You hear {PRONOUN/t_c/object} fumbling for words before finally calling after you.]",
             "I'm sorry, y_c! I really am."
         ]
+    },
+    "leafbare_broodingunlawful_JOL1": {
+        "season": [
+            "leafbare"
+        ],
+        "y_c": {
+            "status": [
+                "not_kitten",
+                "not_leader"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "warrior",
+                "deputy",
+                "leader"
+            ],
+            "cluster": [
+                "brooding",
+                "unlawful",
+                "assertive"
+            ],
+            "skill": [
+                "GUARDIAN,1",
+                "COMFORTER,1",
+                "FIGHTER,1",
+                "INSIGHTFUL,1"
+            ]
+        },
+        "intro": [
+            "[You spot t_c sitting guard near the camp entrance, gaze distant and unreadable.]",
+            "[As you go to make your way past {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} thrust {PRONOUN/t_c/poss} tail stiffly before your paws.]",
+            "Don't be out for too long, y_c. The rogues are just as hungry as we are. Had to get r_a out of a nasty scrape over a mouthful of shrew just this morning.",
+            "[Claws flexing with the words, t_c draws {PRONOUN/t_c/poss} tail back to allow you passage.]"
+        ]
+    },
+    "adventurous_cousin_JOL": {
+        "biome": [
+            "mountainous"
+        ],
+        "y_c": {
+            "status": [
+                "warrior"
+            ],
+            "cluster": [
+                "assertive",
+                "unlawful"
+            ],
+            "skill": [
+                "HUNTER,1",
+                "EXPLORER,1",
+                "FIGHTER,1",
+                "TRACKER,1"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "warrior"
+            ],
+            "cluster": [
+                "assertive",
+                "unlawful"
+            ],
+            "skill": [
+                "HUNTER,1",
+                "EXPLORER,1",
+                "FIGHTER,1"
+            ]
+        },
+        "relationship": [
+            "cousin",
+            "min_like_30",
+            "min_trust_40",
+            "min_respect_30"
+        ],
+        "tags": [
+            "cousin"
+        ],
+        "intro": [
+            "y_c- c'mon, over here.",
+            "[t_c leads you to a secluded corner of camp, looking over {PRONOUN/t_c/poss} shoulder all the while.]",
+            "Those hawks that have been putting everyone on edge are roosting pretty low today- and not too far from camp.",
+            "I brought it up to d_n, thinking hey, this is a good chance to scare 'em off, right? But {PRONOUN/d_n/subject} said that it's too dangerous! Gah!","[t_c scowls, clawing at the dirt. After a moment {PRONOUN/t_c/subject} {VERB/t_c/looks/look} back up, meeting your eyes with renewed fire.]",
+            "But you, y_c- I figured you'd understand. You and me- if we go in together, we can handle this easily.",
+            "It's not like we have to kill them or anything. So, are you in?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Of course!",
+                "next_scene": "gohunt"
+            },
+            "choice2": {
+                "text": "No, d_n is right.",
+                "next_scene": "nohunt"
+            }
+        },
+        "gohunt": [
+            "[A triumphant grin spreads across t_c's face.]",
+            "Great! Now let's get going before anyone asks what we're up to...",
+            "[The two of you fall into a familiar, comfortable rhythm during your trek to the roosting place.]",
+            "I bet I'll scare off more than you!",
+            "[And with that, the challenge is on. The two of you taunt and chase the birds of prey until you're certain that they'll think twice about sizing up a member of c_n-]",
+            "[- enjoying some family bonding along the way.]"
+        ],
+        "nohunt": [
+            "Hmmph. Fine. I'll just get someone else. Oh, and you'd better not go running your mouth about this."
+        ],
+        "gohunt_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 15,
+                    "respect": 10,
+                    "trust": 10
+                },
+                "mutual": true
+            }
+        },
+        "nohunt_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": -5,
+                    "respect": -10,
+                    "comfort": -5,
+                    "trust": -10
+                },
+                "mutual": true
+            }
+        }
+    },
+    "coopswimfish_coolstablecousin_JOL": {
+        "biome": [
+            "beach"
+        ],
+        "season": [
+            "greenleaf"
+        ],
+        "y_c": {
+            "status": [
+                "warrior"
+            ],
+            "skill": [
+                "COOPERATIVE,1",
+                "SWIMMER,1",
+                "FISHER,1"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "warrior"
+            ],
+            "cluster": [
+                "cool",
+                "stable"
+            ],
+            "skill": [
+                "COOPERATIVE,1",
+                "SWIMMER,1",
+                "FISHER,1"
+            ]
+        },
+        "relationship": [
+            "cousin",
+            "min_like_50",
+            "min_trust_40",
+            "min_comfort_50"
+        ],
+        "tags": [
+            "cousin"
+        ],
+        "intro": [
+            "Oh, there you are, y_c. I've been looking for you.",
+            "The sun is really beating down, isn't it? It'd be a shame to let such a beautiful day go to waste.",
+            "Would you like to spend some time together down by the water? Days like this, there's no fishing partner that I'd rather have than you."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Let's go!",
+                "next_scene": "gobeach"
+            },
+            "choice2": {
+                "text": "Not today.",
+                "next_scene": "nobeach"
+            }
+        },
+        "gobeach": [
+            "[t_c leads you out of camp with a smile.]",
+            "[The water sparkles beneath the rays of the sun, warm and inviting. You enjoy an afternoon down by the tidepools together, swimming, fishing, and playing in the Greenleaf heat.]"
+        ],
+        "nobeach": [
+            "Ah, alright. Another time then."
+        ],
+        "gobeach_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 10,
+                    "respect": 10,
+                    "trust": 10,
+                    "comfort": 15
+                },
+                "mutual": true
+            }
+        },
+        "nobeach_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "comfort": -2
+                },
+                "mutual": false
+            }
+        }
+    },
+    "darkfighter_fromparent_JOL": {
+        "y_c": {
+            "status": [
+                "warrior",
+                "deputy",
+                "leader"
+            ],
+            "cluster": [
+                "assertive",
+                "brooding",
+                "unlawful"
+            ],
+            "skill": [
+                "FIGHTER,1",
+                "DARK,1"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "warrior",
+                "deputy",
+                "leader",
+                "elder"
+            ],
+            "age": [
+                "senior adult",
+                "senior"
+            ],
+            "cluster": [
+                "assertive",
+                "brooding",
+                "unlawful"
+            ],
+            "skill": [
+                "FIGHTER,1",
+                "DARK,1"
+            ]
+        },
+        "relationship": [
+            "min_like_20",
+            "min_trust_30",
+            "min_comfort_30"
+        ],
+        "tags": [
+            "from_your_parent"
+        ],
+        "intro": [
+            "Phew.. I'm having a hard time keeping up with you these days, ya' little brute.",
+            "[t_c headbutts your shoulder affectionately.]"
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 3,
+                    "respect": 6,
+                    "comfort": 5
+                },
+                "mutual": true
+            }
+        }
+    },
+    "sweetint_gift_JOL": {
+        "biome": [
+            "mountainous",
+            "plains",
+            "forest",
+            "beach"
+        ],
+        "season": [
+            "newleaf"
+        ],
+        "y_c": {
+            "status": [
+                "warrior",
+                "deputy",
+                "leader"
+            ],
+            "age": [
+                "young adult",
+                "adult",
+                "senior adult",
+                "senior"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "young adult",
+                "adult",
+                "senior adult",
+                "senior"
+            ],
+            "cluster": [
+                "sweet",
+                "introspective"
+            ],
+            "skill": [
+                "ARTISTAN,1",
+                "COMFORTER,1",
+                "HEALER,1"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "relationship": [
+            "min_romance_10",
+            "min_like_35",
+            "min_comfort_20",
+            "min_trust_20"
+        ],
+        "intro": [
+            "[You return from a border patrol to find small, pale flowers woven into your nest.]",
+            "[Beneath the sweet scent, you catch a whiff of t_c.]",
+            "[You got an accessory!]"
+        ],
+        "intro_scene_effects": {
+            "inventory": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "accessory": [
+                    "DAISY",
+                    "LILY OF THE VALLEY",
+                    "WHITE POPPY",
+                    "BULB WHITE",
+                    "LILY",
+                    "DAISY CORSAGE",
+                    "STARFLOWERS",
+                    "CATNIP FLOWER"
+                ],
+                "addition": "choice"
+            },
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "romance": 5,
+                    "like": 5,
+                    "comfort": 7
+                },
+                "mutual": true
+            }
+        }
     }
 }

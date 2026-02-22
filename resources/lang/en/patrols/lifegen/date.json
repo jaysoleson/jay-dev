@@ -2607,98 +2607,375 @@
                 "can_have_stat": [
                     "p_l"
                 ],
-            "relationships": [
-                {
-                    "cats_to": [
-                        "patrol"
-                    ],
-                    "cats_from": [
-                        "patrol"
-                    ],
-                    "mutual": false,
-                    "values": [
-                        "romance",
-                        "like"
-                    ],
-                    "amount": 5
-                }
-            ]
-        },
-        {
-            "text": "You lead r_c and o_c1 to a rock with a great view of the waterfall and lounge in the sun together, sharing tongues. After a while, the three of you decide to venture closer. You carefully leap across the nearby boulders until you reach the veil of mist coming off of the waterfall, and you admire how the sun sparkles off of the droplets. The extra moisture means moss is growing on the surrounding stones, and r_c gently pulls off some flower-dappled pieces to give you and o_c1.",
-            "exp": 5,
-            "weight": 15,
-            "accessory": [
-                {
-                    "cats": [
-                        "y_c",
-                        "o_c1",
-                        "r_c"
-                    ],
-                    "accessory": [
-                        "FLOWER MOSS"
-                    ]
-                }
-            ],
-            "relationships": [
-                {
-                    "cats_to": [
-                        "patrol"
-                    ],
-                    "cats_from": [
-                        "patrol"
-                    ],
-                    "mutual": false,
-                    "values": [
-                        "romance",
-                        "like"
-                    ],
-                    "amount": 5
-                }
-            ]
-        }
-    ],
-    "fail_outcomes": [
-        {
-            "text": "You lead r_c and o_c1 to the waterfall the day after you discover it, but find that it's already dried up. The three of you take a long walk through the territory instead, but you can't escape the feeling that you missed a chance to show r_c and o_c1 something special.",
-            "exp": 0,
-            "weight": 20,
-            "relationships": [
-                {
-                    "cats_to": [
-                        "patrol"
-                    ],
-                    "cats_from": [
-                        "patrol"
-                    ],
-                    "mutual": false,
-                    "values": [
-                        "like"
-                    ],
-                    "amount": 3
-                }
-            ]
-        },
-        {
-            "text": "You lead r_c and o_c1 to the waterfall but find that it's grown significantly since you first visited. Instead of a gentle mist around the falls, water sprays in all directions, and you can't find anywhere with a good view where you won't get soaked. You give up on the attempt, though r_c and o_c1 assure you that they appreciate the thought.",
-            "exp": 0,
-            "weight": 20,
-            "relationships": [
-                {
-                    "cats_to": [
-                        "patrol"
-                    ],
-                    "cats_from": [
-                        "patrol"
-                    ],
-                    "mutual": false,
-                    "values": [
-                        "like"
-                    ],
-                    "amount": 3
-                }
-            ]
-        }
-    ]
-}
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "romance",
+                            "like"
+                        ],
+                        "amount": 5
+                    }
+                ]
+            },
+            {
+                "text": "You lead r_c and o_c1 to a rock with a great view of the waterfall and lounge in the sun together, sharing tongues. After a while, the three of you decide to venture closer. You carefully leap across the nearby boulders until you reach the veil of mist coming off of the waterfall, and you admire how the sun sparkles off of the droplets. The extra moisture means moss is growing on the surrounding stones, and r_c gently pulls off some flower-dappled pieces to give you and o_c1.",
+                "exp": 5,
+                "weight": 15,
+                "accessory": [
+                    {
+                        "cats": [
+                            "y_c",
+                            "o_c1",
+                            "r_c"
+                        ],
+                        "accessory": [
+                            "FLOWER MOSS"
+                        ]
+                    }
+                ],
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "romance",
+                            "like"
+                        ],
+                        "amount": 5
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You lead r_c and o_c1 to the waterfall the day after you discover it, but find that it's already dried up. The three of you take a long walk through the territory instead, but you can't escape the feeling that you missed a chance to show r_c and o_c1 something special.",
+                "exp": 0,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "like"
+                        ],
+                        "amount": 3
+                    }
+                ]
+            },
+            {
+                "text": "You lead r_c and o_c1 to the waterfall but find that it's grown significantly since you first visited. Instead of a gentle mist around the falls, water sprays in all directions, and you can't find anywhere with a good view where you won't get soaked. You give up on the attempt, though r_c and o_c1 assure you that they appreciate the thought.",
+                "exp": 0,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "like"
+                        ],
+                        "amount": 3
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "poly_date_ashe1",
+        "biome": [
+            "any"
+        ],
+        "season": [
+            "leaf-bare"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [],
+        "patrol_art": "date_snow",
+        "min_cats": 3,
+        "max_cats": 3,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "Your heart seizes up watching r_c and o_c1 play in the snow. Their smiles and laughter could melt the frigid leaf-bare with ease. You attempt to approach them, but pause. Can you interrupt such a beautiful moment just because of your drumming heart?",
+        "decline_text": "You decide to watch r_c and o_c1 play together from a distance. Perhaps one day, you'll feel brave enough to join them.",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "You take a deep breath before calling out to them and asking if you could join in. r_c leaps at you and sends you barreling into the snow! o_c1 comes to your rescue, so you team up with {PRONOUN/o_c1/object} against r_c. The three of you warp into a chaotic ball of tumbling cats, and you assure victory when you and o_c1 flop on top of r_c! Laughter swims in the air, and you think that not even greenleaf is as warm as this moment.",
+                "exp": 3,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": true,
+                        "values": [
+                            "romance",
+                            "like",
+                            "comfort"
+                        ],
+                        "amount": 8
+                    }
+                ]
+            },
+            {
+                "text": "You bound towards them, but slip on ice hidden beneath the snow! r_c and o_c1 rush over to you and catch you before you can fall. Their worried questions blend together as you promise them you're okay. Regardless, r_c and o_c1 insist that the three of you should go back to camp. Now buried beneath r_c and o_c1, you wonder if they used your near fall as an excuse to cuddle--not that you minded.",
+                "exp": 0,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": true,
+                        "values": [
+                            "romance",
+                            "like",
+                            "comfort"
+                        ],
+                        "amount": 8
+                    }
+                ]
+            },
+            {
+                "text": "Bravery overtakes hesitation and you launch yourself into the fray! A whirlwind of chaos ensues within seconds. One moment, you're on top of r_c, and in the next, you've been wrestled beneath o_c1. Your mind tumbles with you, only able to cling to the melodies of their laughter. A while later, exhaustion bears its weight and you three flop next to each other. Their praise for your skills immediately greets your ears and you sheepishly thank them.",
+                "exp": 5,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": true,
+                        "values": [
+                            "romance",
+                            "like",
+                            "comfort"
+                        ],
+                        "amount": 6
+                    },
+                    {
+                        "cats_to": [
+                            "p_l"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "respect"
+                        ],
+                        "amount": 2
+                    }
+                ],
+                "stat_skill": [
+                    "FIGHTER,1",
+                    "HUNTER,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            },
+            {
+                "text": "A scheme forms in your mind. You deftly approach the pair and neither realize you're standing behind them until you greet them. r_c and o_c1 are a hilarious duo to watch flailing in the snow, even more so whenever they attempt to play it off. You go to tease them, but the words get choked and replaced with a soft confession about how beautiful they look. As you twist your head away, you hear r_c and o_c1 purr that you look the same in their eyes.",
+                "exp": 5,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": true,
+                        "values": [
+                            "romance",
+                            "like"
+                        ],
+                        "amount": 10
+                    }
+                ],
+                "stat_skill": [
+                    "GRACE,1",
+                    "CLEVER,1",
+                    "INNOVATOR,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            },
+            {
+                "text": "r_c and o_c1 break apart as they see you approaching, and you notice how messy their pelts are. You playfully chide them before asking if they'd like you to glam them up as they take a breather. r_c and o_c1 agree heartily, purring that it's what you do best. You eagerly get to work, but a clean pelt isn't enough! You dart away and return with some evergreen to decorate them with. When you finish, their beauty shines enough to make you blush.",
+                "exp": 3,
+                "weight": 20,
+                "accessory": [
+                    {
+                        "cats": [
+                            "o_c1",
+                            "r_c"
+                        ],
+                        "accessory": [
+                            "JUNIPER",
+                            "HOLLY",
+                            "HOLLYLEAVES",
+                            "HOLLYVINES",
+                            "FIRBRANCHES",
+                            "MISTLETOE",
+                            "YEW"
+                        ]
+                    }
+                ],
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": true,
+                        "values": [
+                            "romance",
+                            "like",
+                            "comfort"
+                        ],
+                        "amount": 8
+                    }
+                ],
+                "stat_skill": [
+                    "CLEAN,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You can't stand on the sidelines forever! Sucking up all the courage you have, you attempt to pounce on r_c! Unfortunately, your face collides with ice rather than fur and you're sent flying several tail-lengths. You don't know what hurts worse: your body or your pride. Regardless of which, you ignore r_c and o_c1's worried calls as you scramble back to camp.",
+                "exp": 0,
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": [
+                            "y_c"
+                        ],
+                        "injuries": [
+                            "sore"
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "You muster up your confidence and call out to them, but neither r_c or o_c1 realize you're there. The snow beneath your paws begins to gnaw at you as your thoughts spiral. Are they purposefully ignoring you, or are they having such a good time together that you are a nonentity? You trudge home with your thoughts weighing on your shoulders.",
+                "exp": 0,
+                "weight": 20,
+                "stat_cluster": [
+                    "neurotic"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ],
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "p_l"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "comfort"
+                        ],
+                        "amount": -3
+                    }
+                ]
+            },
+            {
+                "text": "You check yourself over, and you can't find a single flaw. From the tips of your ears to the bottoms of your paws, you know you're the third hottest sight in this white landscape. You call out to r_c and o_c1, asking to join in, though neither pay attention. In fact, it seems vaguely like they're... ignoring you. You try a second time, but the only answer is the whistling wind. Burning with embarrassment, you head back to camp.",
+                "exp": 0,
+                "weight": 20,
+                "stat_cluster": [
+                    "assertive",
+                    "cool",
+                    "unabashed"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ],
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "p_l"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "romance",
+                            "comfort"
+                        ],
+                        "amount": -3
+                    }
+                ]
+            },
+            {
+                "text": "Bravery surges through your veins as you throw yourself into the fray! Unfortunately, you accidentally slam r_c into ice hidden beneath the snow. A string of ouches alerts you of your mistake. You apologize profusely to r_c as you and o_c1 escort {PRONOUN/r_c/object} back to camp.",
+                "exp": 0,
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": [
+                            "r_c"
+                        ],
+                        "injuries": [
+                            "sore"
+                        ]
+                    }
+                ],
+                "stat_skill": [
+                    "FIGHTER,1",
+                    "HUNTER,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            }
+        ]
+    }
 ]
