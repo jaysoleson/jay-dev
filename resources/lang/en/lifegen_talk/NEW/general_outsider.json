@@ -2,74 +2,145 @@
     "dead_outsider_J1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["This isn't what I expected from the afterlife. Was this what you were hoping for?"]
+        "intro": [
+            "This isn't what I expected from the afterlife. Was this what you were hoping for?"
+        ]
     },
     "dead_outsider_J2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["I don't know why you can see me. It kind of freaks me out."]
+        "intro": [
+            "I don't know why you can see me. It kind of freaks me out."
+        ]
     },
     "dead_outsider_J3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["ur"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
-        "intro": ["I don't think it's fair that I'm over here, and you're not.", "Maybe there's some way I could sneak you in..?", "No, no, I couldn't do that. If I do, they might kick me out...", "I'm sorry, y_c."]
+        "intro": [
+            "I don't think it's fair that I'm over here, and you're not.",
+            "Maybe there's some way I could sneak you in..?",
+            "No, no, I couldn't do that. If I do, they might kick me out...",
+            "I'm sorry, y_c."
+        ]
     },
     "dead_outsider_J4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "blind:any:false"],
-                "age": ["not_kitten"],
-                "group": ["player_clan", "other_clan"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false",
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "group": [
+                    "player_clan",
+                    "other_clan"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "blind:any:false"],
-                "age": ["not_kitten"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Clans are cruel. This wouldn't be happening to you if you just left."]
+        "intro": [
+            "Clans are cruel. This wouldn't be happening to you if you just left."
+        ]
     },
     "dead_outsider_J5": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false", "grief stricken", "deaf:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "deaf:any:false",
+                    "grief stricken",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false", "blind:any:false", "deaf:any:false"],
-                "age": ["not_kitten"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false",
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["dead/grieving"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
             }
         ],
         "intro": [
@@ -82,29 +153,63 @@
     "dead_outsider_J6": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "grief stricken", "blind:any:false"],
-                "age": ["not_kitten"],
-                "group": ["player_clan", "other_clan"]
+                "condition": [
+                    "blind:any:false",
+                    "grief stricken",
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "group": [
+                    "player_clan",
+                    "other_clan"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "blind:any:false"],
-                "age": ["not_kitten"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["I'm sorry for your loss, y_c.", "Clanmates... They really care for each other, don't they?"]
+        "intro": [
+            "I'm sorry for your loss, y_c.",
+            "Clanmates... They really care for each other, don't they?"
+        ]
     },
     "dead_outsider_J7": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "blind:any:false"],
-                "age": ["not_kitten"],
-                "group": ["player_clan", "other_clan"]
+                "condition": [
+                    "blind:any:false",
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "group": [
+                    "player_clan",
+                    "other_clan"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "blind:any:false"],
-                "age": ["not_kitten"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
         "intro": [
@@ -116,109 +221,219 @@
     "dead_outsider_J8": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "blind:any:false"],
-                "age": ["not_kitten"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "blind:any:false"],
-                "age": ["not_kitten"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Do you StarClan cats think this is funny? You enjoy sending helpless cats to purgatory forever, even when they're not from a Clan?", "I don't belong here. I've seen the ghosts that wander the living world. I'm supposed to be one of them."]
+        "intro": [
+            "Do you StarClan cats think this is funny? You enjoy sending helpless cats to purgatory forever, even when they're not from a Clan?",
+            "I don't belong here. I've seen the ghosts that wander the living world. I'm supposed to be one of them."
+        ]
     },
     "dead_outsider_J9": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "blind:any:false"],
-                "age": ["not_kitten"],
-                "group": ["player_clan", "other_clan"],
-                "residence": ["ur"]
+                "condition": [
+                    "blind:any:false",
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "group": [
+                    "player_clan",
+                    "other_clan"
+                ],
+                "residence": [
+                    "ur"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "blind:any:false"],
-                "age": ["not_kitten"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Hey, Clancat.", "Wanna swap places? I'll be a ghost, and you can join your Clan's afterlife. It's not fair for either of to be where we are, anyhow.", "What? It's only fair! Come on!"]
+        "intro": [
+            "Hey, Clancat.",
+            "Wanna swap places? I'll be a ghost, and you can join your Clan's afterlife. It's not fair for either of to be where we are, anyhow.",
+            "What? It's only fair! Come on!"
+        ]
     },
     "dead_outsider_J10": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["This sucks."]
+        "intro": [
+            "This sucks."
+        ]
     },
     "dead_outsider_J11": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Hey, there, buddy.", "How did you get over here? Is there an open spot at the border? Can you show me?"]
+        "intro": [
+            "Hey, there, buddy.",
+            "How did you get over here? Is there an open spot at the border? Can you show me?"
+        ]
     },
     "dead_outsider_J12": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"],
-                "residence": ["ur"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "residence": [
+                    "ur"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Are... are you lost?", "So am I."]
+        "intro": [
+            "Are... are you lost?",
+            "So am I."
+        ]
     },
     "dead_outsider_J13": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["An outsider and a kit in the Dark Forest.", "I think these 'StarClan' cats need to take a good look at who it really is they're sending to purgatory."]
+        "intro": [
+            "An outsider and a kit in the Dark Forest.",
+            "I think these 'StarClan' cats need to take a good look at who it really is they're sending to purgatory."
+        ]
     },
     "dead_outsider_J14": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false", "grief stricken"],
-                "age": ["not_kitten"],
-                "standing": ["shunned"]
+                "condition": [
+                    "deaf:any:false",
+                    "grief stricken"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["deaf:any:false"],
-                "age": ["not_kitten"],
-                "residence": ["any"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["dead/grieving"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
             }
         ],
         "intro": [
@@ -228,35 +443,67 @@
     "dead_outsider_J15": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "grief stricken"],
-                "age": ["not_kitten"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false",
+                    "grief stricken"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["dead/grieving"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
             }
         ],
-        "intro": ["Aw, y_c. Bad moon, huh?"]
+        "intro": [
+            "Aw, y_c. Bad moon, huh?"
+        ]
     },
     "dead_outsider_J16": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "group": ["player_clan", "other_clan"]
+                "age": [
+                    "not_kitten"
+                ],
+                "group": [
+                    "player_clan",
+                    "other_clan"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"],
-                "residence": ["ur"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "residence": [
+                    "ur"
+                ]
             }
         },
         "intro": [
@@ -270,10 +517,14 @@
     "dead_urourside_c1": {
         "cats": {
             "y_c": {
-                "residence": ["any"]
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "residence": ["ur"]
+                "residence": [
+                    "ur"
+                ]
             }
         },
         "intro": [
@@ -284,10 +535,14 @@
     "dead_urourside_c2": {
         "cats": {
             "y_c": {
-                "residence": ["any"]
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "residence": ["ur"]
+                "residence": [
+                    "ur"
+                ]
             }
         },
         "intro": [
@@ -298,13 +553,24 @@
     "dead_urourside_c3": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "group": ["player_clan", "other_clan"],
-                "residence": ["any"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "group": [
+                    "player_clan",
+                    "other_clan"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["deaf:any:false"],
-                "residence": ["ur"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ]
             }
         },
         "intro": [
@@ -314,11 +580,17 @@
     "dead_uroutside_c4": {
         "cats": {
             "y_c": {
-                "residence": ["any"]
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "age": ["kitten"],
-                "residence": ["ur"]
+                "age": [
+                    "kitten"
+                ],
+                "residence": [
+                    "ur"
+                ]
             }
         },
         "intro": [
@@ -330,10 +602,15 @@
     "alive_urourside_c": {
         "cats": {
             "y_c": {
-                "group": ["player_clan", "other_clan"]
+                "group": [
+                    "player_clan",
+                    "other_clan"
+                ]
             },
             "t_c": {
-                "residence": ["ur"]
+                "residence": [
+                    "ur"
+                ]
             }
         },
         "intro": [
@@ -344,14 +621,29 @@
     "scnew_urnew_R2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "rank": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "residence": ["ur"],
-                "rank": ["newborn", "kittypet"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "newborn",
+                    "kittypet"
+                ]
             }
         },
         "intro": [
@@ -363,14 +655,29 @@
     "scnew_urnew_R4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "rank": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "residence": ["ur"],
-                "rank": ["newborn", "kittypet"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "newborn",
+                    "kittypet"
+                ]
             }
         },
         "intro": [
@@ -383,14 +690,27 @@
     "sckit_urnew_R3": {
         "cats": {
             "y_c": {
-                "age": ["kitten"],
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["ur"],
-                "rank": ["newborn", "kittypet"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "newborn",
+                    "kittypet"
+                ]
             }
         },
         "intro": [
@@ -404,14 +724,27 @@
     "sckit_urnew_R4": {
         "cats": {
             "y_c": {
-                "age": ["kitten"],
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["ur"],
-                "rank": ["newborn", "kittypet"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "newborn",
+                    "kittypet"
+                ]
             }
         },
         "intro": [
@@ -426,14 +759,27 @@
     "sckit_urnew_R5": {
         "cats": {
             "y_c": {
-                "age": ["kitten"],
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["ur"],
-                "rank": ["newborn", "kittypet"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "newborn",
+                    "kittypet"
+                ]
             }
         },
         "intro": [
@@ -446,12 +792,21 @@
     "dead_outsider_J17": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
         "intro": [
@@ -461,12 +816,21 @@
     "dead_outsider_J18": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"],
-                "group": ["player_clan", "other_clan"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "group": [
+                    "player_clan",
+                    "other_clan"
+                ]
             },
             "t_c": {
-                "residence": ["sc"]
+                "residence": [
+                    "sc"
+                ]
             }
         },
         "intro": [
@@ -477,7 +841,9 @@
     "you_living_they_outsider_sc_CM1": {
         "cats": {
             "t_c": {
-                "residence": ["sc"]
+                "residence": [
+                    "sc"
+                ]
             }
         },
         "intro": [
@@ -492,25 +858,44 @@
     "dead_outsider_J19": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Oh, goodness...", "I'm sorry you have to be here, little guy."]
+        "intro": [
+            "Oh, goodness...",
+            "I'm sorry you have to be here, little guy."
+        ]
     },
     "oshunned_deaf_J1": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "residence": ["any"]
+                "residence": [
+                    "any"
+                ]
             }
         },
         "intro": [
@@ -520,12 +905,20 @@
     "oshunned_deaf_J2": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["deaf:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
         "intro": [
@@ -536,11 +929,18 @@
     "oshunned_deaf_J3": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "residence": ["any", "ur"]
+                "residence": [
+                    "any",
+                    "ur"
+                ]
             }
         },
         "intro": [
@@ -551,11 +951,18 @@
     "deaf_ur_J1": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "residence": ["ur"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ]
             }
         },
         "intro": [
@@ -566,11 +973,17 @@
     "deaf_ur_J2": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:true"]
+                "condition": [
+                    "deaf:any:true"
+                ]
             },
             "t_c": {
-                "condition": ["deaf:any:false"],
-                "residence": ["ur"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ]
             }
         },
         "intro": [
@@ -582,10 +995,14 @@
     "deaf_ur_J3": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:true"]
+                "condition": [
+                    "deaf:any:true"
+                ]
             },
             "t_c": {
-                "residence": ["any"]
+                "residence": [
+                    "any"
+                ]
             }
         },
         "intro": [
@@ -596,11 +1013,19 @@
     "deaf_ur_J4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
         "intro": [
@@ -611,11 +1036,18 @@
     "deaf_ur_J5": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "residence": ["any"]
+                "residence": [
+                    "any"
+                ]
             }
         },
         "intro": [
@@ -626,11 +1058,19 @@
     "deaf_ur_J6": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false", "grief stricken"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false",
+                    "grief stricken"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "residence": ["any"]
+                "residence": [
+                    "any"
+                ]
             }
         },
         "intro": [
@@ -641,11 +1081,18 @@
     "deaf_sc_Guy1_2": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
         "intro": [
@@ -655,12 +1102,22 @@
     "they_ur_sam1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:true", "deaf:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:true",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "residence": ["ur"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ]
             }
         },
         "intro": [
@@ -670,12 +1127,22 @@
     "they_ur_sam2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:true", "deaf:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:true",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "residence": ["ur"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ]
             }
         },
         "intro": [

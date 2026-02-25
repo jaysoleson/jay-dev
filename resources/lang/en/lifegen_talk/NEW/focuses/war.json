@@ -2,30 +2,57 @@
     "silly_mentor_war": {
         "cats": {
             "y_c": {
-                "rank": ["apprentice", "mediator apprentice", "medicine cat apprentice", "queen's apprentice"]
+                "rank": [
+                    "apprentice",
+                    "mediator apprentice",
+                    "medicine cat apprentice",
+                    "queen's apprentice"
+                ]
             },
             "t_c": {
-                "cluster": ["silly"]
+                "cluster": [
+                    "silly"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
-        "intro": ["y_c...", "I, uh... I wanna let you know that I know everything's scary right now.", "Not to mention the... well, everything?", "I dunno! I'm not good at these weird adulty talks. But I wanna let you know that even if no warriors in your life have your back, I do. I might not be good at talking seriously, but I wanna hear what you have to say.", "Here, I gotcha a pebble. It's a fun shape and your favorite color, so it reminded me of you!"]
+        "intro": [
+            "y_c...",
+            "I, uh... I wanna let you know that I know everything's scary right now.",
+            "Not to mention the... well, everything?",
+            "I dunno! I'm not good at these weird adulty talks. But I wanna let you know that even if no warriors in your life have your back, I do. I might not be good at talking seriously, but I wanna hear what you have to say.",
+            "Here, I gotcha a pebble. It's a fun shape and your favorite color, so it reminded me of you!"
+        ]
     },
     "sc_living_8": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
         "intro": [
@@ -36,16 +63,34 @@
     "war_kitten_H1": {
         "cats": {
             "y_c": {
-                "condition": ["injury:any"],
-                "rank": ["warrior"]
+                "condition": [
+                    "injury:any"
+                ],
+                "rank": [
+                    "warrior"
+                ]
             },
             "t_c": {
-                "age": ["kitten"],
-                "skill": ["HEALER,1"]
+                "age": [
+                    "kitten"
+                ],
+                "skill": [
+                    "HEALER,1"
+                ]
             },
             "r_c:0": {
-                "rank": ["medicine cat", "medicine cat apprentice"],
-                "cluster": ["sweet", "brooding", "cool", "neurotic", "unlawful", "silly"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ],
+                "cluster": [
+                    "sweet",
+                    "brooding",
+                    "cool",
+                    "neurotic",
+                    "unlawful",
+                    "silly"
+                ]
             }
         },
         "intro": [
@@ -57,46 +102,85 @@
     "war_app_H1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["apprentice"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "apprentice"
+                ]
             },
             "r_c:0": {
-                "cluster": ["assertive", "neurotic", "cool", "brooding"]
+                "cluster": [
+                    "assertive",
+                    "neurotic",
+                    "cool",
+                    "brooding"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_trust_50", "min_comfort_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50",
+                    "min_comfort_50"
+                ]
             }
         ],
-        "intro": ["Does war really mean anything? This just seems petty, but r_c:0 keeps telling me it's a lesson to be learned.", "If it was true... I wish the lessons were less bloody and painful.", "I'm sorry to bother you with my thoughts, y_c. I just needed to speak to someone that wasn't a puddle or r_c:0. {PRONOUN/r_c:0/subject/CAP} {VERB/r_c:0/hover/hovers}, and now it makes me uncomfortable beyond belief.", "It would take a long time before I would be comfortable with some cat standing behind me."]
+        "intro": [
+            "Does war really mean anything? This just seems petty, but r_c:0 keeps telling me it's a lesson to be learned.",
+            "If it was true... I wish the lessons were less bloody and painful.",
+            "I'm sorry to bother you with my thoughts, y_c. I just needed to speak to someone that wasn't a puddle or r_c:0. {PRONOUN/r_c:0/subject/CAP} {VERB/r_c:0/hover/hovers}, and now it makes me uncomfortable beyond belief.",
+            "It would take a long time before I would be comfortable with some cat standing behind me."
+        ]
     },
     "war_kitten_H2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             }
         },
-        "intro": ["No one is telling me anything! I know something bad is happening, I just know it."]
+        "intro": [
+            "No one is telling me anything! I know something bad is happening, I just know it."
+        ]
     },
     "war_queen_H1": {
         "cats": {
             "y_c": {
-                "rank": ["any"]
+                "rank": [
+                    "any"
+                ]
             },
             "t_c": {
-                "rank": ["queen"]
+                "rank": [
+                    "queen"
+                ]
             }
         },
         "intro": [
@@ -109,16 +193,28 @@
     "war_kitten_H3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "r_c:0": {
-                "rank": ["queen"],
-                "cluster": ["brooding"]
+                "rank": [
+                    "queen"
+                ],
+                "cluster": [
+                    "brooding"
+                ]
             }
         },
         "intro": [
@@ -130,50 +226,115 @@
     "war_kitten_H4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "r_c:0": {
-                "rank": ["leader"],
-                "cluster": ["stable", "unlawful", "neurotic"]
+                "rank": [
+                    "leader"
+                ],
+                "cluster": [
+                    "stable",
+                    "unlawful",
+                    "neurotic"
+                ]
             },
             "r_c:1": {
-                "rank": ["mediator"],
-                "cluster": ["silly", "brooding"]
+                "rank": [
+                    "mediator"
+                ],
+                "cluster": [
+                    "silly",
+                    "brooding"
+                ]
             }
         },
-        "intro": ["Why can't r_c:0 just call off the war? Why is it taking so long to stop it?", "No... It feels unfair. r_c:1 says we should be talking about our feelings instead of fighting about it!", "That's what w_cClan and c_n are doing, right? Fighting about something?"]
+        "intro": [
+            "Why can't r_c:0 just call off the war? Why is it taking so long to stop it?",
+            "No... It feels unfair. r_c:1 says we should be talking about our feelings instead of fighting about it!",
+            "That's what w_cClan and c_n are doing, right? Fighting about something?"
+        ]
     },
     "war_kitten_H5": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             }
         },
-        "intro": ["I am going to be as big and strong as r_c:0! So I can help!"]
+        "intro": [
+            "I am going to be as big and strong as r_c:0! So I can help!"
+        ]
     },
     "war_pregnant_AJ": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "condition": ["pregnant"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "pregnant"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "intro": [
@@ -185,12 +346,20 @@
     "war_silly_AJ": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["silly"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "intro": [
@@ -203,25 +372,48 @@
     "war_silly_AJ1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "unabashed", "silly"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "assertive",
+                    "unabashed",
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:0": {
-                "cluster": ["unabashed", "silly", "brooding"]
+                "cluster": [
+                    "unabashed",
+                    "silly",
+                    "brooding"
+                ]
             }
         },
-        "intro": ["Psh, w_cClan isn't so scary.", "Try dealing with r_c:0 when the last of {PRONOUN/r_c:0/poss} favorite prey is stolen from the pile. Now <i>that's</i> scary."]
+        "intro": [
+            "Psh, w_cClan isn't so scary.",
+            "Try dealing with r_c:0 when the last of {PRONOUN/r_c:0/poss} favorite prey is stolen from the pile. Now <i>that's</i> scary."
+        ]
     },
     "unlawful_war1": {
         "cats": {
             "t_c": {
-                "cluster": ["unlawful"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "unlawful"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "intro": [
@@ -232,32 +424,57 @@
     "unlawful_warGuy1": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
-        "intro": ["I expect you to do anything we ask of you, y_c.", "Even if it goes against the code, we will not let those mouse-dung eating w_cClan cats hurt our kits."]
+        "intro": [
+            "I expect you to do anything we ask of you, y_c.",
+            "Even if it goes against the code, we will not let those mouse-dung eating w_cClan cats hurt our kits."
+        ]
     },
     "war_mckitten_H1": {
         "cats": {
             "y_c": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             },
             "t_c": {
-                "age": ["older"],
-                "condition": ["blind:any:false"],
-                "rank": ["any"]
+                "age": [
+                    "older"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["non-related"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "non-related"
+                ]
             }
         ],
         "intro": [
@@ -269,20 +486,36 @@
     "war_mckitten_H2": {
         "cats": {
             "y_c": {
-                "age": ["kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "age": ["older"],
-                "condition": ["blind:any:false"],
-                "rank": ["any"]
+                "age": [
+                    "older"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["non-related"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "non-related"
+                ]
             }
         ],
         "intro": [
@@ -293,37 +526,64 @@
     "war_mckitten_H3": {
         "cats": {
             "y_c": {
-                "age": ["kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["queen"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["non-related"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "non-related"
+                ]
             }
         ],
-        "intro": ["The world is cruel, sweet kit. It stops for no one.", "Especially during times like this."]
+        "intro": [
+            "The world is cruel, sweet kit. It stops for no one.",
+            "Especially during times like this."
+        ]
     },
     "war_mckitten_H4": {
         "cats": {
             "y_c": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["mates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
+                ]
             }
         ],
         "intro": [
@@ -336,92 +596,206 @@
     "war_faith_H1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "min_max_faith": [0, 9],
-                "condition": ["blind:any:false"]
+                "min_max_faith": [
+                    0,
+                    9
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
-        "intro": ["Oh, StarClan, save us!"]
+        "intro": [
+            "Oh, StarClan, save us!"
+        ]
     },
     "war_faith_H2": {
         "cats": {
             "y_c": {
-                "age": ["kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "min_max_faith": [0, 9],
-                "condition": ["blind:any:false"],
-                "rank": ["elder"]
+                "min_max_faith": [
+                    0,
+                    9
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "elder"
+                ]
             },
             "r_c:0": {
-                "rank": ["medicine cat", "medicine cat apprentice"],
-                "cluster": ["sweet", "brooding", "cool", "neurotic", "unlawful", "silly"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ],
+                "cluster": [
+                    "sweet",
+                    "brooding",
+                    "cool",
+                    "neurotic",
+                    "unlawful",
+                    "silly"
+                ]
             }
         },
-        "intro": ["Oh, don't worry about the war!", "I heard r_c:0 got a promising prophecy from StarClan, that's all I need to know we're in good hands."]
+        "intro": [
+            "Oh, don't worry about the war!",
+            "I heard r_c:0 got a promising prophecy from StarClan, that's all I need to know we're in good hands."
+        ]
     },
     "war_faith_H3": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "min_max_faith": [0, 9],
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "min_max_faith": [
+                    0,
+                    9
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "r_c:0": {
-                "rank": ["leader"],
-                "cluster": ["stable", "unlawful", "neurotic"]
+                "rank": [
+                    "leader"
+                ],
+                "cluster": [
+                    "stable",
+                    "unlawful",
+                    "neurotic"
+                ]
             }
         },
-        "intro": ["Humf! r_c:0 must be speaking to the Dark Forest to get these awful ideas during a time like this!"]
+        "intro": [
+            "Humf! r_c:0 must be speaking to the Dark Forest to get these awful ideas during a time like this!"
+        ]
     },
     "war_neuroticmate_H1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["warrior"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_trust_50", "mates", "min_romance_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50",
+                    "mates",
+                    "min_romance_20"
+                ]
             }
         ],
-        "intro": ["Be careful on your patrol, I have a bad feeling.", "No-- yes, I know I say that every time but still! I have a bad feeling, I always have a bad feeling.", "I just don't want you to get hurt."]
+        "intro": [
+            "Be careful on your patrol, I have a bad feeling.",
+            "No-- yes, I know I say that every time but still! I have a bad feeling, I always have a bad feeling.",
+            "I just don't want you to get hurt."
+        ]
     },
     "war_neuroticmate_H2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["queen", "mediator", "medicine cat"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen",
+                    "mediator",
+                    "medicine cat"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["mates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mates"
+                ]
             }
         ],
         "intro": [
@@ -433,41 +807,98 @@
     "war_neuroticmate_H3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["warrior"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior"
+                ]
             },
             "t_c": {
-                "cluster": ["introspective", "neurotic"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "introspective",
+                    "neurotic"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["mates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mates"
+                ]
             }
         ],
-        "intro": ["Stay safe for me, please."]
+        "intro": [
+            "Stay safe for me, please."
+        ]
     },
     "warfocus_SQ1": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["kitten"],
-                "condition": ["deaf:any:false"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             },
             "r_c:1": {
-                "rank": ["leader"],
-                "cluster": ["stable", "unlawful", "neurotic"]
+                "rank": [
+                    "leader"
+                ],
+                "cluster": [
+                    "stable",
+                    "unlawful",
+                    "neurotic"
+                ]
             }
         },
         "intro": [
@@ -479,19 +910,35 @@
     "warfocus_SQ2": {
         "cats": {
             "y_c": {
-                "rank": ["queen", "queen's apprentice"]
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["kitten"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_trust_50", "min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50",
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -504,18 +951,31 @@
     "warfocus_SQ3": {
         "cats": {
             "y_c": {
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["kitten"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -532,18 +992,31 @@
     "warfocus_SQ4": {
         "cats": {
             "y_c": {
-                "age": ["adolescent", "adult"]
+                "age": [
+                    "adolescent",
+                    "adult"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["kitten"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
         "intro": [
@@ -562,11 +1035,19 @@
     "warfocus_SQ5": {
         "cats": {
             "y_c": {
-                "rank": ["kitten", "queen", "queen's apprentice"]
+                "rank": [
+                    "kitten",
+                    "queen",
+                    "queen's apprentice"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["kitten"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "kitten"
+                ]
             }
         },
         "intro": [
@@ -578,21 +1059,40 @@
     "warfocus_SQ6": {
         "cats": {
             "y_c": {
-                "cluster": ["assertive", "unlawful"],
-                "age": ["kitten"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "assertive",
+                    "unlawful"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["kitten"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
         "intro": [
@@ -605,45 +1105,109 @@
     "warfocus_SQ7": {
         "cats": {
             "y_c": {
-                "age": ["adult"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "adult"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["kitten"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_trust_50", "min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50",
+                    "min_like_20"
+                ]
             }
         ],
-        "intro": ["I heard r_c:0 saying something like, 'this war's gonna go on forever'.", "Is... is that true? Is it never, ever going to end?"]
+        "intro": [
+            "I heard r_c:0 saying something like, 'this war's gonna go on forever'.",
+            "Is... is that true? Is it never, ever going to end?"
+        ]
     },
     "warfocus_SQ8": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["warrior", "apprentice", "deputy", "leader"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy",
+                    "leader"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["kitten"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_trust_50", "min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50",
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -655,67 +1219,131 @@
     "warfocus_SQ9": {
         "cats": {
             "y_c": {
-                "age": ["kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["kitten"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates", "min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates",
+                    "min_like_20"
+                ]
             }
         ],
-        "intro": ["I had a dream last night where w_cClan was gone.", "We didn't have to worry about anything anymore, so r_c:0 took us just outside camp to show us a really pretty tree.", "It was nice. I hope I have that dream again."]
+        "intro": [
+            "I had a dream last night where w_cClan was gone.",
+            "We didn't have to worry about anything anymore, so r_c:0 took us just outside camp to show us a really pretty tree.",
+            "It was nice. I hope I have that dream again."
+        ]
     },
     "warfocus_SQ10": {
         "cats": {
             "y_c": {
-                "age": ["kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["kitten"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates", "min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates",
+                    "min_like_20"
+                ]
             },
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["r_c:0"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
-        "intro": ["We don't have to worry about anything happening to r_c:0, right?", "Even with the war, {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} gonna be okay, right?"]
+        "intro": [
+            "We don't have to worry about anything happening to r_c:0, right?",
+            "Even with the war, {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} gonna be okay, right?"
+        ]
     },
     "warfocus_SQ11": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["queen", "queen's apprentice"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["kitten"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -726,24 +1354,43 @@
     "warfocus_SQ12": {
         "cats": {
             "y_c": {
-                "rank": ["any"]
+                "rank": [
+                    "any"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"]
+                "cluster": [
+                    "neurotic"
+                ]
             },
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             },
             "r_c:1": {
-                "rank": ["leader"],
-                "cluster": ["stable", "unlawful", "neurotic"]
+                "rank": [
+                    "leader"
+                ],
+                "cluster": [
+                    "stable",
+                    "unlawful",
+                    "neurotic"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates", "min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates",
+                    "min_like_50"
+                ]
             }
         ],
         "intro": [
@@ -756,23 +1403,49 @@
     "neurotic_warfocus_SQ123": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["not_kitten"],
-                "rank": ["not_df_trainee"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "not_df_trainee"
+                ]
             },
             "r_c:0": {
-                "rank": ["medicine cat", "medicine cat apprentice"],
-                "cluster": ["sweet", "brooding", "cool", "neurotic", "unlawful", "silly"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ],
+                "cluster": [
+                    "sweet",
+                    "brooding",
+                    "cool",
+                    "neurotic",
+                    "unlawful",
+                    "silly"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_trust_50", "min_comfort_50", "min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50",
+                    "min_comfort_50",
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -787,12 +1460,22 @@
     "war_focus_J1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["warrior", "apprentice", "deputy"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy"
+                ]
             }
         },
         "intro": [
@@ -805,12 +1488,22 @@
     "war_focus_J2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["warrior", "deputy"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "deputy"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["warrior", "deputy"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "deputy"
+                ]
             }
         },
         "intro": [
@@ -822,50 +1515,114 @@
     "war_focus_assertive_AJ": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "age": ["sameage", "not_kitten"],
-                "condition": ["blind:any:false"],
-                "rank": ["warrior", "deputy", "apprentice"]
+                "cluster": [
+                    "assertive"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "deputy",
+                    "apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["leader"],
-                "cluster": ["stable", "unlawful", "neurotic"]
+                "rank": [
+                    "leader"
+                ],
+                "cluster": [
+                    "stable",
+                    "unlawful",
+                    "neurotic"
+                ]
             }
         },
-        "intro": ["If you ask me, this war couldn't have come soon enough! No other Clan disrespects c_n and gets away with it!", "I think I'm gonna ask r_c:0 about putting me on the front lines ... Just you wait, y_c! Those lousy w_cClan cats aren't gonna know what hit 'em!"]
+        "intro": [
+            "If you ask me, this war couldn't have come soon enough! No other Clan disrespects c_n and gets away with it!",
+            "I think I'm gonna ask r_c:0 about putting me on the front lines ... Just you wait, y_c! Those lousy w_cClan cats aren't gonna know what hit 'em!"
+        ]
     },
     "war_focus_assertive1_AJ": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "upstanding"],
-                "age": ["sameage", "not_kitten"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "assertive",
+                    "upstanding"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
-        "intro": ["Everybody around here talks about this war like it's some huge tragedy ... But I see it as an opportunity!", "I've been waiting my whole life for the chance to show everycat in c_n what I'm really capable of!", "Get ready, y_c, because my name's about to go down in history! 't_c, slayer of w_cClan!'", "Heh ... Has a nice ring to it, doesn't it?"]
+        "intro": [
+            "Everybody around here talks about this war like it's some huge tragedy ... But I see it as an opportunity!",
+            "I've been waiting my whole life for the chance to show everycat in c_n what I'm really capable of!",
+            "Get ready, y_c, because my name's about to go down in history! 't_c, slayer of w_cClan!'",
+            "Heh ... Has a nice ring to it, doesn't it?"
+        ]
     },
     "war_focus_assertive2_AJ": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["warrior", "apprentice", "deputy", "leader"]
+                "cluster": [
+                    "assertive"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy",
+                    "leader"
+                ]
             },
             "r_c:0": {
-                "rank": ["medicine cat", "medicine cat apprentice"],
-                "cluster": ["sweet", "brooding", "cool", "neurotic", "unlawful", "silly"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ],
+                "cluster": [
+                    "sweet",
+                    "brooding",
+                    "cool",
+                    "neurotic",
+                    "unlawful",
+                    "silly"
+                ]
             }
         },
         "intro": [
@@ -876,18 +1633,36 @@
     "war_focus_AJ3": {
         "cats": {
             "y_c": {
-                "rank": ["mediator", "queen", "mediator apprentice", "queen's apprentice"]
+                "rank": [
+                    "mediator",
+                    "queen",
+                    "mediator apprentice",
+                    "queen's apprentice"
+                ]
             },
             "t_c": {
-                "age": ["sameage"],
-                "rank": ["mediator", "queen", "mediator apprentice", "queen's apprentice"]
+                "age": [
+                    "sameage"
+                ],
+                "rank": [
+                    "mediator",
+                    "queen",
+                    "mediator apprentice",
+                    "queen's apprentice"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -900,18 +1675,47 @@
     "war_focus_AJ4": {
         "cats": {
             "y_c": {
-                "age": ["adult"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "adult"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "unabashed", "silly", "upstanding"],
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "cluster": [
+                    "assertive",
+                    "unabashed",
+                    "silly",
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "r_c:0": {
-                "rank": ["kitten"],
-                "skill": ["HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1"],
-                "cluster": ["neurotic", "unlawful", "assertive", "brooding", "upstanding"]
+                "rank": [
+                    "kitten"
+                ],
+                "skill": [
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1"
+                ],
+                "cluster": [
+                    "neurotic",
+                    "unlawful",
+                    "assertive",
+                    "brooding",
+                    "upstanding"
+                ]
             }
         },
         "intro": [
@@ -923,19 +1727,35 @@
     "war_focus_AJ5": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
         "intro": [
@@ -945,20 +1765,40 @@
     "war_focus_AJ6": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["apprentice", "warrior", "deputy"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "apprentice",
+                    "warrior",
+                    "deputy"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["child/parent", "adoptive child/adoptive parent", "min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "child/parent",
+                    "adoptive child/adoptive parent",
+                    "min_like_50"
+                ]
             }
         ],
         "intro": [
@@ -970,34 +1810,92 @@
     "war_focus_assertive7_AJ": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["warrior", "apprentice", "deputy", "leader"]
+                "cluster": [
+                    "assertive"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy",
+                    "leader"
+                ]
             }
         },
-        "intro": ["A day where I haven't taken down at least 3 w_cClanners, is a bad day for me. Hah!"]
+        "intro": [
+            "A day where I haven't taken down at least 3 w_cClanners, is a bad day for me. Hah!"
+        ]
     },
     "war_focus_assertive8_AJ": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["warrior", "apprentice", "deputy", "leader"]
+                "cluster": [
+                    "assertive"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy",
+                    "leader"
+                ]
             },
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             }
         },
         "intro": [
@@ -1010,26 +1908,57 @@
     "war_focus_assertive9_AJ": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "silly"],
-                "condition": ["blind:any:false"],
-                "rank": ["warrior", "apprentice", "deputy", "leader"]
+                "cluster": [
+                    "assertive",
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy",
+                    "leader"
+                ]
             }
         },
-        "intro": ["Grahhhh!", "Oh, hey, y_c! I was just practicing my war cry. Gotta be extra terrifying to go down in w_cClan legend, y'know?", "You wanna practice with me?"]
+        "intro": [
+            "Grahhhh!",
+            "Oh, hey, y_c! I was just practicing my war cry. Gotta be extra terrifying to go down in w_cClan legend, y'know?",
+            "You wanna practice with me?"
+        ]
     },
     "war_focus_assertive10_AJ": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "upstanding"],
-                "condition": ["blind:any:false", "hearing"],
-                "age": ["not_kitten"],
-                "rank": ["warrior", "apprentice", "deputy", "leader"]
+                "cluster": [
+                    "assertive",
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "hearing"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy",
+                    "leader"
+                ]
             }
         },
         "intro": [
@@ -1041,23 +1970,50 @@
     "war_focus_AJ11~1": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "age": ["sameage", "not_kitten"],
-                "rank": ["leader", "warrior", "deputy"]
+                "cluster": [
+                    "assertive"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "rank": [
+                    "leader",
+                    "warrior",
+                    "deputy"
+                ]
             },
             "r_c:0": {
-                "rank": ["medicine cat", "medicine cat apprentice"],
-                "cluster": ["sweet", "brooding", "cool", "neurotic", "unlawful", "silly"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ],
+                "cluster": [
+                    "sweet",
+                    "brooding",
+                    "cool",
+                    "neurotic",
+                    "unlawful",
+                    "silly"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
         "intro": [
@@ -1073,24 +2029,67 @@
     "war_focus_AJ11~2": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "age": ["sameage", "not_kitten"],
-                "rank": ["leader", "warrior", "deputy"]
+                "cluster": [
+                    "assertive"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "rank": [
+                    "leader",
+                    "warrior",
+                    "deputy"
+                ]
             },
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
         "intro": [
@@ -1113,23 +2112,47 @@
     "war_focus_AJ11~3": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "age": ["sameage", "not_kitten"],
-                "rank": ["leader", "warrior", "deputy"]
+                "cluster": [
+                    "assertive"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "rank": [
+                    "leader",
+                    "warrior",
+                    "deputy"
+                ]
             },
             "r_c:0": {
-                "rank": ["apprentice"],
-                "cluster": ["silly", "neurotic", "upstanding", "cool"]
+                "rank": [
+                    "apprentice"
+                ],
+                "cluster": [
+                    "silly",
+                    "neurotic",
+                    "upstanding",
+                    "cool"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
         "intro": [
@@ -1142,19 +2165,36 @@
     "war_focus_AJ11~4": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "age": ["sameage", "not_kitten"],
-                "rank": ["leader", "warrior", "deputy"]
+                "cluster": [
+                    "assertive"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "rank": [
+                    "leader",
+                    "warrior",
+                    "deputy"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
         "intro": [
@@ -1173,19 +2213,36 @@
     "war_focus_AJ11~5": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "age": ["sameage", "not_kitten"],
-                "rank": ["leader", "warrior", "deputy"]
+                "cluster": [
+                    "assertive"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "rank": [
+                    "leader",
+                    "warrior",
+                    "deputy"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
         "intro": [
@@ -1206,19 +2263,61 @@
     "war_focus_AJ12": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "cool"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["leader", "warrior", "deputy", "apprentice"]
+                "cluster": [
+                    "assertive",
+                    "cool"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "leader",
+                    "warrior",
+                    "deputy",
+                    "apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             }
         },
         "intro": [
@@ -1234,38 +2333,68 @@
     "war_focus_AJ13": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "assertive"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["strangers"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "strangers"
+                ]
             }
         ],
-        "intro": ["Oh, hey, y_c! You're looking a little faint; have you eaten anything yet today?", "We all have to stay strong, if we wanna show w_cClan what's what!"]
+        "intro": [
+            "Oh, hey, y_c! You're looking a little faint; have you eaten anything yet today?",
+            "We all have to stay strong, if we wanna show w_cClan what's what!"
+        ]
     },
     "war_focus_AJ14": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["brooding", "introspective"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "brooding",
+                    "introspective"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_trust_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50"
+                ]
             }
         ],
         "intro": [
@@ -1280,7 +2409,9 @@
     "war_focus_AJ15": {
         "cats": {
             "t_c": {
-                "cluster": ["introspective"]
+                "cluster": [
+                    "introspective"
+                ]
             }
         },
         "intro": [
@@ -1291,11 +2422,17 @@
     "war_focus_AJ16": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["introspective"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "introspective"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "intro": [
@@ -1306,12 +2443,24 @@
     "war_focus_AJ17": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "skill": ["HUNTER,1"],
-                "rank": ["warrior", "deputy", "leader", "apprentice"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "skill": [
+                    "HUNTER,1"
+                ],
+                "rank": [
+                    "warrior",
+                    "deputy",
+                    "leader",
+                    "apprentice"
+                ]
             }
         },
         "intro": [
@@ -1323,17 +2472,30 @@
     "war_focus_AJ18": {
         "cats": {
             "y_c": {
-                "rank": ["warrior", "apprentice", "deputy", "leader"]
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy",
+                    "leader"
+                ]
             },
             "t_c": {
-                "cluster": ["brooding"]
+                "cluster": [
+                    "brooding"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
         "intro": [
@@ -1347,39 +2509,78 @@
     "war_focus_AJ19": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
-        "intro": ["So ... I guess we should talk about it.", "What's gonna happen if one of us doesn't make it out the other side of this.", "... y_c, if anything happens to me -- and I'm not saying it will, but if it does ...", "... I need you to promise me that you'll keep on living.", "Don't let yourself become blinded by hatred or revenge. You have such a bright future ahead of you. The last thing I want is for you to throw all that away.", "I know it will be hard, but ... I won't know any peace unless I'm sure you'll be okay.", "Can you promise me that?"]
+        "intro": [
+            "So ... I guess we should talk about it.",
+            "What's gonna happen if one of us doesn't make it out the other side of this.",
+            "... y_c, if anything happens to me -- and I'm not saying it will, but if it does ...",
+            "... I need you to promise me that you'll keep on living.",
+            "Don't let yourself become blinded by hatred or revenge. You have such a bright future ahead of you. The last thing I want is for you to throw all that away.",
+            "I know it will be hard, but ... I won't know any peace unless I'm sure you'll be okay.",
+            "Can you promise me that?"
+        ]
     },
     "war_focus_AJ202": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "cool", "brooding"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "assertive",
+                    "cool",
+                    "brooding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["adoptive parent/adoptive child", "mates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "adoptive parent/adoptive child",
+                    "parent/child"
+                ]
             }
         ],
         "intro": [
@@ -1394,10 +2595,16 @@
     "war_focus_AJ21": {
         "cats": {
             "y_c": {
-                "rank": ["medicine cat apprentice", "medicine cat"]
+                "rank": [
+                    "medicine cat apprentice",
+                    "medicine cat"
+                ]
             },
             "t_c": {
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             }
         },
         "intro": [
@@ -1409,16 +2616,39 @@
     "war_focus_AJ22": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"],
-                "rank": ["queen", "queen's apprentice"]
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["kitten"],
-                "skill": ["HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1"],
-                "cluster": ["neurotic", "unlawful", "assertive", "brooding", "upstanding"]
+                "rank": [
+                    "kitten"
+                ],
+                "skill": [
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1"
+                ],
+                "cluster": [
+                    "neurotic",
+                    "unlawful",
+                    "assertive",
+                    "brooding",
+                    "upstanding"
+                ]
             }
         },
         "intro": [
@@ -1431,32 +2661,60 @@
     "war_focus_AJ23": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "upstanding"],
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "cluster": [
+                    "assertive",
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             }
         },
-        "intro": ["It isn't fair! Why do we hafta sit around the nursery all day while the grownups get to go out and fight?", "Everybody talks about kits like we're just helpless fluff balls ... But I'm not scared of w_cClan! I know I can fight!", "If only we were apprentices already ..."]
+        "intro": [
+            "It isn't fair! Why do we hafta sit around the nursery all day while the grownups get to go out and fight?",
+            "Everybody talks about kits like we're just helpless fluff balls ... But I'm not scared of w_cClan! I know I can fight!",
+            "If only we were apprentices already ..."
+        ]
     },
     "war_focus_AJ24": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"],
-                "rank": ["mediator", "mediator apprentice"]
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "mediator",
+                    "mediator apprentice"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_trust_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50"
+                ]
             }
         ],
         "intro": [
@@ -1478,8 +2736,16 @@
                 "next_scene": "sympathy"
             }
         },
-        "duty": ["Don't you think I know that?", "When I signed up to be a mediator, I knew what it would entail ...", "I just never expected it to be this hard."],
-        "loyal": ["Do you really think that's right? To throw away everything it means to be a mediator for my own personal benefit?", "It might work for now ... But I'll have StarClan to answer to in the long run.", "Still, at this point, I would do anything to stop this war."],
+        "duty": [
+            "Don't you think I know that?",
+            "When I signed up to be a mediator, I knew what it would entail ...",
+            "I just never expected it to be this hard."
+        ],
+        "loyal": [
+            "Do you really think that's right? To throw away everything it means to be a mediator for my own personal benefit?",
+            "It might work for now ... But I'll have StarClan to answer to in the long run.",
+            "Still, at this point, I would do anything to stop this war."
+        ],
         "sympathy": [
             "Hard doesn't even begin to describe it ...",
             "[t_c scoots closer to you, pressing {PRONOUN/t_c/poss} side into your fur.]",
@@ -1495,15 +2761,25 @@
     "war_focus_AJ25": {
         "cats": {
             "t_c": {
-                "cluster": ["cool"],
-                "age": ["adult"]
+                "cluster": [
+                    "cool"
+                ],
+                "age": [
+                    "adult"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -1514,70 +2790,154 @@
     "war_focus_AJ251": {
         "cats": {
             "t_c": {
-                "cluster": ["cool"],
-                "rank": ["warrior"]
+                "cluster": [
+                    "cool"
+                ],
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
-        "intro": ["Doesn't r_c:0 know what {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} risking by putting me on the border patrol?", "How ever will the brave little soldiers of c_n get by without my beautiful face as moral support?~"]
+        "intro": [
+            "Doesn't r_c:0 know what {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} risking by putting me on the border patrol?",
+            "How ever will the brave little soldiers of c_n get by without my beautiful face as moral support?~"
+        ]
     },
     "war_focus_AJ26": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["cool"],
-                "condition": ["blind:any:false", "hearing"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "cool"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "hearing"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
-        "intro": ["I overheard r_c:0 comparing w_cClan to a bunch of monsters earlier. Couldn't believe my ears. I mean, are we all still in the nursery?", "They're not monsters. They're just a bunch of sorry scraps of fur, as pathetic and desperate as the rest of us.", "I'm sure they don't want to march out there getting killed any more than we do.", "And I know I <i>really</i> don't want to."]
+        "intro": [
+            "I overheard r_c:0 comparing w_cClan to a bunch of monsters earlier. Couldn't believe my ears. I mean, are we all still in the nursery?",
+            "They're not monsters. They're just a bunch of sorry scraps of fur, as pathetic and desperate as the rest of us.",
+            "I'm sure they don't want to march out there getting killed any more than we do.",
+            "And I know I <i>really</i> don't want to."
+        ]
     },
     "war_focus_AJ27~1": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["cool"],
-                "age": ["sameage", "not_kitten"],
-                "rank": ["warrior", "apprentice"]
+                "cluster": [
+                    "cool"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
-        "intro": ["Everybody sure is eager to go marching to their deaths ...", "You and me, though, we're too smart for that. Aren't we, y_c?"],
+        "intro": [
+            "Everybody sure is eager to go marching to their deaths ...",
+            "You and me, though, we're too smart for that. Aren't we, y_c?"
+        ],
         "intro_choices": {
             "choice1": {
                 "text": "[Object.]",
@@ -1593,26 +2953,51 @@
             "Hey, more power to ya. I have no problem with cats who got a death wish.",
             "Maybe I'll tell r_c:0 that you can take my spot on the next border patrol. Since you're so desperate to prove yourself to cats who couldn't care a wit either way."
         ],
-        "agree": ["Heh. I knew it. Another free thinker.", "Or, maybe just another coward. Really, who's to say?", "Hey, wanna cut the next border patrol with me? I've been faking sick since I was in the nursery ... Maybe you could use a few pointers."]
+        "agree": [
+            "Heh. I knew it. Another free thinker.",
+            "Or, maybe just another coward. Really, who's to say?",
+            "Hey, wanna cut the next border patrol with me? I've been faking sick since I was in the nursery ... Maybe you could use a few pointers."
+        ]
     },
     "war_focus_AJ28": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["apprentice"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "apprentice"
+                ]
             },
             "t_c": {
-                "cluster": ["brooding", "introspective"],
-                "age": ["older"],
-                "condition": ["blind:any:false"],
-                "rank": ["warrior", "deputy", "leader"]
+                "cluster": [
+                    "brooding",
+                    "introspective"
+                ],
+                "age": [
+                    "older"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "deputy",
+                    "leader"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -1628,23 +3013,67 @@
     "war_focus_AJ29": {
         "cats": {
             "t_c": {
-                "cluster": ["cool"]
+                "cluster": [
+                    "cool"
+                ]
             },
             "r_c:0": {
-                "rank": ["medicine cat", "medicine cat apprentice"],
-                "cluster": ["sweet", "brooding", "cool", "neurotic", "unlawful", "silly"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ],
+                "cluster": [
+                    "sweet",
+                    "brooding",
+                    "cool",
+                    "neurotic",
+                    "unlawful",
+                    "silly"
+                ]
             },
             "r_c:1": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -1657,22 +3086,40 @@
     "war_focus_AJ27~2": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["cool"],
-                "age": ["sameage", "not_kitten"],
-                "rank": ["warrior", "apprentice"]
+                "cluster": [
+                    "cool"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -1687,22 +3134,40 @@
     "war_focus_AJ27~3": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["cool"],
-                "age": ["sameage", "not_kitten"],
-                "rank": ["warrior", "apprentice"]
+                "cluster": [
+                    "cool"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -1715,24 +3180,66 @@
     "war_focus_AJ27~4": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["cool"],
-                "age": ["sameage", "not_kitten"],
-                "rank": ["warrior", "apprentice"]
+                "cluster": [
+                    "cool"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -1777,23 +3284,45 @@
     "war_focus_AJ27~5": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["cool"],
-                "age": ["sameage", "not_kitten"],
-                "rank": ["warrior", "apprentice"]
+                "cluster": [
+                    "cool"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["leader"],
-                "cluster": ["stable", "unlawful", "neurotic"]
+                "rank": [
+                    "leader"
+                ],
+                "cluster": [
+                    "stable",
+                    "unlawful",
+                    "neurotic"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -1806,22 +3335,40 @@
     "war_focus_AJ27~6": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["cool"],
-                "age": ["sameage", "not_kitten"],
-                "rank": ["warrior", "apprentice"]
+                "cluster": [
+                    "cool"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -1843,23 +3390,43 @@
     "war_focus_AJ27~7": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["cool"],
-                "age": ["sameage", "not_kitten"],
-                "rank": ["warrior", "apprentice"]
+                "cluster": [
+                    "cool"
+                ],
+                "age": [
+                    "sameage",
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["queen"],
-                "cluster": ["brooding"]
+                "rank": [
+                    "queen"
+                ],
+                "cluster": [
+                    "brooding"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -1877,28 +3444,51 @@
     "war_focus_AJ30": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["brooding"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "brooding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
-        "intro": ["No matter what happens ... No matter what ends up happening with this war ...", "I will keep c_n safe."]
+        "intro": [
+            "No matter what happens ... No matter what ends up happening with this war ...",
+            "I will keep c_n safe."
+        ]
     },
     "war_focus_AJ31": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["unabashed", "cool", "brooding"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "unabashed",
+                    "cool",
+                    "brooding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "r_c:0": {
-                "rank": ["queen"],
-                "cluster": ["brooding"]
+                "rank": [
+                    "queen"
+                ],
+                "cluster": [
+                    "brooding"
+                ]
             }
         },
         "intro": [
@@ -1910,78 +3500,150 @@
     "war_focus_AJ32": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "assertive"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
-        "intro": ["Don't worry about all this scary war talk, squirt. Those big, bad cats aren't gonna be able to lay a paw on you if I have anything to say about it!"]
+        "intro": [
+            "Don't worry about all this scary war talk, squirt. Those big, bad cats aren't gonna be able to lay a paw on you if I have anything to say about it!"
+        ]
     },
     "war_focus_Guy1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "illness:any", "injury:any"],
-                "rank": ["apprentice"]
+                "condition": [
+                    "blind:any:false",
+                    "illness:any",
+                    "injury:any"
+                ],
+                "rank": [
+                    "apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["medicine cat", "medicine cat apprentice"],
-                "cluster": ["sweet", "brooding", "cool", "neurotic", "unlawful", "silly"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ],
+                "cluster": [
+                    "sweet",
+                    "brooding",
+                    "cool",
+                    "neurotic",
+                    "unlawful",
+                    "silly"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
-        "intro": ["Can you believe this, y_c? They won't let me fight!", "It was almost perfect too. I was going to win the war, just like in those stories the queens told us.", "You gotta help me... go tell r_c:0 to fix me faster!"]
+        "intro": [
+            "Can you believe this, y_c? They won't let me fight!",
+            "It was almost perfect too. I was going to win the war, just like in those stories the queens told us.",
+            "You gotta help me... go tell r_c:0 to fix me faster!"
+        ]
     },
     "war_focus_Guy2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["warrior", "apprentice"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "backstory": ["outsiderroots", "formerlyaloner", "formerlyarogue", "formerlyakittypet", "formerlyaoutsider"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "backstory": [
+                    "outsiderroots",
+                    "formerlyaloner",
+                    "formerlyarogue",
+                    "formerlyakittypet",
+                    "formerlyaoutsider"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["mates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
+                ]
             }
         ],
-        "intro": ["... we are a part of this Clan now, yes, but this is not our war.", "I'm sorry, y_c. I thought we would be safe here."]
+        "intro": [
+            "... we are a part of this Clan now, yes, but this is not our war.",
+            "I'm sorry, y_c. I thought we would be safe here."
+        ]
     },
     "war_focus_Guy3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["mediator"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "mediator"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
-        "intro": ["We know you're trying your best, y_c."]
+        "intro": [
+            "We know you're trying your best, y_c."
+        ]
     },
     "war_focus_Guy4": {
         "cats": {
             "y_c": {
-                "rank": ["medicine cat apprentice"]
+                "rank": [
+                    "medicine cat apprentice"
+                ]
             },
             "t_c": {
-                "rank": ["medicine cat"]
+                "rank": [
+                    "medicine cat"
+                ]
             }
         },
         "intro": [
@@ -1992,27 +3654,50 @@
     "war_focus_Guy5": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["medicine cat"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "medicine cat"
+                ]
             }
         },
-        "intro": ["I really don't have time to talk. I need to stock up on herbs... This silly spat will suck the land dry."]
+        "intro": [
+            "I really don't have time to talk. I need to stock up on herbs... This silly spat will suck the land dry."
+        ]
     },
     "sweet_war_focus_1ps": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["medicine cat"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "medicine cat"
+                ]
             },
             "t_c": {
-                "cluster": ["sweet", "sweet"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["warrior"]
+                "cluster": [
+                    "sweet",
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "intro": [
@@ -2028,21 +3713,44 @@
     "war_focusdf_SQ1": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["warrior", "apprentice", "deputy", "leader", "df_trainee"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy",
+                    "leader",
+                    "df_trainee"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["not_df_trainee"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "not_df_trainee"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
         "intro": [
@@ -2053,17 +3761,58 @@
     "war_focusdf_SQ2": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "rank": ["warrior", "apprentice", "deputy", "leader", "not_df_trainee"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy",
+                    "leader",
+                    "not_df_trainee"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "rank": ["warrior", "apprentice", "df_trainee"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "df_trainee"
+                ]
             },
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             }
         },
         "intro": [
@@ -2075,13 +3824,25 @@
     "war_focusdf_SQ3": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "rank": ["df_trainee"]
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "df_trainee"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "unlawful", "brooding"],
-                "age": ["not_kitten"],
-                "rank": ["df_trainee"]
+                "cluster": [
+                    "assertive",
+                    "unlawful",
+                    "brooding"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "df_trainee"
+                ]
             }
         },
         "intro": [
@@ -2093,21 +3854,39 @@
     "war_focusdf_SQ4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["df_trainee"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "df_trainee"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["df_trainee"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "df_trainee"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -2119,17 +3898,31 @@
     "war_focusdf_SQ5": {
         "cats": {
             "y_c": {
-                "rank": ["apprentice", "warrior", "deputy", "leader", "df_trainee"]
+                "rank": [
+                    "apprentice",
+                    "warrior",
+                    "deputy",
+                    "leader",
+                    "df_trainee"
+                ]
             },
             "t_c": {
-                "rank": ["not_df_trainee"]
+                "rank": [
+                    "not_df_trainee"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -2141,58 +3934,138 @@
     "war_focusdf_SQ6": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["df_trainee"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "df_trainee"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "condition": ["blind:any:false"],
-                "rank": ["df_trainee"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "df_trainee"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_trust_50", "min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50",
+                    "min_like_20"
+                ]
             }
         ],
-        "intro": ["When I started training in the Dark Forest, I told myself I was going to learn to be brave there.", "And I think... I think I'm braver now, but it's obviously not enough, is it?", "I'm still scared of this war."]
+        "intro": [
+            "When I started training in the Dark Forest, I told myself I was going to learn to be brave there.",
+            "And I think... I think I'm braver now, but it's obviously not enough, is it?",
+            "I'm still scared of this war."
+        ]
     },
     "neurotic_warfocus_SQ14": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["queen", "queen's apprentice"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["kitten"],
-                "skill": ["HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1"],
-                "cluster": ["neurotic", "unlawful", "assertive", "brooding", "upstanding"]
+                "rank": [
+                    "kitten"
+                ],
+                "skill": [
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1"
+                ],
+                "cluster": [
+                    "neurotic",
+                    "unlawful",
+                    "assertive",
+                    "brooding",
+                    "upstanding"
+                ]
             }
         },
-        "intro": ["r_c:0 keeps asking about the war, and I'm not sure what to tell {PRONOUN/r_c:0/object}.", "I don't want to scare {PRONOUN/r_c:0/object}, but I don't want to pretend everything's fine, either.", "And I also don't want {PRONOUN/r_c:0/object} to grow up thinking violence is the only answer...", "I hope all of this ends soon."]
+        "intro": [
+            "r_c:0 keeps asking about the war, and I'm not sure what to tell {PRONOUN/r_c:0/object}.",
+            "I don't want to scare {PRONOUN/r_c:0/object}, but I don't want to pretend everything's fine, either.",
+            "And I also don't want {PRONOUN/r_c:0/object} to grow up thinking violence is the only answer...",
+            "I hope all of this ends soon."
+        ]
     },
     "neurotic_warfocus_SQ15": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["not_kitten"],
-                "rank": ["queen", "queen's apprentice"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["kitten"],
-                "skill": ["HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1"],
-                "cluster": ["neurotic", "unlawful", "assertive", "brooding", "upstanding"]
+                "rank": [
+                    "kitten"
+                ],
+                "skill": [
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1"
+                ],
+                "cluster": [
+                    "neurotic",
+                    "unlawful",
+                    "assertive",
+                    "brooding",
+                    "upstanding"
+                ]
             }
         },
         "intro": [
@@ -2204,36 +4077,92 @@
     "neurotic_warfocus_SQ16": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "condition": ["blind:any:false"],
-                "rank": ["queen", "queen's apprentice"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["kitten"],
-                "skill": ["HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1"],
-                "cluster": ["neurotic", "unlawful", "assertive", "brooding", "upstanding"]
+                "rank": [
+                    "kitten"
+                ],
+                "skill": [
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1"
+                ],
+                "cluster": [
+                    "neurotic",
+                    "unlawful",
+                    "assertive",
+                    "brooding",
+                    "upstanding"
+                ]
             }
         },
-        "intro": ["I'm really sorry, but could you come check on r_c:0? {PRONOUN/r_c:0/subject/CAP} tripped when playing and got a bit scraped up.", "I know you're busy and saving your supplies for the war, but I want to make sure {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} okay."]
+        "intro": [
+            "I'm really sorry, but could you come check on r_c:0? {PRONOUN/r_c:0/subject/CAP} tripped when playing and got a bit scraped up.",
+            "I know you're busy and saving your supplies for the war, but I want to make sure {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} okay."
+        ]
     },
     "neurotic_warfocus_SQ17": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "rank": ["queen", "queen's apprentice"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["kitten"],
-                "skill": ["HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1"],
-                "cluster": ["neurotic", "unlawful", "assertive", "brooding", "upstanding"]
+                "rank": [
+                    "kitten"
+                ],
+                "skill": [
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1"
+                ],
+                "cluster": [
+                    "neurotic",
+                    "unlawful",
+                    "assertive",
+                    "brooding",
+                    "upstanding"
+                ]
             }
         },
         "intro": [
@@ -2246,18 +4175,31 @@
     "neurotic_warfocus_SQ18": {
         "cats": {
             "y_c": {
-                "age": ["adult"]
+                "age": [
+                    "adult"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "rank": ["queen", "queen's apprentice"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -2269,26 +4211,48 @@
     "neurotic_warfocus_SQ19": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["not_kitten"],
-                "rank": ["mediator apprentice"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "mediator apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             },
             "r_c:1": {
-                "rank": ["leader"],
-                "cluster": ["stable", "unlawful", "neurotic"]
+                "rank": [
+                    "leader"
+                ],
+                "cluster": [
+                    "stable",
+                    "unlawful",
+                    "neurotic"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -2300,25 +4264,60 @@
     "neurotic_warfocus_SQ20": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "rank": ["any"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "condition": ["blind:any:false"],
-                "rank": ["queen", "queen's apprentice"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
             },
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             },
             "r_c:1": {
-                "rank": ["leader"],
-                "cluster": ["stable", "unlawful", "neurotic"]
+                "rank": [
+                    "leader"
+                ],
+                "cluster": [
+                    "stable",
+                    "unlawful",
+                    "neurotic"
+                ]
             },
             "r_c:2": {
-                "rank": ["kitten"],
-                "skill": ["HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1"],
-                "cluster": ["neurotic", "unlawful", "assertive", "brooding", "upstanding"]
+                "rank": [
+                    "kitten"
+                ],
+                "skill": [
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1"
+                ],
+                "cluster": [
+                    "neurotic",
+                    "unlawful",
+                    "assertive",
+                    "brooding",
+                    "upstanding"
+                ]
             }
         },
         "intro": [
@@ -2329,26 +4328,54 @@
     "war_focus_sh_J1": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "standing": ["shunned"],
-                "rank": ["warrior", "deputy"]
+                "age": [
+                    "not_kitten"
+                ],
+                "standing": [
+                    "shunned"
+                ],
+                "rank": [
+                    "warrior",
+                    "deputy"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["deputy", "warrior"]
+                "cluster": [
+                    "assertive"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "deputy",
+                    "warrior"
+                ]
             },
             "r_c:0": {
-                "rank": ["leader"],
-                "cluster": ["stable", "unlawful", "neurotic"]
+                "rank": [
+                    "leader"
+                ],
+                "cluster": [
+                    "stable",
+                    "unlawful",
+                    "neurotic"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -2364,12 +4391,22 @@
     "war_focus_sh_J2": {
         "cats": {
             "y_c": {
-                "standing": ["shunned"],
-                "rank": ["medicine cat"]
+                "standing": [
+                    "shunned"
+                ],
+                "rank": [
+                    "medicine cat"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["warrior", "deputy", "apprentice"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "deputy",
+                    "apprentice"
+                ]
             }
         },
         "intro": [
@@ -2384,40 +4421,81 @@
     "war_focus_sh_J3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["warrior", "deputy", "leader"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "deputy",
+                    "leader"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "brooding"],
-                "condition": ["blind:any:false"],
-                "standing": ["shunned"],
-                "rank": ["deputy", "warrior", "leader"]
+                "cluster": [
+                    "assertive",
+                    "brooding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ],
+                "rank": [
+                    "deputy",
+                    "warrior",
+                    "leader"
+                ]
             }
         },
-        "intro": ["No, no, y_c, I'm not helping.", "You don't deserve my assistance when the whole Clan has been treating me like mouse-dung lately.", "I'll help with the war when I get to sleep in my den again."]
+        "intro": [
+            "No, no, y_c, I'm not helping.",
+            "You don't deserve my assistance when the whole Clan has been treating me like mouse-dung lately.",
+            "I'll help with the war when I get to sleep in my den again."
+        ]
     },
     "war_focus_sh_J4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             }
         },
-        "intro": ["y_c, aren't you in trouble because you hurt someone really bad?", "Well, all of the warriors are saying they're going and hurting those w_cClan cats. So why aren't they in trouble, too?", "And why aren't they in trouble for hurting us?"]
+        "intro": [
+            "y_c, aren't you in trouble because you hurt someone really bad?",
+            "Well, all of the warriors are saying they're going and hurting those w_cClan cats. So why aren't they in trouble, too?",
+            "And why aren't they in trouble for hurting us?"
+        ]
     },
     "war_focus_sh_J5": {
         "cats": {
             "y_c": {
-                "standing": ["shunned"],
-                "rank": ["apprentice"]
+                "standing": [
+                    "shunned"
+                ],
+                "rank": [
+                    "apprentice"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["apprentice"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "apprentice"
+                ]
             }
         },
         "intro": [
@@ -2429,12 +4507,20 @@
     "war_focus_sh_J6": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["leader"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "leader"
+                ]
             }
         },
         "intro": [
@@ -2445,38 +4531,85 @@
     "war_focus_sh_J7": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "standing": ["shunned"],
-                "rank": ["warrior", "deputy", "medicine cat"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "standing": [
+                    "shunned"
+                ],
+                "rank": [
+                    "warrior",
+                    "deputy",
+                    "medicine cat"
+                ]
             },
             "t_c": {
-                "cluster": ["unabashed", "cool", "brooding", "introspective"],
-                "age": ["adult", "not_kitten"],
-                "condition": ["blind:any:false"],
-                "standing": ["shunned"],
-                "rank": ["warrior", "deputy", "medicine cat"]
+                "cluster": [
+                    "unabashed",
+                    "cool",
+                    "brooding",
+                    "introspective"
+                ],
+                "age": [
+                    "adult",
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ],
+                "rank": [
+                    "warrior",
+                    "deputy",
+                    "medicine cat"
+                ]
             }
         },
-        "intro": ["I bet the Clan wishes we were allowed to help 'em out now, huh?", "If we lose this war, they're gonna regret kicking us to the side."]
+        "intro": [
+            "I bet the Clan wishes we were allowed to help 'em out now, huh?",
+            "If we lose this war, they're gonna regret kicking us to the side."
+        ]
     },
     "war_focus_J3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["warrior"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior"
+                ]
             },
             "t_c": {
-                "cluster": ["sweet", "silly", "neurotic"],
-                "condition": ["blind:any:false"],
-                "rank": ["apprentice"]
+                "cluster": [
+                    "sweet",
+                    "silly",
+                    "neurotic"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "apprentice"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["app/mentor"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
             }
         ],
         "intro": [
@@ -2506,23 +4639,44 @@
     "war_focus_J4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["apprentice"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "apprentice"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["warrior", "deputy"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "deputy"
+                ]
             },
             "r_c:0": {
-                "rank": ["leader"],
-                "cluster": ["stable", "unlawful", "neurotic"]
+                "rank": [
+                    "leader"
+                ],
+                "cluster": [
+                    "stable",
+                    "unlawful",
+                    "neurotic"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "intro": [
@@ -2535,23 +4689,66 @@
     "war_focus_J5": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["leader"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "leader"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["warrior"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:0": {
-                "rank": ["medicine cat", "medicine cat apprentice"],
-                "cluster": ["sweet", "brooding", "cool", "neurotic", "unlawful", "silly"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ],
+                "cluster": [
+                    "sweet",
+                    "brooding",
+                    "cool",
+                    "neurotic",
+                    "unlawful",
+                    "silly"
+                ]
             },
             "r_c:1": {
-                "cluster": ["upstanding", "neurotic", "unabashed", "brooding", "assertive", "sweet", "silly", "unlawful", "cool", "introspective", "stable"],
-                "skill": ["GHOST,1", "GHOST,1", "GHOST,1", "STORY,1", "STORY,1", "STORY,1", "TREASURE,1", "TREASURE,1", "TREASURE,1", "TREASURE,1"]
+                "cluster": [
+                    "upstanding",
+                    "neurotic",
+                    "unabashed",
+                    "brooding",
+                    "assertive",
+                    "sweet",
+                    "silly",
+                    "unlawful",
+                    "cool",
+                    "introspective",
+                    "stable"
+                ],
+                "skill": [
+                    "GHOST,1",
+                    "GHOST,1",
+                    "GHOST,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1"
+                ]
             },
             "r_c:2": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "intro": [
@@ -2566,12 +4763,20 @@
     "war_focus_J6": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "residence": ["any"]
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"],
-                "residence": ["sc"]
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
         "intro": [
@@ -2582,62 +4787,125 @@
     "war_focus_J7": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["c_n is really struggling with this war.", "You're enjoying this, aren't you?"]
+        "intro": [
+            "c_n is really struggling with this war.",
+            "You're enjoying this, aren't you?"
+        ]
     },
     "war_focus_J8": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["df_trainee"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "df_trainee"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "unabashed", "upstanding"],
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "cluster": [
+                    "assertive",
+                    "unabashed",
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["So, which side are you fighting on?", "What? It's an honest question. Training here already means you're a bit disloyal, doesn't it?"]
+        "intro": [
+            "So, which side are you fighting on?",
+            "What? It's an honest question. Training here already means you're a bit disloyal, doesn't it?"
+        ]
     },
     "war_focus_J9": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten", "newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten",
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"],
-                "rank": ["kittypet", "rogue", "loner"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ],
+                "rank": [
+                    "kittypet",
+                    "rogue",
+                    "loner"
+                ]
             }
         },
-        "intro": ["Ah, you never got old enough to have to deal with all of this... Clancat violence, did you?", "Maybe that's a good thing... I know you probably miss your Clan, but... yikes..."]
+        "intro": [
+            "Ah, you never got old enough to have to deal with all of this... Clancat violence, did you?",
+            "Maybe that's a good thing... I know you probably miss your Clan, but... yikes..."
+        ]
     },
     "war_focus_J10": {
         "cats": {
             "y_c": {
-                "cluster": ["bloodthirsty", "vengeful"],
-                "condition": ["blind:any:false"],
-                "rank": ["warrior", "apprentice", "deputy"]
+                "cluster": [
+                    "bloodthirsty",
+                    "vengeful"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy"
+                ]
             },
             "t_c": {
-                "age": ["adult"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "adult"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["strangers"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "strangers"
+                ]
             }
         ],
         "intro": [
@@ -2650,11 +4918,17 @@
     "war_focus_J11": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["leader"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "leader"
+                ]
             }
         },
         "intro": [
@@ -2665,18 +4939,41 @@
     "war_focus_J12": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["warrior", "medicine cat", "queen", "apprentice", "medicine cat apprentice", "queen's apprentice"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "medicine cat",
+                    "queen",
+                    "apprentice",
+                    "medicine cat apprentice",
+                    "queen's apprentice"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["mediator"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "mediator"
+                ]
             },
             "r_c:0": {
-                "rank": ["leader"],
-                "cluster": ["stable", "unlawful", "neurotic"]
+                "rank": [
+                    "leader"
+                ],
+                "cluster": [
+                    "stable",
+                    "unlawful",
+                    "neurotic"
+                ]
             }
         },
         "intro": [
@@ -2688,20 +4985,39 @@
     "unabashed_war_SV1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["unabashed", "cool"],
-                "age": ["not_kitten"],
-                "skill": ["CLEAN,1"]
+                "cluster": [
+                    "unabashed",
+                    "cool"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "skill": [
+                    "CLEAN,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_platonic_50", "min_comfort_50", "min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50",
+                    "min_comfort_50",
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [

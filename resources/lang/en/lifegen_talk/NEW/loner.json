@@ -2,36 +2,64 @@
     "dead_loner_J1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["This isn't what I expected from the afterlife."]
+        "intro": [
+            "This isn't what I expected from the afterlife."
+        ]
     },
     "dead_loner_J2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["This isn't what I expected from the afterlife."]
+        "intro": [
+            "This isn't what I expected from the afterlife."
+        ]
     },
     "sc_ur_loner_Ren1": {
         "cats": {
             "y_c": {
-                "residence": ["sc"]
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "residence": ["ur"],
-                "rank": ["loner"]
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "loner"
+                ]
             }
         },
         "intro": [
@@ -44,86 +72,154 @@
     "sc_ur_loner_c": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["ur"],
-                "rank": ["loner"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "loner"
+                ]
             }
         },
-        "intro": ["What's your name? y_c? Oh, what a pretty name.", "What do you think my name would be if I were a Clan cat?"]
+        "intro": [
+            "What's your name? y_c? Oh, what a pretty name.",
+            "What do you think my name would be if I were a Clan cat?"
+        ]
     },
     "live_df_ps_1_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["How curious... a creature, roaming these rooted confinements.", "Do not be afraid, your fear will not aid you. I had to learn that the hard way, alone."]
+        "intro": [
+            "How curious... a creature, roaming these rooted confinements.",
+            "Do not be afraid, your fear will not aid you. I had to learn that the hard way, alone."
+        ]
     },
     "live_df_ps_2_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["It seems you are lost in more ways than one.", "As am I, I suppose we have that much in common. Lucky you."]
+        "intro": [
+            "It seems you are lost in more ways than one.",
+            "As am I, I suppose we have that much in common. Lucky you."
+        ]
     },
     "live_df_ps_3_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["You can run as much as you'd like.", "In time, the trees will start to whisper misguidance to you.", "Then, you will never find your way home."]
+        "intro": [
+            "You can run as much as you'd like.",
+            "In time, the trees will start to whisper misguidance to you.",
+            "Then, you will never find your way home."
+        ]
     },
     "live_df_ps_4_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "residence": ["df"]
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["I've seen wondrous lands, even whilst alone and afraid.", "It makes me bitter, you know. Knowing all that is out there...", "Yet, the place I was supposed to call home is the same that drags me here."]
+        "intro": [
+            "I've seen wondrous lands, even whilst alone and afraid.",
+            "It makes me bitter, you know. Knowing all that is out there...",
+            "Yet, the place I was supposed to call home is the same that drags me here."
+        ]
     },
     "live_df_ps_5_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["You can't trust anyone, I learnt that out there.", "You shouldn't even trust me.."]
+        "intro": [
+            "You can't trust anyone, I learnt that out there.",
+            "You shouldn't even trust me.."
+        ]
     },
     "dead_outsider_J7_3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
         "intro": [
@@ -135,25 +231,45 @@
     "living_ur_kit_Guy1_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten", "newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten",
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["ur"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ]
             }
         },
-        "intro": ["Do you have a family, little one?", "Oh... you're one of them. I'm glad you have someone to look out for you."]
+        "intro": [
+            "Do you have a family, little one?",
+            "Oh... you're one of them. I'm glad you have someone to look out for you."
+        ]
     },
     "living_ur_loner_Guy1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["ur"],
-                "rank": ["loner"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "loner"
+                ]
             }
         },
         "intro": [
@@ -165,14 +281,26 @@
     "you_df_they_ur_CM1": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "residence": ["df"]
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "residence": ["ur"],
-                "rank": ["loner"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "loner"
+                ]
             }
         },
         "intro": [
@@ -187,14 +315,26 @@
     "you_df_they_ur_CM2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["ur"],
-                "rank": ["loner"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "loner"
+                ]
             }
         },
         "intro": [
@@ -209,15 +349,28 @@
     "ur_ur_loner_Guy1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["ur"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["ur"],
-                "rank": ["loner"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "loner"
+                ]
             }
         },
-        "intro": ["Still wandering?", "... Yeah, me too. I used to wonder what would happen after death. It's boring!"]
+        "intro": [
+            "Still wandering?",
+            "... Yeah, me too. I used to wonder what would happen after death. It's boring!"
+        ]
     }
 }

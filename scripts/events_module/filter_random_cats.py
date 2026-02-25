@@ -10,13 +10,23 @@ from scripts.utility import get_cluster
 # LIFEGEN FILE!
 # this script deals with filtering the "cats" blocks used in dialogue, lg events, and lg patrols.
 
-abbrevs = []
 possible_cats_dict = {}
 
-def choose_random_cats(block, your_cat, the_cat, cat_dict):
+def choose_random_cats(
+        block,
+        your_cat,
+        the_cat,
+        cat_dict,
+        key=""
+        ):
+    """
+    Selects random cats for LG stuff! 
+    """
     possible_cats = Cat.all_cats_list.copy()
     chosen_cat_dict = {}
+    abbrevs = []
     skip = False
+
     # print("Checking", key)
     if "cats" in block:
         skip = False
@@ -32,7 +42,7 @@ def choose_random_cats(block, your_cat, the_cat, cat_dict):
 
     # filter rel uses all abbrevs to make choices based on relationships
     # chosen cat dict is the selected cats! one cat object per abbrev!
-    chosen_cat_dict = __filter_relationships(abbrevs, block, possible_cats_dict, your_cat, the_cat, cat_dict)
+    chosen_cat_dict = __filter_relationships(abbrevs, block, possible_cats_dict, your_cat, the_cat, cat_dict, key=key)
     return chosen_cat_dict
 
 def _validate_cat(abbrev, block, possible_cats, your_cat, the_cat):
@@ -381,7 +391,10 @@ def __filter_conditions(abbrev_block, possible_cats):
                             deaf_tagged = False
                             break
                     elif tag == "grief stricken":
+                        if tag not in cat.illnesses:
+                            possible_cats.remove(cat)
                         grief_tagged = True
+                        break
                     elif not (
                         tag in cat.permanent_condition or
                         tag in cat.injuries or
@@ -404,21 +417,21 @@ def __filter_conditions(abbrev_block, possible_cats):
 
         if "grief stricken" in cat.illnesses and not grief_tagged and cat in possible_cats:
             possible_cats.remove(cat)
+        if grief_tagged and "grief stricken" not in cat.illnesses:
+            possible_cats.remove(cat)
 
     return possible_cats
 
-def __filter_relationships(all_abbrevs, block, dict_possible_cats, your_cat, the_cat, cat_dict):
+def __filter_relationships(all_abbrevs, block, dict_possible_cats, your_cat, the_cat, cat_dict, key=""):
     """
     Chooses final cats based on relationship constraints.
     Not a 'filter' in the same way the other filter functions are. More of a selection tool.
     """
-    # TODO: fix??? this is SO nested it pisses me off. idk if theres much i can do though
     rel_block = block["relationships"] if "relationships" in block else []
     new_dict = {
         "y_c": your_cat,
         "t_c": the_cat
     }
-
     for relationship in rel_block:
         for rel_tag in relationship["relationship"]:
 
@@ -505,7 +518,72 @@ def __filter_relationships(all_abbrevs, block, dict_possible_cats, your_cat, the
                                     rel_valid = from_cat.ID in to_cat.adoptive_parents
                                 elif rel_tag == "adoptive child/adoptive parent":
                                     rel_valid = to_cat.ID in from_cat.adoptive_parents
-                                # TODO: all other rels in all_resources rel tags
+                                elif rel_tag == "sibling's mate/mate's sibling":
+                                    rel_valid = to_cat.ID in from_cat.inheritance.get_siblings_mates()
+                                elif rel_tag == "mate's sibling/sibling's mate":
+                                    rel_valid = from_cat.ID in to_cat.inheritance.get_siblings_mates()
+                                elif rel_tag == "cousins":
+                                    rel_valid = from_cat.ID in to_cat.inheritance.get_cousins()
+                                elif rel_tag == "adopted siblings":
+                                    rel_valid = from_cat.ID in to_cat.inheritance.get_no_blood_siblings()
+                                elif rel_tag == "parent's sibling/sibling's kit":
+                                    rel_valid = from_cat.ID in to_cat.inheritance.get_parents_siblings()
+                                elif rel_tag == "strangers":
+                                    if from_cat.ID in to_cat.relationships:
+                                        rel_valid = False
+                                elif rel_tag == "siblings":
+                                    rel_valid = from_cat.ID in to_cat.inheritance.get_siblings()
+                                elif rel_tag == "littermates":
+                                    rel_valid = from_cat.ID in to_cat.inheritance.get_siblings() and from_cat.moons == to_cat.moons
+                                elif rel_tag == "grandparent/grandchild":
+                                    rel_valid = from_cat.is_grandparent(to_cat)
+                                elif rel_tag == "grandchild/grandparent":
+                                    rel_valid = to_cat.is_grandparent(from_cat)
+                                
+                                elif rel_tag == "dead/grieving":
+                                    if "grief stricken" not in to_cat.illnesses:
+                                        rel_valid = False
+                                    elif "grief cat" not in to_cat.illnesses["grief stricken"]:
+                                        rel_valid = False
+                                    elif to_cat.illnesses["grief stricken"]["grief cat"] != from_cat.ID:
+                                        rel_valid = False
+                                    else:
+                                        rel_valid = True
+                                elif rel_tag == "grieving/dead":
+                                    if "grief stricken" not in from_cat.illnesses:
+                                        rel_valid = False
+                                    elif "grief cat" not in from_cat.illnesses["grief stricken"]:
+                                        rel_valid = False
+                                    elif from_cat.illnesses["grief stricken"]["grief cat"] != to_cat.ID:
+                                        rel_valid = False
+                                    else:
+                                        rel_valid = True
+                                
+                                elif rel_tag == "victim/murderer":
+                                    if not to_cat.history.murder:
+                                        rel_valid = False
+                                    elif "is_murderer" not in to_cat.history.murder:
+                                        rel_valid = False
+                                    else:
+                                        rel_valid = False
+                                        for murder in to_cat.history.murder["is_murderer"]:
+                                            if "victim" == from_cat.ID:
+                                                rel_valid = True
+                                                break
+                                
+                                elif rel_tag == "murderer/victim":
+                                    if not from_cat.history.murder:
+                                        rel_valid = False
+                                    elif "is_murderer" not in from_cat.history.murder:
+                                        rel_valid = False
+                                    else:
+                                        rel_valid = False
+                                        for murder in from_cat.history.murder["is_murderer"]:
+                                            if "victim" == to_cat.ID:
+                                                rel_valid = True
+                                                break
+                                elif rel_tag == "non-related":
+                                    rel_valid = from_cat.ID in to_cat.get_relatives()
 
                                 elif rel_tag == "app/mentor":
                                     rel_valid = from_cat.ID in to_cat.apprentice
@@ -608,6 +686,7 @@ def __filter_relationships(all_abbrevs, block, dict_possible_cats, your_cat, the
                 return {}
 
     for abbrev in all_abbrevs:
+
         if abbrev not in new_dict and abbrev not in ("t_c", "y_c"):
             options = dict_possible_cats[abbrev]
             for existing_cat in new_dict:

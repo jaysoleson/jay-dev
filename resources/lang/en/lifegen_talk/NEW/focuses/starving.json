@@ -2,12 +2,23 @@
     "starving_elder": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["unabashed", "sweet", "stable", "introspective"],
-                "condition": ["starving"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "unabashed",
+                    "sweet",
+                    "stable",
+                    "introspective"
+                ],
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "intro": [
@@ -20,7 +31,11 @@
     "theystarving_1": {
         "cats": {
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false", "starving"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false",
+                    "starving"
+                ]
             }
         },
         "intro": [
@@ -31,10 +46,15 @@
     "theystarving_2": {
         "cats": {
             "y_c": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "starving"]
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ]
             }
         },
         "intro": [
@@ -46,17 +66,32 @@
     "they_starving_3": {
         "cats": {
             "t_c": {
-                "cluster": ["introspective"],
-                "condition": ["blind:any:false", "starving"]
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ]
             }
         },
-        "intro": ["... y_c. Hello.", "This situation... I can barely describe it.", "'Hunger is the killer of the mind' is something the elders used to tell me. I think I finally understand that.", "I can barely focus on anything else.", "We need to find more prey. The Clan can't thrive like this."]
+        "intro": [
+            "... y_c. Hello.",
+            "This situation... I can barely describe it.",
+            "'Hunger is the killer of the mind' is something the elders used to tell me. I think I finally understand that.",
+            "I can barely focus on anything else.",
+            "We need to find more prey. The Clan can't thrive like this."
+        ]
     },
     "they_starving_5": {
         "cats": {
             "t_c": {
-                "cluster": ["introspective"],
-                "condition": ["starving"]
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "starving"
+                ]
             }
         },
         "intro": [
@@ -69,20 +104,37 @@
     "they_starving_6": {
         "cats": {
             "t_c": {
-                "condition": ["blind:any:false", "starving"]
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ]
             }
         },
-        "intro": ["I'd give anything for a nice mouse right now. StarClan, I'd even settle for a stale one! Anything to get rid of this hunger..."]
+        "intro": [
+            "I'd give anything for a nice mouse right now. StarClan, I'd even settle for a stale one! Anything to get rid of this hunger..."
+        ]
     },
     "starving_queen": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["sweet", "stable", "introspective", "neurotic", "upstanding"],
-                "condition": ["starving"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "sweet",
+                    "stable",
+                    "introspective",
+                    "neurotic",
+                    "upstanding"
+                ],
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "intro": [
@@ -96,16 +148,48 @@
     "theystarving_sweet1": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["sweet"],
-                "condition": ["deaf:any:false", "starving"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "deaf:any:false",
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:0": {
-                "cluster": ["upstanding", "neurotic", "unabashed", "brooding", "assertive", "sweet", "silly", "unlawful", "cool", "introspective", "stable"],
-                "skill": ["GHOST,1", "GHOST,1", "GHOST,1", "STORY,1", "STORY,1", "STORY,1", "TREASURE,1", "TREASURE,1", "TREASURE,1", "TREASURE,1"]
+                "cluster": [
+                    "upstanding",
+                    "neurotic",
+                    "unabashed",
+                    "brooding",
+                    "assertive",
+                    "sweet",
+                    "silly",
+                    "unlawful",
+                    "cool",
+                    "introspective",
+                    "stable"
+                ],
+                "skill": [
+                    "GHOST,1",
+                    "GHOST,1",
+                    "GHOST,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1"
+                ]
             }
         },
         "intro": [
@@ -116,25 +200,45 @@
     "theystarving_sweet2": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["sweet"],
-                "condition": ["blind:any:false", "starving"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
-        "intro": ["I'm gonna do what I can to get more food... I promise.", "If I can't, you can have my portion tonight... I don't mind."]
+        "intro": [
+            "I'm gonna do what I can to get more food... I promise.",
+            "If I can't, you can have my portion tonight... I don't mind."
+        ]
     },
     "theystarving_sweet3": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["sweet"],
-                "condition": ["starving"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "intro": [
@@ -146,17 +250,27 @@
     "youstarving_1": {
         "cats": {
             "y_c": {
-                "condition": ["starving"]
+                "condition": [
+                    "starving"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -167,7 +281,9 @@
     "you_starving_2": {
         "cats": {
             "y_c": {
-                "condition": ["starving"]
+                "condition": [
+                    "starving"
+                ]
             }
         },
         "intro": [
@@ -180,7 +296,9 @@
     "you_starving_3": {
         "cats": {
             "y_c": {
-                "condition": ["starving"]
+                "condition": [
+                    "starving"
+                ]
             }
         },
         "intro": [
@@ -194,8 +312,13 @@
     "you_starving_4": {
         "cats": {
             "y_c": {
-                "condition": ["starving"],
-                "rank": ["warrior", "apprentice"]
+                "condition": [
+                    "starving"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             }
         },
         "intro": [
@@ -209,7 +332,9 @@
     "you_starving_6": {
         "cats": {
             "y_c": {
-                "condition": ["starving"]
+                "condition": [
+                    "starving"
+                ]
             }
         },
         "intro": [
@@ -220,49 +345,98 @@
         ]
     },
     "you_starving_7": {
-        "season": ["greenleaf"],
+        "season": [
+            "greenleaf"
+        ],
         "cats": {
             "y_c": {
-                "condition": ["starving"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "starving"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
-        "intro": ["Ironic, isn't it? Greenleaf is supposed to be the time of year when prey is the most abundant, yet here we are. Starving."]
+        "intro": [
+            "Ironic, isn't it? Greenleaf is supposed to be the time of year when prey is the most abundant, yet here we are. Starving."
+        ]
     },
     "theystarving_silly": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "unabashed", "stable", "cool", "silly"],
-                "condition": ["starving"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "assertive",
+                    "unabashed",
+                    "stable",
+                    "cool",
+                    "silly"
+                ],
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
-        "intro": ["Y'know, I heard that if you imagine a meal in vivid enough detail, you can trick your brain into thinking you've eaten!", "Okay, so ... I'm imagining a mouse still warm from the hunting patrol, with super tender flesh.", "Now I'm imagining a ginormous fish shimmering with scales!", "Now, I'm imagining one -- no, two -- no, ten squirrels, topped off with a vole or two, and maybe a sparrow to finish it all off!", "... Man. If anything, all that did was make me even hungrier."]
+        "intro": [
+            "Y'know, I heard that if you imagine a meal in vivid enough detail, you can trick your brain into thinking you've eaten!",
+            "Okay, so ... I'm imagining a mouse still warm from the hunting patrol, with super tender flesh.",
+            "Now I'm imagining a ginormous fish shimmering with scales!",
+            "Now, I'm imagining one -- no, two -- no, ten squirrels, topped off with a vole or two, and maybe a sparrow to finish it all off!",
+            "... Man. If anything, all that did was make me even hungrier."
+        ]
     },
     "you_starving_8": {
         "cats": {
             "y_c": {
-                "condition": ["starving"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["sweet", "stable", "introspective"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "sweet",
+                    "stable",
+                    "introspective"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -276,20 +450,36 @@
     "you_starving_9": {
         "cats": {
             "y_c": {
-                "condition": ["starving"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["brooding"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "brooding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -303,8 +493,12 @@
     "they_starving_4": {
         "cats": {
             "t_c": {
-                "condition": ["starving"],
-                "rank": ["newborn"]
+                "condition": [
+                    "starving"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -316,10 +510,14 @@
     "you_starving_5": {
         "cats": {
             "y_c": {
-                "condition": ["starving"]
+                "condition": [
+                    "starving"
+                ]
             },
             "t_c": {
-                "rank": ["medicine cat"]
+                "rank": [
+                    "medicine cat"
+                ]
             }
         },
         "intro": [
@@ -334,10 +532,14 @@
     "you_starving_51": {
         "cats": {
             "y_c": {
-                "condition": ["starving"]
+                "condition": [
+                    "starving"
+                ]
             },
             "t_c": {
-                "rank": ["medicine cat apprentice"]
+                "rank": [
+                    "medicine cat apprentice"
+                ]
             }
         },
         "intro": [
@@ -352,8 +554,13 @@
     "you_starving_31": {
         "cats": {
             "y_c": {
-                "condition": ["starving"],
-                "age": ["kitten", "newborn"]
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "kitten",
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -367,14 +574,24 @@
     "starving_unlawful_Guy1": {
         "cats": {
             "y_c": {
-                "condition": ["starving"]
+                "condition": [
+                    "starving"
+                ]
             },
             "t_c": {
-                "cluster": ["unlawful"]
+                "cluster": [
+                    "unlawful"
+                ]
             },
             "r_c:0": {
-                "rank": ["leader"],
-                "cluster": ["stable", "unlawful", "neurotic"]
+                "rank": [
+                    "leader"
+                ],
+                "cluster": [
+                    "stable",
+                    "unlawful",
+                    "neurotic"
+                ]
             }
         },
         "intro": [
@@ -386,11 +603,17 @@
     "starve_shunned_CM1": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "standing": ["shunned"]
+                "age": [
+                    "not_kitten"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "intro": [
@@ -402,18 +625,30 @@
     "starve_shunned_CM2": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "standing": ["shunned"]
+                "age": [
+                    "not_kitten"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
         "intro": [
@@ -428,12 +663,21 @@
     "dead_to_starving_H5": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "starving"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -443,21 +687,40 @@
     "dead_to_starving_H3~1": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "residence": ["sc"]
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "cluster": ["introspective"],
-                "condition": ["starving"],
-                "min_max_faith": [0, 9],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "starving"
+                ],
+                "min_max_faith": [
+                    0,
+                    9
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_trust_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50"
+                ]
             }
         ],
         "intro": [
@@ -485,7 +748,10 @@
             "[t_c sighs a breath of relief.]",
             "May the stars align in our favor. I can only hope our ancestors are as forgiving."
         ],
-        "cant_do": ["Oh... Haha, it must have slipped my mind. You are simply a ghost of what once lived, after all. I shouldn't expect you to disrupt fate.", "Yet, I can hope and dream that one moon things will become better."],
+        "cant_do": [
+            "Oh... Haha, it must have slipped my mind. You are simply a ghost of what once lived, after all. I shouldn't expect you to disrupt fate.",
+            "Yet, I can hope and dream that one moon things will become better."
+        ],
         "lie_starving": [
             "Can you?? Oh, thank you, y_c!",
             "When that time comes, I'm going to savor my fresh-kill and make sure everycat gets a delicious bite.",
@@ -496,20 +762,37 @@
     "dead_to_starving_H3~2": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "residence": ["sc"]
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "cluster": ["introspective"],
-                "min_max_faith": [0, 9],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "introspective"
+                ],
+                "min_max_faith": [
+                    0,
+                    9
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_trust_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50"
+                ]
             }
         ],
         "intro": [
@@ -529,27 +812,54 @@
                 "next_scene": "no_thanks"
             }
         },
-        "didnt_do": ["Even if you didn't do anything directly, I still need to thank you!", "c_n is doing so much better with StarClan's help and we'll thrive once again -- I just know it!", "So... I thank you sincerely, y_c, and the rest of those with star-speckled pelts."],
-        "no_thanks": ["But it's the polite thing to do!", "Well, if I can't thank you, you need to carry my thanks to StarClan, okay?", "Preferably with haste and smiles!"]
+        "didnt_do": [
+            "Even if you didn't do anything directly, I still need to thank you!",
+            "c_n is doing so much better with StarClan's help and we'll thrive once again -- I just know it!",
+            "So... I thank you sincerely, y_c, and the rest of those with star-speckled pelts."
+        ],
+        "no_thanks": [
+            "But it's the polite thing to do!",
+            "Well, if I can't thank you, you need to carry my thanks to StarClan, okay?",
+            "Preferably with haste and smiles!"
+        ]
     },
     "dead_to_starving_H4~1": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "residence": ["sc"]
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "cluster": ["introspective"],
-                "condition": ["starving"],
-                "min_max_faith": [0, 9],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "starving"
+                ],
+                "min_max_faith": [
+                    0,
+                    9
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_trust_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50"
+                ]
             }
         ],
         "intro": [
@@ -577,7 +887,10 @@
             "[t_c sighs a breath of relief.]",
             "May the stars align in our favor. I can only hope our ancestors are as forgiving."
         ],
-        "cant_do": ["Oh... Haha, it must have slipped my mind. You are simply a ghost of what once lived, after all. I shouldn't expect you to disrupt fate.", "Yet, I can hope and dream that one moon things will become better."],
+        "cant_do": [
+            "Oh... Haha, it must have slipped my mind. You are simply a ghost of what once lived, after all. I shouldn't expect you to disrupt fate.",
+            "Yet, I can hope and dream that one moon things will become better."
+        ],
         "lie_starving": [
             "Can you?? Oh, thank you, y_c!",
             "When that time comes, I'm going to savor my fresh-kill and make sure everycat gets a delicious bite.",
@@ -588,21 +901,40 @@
     "dead_to_starving_H4~2": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "residence": ["sc"]
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "cluster": ["introspective"],
-                "age": ["not_kitten"],
-                "min_max_dead_moons": [0, 5],
-                "residence": ["any"]
+                "cluster": [
+                    "introspective"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "min_max_dead_moons": [
+                    0,
+                    5
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_trust_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50"
+                ]
             }
         ],
         "intro": [
@@ -620,29 +952,52 @@
                 "next_scene": "stay_quiet"
             }
         },
-        "apologies": ["Oh, don't apologize, y_c. I'm sure you tried your best and I'll admit, I held too much faith in only you.", "It was unfair of me to ask you to change our fates. I knew once the hunger dug its claws into our bellies, we would have no chance to fight back.", "At least my suffering is over, but I wonder if the price is too much to pay."],
-        "stay_quiet": ["I'll admit, I held too much faith in you to stop the inevitable, but I didn't want to die like that - starving and suffering.I guess I started to become desperate.", "It's unfair. Why do our ancestors allow it? What did c_n do? There's too many questions and no answers in sight."]
+        "apologies": [
+            "Oh, don't apologize, y_c. I'm sure you tried your best and I'll admit, I held too much faith in only you.",
+            "It was unfair of me to ask you to change our fates. I knew once the hunger dug its claws into our bellies, we would have no chance to fight back.",
+            "At least my suffering is over, but I wonder if the price is too much to pay."
+        ],
+        "stay_quiet": [
+            "I'll admit, I held too much faith in you to stop the inevitable, but I didn't want to die like that - starving and suffering.I guess I started to become desperate.",
+            "It's unfair. Why do our ancestors allow it? What did c_n do? There's too many questions and no answers in sight."
+        ]
     },
     "dead_to_starving_H1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "starving"]
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ]
             }
         },
-        "intro": ["It must be nice to have infinite amounts of food."]
+        "intro": [
+            "It must be nice to have infinite amounts of food."
+        ]
     },
     "dead_to_starving_H2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "starving"]
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ]
             }
         },
         "intro": [

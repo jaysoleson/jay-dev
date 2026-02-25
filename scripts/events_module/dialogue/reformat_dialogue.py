@@ -162,7 +162,12 @@ for FILE in file_names:
                     # it creates a new one if it cant find it
                     located = False
                     if ("min_" in tag) or ("max" in tag):
-                        new_tag = tag
+                        if "platonic" in tag:
+                            new_tag = tag.replace("platonic", "like")
+                        elif "romantic" in tag:
+                            new_tag = tag.replace("romantic", "romance")
+                        else:
+                            new_tag = tag
                     elif tag in rel_tag_convert:
                         new_tag = rel_tag_convert[tag]
                     else:
@@ -385,11 +390,11 @@ for FILE in file_names:
     text = json.dumps(new_dialogue_dict, indent=4)
 
     # uncomment for no more multiline lists
-    text = re.sub(
-        r'\[\s+([^\[\]]+?)\s+\]',
-        lambda m: "[" + " ".join(m.group(1).split()) + "]",
-        text
-    )
+    # text = re.sub(
+    #     r'\[\s+([^\[\]]+?)\s+\]',
+    #     lambda m: "[" + " ".join(m.group(1).split()) + "]",
+    #     text
+    # )
 
     with open(file_path, "w") as f:
         # print("WRITING", FILE)

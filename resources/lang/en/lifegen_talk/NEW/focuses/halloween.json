@@ -2,23 +2,61 @@
     "halloween_J1": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["stable", "silly"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "stable",
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:0": {
-                "cluster": ["upstanding", "neurotic", "unabashed", "brooding", "assertive", "sweet", "silly", "unlawful", "cool", "introspective", "stable"],
-                "skill": ["GHOST,1", "GHOST,1", "GHOST,1", "STORY,1", "STORY,1", "STORY,1", "TREASURE,1", "TREASURE,1", "TREASURE,1", "TREASURE,1"]
+                "cluster": [
+                    "upstanding",
+                    "neurotic",
+                    "unabashed",
+                    "brooding",
+                    "assertive",
+                    "sweet",
+                    "silly",
+                    "unlawful",
+                    "cool",
+                    "introspective",
+                    "stable"
+                ],
+                "skill": [
+                    "GHOST,1",
+                    "GHOST,1",
+                    "GHOST,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -36,7 +74,10 @@
                 "next_scene": "scare_no"
             }
         },
-        "scare_yes": ["Yes! I'm the best scarer in the Clan, y_c, don't you forget it.", "Now... have you seen platonic_r_c:0? My reign of terror must continue!"],
+        "scare_yes": [
+            "Yes! I'm the best scarer in the Clan, y_c, don't you forget it.",
+            "Now... have you seen platonic_r_c:0? My reign of terror must continue!"
+        ],
         "scare_no": [
             "Aw, really?",
             "I'll get you one of these days, y_c... 'tis the season, after all...",
@@ -46,16 +87,38 @@
     "halloween_J2": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["brooding"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "brooding"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:0": {
-                "rank": ["kitten"],
-                "skill": ["HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1"],
-                "cluster": ["neurotic", "unlawful", "assertive", "brooding", "upstanding"]
+                "rank": [
+                    "kitten"
+                ],
+                "skill": [
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1"
+                ],
+                "cluster": [
+                    "neurotic",
+                    "unlawful",
+                    "assertive",
+                    "brooding",
+                    "upstanding"
+                ]
             }
         },
         "intro": [
@@ -68,21 +131,41 @@
     "halloween_J3": {
         "cats": {
             "y_c": {
-                "rank": ["queen", "queen's apprentice", "medicine cat", "medicine cat apprentice"]
+                "rank": [
+                    "queen",
+                    "queen's apprentice",
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             },
             "t_c": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             },
             "r_c:0": {
-                "rank": ["apprentice"],
-                "cluster": ["silly", "neurotic", "upstanding", "cool"]
+                "rank": [
+                    "apprentice"
+                ],
+                "cluster": [
+                    "silly",
+                    "neurotic",
+                    "upstanding",
+                    "cool"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_10"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_10"
+                ]
             }
         ],
         "intro": [
@@ -97,11 +180,17 @@
     "halloween_J4": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"],
-                "skill": ["ARTISTAN,1"]
+                "age": [
+                    "not_kitten"
+                ],
+                "skill": [
+                    "ARTISTAN,1"
+                ]
             }
         },
         "intro": [
@@ -114,23 +203,61 @@
     "halloween_J5": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["cool", "brooding"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "cool",
+                    "brooding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:0": {
-                "cluster": ["upstanding", "neurotic", "unabashed", "brooding", "assertive", "sweet", "silly", "unlawful", "cool", "introspective", "stable"],
-                "skill": ["GHOST,1", "GHOST,1", "GHOST,1", "STORY,1", "STORY,1", "STORY,1", "TREASURE,1", "TREASURE,1", "TREASURE,1", "TREASURE,1"]
+                "cluster": [
+                    "upstanding",
+                    "neurotic",
+                    "unabashed",
+                    "brooding",
+                    "assertive",
+                    "sweet",
+                    "silly",
+                    "unlawful",
+                    "cool",
+                    "introspective",
+                    "stable"
+                ],
+                "skill": [
+                    "GHOST,1",
+                    "GHOST,1",
+                    "GHOST,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["r_c:0"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -142,43 +269,100 @@
     "halloween_J6": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             },
             "t_c": {
-                "cluster": ["stable", "introspective", "neurotic"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "stable",
+                    "introspective",
+                    "neurotic"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:0": {
-                "cluster": ["upstanding", "neurotic", "unabashed", "brooding", "assertive", "sweet", "silly", "unlawful", "cool", "introspective", "stable"],
-                "skill": ["GHOST,1", "GHOST,1", "GHOST,1", "STORY,1", "STORY,1", "STORY,1", "TREASURE,1", "TREASURE,1", "TREASURE,1", "TREASURE,1"]
+                "cluster": [
+                    "upstanding",
+                    "neurotic",
+                    "unabashed",
+                    "brooding",
+                    "assertive",
+                    "sweet",
+                    "silly",
+                    "unlawful",
+                    "cool",
+                    "introspective",
+                    "stable"
+                ],
+                "skill": [
+                    "GHOST,1",
+                    "GHOST,1",
+                    "GHOST,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["r_c:0"],
-                "relationship": ["min_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
             }
         ],
-        "intro": ["y_c, would it be insensitive to pretend I'm a ghost to scare r_c:0?", "Could you ask StarClan? I don't want to be rude."]
+        "intro": [
+            "y_c, would it be insensitive to pretend I'm a ghost to scare r_c:0?",
+            "Could you ask StarClan? I don't want to be rude."
+        ]
     },
     "halloween_J7": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["non-related"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "non-related"
+                ]
             }
         ],
         "intro": [
@@ -211,26 +395,66 @@
     "halloween_sam1": {
         "cats": {
             "y_c": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["silly"],
-                "backstory": ["formerlyakittypet"],
-                "rank": ["queen", "queen's apprentice"]
+                "cluster": [
+                    "silly"
+                ],
+                "backstory": [
+                    "formerlyakittypet"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
             },
             "r_c:0": {
-                "cluster": ["upstanding", "neurotic", "unabashed", "brooding", "assertive", "sweet", "silly", "unlawful", "cool", "introspective", "stable"],
-                "skill": ["GHOST,1", "GHOST,1", "GHOST,1", "STORY,1", "STORY,1", "STORY,1", "TREASURE,1", "TREASURE,1", "TREASURE,1", "TREASURE,1"]
+                "cluster": [
+                    "upstanding",
+                    "neurotic",
+                    "unabashed",
+                    "brooding",
+                    "assertive",
+                    "sweet",
+                    "silly",
+                    "unlawful",
+                    "cool",
+                    "introspective",
+                    "stable"
+                ],
+                "skill": [
+                    "GHOST,1",
+                    "GHOST,1",
+                    "GHOST,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1"
+                ]
             },
             "r_c:2": {
-                "cluster": ["unlawful"]
+                "cluster": [
+                    "unlawful"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["r_c:0"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -255,7 +479,9 @@
             "[Even r_c:1 is telling you to put on the 'costume'.]",
             "Please?"
         ],
-        "accept": ["Thank you! What costume do you want?"],
+        "accept": [
+            "Thank you! What costume do you want?"
+        ],
         "run_choices": {
             "choice1": {
                 "text": "[Still refuse.]",
@@ -280,44 +506,87 @@
                 "next_scene": "costume"
             }
         },
-        "costume": ["Aww! You look so cute!", "...There's no way to convince you to wear that for the rest of the day, is there?", "It was worth a try. You can take it off now, if you want.", "Who's next?"]
+        "costume": [
+            "Aww! You look so cute!",
+            "...There's no way to convince you to wear that for the rest of the day, is there?",
+            "It was worth a try. You can take it off now, if you want.",
+            "Who's next?"
+        ]
     },
     "halloween_sam2": {
         "cats": {
             "y_c": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["silly"],
-                "age": ["kitten"]
+                "cluster": [
+                    "silly"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "r_c:0": {
-                "rank": ["elder"],
-                "cluster": ["unlawful"]
+                "rank": [
+                    "elder"
+                ],
+                "cluster": [
+                    "unlawful"
+                ]
             }
         },
-        "intro": ["y_c! Do you want to hear the story that r_c:0 just told me?", "So once upon a time a cat got attacked.", "Wait, that's not the right part.", "Once upon a time there was a kittypet.", "This kittypet was scary. At least to the cats around them.", "There were rumors that they were a witch-cat!", "One day, a warrior got curious about the kittypet. Then, yowls and screams were heard from the kittypet's house.", "The warrior was never seen again.", "Haha look at your face! I'm kidding.", "Or am I? Hehehe!"]
+        "intro": [
+            "y_c! Do you want to hear the story that r_c:0 just told me?",
+            "So once upon a time a cat got attacked.",
+            "Wait, that's not the right part.",
+            "Once upon a time there was a kittypet.",
+            "This kittypet was scary. At least to the cats around them.",
+            "There were rumors that they were a witch-cat!",
+            "One day, a warrior got curious about the kittypet. Then, yowls and screams were heard from the kittypet's house.",
+            "The warrior was never seen again.",
+            "Haha look at your face! I'm kidding.",
+            "Or am I? Hehehe!"
+        ]
     },
     "Halloween_SV1": {
         "cats": {
             "t_c": {
-                "skill": ["GHOST,1"]
+                "skill": [
+                    "GHOST,1"
+                ]
             },
             "r_c:0": {
-                "rank": ["elder"],
-                "cluster": ["unlawful"]
+                "rank": [
+                    "elder"
+                ],
+                "cluster": [
+                    "unlawful"
+                ]
             }
         },
-        "intro": ["y_c! Come join us! r_c:0 is going to tell ghost stories!", "What? Ghosts aren't real?", "Hmph, alright.", "Then I suppose that white paw on your shoulder isn't either..."]
+        "intro": [
+            "y_c! Come join us! r_c:0 is going to tell ghost stories!",
+            "What? Ghosts aren't real?",
+            "Hmph, alright.",
+            "Then I suppose that white paw on your shoulder isn't either..."
+        ]
     },
     "Halloween_SV2": {
-        "season": ["leaf-fall"],
+        "season": [
+            "leaf-fall"
+        ],
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "intro": [
@@ -332,13 +601,20 @@
         ]
     },
     "Halloween_SV3": {
-        "season": ["leaf-fall"],
+        "season": [
+            "leaf-fall"
+        ],
         "cats": {
             "y_c": {
-                "rank": ["warrior", "apprentice"]
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "t_c": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "intro": [
@@ -353,10 +629,14 @@
     "Halloween_SV4": {
         "cats": {
             "y_c": {
-                "age": ["adult"]
+                "age": [
+                    "adult"
+                ]
             },
             "t_c": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             }
         },
         "intro": [
@@ -373,12 +653,20 @@
     "Halloween_SV5": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
             }
         },
         "intro": [
@@ -389,10 +677,14 @@
     "Halloween_SV6": {
         "cats": {
             "y_c": {
-                "rank": ["any"]
+                "rank": [
+                    "any"
+                ]
             },
             "t_c": {
-                "age": ["adolescent"]
+                "age": [
+                    "adolescent"
+                ]
             }
         },
         "intro": [
@@ -407,12 +699,20 @@
         ]
     },
     "ofrenda_dead_H1": {
-        "season": ["leaf-fall"],
+        "season": [
+            "leaf-fall"
+        ],
         "cats": {
             "t_c": {
-                "cluster": ["introspective"],
-                "residence": ["any"],
-                "rank": ["kittypet"]
+                "cluster": [
+                    "introspective"
+                ],
+                "residence": [
+                    "any"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
             }
         },
         "intro": [
@@ -426,10 +726,18 @@
     "ofrenda_dead_H2": {
         "cats": {
             "t_c": {
-                "cluster": ["introspective"],
-                "condition": ["blind:any:false"],
-                "residence": ["any"],
-                "rank": ["kittypet"]
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
             }
         },
         "intro": [
@@ -442,65 +750,123 @@
     "ofrenda_dead_H3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["introspective"],
-                "condition": ["blind:any:false"],
-                "residence": ["any"],
-                "rank": ["loner", "rogue"]
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ],
+                "rank": [
+                    "loner",
+                    "rogue"
+                ]
             }
         },
-        "intro": ["Oh, hey, y_c? Have you heard of what the kittypets have been talking about lately - the 'pictures' and 'candles'?", "It's really sweet, I think, to have others so dedicated to keeping your memory alive.", "... The kittypets must be adored so much, even if it's from Twolegs, huh? It must've been nice."]
+        "intro": [
+            "Oh, hey, y_c? Have you heard of what the kittypets have been talking about lately - the 'pictures' and 'candles'?",
+            "It's really sweet, I think, to have others so dedicated to keeping your memory alive.",
+            "... The kittypets must be adored so much, even if it's from Twolegs, huh? It must've been nice."
+        ]
     },
     "halloween_SQ1~1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_10"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_10"
+                ]
             }
         ],
-        "intro": ["Have you noticed there've been lots of spiders around camp recently?", "I mean... I've got nothing against spiders! And I don't think these ones are venomous, it's just... They're a bit startling, you know?", "I wonder why there are so many around recently. I hope they stop soon."]
+        "intro": [
+            "Have you noticed there've been lots of spiders around camp recently?",
+            "I mean... I've got nothing against spiders! And I don't think these ones are venomous, it's just... They're a bit startling, you know?",
+            "I wonder why there are so many around recently. I hope they stop soon."
+        ]
     },
     "halloween_SQ1~2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_10"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_10"
+                ]
             }
         ],
-        "intro": ["Ugh! There are still so many spiders around camp... I've been trying to stay out of their way.", "There was one hanging right in the middle of the entrance to the warriors' den, like it was guarding the place... it was huge, and orange, and... *shudder*", "I know they eat insects, and they're good to have around! All their legs, though... They just creep me out.", "I still don't understand why there are so many in camp."]
+        "intro": [
+            "Ugh! There are still so many spiders around camp... I've been trying to stay out of their way.",
+            "There was one hanging right in the middle of the entrance to the warriors' den, like it was guarding the place... it was huge, and orange, and... *shudder*",
+            "I know they eat insects, and they're good to have around! All their legs, though... They just creep me out.",
+            "I still don't understand why there are so many in camp."
+        ]
     },
     "halloween_SQ2": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"],
-                "skill": ["LANGUAGE,1"]
+                "age": [
+                    "not_kitten"
+                ],
+                "skill": [
+                    "LANGUAGE,1"
+                ]
             }
         },
         "intro": [
@@ -511,16 +877,47 @@
     "halloween_SQ3": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "skill": ["STORY,1"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "skill": [
+                    "STORY,1"
+                ]
             },
             "r_c:0": {
-                "cluster": ["upstanding", "neurotic", "unabashed", "brooding", "assertive", "sweet", "silly", "unlawful", "cool", "introspective", "stable"],
-                "skill": ["GHOST,1", "GHOST,1", "GHOST,1", "STORY,1", "STORY,1", "STORY,1", "TREASURE,1", "TREASURE,1", "TREASURE,1", "TREASURE,1"]
+                "cluster": [
+                    "upstanding",
+                    "neurotic",
+                    "unabashed",
+                    "brooding",
+                    "assertive",
+                    "sweet",
+                    "silly",
+                    "unlawful",
+                    "cool",
+                    "introspective",
+                    "stable"
+                ],
+                "skill": [
+                    "GHOST,1",
+                    "GHOST,1",
+                    "GHOST,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1"
+                ]
             }
         },
         "intro": [
@@ -533,28 +930,72 @@
     "halloween_SQ4": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"],
-                "skill": ["NAVIGATOR,1"]
+                "age": [
+                    "not_kitten"
+                ],
+                "skill": [
+                    "NAVIGATOR,1"
+                ]
             },
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_15"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_15"
+                ]
             },
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["r_c:0"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -567,19 +1008,33 @@
     "halloween_SQ5": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["not_kitten"],
-                "skill": ["DREAM,1"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "skill": [
+                    "DREAM,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_15"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_15"
+                ]
             }
         ],
         "intro": [
@@ -591,43 +1046,97 @@
     "halloween_SQ6~1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_15"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_15"
+                ]
             }
         ],
-        "intro": ["Have you ever wondered if we could fight ghosts? You know, if one decided to come after the Clan?", "Please don't laugh at me. It's just... Everycat's been talking about ghosts and spooky things recently, and I can't help but worry. What if that stuff's real, and dangerous?"]
+        "intro": [
+            "Have you ever wondered if we could fight ghosts? You know, if one decided to come after the Clan?",
+            "Please don't laugh at me. It's just... Everycat's been talking about ghosts and spooky things recently, and I can't help but worry. What if that stuff's real, and dangerous?"
+        ]
     },
     "halloween_SQ6~2": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:0": {
-                "cluster": ["upstanding", "neurotic", "unabashed", "brooding", "assertive", "sweet", "silly", "unlawful", "cool", "introspective", "stable"],
-                "skill": ["GHOST,1", "GHOST,1", "GHOST,1", "STORY,1", "STORY,1", "STORY,1", "TREASURE,1", "TREASURE,1", "TREASURE,1", "TREASURE,1"]
+                "cluster": [
+                    "upstanding",
+                    "neurotic",
+                    "unabashed",
+                    "brooding",
+                    "assertive",
+                    "sweet",
+                    "silly",
+                    "unlawful",
+                    "cool",
+                    "introspective",
+                    "stable"
+                ],
+                "skill": [
+                    "GHOST,1",
+                    "GHOST,1",
+                    "GHOST,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_15"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_15"
+                ]
             }
         ],
         "intro": [
@@ -641,30 +1150,61 @@
     "halloween_SQ7": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "condition": ["hearing"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "condition": [
+                    "hearing"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:0": {
-                "cluster": ["assertive", "stable", "unabashed", "silly", "unlawful"]
+                "cluster": [
+                    "assertive",
+                    "stable",
+                    "unabashed",
+                    "silly",
+                    "unlawful"
+                ]
             },
             "r_c:1": {
-                "cluster": ["silly", "assertive", "brooding", "unabashed"]
+                "cluster": [
+                    "silly",
+                    "assertive",
+                    "brooding",
+                    "unabashed"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_15"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_15"
+                ]
             },
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["r_c:0"],
-                "relationship": ["strangers"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "strangers"
+                ]
             }
         ],
         "intro": [
@@ -678,17 +1218,42 @@
     "halloween_E1": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "rank": ["queen's apprentice", "queen"]
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:0": {
-                "rank": ["kitten"],
-                "skill": ["HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1"],
-                "cluster": ["neurotic", "unlawful", "assertive", "brooding", "upstanding"]
+                "rank": [
+                    "kitten"
+                ],
+                "skill": [
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1"
+                ],
+                "cluster": [
+                    "neurotic",
+                    "unlawful",
+                    "assertive",
+                    "brooding",
+                    "upstanding"
+                ]
             }
         },
         "intro": [
@@ -698,24 +1263,59 @@
         ]
     },
     "halloween_E2": {
-        "season": ["leaf-fall"],
+        "season": [
+            "leaf-fall"
+        ],
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:0": {
-                "cluster": ["upstanding", "neurotic", "unabashed", "brooding", "assertive", "sweet", "silly", "unlawful", "cool", "introspective", "stable"],
-                "skill": ["GHOST,1", "GHOST,1", "GHOST,1", "STORY,1", "STORY,1", "STORY,1", "TREASURE,1", "TREASURE,1", "TREASURE,1", "TREASURE,1"]
+                "cluster": [
+                    "upstanding",
+                    "neurotic",
+                    "unabashed",
+                    "brooding",
+                    "assertive",
+                    "sweet",
+                    "silly",
+                    "unlawful",
+                    "cool",
+                    "introspective",
+                    "stable"
+                ],
+                "skill": [
+                    "GHOST,1",
+                    "GHOST,1",
+                    "GHOST,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_10"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_10"
+                ]
             }
         ],
         "intro": [
@@ -732,22 +1332,60 @@
     "halloween_E3": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "rank": ["apprentice", "warrior", "deputy", "leader"]
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "apprentice",
+                    "warrior",
+                    "deputy",
+                    "leader"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:0": {
-                "cluster": ["upstanding", "neurotic", "unabashed", "brooding", "assertive", "sweet", "silly", "unlawful", "cool", "introspective", "stable"],
-                "skill": ["GHOST,1", "GHOST,1", "GHOST,1", "STORY,1", "STORY,1", "STORY,1", "TREASURE,1", "TREASURE,1", "TREASURE,1", "TREASURE,1"]
+                "cluster": [
+                    "upstanding",
+                    "neurotic",
+                    "unabashed",
+                    "brooding",
+                    "assertive",
+                    "sweet",
+                    "silly",
+                    "unlawful",
+                    "cool",
+                    "introspective",
+                    "stable"
+                ],
+                "skill": [
+                    "GHOST,1",
+                    "GHOST,1",
+                    "GHOST,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_10"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_10"
+                ]
             }
         ],
         "intro": [
@@ -758,18 +1396,36 @@
         ]
     },
     "halloween_E4": {
-        "season": ["leaf-fall"],
+        "season": [
+            "leaf-fall"
+        ],
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["not_kitten"],
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             }
         },
-        "intro": ["The medicine den could use some decorations to match the spooky mood around the camp, don't you think?", "Something not too scary but still on theme. Something like... oh Starclan, what even is there?", "Oh! Cobwebs! Cobwebs are perfect. I'm sure there is plenty that I can spare for decorating. At least, I think so.", "...I'm going to go check."]
+        "intro": [
+            "The medicine den could use some decorations to match the spooky mood around the camp, don't you think?",
+            "Something not too scary but still on theme. Something like... oh Starclan, what even is there?",
+            "Oh! Cobwebs! Cobwebs are perfect. I'm sure there is plenty that I can spare for decorating. At least, I think so.",
+            "...I'm going to go check."
+        ]
     }
 }

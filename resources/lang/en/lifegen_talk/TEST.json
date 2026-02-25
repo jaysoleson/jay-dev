@@ -340,11 +340,23 @@
         "cats": {
             "y_c": {},
             "t_c": {
-                "skill": ["LORE,1", "TUNNELER,-1"]
+                "skill": ["STAR,1", "SENSE,-1"]
             }
         },
         "intro": [
-            "I have the LORE skill, but not the tunneller skill."
+            "I have STAR, but not SENSE."
+        ]
+    },
+    "generic": {
+        "cats": {
+            "y_c": {},
+            "t_c": {}
+        },
+        "intro": [
+            "Hi, y_c. How are you today?",
+            "Good, good.",
+            "... ... ...",
+            "Welp... I've gotta go. Nice talking with you."
         ]
     }
 }

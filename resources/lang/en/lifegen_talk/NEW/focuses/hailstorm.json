@@ -2,24 +2,42 @@
     "hail_focus_AJ": {
         "cats": {
             "t_c": {
-                "cluster": ["brooding"],
-                "age": ["adult"]
+                "cluster": [
+                    "brooding"
+                ],
+                "age": [
+                    "adult"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
-        "intro": ["This Clan sure loves the sound of its own chatter, doesn't it? It's just a hail storm! What's the big deal?", "These days, it seems like even the most inane mouse dung is enough to set everybody off.", "That cloud up there looks kinda like a turtle. Is everybody gonna be talking about that, next?"]
+        "intro": [
+            "This Clan sure loves the sound of its own chatter, doesn't it? It's just a hail storm! What's the big deal?",
+            "These days, it seems like even the most inane mouse dung is enough to set everybody off.",
+            "That cloud up there looks kinda like a turtle. Is everybody gonna be talking about that, next?"
+        ]
     },
     "hail_focus_AJ1": {
         "cats": {
             "t_c": {
-                "cluster": ["introspective"],
-                "age": ["adult"]
+                "cluster": [
+                    "introspective"
+                ],
+                "age": [
+                    "adult"
+                ]
             }
         },
         "intro": [
@@ -34,15 +52,28 @@
     "hail_focus_AJ2": {
         "cats": {
             "t_c": {
-                "cluster": ["assertive", "unabashed", "cool", "silly"],
-                "age": ["younger"]
+                "cluster": [
+                    "assertive",
+                    "unabashed",
+                    "cool",
+                    "silly"
+                ],
+                "age": [
+                    "younger"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["max_like_-5"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "max_like_-5"
+                ]
             }
         ],
         "intro": [
@@ -55,15 +86,28 @@
     "hail_focus_AJ2.5": {
         "cats": {
             "t_c": {
-                "cluster": ["assertive", "unabashed", "cool", "silly"],
-                "age": ["sameage"]
+                "cluster": [
+                    "assertive",
+                    "unabashed",
+                    "cool",
+                    "silly"
+                ],
+                "age": [
+                    "sameage"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["max_like_-50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "max_like_-50"
+                ]
             }
         ],
         "intro": [
@@ -76,11 +120,18 @@
     "hail_focus_AJ3": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["stable", "upstanding"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "stable",
+                    "upstanding"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "intro": [
@@ -96,13 +147,24 @@
     "hail_focus_AJ4": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "condition": ["deaf:any:false"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["upstanding"],
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "cluster": [
+                    "upstanding"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             }
         },
         "intro": [
@@ -113,11 +175,20 @@
     "hail_focus_AJ5": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["stable", "brooding", "introspective", "neurotic"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "stable",
+                    "brooding",
+                    "introspective",
+                    "neurotic"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "intro": [
@@ -128,24 +199,44 @@
     "hail_focus_AJ6": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["unabashed", "silly"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "unabashed",
+                    "silly"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
-        "intro": ["StarClan, y_c, did you hear that hail last night? It was crazy! It sounded like all of the stars dropped out of the sky at once!", "Say, maybe that's not a bad idea ... Just think about it. Have you <i>seen</i> a star since the storm? Like, even once?", "Yeah, I know it's been cloudy, but still!"]
+        "intro": [
+            "StarClan, y_c, did you hear that hail last night? It was crazy! It sounded like all of the stars dropped out of the sky at once!",
+            "Say, maybe that's not a bad idea ... Just think about it. Have you <i>seen</i> a star since the storm? Like, even once?",
+            "Yeah, I know it's been cloudy, but still!"
+        ]
     },
     "hail_focus_AJ7": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["unabashed", "silly"],
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "unabashed",
+                    "silly"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "intro": [
@@ -159,27 +250,47 @@
     "hail_focus_AJ8": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["cool"],
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "cool"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
-        "intro": ["Tch. Stupid hail nearly made me jump out of my fur last night. Couldn't it have picked a better time to demolish camp than when I'm trying to get my much-needed beauty sleep?", "Now, I'm gonna have to shift my afternoon nap up, just to fix my schedule ..."]
+        "intro": [
+            "Tch. Stupid hail nearly made me jump out of my fur last night. Couldn't it have picked a better time to demolish camp than when I'm trying to get my much-needed beauty sleep?",
+            "Now, I'm gonna have to shift my afternoon nap up, just to fix my schedule ..."
+        ]
     },
     "hail_focus_AJ9": {
         "cats": {
             "y_c": {
-                "age": ["adult"]
+                "age": [
+                    "adult"
+                ]
             },
             "t_c": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             },
             "r_c:0": {
-                "cluster": ["unabashed", "silly"]
+                "cluster": [
+                    "unabashed",
+                    "silly"
+                ]
             }
         },
         "intro": [
@@ -189,15 +300,27 @@
     "hail_focus_AJ10": {
         "cats": {
             "y_c": {
-                "age": ["adult"]
+                "age": [
+                    "adult"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "unabashed", "silly"],
-                "age": ["kitten"]
+                "cluster": [
+                    "assertive",
+                    "unabashed",
+                    "silly"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "r_c:0": {
-                "rank": ["queen"],
-                "cluster": ["brooding"]
+                "rank": [
+                    "queen"
+                ],
+                "cluster": [
+                    "brooding"
+                ]
             }
         },
         "intro": [
@@ -208,20 +331,47 @@
     "hail_focus_AJ11": {
         "cats": {
             "y_c": {
-                "age": ["adult"]
+                "age": [
+                    "adult"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "upstanding"],
-                "age": ["kitten"]
+                "cluster": [
+                    "assertive",
+                    "upstanding"
+                ],
+                "age": [
+                    "kitten"
+                ]
             },
             "r_c:0": {
-                "rank": ["queen"],
-                "cluster": ["brooding"]
+                "rank": [
+                    "queen"
+                ],
+                "cluster": [
+                    "brooding"
+                ]
             },
             "r_c:1": {
-                "rank": ["kitten"],
-                "skill": ["HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1"],
-                "cluster": ["neurotic", "unlawful", "assertive", "brooding", "upstanding"]
+                "rank": [
+                    "kitten"
+                ],
+                "skill": [
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1"
+                ],
+                "cluster": [
+                    "neurotic",
+                    "unlawful",
+                    "assertive",
+                    "brooding",
+                    "upstanding"
+                ]
             }
         },
         "intro": [
@@ -234,19 +384,33 @@
     "hail_focus_AJ12": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["brooding"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "brooding"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["max_like_50"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "max_like_50"
+                ]
             }
         ],
         "intro": [
@@ -258,13 +422,23 @@
     "hail_focus_AJ13": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["brooding"],
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "brooding"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             }
         },
         "intro": [
@@ -277,53 +451,128 @@
     "hail_focus_AJ14": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["silly"],
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"],
-                "rank": ["warrior"]
+                "cluster": [
+                    "silly"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
-        "intro": ["Oh, hey, y_c! I was just thinking of ways to help everycat pass time in the warrior's den until this whole storm thing is over.", "Maybe we could play a game of moss-ball, like when all of us were kits? That could help lift everycat's spirits!", "Though, on second thought, it just might give r_c:0 a heart attack if any more damage is done to the dens, especially when there hasn't even been another hailstorm."]
+        "intro": [
+            "Oh, hey, y_c! I was just thinking of ways to help everycat pass time in the warrior's den until this whole storm thing is over.",
+            "Maybe we could play a game of moss-ball, like when all of us were kits? That could help lift everycat's spirits!",
+            "Though, on second thought, it just might give r_c:0 a heart attack if any more damage is done to the dens, especially when there hasn't even been another hailstorm."
+        ]
     },
     "hail_focus_AJ15": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "unabashed", "cool"],
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"],
-                "rank": ["apprentice"]
+                "cluster": [
+                    "assertive",
+                    "unabashed",
+                    "cool"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "apprentice"
+                ]
             },
             "r_c:0": {
-                "cluster": ["assertive", "neurotic", "cool", "brooding"]
+                "cluster": [
+                    "assertive",
+                    "neurotic",
+                    "cool",
+                    "brooding"
+                ]
             }
         },
-        "intro": ["Ugh, this hail is the worst! We have, like, triple our normal apprentice's duties!", "None of the warriors had to go through this during their apprenticeships ... It really isn't fair!", "I swear, for all this extra trouble, r_c:0 better take it easy on me once actual training starts again ... If I have to go back to doing drills after staying up all night fixing the nursery, I'm gonna lose it!"]
+        "intro": [
+            "Ugh, this hail is the worst! We have, like, triple our normal apprentice's duties!",
+            "None of the warriors had to go through this during their apprenticeships ... It really isn't fair!",
+            "I swear, for all this extra trouble, r_c:0 better take it easy on me once actual training starts again ... If I have to go back to doing drills after staying up all night fixing the nursery, I'm gonna lose it!"
+        ]
     },
     "hail_focus_AJ16": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["upstanding"],
-                "age": ["not_kitten"]
+                "cluster": [
+                    "upstanding"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             }
         },
         "intro": [
@@ -336,16 +585,28 @@
     "hail_focus_AJ17": {
         "cats": {
             "y_c": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["upstanding"],
-                "age": ["kitten"],
-                "condition": ["blind:any:false"]
+                "cluster": [
+                    "upstanding"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "r_c:0": {
-                "rank": ["queen"],
-                "cluster": ["brooding"]
+                "rank": [
+                    "queen"
+                ],
+                "cluster": [
+                    "brooding"
+                ]
             }
         },
         "intro": [
@@ -357,15 +618,25 @@
     "hail_focus_AJ18": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "cluster": ["brooding"],
-                "age": ["not_kitten"],
-                "rank": ["warrior"]
+                "cluster": [
+                    "brooding"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "intro": [
@@ -377,13 +648,23 @@
     "hailstorm_focus_J1": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "residence": ["sc"]
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
         "intro": [
@@ -396,22 +677,48 @@
     "hailstorm_focus_J2": {
         "cats": {
             "y_c": {
-                "age": ["adult"]
+                "age": [
+                    "adult"
+                ]
             },
             "t_c": {
-                "rank": ["queen"]
+                "rank": [
+                    "queen"
+                ]
             },
             "r_c:0": {
-                "rank": ["kitten"],
-                "skill": ["HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1", "HEALER,1"],
-                "cluster": ["neurotic", "unlawful", "assertive", "brooding", "upstanding"]
+                "rank": [
+                    "kitten"
+                ],
+                "skill": [
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1",
+                    "HEALER,1"
+                ],
+                "cluster": [
+                    "neurotic",
+                    "unlawful",
+                    "assertive",
+                    "brooding",
+                    "upstanding"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "intro": [
@@ -426,14 +733,28 @@
     "hailstorm_focus_J3": {
         "cats": {
             "y_c": {
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"]
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["stable", "introspective"],
-                "age": ["not_kitten"],
-                "condition": ["blind:any:false"],
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "cluster": [
+                    "stable",
+                    "introspective"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             }
         },
         "intro": [
@@ -448,10 +769,17 @@
     "hailstorm_kitten_H1~1": {
         "cats": {
             "y_c": {
-                "age": ["adolescent", "older", "adult"]
+                "age": [
+                    "adolescent",
+                    "older",
+                    "adult"
+                ]
             },
             "t_c": {
-                "age": ["adolescent", "kitten"]
+                "age": [
+                    "adolescent",
+                    "kitten"
+                ]
             }
         },
         "intro": [
@@ -464,15 +792,48 @@
     "hailstorm_kitten_H1~2": {
         "cats": {
             "y_c": {
-                "age": ["adolescent", "older", "adult"]
+                "age": [
+                    "adolescent",
+                    "older",
+                    "adult"
+                ]
             },
             "t_c": {
-                "age": ["adolescent", "kitten"]
+                "age": [
+                    "adolescent",
+                    "kitten"
+                ]
             },
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive", "silly", "unlawful", "neurotic", "upstanding", "brooding", "cool", "stable", "sweet", "unabashed", "introspective"],
-                "skill": ["ARTISTAN,1", "FISHER,1", "FISHER,1", "FISHER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1", "SLEEPER,1"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive",
+                    "silly",
+                    "unlawful",
+                    "neurotic",
+                    "upstanding",
+                    "brooding",
+                    "cool",
+                    "stable",
+                    "sweet",
+                    "unabashed",
+                    "introspective"
+                ],
+                "skill": [
+                    "ARTISTAN,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "FISHER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1",
+                    "SLEEPER,1"
+                ]
             }
         },
         "intro": [

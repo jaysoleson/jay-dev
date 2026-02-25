@@ -4,9 +4,8 @@ from scripts.game_structure import game, constants
 from scripts.special_dates import get_special_date
 from scripts.game_structure.game.switches import switch_get_value, Switch
 from scripts.game_structure.localization import load_lang_resource
-from scripts.cat.enums import CatRank, CatGroup, CatAge
-from scripts.cat.cats import Cat, BACKSTORIES
-from scripts.utility import get_cluster
+from scripts.cat.enums import CatRank, CatAge
+from scripts.cat.cats import Cat
 
 from scripts.events_module.filter_random_cats import choose_random_cats
 
@@ -91,27 +90,20 @@ class Dialogue():
                             )
 
         # DEBUG
-        possible_texts = load_lang_resource("lifegen_talk/TEST.json")
+        # possible_texts = load_lang_resource("lifegen_talk/TEST.json")
         return possible_texts
 
     def filter_dialogue(self, possible_texts):
         """
         Filters possible dialogue for selection
         """
-        # TODO: relationships and tags n stuff! only the cat is done
 
         possible_dialogue = {}
-
-        abbrevs = []
-
         for key, block in possible_texts.items():
-            chosen_cat_dict = {}
             # print("Checking", key)
-
-            chosen_cat_dict = choose_random_cats(block, self.you, self.cat, self.cat_dict)
+            chosen_cat_dict = choose_random_cats(block, self.you, self.cat, self.cat_dict, key=key)
             if not chosen_cat_dict:
                 continue
-            print("CHOSEN CATS:", chosen_cat_dict)
 
             # populates the dict that holds dialogue keys
             self._populate_cat_dict(key, chosen_cat_dict)

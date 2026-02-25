@@ -161,7 +161,7 @@
         "from_your_apprentice": "app/mentor",
         "from_df_apprentice": "df app/df mentor",
         "from_mate": "mates",
-        "from_parent": "mates",
+        "from_parent": "parent/child",
         "from_kit": "child/parent",
         "sibling": "siblings",
         "from_adopted_kit": "adoptive child/adoptive parent",

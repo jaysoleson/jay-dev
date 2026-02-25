@@ -2,169 +2,305 @@
     "newborn_1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["Mew?"]
+        "intro": [
+            "Mew?"
+        ]
     },
     "newborn_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["Meow!"]
+        "intro": [
+            "Meow!"
+        ]
     },
     "newborn_3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["Purrrrr..."]
+        "intro": [
+            "Purrrrr..."
+        ]
     },
     "newborn_4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["Mrow!"]
+        "intro": [
+            "Mrow!"
+        ]
     },
     "newborn_5": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["MROOOOOOOOW!!!!!!!!"]
+        "intro": [
+            "MROOOOOOOOW!!!!!!!!"
+        ]
     },
     "newborn_6": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["Grr..."]
+        "intro": [
+            "Grr..."
+        ]
     },
     "newborn_11": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["Mew?"]
+        "intro": [
+            "Mew?"
+        ]
     },
     "newborn_12": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["Meow!"]
+        "intro": [
+            "Meow!"
+        ]
     },
     "newborn_13": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["Purrrrr..."]
+        "intro": [
+            "Purrrrr..."
+        ]
     },
     "newborn_14": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["Mrow!"]
+        "intro": [
+            "Mrow!"
+        ]
     },
     "newborn_15": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["MROOOOOOOOW!!!!!!!!"]
+        "intro": [
+            "MROOOOOOOOW!!!!!!!!"
+        ]
     },
     "newborn_16": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["Grr..."]
+        "intro": [
+            "Grr..."
+        ]
     },
     "newborn_littermate": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -174,12 +310,21 @@
     "assertive_newborn1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "assertive"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -190,12 +335,21 @@
     "assertive_newborn2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "assertive"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -206,12 +360,21 @@
     "assertive_newborn3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "assertive"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -222,12 +385,21 @@
     "introspective_NB": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["introspective"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -243,15 +415,25 @@
     "introspective_NB_1": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["introspective"],
-                "condition": ["deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             },
             "r_c:0": {
-                "rank": ["queen"]
+                "rank": [
+                    "queen"
+                ]
             }
         },
         "intro": [
@@ -264,12 +446,21 @@
     "introspective_NB_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["introspective"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -282,12 +473,21 @@
     "introspective_NB_3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["introspective"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -301,12 +501,22 @@
     "introspective_NB_4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["introspective"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -318,9 +528,16 @@
     "introspective_NB_5": {
         "cats": {
             "t_c": {
-                "cluster": ["introspective"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -332,12 +549,22 @@
     "sweet_newborn_1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["sweet"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -347,12 +574,21 @@
     "sweet_newborn_2": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["sweet"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -362,12 +598,22 @@
     "silly_newborn_1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["silly"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -377,12 +623,20 @@
     "silly_newborn_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["silly"],
-                "condition": ["blind:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -392,12 +646,21 @@
     "silly_newborn_3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["silly"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -407,26 +670,50 @@
     "silly_newborn_4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["silly"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["MROOW!", "MEOW! MEOW MEOW MEOW MEOW!", "Mew!"]
+        "intro": [
+            "MROOW!",
+            "MEOW! MEOW MEOW MEOW MEOW!",
+            "Mew!"
+        ]
     },
     "broodingnewborn_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["brooding"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "brooding"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -437,13 +724,24 @@
     "broodingnewborn_2_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["brooding"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "brooding"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -454,27 +752,51 @@
     "broodingnewborn_3_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["brooding"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "brooding"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["Hisssss..."]
+        "intro": [
+            "Hisssss..."
+        ]
     },
     "broodingnewborn_4_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["brooding"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "brooding"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -485,12 +807,21 @@
     "stable_newborn_01": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -501,12 +832,21 @@
     "stable_newborn_02": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -517,12 +857,21 @@
     "stable_newborn_03": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -533,12 +882,22 @@
     "stable_newborn_04": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -548,12 +907,21 @@
     "stable_newborn_05": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -564,12 +932,21 @@
     "stable_newborn_06": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -580,12 +957,21 @@
     "stable_newborn_07": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -596,12 +982,21 @@
     "stable_newborn_08": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -612,12 +1007,21 @@
     "stable_newborn_09": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -628,9 +1032,16 @@
     "stable_newborn_10": {
         "cats": {
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -641,9 +1052,16 @@
     "stable_newborn_11": {
         "cats": {
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -654,25 +1072,46 @@
     "stable_newborn_112": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["... ... ...", "Mew... me..."]
+        "intro": [
+            "... ... ...",
+            "Mew... me..."
+        ]
     },
     "stable_newborn_113": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -682,20 +1121,37 @@
     "stable_newborn_14": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -706,20 +1162,37 @@
     "stable_newborn_15": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -731,20 +1204,38 @@
     "stable_newborn_16": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -755,22 +1246,39 @@
     "stable_newborn_17": {
         "cats": {
             "y_c": {
-                "rank": ["newborn"]
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             },
             "r_c:0": {
-                "cluster": ["unlawful"]
+                "cluster": [
+                    "unlawful"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -781,20 +1289,37 @@
     "stable_newborn_18": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -805,23 +1330,43 @@
     "stable_newborn_19": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             },
             "r_c:1": {
-                "rank": ["queen"]
+                "rank": [
+                    "queen"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -831,41 +1376,78 @@
     "stable_newborn_20": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
-        "intro": ["Me...", "Wuv...", "... ... ...", "Mew!"]
+        "intro": [
+            "Me...",
+            "Wuv...",
+            "... ... ...",
+            "Mew!"
+        ]
     },
     "stable_newborn_21": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -877,13 +1459,24 @@
     "unabashed_newborn": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["unabashed"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "unabashed"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -894,17 +1487,51 @@
     "unabashed_newborn1": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["unabashed"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "unabashed"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             },
             "r_c:0": {
-                "cluster": ["upstanding", "neurotic", "unabashed", "brooding", "assertive", "sweet", "silly", "unlawful", "cool", "introspective", "stable"],
-                "skill": ["GHOST,1", "GHOST,1", "GHOST,1", "STORY,1", "STORY,1", "STORY,1", "TREASURE,1", "TREASURE,1", "TREASURE,1", "TREASURE,1"]
+                "cluster": [
+                    "upstanding",
+                    "neurotic",
+                    "unabashed",
+                    "brooding",
+                    "assertive",
+                    "sweet",
+                    "silly",
+                    "unlawful",
+                    "cool",
+                    "introspective",
+                    "stable"
+                ],
+                "skill": [
+                    "GHOST,1",
+                    "GHOST,1",
+                    "GHOST,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1"
+                ]
             }
         },
         "intro": [
@@ -914,9 +1541,16 @@
     "cool_newborn_1": {
         "cats": {
             "t_c": {
-                "cluster": ["cool"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "cool"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -927,12 +1561,21 @@
     "cool_newborn_2": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["cool"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "cool"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -943,12 +1586,22 @@
     "upstanding_newborn_2": {
         "cats": {
             "y_c": {
-                "rank": ["queen's apprentice", "queen"]
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
             },
             "t_c": {
-                "cluster": ["upstanding"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -959,12 +1612,21 @@
     "upstanding_newborn1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["upstanding"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -975,12 +1637,21 @@
     "upstanding_newborn2_2": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["upstanding"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -990,23 +1661,39 @@
     "neurotic_newborn": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["Squeak!"]
+        "intro": [
+            "Squeak!"
+        ]
     },
     "neurotic_newborn1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1017,11 +1704,18 @@
     "neurotic_newborn2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1032,12 +1726,21 @@
     "neurotic_newborn3": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["neurotic"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1047,18 +1750,33 @@
     "newborn_yourkit": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["child/parent", "adoptive child/adoptive parent"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "child/parent",
+                    "adoptive child/adoptive parent"
+                ]
             }
         ],
         "intro": [
@@ -1069,18 +1787,32 @@
     "newborn_yourkit1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["child/parent", "adoptive child/adoptive parent"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "child/parent",
+                    "adoptive child/adoptive parent"
+                ]
             }
         ],
         "intro": [
@@ -1091,18 +1823,33 @@
     "newborn_yourkit2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["child/parent", "adoptive child/adoptive parent"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "child/parent",
+                    "adoptive child/adoptive parent"
+                ]
             }
         ],
         "intro": [
@@ -1113,18 +1860,33 @@
     "newborn_yourkit3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["child/parent", "adoptive child/adoptive parent"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "child/parent",
+                    "adoptive child/adoptive parent"
+                ]
             }
         ],
         "intro": [
@@ -1135,12 +1897,22 @@
     "newborn_UNLAWFUL": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["unlawful"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "unlawful"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1151,11 +1923,18 @@
     "newborn_UNLAWFUL2": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1166,12 +1945,21 @@
     "newborn_unlawful": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["unlawful"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "unlawful"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1182,15 +1970,26 @@
     "newborn_unlawful1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["unlawful"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "unlawful"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             },
             "r_c:0": {
-                "rank": ["queen"]
+                "rank": [
+                    "queen"
+                ]
             }
         },
         "intro": [
@@ -1202,13 +2001,27 @@
     "newborn_unabashed1": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "adolescent",
+                    "young adult",
+                    "adult",
+                    "senior adult",
+                    "senior"
+                ]
             },
             "t_c": {
-                "cluster": ["unabashed"],
-                "condition": ["deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "unabashed"
+                ],
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1220,12 +2033,20 @@
     "newborn_unabashed2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["unabashed"],
-                "condition": ["blind:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "unabashed"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1236,12 +2057,21 @@
     "newborn_unabashed3": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["unabashed"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "unabashed"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1251,15 +2081,27 @@
     "newborn_unabashed4": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["unabashed"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "unabashed"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             },
             "r_c:0": {
-                "cluster": ["unabashed", "silly"]
+                "cluster": [
+                    "unabashed",
+                    "silly"
+                ]
             }
         },
         "intro": [
@@ -1270,33 +2112,64 @@
     "stable_newborn_12": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["... ... ...", "Mew... me..."]
+        "intro": [
+            "... ... ...",
+            "Mew... me..."
+        ]
     },
     "newborn_fromlittermate": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "unabashed"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "assertive",
+                    "unabashed"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -1307,19 +2180,35 @@
     "newborn_fromlittermate2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -1329,18 +2218,33 @@
     "newborn_fromlittermate3": {
         "cats": {
             "y_c": {
-                "rank": ["newborn"]
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable", "brooding", "introspective", "neurotic"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable",
+                    "brooding",
+                    "introspective",
+                    "neurotic"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -1351,18 +2255,32 @@
     "newborn_fromlittermate4": {
         "cats": {
             "y_c": {
-                "rank": ["newborn"]
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "unabashed", "silly"],
-                "age": ["newborn"]
+                "cluster": [
+                    "assertive",
+                    "unabashed",
+                    "silly"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -1374,20 +2292,40 @@
     "newborn_fromlittermate5": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["assertive", "unlawful", "unabashed"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "assertive",
+                    "unlawful",
+                    "unabashed"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -1397,20 +2335,38 @@
     "newborn_fromlittermate6": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["sweet", "introspective"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "sweet",
+                    "introspective"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -1421,20 +2377,37 @@
     "stable_newborn_littermate1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -1445,20 +2418,37 @@
     "stable_newborn_littermate2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -1470,20 +2460,38 @@
     "stable_newborn_littermate3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -1494,22 +2502,39 @@
     "stable_newborn_littermate4": {
         "cats": {
             "y_c": {
-                "rank": ["newborn"]
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             },
             "r_c:0": {
-                "cluster": ["unlawful"]
+                "cluster": [
+                    "unlawful"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -1520,20 +2545,37 @@
     "stable_newborn_littermate5": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -1544,23 +2586,43 @@
     "stable_newborn_littermate6": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             },
             "r_c:1": {
-                "rank": ["queen"]
+                "rank": [
+                    "queen"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -1570,41 +2632,78 @@
     "stable_newborn_littermate7": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
-        "intro": ["Me...", "Wuv...", "... ... ...", "Mew!"]
+        "intro": [
+            "Me...",
+            "Wuv...",
+            "... ... ...",
+            "Mew!"
+        ]
     },
     "stable_newborn_littermate8": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["stable"],
-                "condition": ["blind:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["littermates"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
             }
         ],
         "intro": [
@@ -1616,12 +2715,20 @@
     "sweet_newborn_3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["sweet"],
-                "condition": ["blind:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1632,12 +2739,21 @@
     "sweet_newborn_4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["sweet"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1648,12 +2764,21 @@
     "sweet_newborn_6": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["sweet"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1666,12 +2791,22 @@
     "upstanding_newborn3_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "cluster": ["upstanding"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1681,13 +2816,25 @@
     "upstanding_newborn4_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["upstanding"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1697,13 +2844,24 @@
     "upstanding_newborn5": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["upstanding"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1714,13 +2872,24 @@
     "upstanding_newborn6": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "cluster": ["upstanding"],
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "cluster": [
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1730,15 +2899,27 @@
     "newborn_shunned1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             },
             "r_c:0": {
-                "rank": ["queen"]
+                "rank": [
+                    "queen"
+                ]
             }
         },
         "intro": [
@@ -1748,12 +2929,22 @@
     "newborn_shunned2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1763,16 +2954,49 @@
     "newborn_shunned3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             },
             "r_c:0": {
-                "cluster": ["upstanding", "neurotic", "unabashed", "brooding", "assertive", "sweet", "silly", "unlawful", "cool", "introspective", "stable"],
-                "skill": ["GHOST,1", "GHOST,1", "GHOST,1", "STORY,1", "STORY,1", "STORY,1", "TREASURE,1", "TREASURE,1", "TREASURE,1", "TREASURE,1"]
+                "cluster": [
+                    "upstanding",
+                    "neurotic",
+                    "unabashed",
+                    "brooding",
+                    "assertive",
+                    "sweet",
+                    "silly",
+                    "unlawful",
+                    "cool",
+                    "introspective",
+                    "stable"
+                ],
+                "skill": [
+                    "GHOST,1",
+                    "GHOST,1",
+                    "GHOST,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "STORY,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1",
+                    "TREASURE,1"
+                ]
             }
         },
         "intro": [
@@ -1782,12 +3006,20 @@
     "newborn_shunned4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1798,15 +3030,26 @@
     "newborn_shunned5": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             },
             "r_c:0": {
-                "rank": ["queen"]
+                "rank": [
+                    "queen"
+                ]
             }
         },
         "intro": [
@@ -1818,13 +3061,23 @@
     "starclannewborn": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
         "intro": [
@@ -1834,13 +3087,25 @@
     "starclannewborn1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
         "intro": [
@@ -1850,12 +3115,21 @@
     "starclannewborn2": {
         "cats": {
             "y_c": {
-                "residence": ["sc"]
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
         "intro": [
@@ -1868,12 +3142,20 @@
     "starclannewborn3": {
         "cats": {
             "y_c": {
-                "residence": ["sc"]
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
         "intro": [
@@ -1886,13 +3168,23 @@
     "dfnewborn": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
         "intro": [
@@ -1902,13 +3194,24 @@
     "youstarclannewborn": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "residence": ["sc"],
-                "rank": ["newborn"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1918,13 +3221,24 @@
     "youdfnewborn": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "residence": ["df"],
-                "rank": ["newborn"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "df"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -1934,432 +3248,831 @@
     "newborn_1_sc": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
-        "intro": ["Mew?"]
+        "intro": [
+            "Mew?"
+        ]
     },
     "newborn_2_sc": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
-        "intro": ["Meow!"]
+        "intro": [
+            "Meow!"
+        ]
     },
     "newborn_3_sc": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
-        "intro": ["Purrrrr..."]
+        "intro": [
+            "Purrrrr..."
+        ]
     },
     "newborn_4_sc": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
-        "intro": ["Mrow!"]
+        "intro": [
+            "Mrow!"
+        ]
     },
     "newborn_5_sc": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
-        "intro": ["MROOOOOOOOW!!!!!!!!"]
+        "intro": [
+            "MROOOOOOOOW!!!!!!!!"
+        ]
     },
     "newborn_6_sc": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
-        "intro": ["Grr..."]
+        "intro": [
+            "Grr..."
+        ]
     },
     "newborn_1_df": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Mew?"]
+        "intro": [
+            "Mew?"
+        ]
     },
     "newborn_2_df": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Meow!"]
+        "intro": [
+            "Meow!"
+        ]
     },
     "newborn_3_df": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Purrrrr..."]
+        "intro": [
+            "Purrrrr..."
+        ]
     },
     "newborn_4_df": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Mrow!"]
+        "intro": [
+            "Mrow!"
+        ]
     },
     "newborn_5_df": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["MROOOOOOOOW!!!!!!!!"]
+        "intro": [
+            "MROOOOOOOOW!!!!!!!!"
+        ]
     },
     "newborn_6_df": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Grr..."]
+        "intro": [
+            "Grr..."
+        ]
     },
     "newborn_7_df": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Grr..."]
+        "intro": [
+            "Grr..."
+        ]
     },
     "newborn_8_df": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Grr..."]
+        "intro": [
+            "Grr..."
+        ]
     },
     "newborn_1_scdf": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
-        "intro": ["Mew?"]
+        "intro": [
+            "Mew?"
+        ]
     },
     "newborn_2_scdf": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
-        "intro": ["Meow!"]
+        "intro": [
+            "Meow!"
+        ]
     },
     "newborn_3_scdf": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
-        "intro": ["Purrrrr..."]
+        "intro": [
+            "Purrrrr..."
+        ]
     },
     "newborn_4_scdf": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
-        "intro": ["Mrow!"]
+        "intro": [
+            "Mrow!"
+        ]
     },
     "newborn_5_scdf": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
-        "intro": ["MROOOOOOOOW!!!!!!!!"]
+        "intro": [
+            "MROOOOOOOOW!!!!!!!!"
+        ]
     },
     "newborn_6_scdf": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
-        "intro": ["Grr..."]
+        "intro": [
+            "Grr..."
+        ]
     },
     "newborn_1_dfsc": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Mew?"]
+        "intro": [
+            "Mew?"
+        ]
     },
     "newborn_2_dfsc": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Meow!"]
+        "intro": [
+            "Meow!"
+        ]
     },
     "newborn_3_dfsc": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Purrrrr..."]
+        "intro": [
+            "Purrrrr..."
+        ]
     },
     "newborn_4_dfsc": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Mrow!"]
+        "intro": [
+            "Mrow!"
+        ]
     },
     "newborn_5_dfsc": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["MROOOOOOOOW!!!!!!!!"]
+        "intro": [
+            "MROOOOOOOOW!!!!!!!!"
+        ]
     },
     "newborn_6_dfsc": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
-        "intro": ["Grr..."]
+        "intro": [
+            "Grr..."
+        ]
     },
     "newborn_ur_J1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["ur"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "ur"
+                ]
             }
         },
-        "intro": ["... Mew..."]
+        "intro": [
+            "... Mew..."
+        ]
     },
     "newborn_ur_J2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["ur"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "ur"
+                ]
             }
         },
-        "intro": ["... Mew..."]
+        "intro": [
+            "... Mew..."
+        ]
     },
     "newborn_ur_J3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["ur"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "ur"
+                ]
             }
         },
-        "intro": ["... Mew..."]
+        "intro": [
+            "... Mew..."
+        ]
     },
     "newborn_ur_J4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["ur"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "ur"
+                ]
             }
         },
-        "intro": ["... Mew..."]
+        "intro": [
+            "... Mew..."
+        ]
     },
     "sc_sc_kit_R2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "rank": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "rank": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
         "intro": [
@@ -2370,14 +4083,27 @@
     "df_df_kit_R1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "rank": ["newborn"],
-                "residence": ["df"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "rank": [
+                    "newborn"
+                ],
+                "residence": [
+                    "df"
+                ]
             }
         },
         "intro": [
@@ -2388,13 +4114,24 @@
     "ur_they_newborn_CM1": {
         "cats": {
             "y_c": {
-                "residence": ["ur"]
+                "residence": [
+                    "ur"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["ur"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -2407,260 +4144,495 @@
     "newborn_1dead_dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Mew?"]
+        "intro": [
+            "Mew?"
+        ]
     },
     "newborn_2dead_dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Meow!"]
+        "intro": [
+            "Meow!"
+        ]
     },
     "newborn_3dead_dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Purrrrr..."]
+        "intro": [
+            "Purrrrr..."
+        ]
     },
     "newborn_4dead_dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Mrow!"]
+        "intro": [
+            "Mrow!"
+        ]
     },
     "newborn_5dead_dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["MROOOOOOOOW!!!!!!!!"]
+        "intro": [
+            "MROOOOOOOOW!!!!!!!!"
+        ]
     },
     "newborn_6dead_dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Grr..."]
+        "intro": [
+            "Grr..."
+        ]
     },
     "newborn_11dead_dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Mew?"]
+        "intro": [
+            "Mew?"
+        ]
     },
     "newborn_12dead_dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Meow!"]
+        "intro": [
+            "Meow!"
+        ]
     },
     "newborn_13dead_dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Purrrrr..."]
+        "intro": [
+            "Purrrrr..."
+        ]
     },
     "newborn_14dead_dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Mrow!"]
+        "intro": [
+            "Mrow!"
+        ]
     },
     "newborn_15dead_dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["MROOOOOOOOW!!!!!!!!"]
+        "intro": [
+            "MROOOOOOOOW!!!!!!!!"
+        ]
     },
     "newborn_16dead_dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Grr..."]
+        "intro": [
+            "Grr..."
+        ]
     },
     "newborn_1dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Mew?"]
+        "intro": [
+            "Mew?"
+        ]
     },
     "newborn_2dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Meow!"]
+        "intro": [
+            "Meow!"
+        ]
     },
     "newborn_3dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Purrrrr..."]
+        "intro": [
+            "Purrrrr..."
+        ]
     },
     "newborn_4dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Mrow!"]
+        "intro": [
+            "Mrow!"
+        ]
     },
     "newborn_5dead": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["MROOOOOOOOW!!!!!!!!"]
+        "intro": [
+            "MROOOOOOOOW!!!!!!!!"
+        ]
     },
     "newborn_1new": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Mew?"]
+        "intro": [
+            "Mew?"
+        ]
     },
     "newborn_2new": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
         "intro": [
@@ -2670,224 +4642,428 @@
     "newborn_3new": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Purrrrr..."]
+        "intro": [
+            "Purrrrr..."
+        ]
     },
     "newborn_4new": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Mrow!"]
+        "intro": [
+            "Mrow!"
+        ]
     },
     "newborn_5new": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["MROOOOOOOOW!!!!!!!!"]
+        "intro": [
+            "MROOOOOOOOW!!!!!!!!"
+        ]
     },
     "newborn_J1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["dead/grieving"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
             }
         ],
-        "intro": ["Purr......"]
+        "intro": [
+            "Purr......"
+        ]
     },
     "newborn_J2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"]
+                "condition": [
+                    "blind:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["dead/grieving"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
             }
         ],
-        "intro": ["Purr......"]
+        "intro": [
+            "Purr......"
+        ]
     },
     "deadnewborns_J1_2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Mrrp?"]
+        "intro": [
+            "Mrrp?"
+        ]
     },
     "deadnewborns_J2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "grief stricken"],
-                "age": ["newborn"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false",
+                    "grief stricken"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             }
         },
-        "intro": ["Um... hi, little fellow.", "You probably shouldn't be here."]
+        "intro": [
+            "Um... hi, little fellow.",
+            "You probably shouldn't be here."
+        ]
     },
     "deadnewborns_J3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["newborn"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             }
         },
-        "intro": ["Um... hi, little fellow.", "You probably shouldn't be here."]
+        "intro": [
+            "Um... hi, little fellow.",
+            "You probably shouldn't be here."
+        ]
     },
     "deadnewborns_J4": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "grief stricken"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "grief stricken"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["Um... hi, little fellow.", "You probably shouldn't be here."]
+        "intro": [
+            "Um... hi, little fellow.",
+            "You probably shouldn't be here."
+        ]
     },
     "deadnewborns_J5": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "grief stricken"],
-                "age": ["newborn"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false",
+                    "grief stricken"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["grieving/dead"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "grieving/dead"
+                ]
             }
         ],
-        "intro": ["Oh, y_c... It's torture to see you everywhere."]
+        "intro": [
+            "Oh, y_c... It's torture to see you everywhere."
+        ]
     },
     "deadnewborns_J6": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "grief stricken"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false",
+                    "grief stricken"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Mew? Mew? ... Mew?"]
+        "intro": [
+            "Mew? Mew? ... Mew?"
+        ]
     },
     "deadnewborns_J7": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "grief stricken"]
+                "condition": [
+                    "blind:any:false",
+                    "grief stricken"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Mew? Mew? ... Mew?"]
+        "intro": [
+            "Mew? Mew? ... Mew?"
+        ]
     },
     "deadnewborns_J8": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "residence": ["any"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "any"
+                ]
             }
         },
-        "intro": ["Mew? Mew? ... Mew?"]
+        "intro": [
+            "Mew? Mew? ... Mew?"
+        ]
     },
     "deafnewborn_J1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
-        "intro": ["... ... ..."]
+        "intro": [
+            "... ... ..."
+        ]
     },
     "deafnewborn_J2": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -2897,12 +5073,21 @@
     "newborn_H1": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -2912,13 +5097,24 @@
     "newborn_sc_SAM1": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "rank": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "rank": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             }
         },
         "intro": [
@@ -2928,13 +5124,25 @@
     "newborn_sc_H1": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"]
+                "condition": [
+                    "deaf:any:false"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "rank": ["newborn"],
-                "residence": ["sc", "sc"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "rank": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc",
+                    "sc"
+                ]
             }
         },
         "intro": [
@@ -2944,20 +5152,38 @@
     "fromkit_pos_shunned_H3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["child/parent", "adoptive child/adoptive parent"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "child/parent",
+                    "adoptive child/adoptive parent"
+                ]
             }
         ],
         "intro": [
@@ -2967,20 +5193,39 @@
     "new_shunned_J10": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false", "recovering from birth"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false",
+                    "recovering from birth"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["child/parent"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "child/parent"
+                ]
             }
         ],
         "intro": [
@@ -2991,20 +5236,38 @@
     "newborn_youshunned_rad1": {
         "cats": {
             "y_c": {
-                "condition": ["deaf:any:false"],
-                "standing": ["shunned"]
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["child/parent", "adoptive kit/adoptive parent"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "child/parent",
+                    "adoptive child/adoptive parent"
+                ]
             }
         ],
         "intro": [
@@ -3015,20 +5278,40 @@
     "newborn_youshunned_rad2": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false", "deaf:any:false", "guilt"],
-                "standing": ["shunned"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false",
+                    "guilt"
+                ],
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["child/parent", "adoptive child/adoptive parent"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "child/parent",
+                    "adoptive child/adoptive parent"
+                ]
             }
         ],
         "intro": [
@@ -3039,19 +5322,34 @@
     "from_newborn_youshunned_E1": {
         "cats": {
             "y_c": {
-                "standing": ["shunned"]
+                "standing": [
+                    "shunned"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false", "deaf:any:false"],
-                "age": ["newborn"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["t_c"],
-                "cats_to": ["y_c"],
-                "relationship": ["non-related"]
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "non-related"
+                ]
             }
         ],
         "intro": [
@@ -3062,12 +5360,22 @@
     "mcgrievingonly_general_H1": {
         "cats": {
             "y_c": {
-                "condition": ["grief stricken", "blind:any:false"],
-                "rank": ["not_kitten"]
+                "condition": [
+                    "grief stricken",
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "age": ["newborn"],
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "age": [
+                    "newborn"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             }
         },
         "intro": [
@@ -3078,15 +5386,27 @@
     "mcgrievingonly_general_H2": {
         "cats": {
             "y_c": {
-                "condition": ["grief stricken", "deaf:any:false"],
-                "rank": ["not_kitten"]
+                "condition": [
+                    "grief stricken",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
             },
             "t_c": {
-                "age": ["newborn"],
-                "condition": ["blind:any:false", "deaf:any:false"]
+                "age": [
+                    "newborn"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             },
             "r_c:0": {
-                "residence": ["any"]
+                "residence": [
+                    "any"
+                ]
             }
         },
         "intro": [
@@ -3097,15 +5417,29 @@
     "scnew_urnew_R1": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["newborn"],
-                "residence": ["ur"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -3118,15 +5452,29 @@
     "scnew_urnew_R3": {
         "cats": {
             "y_c": {
-                "condition": ["blind:any:false"],
-                "rank": ["newborn"],
-                "residence": ["sc"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ],
+                "residence": [
+                    "sc"
+                ]
             },
             "t_c": {
-                "condition": ["blind:any:false"],
-                "age": ["newborn"],
-                "residence": ["ur"],
-                "rank": ["newborn"]
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "newborn"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "newborn"
+                ]
             }
         },
         "intro": [
@@ -3139,13 +5487,27 @@
     "shunnedguilty_H1": {
         "cats": {
             "y_c": {
-                "condition": ["grief stricken", "blind:any:false"],
-                "standing": ["member", "shunned"],
-                "rank": ["not_newborn"]
+                "condition": [
+                    "grief stricken",
+                    "blind:any:false"
+                ],
+                "standing": [
+                    "member",
+                    "shunned"
+                ],
+                "rank": [
+                    "not_newborn"
+                ]
             },
             "t_c": {
-                "age": ["newborn"],
-                "rank": ["newborn", "blind:any:false", "deaf:any:false"]
+                "age": [
+                    "newborn"
+                ],
+                "rank": [
+                    "newborn",
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
             }
         },
         "intro": [
