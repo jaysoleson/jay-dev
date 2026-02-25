@@ -493,7 +493,7 @@ class ListScreen(Screens):
         if game.clan.your_cat.status.is_outsider:
             self.update_heading_text("Your Territory")
         else:
-            self.update_heading_text(self.clan_name)
+            self.update_heading_text(f"{game.clan.displayname}Clan")
 
     def on_use(self):
         super().on_use()
@@ -701,7 +701,7 @@ class ListScreen(Screens):
             if game.clan.your_cat.status.is_outsider:
                 self.update_heading_text("Your Territory")
             else:
-                self.update_heading_text(self.clan_name)
+                self.update_heading_text(f"{game.clan.displayname}Clan")
         elif self.current_group == "cotc":
             self.set_bg(None)
             self.update_heading_text("general.cotc")
