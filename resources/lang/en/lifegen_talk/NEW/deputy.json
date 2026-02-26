@@ -110,6 +110,7 @@
                     "brooding"
                 ]
             },
+            "r_c:0": {},
             "r_c:1": {
                 "rank": [
                     "kitten"
@@ -126,6 +127,17 @@
                 ],
                 "relationship": [
                     "max_like_-50"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
                 ]
             }
         ],
@@ -244,15 +256,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -292,15 +295,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -522,7 +516,8 @@
                 "standing": [
                     "shunned"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "I can't look at you the same way anymore."
@@ -557,7 +552,8 @@
                 "standing": [
                     "shunned"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "Every time I see your face, I'm reminded of the life you took."
@@ -1300,6 +1296,7 @@
     },
     "assertive_elder_8": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -2538,12 +2535,7 @@
                     "hearing"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "intro": [
             "... y_c? Is something the matter? I heard from r_c:0 that you were looking for me.",
@@ -2595,6 +2587,7 @@
     },
     "introspective_dep_3": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "introspective"
@@ -2803,6 +2796,7 @@
     },
     "assertive_dislike1_2_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -2898,6 +2892,7 @@
     },
     "assertive_rom": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive"
@@ -2925,6 +2920,7 @@
     },
     "assertive_rom1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -3030,6 +3026,7 @@
     },
     "assertive_rom4": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -3118,15 +3115,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -3156,6 +3144,7 @@
     },
     "assertive_elder_22": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -3228,11 +3217,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -3256,12 +3240,7 @@
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "intro": [
             "Need something, y_c? Or just coming by to chat?",
@@ -3308,12 +3287,7 @@
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -3355,15 +3329,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -3376,6 +3341,7 @@
     },
     "bloodthirsty_pos_Rr_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "bloodthirsty",
@@ -3487,6 +3453,7 @@
     },
     "bloodthirsty_love_Rr_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "bloodthirsty"
@@ -3607,15 +3574,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -3712,6 +3670,7 @@
     },
     "brooding_deputy15": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "stable",
@@ -3832,11 +3791,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -3870,7 +3824,8 @@
                 "condition": [
                     "blind:false:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -3883,6 +3838,17 @@
                 "relationship": [
                     "strangers",
                     "non-related"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
                 ]
             }
         ],
@@ -3907,7 +3873,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -3996,27 +3963,12 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
+                    "brooding"
                 ]
             },
             "r_c:1": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -4184,6 +4136,7 @@
     },
     "cool_5_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "cool"
@@ -4316,17 +4269,11 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "neurotic"
                 ]
             },
             "r_c:1": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "stable"
                 ]
             }
         },
@@ -4382,8 +4329,22 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
+            }
+        ],
         "intro": [
             "Hey y_c! How's warrior training been going?",
             "Well, please don't overwork yourself! I don't mind talking to r_c:0 if you ever need a break, your health matters so much more than mastering a paw swipe."
@@ -4498,15 +4459,6 @@
             "r_c:1": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -4560,15 +4512,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -4599,15 +4542,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             },
             "r_c:1": {
@@ -4656,15 +4590,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -4828,15 +4753,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -4897,12 +4813,7 @@
                     "deputy"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "intro": [
             "[t_c escorts you to pick up a piece of freshkill from the pile. {PRONOUN/t_c/poss/CAP} gaze is full of silent hate. {PRONOUN/t_c/subject/CAP} {VERB/t_c/walk/walks} with you back to the medicine den, just as r_c:0 is leaving it.]",
@@ -4936,6 +4847,7 @@
     },
     "stable_Deputy_Gen_01": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "stable"
@@ -5258,15 +5170,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -5634,15 +5537,6 @@
             "r_c:2": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             },
             "r_c:3": {
@@ -5696,13 +5590,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
+                    "upstanding"
                 ]
             }
         },
@@ -5934,15 +5822,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -6009,8 +5888,22 @@
                 "rank": [
                     "deputy"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
+            }
+        ],
         "intro": [
             "r_c:0 tells me that you've been doing well, good. Very happy to hear that you're learning and making excellent progress. Your mentor is very proud of you, y_c. Keep it up."
         ]
@@ -6117,15 +6010,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -6305,15 +6189,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -6458,17 +6333,11 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "neurotic"
                 ]
             },
             "r_c:1": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "stable"
                 ]
             }
         },
@@ -6515,13 +6384,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
+                    "assertive"
                 ]
             },
             "r_c:1": {
@@ -6630,17 +6493,11 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "neurotic"
                 ]
             },
             "r_c:1": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "stable"
                 ]
             }
         },
@@ -6705,15 +6562,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -6821,12 +6669,7 @@
                     "queen's apprentice"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -6876,15 +6719,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -6988,15 +6822,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -7034,17 +6859,11 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "neurotic"
                 ]
             },
             "r_c:1": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "stable"
                 ]
             }
         },
@@ -7115,7 +6934,8 @@
                     "warrior",
                     "deputy"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7166,7 +6986,8 @@
                     "deputy",
                     "leader"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7228,15 +7049,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             },
             "r_c:1": {
@@ -7412,6 +7224,7 @@
     },
     "neurotic_mate3": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "neurotic"
@@ -7611,15 +7424,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -7712,13 +7516,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
+                    "silly"
                 ]
             }
         },
@@ -7817,15 +7615,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -7875,6 +7664,7 @@
     },
     "stable_16": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "stable",
@@ -7965,11 +7755,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
                 ]
             },
             "r_c:1": {
@@ -7977,12 +7762,6 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
                     "cool"
                 ]
             }
@@ -8047,13 +7826,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
+                    "neurotic"
                 ]
             }
         },
@@ -8114,13 +7887,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
+                    "upstanding"
                 ]
             },
             "r_c:1": {
@@ -8176,13 +7943,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
+                    "neurotic"
                 ]
             }
         },
@@ -8526,15 +8287,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -8616,13 +8368,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
+                    "unlawful"
                 ]
             }
         },
@@ -8686,15 +8432,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
                 ]
             }
         },
@@ -8865,13 +8602,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool"
+                    "unlawful"
                 ]
             }
         },

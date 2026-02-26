@@ -82,14 +82,6 @@
                 "rank": [
                     "medicine cat",
                     "medicine cat apprentice"
-                ],
-                "cluster": [
-                    "sweet",
-                    "brooding",
-                    "cool",
-                    "neurotic",
-                    "unlawful",
-                    "silly"
                 ]
             }
         },
@@ -117,14 +109,7 @@
                     "apprentice"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "assertive",
-                    "neurotic",
-                    "cool",
-                    "brooding"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -137,6 +122,17 @@
                 "relationship": [
                     "min_trust_50",
                     "min_comfort_50"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
         ],
@@ -211,9 +207,6 @@
             "r_c:0": {
                 "rank": [
                     "queen"
-                ],
-                "cluster": [
-                    "brooding"
                 ]
             }
         },
@@ -244,20 +237,11 @@
             "r_c:0": {
                 "rank": [
                     "leader"
-                ],
-                "cluster": [
-                    "stable",
-                    "unlawful",
-                    "neurotic"
                 ]
             },
             "r_c:1": {
                 "rank": [
                     "mediator"
-                ],
-                "cluster": [
-                    "silly",
-                    "brooding"
                 ]
             }
         },
@@ -288,32 +272,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -394,12 +352,23 @@
             },
             "r_c:0": {
                 "cluster": [
-                    "unabashed",
-                    "silly",
                     "brooding"
                 ]
             }
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
+            }
+        ],
         "intro": [
             "Psh, w_cClan isn't so scary.",
             "Try dealing with r_c:0 when the last of {PRONOUN/r_c:0/poss} favorite prey is stolen from the pile. Now <i>that's</i> scary."
@@ -407,6 +376,7 @@
     },
     "unlawful_war1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "unlawful"
@@ -503,7 +473,8 @@
                 "rank": [
                     "any"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -515,6 +486,17 @@
                 ],
                 "relationship": [
                     "non-related"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -640,14 +622,6 @@
                 "rank": [
                     "medicine cat",
                     "medicine cat apprentice"
-                ],
-                "cluster": [
-                    "sweet",
-                    "brooding",
-                    "cool",
-                    "neurotic",
-                    "unlawful",
-                    "silly"
                 ]
             }
         },
@@ -681,11 +655,6 @@
             "r_c:0": {
                 "rank": [
                     "leader"
-                ],
-                "cluster": [
-                    "stable",
-                    "unlawful",
-                    "neurotic"
                 ]
             }
         },
@@ -756,32 +725,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -862,42 +805,11 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             },
             "r_c:1": {
                 "rank": [
                     "leader"
-                ],
-                "cluster": [
-                    "stable",
-                    "unlawful",
-                    "neurotic"
                 ]
             }
         },
@@ -1126,32 +1038,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -1236,7 +1122,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1249,6 +1136,17 @@
                 "relationship": [
                     "littermates",
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -1278,7 +1176,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1295,12 +1194,13 @@
             },
             {
                 "cats_from": [
-                    "t_c"
-                ],
-                "cats_to": [
                     "r_c:0"
                 ],
+                "cats_to": [
+                    "t_c"
+                ],
                 "relationship": [
+                    "parent/child",
                     "min_like_50"
                 ]
             }
@@ -1371,13 +1271,9 @@
             "r_c:1": {
                 "rank": [
                     "leader"
-                ],
-                "cluster": [
-                    "stable",
-                    "unlawful",
-                    "neurotic"
                 ]
-            }
+            },
+            "r_c:2": {}
         },
         "relationships": [
             {
@@ -1390,6 +1286,17 @@
                 "relationship": [
                     "littermates",
                     "min_like_50"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:2"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -1422,14 +1329,6 @@
                 "rank": [
                     "medicine cat",
                     "medicine cat apprentice"
-                ],
-                "cluster": [
-                    "sweet",
-                    "brooding",
-                    "cool",
-                    "neurotic",
-                    "unlawful",
-                    "silly"
                 ]
             }
         },
@@ -1542,11 +1441,6 @@
             "r_c:0": {
                 "rank": [
                     "leader"
-                ],
-                "cluster": [
-                    "stable",
-                    "unlawful",
-                    "neurotic"
                 ]
             }
         },
@@ -1614,14 +1508,6 @@
                 "rank": [
                     "medicine cat",
                     "medicine cat apprentice"
-                ],
-                "cluster": [
-                    "sweet",
-                    "brooding",
-                    "cool",
-                    "neurotic",
-                    "unlawful",
-                    "silly"
                 ]
             }
         },
@@ -1699,22 +1585,6 @@
             "r_c:0": {
                 "rank": [
                     "kitten"
-                ],
-                "skill": [
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1"
-                ],
-                "cluster": [
-                    "neurotic",
-                    "unlawful",
-                    "assertive",
-                    "brooding",
-                    "upstanding"
                 ]
             }
         },
@@ -1869,32 +1739,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -1992,14 +1836,6 @@
                 "rank": [
                     "medicine cat",
                     "medicine cat apprentice"
-                ],
-                "cluster": [
-                    "sweet",
-                    "brooding",
-                    "cool",
-                    "neurotic",
-                    "unlawful",
-                    "silly"
                 ]
             }
         },
@@ -2050,32 +1886,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -2133,12 +1943,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding",
-                    "cool"
                 ]
             }
         },
@@ -2291,32 +2095,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -2408,6 +2186,7 @@
     },
     "war_focus_AJ15": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "introspective"
@@ -2632,22 +2411,6 @@
             "r_c:0": {
                 "rank": [
                     "kitten"
-                ],
-                "skill": [
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1"
-                ],
-                "cluster": [
-                    "neurotic",
-                    "unlawful",
-                    "assertive",
-                    "brooding",
-                    "upstanding"
                 ]
             }
         },
@@ -2760,6 +2523,7 @@
     },
     "war_focus_AJ25": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "cool"
@@ -2789,6 +2553,7 @@
     },
     "war_focus_AJ251": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "cool"
@@ -2846,32 +2611,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -2985,7 +2724,8 @@
                     "deputy",
                     "leader"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -2997,6 +2737,17 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
                 ]
             }
         ],
@@ -3012,6 +2763,7 @@
     },
     "war_focus_AJ29": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "cool"
@@ -3021,45 +2773,11 @@
                 "rank": [
                     "medicine cat",
                     "medicine cat apprentice"
-                ],
-                "cluster": [
-                    "sweet",
-                    "brooding",
-                    "cool",
-                    "neurotic",
-                    "unlawful",
-                    "silly"
                 ]
             },
             "r_c:1": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -3200,32 +2918,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -3304,11 +2996,6 @@
             "r_c:0": {
                 "rank": [
                     "leader"
-                ],
-                "cluster": [
-                    "stable",
-                    "unlawful",
-                    "neurotic"
                 ]
             }
         },
@@ -3410,9 +3097,6 @@
             "r_c:0": {
                 "rank": [
                     "queen"
-                ],
-                "cluster": [
-                    "brooding"
                 ]
             }
         },
@@ -3485,9 +3169,6 @@
             "r_c:0": {
                 "rank": [
                     "queen"
-                ],
-                "cluster": [
-                    "brooding"
                 ]
             }
         },
@@ -3541,14 +3222,6 @@
                 "rank": [
                     "medicine cat",
                     "medicine cat apprentice"
-                ],
-                "cluster": [
-                    "sweet",
-                    "brooding",
-                    "cool",
-                    "neurotic",
-                    "unlawful",
-                    "silly"
                 ]
             }
         },
@@ -3786,32 +3459,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -4001,22 +3648,6 @@
             "r_c:0": {
                 "rank": [
                     "kitten"
-                ],
-                "skill": [
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1"
-                ],
-                "cluster": [
-                    "neurotic",
-                    "unlawful",
-                    "assertive",
-                    "brooding",
-                    "upstanding"
                 ]
             }
         },
@@ -4049,22 +3680,6 @@
             "r_c:0": {
                 "rank": [
                     "kitten"
-                ],
-                "skill": [
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1"
-                ],
-                "cluster": [
-                    "neurotic",
-                    "unlawful",
-                    "assertive",
-                    "brooding",
-                    "upstanding"
                 ]
             }
         },
@@ -4100,22 +3715,6 @@
             "r_c:0": {
                 "rank": [
                     "kitten"
-                ],
-                "skill": [
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1"
-                ],
-                "cluster": [
-                    "neurotic",
-                    "unlawful",
-                    "assertive",
-                    "brooding",
-                    "upstanding"
                 ]
             }
         },
@@ -4146,22 +3745,6 @@
             "r_c:0": {
                 "rank": [
                     "kitten"
-                ],
-                "skill": [
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1"
-                ],
-                "cluster": [
-                    "neurotic",
-                    "unlawful",
-                    "assertive",
-                    "brooding",
-                    "upstanding"
                 ]
             }
         },
@@ -4234,11 +3817,6 @@
             "r_c:1": {
                 "rank": [
                     "leader"
-                ],
-                "cluster": [
-                    "stable",
-                    "unlawful",
-                    "neurotic"
                 ]
             }
         },
@@ -4291,32 +3869,11 @@
             "r_c:1": {
                 "rank": [
                     "leader"
-                ],
-                "cluster": [
-                    "stable",
-                    "unlawful",
-                    "neurotic"
                 ]
             },
             "r_c:2": {
                 "rank": [
                     "kitten"
-                ],
-                "skill": [
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1"
-                ],
-                "cluster": [
-                    "neurotic",
-                    "unlawful",
-                    "assertive",
-                    "brooding",
-                    "upstanding"
                 ]
             }
         },
@@ -4357,11 +3914,6 @@
             "r_c:0": {
                 "rank": [
                     "leader"
-                ],
-                "cluster": [
-                    "stable",
-                    "unlawful",
-                    "neurotic"
                 ]
             }
         },
@@ -4658,11 +4210,6 @@
             "r_c:0": {
                 "rank": [
                     "leader"
-                ],
-                "cluster": [
-                    "stable",
-                    "unlawful",
-                    "neurotic"
                 ]
             }
         },
@@ -4708,43 +4255,9 @@
                 "rank": [
                     "medicine cat",
                     "medicine cat apprentice"
-                ],
-                "cluster": [
-                    "sweet",
-                    "brooding",
-                    "cool",
-                    "neurotic",
-                    "unlawful",
-                    "silly"
                 ]
             },
-            "r_c:1": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic",
-                    "unabashed",
-                    "brooding",
-                    "assertive",
-                    "sweet",
-                    "silly",
-                    "unlawful",
-                    "cool",
-                    "introspective",
-                    "stable"
-                ],
-                "skill": [
-                    "GHOST,1",
-                    "GHOST,1",
-                    "GHOST,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1"
-                ]
-            },
+            "r_c:1": {},
             "r_c:2": {
                 "rank": [
                     "deputy"
@@ -4968,11 +4481,6 @@
             "r_c:0": {
                 "rank": [
                     "leader"
-                ],
-                "cluster": [
-                    "stable",
-                    "unlawful",
-                    "neurotic"
                 ]
             }
         },

@@ -101,6 +101,25 @@ class Dialogue():
         possible_dialogue = {}
         for key, block in possible_texts.items():
             # print("Checking", key)
+            if "season" in block:
+                if (
+                    block["season"] and
+                    game.clan.current_season not in block["season"] and
+                    game.clan.current_season.lower() not in block["season"]
+                    ):
+                    continue
+            if "biome" in block:
+                if (
+                    block["biome"] and
+                    game.clan.biome not in block["biome"] and
+                    game.clan.biome.lower() not in block["biome"]
+                    ):
+                    continue
+            if "camp" in block:
+                if block["camp"] and game.clan.camp_bg not in block["camp"]:
+                    continue
+
+            # now this for the cats block
             chosen_cat_dict = choose_random_cats(block, self.you, self.cat, self.cat_dict, key=key)
             if not chosen_cat_dict:
                 continue

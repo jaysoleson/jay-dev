@@ -93,6 +93,7 @@
     },
     "oldflirts_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "introspective"
@@ -1094,16 +1095,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable"
                 ]
             }
         },
@@ -1349,7 +1340,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "relationships": [
             {
@@ -1607,7 +1599,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1619,6 +1612,17 @@
                 ],
                 "relationship": [
                     "non-mates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -2100,6 +2104,7 @@
     },
     "oldflirts_77": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "sweet",
@@ -2115,6 +2120,7 @@
     },
     "neurotic_flirt": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "neurotic"
@@ -2146,6 +2152,7 @@
     },
     "neurotic_flirt1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "neurotic"
@@ -2286,6 +2293,7 @@
     },
     "oldflirts_82": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "sweet",
@@ -2343,6 +2351,7 @@
     },
     "brooding_flirt_AJ1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "brooding"
@@ -2473,6 +2482,7 @@
     },
     "brooding_flirt_AJ7": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "brooding"
@@ -2527,6 +2537,7 @@
     },
     "brooding_flirt_AJ9": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "brooding"
@@ -2669,6 +2680,7 @@
     },
     "cool_flirt_AJ4": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "cool",
@@ -3063,6 +3075,7 @@
     },
     "oldflirts_93": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "unlawful",
@@ -3113,6 +3126,7 @@
     },
     "oldflirts_95": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "unlawful",
@@ -3148,6 +3162,7 @@
     },
     "oldflirts_97": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -3311,6 +3326,7 @@
     },
     "oldflirts_103": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "introspective",
@@ -3800,6 +3816,7 @@
     },
     "oldflirts_123": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -3831,6 +3848,7 @@
     },
     "oldflirts_125": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "unabashed",
@@ -3848,6 +3866,7 @@
     },
     "oldflirts_126": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "introspective",
@@ -3897,6 +3916,7 @@
     },
     "oldflirts_128": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "sweet",
@@ -5025,6 +5045,7 @@
     },
     "flirting_shunned_CM1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "blind:any:false"
@@ -5042,6 +5063,7 @@
     },
     "flirting_shunned_CM2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "standing": [
                     "shunned"
@@ -5104,7 +5126,8 @@
                 "standing": [
                     "shunned"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -5153,7 +5176,8 @@
                 "standing": [
                     "shunned"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -5169,6 +5193,9 @@
                 ]
             }
         ],
+        "recent_murder": {
+            "victim": "r_c:0"
+        },
         "intro": [
             "[You decide to start flirting with t_c in an attempt to see where it leads. {PRONOUN/t_c/subject/CAP} {VERB/t_c/do/does} not seem amused.]",
             "y_c. I murdered r_c:0. I'm not afraid to go after you too if you keep at it.",
@@ -5349,19 +5376,10 @@
                     "shunned"
                 ]
             },
+            "t_c": {},
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable"
                 ]
             },
             "r_c:1": {
@@ -5464,6 +5482,7 @@
     },
     "grieving_flirt_CM1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "blind:any:false",
@@ -5490,12 +5509,13 @@
             },
             {
                 "cats_from": [
-                    "t_c"
-                ],
-                "cats_to": [
                     "r_c:0"
                 ],
+                "cats_to": [
+                    "t_c"
+                ],
                 "relationship": [
+                    "dead/grieving",
                     "min_like_20"
                 ]
             }
@@ -5695,12 +5715,13 @@
             },
             {
                 "cats_from": [
-                    "t_c"
-                ],
-                "cats_to": [
                     "r_c:0"
                 ],
+                "cats_to": [
+                    "t_c"
+                ],
                 "relationship": [
+                    "dead/grieving",
                     "min_romance_50"
                 ]
             }
@@ -5906,12 +5927,13 @@
             },
             {
                 "cats_from": [
-                    "t_c"
-                ],
-                "cats_to": [
                     "r_c:0"
                 ],
+                "cats_to": [
+                    "t_c"
+                ],
                 "relationship": [
+                    "dead/grieving",
                     "min_romance_50"
                 ]
             }
@@ -6519,6 +6541,7 @@
     },
     "flirt_reject_H7": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "blind:any:false"
@@ -6720,7 +6743,8 @@
                 "standing": [
                     "shunned"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -6732,6 +6756,17 @@
                 ],
                 "relationship": [
                     "non-mates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -6801,6 +6836,19 @@
                 ]
             }
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
+            }
+        ],
         "intro": [
             "r_c:0 just died and you're trying to flirt with me?",
             "... You need to get your priorities in order, y_c. Seriously."
@@ -6828,6 +6876,7 @@
     },
     "flirt_Guy1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "unlawful",
@@ -6846,6 +6895,7 @@
     },
     "flirting_neurotic_SQ1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "neurotic"
@@ -6859,6 +6909,7 @@
     },
     "flirting_neurotic_SQ2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "neurotic"
@@ -7135,16 +7186,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable"
                 ]
             }
         },
@@ -7265,6 +7306,7 @@
     },
     "blind_to_grieving_H1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "blind:any:false"
@@ -7340,7 +7382,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7353,6 +7396,17 @@
                 "relationship": [
                     "min_romance_20"
                 ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
+                ]
             }
         ],
         "intro": [
@@ -7361,6 +7415,7 @@
     },
     "hasmate_success_H2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "blind:any:false"
@@ -7398,7 +7453,8 @@
                     "deaf:any:false",
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7410,6 +7466,17 @@
                 ],
                 "relationship": [
                     "min_romance_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -7421,11 +7488,13 @@
     },
     "hasmate_success_H4": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7438,6 +7507,17 @@
                 "relationship": [
                     "min_romance_20"
                 ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
+                ]
             }
         ],
         "intro": [
@@ -7448,6 +7528,7 @@
     },
     "hasmate_success_H5": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "blind:any:false"
@@ -7483,7 +7564,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7497,6 +7579,17 @@
                     "mates",
                     "min_romance_20"
                 ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
+                ]
             }
         ],
         "intro": [
@@ -7504,6 +7597,25 @@
         ]
     },
     "flirt_reject_H20": {
+        "cats": {
+            "y_c": {},
+            "t_c": {},
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
+                ]
+            }
+        ],
         "intro": [
             "Oh, y_c! Thank you! Do you know who else has gorgeous eyes?",
             "r_c:0!~",
@@ -7521,8 +7633,23 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
+                ]
+            }
+        ],
         "intro": [
             "Oh, I wish r_c:0 spoke to me like that!"
         ]
@@ -7538,8 +7665,23 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
+                ]
+            }
+        ],
         "intro": [
             "You're really nice, y_c, but...",
             "I can't get over r_c:0. I hope you understand!"
@@ -7551,7 +7693,9 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "t_c": {},
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7563,6 +7707,18 @@
                 ],
                 "relationship": [
                     "non-mates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
         ],
@@ -7710,7 +7866,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7722,6 +7879,17 @@
                 ],
                 "relationship": [
                     "non-mates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -7740,7 +7908,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7753,6 +7922,17 @@
                 "relationship": [
                     "non-mates",
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -7772,7 +7952,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7784,6 +7965,17 @@
                 ],
                 "relationship": [
                     "non-mates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -7803,7 +7995,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7816,6 +8009,17 @@
                 "relationship": [
                     "non-mates",
                     "max_like_-30"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -7834,7 +8038,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7847,6 +8052,17 @@
                 "relationship": [
                     "non-mates",
                     "max_like_-30"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -7919,11 +8135,13 @@
     },
     "hasmate_reject_H8": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7935,6 +8153,17 @@
                 ],
                 "relationship": [
                     "non-mates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -7954,7 +8183,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7967,6 +8197,17 @@
                 "relationship": [
                     "non-mates"
                 ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
+                ]
             }
         ],
         "intro": [
@@ -7977,6 +8218,7 @@
     },
     "hasmate_reject_H10": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "rank": [
                     "deputy"
@@ -8036,6 +8278,7 @@
     },
     "frommate_grieving_H2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "blind:any:false",
@@ -8546,11 +8789,7 @@
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "assertive"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -8562,6 +8801,17 @@
                 ],
                 "relationship": [
                     "non-mates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
         ],
@@ -8789,11 +9039,7 @@
                     "adolescent"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "assertive"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -8806,6 +9052,17 @@
                 "relationship": [
                     "non-mates",
                     "min_like_40"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
         ],
@@ -9544,12 +9801,21 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "assertive"
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
-        },
+        ],
         "intro": [
             "Oh! Um...",
             "[t_c freezes, casting {PRONOUN/t_c/poss} gaze around camp.]",
@@ -10169,8 +10435,23 @@
                 "age": [
                     "adolescent"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
+                ]
+            }
+        ],
         "intro": [
             "[t_c's eyes are fixed on r_c:0 across camp.]",
             "... Oh, sorry, y_c! What were you saying?"
@@ -10605,7 +10886,8 @@
                     "grief stricken",
                     "blind:any:false"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "You're so pretty even when you cry."
@@ -10630,6 +10912,19 @@
                 ]
             }
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
+            }
+        ],
         "intro": [
             "You're being really sweet, but take care of yourself, yeah?",
             "How about we visit r_c:0 later?"
@@ -10642,7 +10937,8 @@
                     "grief stricken",
                     "blind:any:false"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "Has anycat ever told you to look ugly when you cry?"
@@ -10757,6 +11053,17 @@
                 "relationship": [
                     "max_like_-25"
                 ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
             }
         ],
         "intro": [
@@ -10800,6 +11107,19 @@
                 ]
             }
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
+            }
+        ],
         "intro": [
             "The way you loved r_c:0...",
             "It does make me wonder what it would feel to be loved like that too."
@@ -10824,6 +11144,19 @@
                 ]
             }
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
+            }
+        ],
         "intro": [
             "[t_c shuffles their paws, not meeting your eyes.]",
             "[It doesn't feel entirely appropriate to accept your advances, not when you're missing r_c:0 so much.]"

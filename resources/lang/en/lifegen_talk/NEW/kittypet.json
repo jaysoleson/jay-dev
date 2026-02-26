@@ -185,6 +185,7 @@
     },
     "living_ur_Guy2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "residence": [
                     "ur"
@@ -216,11 +217,7 @@
                     "ur"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unlawful"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -233,6 +230,17 @@
                 "relationship": [
                     "parent/child"
                 ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
+                ]
             }
         ],
         "intro": [
@@ -244,6 +252,7 @@
     },
     "living_to_ur_kittypet_CM1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "residence": [
                     "ur"
@@ -355,6 +364,7 @@
     },
     "dead_kittypet_J5": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "residence": [
                     "ur"

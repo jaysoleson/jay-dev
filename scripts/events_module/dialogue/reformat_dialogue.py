@@ -1,11 +1,12 @@
 import json
 import re
+import copy
 
 # SCRIPT FOR REFORMATTING LIFEGEN DIALOGUE
 # swaps lifegen abbrevs out for r_c:{index} abbrevs
 # this will NOT work on dialogue that has alreayd been reformatted. it will goof it up
 
-DEBUG_KEY = ""
+DEBUG_KEY = "about_parent4"
 
 def load_json(path):
     with open(path, 'r') as read_file:
@@ -71,6 +72,7 @@ for FILE in file_names:
 
         SEASON = []
         BIOME = []
+        CAMP = []
         TAGS = []
         RELATIONSHIPS = []
         MURDER = {}
@@ -87,10 +89,24 @@ for FILE in file_names:
                 CAT_DICT[key] = dialogue_block[key]
 
             elif key == "season":
-                SEASON = dialogue_block[key]
+                season_convert = {
+                    "new-leaf": "newleaf",
+                    "leaffall": "leaf-fall",
+                    "leafbare": "leaf-bare",
+                    "green-leaf": "greenleaf"
+                }
+                for season in dialogue_block[key]:
+                    check = season.lower()
+                    if check in season_convert:
+                        SEASON.append(season_convert[check])
+                    else:
+                        SEASON.append(check)
 
             if key == "biome":
                 BIOME = dialogue_block[key]
+
+            if key == "camp":
+                CAMP = dialogue_block[key]
 
             elif key == "season":
                 new_season = []
@@ -195,10 +211,10 @@ for FILE in file_names:
             elif isinstance(block, list):
                 SCENES[key] = []
                 for line in block:
-
                     # check every dialogue line
                     for lone_abbrev in abbrev_list:
                         # check every possible abbrev
+                        new_cat_info = {}
                         if lone_abbrev in line:
                             abbrevs_done.append(lone_abbrev)
                             # if the abbrev is found, check if it has any addons
@@ -216,10 +232,13 @@ for FILE in file_names:
                             random_cat_abbrev = f"r_c:{random_cat_index}"
                             RANDOM_CATS_DICT[full_abbrev] = random_cat_abbrev
 
-                            # convert_dict_copty = abbrev_convert.copy()
+
                             # grab the conversion from the json
-                            new_cat_info = abbrev_convert[lone_abbrev]
-                            # girl what the hell
+                            new_cat_info = copy.deepcopy(abbrev_convert[lone_abbrev])
+                            # debug_print(
+                            #     dialogue_key,
+                            #     f"{random_cat_abbrev} NEW INFO FOR {dialogue_key} {lone_abbrev}: {new_cat_info}"
+                            #     )
 
                             line = line.replace(full_abbrev, random_cat_abbrev)
 
@@ -314,13 +333,15 @@ for FILE in file_names:
         # now assign everything to the new block!
         if BIOME:
             new_block["biome"] = BIOME
+        if CAMP:
+            new_block["camp"] = CAMP
         if SEASON:
             new_block["season"] = SEASON
 
         for key, item in CAT_DICT.items():
+            if "cats" not in new_block:
+                new_block["cats"] = {}
             if item:
-                if "cats" not in new_block:
-                    new_block["cats"] = {}
 
                 for constraint in item.copy():
                     if constraint == "shunned":
@@ -370,7 +391,7 @@ for FILE in file_names:
                         item["residence"] = item[constraint]
                         item.pop(constraint)
 
-                new_block["cats"][key] = item
+            new_block["cats"][key] = item
         if TAGS:
             new_block["tags"] = TAGS
         if RELATIONSHIPS:

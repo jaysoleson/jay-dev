@@ -40,19 +40,14 @@
     },
     "valen_introspective_H1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "introspective",
                     "neurotic"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "brooding",
-                    "introspective",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -64,6 +59,18 @@
                 ],
                 "relationship": [
                     "min_trust_50"
+                ]
+            },
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
         ],
@@ -88,13 +95,7 @@
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "brooding",
-                    "introspective",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -106,6 +107,18 @@
                 ],
                 "relationship": [
                     "min_comfort_50"
+                ]
+            },
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
         ],
@@ -128,7 +141,8 @@
                     "adolescent",
                     "kitten"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -140,6 +154,17 @@
                 ],
                 "relationship": [
                     "child/parent"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -169,22 +194,6 @@
             "r_c:0": {
                 "rank": [
                     "kitten"
-                ],
-                "skill": [
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1"
-                ],
-                "cluster": [
-                    "neurotic",
-                    "unlawful",
-                    "assertive",
-                    "brooding",
-                    "upstanding"
                 ]
             }
         },
@@ -271,7 +280,8 @@
                 "standing": [
                     "shunned"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -283,6 +293,17 @@
                 ],
                 "relationship": [
                     "max_like_-50"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -387,7 +408,8 @@
                 "rank": [
                     "any"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -399,6 +421,17 @@
                 ],
                 "relationship": [
                     "max_like_-50"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -426,7 +459,8 @@
                 "rank": [
                     "any"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -438,6 +472,18 @@
                 ],
                 "relationship": [
                     "max_like_-50"
+                ]
+            },
+            {
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
         ],
@@ -506,13 +552,7 @@
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "brooding",
-                    "introspective",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -526,6 +566,18 @@
                     "min_respect_50",
                     "min_trust_50",
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
         ],
@@ -551,11 +603,7 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unlawful"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -567,6 +615,17 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -592,11 +651,7 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unlawful"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -608,6 +663,17 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -636,7 +702,8 @@
                 "skill": [
                     "MATCHMAKER,1"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -648,6 +715,18 @@
                 ],
                 "relationship": [
                     "min_like_50"
+                ]
+            },
+            {
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
         ],
@@ -677,11 +756,7 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unlawful"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -693,6 +768,17 @@
                 ],
                 "relationship": [
                     "strangers"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -708,7 +794,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "It's so nice to see the Clan in such high spirits!",
@@ -717,16 +804,13 @@
     },
     "valenfocus_gen_2ps": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unlawful"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -738,6 +822,17 @@
                 ],
                 "relationship": [
                     "non-mates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -768,22 +863,6 @@
             "r_c:0": {
                 "rank": [
                     "kitten"
-                ],
-                "skill": [
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1"
-                ],
-                "cluster": [
-                    "neurotic",
-                    "unlawful",
-                    "assertive",
-                    "brooding",
-                    "upstanding"
                 ]
             }
         },
@@ -808,6 +887,10 @@
         ]
     },
     "valenfocus_gen_4ps": {
+        "cats": {
+            "y_c": {},
+            "t_c": {}
+        },
         "intro": [
             "Hi y_c! I'm decorating the camp.",
             "Do you think you could help real quick? I just need that over there."
@@ -815,18 +898,13 @@
     },
     "valentine_focus_J1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "neurotic"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "brooding",
-                    "introspective",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -839,6 +917,18 @@
                 "relationship": [
                     "min_trust_50",
                     "non-mates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
         ],
@@ -897,14 +987,22 @@
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "brooding",
-                    "introspective",
-                    "neurotic"
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
-        },
+        ],
         "intro": [
             "[You ask t_c why {PRONOUN/t_c/subject} {VERB/t_c/look/looks} so stressed.]",
             "Oh, nothing, y_c. It's grown-up stuff.",
@@ -914,6 +1012,7 @@
     },
     "valentine_focus_AJ1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive"
@@ -948,6 +1047,7 @@
     },
     "valentine_focus_AJ2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive"
@@ -955,7 +1055,8 @@
                 "age": [
                     "sameage"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -967,6 +1068,18 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
         ],
@@ -981,18 +1094,28 @@
     },
     "valentine_focus_AJ3": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
                     "unabashed"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unlawful"
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
-        },
+        ],
         "intro": [
             "[t_c is making a huge commotion in the middle of camp.]",
             "Ahem, may all cats of c_n gather for a Clan meeting ... on why r_c:0 is the best mate ever!",
@@ -1004,6 +1127,7 @@
     },
     "valentine_focus_AJ4": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "cool",
@@ -1034,6 +1158,7 @@
     },
     "valentine_focus_AJ5": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "cool"
@@ -1062,6 +1187,7 @@
     },
     "valentine_focus_AJ6": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -1110,14 +1236,22 @@
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "brooding",
-                    "introspective",
-                    "neurotic"
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
-        },
+        ],
         "intro": [
             "Sigh ... Another couples' season, tragically single.",
             "What's the deal, StarClan? I thought for sure I would've found someone by now!",
@@ -1165,6 +1299,7 @@
     },
     "valentine_focus_AJ9": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "brooding"
@@ -1191,6 +1326,7 @@
     },
     "valentine_focus_AJ10": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -1309,13 +1445,7 @@
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "brooding",
-                    "introspective",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1327,6 +1457,18 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
         ],
@@ -1350,11 +1492,7 @@
                     "deaf:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unlawful"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1367,6 +1505,17 @@
                 "relationship": [
                     "child/parent",
                     "adoptive child/adoptive parent"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -1466,13 +1615,8 @@
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "brooding",
-                    "introspective",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {},
+            "r_c:1": {}
         },
         "relationships": [
             {
@@ -1484,6 +1628,30 @@
                 ],
                 "relationship": [
                     "min_like_50"
+                ]
+            },
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:1"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
         ],
@@ -1519,6 +1687,7 @@
     },
     "valentine_focus_Guy1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -1571,13 +1740,7 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "brooding",
-                    "introspective",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1589,6 +1752,18 @@
                 ],
                 "relationship": [
                     "min_like_50"
+                ]
+            },
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
         ],
@@ -1613,7 +1788,8 @@
                 "age": [
                     "older"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1626,6 +1802,18 @@
                 "relationship": [
                     "min_like_20"
                 ]
+            },
+            {
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
+                ]
             }
         ],
         "intro": [
@@ -1637,6 +1825,7 @@
     },
     "valentines_focus_J6": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "cool",
@@ -1648,14 +1837,22 @@
                     "sameage"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "brooding",
-                    "introspective",
-                    "neurotic"
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
-        },
+        ],
         "intro": [
             "I wonder if I should have kits some day...",
             "Do you think r_c:0 thinks so?",
@@ -1742,6 +1939,7 @@
     },
     "valentines_focus_J9": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "deaf:true:true"

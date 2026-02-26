@@ -81,13 +81,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -414,11 +407,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
+                    "assertive"
                 ]
             }
         },
@@ -951,7 +940,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1778,8 +1768,22 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
+        ],
         "intro": [
             "Ugh, I can't believe my mentor gave me tick duty again.",
             "This is so unfair! I'm supposed to be doing cool stuff, like hunting and fighting in battles! Not eating mousebile and cleaning old fleabags!",
@@ -1807,14 +1811,11 @@
                     "apprentice"
                 ]
             },
+            "r_c:0": {},
+            "r_c:1": {},
             "r_c:2": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -1828,6 +1829,39 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:1"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             },
             {
@@ -1892,7 +1926,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1904,6 +1939,17 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
         ],
@@ -2024,6 +2070,7 @@
                     "apprentice"
                 ]
             },
+            "r_c:0": {},
             "r_c:1": {
                 "rank": [
                     "deputy"
@@ -2834,6 +2881,7 @@
     },
     "assertive_dislike1_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -3139,6 +3187,7 @@
     },
     "assertive_elder": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -3605,7 +3654,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "intro": [
             "Oh hey y_c! ... What am I doing in the bushes? Hehe- funny story.",
@@ -3631,7 +3681,8 @@
                 "condition": [
                     "hearing"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -3716,7 +3767,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "intro": [
             "y_c!! Ah- erm- uh- I'm not- I'm not upset-",
@@ -3767,13 +3819,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -4015,7 +4060,8 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -4057,8 +4103,7 @@
             },
             "r_c:0": {
                 "cluster": [
-                    "upstanding",
-                    "neurotic"
+                    "upstanding"
                 ]
             }
         },
@@ -4086,12 +4131,7 @@
                     "hearing"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -4270,12 +4310,7 @@
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "intro": [
             "One of the other apprentices just went to go play a prank on r_c:0. Can you believe it?",
@@ -4373,8 +4408,22 @@
                 "age": [
                     "not_kitten"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
+        ],
         "intro": [
             "My mouse-brained mentor ... always trying to get me to 'participate more' in training and 'work together' with my Clanmates ...",
             "Working together is for the weak! If you want something done right, you have to get it done yourself. Clearly, r_c:0 is too stupid to see it, though!",
@@ -4474,6 +4523,7 @@
     },
     "broodingapp_toapp43": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "brooding"
@@ -4580,6 +4630,7 @@
     },
     "broodingapp_toapp46": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "brooding",
@@ -4651,6 +4702,7 @@
     },
     "broodingapp_toapp48": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "brooding"
@@ -4788,11 +4840,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -4887,8 +4934,22 @@
                 "age": [
                     "not_kitten"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
+        ],
         "intro": [
             "Sometimes I feel like r_c:0 never appreciates anything I do. Have you seen how {PRONOUN/r_c:0/subject}{VERB/r_c:0/'ve/'s} been these past few days? All I'm able to get out of {PRONOUN/r_c:0/object} are half-hearted growls or dismissive comments.",
             "I make this amazing catch while hunting, and I don't even get an ounce of approval! I take the time to clean out some extra nests, and I get snapped at for being late to training! Can you believe this?",
@@ -5066,6 +5127,7 @@
     },
     "stable_apprentice_1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "stable"
@@ -5077,11 +5139,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -5100,6 +5157,7 @@
     },
     "stable_apprentice_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "stable"
@@ -5108,11 +5166,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -5156,6 +5209,7 @@
     },
     "stable_apprentice_4": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "stable"
@@ -5318,8 +5372,22 @@
                 "cluster": [
                     "stable"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
+            }
+        ],
         "intro": [
             "Sorry, I have to make this quick, but I wanted to drop by and say the way you and r_c:0 handled that dispute at the o_c_n border was well done, I was very impressed.",
             "Just watching the way you spoke and controlled the situation, at this rate, you'll be a warrior in no time! Oh-",
@@ -5360,8 +5428,34 @@
                 "cluster": [
                     "stable"
                 ]
-            }
+            },
+            "r_c:0": {},
+            "r_c:1": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:1"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
+        ],
         "intro": [
             "Sorry I have to make this quick, but I wanted to drop by and say the way you and r_c:0 handled that dispute at the o_c_n border was well done, I was very impressed.",
             "Just watching the way you spoke and controlled the situation, at this rate, you'll be a mediator in no time! Oh-",
@@ -5500,8 +5594,22 @@
                 "condition": [
                     "blind:any:false"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
+        ],
         "intro": [
             "Excuse me, y_c, could you check something for me? I got my paw jammed under a couple of roots while I was digging for a mouse.",
             "It hurts a little, but I don't think it's anything too serious but r_c:0 told me to get it checked out.",
@@ -5529,12 +5637,7 @@
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "intro": [
             "r_c:0 had mentioned you were to have your assessment soon, I think it was something about treating a cat all on your own? Either way, I believe in you, good luck! You'll be great."
@@ -5650,8 +5753,22 @@
                 "cluster": [
                     "stable"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
+            }
+        ],
         "intro": [
             "[Your paws ache and all you can taste is bitter bark and soil. Yet, it's worth it because if it wasn't for these materials, the kits wouldn't have their little play things.]",
             "[These strange contractions were made by you and r_c:0. {PRONOUN/r_c:0/subject/CAP} {VERB/r_c:0/were/was} strange but cute, almost fascinating as {PRONOUN/r_c:0/subject} imitated mice and shrews.]",
@@ -5701,11 +5818,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -5851,8 +5963,22 @@
                 "cluster": [
                     "stable"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
+        ],
         "intro": [
             "[r_c:0 wasn't available for training today for t_c, so you offered a paw in support. Now, at sunhigh, where the breeze is light and the smells are clear you find yourself walking with the apprentice, guided by {PRONOUN/t_c/poss} judgement.]",
             "[You may be a mediator, but you know the territory well, probably better than most. Yet this was a good chance for t_c to test {PRONOUN/t_c/poss} knowledge. As of so far, {PRONOUN/t_c/subject} {VERB/t_c/were/was} doing well.]",
@@ -5956,6 +6082,7 @@
     },
     "bloodthirsty_pos_Rr": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "bloodthirsty",
@@ -6135,6 +6262,7 @@
     },
     "bloodthirsty_kit1_Rr": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "bloodthirsty"
@@ -6206,8 +6334,22 @@
                 "age": [
                     "not_kitten"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
+        ],
         "intro": [
             "Gah, stupid, stupid, so stupid, t_c ...",
             "Wuh - y_c? How long have you been standing there?",
@@ -6306,11 +6448,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -6342,11 +6479,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -6498,6 +6630,7 @@
     },
     "cool_5": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "cool"
@@ -6938,8 +7071,22 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
+            }
+        ],
         "intro": [
             "[Under r_c:0's oversight, you and t_c are practicing a simple battle technique where you dodge out of the way of an attack, and then lunge forward while your opponent is following through with their failed blow.]",
             "[t_c springs out of the way of your swipes, but when it comes time for a counterattack, {PRONOUN/t_c/subject} {VERB/t_c/remain/remains} at least a tail-length away, batting at empty air.]",
@@ -7118,13 +7265,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -7154,7 +7294,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7166,6 +7307,17 @@
                 ],
                 "relationship": [
                     "strangers"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
                 ]
             }
         ],
@@ -7191,7 +7343,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7204,6 +7357,17 @@
                 "relationship": [
                     "min_trust_15",
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
         ],
@@ -7232,7 +7396,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7245,6 +7410,17 @@
                 "relationship": [
                     "min_trust_15",
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
         ],
@@ -7273,7 +7449,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7286,6 +7463,17 @@
                 "relationship": [
                     "min_trust_15",
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
         ],
@@ -7320,7 +7508,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7332,6 +7521,17 @@
                 ],
                 "relationship": [
                     "min_like_50"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
         ],
@@ -7369,7 +7569,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7382,6 +7583,17 @@
                 "relationship": [
                     "min_trust_15",
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
         ],
@@ -7411,7 +7623,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7424,6 +7637,17 @@
                 "relationship": [
                     "min_comfort_15",
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
         ],
@@ -7449,7 +7673,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7461,6 +7686,17 @@
                 ],
                 "relationship": [
                     "min_like_10"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
                 ]
             }
         ],
@@ -7494,11 +7730,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -7555,13 +7786,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -7711,11 +7935,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -7796,13 +8015,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -7947,17 +8159,11 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "neurotic"
                 ]
             },
             "r_c:1": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "stable"
                 ]
             }
         },
@@ -8086,12 +8292,7 @@
                     "queen's apprentice"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -8280,13 +8481,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
                 ]
             },
             "r_c:1": {
@@ -8346,16 +8540,10 @@
                     "apprentice"
                 ]
             },
+            "r_c:0": {},
             "r_c:1": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -8373,12 +8561,13 @@
             },
             {
                 "cats_from": [
-                    "t_c"
-                ],
-                "cats_to": [
                     "r_c:0"
                 ],
+                "cats_to": [
+                    "t_c"
+                ],
                 "relationship": [
+                    "app/mentor",
                     "strangers"
                 ]
             }
@@ -8403,7 +8592,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -8415,6 +8605,17 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
                 ]
             }
         ],
@@ -8446,7 +8647,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -8458,6 +8660,17 @@
                 ],
                 "relationship": [
                     "min_like_10"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
                 ]
             }
         ],
@@ -8496,13 +8709,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -8671,13 +8877,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -8785,6 +8984,7 @@
     },
     "assertive_gen4": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive"
@@ -9066,13 +9266,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -9167,17 +9360,11 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "neurotic"
                 ]
             },
             "r_c:1": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "stable"
                 ]
             }
         },
@@ -9224,11 +9411,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
+                    "silly"
                 ]
             }
         },
@@ -9406,13 +9589,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -9454,7 +9630,8 @@
                     "apprentice",
                     "df_trainee"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -9652,12 +9829,13 @@
             },
             {
                 "cats_from": [
-                    "t_c"
-                ],
-                "cats_to": [
                     "r_c:0"
                 ],
+                "cats_to": [
+                    "t_c"
+                ],
                 "relationship": [
+                    "app/mentor",
                     "strangers"
                 ]
             }
@@ -9691,9 +9869,7 @@
                     "apprentice"
                 ],
                 "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
+                    "silly"
                 ]
             }
         },
@@ -9739,11 +9915,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
+                    "unlawful"
                 ]
             }
         },
@@ -9835,11 +10007,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
+                    "neurotic"
                 ]
             }
         },
@@ -9900,10 +10068,6 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
                     "upstanding"
                 ]
             },
@@ -9959,10 +10123,6 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
                     "upstanding"
                 ]
             },
@@ -10122,9 +10282,7 @@
                     "apprentice"
                 ],
                 "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
+                    "neurotic"
                 ]
             }
         },
@@ -10191,9 +10349,7 @@
                     "apprentice"
                 ],
                 "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
+                    "neurotic"
                 ]
             }
         },
@@ -10242,11 +10398,7 @@
                     "apprentice"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "assertive"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -10261,6 +10413,17 @@
                     "child/parent",
                     "adoptive child/adoptive parent",
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
         ],
@@ -10290,11 +10453,7 @@
                     "apprentice"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "assertive"
-                ]
-            },
+            "r_c:0": {},
             "r_c:1": {
                 "rank": [
                     "leader"
@@ -10311,6 +10470,17 @@
                 ],
                 "relationship": [
                     "min_like_40"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
         ],
@@ -10448,8 +10618,6 @@
                     "apprentice"
                 ],
                 "cluster": [
-                    "silly",
-                    "neurotic",
                     "upstanding"
                 ]
             }
@@ -10601,6 +10769,7 @@
     },
     "heatexhaustion_H2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "age": [
                     "senior adult",
@@ -10623,6 +10792,7 @@
     },
     "quilled_SQ1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "age": [],
                 "cluster": [
@@ -10635,7 +10805,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -10651,12 +10822,13 @@
             },
             {
                 "cats_from": [
-                    "t_c"
-                ],
-                "cats_to": [
                     "r_c:0"
                 ],
+                "cats_to": [
+                    "y_c"
+                ],
                 "relationship": [
+                    "mentor/app",
                     "strangers"
                 ]
             }
@@ -10748,11 +10920,7 @@
                     "apprentice"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "assertive"
-                ]
-            },
+            "r_c:0": {},
             "r_c:1": {
                 "rank": [
                     "medicine cat",
@@ -10774,12 +10942,13 @@
             },
             {
                 "cats_from": [
-                    "t_c"
-                ],
-                "cats_to": [
                     "r_c:0"
                 ],
+                "cats_to": [
+                    "t_c"
+                ],
                 "relationship": [
+                    "app/mentor",
                     "strangers"
                 ]
             }
@@ -10815,7 +10984,9 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {},
+            "r_c:1": {}
         },
         "relationships": [
             {
@@ -10875,12 +11046,21 @@
                     "deputy"
                 ]
             },
-            "r_c:1": {
-                "cluster": [
-                    "assertive"
+            "r_c:1": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:1"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
-        },
+        ],
         "intro": [
             "[t_c stands next to r_c:1 and r_c:0, ready to head out for a hunting patrol. r_c:0 seems to be detailing the route that the group will take, and t_c listens intently.]",
             "[It's kind of silly to see the young cat standing so... formally, almost stiffly, as if {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} a senior warrior rather than an apprentice.]"
@@ -11014,7 +11194,6 @@
             },
             "r_c:0": {
                 "cluster": [
-                    "upstanding",
                     "neurotic"
                 ]
             }
@@ -11065,12 +11244,33 @@
                     "apprentice"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "assertive"
+            "r_c:0": {},
+            "r_c:1": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:1"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
                 ]
             }
-        },
+        ],
         "intro": [
             "y_c, when do you think we'll get to fight in a real warrior battle?",
             "I know we've been practicing our fighting moves, but practice is nothing compared to the real thing.",
@@ -11187,12 +11387,21 @@
                     "apprentice"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "assertive"
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
-        },
+        ],
         "intro": [
             "[t_c comes in from the hunting patrol, staring at {PRONOUN/t_c/poss} paws self-consciously as the rest of the patrol adds their catches to the freshkill pile.]",
             "[r_c:0 gently reassures {PRONOUN/t_c/object} that {PRONOUN/t_c/subject} tried {PRONOUN/t_c/poss} best, but t_c just glances away, clearly upset.]",
@@ -11222,6 +11431,7 @@
     },
     "broodingapp_toapp4": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "brooding"
@@ -11303,11 +11513,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding"
                 ]
             },
             "r_c:1": {
@@ -11319,13 +11524,6 @@
             "r_c:2": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding"
                 ]
             }
         },
@@ -11457,12 +11655,7 @@
                     "apprentice"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -11613,7 +11806,8 @@
                 "rank": [
                     "apprentice"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {

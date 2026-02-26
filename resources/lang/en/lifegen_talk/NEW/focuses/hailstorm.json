@@ -1,6 +1,7 @@
 {
     "hail_focus_AJ": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "brooding"
@@ -31,6 +32,7 @@
     },
     "hail_focus_AJ1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "introspective"
@@ -51,6 +53,7 @@
     },
     "hail_focus_AJ2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -85,6 +88,7 @@
     },
     "hail_focus_AJ2.5": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -286,13 +290,21 @@
                     "kitten"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unabashed",
-                    "silly"
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "littermates"
                 ]
             }
-        },
+        ],
         "intro": [
             "[t_c and r_c:0 bat a hail pellet back and forth, squealing with laughter.]"
         ]
@@ -317,9 +329,6 @@
             "r_c:0": {
                 "rank": [
                     "queen"
-                ],
-                "cluster": [
-                    "brooding"
                 ]
             }
         },
@@ -347,30 +356,11 @@
             "r_c:0": {
                 "rank": [
                     "queen"
-                ],
-                "cluster": [
-                    "brooding"
                 ]
             },
             "r_c:1": {
                 "rank": [
                     "kitten"
-                ],
-                "skill": [
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1"
-                ],
-                "cluster": [
-                    "neurotic",
-                    "unlawful",
-                    "assertive",
-                    "brooding",
-                    "upstanding"
                 ]
             }
         },
@@ -510,15 +500,21 @@
                     "apprentice"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "assertive",
-                    "neurotic",
-                    "cool",
-                    "brooding"
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
                 ]
             }
-        },
+        ],
         "intro": [
             "Ugh, this hail is the worst! We have, like, triple our normal apprentice's duties!",
             "None of the warriors had to go through this during their apprenticeships ... It really isn't fair!",
@@ -546,32 +542,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -603,9 +573,6 @@
             "r_c:0": {
                 "rank": [
                     "queen"
-                ],
-                "cluster": [
-                    "brooding"
                 ]
             }
         },
@@ -689,22 +656,6 @@
             "r_c:0": {
                 "rank": [
                     "kitten"
-                ],
-                "skill": [
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1"
-                ],
-                "cluster": [
-                    "neurotic",
-                    "unlawful",
-                    "assertive",
-                    "brooding",
-                    "upstanding"
                 ]
             }
         },
@@ -807,32 +758,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },

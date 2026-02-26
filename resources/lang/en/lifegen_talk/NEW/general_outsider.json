@@ -840,6 +840,7 @@
     },
     "you_living_they_outsider_sc_CM1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "residence": [
                     "sc"

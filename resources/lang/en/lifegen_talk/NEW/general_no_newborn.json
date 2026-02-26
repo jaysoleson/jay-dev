@@ -1,6 +1,7 @@
 {
     "UR_wisp_H2_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "residence": [
                     "ur"
@@ -17,6 +18,7 @@
     },
     "living_ur_5c_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "residence": [
                     "ur"
@@ -30,6 +32,7 @@
     },
     "living_ur_1c_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "residence": [
                     "ur"
@@ -43,6 +46,7 @@
     },
     "living_ur_2c_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "residence": [
                     "ur"
@@ -55,6 +59,7 @@
     },
     "living_ur_3c_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "residence": [
                     "ur"
@@ -388,7 +393,8 @@
                 "residence": [
                     "ur"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "[t_c gazes sadly at you.]",
@@ -442,7 +448,8 @@
                 "residence": [
                     "ur"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "Are you looking for someone? I can help you look, if you want."
@@ -685,8 +692,22 @@
                 "residence": [
                     "sc"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "child/parent"
+                ]
+            }
+        ],
         "intro": [
             "Say hi to r_c:0 for me, alright?",
             "I can't visit the living world as freely as you can."
@@ -761,6 +782,7 @@
     },
     "airplane_game_AJ": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -771,12 +793,7 @@
                     "younger"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unabashed",
-                    "silly"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -788,6 +805,17 @@
                 ],
                 "relationship": [
                     "non-related"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "littermates"
                 ]
             }
         ],
@@ -816,9 +844,6 @@
             "r_c:0": {
                 "residence": [
                     "any"
-                ],
-                "cluster": [
-                    "introspective"
                 ]
             }
         },
@@ -832,6 +857,17 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
                 ]
             }
         ],
@@ -865,9 +901,6 @@
             "r_c:0": {
                 "residence": [
                     "any"
-                ],
-                "cluster": [
-                    "introspective"
                 ]
             }
         },
@@ -881,6 +914,17 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
                 ]
             }
         ],
@@ -913,9 +957,6 @@
             "r_c:0": {
                 "residence": [
                     "any"
-                ],
-                "cluster": [
-                    "introspective"
                 ]
             }
         },
@@ -929,6 +970,17 @@
                 ],
                 "relationship": [
                     "min_like_50"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
                 ]
             }
         ],
@@ -961,12 +1013,22 @@
             "r_c:0": {
                 "residence": [
                     "any"
-                ],
-                "cluster": [
-                    "introspective"
                 ]
             }
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
+            }
+        ],
         "intro": [
             "r_c:0 was one of those cats that was bigger than life, you know? Never in my days would I have thought something would strip that light away.",
             "[t_c starts to tear up, using {PRONOUN/t_c/poss} paw to wipe away evidence of {PRONOUN/t_c/poss} grief. You notice, and assure t_c that {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} have to talk about r_c:0.]",
@@ -992,11 +1054,7 @@
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unlawful"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1009,6 +1067,17 @@
                 "relationship": [
                     "non-related",
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "siblings"
                 ]
             }
         ],
@@ -1191,9 +1260,6 @@
             "r_c:0": {
                 "residence": [
                     "any"
-                ],
-                "cluster": [
-                    "introspective"
                 ]
             }
         },
@@ -1207,6 +1273,17 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
                 ]
             }
         ],
@@ -1278,7 +1355,8 @@
                 "age": [
                     "not_kitten"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1290,6 +1368,17 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -1393,7 +1482,8 @@
                     "adolescent",
                     "kitten"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "relationships": [
             {
@@ -1547,32 +1637,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -1710,8 +1774,22 @@
                 "age": [
                     "not_kitten"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "child/parent"
+                ]
+            }
+        ],
         "intro": [
             "[Late at night, you swear you can overhear t_c ... praying?]",
             "[You're sure you must be mistaken. t_c has never been one to pray, let alone in earshot of {PRONOUN/t_c/poss} Clanmates.]",
@@ -1742,12 +1820,21 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unlawful"
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
-        },
+        ],
         "intro": [
             "[Late at night, you swear you can overhear t_c ... praying?]",
             "[You're sure you must be mistaken. t_c has never been one to pray, let alone in earshot of {PRONOUN/t_c/poss} Clanmates.]",
@@ -1779,14 +1866,22 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "brooding",
-                    "introspective",
-                    "neurotic"
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
                 ]
             }
-        },
+        ],
         "intro": [
             "[Late at night, you swear you can overhear t_c ... praying?]",
             "[You're sure you must be mistaken. t_c has never been one to pray, let alone in earshot of {PRONOUN/t_c/poss} Clanmates.]",
@@ -1825,12 +1920,22 @@
             "r_c:0": {
                 "residence": [
                     "any"
-                ],
-                "cluster": [
-                    "introspective"
                 ]
             }
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
+            }
+        ],
         "intro": [
             "Hey, I got a good one: why can't r_c:0 make anyone laugh anymore? Because {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} dead serious.",
             "Or, why shouldn't we speak ill of r_c:0? Because it would be a grave mistake.",
@@ -1859,9 +1964,6 @@
             "r_c:0": {
                 "rank": [
                     "mediator"
-                ],
-                "cluster": [
-                    "silly"
                 ]
             }
         },
@@ -1877,7 +1979,8 @@
                 "standing": [
                     "shunned"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "relationships": [
             {
@@ -1911,7 +2014,8 @@
                     "member",
                     "shunned"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "relationships": [
             {
@@ -2177,8 +2281,22 @@
                 "residence": [
                     "sc"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "child/parent"
+                ]
+            }
+        ],
         "intro": [
             "[r_c:0 notices you and smiles.]",
             "[You've come to realize that the 'scary warriors' are just cats, the same as you.]"
@@ -2195,8 +2313,22 @@
                 "residence": [
                     "sc"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "child/parent"
+                ]
+            }
+        ],
         "intro": [
             "Still watching over r_c:0?",
             "... yeah I know that {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} your kit, no matter who raises {PRONOUN/r_c:0/object}.",
@@ -2379,6 +2511,7 @@
     },
     "bioparent_unlawfulGuy1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "unlawful"
@@ -2687,24 +2820,11 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "neurotic",
-                    "assertive",
-                    "sweet",
-                    "unabashed",
-                    "silly",
-                    "upstanding"
                 ]
             },
             "r_c:1": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "stable",
-                    "assertive",
-                    "silly"
                 ]
             }
         },
@@ -3353,6 +3473,7 @@
     },
     "silly_trust_theone": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "silly"
@@ -3398,32 +3519,7 @@
                     "blind:false:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic",
-                    "unabashed",
-                    "brooding",
-                    "assertive",
-                    "sweet",
-                    "silly",
-                    "unlawful",
-                    "cool",
-                    "introspective"
-                ],
-                "skill": [
-                    "GHOST,1",
-                    "GHOST,1",
-                    "GHOST,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -3446,6 +3542,7 @@
     },
     "silly_trust_abstraction": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "silly"
@@ -3476,6 +3573,7 @@
     },
     "silly_trust_porcupine": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "silly"
@@ -3732,32 +3830,7 @@
                     "blind:any:false"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic",
-                    "unabashed",
-                    "brooding",
-                    "assertive",
-                    "sweet",
-                    "silly",
-                    "unlawful",
-                    "cool",
-                    "introspective"
-                ],
-                "skill": [
-                    "GHOST,1",
-                    "GHOST,1",
-                    "GHOST,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1"
-                ]
-            }
+            "r_c:0": {}
         },
         "intro": [
             "[t_c runs into the medicine den with an exasperated look on {PRONOUN/t_c/poss} face.]",
@@ -4057,12 +4130,6 @@
                 "rank": [
                     "medicine cat",
                     "medicine cat apprentice"
-                ],
-                "cluster": [
-                    "sweet",
-                    "brooding",
-                    "cool",
-                    "neurotic"
                 ]
             }
         },
@@ -4124,6 +4191,7 @@
     },
     "parent_gift_J1~3": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -4134,9 +4202,6 @@
             "r_c:0": {
                 "rank": [
                     "mediator"
-                ],
-                "cluster": [
-                    "silly"
                 ]
             }
         },
@@ -4353,7 +4418,8 @@
                 "standing": [
                     "shunned"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "relationships": [
             {
@@ -4448,7 +4514,8 @@
                 "condition": [
                     "deaf:any:true"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "relationships": [
             {
@@ -4766,6 +4833,7 @@
     },
     "BG3_DF_H2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "backstory": [
                     "ancientspirit"
@@ -4808,36 +4876,12 @@
             },
             "r_c:0": {
                 "cluster": [
-                    "assertive",
-                    "neurotic",
-                    "cool",
                     "brooding"
                 ]
             },
             "r_c:1": {
                 "cluster": [
-                    "upstanding",
-                    "neurotic",
-                    "unabashed",
-                    "brooding",
-                    "assertive",
-                    "sweet",
-                    "silly",
-                    "unlawful",
-                    "cool",
-                    "introspective"
-                ],
-                "skill": [
-                    "GHOST,1",
-                    "GHOST,1",
-                    "GHOST,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1"
+                    "unabashed"
                 ]
             }
         },
@@ -4855,12 +4899,13 @@
             },
             {
                 "cats_from": [
-                    "t_c"
-                ],
-                "cats_to": [
                     "r_c:0"
                 ],
+                "cats_to": [
+                    "t_c"
+                ],
                 "relationship": [
+                    "app/mentor",
                     "strangers"
                 ]
             }
@@ -4895,10 +4940,7 @@
                     "medicine cat apprentice"
                 ],
                 "cluster": [
-                    "sweet",
-                    "brooding",
-                    "cool",
-                    "neurotic"
+                    "cool"
                 ]
             }
         },
@@ -4944,30 +4986,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
+                    "cool"
                 ]
             }
         },
@@ -5105,15 +5124,11 @@
                 ]
             },
             "r_c:0": {
+                "cluster": [
+                    "cool"
+                ],
                 "standing": [
                     "shunned"
-                ],
-                "cluster": [
-                    "silly",
-                    "unlawful",
-                    "lonesome",
-                    "cool",
-                    "neurotic"
                 ]
             }
         },
@@ -5172,30 +5187,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
+                    "cool"
                 ]
             }
         },
@@ -5224,28 +5216,7 @@
             },
             "r_c:0": {
                 "cluster": [
-                    "upstanding",
-                    "neurotic",
-                    "unabashed",
-                    "brooding",
-                    "assertive",
-                    "sweet",
-                    "silly",
-                    "unlawful",
-                    "cool",
                     "introspective"
-                ],
-                "skill": [
-                    "GHOST,1",
-                    "GHOST,1",
-                    "GHOST,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1"
                 ]
             }
         },
@@ -5301,30 +5272,7 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
                     "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -5386,28 +5334,7 @@
             },
             "r_c:0": {
                 "cluster": [
-                    "upstanding",
-                    "neurotic",
-                    "unabashed",
-                    "brooding",
-                    "assertive",
-                    "sweet",
-                    "silly",
-                    "unlawful",
-                    "cool",
                     "introspective"
-                ],
-                "skill": [
-                    "GHOST,1",
-                    "GHOST,1",
-                    "GHOST,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1"
                 ]
             }
         },
@@ -5464,28 +5391,7 @@
             },
             "r_c:0": {
                 "cluster": [
-                    "upstanding",
-                    "neurotic",
-                    "unabashed",
-                    "brooding",
-                    "assertive",
-                    "sweet",
-                    "silly",
-                    "unlawful",
-                    "cool",
                     "introspective"
-                ],
-                "skill": [
-                    "GHOST,1",
-                    "GHOST,1",
-                    "GHOST,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1"
                 ]
             }
         },
@@ -5533,15 +5439,11 @@
                 ]
             },
             "r_c:0": {
+                "cluster": [
+                    "neurotic"
+                ],
                 "standing": [
                     "shunned"
-                ],
-                "cluster": [
-                    "silly",
-                    "unlawful",
-                    "lonesome",
-                    "cool",
-                    "neurotic"
                 ]
             }
         },
@@ -5593,7 +5495,8 @@
                 "age": [
                     "not_kitten"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -5605,6 +5508,17 @@
                 ],
                 "relationship": [
                     "min_like_25"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "child/parent"
                 ]
             }
         ],
@@ -5643,8 +5557,6 @@
                     "leader"
                 ],
                 "cluster": [
-                    "stable",
-                    "unlawful",
                     "neurotic"
                 ]
             }
@@ -5708,8 +5620,6 @@
                     "leader"
                 ],
                 "cluster": [
-                    "stable",
-                    "unlawful",
                     "neurotic"
                 ]
             },
@@ -5783,8 +5693,6 @@
                     "leader"
                 ],
                 "cluster": [
-                    "stable",
-                    "unlawful",
                     "neurotic"
                 ]
             }
@@ -5845,15 +5753,6 @@
                 "rank": [
                     "kitten"
                 ],
-                "skill": [
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1",
-                    "HEALER,1"
-                ],
                 "cluster": [
                     "neurotic"
                 ]
@@ -5890,12 +5789,26 @@
                     "df"
                 ]
             },
+            "r_c:0": {},
             "r_c:1": {
                 "residence": [
                     "df"
                 ]
             }
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "child/parent"
+                ]
+            }
+        ],
         "intro": [
             "[t_c doesn't look up at you, but unlike your Clanmates it does not appear like {PRONOUN/t_c/subject} {VERB/t_c/are/is} intentionally ignoring you...]",
             "[You squeak in an attempt to be heard, and {PRONOUN/t_c/subject} head snaps up. Success!]",
@@ -5914,8 +5827,22 @@
                 "residence": [
                     "df"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "child/parent"
+                ]
+            }
+        ],
         "intro": [
             "[You spend the entire day playing with r_c:0k, taking extra care to ensure {PRONOUN/r_c:0k/subject} {VERB/r_c:0k/are/is} included in everything.]"
         ]
@@ -5942,6 +5869,7 @@
     },
     "dead_skill_J4": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "silly"
@@ -6733,12 +6661,6 @@
                 "rank": [
                     "medicine cat",
                     "medicine cat apprentice"
-                ],
-                "cluster": [
-                    "sweet",
-                    "brooding",
-                    "cool",
-                    "neurotic"
                 ]
             }
         },
@@ -6960,9 +6882,6 @@
             "r_c:0": {
                 "residence": [
                     "any"
-                ],
-                "cluster": [
-                    "introspective"
                 ]
             }
         },
@@ -6976,6 +6895,17 @@
                 ],
                 "relationship": [
                     "min_comfort_5"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
                 ]
             }
         ],
@@ -7064,6 +6994,7 @@
     },
     "condition_J5": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "shivering",
@@ -7144,11 +7075,7 @@
                     "unlawful"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unlawful"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -7160,6 +7087,17 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -7280,12 +7218,6 @@
                 "rank": [
                     "medicine cat",
                     "medicine cat apprentice"
-                ],
-                "cluster": [
-                    "sweet",
-                    "brooding",
-                    "cool",
-                    "neurotic"
                 ]
             }
         },
@@ -7318,9 +7250,6 @@
                     "medicine cat apprentice"
                 ],
                 "cluster": [
-                    "sweet",
-                    "brooding",
-                    "cool",
                     "neurotic"
                 ]
             }
@@ -7583,32 +7512,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable",
-                    "sweet",
-                    "unabashed",
-                    "introspective"
-                ],
-                "skill": [
-                    "ARTISTAN,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "FISHER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1",
-                    "SLEEPER,1"
                 ]
             }
         },
@@ -7663,6 +7566,19 @@
                 ]
             }
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
+            }
+        ],
         "intro": [
             "Oh, uh, sorry for your loss?",
             "I would help you find r_c:0, butttt I'm too comfortable in this spot. Sorry!"
@@ -7766,12 +7682,33 @@
             "r_c:1": {
                 "residence": [
                     "any"
-                ],
-                "cluster": [
-                    "introspective"
                 ]
             }
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:1"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
+            }
+        ],
         "intro": [
             "I pray that r_c:1 and r_c:0 are looking after us in StarClan."
         ]
@@ -7797,9 +7734,6 @@
             "r_c:0": {
                 "residence": [
                     "any"
-                ],
-                "cluster": [
-                    "introspective"
                 ]
             },
             "r_c:1": {
@@ -7818,6 +7752,28 @@
                 ],
                 "relationship": [
                     "min_like_10"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:1"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
                 ]
             }
         ],

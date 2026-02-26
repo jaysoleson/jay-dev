@@ -45,9 +45,6 @@
                     "apprentice"
                 ],
                 "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding",
                     "cool"
                 ]
             }
@@ -70,7 +67,8 @@
                 "standing": [
                     "shunned"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "Your eyes hold the weight of a life taken."
@@ -85,7 +83,8 @@
                 "standing": [
                     "shunned"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "The cats of StarClan. I can see them. They shudder in the wake of your transgression."
@@ -518,12 +517,7 @@
                     "elder"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -915,6 +909,7 @@
     },
     "sweet_elder3": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "sweet",
@@ -1119,6 +1114,7 @@
     },
     "brooding_elder15_AJ": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "brooding"
@@ -1149,6 +1145,7 @@
     },
     "neurotic_elder": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "neurotic"
@@ -1491,6 +1488,7 @@
     },
     "assertive_elder_5_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -1840,6 +1838,7 @@
     },
     "introspective_elder_2_2": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "introspective"
@@ -1857,6 +1856,7 @@
     },
     "introspective_elder_3": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "introspective"
@@ -1959,6 +1959,7 @@
     },
     "cool_1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "unabashed",
@@ -2325,6 +2326,7 @@
     },
     "brooding_elder9": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "brooding"
@@ -2564,16 +2566,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable"
                 ]
             }
         },
@@ -2806,12 +2798,6 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
-                ],
-                "cluster": [
-                    "silly",
-                    "neurotic",
-                    "upstanding",
-                    "cool"
                 ]
             }
         },
@@ -3279,6 +3265,7 @@
     },
     "silly_elder_bossy": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "assertive",
@@ -3359,7 +3346,8 @@
                 "rank": [
                     "elder"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -3371,6 +3359,17 @@
                 ],
                 "relationship": [
                     "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
                 ]
             }
         ],
@@ -3443,17 +3442,11 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "neurotic"
                 ]
             },
             "r_c:1": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "stable"
                 ]
             }
         },
@@ -3496,7 +3489,8 @@
                 "rank": [
                     "elder"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -3533,7 +3527,8 @@
                 "rank": [
                     "elder"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -3581,7 +3576,8 @@
                 "rank": [
                     "elder"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -3594,6 +3590,18 @@
                 "relationship": [
                     "grandparent/grandchild"
                 ]
+            },
+            {
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
+                ]
             }
         ],
         "intro": [
@@ -3605,6 +3613,7 @@
     },
     "TinyTeddy_stable_Elder_Gen_01": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "stable"
@@ -3620,6 +3629,7 @@
     },
     "TinyTeddy_stable_Elder_Gen_02": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "stable"
@@ -3733,16 +3743,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable"
                 ]
             }
         },
@@ -3806,13 +3806,6 @@
                     "warrior"
                 ],
                 "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
                     "stable"
                 ]
             }
@@ -4098,12 +4091,13 @@
             },
             {
                 "cats_from": [
-                    "t_c"
-                ],
-                "cats_to": [
                     "r_c:0"
                 ],
+                "cats_to": [
+                    "y_c"
+                ],
                 "relationship": [
+                    "dead/grieving",
                     "min_like_20"
                 ]
             }
@@ -4224,7 +4218,8 @@
                 "rank": [
                     "elder"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -4238,6 +4233,17 @@
                     "max_trust_30",
                     "grandparent/grandchild",
                     "max_like_30"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -4392,16 +4398,6 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ],
-                "cluster": [
-                    "assertive",
-                    "silly",
-                    "unlawful",
-                    "neurotic",
-                    "upstanding",
-                    "brooding",
-                    "cool",
-                    "stable"
                 ]
             }
         },
@@ -4845,7 +4841,10 @@
                 "rank": [
                     "elder"
                 ]
-            }
+            },
+            "r_c:0": {},
+            "r_c:1": {},
+            "r_c:2": {}
         },
         "relationships": [
             {
@@ -4857,6 +4856,39 @@
                 ],
                 "relationship": [
                     "grandparent/grandchild"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:1"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:1"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "littermates"
                 ]
             },
             {

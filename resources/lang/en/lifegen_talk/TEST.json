@@ -49,13 +49,13 @@
     "signlanguage_J1": {
         "cats": {
             "y_c": {
-                "conditions": ["hearing"]
+                "condition": ["hearing"]
             },
             "t_c": {
-                "conditions": ["hearing"]
+                "condition": ["hearing"]
             },
             "r_c:0": {
-                "conditions": ["deaf:any:true"]
+                "condition": ["deaf:any:true"]
             }
         },
         "intro": [
@@ -200,7 +200,7 @@
         "cats": {
             "y_c": {},
             "t_c": {
-                "conditions": ["illness:any"]
+                "condition": ["illness:any"]
             },
             "r_c:0": {
                 "rank": ["queen", "leader", "deputy", "elder"]
@@ -336,15 +336,20 @@
             "|r_c:0|Told you!"
         ]
     },
-    "test": {
+    "quarry_J1": {
+        "season": ["newleaf", "greenleaf", "leaf-fall"],
+        "biome": ["mountainous"],
+        "camp": ["camp5"],
         "cats": {
             "y_c": {},
             "t_c": {
-                "skill": ["STAR,1", "SENSE,-1"]
+                "cluster": ["neurotic", "introspective", "stable"]
             }
         },
         "intro": [
-            "I have STAR, but not SENSE."
+            "Yesterday, I left the den in the middle of the night to get some air, and, I swear, the eyes in that big skeleton were glowing. Glowing!",
+            "It scared the fur off of me! But I think it was just a couple of fireflies.",
+            "Unless..."
         ]
     },
     "generic": {

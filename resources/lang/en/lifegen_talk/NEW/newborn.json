@@ -527,6 +527,7 @@
     },
     "introspective_NB_5": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "introspective"
@@ -1031,6 +1032,7 @@
     },
     "stable_newborn_10": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "stable"
@@ -1051,6 +1053,7 @@
     },
     "stable_newborn_11": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "stable"
@@ -1180,7 +1183,8 @@
                 "age": [
                     "newborn"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1192,6 +1196,17 @@
                 ],
                 "relationship": [
                     "littermates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -1223,7 +1238,8 @@
                 "age": [
                     "newborn"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1235,6 +1251,17 @@
                 ],
                 "relationship": [
                     "littermates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -1262,16 +1289,23 @@
                     "newborn"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unlawful"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
                 "cats_from": [
                     "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
                 ],
                 "cats_to": [
                     "y_c"
@@ -1350,6 +1384,7 @@
                     "newborn"
                 ]
             },
+            "r_c:0": {},
             "r_c:1": {
                 "rank": [
                     "queen"
@@ -1366,6 +1401,17 @@
                 ],
                 "relationship": [
                     "littermates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -1435,7 +1481,8 @@
                 "age": [
                     "newborn"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -1447,6 +1494,17 @@
                 ],
                 "relationship": [
                     "littermates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -1506,33 +1564,7 @@
                     "newborn"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic",
-                    "unabashed",
-                    "brooding",
-                    "assertive",
-                    "sweet",
-                    "silly",
-                    "unlawful",
-                    "cool",
-                    "introspective",
-                    "stable"
-                ],
-                "skill": [
-                    "GHOST,1",
-                    "GHOST,1",
-                    "GHOST,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1"
-                ]
-            }
+            "r_c:0": {}
         },
         "intro": [
             "[You spot t_c crawling around in circles, before suddenly biting r_c:0's leg.]"
@@ -1540,6 +1572,7 @@
     },
     "cool_newborn_1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "cool"
@@ -1694,8 +1727,22 @@
                 "age": [
                     "newborn"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "parent/child"
+                ]
+            }
+        ],
         "intro": [
             "Eep!",
             "[t_c buries {PRONOUN/t_c/self} deep into the fluff of r_c:0's tail.]"
@@ -1935,8 +1982,22 @@
                 "age": [
                     "newborn"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "parent/child"
+                ]
+            }
+        ],
         "intro": [
             "[t_c has managed to wiggle {PRONOUN/t_c/poss} way out of {PRONOUN/t_c/poss} nest and is trying to make {PRONOUN/t_c/poss} way out of the nursery.]",
             "[r_c:0 doesn't seem to notice.]"
@@ -2097,13 +2158,21 @@
                     "newborn"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unabashed",
-                    "silly"
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "littermates"
                 ]
             }
-        },
+        ],
         "intro": [
             "[t_c is squirming and shoving poor r_c:0 around.]",
             "[...It looks like r_c:0 has just accepted {PRONOUN/t_c/poss} fate.]"
@@ -2436,7 +2505,8 @@
                 "age": [
                     "newborn"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -2448,6 +2518,17 @@
                 ],
                 "relationship": [
                     "littermates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -2479,7 +2560,8 @@
                 "age": [
                     "newborn"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -2491,6 +2573,17 @@
                 ],
                 "relationship": [
                     "littermates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -2518,16 +2611,23 @@
                     "newborn"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "unlawful"
-                ]
-            }
+            "r_c:0": {}
         },
         "relationships": [
             {
                 "cats_from": [
                     "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
                 ],
                 "cats_to": [
                     "y_c"
@@ -2606,6 +2706,7 @@
                     "newborn"
                 ]
             },
+            "r_c:0": {},
             "r_c:1": {
                 "rank": [
                     "queen"
@@ -2622,6 +2723,17 @@
                 ],
                 "relationship": [
                     "littermates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -2691,7 +2803,8 @@
                 "age": [
                     "newborn"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
         "relationships": [
             {
@@ -2703,6 +2816,17 @@
                 ],
                 "relationship": [
                     "littermates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
                 ]
             }
         ],
@@ -2945,8 +3069,22 @@
                 "age": [
                     "newborn"
                 ]
-            }
+            },
+            "r_c:0": {}
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "parent/child"
+                ]
+            }
+        ],
         "intro": [
             "[r_c:0 has {PRONOUN/t_c/poss} whole body wrapped around t_c, shielding {PRONOUN/t_c/object} from you.]"
         ]
@@ -2971,33 +3109,7 @@
                     "newborn"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic",
-                    "unabashed",
-                    "brooding",
-                    "assertive",
-                    "sweet",
-                    "silly",
-                    "unlawful",
-                    "cool",
-                    "introspective",
-                    "stable"
-                ],
-                "skill": [
-                    "GHOST,1",
-                    "GHOST,1",
-                    "GHOST,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1"
-                ]
-            }
+            "r_c:0": {}
         },
         "intro": [
             "[r_c:0 quickly grabs t_c and carries {PRONOUN/t_c/poss} away as {PRONOUN/t_c/subject} {VERB/t_c/stumble/stumbles} curiously towards you.]"
@@ -5409,6 +5521,19 @@
                 ]
             }
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "dead/grieving"
+                ]
+            }
+        ],
         "intro": [
             "[As you watch t_c flop around like a fish out of water, you can't help but think of r_c:0.]",
             "[Even the most ridiculously random things remind you of {PRONOUN/r_c:0/object}.]"

@@ -27,22 +27,25 @@ def choose_random_cats(
     abbrevs = []
     skip = False
 
-    # print("Checking", key)
-    if "cats" in block:
-        skip = False
-        for abbrev in block["cats"]:
-            abbrevs.append(abbrev)
-            # checks if there are any valid cats available
-            possible_cats_dict[abbrev] = _validate_cat(abbrev, block, possible_cats, your_cat, the_cat)
-            if not possible_cats_dict[abbrev]:
-                skip = True
-                break
-        if skip:
-            return {}
+    try:
+        if "cats" in block:
+            skip = False
+            for abbrev in block["cats"]:
+                abbrevs.append(abbrev)
+                # checks if there are any valid cats available
+                possible_cats_dict[abbrev] = _validate_cat(abbrev, block, possible_cats, your_cat, the_cat)
+                if not possible_cats_dict[abbrev]:
+                    skip = True
+                    break
+            if skip:
+                return {}
 
-    # filter rel uses all abbrevs to make choices based on relationships
-    # chosen cat dict is the selected cats! one cat object per abbrev!
-    chosen_cat_dict = __filter_relationships(abbrevs, block, possible_cats_dict, your_cat, the_cat, cat_dict, key=key)
+        # filter rel uses all abbrevs to make choices based on relationships
+        # chosen cat dict is the selected cats! one cat object per abbrev!
+        chosen_cat_dict = __filter_relationships(abbrevs, block, possible_cats_dict, your_cat, the_cat, cat_dict, key=key)
+    except Exception as e:
+        print("WARNING: Error with dialogue filtering for", key)
+        print(e)
     return chosen_cat_dict
 
 def _validate_cat(abbrev, block, possible_cats, your_cat, the_cat):
@@ -78,7 +81,7 @@ def _validate_cat(abbrev, block, possible_cats, your_cat, the_cat):
         possible_cats = __filter_faith(cat_block[abbrev], possible_cats.copy())
 
     # conditions are filtered either way for deaf/blind/grieving stuff
-    possible_cats = __filter_conditions(cat_block[abbrev], possible_cats.copy())
+    # possible_cats = __filter_conditions(cat_block[abbrev], possible_cats.copy())
 
     if abbrev == "t_c" and the_cat not in possible_cats:
         return []
@@ -89,7 +92,6 @@ def _validate_cat(abbrev, block, possible_cats, your_cat, the_cat):
     possible_cat_dict[abbrev] = possible_cats.copy()
 
     return possible_cats
-
 
     # ---------------------------------------------------------------------- #
     #                          CAT FILTERING FUNCTIONS                       #
@@ -318,9 +320,13 @@ def __filter_conditions(abbrev_block, possible_cats):
     for cat in possible_cats.copy():
         blind_tagged = False
         deaf_tagged = False
-        grief_tagged = False
 
-        condition_block = abbrev_block["conditions"] if "conditions" in abbrev_block else []
+        condition_true = False
+        reg_tagged = False
+
+        exclusive_conditions = ["pregnant", "grief stricken"]
+
+        condition_block = abbrev_block["condition"] if "condition" in abbrev_block else []
         for tag in condition_block:
             if isinstance(tag, list):
                 for condition in tag:
@@ -346,6 +352,15 @@ def __filter_conditions(abbrev_block, possible_cats):
 
                     if len(attributes) > 2:
                         exclusive = attributes[2]
+
+                    # exclusionary
+                    if condition == "not" and (
+                        born_with in cat.illnesses or
+                        born_with in cat.injuries or
+                        born_with in cat.permanent_condition
+                    ):
+                        possible_cats.remove(cat)
+                        break
 
                     # gen injury/illness
                     if condition == "injury" and born_with == "any":
@@ -390,35 +405,39 @@ def __filter_conditions(abbrev_block, possible_cats):
                             possible_cats.remove(cat)
                             deaf_tagged = False
                             break
-                    elif tag == "grief stricken":
-                        if tag not in cat.illnesses:
+                    elif tag in exclusive_conditions:
+                        if not (
+                            tag in cat.permanent_condition or
+                            tag in cat.injuries or
+                            tag in cat.illnesses
+                        ):
                             possible_cats.remove(cat)
-                        grief_tagged = True
-                        break
-                    elif not (
-                        tag in cat.permanent_condition or
-                        tag in cat.injuries or
-                        tag in cat.illnesses
-                    ):
-                        possible_cats.remove(cat)
-                        break
+                            break
+                    else:
+                        reg_tagged = True
+                        if (
+                            tag in cat.permanent_condition or
+                            tag in cat.injuries or
+                            tag in cat.illnesses
+                        ):
+                            condition_true = True
+                            break
 
         if "blind" in cat.permanent_condition and not blind_tagged and cat in possible_cats:
             possible_cats.remove(cat)
         if (
-            (
-                "deaf" in cat.permanent_condition and
-                cat.permanent_condition["deaf"]["born_with"] is True
-            )
-            and not deaf_tagged
-            and cat in possible_cats
+                (
+                    "deaf" in cat.permanent_condition and
+                    cat.permanent_condition["deaf"]["born_with"] is True
+                )
+                and not deaf_tagged
+                and cat in possible_cats
             ):
             possible_cats.remove(cat)
-
-        if "grief stricken" in cat.illnesses and not grief_tagged and cat in possible_cats:
-            possible_cats.remove(cat)
-        if grief_tagged and "grief stricken" not in cat.illnesses:
-            possible_cats.remove(cat)
+    
+        if reg_tagged:
+            if cat in possible_cats and not condition_true:
+                possible_cats.remove(cat)
 
     return possible_cats
 

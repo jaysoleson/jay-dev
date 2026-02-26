@@ -30,6 +30,7 @@
     },
     "theystarving_1": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "blind:any:false",
@@ -65,6 +66,7 @@
     },
     "they_starving_3": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "introspective"
@@ -85,6 +87,7 @@
     },
     "they_starving_5": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "cluster": [
                     "introspective"
@@ -103,6 +106,7 @@
     },
     "they_starving_6": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "blind:any:false",
@@ -164,33 +168,7 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {
-                "cluster": [
-                    "upstanding",
-                    "neurotic",
-                    "unabashed",
-                    "brooding",
-                    "assertive",
-                    "sweet",
-                    "silly",
-                    "unlawful",
-                    "cool",
-                    "introspective",
-                    "stable"
-                ],
-                "skill": [
-                    "GHOST,1",
-                    "GHOST,1",
-                    "GHOST,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "STORY,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1",
-                    "TREASURE,1"
-                ]
-            }
+            "r_c:0": {}
         },
         "intro": [
             "[Despite {PRONOUN/t_c/poss} obvious hunger, you can see t_c nudging what little {PRONOUN/t_c/subject} {VERB/t_c/have/has} to r_c:0.]",
@@ -284,7 +262,8 @@
                 "condition": [
                     "starving"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "Oh, y_c.",
@@ -299,7 +278,8 @@
                 "condition": [
                     "starving"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "Oh, y_c. I'm so sorry...",
@@ -319,7 +299,8 @@
                     "warrior",
                     "apprentice"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "y_c?",
@@ -335,7 +316,8 @@
                 "condition": [
                     "starving"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "[t_c trudges back into camp with {PRONOUN/t_c/poss} head and tail lowered in defeat. {PRONOUN/t_c/poss/CAP} dull eyes meet yours and {PRONOUN/t_c/subject} {VERB/t_c/shake/shakes} {PRONOUN/t_c/poss} head.]",
@@ -492,6 +474,7 @@
     },
     "they_starving_4": {
         "cats": {
+            "y_c": {},
             "t_c": {
                 "condition": [
                     "starving"
@@ -561,7 +544,8 @@
                     "kitten",
                     "newborn"
                 ]
-            }
+            },
+            "t_c": {}
         },
         "intro": [
             "Oh, y_c. I'm so sorry...",
@@ -586,11 +570,6 @@
             "r_c:0": {
                 "rank": [
                     "leader"
-                ],
-                "cluster": [
-                    "stable",
-                    "unlawful",
-                    "neurotic"
                 ]
             }
         },
