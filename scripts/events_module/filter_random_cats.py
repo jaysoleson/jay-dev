@@ -81,7 +81,7 @@ def _validate_cat(abbrev, block, possible_cats, your_cat, the_cat):
         possible_cats = __filter_faith(cat_block[abbrev], possible_cats.copy())
 
     # conditions are filtered either way for deaf/blind/grieving stuff
-    # possible_cats = __filter_conditions(cat_block[abbrev], possible_cats.copy())
+    possible_cats = __filter_conditions(cat_block[abbrev], possible_cats.copy())
 
     if abbrev == "t_c" and the_cat not in possible_cats:
         return []
