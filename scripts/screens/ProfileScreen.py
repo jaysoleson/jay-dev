@@ -372,10 +372,10 @@ class ProfileScreen(Screens):
                 self.the_cat.pelt.accessory.clear()
                 self.build_inventory(event)
                 self.update_disabled_buttons_and_text()
-            elif "joinclan" in self.profile_elements and event.ui_element == self.profile_elements["joinclan"]:
-                switch_set_value(Switch.change_group, CatGroup.PLAYER_CLAN_ID)
-                self.clear_profile()
-                self.build_profile()
+            # elif "joinclan" in self.profile_elements and event.ui_element == self.profile_elements["joinclan"]:
+            #     switch_set_value(Switch.change_group, CatGroup.PLAYER_CLAN_ID)
+            #     self.clear_profile()
+            #     self.build_profile()
 
             elif "talk" in self.profile_elements and event.ui_element == self.profile_elements["talk"]:
                 self.the_cat.talked_to = True
@@ -1046,18 +1046,18 @@ class ProfileScreen(Screens):
             )
             
         # TEST=
-        self.profile_elements["joinclan"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 35), (160, 30))),
-            "TEST: Join the Clan",
-            get_button_dict(ButtonStyles.SQUOVAL, (160, 30)),
-            object_id="@buttonstyles_squoval",
-            anchors={
-                "centerx": "centerx"
-            }
-        )
-        self.profile_elements["joinclan"].enable()
-        if switch_get_value(Switch.change_group):
-            self.profile_elements["joinclan"].disable()
+        # self.profile_elements["joinclan"] = UISurfaceImageButton(
+        #     ui_scale(pygame.Rect((0, 35), (160, 30))),
+        #     "TEST: Join the Clan",
+        #     get_button_dict(ButtonStyles.SQUOVAL, (160, 30)),
+        #     object_id="@buttonstyles_squoval",
+        #     anchors={
+        #         "centerx": "centerx"
+        #     }
+        # )
+        # self.profile_elements["joinclan"].enable()
+        # if switch_get_value(Switch.change_group):
+        #     self.profile_elements["joinclan"].disable()
         # ---
 
         # TALK BUTTONS

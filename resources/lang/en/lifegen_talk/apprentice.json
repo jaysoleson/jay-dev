@@ -8553,5 +8553,45 @@
             "[You wait. t_c crunches a leaf under one paw, then sighs.]",
             "Never mind. What've you been doing today? Did you notice that big bird above the camp earlier?"
         ]
+    },
+    "leafbare_lazyapprentice_JOL": {
+        "biome": [
+            "mountainous",
+            "plains",
+            "forest",
+            "beach",
+            "wetlands"
+        ],
+        "season": [
+            "leafbare"
+        ],
+        "y_c": {
+            "age": [
+                "not_kitten",
+                "not_adolescent"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "apprentice"
+            ],
+            "age": [
+                "adolescent"
+            ],
+            "cluster": [
+                "unabashed",
+                "unlawful",
+                "silly"
+            ]
+        },
+        "tags": [
+            "from_your_apprentice"
+        ],
+        "intro": [
+            "Good morning, y_c! Let me just say, I am so excited to train today.",
+            "Can we practice getting into the heads of our prey to understand them better today?",
+            "Maybe through... hibernation?",
+            "Aw, c'mon, it's gotta be too cold to leave camp!"
+        ]
     }
 }

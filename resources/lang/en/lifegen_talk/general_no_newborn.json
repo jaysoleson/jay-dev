@@ -5575,5 +5575,296 @@
             "[t_c doesn't disturb you again, but you can't help a pang of guilt when you see {PRONOUN/t_c/object} observing you sadly from across camp.]",
             "[Was the extra sleep really worth it?]"
         ]
+    },
+    "language_parentsibling_JOL": {
+        "y_c": {
+            "age": [
+                "not_newborn"
+            ],
+            "skill": [
+                "LANGUAGE,0"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "not_kitten",
+                "not_adolescent"
+            ],
+            "cluster": [
+                "assertive",
+                "brooding",
+                "cool",
+                "upstanding",
+                "introspective",
+                "neurotic",
+                "stable",
+                "sweet",
+                "unlawful"
+            ],
+            "skill": [
+                "LANGUAGE,1"
+            ]
+        },
+        "relationship": [
+            "parents_siblings",
+            "parent"
+        ],
+        "tags": [
+            "parents_siblings",
+            "from_your_parent"
+        ],
+        "intro": [
+            "[t_c approaches you while you chitter to a bird circling above camp.]",
+            "It runs in the family, you know.",
+            "[t_c sits down beside you, looking up to the bird with a fond smile. {PRONOUN/t_c/subject/CAP}, too, {VERB/t_c/chitter/chitters} a greeting.]",
+            "Our ancestors would be proud to see you communicating with the other animals like this.",
+            "This camp- this territory- is home to so many creatures, big and small. All with vast interior lives, and more stories to tell than leaves on the tallest oak.",
+            "The capacity to explore them is a gift. Use it well."
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 10,
+                    "respect": 10,
+                    "comfort": 10,
+                    "trust": 10
+                },
+                "mutual": true
+            }
+        }
+    },
+    "sillyunlawful_familygiftwarm_JOL": {
+        "season": [
+            "newleaf",
+            "greenleaf"
+        ],
+        "y_c": {
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "not_kitten"
+            ],
+            "cluster": [
+                "silly",
+                "unlawful"
+            ],
+            "skill": [
+                "TREASURE,1"
+            ]
+        },
+        "relationship": [
+            "min_like_40",
+            "min_trust_40",
+            "min_comfort_40"
+        ],
+        "tags": [
+            "parents_siblings",
+            "cousin",
+            "half_sibling",
+            "littermate",
+            "siblings_mate"
+        ],
+        "intro": [
+            "Heyy there bud! Just the cat I was looking for!",
+            "I saw this while I was out on patrol and thought of you. Don't go running off to remind the rest of the family that I'm your favorite too quickly now!",
+            "[You have gained an accessory!]"
+        ],
+        "intro_scene_effects": {
+            "inventory": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "accessory": [
+                    "CATNIP FLOWER",
+                    "CATMINT",
+                    "FLOWERCROWN",
+                    "EGG",
+                    "HONEYCOMB"
+                ],
+                "addition": "choice"
+            },
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 10,
+                    "comfort": 10
+                },
+                "mutual": true
+            }
+        }
+    },
+    "sillyunlawful_familygiftcold_JOL": {
+        "season": [
+            "leaf-fall",
+            "leaf-bare"
+        ],
+        "y_c": {
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "not_kitten"
+            ],
+            "cluster": [
+                "silly",
+                "unlawful"
+            ],
+            "skill": [
+                "TREASURE,1"
+            ]
+        },
+        "relationship": [
+            "min_like_40",
+            "min_trust_40",
+            "min_comfort_40"
+        ],
+        "tags": [
+            "parents_siblings",
+            "cousin",
+            "half_sibling",
+            "littermate",
+            "siblings_mate"
+        ],
+        "intro": [
+            "Heyy there bud! Just the cat I was looking for!",
+            "I saw this while I was out on patrol and thought of you. Don't go running off to remind the rest of the family that I'm your favorite too quickly now!",
+            "[You have gained an accessory!]"
+        ],
+        "intro_scene_effects": {
+            "inventory": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "accessory": [
+                    "LANTERNS",
+                    "WILLOWBARK BAG",
+                    "PUMPKIN",
+                    "DRY CATMINT",
+                    "STICK"
+                ],
+                "addition": "choice"
+            },
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 10,
+                    "comfort": 10
+                },
+                "mutual": true
+            }
+        }
+    },
+    "elderswimmer_notnewborn_JOL": {
+        "biome": [
+            "beach"
+        ],
+        "season": [
+            "greenleaf"
+        ],
+        "y_c": {
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "elder"
+            ],
+            "age": [
+                "senior"
+            ],
+            "cluster": [
+                "grumpy",
+                "stoic",
+                "aloof",
+                "reserved",
+                "mellow",
+                "flexible",
+                "responsible",
+                "loyal",
+                "methodical",
+                "wise",
+                "calm",
+                "mellow",
+                "flexible",
+                "thoughtful",
+                "strange",
+                "faithful",
+                "disciplined",
+                "patient",
+                "sweet",
+                "unabashed",
+                "unlawful"
+            ],
+            "skill": [
+                "SWIMMER,1"
+            ]
+        },
+        "intro": [
+            "The water is such a relief for my joints this time of year.",
+            "[t_c stretches with a yawn, and you hear a few faint pops.]",
+            "I'm about ready to head down that way now.",
+            "Remember to keep up with your exercise too, y_c."
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "respect": 2,
+                    "trust": 2
+                },
+                "mutual": true
+            }
+        }
+    },
+    "neurotic_avix1": {
+        "y_c": {
+            "status": [
+                "not_kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "not_newborn"
+            ],
+            "cluster": [
+                "neurotic"
+            ]
+        },
+        "intro": [
+            "[t_c has been staring up into the trees since sunhigh, when {PRONOUN/t_c/subject} had spotted a hawk above camp.]",
+            "It's not coming back, right? Should we hide? Maybe we should all hide.",
+            "[You assure t_c that the hawk is probably not coming back.]",
+            "Just… Just keep an eye out, okay, y_c?"
+        ]
     }
 }

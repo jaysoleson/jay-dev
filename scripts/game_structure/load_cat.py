@@ -101,6 +101,8 @@ def json_load():
                 "HOLLY2": "HOLLYLEAVES",
                 "BLEEDING HEARTS2": "BLEEDING HEART BRANCH",
                 "MOSS2": "FLOWER MOSS",
+                "CLOVER2": "CLOVER",
+                "CLOVERS": "CLOVER",
             }
             for acc in cat["inventory"].copy():
                 if acc in accessory_convert:
