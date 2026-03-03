@@ -3928,6 +3928,9 @@
                 "warrior",
                 "deputy",
                 "leader"
+            ],
+            "condition": [
+                "hearing"
             ]
         },
         "season": [

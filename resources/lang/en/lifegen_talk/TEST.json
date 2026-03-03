@@ -363,5 +363,36 @@
             "... ... ...",
             "Welp... I've gotta go. Nice talking with you."
         ]
+    },
+    "test": {
+        "cats": {
+            "y_c": {
+                "condition": ["blind:any:false"]
+            },
+            "t_c": {
+                "condition": ["blind:any:false"]
+            },
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["half-siblings"]
+            },
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["child/parent"]
+            },
+            {
+                "cats_from": ["y_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["child/parent"]
+            }
+        ],
+        "intro": [
+            "We are half-siblings! Our shared parent is r_c:0."
+        ]
     }
 }

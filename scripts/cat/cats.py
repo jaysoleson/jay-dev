@@ -2031,6 +2031,26 @@ class Cat:
         ]
         return other_cat.ID in litter_mates
 
+    # LG
+    def is_half_sibling(self, other_cat:Cat):
+        """ Checks if the cats are half-siblings. These cats share one birth parent, but not two."""
+        if not self.inheritance:
+            self.inheritance = Inheritance(self)
+        all_parents = []
+        all_parents.append(self.parent1)
+        all_parents.append(self.parent2)
+
+        parents_found = 0
+        for parent in all_parents:
+            if parent in [other_cat.parent1, other_cat.parent2]:
+                parents_found += 1
+
+        if parents_found == 1:
+            return True
+
+        return False
+    # ---
+
     def is_uncle_aunt(self, other_cat: Cat):
         """Check if the cats are related as uncle/aunt and niece/nephew."""
         if not self.inheritance:

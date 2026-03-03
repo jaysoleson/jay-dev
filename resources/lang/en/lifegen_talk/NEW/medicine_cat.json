@@ -1,5 +1,6 @@
 {
     "unabashed_medicine_cat1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -27,6 +28,7 @@
         ]
     },
     "assertive_mentor5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -68,6 +70,7 @@
         ]
     },
     "assertive_mentor6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -108,6 +111,7 @@
         ]
     },
     "assertive_mentor3_3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -145,6 +149,7 @@
         ]
     },
     "assertivemedapp_13_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -175,6 +180,7 @@
         ]
     },
     "assertive_elder_2_5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -208,6 +214,7 @@
         ]
     },
     "assertive_elder_3_7": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -228,6 +235,7 @@
         ]
     },
     "assertive_elder_4_6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -268,6 +276,7 @@
         ]
     },
     "assertive_elder_5_5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -292,6 +301,7 @@
         ]
     },
     "assertive_elder_6_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -323,6 +333,7 @@
         ]
     },
     "assertive_elder_7_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -351,6 +362,7 @@
         ]
     },
     "assertive_elder_8_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -390,6 +402,7 @@
         ]
     },
     "assertive_elder_9_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -426,6 +439,7 @@
         ]
     },
     "assertive_elder_10_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -469,6 +483,7 @@
         ]
     },
     "assertive_elder_11_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -503,6 +518,7 @@
         ]
     },
     "assertive_elder_12_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -540,6 +556,7 @@
         ]
     },
     "assertive_like_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -574,6 +591,7 @@
         ]
     },
     "assertive_dislike1_8": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -608,6 +626,7 @@
         ]
     },
     "assertive_dislike1_2_8": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -639,6 +658,7 @@
         ]
     },
     "assertive_dislike1_3_8": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -672,6 +692,7 @@
         ]
     },
     "assertive_dislike1_4_8": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -710,6 +731,7 @@
         ]
     },
     "cool_medcat_AJ_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -754,6 +776,7 @@
         ]
     },
     "cool_medcat_AJ1~1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -779,6 +802,7 @@
         ]
     },
     "cool_medcat_AJ1~2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -803,6 +827,7 @@
         ]
     },
     "cool_medcat_AJ1~3_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -831,6 +856,7 @@
         ]
     },
     "cool_medcat_AJ2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -865,6 +891,7 @@
         ]
     },
     "cool_medcat_AJ3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -908,6 +935,7 @@
         ]
     },
     "cool_medcat_AJ4_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -934,6 +962,7 @@
         ]
     },
     "cool_medcat_AJ5_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -974,6 +1003,7 @@
         ]
     },
     "cool_medcat_AJ6_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -993,6 +1023,7 @@
         ]
     },
     "cool_medcat_AJ7_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1024,6 +1055,7 @@
         ]
     },
     "cool_medcat_AJ8~1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1042,6 +1074,7 @@
         ]
     },
     "cool_medcat_AJ8~2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1067,6 +1100,7 @@
         ]
     },
     "cool_medcat_AJ9_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1094,6 +1128,7 @@
         ]
     },
     "cool_medcat_AJ10_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1122,6 +1157,7 @@
         ]
     },
     "cool_medcat_AJ11_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -1180,6 +1216,7 @@
         ]
     },
     "assertivemedapp_3_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1211,6 +1248,7 @@
         ]
     },
     "assertivemedapp_5_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1234,6 +1272,7 @@
         ]
     },
     "assertivemedapp_6_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1260,6 +1299,7 @@
         ]
     },
     "assertivemedapp_7_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1299,6 +1339,7 @@
         ]
     },
     "assertivemedapp_8_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1339,6 +1380,7 @@
         ]
     },
     "assertivemedapp_tokit_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -1380,6 +1422,7 @@
         ]
     },
     "assertivemedapp_10_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1420,6 +1463,7 @@
         ]
     },
     "assertivewarrior_leader5_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1448,6 +1492,7 @@
         ]
     },
     "assertivemed_toleader": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1474,6 +1519,7 @@
         ]
     },
     "assertivemed_toleader2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -1501,6 +1547,7 @@
         ]
     },
     "introspective_Med": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -1525,6 +1572,7 @@
         ]
     },
     "introspective_Med_1": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1548,6 +1596,7 @@
         ]
     },
     "introspective_Med_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1593,6 +1642,7 @@
         ]
     },
     "introspective_Med_3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -1619,6 +1669,7 @@
         ]
     },
     "introspective_Med_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1659,6 +1710,7 @@
         ]
     },
     "introspective_Med_5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -1699,6 +1751,7 @@
         ]
     },
     "assertivemedcat_queen2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1728,6 +1781,7 @@
         ]
     },
     "assertive_queen_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1756,6 +1810,7 @@
         ]
     },
     "assertivemedcat_queensapp3_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1784,6 +1839,7 @@
         ]
     },
     "assertivemedcat_queensapp3_2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1812,6 +1868,7 @@
         ]
     },
     "assertivemedcat_queensapp4_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1839,6 +1896,7 @@
         ]
     },
     "cool_": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1863,6 +1921,7 @@
         ]
     },
     "silly_med_clones": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1905,6 +1964,7 @@
         ]
     },
     "silly_med_dream": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1930,6 +1990,7 @@
         ]
     },
     "silly_med_sleep": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1952,6 +2013,7 @@
         ]
     },
     "silly_med_ideas": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1992,6 +2054,7 @@
         ]
     },
     "silly_med_spectate": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2030,6 +2093,7 @@
         ]
     },
     "silly_med_burdock": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2056,6 +2120,7 @@
         ]
     },
     "sweet_meddie_1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2080,6 +2145,7 @@
         ]
     },
     "brooding_medapp_6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2105,6 +2171,7 @@
         ]
     },
     "brooding_medappAJ_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2124,6 +2191,7 @@
         ]
     },
     "brooding_med_youcondition_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2144,6 +2212,7 @@
         ]
     },
     "brooding_medapp_2_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2184,6 +2253,7 @@
         ]
     },
     "brooding_medapp_3_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2219,6 +2289,7 @@
         ]
     },
     "brooding_medapp_4_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2233,6 +2304,7 @@
         ]
     },
     "brooding_medapp_5_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2280,6 +2352,7 @@
         ]
     },
     "brooding_medapp_6_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -2317,6 +2390,7 @@
         ]
     },
     "brooding_medapp_7_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2353,6 +2427,7 @@
         ]
     },
     "brooding_medapp_8_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2390,6 +2465,7 @@
         ]
     },
     "brooding_medapp_9_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2428,6 +2504,7 @@
         ]
     },
     "brooding_medapp_10_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2451,6 +2528,7 @@
         ]
     },
     "Necrotic_med_cat_1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2478,6 +2556,7 @@
             "leaf-bare",
             "leaf-fall"
         ],
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2497,6 +2576,7 @@
         ]
     },
     "sweet_meddie_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2522,6 +2602,7 @@
         ]
     },
     "sweet_meddie_3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2541,6 +2622,7 @@
         ]
     },
     "sweet_meddie_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2566,6 +2648,7 @@
         ]
     },
     "sweet_meddie_5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2594,6 +2677,7 @@
         ]
     },
     "sweet_meddie_6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2619,6 +2703,7 @@
         ]
     },
     "sweet_meddie_7": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2649,6 +2734,7 @@
         ]
     },
     "sweet_meddie_8": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2670,6 +2756,7 @@
         ]
     },
     "sweet_meddie_9": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2691,6 +2778,7 @@
         ]
     },
     "sweet_meddie_10": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2717,6 +2805,7 @@
         ]
     },
     "sweet_meddie_11": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2762,6 +2851,7 @@
         ]
     },
     "sweet_meddie_12": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2791,6 +2881,7 @@
         ]
     },
     "sweet_meddie_13": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2837,6 +2928,7 @@
         ]
     },
     "sweet_meddie_14": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2857,6 +2949,7 @@
         ]
     },
     "sweet_meddie_15": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2889,6 +2982,7 @@
         ]
     },
     "sweet_meddie_16": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2921,6 +3015,7 @@
         ]
     },
     "sweet_meddie_17": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2948,6 +3043,7 @@
         ]
     },
     "sweet_meddie_18": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2979,6 +3075,7 @@
         ]
     },
     "sweet_meddie_19": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3009,6 +3106,7 @@
         ]
     },
     "sweet_meddie_20": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3039,6 +3137,7 @@
         ]
     },
     "sweet_meddie_21": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3070,6 +3169,7 @@
         ]
     },
     "sweet_meddie_22": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3107,6 +3207,7 @@
         ]
     },
     "sweet_meddie_23": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3133,6 +3234,7 @@
         ]
     },
     "sweet_meddie_24": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3161,6 +3263,7 @@
         ]
     },
     "sweet_meddie_25": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -3190,6 +3293,7 @@
         ]
     },
     "medicine_cat_stable": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3214,6 +3318,7 @@
         ]
     },
     "newborn_omen": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -3235,6 +3340,7 @@
         ]
     },
     "upstanding_medicinecat": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3258,6 +3364,7 @@
         ]
     },
     "upstanding_medicinecat1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3301,6 +3408,7 @@
         ]
     },
     "upstanding_medicinecat2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3321,6 +3429,7 @@
         ]
     },
     "upstanding_medicinecat4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3357,6 +3466,7 @@
         ]
     },
     "general_sh_J4_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -3385,6 +3495,7 @@
         ]
     },
     "stable_shunned_you_Apprentice_MedicineCat_02": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3416,6 +3527,7 @@
         ]
     },
     "strange_sh_H12": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -3439,6 +3551,7 @@
         ]
     },
     "starclan_med1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3465,6 +3578,7 @@
         ]
     },
     "starclan_med2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3489,6 +3603,7 @@
         ]
     },
     "DF_med_H1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3515,6 +3630,7 @@
         ]
     },
     "DF_med_H2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "residence": [
@@ -3542,6 +3658,7 @@
         ]
     },
     "DF_med_H3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3585,6 +3702,7 @@
         ]
     },
     "stable_Medicine_Cat_Gen_01": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3612,6 +3730,7 @@
         ]
     },
     "stable_Medicine_Cat_Gen_02": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3643,6 +3762,7 @@
         ]
     },
     "stable_Medicine_Cat_Gen_03": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3663,6 +3783,7 @@
         ]
     },
     "sc_livingmed1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3695,6 +3816,7 @@
         ]
     },
     "trainee_living_2c_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -3719,6 +3841,7 @@
         ]
     },
     "trainee_living_4c_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -3744,6 +3867,7 @@
         ]
     },
     "newborn_unabashed": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3776,6 +3900,7 @@
         "season": [
             "greenleaf"
         ],
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -3814,6 +3939,7 @@
         ]
     },
     "neurotic_medcat_SQ2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -3858,6 +3984,7 @@
         ]
     },
     "neurotic_medcat_SQ3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -3895,6 +4022,7 @@
         ]
     },
     "medshunned_H1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3934,6 +4062,7 @@
         ]
     },
     "medshunned_H2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3975,6 +4104,7 @@
         ]
     },
     "medshunned_H3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4014,6 +4144,7 @@
         ]
     },
     "medshunned_H4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4039,6 +4170,7 @@
         ]
     },
     "medshunned_H5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4081,6 +4213,7 @@
         ]
     },
     "yourecovering_H3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4102,6 +4235,7 @@
         ]
     },
     "Introspective_mentor_H6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4147,6 +4281,7 @@
         ]
     },
     "Introspective_mentor_H7": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4193,6 +4328,7 @@
         ]
     },
     "Introspective_mentor_H11": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4229,6 +4365,7 @@
         ]
     },
     "Introspective_mentor_H12": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4270,6 +4407,7 @@
         ]
     },
     "deadmed_connected_J1~1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4312,6 +4450,7 @@
         ]
     },
     "deadmed_connected_J1~2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4355,6 +4494,7 @@
         ]
     },
     "neurotic_medcat_SQ4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4390,6 +4530,7 @@
         ]
     },
     "neurotic_medcat_SQ5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4412,6 +4553,7 @@
         ]
     },
     "neurotic_medcat_SQ6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4455,6 +4597,7 @@
         ]
     },
     "neurotic_medcat_SQ7": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4500,6 +4643,7 @@
         ]
     },
     "neurotic_medcat_SQ8": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -4560,6 +4704,7 @@
         ]
     },
     "neurotic_medcat_SQ9": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -4602,6 +4747,7 @@
         ]
     },
     "neurotic_medcat_SQ10": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4661,6 +4807,7 @@
         "season": [
             "leaf-bare"
         ],
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4705,6 +4852,7 @@
         ]
     },
     "neurotic_medcat_SQ12": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4756,6 +4904,7 @@
         "season": [
             "leaf-bare"
         ],
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4797,6 +4946,7 @@
         ]
     },
     "neurotic_about_r_s_SQ2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4838,6 +4988,7 @@
         ]
     },
     "neurotic_about_r_s_SQ3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4884,6 +5035,7 @@
         ]
     },
     "neurotic_sc_to_sc_SQ1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4924,6 +5076,7 @@
         ]
     },
     "neurotic_sc_to_sc_SQ2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -4966,6 +5119,7 @@
         ]
     },
     "neurotic_sc_to_sc_SQ3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -5009,6 +5163,7 @@
         ]
     },
     "neurotic_youforgiven_SQ2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -5052,6 +5207,7 @@
         ]
     },
     "med_to_newborn_H1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5078,6 +5234,7 @@
         ]
     },
     "TinyTeddy_stable_theymedicine_youapp_01": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -5108,6 +5265,7 @@
         ]
     },
     "TinyTeddy_stable_theymedicine_youapp_02": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -5128,6 +5286,7 @@
         ]
     },
     "TinyTeddy_stable_theymedicine_youapp_03": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -5163,6 +5322,7 @@
         ]
     },
     "TinyTeddy_stable_theymedicine_mentor_youmedapp_01": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -5204,6 +5364,7 @@
         ]
     },
     "TinyTeddy_stable_theymedicine_mentor_youmedapp_02": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -5267,6 +5428,7 @@
         ]
     },
     "TinyTeddy_stable_theymedicine_youadult_01": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -5290,6 +5452,7 @@
         ]
     },
     "TinyTeddy_stable_theymedicine_youadult_02": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -5315,6 +5478,7 @@
         ]
     },
     "TinyTeddy_stable_theymedicine_youadult_03": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -5346,6 +5510,7 @@
         ]
     },
     "they_formerkittypet_sam1~2_3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -5398,6 +5563,7 @@
         ]
     },
     "unabashed_medcat_SV2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5439,6 +5605,7 @@
         ]
     },
     "unabashed_medcat_dislike_SV1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5480,6 +5647,7 @@
         ]
     },
     "neurotic_skillclimber_SQ6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -5534,6 +5702,7 @@
         ]
     },
     "neurotic_skillhealer_SQ2_6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5586,6 +5755,7 @@
         ]
     },
     "neurotic_skillsong_SQ8~2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -5633,6 +5803,7 @@
         "season": [
             "leaf-bare"
         ],
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -5683,6 +5854,7 @@
         ]
     },
     "neurotic_medcat_SQ13": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5727,6 +5899,7 @@
         ]
     },
     "neurotic_medcat_SQ14": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5757,6 +5930,7 @@
         ]
     },
     "neurotic_medcat_SQ15": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5791,6 +5965,7 @@
         ]
     },
     "neurotic_mate3_3": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -5828,6 +6003,7 @@
         ]
     },
     "cool_mate_3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -5869,6 +6045,7 @@
         ]
     },
     "silly_dc_whimsical_5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5914,6 +6091,7 @@
         ]
     },
     "brooding_toqueen_AJ_3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -5950,6 +6128,7 @@
         ]
     },
     "brooding_toqueen_AJ1_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -5983,6 +6162,7 @@
         ]
     },
     "brooding_medcat_AJ_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -6011,6 +6191,7 @@
         ]
     },
     "brooding_medcat_AJ1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6049,6 +6230,7 @@
         ]
     },
     "upstanding_you_shunnedE4_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6086,6 +6268,7 @@
         "season": [
             "newleaf"
         ],
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6132,6 +6315,7 @@
         ]
     },
     "about_silly_SQ5_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -6194,6 +6378,7 @@
         ]
     },
     "about_sweet_AJ_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -6254,6 +6439,7 @@
         ]
     },
     "skill_J1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "skill": [
@@ -6316,6 +6502,7 @@
         ]
     },
     "grieving_med_AJ_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6346,6 +6533,7 @@
         ]
     },
     "sc_9": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "residence": [
@@ -6369,6 +6557,7 @@
         ]
     },
     "assertive_elder_6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -6417,6 +6606,7 @@
         ]
     },
     "about_brooding_AJ1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -6461,6 +6651,7 @@
         ]
     },
     "Grief_medicine_H1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6516,6 +6707,7 @@
         ]
     },
     "Grief_medicine_H2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -6573,6 +6765,7 @@
         "season": [
             "greenleaf"
         ],
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -6612,6 +6805,7 @@
         ]
     },
     "assertive_tonewborn_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6640,6 +6834,7 @@
         ]
     },
     "neurotic_tokit_SQ4_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -6676,6 +6871,7 @@
         ]
     },
     "youdeaf_R65": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6698,6 +6894,7 @@
         ]
     },
     "new_shunned_J3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6748,6 +6945,7 @@
         ]
     },
     "fromkit_neg_shunned_H6_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6793,6 +6991,7 @@
         ]
     },
     "medcat_you_shunned_neutral_rad1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6821,6 +7020,7 @@
         ]
     },
     "medcat_youshunned_neg_rad1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "standing": [
@@ -6853,6 +7053,7 @@
         ]
     },
     "medcat_youshunned_neg_rad2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "standing": [
@@ -6889,6 +7090,7 @@
         ]
     },
     "medcat_youshunned_neg_rad3_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "standing": [
@@ -6928,6 +7130,7 @@
         ]
     },
     "from_med_youshunned_E1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "standing": [
@@ -6969,6 +7172,7 @@
         ]
     },
     "from_med_youshunned_E2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7020,6 +7224,7 @@
         ]
     },
     "medcat_chaotic_innovator_rad1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -7052,6 +7257,7 @@
         ]
     },
     "they_sillysam5_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7098,6 +7304,7 @@
         ]
     },
     "they_sillysam7_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -7139,6 +7346,7 @@
         ]
     },
     "nightmares_medcat_brooding_rad1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7165,6 +7373,7 @@
         ]
     },
     "bite_wounds_SQ1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7210,6 +7419,7 @@
         ]
     },
     "bite_wounds_SQ2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7255,6 +7465,7 @@
         ]
     },
     "dehydrated_SQ1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7295,6 +7506,7 @@
         ]
     },
     "cracked_pads_SQ2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -7331,6 +7543,7 @@
         ]
     },
     "coughing_SQ1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7375,6 +7588,7 @@
         ]
     },
     "coughing_SQ2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7416,6 +7630,7 @@
         ]
     },
     "poison_sam1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7445,6 +7660,7 @@
         ]
     },
     "cracked_pads_SQ3_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7481,6 +7697,7 @@
         ]
     },
     "scrapes_SQ2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -7522,6 +7739,7 @@
         ]
     },
     "scrapes_SQ3_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7569,6 +7787,7 @@
         ]
     },
     "you_kit_brooding_SQ1~2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -7606,6 +7825,7 @@
         ]
     },
     "medicine_cat_brooding_SQ1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -7649,6 +7869,7 @@
         "season": [
             "leaf-bare"
         ],
+        "frequency": 4,
         "cats": {
             "t_c": {
                 "cluster": [
@@ -7675,6 +7896,7 @@
         ]
     },
     "assertivemedcat_queen": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7728,6 +7950,7 @@
         ]
     },
     "assertivemedapp_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7784,6 +8007,7 @@
         ]
     },
     "assertive_mentor8": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [

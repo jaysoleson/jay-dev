@@ -1,5 +1,6 @@
 {
     "unabashed mediator apprentice1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -33,6 +34,7 @@
         ]
     },
     "assertivemediator_comfort_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -86,6 +88,7 @@
         ]
     },
     "brooding_mediator_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -113,6 +116,7 @@
         ]
     },
     "brooding_mediator_aboutneurotic_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -156,6 +160,7 @@
         ]
     },
     "brooding_medapp_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -194,6 +199,7 @@
         ]
     },
     "brooding_medapp_2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -229,6 +235,7 @@
         ]
     },
     "brooding_mediatorapp_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -260,6 +267,7 @@
         ]
     },
     "brooding_mediatorapp_3_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -298,6 +306,7 @@
         ]
     },
     "brooding_mediatorapp_4_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -319,6 +328,7 @@
         ]
     },
     "assertive_jealous1_5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -360,6 +370,7 @@
         ]
     },
     "assertive_medapp1_3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -384,6 +395,7 @@
         ]
     },
     "assertiveapp_medapp3_3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -413,6 +425,7 @@
         ]
     },
     "assertive_apprentice7_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -455,6 +468,7 @@
         ]
     },
     "assertive_1_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -485,6 +499,7 @@
             "greenleaf",
             "newleaf"
         ],
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -516,6 +531,7 @@
         ]
     },
     "assertivemediatorapp_AJ6_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -553,6 +569,7 @@
         ]
     },
     "mediator_like_AJ_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -601,6 +618,7 @@
         ]
     },
     "introspective_MdtorApp_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -620,6 +638,7 @@
         ]
     },
     "introspective_MdtorApp_1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -643,6 +662,7 @@
         ]
     },
     "brooding_medi_app_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -666,6 +686,7 @@
         ]
     },
     "introspective_MdtorApp_5_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -692,6 +713,7 @@
         ]
     },
     "introspective_MdtorApp_4_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -715,6 +737,7 @@
         ]
     },
     "assertive_6_3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -759,6 +782,7 @@
         ]
     },
     "assertiveapp_leader_3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -784,6 +808,7 @@
         ]
     },
     "assertive_elder_3_5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -811,6 +836,7 @@
         ]
     },
     "assertive_elder_4_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -855,6 +881,7 @@
         ]
     },
     "assertivewarrior_deputy2_3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -897,6 +924,7 @@
         ]
     },
     "assertivemediator_toqueen_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -931,6 +959,7 @@
         ]
     },
     "assertivemediator_toqueen_2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -963,6 +992,7 @@
         ]
     },
     "assertivemedapp_3_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -992,6 +1022,7 @@
         ]
     },
     "assertivemediatorapp_4_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1029,6 +1060,7 @@
         ]
     },
     "assertivemediatorapp_5_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1051,6 +1083,7 @@
         ]
     },
     "assertivemediatorapp_8": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1069,6 +1102,7 @@
         ]
     },
     "assertive_dislike1_6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1103,6 +1137,7 @@
         ]
     },
     "assertive_dislike1_2_6": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1134,6 +1169,7 @@
         ]
     },
     "assertive_dislike1_3_6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1167,6 +1203,7 @@
         ]
     },
     "assertive_dislike1_4_6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1205,6 +1242,7 @@
         ]
     },
     "assertive_jealous1_2_5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1246,6 +1284,7 @@
         ]
     },
     "assertivemediatorapp_9_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1284,6 +1323,7 @@
         ]
     },
     "assertivemediatorapp_10": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1306,6 +1346,7 @@
         ]
     },
     "assertive_warrior_or_elder_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1346,6 +1387,7 @@
         ]
     },
     "cool_1_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1368,6 +1410,7 @@
         ]
     },
     "cool_2_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1397,6 +1440,7 @@
         ]
     },
     "cool_mediator_AJ_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -1432,6 +1476,7 @@
         ]
     },
     "sweet_mediapp_1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1456,6 +1501,7 @@
         ]
     },
     "sweet_mediapp_2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -1483,6 +1529,7 @@
         ]
     },
     "sweet_mediapp_3_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -1509,6 +1556,7 @@
         ]
     },
     "sweet_mediapp_4_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -1534,6 +1582,7 @@
         ]
     },
     "sweet_mediapp_5_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1561,6 +1610,7 @@
         ]
     },
     "sweet_mediapp_6_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1590,6 +1640,7 @@
         ]
     },
     "sweet_mediapp_7_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1628,6 +1679,7 @@
         ]
     },
     "sweet_mediapp_8_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1654,6 +1706,7 @@
         ]
     },
     "sweet_mediapp_9_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1681,6 +1734,7 @@
         ]
     },
     "sweet_mediapp_10_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1705,6 +1759,7 @@
         ]
     },
     "sweet_mediapp_11_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1738,6 +1793,7 @@
         ]
     },
     "sweet_mediapp_12_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -1768,6 +1824,7 @@
         ]
     },
     "sweet_mediapp_13_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1797,6 +1854,7 @@
         ]
     },
     "sweet_mediapp_14_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1829,6 +1887,7 @@
         ]
     },
     "sweet_mediapp_15_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1856,6 +1915,7 @@
         ]
     },
     "sweet_mediapp_16_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -1884,6 +1944,7 @@
         ]
     },
     "sweet_mediapp_17_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1909,6 +1970,7 @@
         ]
     },
     "sweet_mediapp_18_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1937,6 +1999,7 @@
         ]
     },
     "sweet_mediapp_19_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -1972,6 +2035,7 @@
         ]
     },
     "sweet_mediapp_20_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1997,6 +2061,7 @@
         ]
     },
     "sweet_mediapp_21_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2019,6 +2084,7 @@
         ]
     },
     "sweet_mediapp_22_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2050,6 +2116,7 @@
         ]
     },
     "sweet_mediapp_23_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2084,6 +2151,7 @@
         ]
     },
     "sweet_mediapp_24_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2115,6 +2183,7 @@
         ]
     },
     "sweet_mediapp_25_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2138,6 +2207,7 @@
         ]
     },
     "silly_mediator_badpatrol": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2168,6 +2238,7 @@
         ]
     },
     "silly_mediator_clouds": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2215,6 +2286,7 @@
             "newleaf",
             "leaf-fall"
         ],
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2239,6 +2311,7 @@
         ]
     },
     "Introspective_mentor_H8": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2275,6 +2348,7 @@
         ]
     },
     "Introspective_mentor_H9": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2316,6 +2390,7 @@
         ]
     },
     "Introspective_mentor_H10": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2365,6 +2440,7 @@
         ]
     },
     "youdeaf_R19_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2401,6 +2477,7 @@
         ]
     },
     "neurotic_mediator_SQ1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2451,6 +2528,7 @@
         ]
     },
     "neurotic_youforgiven_SQ7": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2505,6 +2583,7 @@
         ]
     },
     "mediator_to_newborn_H1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -2529,6 +2608,7 @@
         ]
     },
     "TinyTeddy_stable_theymediator_youapp_01": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2564,6 +2644,7 @@
         ]
     },
     "TinyTeddy_stable_theymediator_youapp_02": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2585,6 +2666,7 @@
         ]
     },
     "TinyTeddy_stable_theymediator_youapp_03": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2605,6 +2687,7 @@
         ]
     },
     "TinyTeddy_stable_theyqueen_mentor_youmediatorapp_01": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2650,6 +2733,7 @@
         ]
     },
     "TinyTeddy_stable_theyqueen_mentor_youmediatorapp_02": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2684,6 +2768,7 @@
         ]
     },
     "TinyTeddy_stable_theymediator_youadult_01": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2706,6 +2791,7 @@
         ]
     },
     "TinyTeddy_stable_theymediator_youadult_02": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2726,6 +2812,7 @@
         ]
     },
     "TinyTeddy_stable_theymediator_youadult_03": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2748,6 +2835,7 @@
         ]
     },
     "neurotic_skillhealer_SQ2_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2800,6 +2888,7 @@
         ]
     },
     "assertive_elder_4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2848,6 +2937,7 @@
         ]
     },
     "brooding_mediator_AJ_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2885,6 +2975,7 @@
         ]
     },
     "mentor_meditator_H1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -2925,6 +3016,7 @@
         ]
     },
     "general_they_shunned_mediator_CM1": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2947,6 +3039,7 @@
         "season": [
             "greenleaf"
         ],
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -2986,6 +3079,7 @@
         ]
     },
     "new_shunned_J7": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "standing": [
@@ -3036,6 +3130,7 @@
         ]
     },
     "mediator_gen_youshunned_rad2_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3077,6 +3172,7 @@
         ]
     },
     "mediator_theyshunned_H1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3126,6 +3222,7 @@
         ]
     },
     "mediator_theyshunned_H2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3175,6 +3272,7 @@
         ]
     },
     "mediator_theyshunned_H3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3222,6 +3320,7 @@
         ]
     },
     "mediator_theyshunned_H4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3270,6 +3369,7 @@
         ]
     },
     "mediator_youshunned_H1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3318,6 +3418,7 @@
         ]
     },
     "mediator_youshunned_H2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3365,6 +3466,7 @@
         ]
     },
     "neurotic_mediator_SQ2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -3419,6 +3521,7 @@
         ]
     },
     "neurotic_mediator_SQ3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -3476,6 +3579,7 @@
         ]
     },
     "neurotic_mediator_SQ4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -3537,6 +3641,7 @@
         ]
     },
     "neurotic_skillstory_SQ7": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -3586,6 +3691,7 @@
         ]
     },
     "neurotic_skillstory_SQ8_3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -3637,6 +3743,7 @@
         ]
     },
     "sevhache_sam1_2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [

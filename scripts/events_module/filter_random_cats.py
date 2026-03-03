@@ -4,6 +4,7 @@ from scripts.game_structure import game
 from scripts.cat.enums import CatGroup
 from scripts.cat.cats import Cat, BACKSTORIES
 from scripts.utility import get_cluster
+from scripts.clan_package.settings import get_clan_setting
 
 # pylint: disable=consider-using-dict-items
 
@@ -14,13 +15,19 @@ possible_cats_dict = {}
 
 def choose_random_cats(
         block,
-        your_cat,
-        the_cat,
-        cat_dict,
+        your_cat: Cat,
+        the_cat: Cat=None,
+        cat_dict={},
         key=""
         ):
     """
-    Selects random cats for LG stuff! 
+    Selects random cats for LG stuff!
+    :param block: A dictionary containing content to be filtered. The "cats" block is INSIDE of this dict. Do not pass "cats" directly into this function.
+    :param your_cat: Cat object for your cat.
+    :param the_cat: Cat object for the talking cat. Outside of dialogue, this is None.
+    :param cat_dict: Dict containing existing abbrevs and Cat objects as key-value pairs.
+    :param key: Optional content key to pass for debugging.
+
     """
     possible_cats = Cat.all_cats_list.copy()
     chosen_cat_dict = {}
@@ -57,217 +64,212 @@ def _validate_cat(abbrev, block, possible_cats, your_cat, the_cat):
     the dialogue is filtered out.
     """
     cat_block = block["cats"]
+    new_possible_cats = []
 
-    if not cat_block[abbrev]:
-        # if the r_c is completely unconstrained,
-        # manually set it to be a cat in the current group.
-        # we dont go through all of that filtering with an empty dict
-        possible_cats = [
-            cat for cat in Cat.all_cats_list.copy() if
-            cat.status.alive_in_your_cat_group
-        ]
-    else:
-        # filtering functions!
-        # filters that make the most change are done first.
-        possible_cats = __filter_dead(cat_block[abbrev], possible_cats.copy())
-        possible_cats = __filter_group(cat_block[abbrev], possible_cats.copy())
-        possible_cats = __filter_standing(cat_block[abbrev], possible_cats.copy(), your_cat)
+    # filtering functions!
+    for cat in possible_cats:
+        if not __filter_dead(cat_block[abbrev], cat):
+            continue
+        if not __filter_age(cat_block[abbrev], cat):
+            continue
+        if not __filter_rank(cat_block[abbrev], cat):
+            continue
 
-        possible_cats = __filter_age(cat_block[abbrev], possible_cats.copy())
-        possible_cats = __filter_rank(cat_block[abbrev], possible_cats.copy())
-        possible_cats = __filter_skill(cat_block[abbrev], possible_cats.copy())
-        possible_cats = __filter_cluster(cat_block[abbrev], possible_cats.copy())
-        possible_cats = __filter_backstory(cat_block[abbrev], possible_cats.copy())
-        possible_cats = __filter_faith(cat_block[abbrev], possible_cats.copy())
+        if not __filter_group(cat_block[abbrev], cat):
+            continue
+        if not __filter_standing(cat_block[abbrev], cat, your_cat):
+            continue
 
-    # conditions are filtered either way for deaf/blind/grieving stuff
-    possible_cats = __filter_conditions(cat_block[abbrev], possible_cats.copy())
+        if not __filter_skill(cat_block[abbrev], cat):
+            continue
+        if not __filter_cluster(cat_block[abbrev], cat):
+            continue
+        if not __filter_backstory(cat_block[abbrev], cat):
+            continue
+        if not __filter_faith(cat_block[abbrev], cat):
+            continue
 
-    if abbrev == "t_c" and the_cat not in possible_cats:
+        if not __filter_conditions(cat_block[abbrev], cat):
+            continue
+
+        new_possible_cats.append(cat)
+
+    if abbrev == "t_c" and the_cat not in new_possible_cats:
         return []
-    if abbrev == "y_c" and your_cat not in possible_cats:
+    if abbrev == "y_c" and your_cat not in new_possible_cats:
         return []
     
     possible_cat_dict = {}
-    possible_cat_dict[abbrev] = possible_cats.copy()
+    possible_cat_dict[abbrev] = new_possible_cats
 
-    return possible_cats
+    return new_possible_cats
 
     # ---------------------------------------------------------------------- #
     #                          CAT FILTERING FUNCTIONS                       #
     # ---------------------------------------------------------------------- #
 
-def __filter_dead(abbrev_block, possible_cats):
-    for cat in possible_cats.copy():
-        if "min_max_dead_moons" in abbrev_block:
-            if (
-                abbrev_block["min_max_dead_moons"][0] > cat.dead_for or
-                abbrev_block["min_max_dead_moons"][1] < cat.dead_for
-            ):
-                possible_cats.remove(cat)
-                continue
-        if "residence" in abbrev_block:
-            if not cat.dead:
-                possible_cats.remove(cat)
-            else:
-                if "any" not in abbrev_block["residence"]:
-                    if (
-                        "df" not in abbrev_block["residence"] and
-                        cat.status.group_ID == CatGroup.DARK_FOREST_ID
-                        ):
-                        possible_cats.remove(cat)
-                    elif (
-                        "sc" not in abbrev_block["residence"] and
-                        cat.status.group_ID == CatGroup.STARCLAN_ID
-                        ):
-                        possible_cats.remove(cat)
-                    elif (
-                        "ur" not in abbrev_block["residence"] and
-                        cat.status.group_ID == CatGroup.UNKNOWN_RESIDENCE_ID
-                        ):
-                        possible_cats.remove(cat)
-        else:
-            if cat.dead:
-                possible_cats.remove(cat)
-    return possible_cats
-
-def __filter_group(abbrev_block, possible_cats):
-    for cat in possible_cats.copy():
-        if "group" in abbrev_block:
-            if (
-                (
-                    cat.status.group and
-                    cat.status.group not in abbrev_block["group"]
-                ) or
-                (
-                    not cat.status.group and
-                    "none" not in abbrev_block["group"]
-                ) or
-                (
-                    cat.status.is_other_clancat and
-                    "other_clan" not in abbrev_block["group"]
-                ) or
-                (
-                    f"not_{cat.status.group}" in abbrev_block["group"]
-                )
-            ):
-                possible_cats.remove(cat)
-    return possible_cats
-
-def __filter_standing(abbrev_block, possible_cats, your_cat):
-    if "standing" not in abbrev_block:
-        return possible_cats
-
-    for cat in possible_cats.copy():
-        standing_found = False
-        standing_dict = {
-            "lost": cat.status.is_lost(your_cat.status.group_ID),
-            "exiled": cat.status.is_exiled(your_cat.status.group_ID),
-            "shunned": cat.status.is_shunned(your_cat.status.group_ID),
-            "daylight": cat.status.is_daylight_warrior(your_cat.status.group_ID),
-            "forgiven": cat.status.is_forgiven(),
-            "near": cat.status.is_near(your_cat.status.group_ID),
-            "outsider": cat.status.is_outsider
-        }
-        for tag in abbrev_block["standing"]:
-            if tag in standing_dict and standing_dict[tag]:
-                standing_found = True
-                break
-        if not standing_found:
-            possible_cats.remove(cat)
-
-    return possible_cats
-
-def __filter_age(abbrev_block, possible_cats):
-    if "age" not in abbrev_block:
-        return possible_cats
-
-    for cat in possible_cats.copy():
-        if f"not_{cat.age}" in abbrev_block["age"]:
-            possible_cats.remove(cat)
-            continue
-        elif cat.age not in abbrev_block["age"]:
-            possible_cats.remove(cat)
-            continue
-
-    return possible_cats
-
-def __filter_rank(abbrev_block, possible_cats):
-    if "rank" not in abbrev_block:
-        return possible_cats
-    for cat in possible_cats.copy():
+def __filter_dead(abbrev_block, cat):
+    if "min_max_dead_moons" in abbrev_block:
         if (
-            f"not_{cat.status.rank}" in abbrev_block["rank"] or
-            f"not_{cat.status.rank.replace(' ', '_')}" in abbrev_block["rank"]
-            ):
-            possible_cats.remove(cat)
-        elif (
-            "df_trainee" in abbrev_block["rank"] and
-                not (cat.joined_df)
-            ): possible_cats.remove(cat)
-        elif (
-            "not_df_trainee" in abbrev_block["rank"] and
-                (cat.joined_df)
-            ): possible_cats.remove(cat)
-        elif (
-            "guide" in abbrev_block["rank"] and
-                cat not in (game.clan.instructor, game.clan.demon)
-            ): possible_cats.remove(cat)
-        elif (
-            cat.status.rank not in abbrev_block["rank"] and
-            cat.status.rank.replace(' ', '_') not in abbrev_block["rank"]
-            ):
-            possible_cats.remove(cat)
-    return possible_cats
-
-def __filter_skill(abbrev_block, possible_cats):
-    if "skill" not in abbrev_block:
-        return possible_cats
-    for cat in possible_cats.copy():
-        skill_met = False
-        # if the skill tag is negative (tier is -1), the cat cant have Any of the negative skills.
-        # they'll only need one of the positive skills to get the dialogue
-        # negative and positive skill tags can be combined!
-        # so like ["LORE,1", "OMEN,-1"] is possible, for example.
-        neg_skills_met = 0
-        neg_skills = 0
-        for tag in abbrev_block["skill"]:
-            tier = int(tag.split(",")[1])
-            if tier == -1:
-                neg_skills += 1
-            if cat.skills.meets_skill_requirement(tag.split(",")[0], tier):
-                if tier == -1:
-                    neg_skills_met += 1
-                else:
-                    skill_met = True
-
-        if (
-            not skill_met or
-            (neg_skills > 0 and neg_skills != neg_skills_met)
-            ):
-            possible_cats.remove(cat)
-
-
-    return possible_cats
-
-def __filter_cluster(abbrev_block, possible_cats):
-    if "cluster" not in abbrev_block:
-        return possible_cats
-    for cat in possible_cats.copy():
-        cluster1, cluster2 = get_cluster(cat.personality.trait)
-        if (
-            cluster1 not in abbrev_block["cluster"] and
-            cluster2 not in abbrev_block["cluster"] and
-            cat.personality.trait not in abbrev_block["cluster"]
+            abbrev_block["min_max_dead_moons"][0] > cat.dead_for or
+            abbrev_block["min_max_dead_moons"][1] < cat.dead_for
         ):
-            possible_cats.remove(cat)
-    
-    return possible_cats
+            return False
+    if "residence" in abbrev_block:
+        if not cat.dead:
+            return False
+        else:
+            if "any" not in abbrev_block["residence"]:
+                if (
+                    "df" not in abbrev_block["residence"] and
+                    cat.status.group_ID == CatGroup.DARK_FOREST_ID
+                    ):
+                    return False
+                elif (
+                    "sc" not in abbrev_block["residence"] and
+                    cat.status.group_ID == CatGroup.STARCLAN_ID
+                    ):
+                    return False
+                elif (
+                    "ur" not in abbrev_block["residence"] and
+                    cat.status.group_ID == CatGroup.UNKNOWN_RESIDENCE_ID
+                    ):
+                    return False
+    else:
+        if cat.dead:
+            return False
+    return True
 
-def __filter_backstory(abbrev_block, possible_cats):
+def __filter_group(abbrev_block, cat):
+    if "group" in abbrev_block:
+        if (
+            (
+                cat.status.group and
+                cat.status.group not in abbrev_block["group"]
+            ) or
+            (
+                not cat.status.group and
+                "none" not in abbrev_block["group"]
+            ) or
+            (
+                cat.status.is_other_clancat and
+                "other_clan" not in abbrev_block["group"]
+            ) or
+            (
+                f"not_{cat.status.group}" in abbrev_block["group"]
+            )
+        ):
+            return False
+    return True
+
+def __filter_standing(abbrev_block, cat, your_cat):
+    if "standing" not in abbrev_block:
+        return True
+
+    standing_found = False
+    standing_dict = {
+        "lost": cat.status.is_lost(your_cat.status.group_ID),
+        "exiled": cat.status.is_exiled(your_cat.status.group_ID),
+        "shunned": cat.status.is_shunned(your_cat.status.group_ID),
+        "daylight": cat.status.is_daylight_warrior(your_cat.status.group_ID),
+        "forgiven": cat.status.is_forgiven(),
+        "near": cat.status.is_near(your_cat.status.group_ID),
+        "outsider": cat.status.is_outsider
+    }
+    for tag in abbrev_block["standing"]:
+        if tag in standing_dict and standing_dict[tag]:
+            standing_found = True
+            break
+    if not standing_found:
+        return False
+
+    return True
+
+def __filter_age(abbrev_block, cat):
+    if "age" not in abbrev_block:
+        return True
+
+    if f"not_{cat.age}" in abbrev_block["age"]:
+        return False
+    elif cat.age not in abbrev_block["age"]:
+        return False
+
+    return True
+
+def __filter_rank(abbrev_block, cat):
+    if "rank" not in abbrev_block:
+        return True
+    if (
+        f"not_{cat.status.rank}" in abbrev_block["rank"] or
+        f"not_{cat.status.rank.replace(' ', '_')}" in abbrev_block["rank"]
+        ):
+        return False
+    elif (
+        "df_trainee" in abbrev_block["rank"] and
+            not (cat.joined_df)
+        ):
+        return False
+    elif (
+        "not_df_trainee" in abbrev_block["rank"] and
+            (cat.joined_df)
+        ):
+        return False
+    elif (
+        "guide" in abbrev_block["rank"] and
+            cat not in (game.clan.instructor, game.clan.demon)
+        ):
+        return False
+    elif (
+        cat.status.rank not in abbrev_block["rank"] and
+        cat.status.rank.replace(' ', '_') not in abbrev_block["rank"]
+        ):
+        return False
+    return True
+
+def __filter_skill(abbrev_block, cat):
+    if "skill" not in abbrev_block:
+        return True
+    skill_met = False
+    # if the skill tag is negative (tier is -1), the cat cant have Any of the negative skills.
+    # they'll only need one of the positive skills to get the dialogue
+    # negative and positive skill tags can be combined!
+    # so like ["LORE,1", "OMEN,-1"] is possible, for example.
+    neg_skills_met = 0
+    neg_skills = 0
+    for tag in abbrev_block["skill"]:
+        tier = int(tag.split(",")[1])
+        if tier == -1:
+            neg_skills += 1
+        if cat.skills.meets_skill_requirement(tag.split(",")[0], tier):
+            if tier == -1:
+                neg_skills_met += 1
+            else:
+                skill_met = True
+
+    if (
+        not skill_met or
+        (neg_skills > 0 and neg_skills != neg_skills_met)
+        ):
+        return False
+    return True
+
+def __filter_cluster(abbrev_block, cat):
+    if "cluster" not in abbrev_block:
+        return True
+    cluster1, cluster2 = get_cluster(cat.personality.trait)
+    if (
+        cluster1 not in abbrev_block["cluster"] and
+        cluster2 not in abbrev_block["cluster"] and
+        cat.personality.trait not in abbrev_block["cluster"]
+    ):
+        return False
+    
+    return True
+
+def __filter_backstory(abbrev_block, cat):
 
     if "backstory" not in abbrev_block:
-        return possible_cats
+        return True
 
     backstory_tag_dict = {
         "formerlyaloner": "loner_backstories",
@@ -287,159 +289,142 @@ def __filter_backstory(abbrev_block, possible_cats):
         "fromstarclan": "oldstarclan_backstories"
     }
 
-    for cat in possible_cats.copy():
-        backstory_found = False
-        for tag in abbrev_block["backstory"]:
-            if tag in backstory_tag_dict:
-                if cat.backstory in (
-                    BACKSTORIES["backstory_categories"][backstory_tag_dict[tag]]
-                    ):
-                    backstory_found = True
-                    break
-            elif tag == cat.backstory:
+    backstory_found = False
+    for tag in abbrev_block["backstory"]:
+        if tag in backstory_tag_dict:
+            if cat.backstory in (
+                BACKSTORIES["backstory_categories"][backstory_tag_dict[tag]]
+                ):
                 backstory_found = True
                 break
-        if not backstory_found:
-            possible_cats.remove(cat)
+        elif tag == cat.backstory:
+            backstory_found = True
+            break
+    if not backstory_found:
+        return False
 
-    return possible_cats
+    return True
 
-def __filter_faith(abbrev_block, possible_cats):
+def __filter_faith(abbrev_block, cat):
     if "min_max_faith" not in abbrev_block:
-        return possible_cats
-    for cat in possible_cats.copy():
-        if (
-            abbrev_block["min_max_faith"][0] > cat.faith or
-            abbrev_block["min_max_faith"][1] < cat.faith
-        ):
-            possible_cats.remove(cat)
-            continue
-    return possible_cats
+        return True
+    if (
+        abbrev_block["min_max_faith"][0] > cat.faith or
+        abbrev_block["min_max_faith"][1] < cat.faith
+    ):
+        return False
+    return True
 
-def __filter_conditions(abbrev_block, possible_cats):
-    for cat in possible_cats.copy():
-        blind_tagged = False
-        deaf_tagged = False
+def __filter_conditions(abbrev_block, cat):
+    blind_tagged = False
+    deaf_tagged = False
 
-        condition_true = False
-        reg_tagged = False
+    condition_true = False
+    reg_tagged = False
 
-        exclusive_conditions = ["pregnant", "grief stricken"]
+    exclusive_conditions = ["pregnant", "grief stricken"]
 
-        condition_block = abbrev_block["condition"] if "condition" in abbrev_block else []
-        for tag in condition_block:
-            if isinstance(tag, list):
-                for condition in tag:
-                    if (
-                        condition not in cat.illnesses and
-                        condition not in cat.injuries and
-                        condition not in cat.permanent_condition
+    condition_block = abbrev_block["condition"] if "condition" in abbrev_block else []
+    for tag in condition_block:
+        if isinstance(tag, list):
+            for condition in tag:
+                if (
+                    condition not in cat.illnesses and
+                    condition not in cat.injuries and
+                    condition not in cat.permanent_condition
+                ):
+                    return False
+        elif isinstance(tag, str):
+            if ":" in tag:
+                attributes = tag.split(":")
+                condition = attributes[0]
+                born_with = attributes[1]
+                exclusive = "false"
+
+                if condition == "blind":
+                    blind_tagged = True
+
+                if condition == "deaf":
+                    deaf_tagged = True
+
+                if len(attributes) > 2:
+                    exclusive = attributes[2]
+
+                # exclusionary
+                if condition == "not" and (
+                    born_with in cat.illnesses or
+                    born_with in cat.injuries or
+                    born_with in cat.permanent_condition
+                ):
+                    return False
+
+                # gen injury/illness
+                if condition == "injury" and born_with == "any":
+                    if not cat.is_injured():
+                        return False
+                if condition == "illness" and born_with == "any":
+                    if not cat.is_ill():
+                        return False
+                if condition == "injury" and born_with == "none":
+                    if cat.is_injured():
+                        return False
+                if condition == "illness" and born_with == "none":
+                    if cat.is_ill():
+                        return False
+
+                # now blind/deaf
+                if exclusive == "true" and condition not in cat.permanent_condition:
+                    return False
+
+                if born_with == "true":
+                    if not (
+                        condition in cat.permanent_condition and
+                        cat.permanent_condition[condition]["born_with"] is True
                     ):
-                        possible_cats.remove(cat)
-                        break
-            elif isinstance(tag, str):
-                if ":" in tag:
-                    attributes = tag.split(":")
-                    condition = attributes[0]
-                    born_with = attributes[1]
-                    exclusive = "false"
-
-                    if condition == "blind":
-                        blind_tagged = True
-
-                    if condition == "deaf":
-                        deaf_tagged = True
-
-                    if len(attributes) > 2:
-                        exclusive = attributes[2]
-
-                    # exclusionary
-                    if condition == "not" and (
-                        born_with in cat.illnesses or
-                        born_with in cat.injuries or
-                        born_with in cat.permanent_condition
+                        return False
+                elif born_with == "false":
+                    if not (
+                        condition in cat.permanent_condition and
+                        cat.permanent_condition[condition]["born_with"] is False
                     ):
-                        possible_cats.remove(cat)
-                        break
-
-                    # gen injury/illness
-                    if condition == "injury" and born_with == "any":
-                        if not cat.is_injured():
-                            possible_cats.remove(cat)
-                            break
-                    if condition == "illness" and born_with == "any":
-                        if not cat.is_ill():
-                            possible_cats.remove(cat)
-                            break
-                    if condition == "injury" and born_with == "none":
-                        if cat.is_injured():
-                            possible_cats.remove(cat)
-                            break
-                    if condition == "illness" and born_with == "none":
-                        if cat.is_ill():
-                            possible_cats.remove(cat)
-                            break
-
-                    # now blind/deaf
-                    if exclusive == "true" and condition not in cat.permanent_condition:
-                        possible_cats.remove(cat)
-                        break
-
-                    if born_with == "true":
-                        if not (
-                            condition in cat.permanent_condition and
-                            cat.permanent_condition[condition]["born_with"] is True
-                        ):
-                            possible_cats.remove(cat)
-                            break
-                    elif born_with == "false":
-                        if not (
-                            condition in cat.permanent_condition and
-                            cat.permanent_condition[condition]["born_with"] is False
-                        ):
-                            possible_cats.remove(cat)
-                            break
+                        return False
+            else:
+                if tag == "hearing":
+                    if "deaf" in cat.permanent_condition:
+                        deaf_tagged = False
+                        return False
+                elif tag in exclusive_conditions:
+                    if not (
+                        tag in cat.permanent_condition or
+                        tag in cat.injuries or
+                        tag in cat.illnesses
+                    ):
+                        return False
                 else:
-                    if tag == "hearing":
-                        if "deaf" in cat.permanent_condition:
-                            possible_cats.remove(cat)
-                            deaf_tagged = False
-                            break
-                    elif tag in exclusive_conditions:
-                        if not (
-                            tag in cat.permanent_condition or
-                            tag in cat.injuries or
-                            tag in cat.illnesses
-                        ):
-                            possible_cats.remove(cat)
-                            break
-                    else:
-                        reg_tagged = True
-                        if (
-                            tag in cat.permanent_condition or
-                            tag in cat.injuries or
-                            tag in cat.illnesses
-                        ):
-                            condition_true = True
-                            break
+                    reg_tagged = True
+                    if (
+                        tag in cat.permanent_condition or
+                        tag in cat.injuries or
+                        tag in cat.illnesses
+                    ):
+                        condition_true = True
+                        break
 
-        if "blind" in cat.permanent_condition and not blind_tagged and cat in possible_cats:
-            possible_cats.remove(cat)
-        if (
-                (
-                    "deaf" in cat.permanent_condition and
-                    cat.permanent_condition["deaf"]["born_with"] is True
-                )
-                and not deaf_tagged
-                and cat in possible_cats
-            ):
-            possible_cats.remove(cat)
-    
-        if reg_tagged:
-            if cat in possible_cats and not condition_true:
-                possible_cats.remove(cat)
+    if "blind" in cat.permanent_condition and not blind_tagged:
+        return False
+    if (
+            (
+                "deaf" in cat.permanent_condition and
+                cat.permanent_condition["deaf"]["born_with"] is True
+            )
+            and not deaf_tagged
+        ):
+        return False
 
-    return possible_cats
+    if reg_tagged and not condition_true:
+        return False
+
+    return True
 
 def __filter_relationships(all_abbrevs, block, dict_possible_cats, your_cat, the_cat, cat_dict, key=""):
     """
@@ -542,23 +527,24 @@ def __filter_relationships(all_abbrevs, block, dict_possible_cats, your_cat, the
                                 elif rel_tag == "mate's sibling/sibling's mate":
                                     rel_valid = from_cat.ID in to_cat.inheritance.get_siblings_mates()
                                 elif rel_tag == "cousins":
-                                    rel_valid = from_cat.ID in to_cat.inheritance.get_cousins()
+                                    rel_valid = from_cat.is_cousin(to_cat)
                                 elif rel_tag == "adopted siblings":
                                     rel_valid = from_cat.ID in to_cat.inheritance.get_no_blood_siblings()
                                 elif rel_tag == "parent's sibling/sibling's kit":
-                                    rel_valid = from_cat.ID in to_cat.inheritance.get_parents_siblings()
+                                    rel_valid = from_cat.is_uncle_aunt(to_cat)
                                 elif rel_tag == "strangers":
                                     if from_cat.ID in to_cat.relationships:
                                         rel_valid = False
                                 elif rel_tag == "siblings":
-                                    rel_valid = from_cat.ID in to_cat.inheritance.get_siblings()
+                                    rel_valid = from_cat.is_sibling(to_cat)
                                 elif rel_tag == "littermates":
-                                    rel_valid = from_cat.ID in to_cat.inheritance.get_siblings() and from_cat.moons == to_cat.moons
+                                    rel_valid = from_cat.is_littermate(to_cat)
                                 elif rel_tag == "grandparent/grandchild":
                                     rel_valid = from_cat.is_grandparent(to_cat)
                                 elif rel_tag == "grandchild/grandparent":
                                     rel_valid = to_cat.is_grandparent(from_cat)
-                                
+                                elif rel_tag == "half-siblings":
+                                    rel_valid = to_cat.is_half_sibling(from_cat)
                                 elif rel_tag == "dead/grieving":
                                     if "grief stricken" not in to_cat.illnesses:
                                         rel_valid = False
@@ -577,6 +563,10 @@ def __filter_relationships(all_abbrevs, block, dict_possible_cats, your_cat, the
                                         rel_valid = False
                                     else:
                                         rel_valid = True
+                                elif rel_tag == "related":
+                                    rel_valid = from_cat.is_related(to_cat, get_clan_setting("first cousin mates"))
+                                elif rel_tag == "non-related":
+                                    rel_valid = not from_cat.is_related(to_cat, get_clan_setting("first cousin mates"))
                                 
                                 elif rel_tag == "victim/murderer":
                                     if not to_cat.history.murder:

@@ -73,6 +73,7 @@ for FILE in file_names:
         SEASON = []
         BIOME = []
         CAMP = []
+        FREQUENCY = 4
         TAGS = []
         RELATIONSHIPS = []
         MURDER = {}
@@ -337,6 +338,8 @@ for FILE in file_names:
             new_block["camp"] = CAMP
         if SEASON:
             new_block["season"] = SEASON
+        if FREQUENCY:
+            new_block["frequency"] = FREQUENCY
 
         for key, item in CAT_DICT.items():
             if "cats" not in new_block:

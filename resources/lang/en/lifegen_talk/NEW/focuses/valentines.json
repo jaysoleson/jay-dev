@@ -1,5 +1,6 @@
 {
     "valentines_1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -39,6 +40,7 @@
         ]
     },
     "valen_introspective_H1": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -81,6 +83,7 @@
         ]
     },
     "valen_introspective_H2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -127,6 +130,7 @@
         ]
     },
     "valen_introspective_H3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -174,6 +178,7 @@
         ]
     },
     "valen_introspective_H4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -216,6 +221,7 @@
         ]
     },
     "valen_shunned_H1": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -239,6 +245,7 @@
         ]
     },
     "valen_shunned_H2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -264,6 +271,7 @@
         ]
     },
     "valen_shunned_H3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -313,6 +321,7 @@
         ]
     },
     "valen_shunned_H4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -349,6 +358,7 @@
         ]
     },
     "valen_shunned_H5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -385,6 +395,7 @@
         ]
     },
     "valen_shunned_H6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -440,6 +451,7 @@
         ]
     },
     "valen_shunned_H7": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -493,6 +505,7 @@
         ]
     },
     "valentine_focus_SQ7": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -532,6 +545,7 @@
         ]
     },
     "valentine_focus_SQ2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -589,6 +603,7 @@
         ]
     },
     "valentine_focus_SQ3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -637,6 +652,7 @@
         ]
     },
     "valentine_focus_SQ4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -686,6 +702,7 @@
         ]
     },
     "valentine_focus_SQ5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -742,6 +759,7 @@
         ]
     },
     "valentine_focus_SQ6": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -789,6 +807,7 @@
         ]
     },
     "valenfocus_gen_1ps": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -803,6 +822,7 @@
         ]
     },
     "valenfocus_gen_2ps": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -843,6 +863,7 @@
         ]
     },
     "valenfocus_gen_3ps": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -887,6 +908,7 @@
         ]
     },
     "valenfocus_gen_4ps": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {}
@@ -897,6 +919,7 @@
         ]
     },
     "valentine_focus_J1": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -942,6 +965,7 @@
         ]
     },
     "valentine_focus_J2": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -973,6 +997,7 @@
         ]
     },
     "valentine_focus_J3": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -1011,6 +1036,7 @@
         ]
     },
     "valentine_focus_AJ1": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1046,6 +1072,7 @@
         ]
     },
     "valentine_focus_AJ2": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1093,6 +1120,7 @@
         ]
     },
     "valentine_focus_AJ3": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1126,6 +1154,7 @@
         ]
     },
     "valentine_focus_AJ4": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1157,6 +1186,7 @@
         ]
     },
     "valentine_focus_AJ5": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1186,6 +1216,7 @@
         ]
     },
     "valentine_focus_AJ6": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1220,6 +1251,7 @@
         ]
     },
     "valentine_focus_AJ7": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1261,6 +1293,7 @@
         ]
     },
     "valentine_focus_AJ8": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1298,6 +1331,7 @@
         ]
     },
     "valentine_focus_AJ9": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1325,6 +1359,7 @@
         ]
     },
     "valentine_focus_AJ10": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1357,6 +1392,7 @@
         ]
     },
     "valentine_focus_AJ11": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1397,6 +1433,7 @@
         ]
     },
     "valentine_focus_AJ12": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1430,6 +1467,7 @@
         ]
     },
     "valentine_focus_AJ13": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1480,6 +1518,7 @@
         ]
     },
     "valentine_focus_AJ14": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1525,6 +1564,7 @@
         ]
     },
     "valentine_focus_AJ15": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1563,6 +1603,7 @@
         ]
     },
     "valentine_focus_AJ155": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1599,6 +1640,7 @@
         ]
     },
     "valentine_focus_AJ16": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1662,6 +1704,7 @@
         ]
     },
     "valentine_focus_AJ17": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -1686,6 +1729,7 @@
         ]
     },
     "valentine_focus_Guy1": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1717,6 +1761,7 @@
         ]
     },
     "valentines_focus_J4": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1775,6 +1820,7 @@
         ]
     },
     "valentines_focus_J5": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -1824,6 +1870,7 @@
         ]
     },
     "valentines_focus_J6": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1863,6 +1910,7 @@
         ]
     },
     "valentines_focus_J7": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1901,6 +1949,7 @@
         ]
     },
     "velentines_focus_J8": {
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "age": [
@@ -1938,6 +1987,7 @@
         ]
     },
     "valentines_focus_J9": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {

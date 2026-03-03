@@ -1,5 +1,6 @@
 {
     "general": {
+        "frequency": 4,
         "cats": {
             "y_c": {},
             "t_c": {}

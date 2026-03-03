@@ -7502,7 +7502,7 @@
             "Yeah. Then, I think I met someone from o_c_n on the other side of it. They yelled up at me, and I think they might've been trying to greet me? But all I heard was a yelp and it REALLY scared me.",
             "I almost slipped off! But I'm okay now, obviously.",
             "...Hey, don't look at me like that! I have, so far, calculated the mortality rate of all my encounters with 100% accuracy.",
-            "[t_c winks at you with a smarty-cat gleam in {PRONOUN/t_c/poss} eye before turning back to what they were doing.]"
+            "[t_c winks at you with a smarty-cat gleam in {PRONOUN/t_c/poss} eye before turning back to what {PRONOUN/t_c/subject} {VERB/t_c/were/was} doing.]"
         ]
     },
     "silly_gen_idle": {
@@ -8187,6 +8187,9 @@
                 "warrior",
                 "deputy",
                 "leader"
+            ],
+            "condition": [
+                "hearing"
             ]
         },
         "season": [

@@ -99,6 +99,7 @@ class Dialogue():
         """
 
         possible_dialogue = {}
+        possible_dialogue_keys = []
         for key, block in possible_texts.items():
             # print("Checking", key)
             if "season" in block:
@@ -127,8 +128,15 @@ class Dialogue():
             # populates the dict that holds dialogue keys
             self._populate_cat_dict(key, chosen_cat_dict)
             possible_dialogue[key] = block
+            if "frequency" in block:
+                for i in range(block["frequency"]):
+                    possible_dialogue_keys.append(key)
+            else:
+                print("Warning: Dialogue", key, "has no frequency.")
+                possible_dialogue_keys.append(key)
 
-        return possible_dialogue
+
+        return possible_dialogue, possible_dialogue_keys
 
     def get_cat_dict(self):
         """
@@ -141,9 +149,10 @@ class Dialogue():
         Makes a final selection.
         Returns the key and the dict object.
         """
-        possible_dialogue = self.filter_dialogue(possible_dialogue)
+        possible_dialogue, possible_dialogue_keys = self.filter_dialogue(possible_dialogue)
         if not possible_dialogue:
             possible_dialogue = load_lang_resource("lifegen_talk/general.json")
+            possible_dialogue_keys = ["general"]
 
         if self.debug:
             if constants.CONFIG["lifegen"]["debug"]["debug_dialogue_override_filtering"]:
@@ -152,13 +161,13 @@ class Dialogue():
                 chosen_key = self.debug
                 print(f"Debug: Dialogue set to {self.debug}")
             else:
-                chosen_key = random.choice(list(possible_dialogue.keys()))
+                chosen_key = random.choice(possible_dialogue_keys)
                 print(
                     f"Debugged Dialogue ID ({self.debug}) is not in possible dialogue options." +
                     " Set debug_dialogue_override_filtering to true to override filtering."
                     )
         else:
-            chosen_key = random.choice(list(possible_dialogue.keys()))
+            chosen_key = random.choice(possible_dialogue_keys)
 
         if chosen_key != "general":
             self.cat_dict = self.dialogue_cat_dict[chosen_key]

@@ -1515,6 +1515,22 @@ class Pelt:
                 return True
             if self.tortie_base in self.plain and self.tortie_pattern not in not_wildcard_patterns and self.tortie_base != self.tortie_pattern:
                 return True
+
+            # real pattern stuff
+            if self.tortie_base in ("singlestripe", "smoke", "single"):
+                if self.tortie_pattern not in [
+                        "tabby",
+                        "mackerel",
+                        "classic",
+                        "single",
+                        "smoke",
+                        "agouti",
+                        "ticked",
+                    ]:
+                    return True
+            else:
+                if self.tortie_pattern not in  [self.tortie_base, "single"]:
+                    return True
             return False
 
 
