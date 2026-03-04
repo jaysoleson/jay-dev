@@ -51383,186 +51383,186 @@
         "choice2": {
             "text": "I hope my den is next.",
             "next_scene": "mydennextJOL"
-        }
-    },
-    "kitplansJOL": [
-        "I- well- that is-",
-        "[t_c stammers, ears reddening.]",
-        "Perhaps. We'll see. I'd like it if there were... very much.",
-        "For now though, I'm just going to get the rest of this taken care of. Here, you can have some of it for your own nest. I appreciate your help y_c, thank you.",
-        "[You have gained a new accessory!]"
-    ],
-    "queensappreciateJOL": [
-        "I certainly hope that they will.",
-        "[t_c smiles serenely, batting a piece of loose fluff into place.]",
-        "And I appreciate you helping me, y_c. Here, take some of this with you. I hope that it can serve your nest just as well.",
-        "[You have gained a new accessory!]"
-    ],
-    "mydennextJOL": [
-        "[t_c snorts and rolls {PRONOUN/t_c/poss} eyes.]",
-        "Keep helping me like this and it might be. Thanks, y_c. Here, for now, take this. I may have overestimated how much I would need.",
-        "[You have gained a new accessory!]"
-    ],
-    "nurserybeddingJOL_scene_effects": {
-        "relationship": {
-            "cats_to": [
-                "y_c"
-            ],
-            "cats_from": [
-                "t_c"
-            ],
-            "values": {
-                "like": 3,
-                "respect": 3,
-                "comfort": 3,
-                "trust": 3
-            },
-            "mutual": true
-        }
-    },
-    "refusenursery_scene_effects": {
-        "relationship": {
-            "cats_to": [
-                "y_c"
-            ],
-            "cats_from": [
-                "t_c"
-            ],
-            "values": {
-                "like": -2,
-                "comfort": -5
-            },
-            "mutual": true
-        }
-    },
-    "goodworkJOL_scene_effects": {
-        "relationship": {
-            "cats_to": [
-                "y_c"
-            ],
-            "cats_from": [
-                "t_c"
-            ],
-            "values": {
-                "like": 5,
-                "respect": 5,
-                "comfort": 5,
-                "trust": 5
-            },
-            "mutual": true
-        }
-    },
-    "apprenticeworkJOL_scene_effects": {
-        "relationship": {
-            "cats_to": [
-                "y_c"
-            ],
-            "cats_from": [
-                "t_c"
-            ],
-            "values": {
-                "like": 1,
-                "respect": -3,
-                "comfort": -1,
-                "trust": 2
-            },
-            "mutual": true
-        }
-    },
-    "kitplansJOL_scene_effects": {
-        "inventory": {
-            "cats_to": [
-                "y_c"
-            ],
-            "accessory": [
-                "BLEEDING HEARTS",
-                "BLEEDING VINES",
-                "CHERRYPLUMLEAVES",
-                "WHITEWOOL",
-                "BEAR",
-                "FLOWER MOSS",
-                "FORGET ME NOTS"
-            ],
-            "addition": "choice"
         },
-        "relationship": {
-            "cats_to": [
-                "y_c"
-            ],
-            "cats_from": [
-                "t_c"
-            ],
-            "values": {
-                "like": 15,
-                "respect": 5,
-                "comfort": 10,
-                "trust": 10
-            },
-            "mutual": true
-        }
-    },
-    "queensappreciateJOL_scene_effects": {
-        "inventory": {
-            "cats_to": [
-                "y_c"
-            ],
-            "accessory": [
-                "GRAYWOOL",
-                "BLACKWOOL",
-                "CREAMWOOL",
-                "WHITEWOOL",
-                "VINE",
-                "SPRINGFEATHERS",
-                "SPRINGFLOWERCORSAGE"
-            ],
-            "addition": "choice"
+        "kitplansJOL": [
+            "I- well- that is-",
+            "[t_c stammers, ears reddening.]",
+            "Perhaps. We'll see. I'd like it if there were... very much.",
+            "For now though, I'm just going to get the rest of this taken care of. Here, you can have some of it for your own nest. I appreciate your help y_c, thank you.",
+            "[You have gained a new accessory!]"
+        ],
+        "queensappreciateJOL": [
+            "I certainly hope that they will.",
+            "[t_c smiles serenely, batting a piece of loose fluff into place.]",
+            "And I appreciate you helping me, y_c. Here, take some of this with you. I hope that it can serve your nest just as well.",
+            "[You have gained a new accessory!]"
+        ],
+        "mydennextJOL": [
+            "[t_c snorts and rolls {PRONOUN/t_c/poss} eyes.]",
+            "Keep helping me like this and it might be. Thanks, y_c. Here, for now, take this. I may have overestimated how much I would need.",
+            "[You have gained a new accessory!]"
+        ],
+        "nurserybeddingJOL_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 3,
+                    "respect": 3,
+                    "comfort": 3,
+                    "trust": 3
+                },
+                "mutual": true
+            }
         },
-        "relationship": {
-            "cats_to": [
-                "y_c"
-            ],
-            "cats_from": [
-                "t_c"
-            ],
-            "values": {
-                "like": 10,
-                "respect": 5,
-                "comfort": 9,
-                "trust": 7
-            },
-            "mutual": true
-        }
-    },
-    "mydennextJOL_scene_effects": {
-        "inventory": {
-            "cats_to": [
-                "y_c"
-            ],
-            "accessory": [
-                "MOSSPELT",
-                "JAY FEATHERS",
-                "YELLOWWISTERIA",
-                "RED FEATHERS",
-                "TULIPPETALS",
-                "GULL FEATHERS",
-                "SPRINGFEATHERS"
-            ],
-            "addition": "choice"
+        "refusenursery_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": -2,
+                    "comfort": -5
+                },
+                "mutual": true
+            }
         },
-        "relationship": {
-            "cats_to": [
-                "y_c"
-            ],
-            "cats_from": [
-                "t_c"
-            ],
-            "values": {
-                "like": 5,
-                "respect": 10,
-                "comfort": 2,
-                "trust": 5
+        "goodworkJOL_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 5,
+                    "respect": 5,
+                    "comfort": 5,
+                    "trust": 5
+                },
+                "mutual": true
+            }
+        },
+        "apprenticeworkJOL_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 1,
+                    "respect": -3,
+                    "comfort": -1,
+                    "trust": 2
+                },
+                "mutual": true
+            }
+        },
+        "kitplansJOL_scene_effects": {
+            "inventory": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "accessory": [
+                    "BLEEDING HEARTS",
+                    "BLEEDING VINES",
+                    "CHERRYPLUMLEAVES",
+                    "WHITEWOOL",
+                    "BEAR",
+                    "FLOWER MOSS",
+                    "FORGET ME NOTS"
+                ],
+                "addition": "choice"
             },
-            "mutual": true
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 15,
+                    "respect": 5,
+                    "comfort": 10,
+                    "trust": 10
+                },
+                "mutual": true
+            }
+        },
+        "queensappreciateJOL_scene_effects": {
+            "inventory": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "accessory": [
+                    "GRAYWOOL",
+                    "BLACKWOOL",
+                    "CREAMWOOL",
+                    "WHITEWOOL",
+                    "VINE",
+                    "SPRINGFEATHERS",
+                    "SPRINGFLOWERCORSAGE"
+                ],
+                "addition": "choice"
+            },
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 10,
+                    "respect": 5,
+                    "comfort": 9,
+                    "trust": 7
+                },
+                "mutual": true
+            }
+        },
+        "mydennextJOL_scene_effects": {
+            "inventory": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "accessory": [
+                    "MOSSPELT",
+                    "JAY FEATHERS",
+                    "YELLOWWISTERIA",
+                    "RED FEATHERS",
+                    "TULIPPETALS",
+                    "GULL FEATHERS",
+                    "SPRINGFEATHERS"
+                ],
+                "addition": "choice"
+            },
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 5,
+                    "respect": 10,
+                    "comfort": 2,
+                    "trust": 5
+                },
+                "mutual": true
+            }
         }
     },
     "negswimfish_notkitten_JOL": {
