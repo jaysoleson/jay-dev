@@ -1,6 +1,6 @@
 {
     "dead_kittypet_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -25,7 +25,7 @@
         ]
     },
     "live_df_ps_1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -47,7 +47,7 @@
         ]
     },
     "live_df_ps_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -69,7 +69,7 @@
         ]
     },
     "live_df_ps_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -92,7 +92,7 @@
         ]
     },
     "live_df_ps_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -112,7 +112,7 @@
         ]
     },
     "live_df_ps_5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -134,7 +134,7 @@
         ]
     },
     "dead_outsider_J7_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -163,7 +163,7 @@
         ]
     },
     "living_ur_kit_Guy1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -192,7 +192,7 @@
         ]
     },
     "living_ur_Guy2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -211,7 +211,7 @@
         ]
     },
     "ur_parent_newborn_CM1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -261,7 +261,7 @@
         ]
     },
     "living_to_ur_kittypet_CM1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -284,7 +284,7 @@
         ]
     },
     "living_to_ur_kittypet_CM2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -314,7 +314,7 @@
         ]
     },
     "dead_kittypet_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -346,7 +346,7 @@
         ]
     },
     "dead_kittypet_J4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -377,7 +377,7 @@
         ]
     },
     "dead_kittypet_J5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -397,7 +397,7 @@
         ]
     },
     "dead_kittypet_J6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -426,7 +426,7 @@
         ]
     },
     "car_c": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "residence": [
@@ -450,7 +450,7 @@
         ]
     },
     "you_sc_they_ur_CM1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -482,7 +482,7 @@
         ]
     },
     "sckit_urnew_R1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -517,7 +517,7 @@
         ]
     },
     "sckit_urnew_R2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -549,7 +549,7 @@
         ]
     },
     "df_kittypet_c": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "residence": [
@@ -575,7 +575,7 @@
         ]
     },
     "df_kittypet_c2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -605,7 +605,7 @@
         ]
     },
     "UR_backstory_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -630,7 +630,7 @@
         ]
     },
     "ur_ur_kittypet_Guy1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "residence": [
@@ -653,7 +653,7 @@
         ]
     },
     "neurotic_urtoliving_SQ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -686,7 +686,7 @@
         ]
     },
     "neurotic_urtoliving_SQ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -720,7 +720,7 @@
         ]
     },
     "kittypet_sc_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -751,7 +751,7 @@
         ]
     },
     "kittypet_sc_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -776,7 +776,7 @@
         ]
     },
     "kittypet_sc_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -807,7 +807,7 @@
         ]
     },
     "kittypet_sc_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -832,7 +832,7 @@
         ]
     },
     "kittypet_sc_H5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -856,7 +856,7 @@
         ]
     },
     "gen_alivekittypet_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -894,7 +894,7 @@
         ]
     },
     "gen_alivekittypet_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "group": [

@@ -1,6 +1,6 @@
 {
     "oldflirts_1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -33,7 +33,7 @@
         ]
     },
     "bestie_reject": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -64,7 +64,7 @@
         ]
     },
     "bestie_reject1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -95,7 +95,7 @@
         ]
     },
     "oldflirts_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -122,7 +122,7 @@
         ]
     },
     "oldflirts_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -158,7 +158,7 @@
         ]
     },
     "oldflirts_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -181,7 +181,7 @@
         ]
     },
     "oldflirts_5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -216,7 +216,7 @@
         ]
     },
     "oldflirts_6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -237,7 +237,7 @@
         ]
     },
     "oldflirts_7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -259,7 +259,7 @@
         ]
     },
     "oldflirts_8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -282,7 +282,7 @@
         ]
     },
     "oldflirts_9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -304,7 +304,7 @@
         ]
     },
     "oldflirts_10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -328,7 +328,7 @@
         ]
     },
     "oldflirts_11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -349,7 +349,7 @@
         ]
     },
     "oldflirts_12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -370,7 +370,7 @@
         ]
     },
     "oldflirts_13": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -393,7 +393,7 @@
         ]
     },
     "oldflirts_14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -414,7 +414,7 @@
         ]
     },
     "oldflirts_15": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -435,7 +435,7 @@
         ]
     },
     "oldflirts_16": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -458,7 +458,7 @@
         ]
     },
     "oldflirts_17": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -480,7 +480,7 @@
         ]
     },
     "oldflirts_18": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -516,7 +516,7 @@
         ]
     },
     "oldflirts_19": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -551,7 +551,7 @@
         ]
     },
     "oldflirts_20": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -587,7 +587,7 @@
         ]
     },
     "oldflirts_21": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -609,7 +609,7 @@
         ]
     },
     "oldflirts_22": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -632,7 +632,7 @@
         ]
     },
     "oldflirts_23": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -655,7 +655,7 @@
         ]
     },
     "oldflirts_24": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -690,7 +690,7 @@
         ]
     },
     "oldflirts_25": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -725,7 +725,7 @@
         ]
     },
     "oldflirts_26": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -759,7 +759,7 @@
         ]
     },
     "oldflirts_27": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -783,7 +783,7 @@
         ]
     },
     "oldflirts_28": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -817,7 +817,7 @@
         ]
     },
     "oldflirts_29": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -849,7 +849,7 @@
         ]
     },
     "oldflirts_30": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -870,7 +870,7 @@
         ]
     },
     "oldflirts_31": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -891,7 +891,7 @@
         ]
     },
     "oldflirts_32": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -914,7 +914,7 @@
         ]
     },
     "oldflirts_33": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -951,7 +951,7 @@
         ]
     },
     "oldflirts_34": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -975,7 +975,7 @@
         ]
     },
     "oldflirts_35": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1010,7 +1010,7 @@
         ]
     },
     "oldflirts_36": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1033,7 +1033,7 @@
         ]
     },
     "oldflirts_37": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1057,7 +1057,7 @@
         ]
     },
     "oldflirts_38": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1088,7 +1088,7 @@
         ]
     },
     "oldflirts_39": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1119,7 +1119,7 @@
         ]
     },
     "oldflirts_40": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1146,7 +1146,7 @@
         ]
     },
     "oldflirts_41": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1167,7 +1167,7 @@
         ]
     },
     "oldflirts_42": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1192,7 +1192,7 @@
         ]
     },
     "oldflirts_43": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1226,7 +1226,7 @@
         ]
     },
     "oldflirts_44": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1248,7 +1248,7 @@
         ]
     },
     "oldflirts_45": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1269,7 +1269,7 @@
         ]
     },
     "oldflirts_46": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1290,7 +1290,7 @@
         ]
     },
     "oldflirts_47": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1325,7 +1325,7 @@
         ]
     },
     "oldflirts_48": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1346,7 +1346,7 @@
         ]
     },
     "oldflirts_49": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1364,7 +1364,7 @@
         ]
     },
     "oldflirts_50": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1387,7 +1387,7 @@
         ]
     },
     "oldflirts_51": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1415,7 +1415,7 @@
         ]
     },
     "oldflirts_52": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1437,7 +1437,7 @@
         ]
     },
     "oldflirts_53": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1461,7 +1461,7 @@
         ]
     },
     "oldflirts_54": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1480,7 +1480,7 @@
         ]
     },
     "oldflirts_55": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1501,7 +1501,7 @@
         ]
     },
     "oldflirts_56": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1535,7 +1535,7 @@
         ]
     },
     "oldflirts_57": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1569,7 +1569,7 @@
         ]
     },
     "oldflirts_58": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1591,7 +1591,7 @@
         ]
     },
     "oldflirts_59": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1613,7 +1613,7 @@
         ]
     },
     "oldflirts_60": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1651,7 +1651,7 @@
         ]
     },
     "oldflirts_61": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1696,7 +1696,7 @@
         ]
     },
     "oldflirts_62": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1732,7 +1732,7 @@
         ]
     },
     "oldflirts_63": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1754,7 +1754,7 @@
         ]
     },
     "oldflirts_64": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1794,7 +1794,7 @@
         ]
     },
     "oldflirts_65": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1817,7 +1817,7 @@
         ]
     },
     "oldflirts_66": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1853,7 +1853,7 @@
         ]
     },
     "oldflirts_67": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1887,7 +1887,7 @@
         ]
     },
     "oldflirts_68": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1909,7 +1909,7 @@
         ]
     },
     "oldflirts_69": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1932,7 +1932,7 @@
         ]
     },
     "oldflirts_70": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1967,7 +1967,7 @@
         ]
     },
     "oldflirts_71": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2006,7 +2006,7 @@
         ]
     },
     "oldflirts_72": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2038,7 +2038,7 @@
         ]
     },
     "oldflirts_73": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2069,7 +2069,7 @@
         ]
     },
     "crush": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2102,7 +2102,7 @@
         ]
     },
     "oldflirts_74": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2126,7 +2126,7 @@
         ]
     },
     "oldflirts_75": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2147,7 +2147,7 @@
         ]
     },
     "oldflirts_76": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2182,7 +2182,7 @@
         ]
     },
     "oldflirts_77": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2199,7 +2199,7 @@
         ]
     },
     "neurotic_flirt": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2232,7 +2232,7 @@
         ]
     },
     "neurotic_flirt1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2264,7 +2264,7 @@
         ]
     },
     "oldflirts_78": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2286,7 +2286,7 @@
         ]
     },
     "oldflirts_79": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2332,7 +2332,7 @@
         ]
     },
     "oldflirts_80": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2355,7 +2355,7 @@
         ]
     },
     "oldflirts_81": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2378,7 +2378,7 @@
         ]
     },
     "oldflirts_82": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2396,7 +2396,7 @@
         ]
     },
     "oldflirts_83": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2418,7 +2418,7 @@
         ]
     },
     "brooding_flirt_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2439,7 +2439,7 @@
         ]
     },
     "brooding_flirt_AJ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2457,7 +2457,7 @@
         ]
     },
     "brooding_flirt_AJ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2478,7 +2478,7 @@
         ]
     },
     "brooding_flirt_AJ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2499,7 +2499,7 @@
         ]
     },
     "brooding_flirt_AJ4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2521,7 +2521,7 @@
         ]
     },
     "brooding_flirt_AJ5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2542,7 +2542,7 @@
         ]
     },
     "brooding_flirt_AJ6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2576,7 +2576,7 @@
         ]
     },
     "brooding_flirt_AJ7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2591,7 +2591,7 @@
         ]
     },
     "brooding_flirt_AJ8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2633,7 +2633,7 @@
         ]
     },
     "brooding_flirt_AJ9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2651,7 +2651,7 @@
         ]
     },
     "cool_flirt": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2686,7 +2686,7 @@
         ]
     },
     "cool_flirt_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2713,7 +2713,7 @@
         ]
     },
     "cool_flirt_AJ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2734,7 +2734,7 @@
         ]
     },
     "cool_flirt_AJ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2760,7 +2760,7 @@
         ]
     },
     "cool_flirt_AJ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2782,7 +2782,7 @@
         ]
     },
     "cool_flirt_AJ4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2801,7 +2801,7 @@
         ]
     },
     "cool_flirt_AJ5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2836,7 +2836,7 @@
         ]
     },
     "cool_flirt_AJ6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2870,7 +2870,7 @@
         ]
     },
     "cool_flirt_AJ7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2892,7 +2892,7 @@
         ]
     },
     "cool_flirt_AJ8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2926,7 +2926,7 @@
         ]
     },
     "cool_flirt_AJ9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2947,7 +2947,7 @@
         ]
     },
     "cool_flirt_AJ10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2970,7 +2970,7 @@
         ]
     },
     "oldflirts_84": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2994,7 +2994,7 @@
         ]
     },
     "oldflirts_85": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3016,7 +3016,7 @@
         ]
     },
     "oldflirts_86": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3037,7 +3037,7 @@
         ]
     },
     "oldflirts_87": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3059,7 +3059,7 @@
         ]
     },
     "oldflirts_88": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3093,7 +3093,7 @@
         ]
     },
     "oldflirts_89": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3114,7 +3114,7 @@
         ]
     },
     "oldflirts_90": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3136,7 +3136,7 @@
         ]
     },
     "oldflirts_91": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3158,7 +3158,7 @@
         ]
     },
     "oldflirts_92": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3193,7 +3193,7 @@
         ]
     },
     "oldflirts_93": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -3211,7 +3211,7 @@
         ]
     },
     "oldflirts_94": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3246,7 +3246,7 @@
         ]
     },
     "oldflirts_95": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -3261,7 +3261,7 @@
         ]
     },
     "oldflirts_96": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3284,7 +3284,7 @@
         ]
     },
     "oldflirts_97": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -3299,7 +3299,7 @@
         ]
     },
     "oldflirts_98": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3334,7 +3334,7 @@
         ]
     },
     "oldflirts_99": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3357,7 +3357,7 @@
         ]
     },
     "oldflirts_100": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3379,7 +3379,7 @@
         ]
     },
     "oldflirts_101": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3410,7 +3410,7 @@
         ]
     },
     "oldflirts_102": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3433,7 +3433,7 @@
         ]
     },
     "upstanding_reject": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3455,7 +3455,7 @@
         ]
     },
     "oldflirts_103": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -3470,7 +3470,7 @@
         ]
     },
     "oldflirts_104": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3489,7 +3489,7 @@
         ]
     },
     "oldflirts_105": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3509,7 +3509,7 @@
         ]
     },
     "oldflirts_106": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3547,7 +3547,7 @@
         ]
     },
     "oldflirts_107": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3578,7 +3578,7 @@
         ]
     },
     "oldflirts_108": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3615,7 +3615,7 @@
         ]
     },
     "oldflirts_109": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3638,7 +3638,7 @@
         ]
     },
     "oldflirts_110": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3660,7 +3660,7 @@
         ]
     },
     "oldflirts_111": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3685,7 +3685,7 @@
         ]
     },
     "oldflirts_112": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3708,7 +3708,7 @@
         ]
     },
     "oldflirts_113": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3744,7 +3744,7 @@
         ]
     },
     "oldflirts_114": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3782,7 +3782,7 @@
         ]
     },
     "oldflirts_115": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3808,7 +3808,7 @@
         "biome": [
             "beach"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3833,7 +3833,7 @@
         "biome": [
             "forest"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3854,7 +3854,7 @@
         ]
     },
     "oldflirts_118": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3876,7 +3876,7 @@
         ]
     },
     "oldflirts_119": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3899,7 +3899,7 @@
         ]
     },
     "oldflirts_120": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3918,7 +3918,7 @@
         ]
     },
     "oldflirts_121": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3941,7 +3941,7 @@
         ]
     },
     "oldflirts_122": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3965,7 +3965,7 @@
         ]
     },
     "oldflirts_123": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -3981,7 +3981,7 @@
         ]
     },
     "oldflirts_124": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3999,7 +3999,7 @@
         ]
     },
     "oldflirts_125": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -4018,7 +4018,7 @@
         ]
     },
     "oldflirts_126": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -4049,7 +4049,7 @@
         ]
     },
     "oldflirts_127": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4070,7 +4070,7 @@
         ]
     },
     "oldflirts_128": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -4088,7 +4088,7 @@
         ]
     },
     "oldflirts_129": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4115,7 +4115,7 @@
         ]
     },
     "oldflirts_130": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4137,7 +4137,7 @@
         ]
     },
     "oldflirts_131": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4174,7 +4174,7 @@
         ]
     },
     "oldflirts_132": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4210,7 +4210,7 @@
         ]
     },
     "oldflirts_133": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4246,7 +4246,7 @@
         ]
     },
     "oldflirts_134": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4283,7 +4283,7 @@
         ]
     },
     "oldflirts_135": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4319,7 +4319,7 @@
         ]
     },
     "oldflirts_136": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4354,7 +4354,7 @@
         ]
     },
     "oldflirts_137": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4377,7 +4377,7 @@
         ]
     },
     "heartbroken_1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4413,7 +4413,7 @@
         ]
     },
     "heartbroken_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4438,7 +4438,7 @@
         ]
     },
     "heartbroken_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4461,7 +4461,7 @@
         ]
     },
     "heartbroken_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4485,7 +4485,7 @@
         ]
     },
     "heartbroken_5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4510,7 +4510,7 @@
         ]
     },
     "heartbroken_6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4533,7 +4533,7 @@
         ]
     },
     "heartbroken_7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4555,7 +4555,7 @@
         ]
     },
     "heartbroken_8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4578,7 +4578,7 @@
         ]
     },
     "heartbroken_9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4602,7 +4602,7 @@
         ]
     },
     "heartbroken_10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4625,7 +4625,7 @@
         ]
     },
     "heartbroken_11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4661,7 +4661,7 @@
         ]
     },
     "heartbroken_12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4698,7 +4698,7 @@
         ]
     },
     "heartbroken_13": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4735,7 +4735,7 @@
         ]
     },
     "heartbroken_14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4772,7 +4772,7 @@
         ]
     },
     "heartbroken_15": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4796,7 +4796,7 @@
         ]
     },
     "heartbroken_16": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4820,7 +4820,7 @@
         ]
     },
     "flirt_sh_J25": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4855,7 +4855,7 @@
         ]
     },
     "flirt_sh_J26": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4878,7 +4878,7 @@
         ]
     },
     "flirt_sh_J27": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4900,7 +4900,7 @@
         ]
     },
     "flirt_sh_J28": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4934,7 +4934,7 @@
         ]
     },
     "flirt_sh_J29": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4970,7 +4970,7 @@
         ]
     },
     "flirt_sh_J30": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4991,7 +4991,7 @@
         ]
     },
     "flirt_sh_J31": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5012,7 +5012,7 @@
         ]
     },
     "flirt_sh_J32": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5048,7 +5048,7 @@
         ]
     },
     "flirt_sh_J33": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5069,7 +5069,7 @@
         ]
     },
     "flirt_sh_J34": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5103,7 +5103,7 @@
         ]
     },
     "flirt_sh_J35": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5134,7 +5134,7 @@
         ]
     },
     "flirt_sh_J36": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5156,7 +5156,7 @@
         ]
     },
     "flirt_sh_J37": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5175,7 +5175,7 @@
         ]
     },
     "flirt_sh_J38": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5199,7 +5199,7 @@
         ]
     },
     "flirt_sh_J39": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5220,7 +5220,7 @@
         ]
     },
     "flirt_sh_J40": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5241,7 +5241,7 @@
         ]
     },
     "flirting_shunned_CM1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -5260,7 +5260,7 @@
         ]
     },
     "flirting_shunned_CM2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -5275,7 +5275,7 @@
         ]
     },
     "flirting_shunned_CM3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5313,7 +5313,7 @@
         ]
     },
     "flirting_shunned_Ren1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5364,7 +5364,7 @@
         ]
     },
     "flirting_shunned_Ren2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5405,7 +5405,7 @@
         ]
     },
     "flirting_shunned_SQ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "standing": [
@@ -5439,7 +5439,7 @@
         ]
     },
     "flirt_sh_J41": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5460,7 +5460,7 @@
         ]
     },
     "flirt_sh_J42": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5481,7 +5481,7 @@
         ]
     },
     "flirt_sh_J43": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5505,7 +5505,7 @@
         ]
     },
     "flirt_sh_J44": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5529,7 +5529,7 @@
         ]
     },
     "flirt_sh_J45": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5554,7 +5554,7 @@
         ]
     },
     "flirt_sh_J46": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5579,7 +5579,7 @@
         ]
     },
     "flirting_shunned_SQ4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "standing": [
@@ -5606,7 +5606,7 @@
         ]
     },
     "flirting_shunned_CM4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5633,7 +5633,7 @@
         ]
     },
     "flirting_shunned_SQ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "standing": [
@@ -5667,7 +5667,7 @@
         ]
     },
     "flirting_shunned_SQ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5694,7 +5694,7 @@
         ]
     },
     "grieving_flirt_CM1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -5742,7 +5742,7 @@
         ]
     },
     "grieving_flirt_reuse1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5765,7 +5765,7 @@
         ]
     },
     "grieving_flirt_reuse2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5789,7 +5789,7 @@
         ]
     },
     "grieving_flirt_reuse3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5814,7 +5814,7 @@
         ]
     },
     "grieving_flirt_reuse4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5833,7 +5833,7 @@
         ]
     },
     "grieving_flirt_reuse5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5856,7 +5856,7 @@
         ]
     },
     "grieving_flirt_reuse6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5880,7 +5880,7 @@
         ]
     },
     "grieving_flirt_reuse7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5904,7 +5904,7 @@
         ]
     },
     "grieving_flirt_Guy1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5954,7 +5954,7 @@
         ]
     },
     "grieving_flirt_reuse11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5978,7 +5978,7 @@
         ]
     },
     "grieving_flirt_reuse22": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6003,7 +6003,7 @@
         ]
     },
     "grieving_flirt_reuse31": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6029,7 +6029,7 @@
         ]
     },
     "grieving_flirt_reuse42": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6049,7 +6049,7 @@
         ]
     },
     "grieving_flirt_reuse51": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6073,7 +6073,7 @@
         ]
     },
     "grieving_flirt_reuse62": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6098,7 +6098,7 @@
         ]
     },
     "grieving_flirt_reuse71": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6123,7 +6123,7 @@
         ]
     },
     "grieving_flirt_Guy21": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6174,7 +6174,7 @@
         ]
     },
     "grieving_flirt_reuse432": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6196,7 +6196,7 @@
         ]
     },
     "grieving_flirt_reuse5121": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6218,7 +6218,7 @@
         ]
     },
     "grieving_flirt_reuse41": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6240,7 +6240,7 @@
         ]
     },
     "grieving_flirt_reuse511": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6262,7 +6262,7 @@
         ]
     },
     "grievingyou_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6296,7 +6296,7 @@
         ]
     },
     "grievingyou_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6328,7 +6328,7 @@
         ]
     },
     "grievingthem_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6360,7 +6360,7 @@
         ]
     },
     "grievingthem_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6392,7 +6392,7 @@
         ]
     },
     "bothgrieving_flirt_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6426,7 +6426,7 @@
         ]
     },
     "bothgrieving_flirt_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6463,7 +6463,7 @@
         ]
     },
     "bothgrieving_flirt_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6500,7 +6500,7 @@
         ]
     },
     "bothgrieving_flirt_J4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6540,7 +6540,7 @@
         ]
     },
     "bothgrieving_flirt_J5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6574,7 +6574,7 @@
         ]
     },
     "bothgrieving_flirt_J6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6611,7 +6611,7 @@
         ]
     },
     "bothgrieving_flirt_J7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6648,7 +6648,7 @@
         ]
     },
     "bothgrieving_flirt_J8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6688,7 +6688,7 @@
         ]
     },
     "bothgrieving_flirt_J9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6711,7 +6711,7 @@
         ]
     },
     "bothgrieving_flirt_J10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6734,7 +6734,7 @@
         ]
     },
     "flirt_success_H9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6756,7 +6756,7 @@
         ]
     },
     "flirt_reject_H6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6790,7 +6790,7 @@
         ]
     },
     "flirt_reject_H7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -6821,7 +6821,7 @@
         ]
     },
     "flirt_reject_H8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6842,7 +6842,7 @@
         ]
     },
     "flirt_reject_H9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6878,7 +6878,7 @@
         ]
     },
     "flirt_reject_H15": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6900,7 +6900,7 @@
         ]
     },
     "flirt_success_H6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6921,7 +6921,7 @@
         ]
     },
     "flirt_success_H7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6943,7 +6943,7 @@
         ]
     },
     "flirt_success_H8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6965,7 +6965,7 @@
         ]
     },
     "flirt_reject_H16": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6988,7 +6988,7 @@
         ]
     },
     "flirting_shunned_SQ5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7036,7 +7036,7 @@
         ]
     },
     "flirt_reject_H17": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7058,7 +7058,7 @@
         ]
     },
     "flirt_reject_H18": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7079,7 +7079,7 @@
         ]
     },
     "flirt_reject_H10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7117,7 +7117,7 @@
         ]
     },
     "flirt_reject_H13": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7138,7 +7138,7 @@
         ]
     },
     "flirt_Guy1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -7158,7 +7158,7 @@
         ]
     },
     "flirting_neurotic_SQ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -7173,7 +7173,7 @@
         ]
     },
     "flirting_neurotic_SQ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -7189,7 +7189,7 @@
         ]
     },
     "flirt_success_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -7214,7 +7214,7 @@
         ]
     },
     "flirt_success_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -7239,7 +7239,7 @@
         ]
     },
     "flirt_success_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -7277,7 +7277,7 @@
         ]
     },
     "flirt_success_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -7316,7 +7316,7 @@
         ]
     },
     "flirt_reject_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7347,7 +7347,7 @@
         ]
     },
     "flirt_reject_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7378,7 +7378,7 @@
         ]
     },
     "flirt_reject_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7409,7 +7409,7 @@
         ]
     },
     "flirt_reject_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7441,7 +7441,7 @@
         ]
     },
     "flirt_reject_H5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7484,7 +7484,7 @@
         ]
     },
     "flirt_reject_H11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7507,7 +7507,7 @@
         "season": [
             "leaf-bare"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7540,7 +7540,7 @@
         ]
     },
     "flirt_reject_H14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "standing": [
@@ -7566,7 +7566,7 @@
         ]
     },
     "flirt_reject_H19": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7584,7 +7584,7 @@
         ]
     },
     "blind_to_grieving_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -7612,7 +7612,7 @@
         ]
     },
     "deafflirt_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7633,7 +7633,7 @@
         ]
     },
     "deafflirt_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7654,7 +7654,7 @@
         ]
     },
     "hasmate_success_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7697,7 +7697,7 @@
         ]
     },
     "hasmate_success_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -7726,7 +7726,7 @@
         ]
     },
     "hasmate_success_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7772,7 +7772,7 @@
         ]
     },
     "hasmate_success_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -7813,7 +7813,7 @@
         ]
     },
     "hasmate_success_H5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -7841,7 +7841,7 @@
         ]
     },
     "hasmate_success_H6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7885,7 +7885,7 @@
         ]
     },
     "flirt_reject_H20": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {},
@@ -7912,7 +7912,7 @@
         ]
     },
     "flirt_reject_H21": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7945,7 +7945,7 @@
         ]
     },
     "flirt_reject_H22": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -7979,7 +7979,7 @@
         ]
     },
     "flirt_reject_H23": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8019,7 +8019,7 @@
         ]
     },
     "flirt_reject_H24": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8053,7 +8053,7 @@
         ]
     },
     "flirt_reject_H25": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8088,7 +8088,7 @@
         ]
     },
     "flirt_reject_H26": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8109,7 +8109,7 @@
         ]
     },
     "flirt_reject_H27": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8152,7 +8152,7 @@
         ]
     },
     "hasmate_reject_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8195,7 +8195,7 @@
         ]
     },
     "hasmate_reject_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8240,7 +8240,7 @@
         ]
     },
     "hasmate_reject_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8284,7 +8284,7 @@
         ]
     },
     "hasmate_reject_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8328,7 +8328,7 @@
         ]
     },
     "hasmate_reject_H5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8373,7 +8373,7 @@
         ]
     },
     "hasmate_reject_H6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8404,7 +8404,7 @@
         ]
     },
     "hasmate_reject_H7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8437,7 +8437,7 @@
         ]
     },
     "hasmate_reject_H8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -8477,7 +8477,7 @@
         ]
     },
     "hasmate_reject_H9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8522,7 +8522,7 @@
         ]
     },
     "hasmate_reject_H10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -8552,7 +8552,7 @@
         ]
     },
     "frommate_grieving_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8584,7 +8584,7 @@
         ]
     },
     "frommate_grieving_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -8614,7 +8614,7 @@
         ]
     },
     "frommate_grieving_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8646,7 +8646,7 @@
         ]
     },
     "grieving_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8666,7 +8666,7 @@
         ]
     },
     "frommate_reject_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8697,7 +8697,7 @@
         ]
     },
     "frommate_reject_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8729,7 +8729,7 @@
         ]
     },
     "frommate_reject_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8760,7 +8760,7 @@
         ]
     },
     "frommate_reject_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8793,7 +8793,7 @@
         ]
     },
     "frommate_reject_H5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8825,7 +8825,7 @@
         ]
     },
     "guiltyblind_flirt_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8848,7 +8848,7 @@
         ]
     },
     "guiltyblind_flirt_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8871,7 +8871,7 @@
         ]
     },
     "guiltyblind_flirt_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -8904,7 +8904,7 @@
         ]
     },
     "youdeaf_R81": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8935,7 +8935,7 @@
         ]
     },
     "youdeaf_R82": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8956,7 +8956,7 @@
         ]
     },
     "youdeaf_R83": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8979,7 +8979,7 @@
         ]
     },
     "youdeaf_R84": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -8997,7 +8997,7 @@
         ]
     },
     "youdeaf_R85": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -9015,7 +9015,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_GenApp_TheyNotMate_01": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9053,7 +9053,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_GenApp_TheyNotMate_02": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9094,7 +9094,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_GenApp_TheyNotMate_03": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9146,7 +9146,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_GenApp_TheyNotMate_04": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9187,7 +9187,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_GenApp_TheyNotMate_05": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9228,7 +9228,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_GenApp_TheyNotMate_06": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9269,7 +9269,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_GenApp_TheyNotMate_07": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -9315,7 +9315,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_GenApp_TheyNotMate_08": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9356,7 +9356,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_GenApp_TheyNotMate_09": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9406,7 +9406,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_GenApp_TheyNotMate_10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9449,7 +9449,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_GenApp_TheyNotMate_11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9492,7 +9492,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_GenApp_TheyNotMate_12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9535,7 +9535,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_TheyNotMate_01": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9569,7 +9569,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_TheyNotMate_02": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9603,7 +9603,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_TheyNotMate_03": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9642,7 +9642,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_TheyNotMate_04": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9677,7 +9677,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_TheyNotMate_05": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9711,7 +9711,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_TheyNotMate_06": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9750,7 +9750,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_TheyNotMate_07": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9786,7 +9786,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_TheyNotMate_08": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9821,7 +9821,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_TheyNotMate_09": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9856,7 +9856,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_TheyNotMate_10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9892,7 +9892,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_From Mate_01": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9926,7 +9926,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_From Mate_02": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9960,7 +9960,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_From Mate_03": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -9995,7 +9995,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_From Mate_04": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10030,7 +10030,7 @@
         ]
     },
     "TinyTeddy_stable_Flirting_Gen_From Mate_05": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10067,7 +10067,7 @@
         ]
     },
     "neurotic_flirt_SQ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10103,7 +10103,7 @@
         ]
     },
     "neurotic_flirt_SQ4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10138,7 +10138,7 @@
         ]
     },
     "neurotic_flirt_SQ5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10177,7 +10177,7 @@
         ]
     },
     "niche_situations_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10200,7 +10200,7 @@
         ]
     },
     "niche_situations_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10224,7 +10224,7 @@
         ]
     },
     "niche_situations_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10244,7 +10244,7 @@
         ]
     },
     "niche_situations_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10265,7 +10265,7 @@
         ]
     },
     "niche_situations_H5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10285,7 +10285,7 @@
         ]
     },
     "niche_situations_H6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10304,7 +10304,7 @@
         ]
     },
     "flirt_SAM1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10323,7 +10323,7 @@
         ]
     },
     "murder_flirt_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10353,7 +10353,7 @@
         ]
     },
     "murder_flirt_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10385,7 +10385,7 @@
         ]
     },
     "newshunned_flirt_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "standing": [
@@ -10420,7 +10420,7 @@
         ]
     },
     "newshunned_flirt_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10454,7 +10454,7 @@
         ]
     },
     "newshunned_flirt_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10496,7 +10496,7 @@
         ]
     },
     "youshunned_flirt_rad1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10523,7 +10523,7 @@
         ]
     },
     "accomplice_flirt_reject_rad1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10552,7 +10552,7 @@
         ]
     },
     "flirt_accomplicereject_rad1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10571,7 +10571,7 @@
         ]
     },
     "you_shunned_flirt_E1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10606,7 +10606,7 @@
         ]
     },
     "you_shunned_flirt_E2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10644,7 +10644,7 @@
         ]
     },
     "they_shunned_flirt_E1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10678,7 +10678,7 @@
         ]
     },
     "flirt_app_reject_rad1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10703,7 +10703,7 @@
         ]
     },
     "flirt_app_reject_rad2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10729,7 +10729,7 @@
         ]
     },
     "flirt_app_reject_rad3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10753,7 +10753,7 @@
         ]
     },
     "flirt_app_reject_rad4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10777,7 +10777,7 @@
         ]
     },
     "flirt_app_reject_rad5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10801,7 +10801,7 @@
         ]
     },
     "flirt_app_reject_rad6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10835,7 +10835,7 @@
         ]
     },
     "flirt_app_reject_rad7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10864,7 +10864,7 @@
         ]
     },
     "flirt_app_reject_rad8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10889,7 +10889,7 @@
         ]
     },
     "flirt_jfstick_reject_rad1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -10911,7 +10911,7 @@
         ]
     },
     "deafgrievingflirt_SQ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10947,7 +10947,7 @@
         ]
     },
     "deafgrievingflirt_SQ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -10983,7 +10983,7 @@
         ]
     },
     "flirt_sam2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11003,7 +11003,7 @@
         ]
     },
     "shunned_deaf_flirt_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11025,7 +11025,7 @@
         ]
     },
     "shunned_deaf_flirt_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11047,7 +11047,7 @@
         ]
     },
     "shunned_grieving_flirt_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11083,7 +11083,7 @@
         ]
     },
     "shunned_grieving_flirt_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11106,7 +11106,7 @@
         ]
     },
     "shunned_grieving_flirt_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11126,7 +11126,7 @@
         ]
     },
     "shunned_grieving_flirt_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11161,7 +11161,7 @@
         ]
     },
     "deaf_grieving_flirt_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11182,7 +11182,7 @@
         ]
     },
     "deaf_grieving_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11202,7 +11202,7 @@
         ]
     },
     "deaf_grieving_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11235,7 +11235,7 @@
         ]
     },
     "flirt_hate_sam1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11273,7 +11273,7 @@
         ]
     },
     "mcgrievingonly_flirting_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11288,7 +11288,7 @@
         ]
     },
     "mcgrievingonly_flirting_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11326,7 +11326,7 @@
         ]
     },
     "mcgrievingonly_flirting_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11341,7 +11341,7 @@
         ]
     },
     "mcgrievingonly_flirting_H6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11364,7 +11364,7 @@
         ]
     },
     "mcgrievingonly_flirting_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11397,7 +11397,7 @@
         ]
     },
     "mcgrievingonly_flirting_H5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11420,7 +11420,7 @@
         ]
     },
     "mcgrievingonly_flirting_H7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11471,7 +11471,7 @@
         ]
     },
     "mcgrievingonly_flirting_c": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11490,7 +11490,7 @@
         ]
     },
     "mcgrievingonly_flirting_c2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11528,7 +11528,7 @@
         ]
     },
     "mcgrievingonly_flirting_c3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11566,7 +11566,7 @@
         ]
     },
     "bothgrieving_flirt_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11586,7 +11586,7 @@
         ]
     },
     "bothgrieving_flirt_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11615,7 +11615,7 @@
         ]
     },
     "bothgrieving_flirt_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11643,7 +11643,7 @@
         ]
     },
     "bothgrieving_flirt_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11672,7 +11672,7 @@
         ]
     },
     "mcgrievingonly_flirting_H8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11706,7 +11706,7 @@
         ]
     },
     "mcgrievingonly_flirting_H9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11725,7 +11725,7 @@
         ]
     },
     "mcgrievingonly_flirting_H10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11744,7 +11744,7 @@
         ]
     },
     "mcshunned_theygrieving_flirting_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -11768,7 +11768,7 @@
         ]
     },
     "mcshunned_theygrieving_flirting_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "standing": [
@@ -11805,7 +11805,7 @@
         ]
     },
     "mcshunned_theygrieving_flirting_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "standing": [

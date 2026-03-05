@@ -1,6 +1,6 @@
 {
     "dead_formerclancat_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -24,7 +24,7 @@
         ]
     },
     "dead_formerclancat_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -45,7 +45,7 @@
         ]
     },
     "dead_formerclancat_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -72,7 +72,7 @@
         ]
     },
     "dead_formerclancat_J4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -102,7 +102,7 @@
         ]
     },
     "dead_formerclancat_J5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -147,7 +147,7 @@
         ]
     },
     "dead_formerclancat_J6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -177,7 +177,7 @@
         ]
     },
     "dead_formerclancat_J7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -205,7 +205,7 @@
         ]
     },
     "dead_formerclancat_J8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -237,7 +237,7 @@
         ]
     },
     "dead_formerclancat_J9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -270,7 +270,7 @@
         ]
     },
     "dead_formerclancat_J10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -300,7 +300,7 @@
         ]
     },
     "dead_formerclancat_J11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -328,7 +328,7 @@
         ]
     },
     "dead_formerclancat_J12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -356,7 +356,7 @@
         ]
     },
     "dead_formerclancat_J13": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -384,7 +384,7 @@
         ]
     },
     "dead_formerclancat_J14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -428,7 +428,7 @@
         ]
     },
     "dead_formerclancat_J15": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -472,7 +472,7 @@
         ]
     },
     "dead_formerclancat_J16": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -497,7 +497,7 @@
         ]
     },
     "dead_formerclancat_J17": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "residence": [
@@ -519,7 +519,7 @@
         ]
     },
     "fcshunned_deaf_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -540,7 +540,7 @@
         ]
     },
     "fcshunned_deaf_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -565,7 +565,7 @@
         ]
     },
     "fcshunned_deaf_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -588,7 +588,7 @@
         ]
     },
     "deaf_sc_Guy1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [

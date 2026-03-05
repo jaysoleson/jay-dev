@@ -129,7 +129,11 @@ class Dialogue():
             self._populate_cat_dict(key, chosen_cat_dict)
             possible_dialogue[key] = block
             if "frequency" in block:
-                for i in range(block["frequency"]):
+                count = block["frequency"]
+                for other_block in block:
+                    if other_block in ["season", "biome", "camp", "relationships"]:
+                        count += 1
+                for i in range(count):
                     possible_dialogue_keys.append(key)
             else:
                 print("Warning: Dialogue", key, "has no frequency.")
@@ -153,6 +157,10 @@ class Dialogue():
         if not possible_dialogue:
             possible_dialogue = load_lang_resource("lifegen_talk/general.json")
             possible_dialogue_keys = ["general"]
+        
+        # print()
+        # print("POSSIBLE DIALOGUE KEYS")
+        # print(possible_dialogue_keys)
 
         if self.debug:
             if constants.CONFIG["lifegen"]["debug"]["debug_dialogue_override_filtering"]:

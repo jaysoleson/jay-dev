@@ -1,6 +1,6 @@
 {
     "starving_elder": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -30,7 +30,7 @@
         ]
     },
     "theystarving_1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -47,7 +47,7 @@
         ]
     },
     "theystarving_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -68,7 +68,7 @@
         ]
     },
     "they_starving_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -90,7 +90,7 @@
         ]
     },
     "they_starving_5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -110,7 +110,7 @@
         ]
     },
     "they_starving_6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -125,7 +125,7 @@
         ]
     },
     "starving_queen": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -157,7 +157,7 @@
         ]
     },
     "theystarving_sweet1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -184,7 +184,7 @@
         ]
     },
     "theystarving_sweet2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -210,7 +210,7 @@
         ]
     },
     "theystarving_sweet3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -236,7 +236,7 @@
         ]
     },
     "youstarving_1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -268,7 +268,7 @@
         ]
     },
     "you_starving_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -285,7 +285,7 @@
         ]
     },
     "you_starving_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -303,7 +303,7 @@
         ]
     },
     "you_starving_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -325,7 +325,7 @@
         ]
     },
     "you_starving_6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -345,7 +345,7 @@
         "season": [
             "greenleaf"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -370,7 +370,7 @@
         ]
     },
     "theystarving_silly": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -402,7 +402,7 @@
         ]
     },
     "you_starving_8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -448,7 +448,7 @@
         ]
     },
     "you_starving_9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -492,7 +492,7 @@
         ]
     },
     "they_starving_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -511,7 +511,7 @@
         ]
     },
     "you_starving_5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -534,7 +534,7 @@
         ]
     },
     "you_starving_51": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -557,7 +557,7 @@
         ]
     },
     "you_starving_31": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -579,7 +579,7 @@
         ]
     },
     "starving_unlawful_Guy1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -604,7 +604,7 @@
         ]
     },
     "starve_shunned_CM1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -627,7 +627,7 @@
         ]
     },
     "starve_shunned_CM2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -666,7 +666,7 @@
         ]
     },
     "dead_to_starving_H5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -691,7 +691,7 @@
         ]
     },
     "dead_to_starving_H3~1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -767,7 +767,7 @@
         ]
     },
     "dead_to_starving_H3~2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -832,7 +832,7 @@
         ]
     },
     "dead_to_starving_H4~1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -908,7 +908,7 @@
         ]
     },
     "dead_to_starving_H4~2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -973,7 +973,7 @@
         ]
     },
     "dead_to_starving_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -995,7 +995,7 @@
         ]
     },
     "dead_to_starving_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [

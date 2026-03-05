@@ -73,7 +73,7 @@ for FILE in file_names:
         SEASON = []
         BIOME = []
         CAMP = []
-        FREQUENCY = 4
+        FREQUENCY = 2
         TAGS = []
         RELATIONSHIPS = []
         MURDER = {}

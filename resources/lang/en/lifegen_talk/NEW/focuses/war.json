@@ -1,6 +1,6 @@
 {
     "silly_mentor_war": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -38,7 +38,7 @@
         ]
     },
     "sc_living_8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -63,7 +63,7 @@
         ]
     },
     "war_kitten_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -95,7 +95,7 @@
         ]
     },
     "war_app_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -148,7 +148,7 @@
         ]
     },
     "war_kitten_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -172,7 +172,7 @@
         ]
     },
     "war_queen_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -193,7 +193,7 @@
         ]
     },
     "war_kitten_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -224,7 +224,7 @@
         ]
     },
     "war_kitten_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -260,7 +260,7 @@
         ]
     },
     "war_kitten_H5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -289,7 +289,7 @@
         ]
     },
     "war_pregnant_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -312,7 +312,7 @@
         ]
     },
     "war_silly_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -339,7 +339,7 @@
         ]
     },
     "war_silly_AJ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -387,7 +387,7 @@
         ]
     },
     "unlawful_war1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -405,7 +405,7 @@
         ]
     },
     "unlawful_warGuy1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -430,7 +430,7 @@
         ]
     },
     "war_mckitten_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -469,7 +469,7 @@
         ]
     },
     "war_mckitten_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -522,7 +522,7 @@
         ]
     },
     "war_mckitten_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -560,7 +560,7 @@
         ]
     },
     "war_mckitten_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -594,7 +594,7 @@
         ]
     },
     "war_faith_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -616,7 +616,7 @@
         ]
     },
     "war_faith_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -651,7 +651,7 @@
         ]
     },
     "war_faith_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -684,7 +684,7 @@
         ]
     },
     "war_neuroticmate_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -725,7 +725,7 @@
         ]
     },
     "war_neuroticmate_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -771,7 +771,7 @@
         ]
     },
     "war_neuroticmate_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -809,7 +809,7 @@
         ]
     },
     "warfocus_SQ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -845,7 +845,7 @@
         ]
     },
     "warfocus_SQ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -887,7 +887,7 @@
         ]
     },
     "warfocus_SQ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -929,7 +929,7 @@
         ]
     },
     "warfocus_SQ4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -973,7 +973,7 @@
         ]
     },
     "warfocus_SQ5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -998,7 +998,7 @@
         ]
     },
     "warfocus_SQ6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -1045,7 +1045,7 @@
         ]
     },
     "warfocus_SQ7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1092,7 +1092,7 @@
         ]
     },
     "warfocus_SQ8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1135,7 +1135,7 @@
         ]
     },
     "warfocus_SQ9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1190,7 +1190,7 @@
         ]
     },
     "warfocus_SQ10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1245,7 +1245,7 @@
         ]
     },
     "warfocus_SQ11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1287,7 +1287,7 @@
         ]
     },
     "warfocus_SQ12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -1344,7 +1344,7 @@
         ]
     },
     "neurotic_warfocus_SQ123": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1394,7 +1394,7 @@
         ]
     },
     "war_focus_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1423,7 +1423,7 @@
         ]
     },
     "war_focus_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1451,7 +1451,7 @@
         ]
     },
     "war_focus_assertive_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1490,7 +1490,7 @@
         ]
     },
     "war_focus_assertive1_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1522,7 +1522,7 @@
         ]
     },
     "war_focus_assertive2_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1559,7 +1559,7 @@
         ]
     },
     "war_focus_AJ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -1602,7 +1602,7 @@
         ]
     },
     "war_focus_AJ4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1639,7 +1639,7 @@
         ]
     },
     "war_focus_AJ5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1678,7 +1678,7 @@
         ]
     },
     "war_focus_AJ6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1724,7 +1724,7 @@
         ]
     },
     "war_focus_assertive7_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1757,7 +1757,7 @@
         ]
     },
     "war_focus_assertive8_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1798,7 +1798,7 @@
         ]
     },
     "war_focus_assertive9_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1828,7 +1828,7 @@
         ]
     },
     "war_focus_assertive10_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1862,7 +1862,7 @@
         ]
     },
     "war_focus_AJ11~1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1914,7 +1914,7 @@
         ]
     },
     "war_focus_AJ11~2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1972,7 +1972,7 @@
         ]
     },
     "war_focus_AJ11~3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2020,7 +2020,7 @@
         ]
     },
     "war_focus_AJ11~4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2069,7 +2069,7 @@
         ]
     },
     "war_focus_AJ11~5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2120,7 +2120,7 @@
         ]
     },
     "war_focus_AJ12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2165,7 +2165,7 @@
         ]
     },
     "war_focus_AJ13": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2203,7 +2203,7 @@
         ]
     },
     "war_focus_AJ14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2243,7 +2243,7 @@
         ]
     },
     "war_focus_AJ15": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2258,7 +2258,7 @@
         ]
     },
     "war_focus_AJ16": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2280,7 +2280,7 @@
         ]
     },
     "war_focus_AJ17": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2310,7 +2310,7 @@
         ]
     },
     "war_focus_AJ18": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2348,7 +2348,7 @@
         ]
     },
     "war_focus_AJ19": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2391,7 +2391,7 @@
         ]
     },
     "war_focus_AJ202": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2436,7 +2436,7 @@
         ]
     },
     "war_focus_AJ21": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2458,7 +2458,7 @@
         ]
     },
     "war_focus_AJ22": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2488,7 +2488,7 @@
         ]
     },
     "war_focus_AJ23": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2518,7 +2518,7 @@
         ]
     },
     "war_focus_AJ24": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2590,7 +2590,7 @@
         ]
     },
     "war_focus_AJ25": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2621,7 +2621,7 @@
         ]
     },
     "war_focus_AJ251": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2657,7 +2657,7 @@
         ]
     },
     "war_focus_AJ26": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2706,7 +2706,7 @@
         ]
     },
     "war_focus_AJ27~1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2771,7 +2771,7 @@
         ]
     },
     "war_focus_AJ28": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2835,7 +2835,7 @@
         ]
     },
     "war_focus_AJ29": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2876,7 +2876,7 @@
         ]
     },
     "war_focus_AJ27~2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2925,7 +2925,7 @@
         ]
     },
     "war_focus_AJ27~3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2972,7 +2972,7 @@
         ]
     },
     "war_focus_AJ27~4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3051,7 +3051,7 @@
         ]
     },
     "war_focus_AJ27~5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3098,7 +3098,7 @@
         ]
     },
     "war_focus_AJ27~6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3154,7 +3154,7 @@
         ]
     },
     "war_focus_AJ27~7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3206,7 +3206,7 @@
         ]
     },
     "war_focus_AJ30": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3228,7 +3228,7 @@
         ]
     },
     "war_focus_AJ31": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3261,7 +3261,7 @@
         ]
     },
     "war_focus_AJ32": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3285,7 +3285,7 @@
         ]
     },
     "war_focus_Guy1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3329,7 +3329,7 @@
         ]
     },
     "war_focus_Guy2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3372,7 +3372,7 @@
         ]
     },
     "war_focus_Guy3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3393,7 +3393,7 @@
         ]
     },
     "war_focus_Guy4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -3412,7 +3412,7 @@
         ]
     },
     "war_focus_Guy5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3433,7 +3433,7 @@
         ]
     },
     "sweet_war_focus_1ps": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3473,7 +3473,7 @@
         ]
     },
     "war_focusdf_SQ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3522,7 +3522,7 @@
         ]
     },
     "war_focusdf_SQ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3560,7 +3560,7 @@
         ]
     },
     "war_focusdf_SQ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3591,7 +3591,7 @@
         ]
     },
     "war_focusdf_SQ4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3636,7 +3636,7 @@
         ]
     },
     "war_focusdf_SQ5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -3673,7 +3673,7 @@
         ]
     },
     "war_focusdf_SQ6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3716,7 +3716,7 @@
         ]
     },
     "neurotic_warfocus_SQ14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3755,7 +3755,7 @@
         ]
     },
     "neurotic_warfocus_SQ15": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3787,7 +3787,7 @@
         ]
     },
     "neurotic_warfocus_SQ16": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3822,7 +3822,7 @@
         ]
     },
     "neurotic_warfocus_SQ17": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3855,7 +3855,7 @@
         ]
     },
     "neurotic_warfocus_SQ18": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3892,7 +3892,7 @@
         ]
     },
     "neurotic_warfocus_SQ19": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3941,7 +3941,7 @@
         ]
     },
     "neurotic_warfocus_SQ20": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3985,7 +3985,7 @@
         ]
     },
     "war_focus_sh_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4044,7 +4044,7 @@
         ]
     },
     "war_focus_sh_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "standing": [
@@ -4075,7 +4075,7 @@
         ]
     },
     "war_focus_sh_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4112,7 +4112,7 @@
         ]
     },
     "war_focus_sh_J4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4138,7 +4138,7 @@
         ]
     },
     "war_focus_sh_J5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "standing": [
@@ -4164,7 +4164,7 @@
         ]
     },
     "war_focus_sh_J6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4189,7 +4189,7 @@
         ]
     },
     "war_focus_sh_J7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4237,7 +4237,7 @@
         ]
     },
     "war_focus_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4299,7 +4299,7 @@
         ]
     },
     "war_focus_J4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4345,7 +4345,7 @@
         ]
     },
     "war_focus_J5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4386,7 +4386,7 @@
         ]
     },
     "war_focus_J6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4411,7 +4411,7 @@
         ]
     },
     "war_focus_J7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4436,7 +4436,7 @@
         ]
     },
     "war_focus_J8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4466,7 +4466,7 @@
         ]
     },
     "war_focus_J9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4500,7 +4500,7 @@
         ]
     },
     "war_focus_J10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -4546,7 +4546,7 @@
         ]
     },
     "war_focus_J11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4568,7 +4568,7 @@
         ]
     },
     "war_focus_J12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4610,7 +4610,7 @@
         ]
     },
     "unabashed_war_SV1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [

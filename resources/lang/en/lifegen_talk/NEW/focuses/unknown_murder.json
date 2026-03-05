@@ -1,6 +1,6 @@
 {
     "unkmurder_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -129,7 +129,7 @@
         ]
     },
     "unkmurder_focus_SQ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -187,7 +187,7 @@
         ]
     },
     "unkmurder_focus_SQ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -243,7 +243,7 @@
         ]
     },
     "unkmurder_focus_SQ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -296,7 +296,7 @@
         ]
     },
     "unkmurder_focus_SQ4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -341,7 +341,7 @@
         ]
     },
     "unkmurder_focus_SQ5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -371,7 +371,7 @@
         ]
     },
     "unkmurder_focus_SQ6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -420,7 +420,7 @@
         ]
     },
     "unkmurder_focus_SQ7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -471,7 +471,7 @@
         ]
     },
     "unkmurder_focus_SQ8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -527,7 +527,7 @@
         ]
     },
     "unkmurder_focus_SQ9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -585,7 +585,7 @@
         ]
     },
     "unkmurder_focus_SQ10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -631,7 +631,7 @@
         ]
     },
     "unkmurder_focus_SQ11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -687,7 +687,7 @@
         ]
     },
     "unkmurder_focus_SQ12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -746,7 +746,7 @@
         ]
     },
     "unkmurder_focus_SQ13": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -797,7 +797,7 @@
         ]
     },
     "unkmurder_focus_SQ14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -852,7 +852,7 @@
         ]
     },
     "unkmurder_focus_SQ15": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -907,7 +907,7 @@
         ]
     },
     "unkmurder_focus_SQ16": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -958,7 +958,7 @@
         ]
     },
     "unkmurder_focus_SQ17": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1013,7 +1013,7 @@
         ]
     },
     "unkmurder_focus_SQ18": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1071,7 +1071,7 @@
         ]
     },
     "unkmurder_focus_SQ19": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1126,7 +1126,7 @@
         ]
     },
     "unkmurder_focus_SQ20": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1167,7 +1167,7 @@
         ]
     },
     "unkmurder_focus_SQ21": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1204,7 +1204,7 @@
         ]
     },
     "unkmurder_focus_SQ22": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1260,7 +1260,7 @@
         ]
     },
     "unkmurder_focus_SQ23": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1316,7 +1316,7 @@
         ]
     },
     "unkmurder_focus_SQ24": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1361,7 +1361,7 @@
         ]
     },
     "unkmurder_focus_SQ25": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1418,7 +1418,7 @@
         ]
     },
     "unkmurder_focus_SQ26": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1464,7 +1464,7 @@
         ]
     },
     "unkmurder_focus_SQ27": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1514,7 +1514,7 @@
         ]
     },
     "unkmurder_focus_SQ28": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1546,7 +1546,7 @@
         ]
     },
     "unkmurder_focus_SQ29": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1579,7 +1579,7 @@
         ]
     },
     "unkmurder_focus_SQ30": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1637,7 +1637,7 @@
         ]
     },
     "unkmurder_focus_SQ31": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1700,7 +1700,7 @@
         ]
     },
     "unkmurder_focus_SQ32": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1749,7 +1749,7 @@
         ]
     },
     "unkmurder_focus_SQ33": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1794,7 +1794,7 @@
         ]
     },
     "unkmurder_focus_SQ34": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1843,7 +1843,7 @@
         ]
     },
     "unkmurder_focus_SQ35": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1905,7 +1905,7 @@
         ]
     },
     "unkmurder_focus_SQ36": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1946,7 +1946,7 @@
         ]
     },
     "unkmurder_focus_SQ37": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1988,7 +1988,7 @@
         ]
     },
     "unkmurder_focus_SQ38": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2048,7 +2048,7 @@
         ]
     },
     "unkmurder_focus_SQ39": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2107,7 +2107,7 @@
         ]
     },
     "unkmurder_focus_SQ40": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2178,7 +2178,7 @@
         ]
     },
     "unkmurder_focus_SQ41": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2251,7 +2251,7 @@
         ]
     },
     "unkmurder_focus_SQ42": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2329,7 +2329,7 @@
         ]
     },
     "unkmurder_focus_SQ43": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2370,7 +2370,7 @@
         ]
     },
     "unkmurder_focus_SQ44": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -2426,7 +2426,7 @@
         ]
     },
     "unkmurder_focus_SQ45": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2469,7 +2469,7 @@
         ]
     },
     "unkmurder_focus_SQ46": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2529,7 +2529,7 @@
         ]
     },
     "unkmurder_focus_SQ47": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2588,7 +2588,7 @@
         ]
     },
     "unkmurder_focus_SQ48": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2634,7 +2634,7 @@
         ]
     },
     "unkmurder_focus_SQ49": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2686,7 +2686,7 @@
         ]
     },
     "unkmurder_focus_SQ50": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2721,7 +2721,7 @@
         ]
     },
     "unkmurder_focus_SQ51": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2774,7 +2774,7 @@
         ]
     },
     "unknown_murder_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2814,7 +2814,7 @@
         ]
     },
     "unknown_murder_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2944,7 +2944,7 @@
         ]
     },
     "unknown_murder_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -3010,7 +3010,7 @@
         ]
     },
     "unknown_murder_J4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3061,7 +3061,7 @@
         ]
     },
     "unknown_murder_J5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -3080,7 +3080,7 @@
         ]
     },
     "unknown_murder_J6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3113,7 +3113,7 @@
         ]
     },
     "unknown_murder_J7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3173,7 +3173,7 @@
         ]
     },
     "unknown_murder_J8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3219,7 +3219,7 @@
         ]
     },
     "unknown_murder_J9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3253,7 +3253,7 @@
         ]
     },
     "unknown_murder_J10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3289,7 +3289,7 @@
         ]
     },
     "unknown_murder_J11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3334,7 +3334,7 @@
         ]
     },
     "unknown_murder_J12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3389,7 +3389,7 @@
         ]
     },
     "unknown_murder_J13": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -3421,7 +3421,7 @@
         ]
     },
     "unknown_murder_J14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -3445,7 +3445,7 @@
         ]
     },
     "introspective_unkmur_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3513,7 +3513,7 @@
         ]
     },
     "introspective_unkmur_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3557,7 +3557,7 @@
         ]
     },
     "introspective_unkmur_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3605,7 +3605,7 @@
         ]
     },
     "introspective_unkmur_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3644,7 +3644,7 @@
         ]
     },
     "introspective_unkmur_H5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3698,7 +3698,7 @@
         ]
     },
     "introspective_unkmur_H6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -3760,7 +3760,7 @@
         ]
     },
     "gen_unkmur_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3811,7 +3811,7 @@
         ]
     },
     "introspective_unkmur_H7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3840,7 +3840,7 @@
         ]
     },
     "introspective_unkmur_H8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3868,7 +3868,7 @@
         ]
     },
     "introspective_unkmur_H9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3906,7 +3906,7 @@
         ]
     },
     "gen_unkmur_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -3951,7 +3951,7 @@
         ]
     },
     "introspective_unkmur_H10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3976,7 +3976,7 @@
         ]
     },
     "introspective_unkmur_H11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4018,7 +4018,7 @@
         ]
     },
     "aboutcluster_unkmur_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4070,7 +4070,7 @@
         ]
     },
     "introspective_unkmur_H12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4124,7 +4124,7 @@
         ]
     },
     "introspective_unkmur_H13": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4182,7 +4182,7 @@
         ]
     },
     "introspective_unkmur_H14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4230,7 +4230,7 @@
         ]
     },
     "gen_unkmur_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4269,7 +4269,7 @@
         ]
     },
     "gen_unkmur_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4309,7 +4309,7 @@
         ]
     },
     "strange_unkmur_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4358,7 +4358,7 @@
         ]
     },
     "strange_unkmur_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4429,7 +4429,7 @@
         ]
     },
     "unkmurd_sam1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [

@@ -1,6 +1,6 @@
 {
     "dead_outsider_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -24,7 +24,7 @@
         ]
     },
     "dead_outsider_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -45,7 +45,7 @@
         ]
     },
     "dead_outsider_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -72,7 +72,7 @@
         ]
     },
     "dead_outsider_J4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -108,7 +108,7 @@
         ]
     },
     "dead_outsider_J5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -156,7 +156,7 @@
         ]
     },
     "dead_outsider_J6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -191,7 +191,7 @@
         ]
     },
     "dead_outsider_J7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -226,7 +226,7 @@
         ]
     },
     "dead_outsider_J8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -259,7 +259,7 @@
         ]
     },
     "dead_outsider_J9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -297,7 +297,7 @@
         ]
     },
     "dead_outsider_J10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -327,7 +327,7 @@
         ]
     },
     "dead_outsider_J11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -355,7 +355,7 @@
         ]
     },
     "dead_outsider_J12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -383,7 +383,7 @@
         ]
     },
     "dead_outsider_J13": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -411,7 +411,7 @@
         ]
     },
     "dead_outsider_J14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -455,7 +455,7 @@
         ]
     },
     "dead_outsider_J15": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -499,7 +499,7 @@
         ]
     },
     "dead_outsider_J16": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -531,7 +531,7 @@
         ]
     },
     "dead_urourside_c1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "residence": [
@@ -550,7 +550,7 @@
         ]
     },
     "dead_urourside_c2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "residence": [
@@ -569,7 +569,7 @@
         ]
     },
     "dead_urourside_c3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -597,7 +597,7 @@
         ]
     },
     "dead_uroutside_c4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "residence": [
@@ -620,7 +620,7 @@
         ]
     },
     "alive_urourside_c": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "group": [
@@ -640,7 +640,7 @@
         ]
     },
     "scnew_urnew_R2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -675,7 +675,7 @@
         ]
     },
     "scnew_urnew_R4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -711,7 +711,7 @@
         ]
     },
     "sckit_urnew_R3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -746,7 +746,7 @@
         ]
     },
     "sckit_urnew_R4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -782,7 +782,7 @@
         ]
     },
     "sckit_urnew_R5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -816,7 +816,7 @@
         ]
     },
     "dead_outsider_J17": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -841,7 +841,7 @@
         ]
     },
     "dead_outsider_J18": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -867,7 +867,7 @@
         ]
     },
     "you_living_they_outsider_sc_CM1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -886,7 +886,7 @@
         ]
     },
     "dead_outsider_J19": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -914,7 +914,7 @@
         ]
     },
     "oshunned_deaf_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -935,7 +935,7 @@
         ]
     },
     "oshunned_deaf_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -960,7 +960,7 @@
         ]
     },
     "oshunned_deaf_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -983,7 +983,7 @@
         ]
     },
     "deaf_ur_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1006,7 +1006,7 @@
         ]
     },
     "deaf_ur_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1029,7 +1029,7 @@
         ]
     },
     "deaf_ur_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1048,7 +1048,7 @@
         ]
     },
     "deaf_ur_J4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1072,7 +1072,7 @@
         ]
     },
     "deaf_ur_J5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1095,7 +1095,7 @@
         ]
     },
     "deaf_ur_J6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1119,7 +1119,7 @@
         ]
     },
     "deaf_sc_Guy1_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1141,7 +1141,7 @@
         ]
     },
     "they_ur_sam1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1167,7 +1167,7 @@
         ]
     },
     "they_ur_sam2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [

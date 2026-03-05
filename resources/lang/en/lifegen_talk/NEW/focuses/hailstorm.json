@@ -1,6 +1,6 @@
 {
     "hail_focus_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -32,7 +32,7 @@
         ]
     },
     "hail_focus_AJ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -54,7 +54,7 @@
         ]
     },
     "hail_focus_AJ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -90,7 +90,7 @@
         ]
     },
     "hail_focus_AJ2.5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -126,7 +126,7 @@
         ]
     },
     "hail_focus_AJ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -154,7 +154,7 @@
         ]
     },
     "hail_focus_AJ4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -183,7 +183,7 @@
         ]
     },
     "hail_focus_AJ5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -208,7 +208,7 @@
         ]
     },
     "hail_focus_AJ6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -232,7 +232,7 @@
         ]
     },
     "hail_focus_AJ7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -261,7 +261,7 @@
         ]
     },
     "hail_focus_AJ8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -289,7 +289,7 @@
         ]
     },
     "hail_focus_AJ9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -321,7 +321,7 @@
         ]
     },
     "hail_focus_AJ10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -350,7 +350,7 @@
         ]
     },
     "hail_focus_AJ11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -385,7 +385,7 @@
         ]
     },
     "hail_focus_AJ12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -424,7 +424,7 @@
         ]
     },
     "hail_focus_AJ13": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -454,7 +454,7 @@
         ]
     },
     "hail_focus_AJ14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -491,7 +491,7 @@
         ]
     },
     "hail_focus_AJ15": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -539,7 +539,7 @@
         ]
     },
     "hail_focus_AJ16": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -571,7 +571,7 @@
         ]
     },
     "hail_focus_AJ17": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -602,7 +602,7 @@
         ]
     },
     "hail_focus_AJ18": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -633,7 +633,7 @@
         ]
     },
     "hailstorm_focus_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -663,7 +663,7 @@
         ]
     },
     "hailstorm_focus_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -704,7 +704,7 @@
         ]
     },
     "hailstorm_focus_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -741,7 +741,7 @@
         ]
     },
     "hailstorm_kitten_H1~1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -765,7 +765,7 @@
         ]
     },
     "hailstorm_kitten_H1~2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [

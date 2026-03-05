@@ -1,6 +1,6 @@
 {
     "leader_4d": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -21,7 +21,7 @@
         ]
     },
     "leader_unabashed": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -51,7 +51,7 @@
         ]
     },
     "broodingapp_toqueenapp_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -90,7 +90,7 @@
         ]
     },
     "brooding_leader_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -124,7 +124,7 @@
         ]
     },
     "brooding_medapp_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -177,7 +177,7 @@
         ]
     },
     "brooding_deputy_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -222,7 +222,7 @@
         ]
     },
     "leader_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -243,7 +243,7 @@
         ]
     },
     "leader_5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -264,7 +264,7 @@
         ]
     },
     "leader_6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -285,7 +285,7 @@
         ]
     },
     "leader_7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -306,7 +306,7 @@
         ]
     },
     "leader_8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -327,7 +327,7 @@
         ]
     },
     "leader_9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -348,7 +348,7 @@
         ]
     },
     "leader_10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -369,7 +369,7 @@
         ]
     },
     "assertive_mentor3_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -410,7 +410,7 @@
         ]
     },
     "assertive_mentor_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -450,7 +450,7 @@
         ]
     },
     "assertive_jealous1_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -492,7 +492,7 @@
         ]
     },
     "assertivewarrior_mediatorapp1_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -530,7 +530,7 @@
         ]
     },
     "assertive_parent4_3_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -569,7 +569,7 @@
         ]
     },
     "assertivewarrior_mediatorapp1_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -598,7 +598,7 @@
         ]
     },
     "assertive_5_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -641,7 +641,7 @@
         ]
     },
     "assertive_tokit_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -668,7 +668,7 @@
         ]
     },
     "assertive_elder_2_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -709,7 +709,7 @@
         ]
     },
     "assertive_app29_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -754,7 +754,7 @@
         ]
     },
     "assertive_app29_2_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -782,7 +782,7 @@
         ]
     },
     "assertive_elder_3_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -821,7 +821,7 @@
         ]
     },
     "assertive_elder_4_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -848,7 +848,7 @@
         ]
     },
     "assertive_elder_5_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -874,7 +874,7 @@
         ]
     },
     "assertive_elder_6_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -901,7 +901,7 @@
         ]
     },
     "assertive_elder_7_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -936,7 +936,7 @@
         ]
     },
     "assertive_elder_8_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -974,7 +974,7 @@
         ]
     },
     "assertive_elder_9_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1012,7 +1012,7 @@
         ]
     },
     "assertive_elder_10_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1058,7 +1058,7 @@
         ]
     },
     "assertive_elder_11_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -1098,7 +1098,7 @@
         ]
     },
     "assertive_elder_12_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1143,7 +1143,7 @@
         ]
     },
     "assertive_elder_13_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1182,7 +1182,7 @@
         ]
     },
     "assertive_elder_14_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1211,7 +1211,7 @@
         ]
     },
     "assertive_elder_15_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1251,7 +1251,7 @@
         ]
     },
     "assertive_elder_16_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1291,7 +1291,7 @@
         "season": [
             "greenleaf"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1313,7 +1313,7 @@
         ]
     },
     "assertive_elder_18_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1353,7 +1353,7 @@
         ]
     },
     "assertive_elder_19_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1394,7 +1394,7 @@
         ]
     },
     "assertive_elder_20_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1439,7 +1439,7 @@
         ]
     },
     "assertive_elder_21_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1462,7 +1462,7 @@
         ]
     },
     "assertive_queen_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1491,7 +1491,7 @@
         ]
     },
     "assertive_queensapp2_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1522,7 +1522,7 @@
         ]
     },
     "assertive_queensapp1_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1566,7 +1566,7 @@
         ]
     },
     "assertivewarrior_mediatorapp_2_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1615,7 +1615,7 @@
         ]
     },
     "assertive_mediatorapp3_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1644,7 +1644,7 @@
         ]
     },
     "assertivewarrior_med7_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1689,7 +1689,7 @@
         ]
     },
     "assertive_med6_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1717,7 +1717,7 @@
         ]
     },
     "assertivewarrior_med5_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1749,7 +1749,7 @@
         ]
     },
     "assertiveapp_medapp1_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -1788,7 +1788,7 @@
         ]
     },
     "assertive_medapp_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1822,7 +1822,7 @@
         ]
     },
     "assertive_warrior_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1849,7 +1849,7 @@
         ]
     },
     "assertive_tokit_2_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1894,7 +1894,7 @@
         ]
     },
     "assertive_misc_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -1929,7 +1929,7 @@
         ]
     },
     "assertive_rom_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -1961,7 +1961,7 @@
         ]
     },
     "introspective_lead": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1993,7 +1993,7 @@
         ]
     },
     "introspective_lead_1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2020,7 +2020,7 @@
         ]
     },
     "introspective_lead_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2040,7 +2040,7 @@
         ]
     },
     "introspective_lead_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2063,7 +2063,7 @@
         ]
     },
     "introspective_lead_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2088,7 +2088,7 @@
         ]
     },
     "introspective_lead_5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2112,7 +2112,7 @@
         ]
     },
     "assertivewarriorapp_comfort_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2170,7 +2170,7 @@
         ]
     },
     "assertive_dislike1_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2205,7 +2205,7 @@
         ]
     },
     "assertive_dislike1_2_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2241,7 +2241,7 @@
         ]
     },
     "assertive_dislike1_3_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2275,7 +2275,7 @@
         ]
     },
     "assertive_dislike1_4_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2314,7 +2314,7 @@
         ]
     },
     "assertive_like_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2354,7 +2354,7 @@
         ]
     },
     "assertivewarrior_leader4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2380,7 +2380,7 @@
         ]
     },
     "unabashed_leader2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2421,7 +2421,7 @@
         ]
     },
     "unabashed_leader1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2465,7 +2465,7 @@
         ]
     },
     "bloodthirsty_pos_Rr_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2500,7 +2500,7 @@
         ]
     },
     "bloodthirsty_pos1_Rr_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2536,7 +2536,7 @@
         ]
     },
     "bloodthirsty_rom_Rr_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -2572,7 +2572,7 @@
         ]
     },
     "bloodthirsty_love_Rr_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2604,7 +2604,7 @@
         ]
     },
     "bloodthirsty_kit_Rr_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2642,7 +2642,7 @@
         ]
     },
     "bloodthirsty_kit1_Rr_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2679,7 +2679,7 @@
         ]
     },
     "brooding_deputy19_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2732,7 +2732,7 @@
         ]
     },
     "brooding_deputy13_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2759,7 +2759,7 @@
         ]
     },
     "brooding_deputy14_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2784,7 +2784,7 @@
         ]
     },
     "brooding_deputy15_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -2805,7 +2805,7 @@
         ]
     },
     "brooding_deputy16_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2838,7 +2838,7 @@
         ]
     },
     "brooding_deputy17_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2890,7 +2890,7 @@
         ]
     },
     "brooding_leader0": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2926,7 +2926,7 @@
         ]
     },
     "brooding_leader1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2950,7 +2950,7 @@
         ]
     },
     "brooding_leader2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2989,7 +2989,7 @@
         ]
     },
     "brooding_leader3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3012,7 +3012,7 @@
         ]
     },
     "newborn_fromleader": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3047,7 +3047,7 @@
         ]
     },
     "newborn_fromleader1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3092,7 +3092,7 @@
         ]
     },
     "newborn_fromleader2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3132,7 +3132,7 @@
         ]
     },
     "cool_5_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -3149,7 +3149,7 @@
         ]
     },
     "sweet_leader_1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3175,7 +3175,7 @@
         ]
     },
     "sweet_leader_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3200,7 +3200,7 @@
         ]
     },
     "sweet_leader_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3220,7 +3220,7 @@
         ]
     },
     "sweet_leader_4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3247,7 +3247,7 @@
         ]
     },
     "sweet_leader_5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3275,7 +3275,7 @@
         ]
     },
     "sweet_leader_6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3304,7 +3304,7 @@
         ]
     },
     "sweet_leader_7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3329,7 +3329,7 @@
         ]
     },
     "sweet_leader_8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3354,7 +3354,7 @@
         ]
     },
     "sweet_leader_9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3391,7 +3391,7 @@
         ]
     },
     "sweet_leader_10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3423,7 +3423,7 @@
         ]
     },
     "sweet_leader_11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -3446,7 +3446,7 @@
         ]
     },
     "sweet_leader_12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -3473,7 +3473,7 @@
         ]
     },
     "sweet_leader_13": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3506,7 +3506,7 @@
         ]
     },
     "sweet_leader_14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -3527,7 +3527,7 @@
         ]
     },
     "sweet_leader_15": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3559,7 +3559,7 @@
         ]
     },
     "sweet_leader_16": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -3590,7 +3590,7 @@
         ]
     },
     "sweet_leader_17": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3614,7 +3614,7 @@
         ]
     },
     "sweet_leader_18": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3650,7 +3650,7 @@
         ]
     },
     "sweet_leader_19": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -3672,7 +3672,7 @@
         ]
     },
     "sweet_leader_20": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3701,7 +3701,7 @@
         ]
     },
     "sweet_leader_21": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3729,7 +3729,7 @@
         ]
     },
     "sweet_leader_22": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -3750,7 +3750,7 @@
         ]
     },
     "leadershunned_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -3771,7 +3771,7 @@
         ]
     },
     "leadershunned_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3792,7 +3792,7 @@
         ]
     },
     "stable_Leader_Gen_01": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -3810,7 +3810,7 @@
         ]
     },
     "murderedthem_leader_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3849,7 +3849,7 @@
         ]
     },
     "neurotic_leader_SQ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -3898,7 +3898,7 @@
         ]
     },
     "silly_leader_plotting": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3924,7 +3924,7 @@
         ]
     },
     "silly_leader_overthrown": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3947,7 +3947,7 @@
         ]
     },
     "silly_leader_drawing": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -3965,7 +3965,7 @@
         ]
     },
     "silly_leader_accomplishment": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -3995,7 +3995,7 @@
         ]
     },
     "silly_leader_decoration": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -4016,7 +4016,7 @@
         ]
     },
     "shunned_sc_leader_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4043,7 +4043,7 @@
         ]
     },
     "yourecovering_H2_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4080,7 +4080,7 @@
         ]
     },
     "deaddeputy_connected_J1~1_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -4128,7 +4128,7 @@
         ]
     },
     "deaddeputy_connected_J1~2_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -4175,7 +4175,7 @@
         ]
     },
     "deaddeputy_connected_J1~3_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -4244,7 +4244,7 @@
         ]
     },
     "neurotic_choice_foxtokit_SQ5~2_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4284,7 +4284,7 @@
         ]
     },
     "introspective_crushto_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4327,7 +4327,7 @@
         ]
     },
     "TinyTeddy_stable_theyleader_youapp_01": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4350,7 +4350,7 @@
         ]
     },
     "TinyTeddy_stable_theyleader_youapp_02": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4371,7 +4371,7 @@
         ]
     },
     "TinyTeddy_stable_theyleader_youapp_03": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4395,7 +4395,7 @@
         ]
     },
     "TinyTeddy_stable_theyleader_youadult_01": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4417,7 +4417,7 @@
         ]
     },
     "TinyTeddy_stable_theyleader_youadult_02": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4441,7 +4441,7 @@
         ]
     },
     "TinyTeddy_stable_theyleader_youadult_03": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4466,7 +4466,7 @@
         "season": [
             "leaf-bare"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4496,7 +4496,7 @@
         "season": [
             "leaf-fall"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4553,7 +4553,7 @@
         ]
     },
     "neurotic_choice_dfpuddle_SQ45~2_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4642,7 +4642,7 @@
         "season": [
             "newleaf"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4706,7 +4706,7 @@
         ]
     },
     "neurotic_skillclimber_SQ4_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4765,7 +4765,7 @@
         ]
     },
     "neurotic_skillsleeper_SQ6_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -4828,7 +4828,7 @@
         ]
     },
     "neurotic_skillteacher_SQ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -4894,7 +4894,7 @@
         "season": [
             "leaf-bare"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -4970,7 +4970,7 @@
         ]
     },
     "neurotic_about_t_m_SQ3_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -5029,7 +5029,7 @@
         "season": [
             "leaf-bare"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -5098,7 +5098,7 @@
         ]
     },
     "neurotic_leader_SQ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5139,7 +5139,7 @@
         ]
     },
     "neurotic_leader_SQ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5172,7 +5172,7 @@
         ]
     },
     "neurotic_leader_SQ4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5215,7 +5215,7 @@
         ]
     },
     "upstanding_you_expecting_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5256,7 +5256,7 @@
         ]
     },
     "neurotic_mate3_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -5294,7 +5294,7 @@
         ]
     },
     "cool_mate_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -5336,7 +5336,7 @@
         ]
     },
     "silly_dc_whimsical_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5385,7 +5385,7 @@
         "season": [
             "leaf-bare"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -5450,7 +5450,7 @@
         "season": [
             "leaf-bare"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -5464,14 +5464,14 @@
                 "cluster": [
                     "neurotic"
                 ],
+                "condition": [
+                    "hearing"
+                ],
                 "rank": [
                     "apprentice",
                     "warrior",
                     "deputy",
                     "leader"
-                ],
-                "condition": [
-                    "hearing"
                 ]
             }
         },
@@ -5483,7 +5483,7 @@
         ]
     },
     "about_silly_SQ8_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -5544,7 +5544,7 @@
         "season": [
             "newleaf"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5584,7 +5584,7 @@
         ]
     },
     "upstanding_both_scE5_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -5622,7 +5622,7 @@
         ]
     },
     "mentor_meditator_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "cluster": [
@@ -5663,7 +5663,7 @@
         ]
     },
     "leader_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5710,7 +5710,7 @@
         ]
     },
     "about_cool_SQ1_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5782,7 +5782,7 @@
         ]
     },
     "about_neurotic_SQ4_3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -5848,7 +5848,7 @@
         "season": [
             "greenleaf"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -5888,7 +5888,7 @@
         ]
     },
     "new_shunned_J4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -5944,7 +5944,7 @@
         ]
     },
     "frommate_neg_shunned_H9_2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "standing": [
@@ -5983,7 +5983,7 @@
         ]
     },
     "frommate_pos_shunned_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6023,7 +6023,7 @@
         ]
     },
     "frommate_pos_shunned_H4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6065,7 +6065,7 @@
         ]
     },
     "leader_youshunned_parent_neg_rad1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "standing": [
@@ -6100,7 +6100,7 @@
         ]
     },
     "from_parent_leader_youshunned_H1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -6149,7 +6149,7 @@
         ]
     },
     "from_parent_leader_youshunned_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6207,7 +6207,7 @@
         ]
     },
     "leader_silly_lamename_rad1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -6242,7 +6242,7 @@
         ]
     },
     "they_sillysam3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -6309,7 +6309,7 @@
         ]
     },
     "sick_leader_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -6347,7 +6347,7 @@
         ]
     },
     "sick_leader_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -6390,7 +6390,7 @@
         ]
     },
     "sick_leader_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -6428,7 +6428,7 @@
         ]
     },
     "damagedeyes_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -6526,7 +6526,7 @@
         ]
     },
     "headda_sam1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -6577,7 +6577,7 @@
         ]
     },
     "leader_sh_J21": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [

@@ -1,6 +1,6 @@
 {
     "halloween_J1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -60,7 +60,7 @@
         ]
     },
     "halloween_J2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -89,7 +89,7 @@
         ]
     },
     "halloween_J3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -133,7 +133,7 @@
         ]
     },
     "halloween_J4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -157,7 +157,7 @@
         ]
     },
     "halloween_J5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -202,7 +202,7 @@
         ]
     },
     "halloween_J6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -244,7 +244,7 @@
         ]
     },
     "halloween_J7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -316,7 +316,7 @@
         ]
     },
     "halloween_sam1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -435,7 +435,7 @@
         ]
     },
     "halloween_sam2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -470,7 +470,7 @@
         ]
     },
     "Halloween_SV1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -495,7 +495,7 @@
         "season": [
             "leaf-fall"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -537,7 +537,7 @@
         "season": [
             "leaf-fall"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -561,7 +561,7 @@
         ]
     },
     "Halloween_SV4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -586,7 +586,7 @@
         ]
     },
     "Halloween_SV5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -611,7 +611,7 @@
         ]
     },
     "Halloween_SV6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "rank": [
@@ -639,7 +639,7 @@
         "season": [
             "leaf-fall"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -663,7 +663,7 @@
         ]
     },
     "ofrenda_dead_H2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {},
             "t_c": {
@@ -689,7 +689,7 @@
         ]
     },
     "ofrenda_dead_H3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -719,7 +719,7 @@
         ]
     },
     "halloween_SQ1~1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -758,7 +758,7 @@
         ]
     },
     "halloween_SQ1~2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -798,7 +798,7 @@
         ]
     },
     "halloween_SQ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -820,7 +820,7 @@
         ]
     },
     "halloween_SQ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -852,7 +852,7 @@
         ]
     },
     "halloween_SQ4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -905,7 +905,7 @@
         ]
     },
     "halloween_SQ5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -944,7 +944,7 @@
         ]
     },
     "halloween_SQ6~1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -985,7 +985,7 @@
         ]
     },
     "halloween_SQ6~2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1028,7 +1028,7 @@
         ]
     },
     "halloween_SQ7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1090,7 +1090,7 @@
         ]
     },
     "halloween_E1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1125,7 +1125,7 @@
         "season": [
             "leaf-fall"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1164,7 +1164,7 @@
         ]
     },
     "halloween_E3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1208,7 +1208,7 @@
         "season": [
             "leaf-fall"
         ],
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [

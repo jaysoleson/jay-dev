@@ -1,6 +1,6 @@
 {
     "good_opinion_c": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -30,7 +30,7 @@
         ]
     },
     "good_opinion_Guy1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -56,7 +56,7 @@
         ]
     },
     "good_opinion_Guy2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -82,7 +82,7 @@
         ]
     },
     "good_opinion_Guy3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -108,7 +108,7 @@
         ]
     },
     "good_opinion_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -142,7 +142,7 @@
         ]
     },
     "good_opinion_AJ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -177,7 +177,7 @@
         ]
     },
     "good_opinion_AJ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -210,7 +210,7 @@
         ]
     },
     "good_opinion_AJ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -239,7 +239,7 @@
         ]
     },
     "good_opinion_AJ5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -274,7 +274,7 @@
         ]
     },
     "good_opinion_AJ67": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -307,7 +307,7 @@
         ]
     },
     "good_opinion_AJ6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -355,7 +355,7 @@
         ]
     },
     "good_opinion_AJ8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -389,7 +389,7 @@
         ]
     },
     "good_opinion_AJ9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -424,7 +424,7 @@
         ]
     },
     "good_opinion_AJ10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -473,7 +473,7 @@
         ]
     },
     "good_opinion_AJ11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -506,7 +506,7 @@
         ]
     },
     "good_opinion_AJ12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -541,7 +541,7 @@
         ]
     },
     "good_opinion_AJ183": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -584,7 +584,7 @@
         ]
     },
     "good_opinion_AJ13.1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -626,7 +626,7 @@
         ]
     },
     "good_opinion_AJ13.2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -669,7 +669,7 @@
         ]
     },
     "good_opinion_AJ13.3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -712,7 +712,7 @@
         ]
     },
     "good_opinion_AJ13": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -767,7 +767,7 @@
         ]
     },
     "good_opinion_AJ14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -797,7 +797,7 @@
         ]
     },
     "good_opinion_AJ15": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -824,7 +824,7 @@
         ]
     },
     "good_opinion_AJ16": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -856,7 +856,7 @@
         ]
     },
     "good_opinion_AJ17": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -884,7 +884,7 @@
         ]
     },
     "good_opinion_AJ18": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -912,7 +912,7 @@
         ]
     },
     "good_opinion_AJ19": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -942,7 +942,7 @@
         ]
     },
     "good_opinion_AJ20": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -990,7 +990,7 @@
         ]
     },
     "good_opinion_AJ21": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1023,7 +1023,7 @@
         ]
     },
     "good_opinion_AJ22": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1056,7 +1056,7 @@
         ]
     },
     "neutral_opinion_c": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1085,7 +1085,7 @@
         ]
     },
     "neutral_opinion_Guy1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1125,7 +1125,7 @@
         ]
     },
     "neutral_opinion_Guy2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1153,7 +1153,7 @@
         ]
     },
     "neutral_opinion_Guy3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1180,7 +1180,7 @@
         ]
     },
     "neutral_opinion_SQ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1212,7 +1212,7 @@
         ]
     },
     "neutral_opinion_SQ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1245,7 +1245,7 @@
         ]
     },
     "neutral_opinion_SQ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1278,7 +1278,7 @@
         ]
     },
     "neutral_opinion_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1318,7 +1318,7 @@
         ]
     },
     "neutral_opinion_AJ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1354,7 +1354,7 @@
         ]
     },
     "neutral_opinion_AJ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1398,7 +1398,7 @@
         ]
     },
     "neutral_opinion_AJ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1448,7 +1448,7 @@
         ]
     },
     "neutral_opinion_AJ4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1477,7 +1477,7 @@
         ]
     },
     "neutral_opinion_AJ5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1508,7 +1508,7 @@
         ]
     },
     "neutral_opinion_AJ6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1536,7 +1536,7 @@
         ]
     },
     "neutral_opinion_AJ7": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1564,7 +1564,7 @@
         ]
     },
     "neutral_opinion_AJ8": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1609,7 +1609,7 @@
         ]
     },
     "neutral_opinion_AJ9": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1642,7 +1642,7 @@
         ]
     },
     "neutral_opinion_AJ10": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1676,7 +1676,7 @@
         ]
     },
     "neutral_opinion_AJ11": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1703,7 +1703,7 @@
         ]
     },
     "neutral_opinion_AJ12": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1730,7 +1730,7 @@
         ]
     },
     "neutral_opinion_AJ13": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1764,7 +1764,7 @@
         ]
     },
     "neutral_opinion_AJ14": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1813,7 +1813,7 @@
         ]
     },
     "neutral_opinion_AJ15": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1856,7 +1856,7 @@
         ]
     },
     "bad_opinion_c": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -1886,7 +1886,7 @@
         ]
     },
     "bad_opinion_Guy1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1912,7 +1912,7 @@
         ]
     },
     "bad_opinion_Guy2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1940,7 +1940,7 @@
         ]
     },
     "bad_opinion_Guy3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -1971,7 +1971,7 @@
         ]
     },
     "bad_opinion_AJ": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2008,7 +2008,7 @@
         ]
     },
     "bad_opinion_AJ1": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2037,7 +2037,7 @@
         ]
     },
     "bad_opinion_AJ2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2072,7 +2072,7 @@
         ]
     },
     "bad_opinion_AJ3": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2113,7 +2113,7 @@
         ]
     },
     "bad_opinion_AJ4": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2143,7 +2143,7 @@
         ]
     },
     "bad_opinion_AJ5": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2177,7 +2177,7 @@
         ]
     },
     "bad_opinion_AJ6": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "age": [
@@ -2211,7 +2211,7 @@
         ]
     },
     "neutral_opinion_E2": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
@@ -2249,7 +2249,7 @@
         ]
     },
     "neutral_opinion_E": {
-        "frequency": 4,
+        "frequency": 2,
         "cats": {
             "y_c": {
                 "condition": [
