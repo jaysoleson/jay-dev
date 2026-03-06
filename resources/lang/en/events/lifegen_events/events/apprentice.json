@@ -1,5 +1,5 @@
 {
-    " general": [
+    "general": [
         "You goof around a little too much with r_a, and m_n catches you two goofing off. You two get assigned to tick duty, much to your dismay.",
         "You and y_l decide to have a hunting contest, trying to see who can catch the most prey in the smallest amount of time.",
         "You drop into a den to visit your {PRONOUN/y_p/parent}, y_p. {PRONOUN/y_p/subject/CAP}{VERB/y_p/'re/'s} delighted by your presence, and you share a robin while you tell {PRONOUN/y_p/object} about your day.",
@@ -34,7 +34,7 @@
         "You spend an enjoyable afternoon playing mossball with r_k and teaching {PRONOUN/r_k/object} some basic hunting crouches.",
         "y_p pulls you aside to give you advice before an assessment. {PRONOUN/y_p/poss/CAP} eyes shine with pride as {PRONOUN/y_p/subject} {VERB/y_p/nuzzle/nuzzles} you affectionately."
     ],
-    " assertive": [
+    "assertive": [
         "You ask m_n if {PRONOUN/m_n/subject} can teach you a specific lesson on battle moves this moon.",
         "You ask m_n if {PRONOUN/m_n/subject} can teach you a specific lesson on hunting birds this moon.",
         "r_d gives you a quick lesson on mediation and you boldly test out {PRONOUN/r_d/poss} techniques the next time your denmates argue.",
@@ -46,21 +46,21 @@
         "You and r_a sneak out of camp for some extra practice. When your mentors catch you later, exhausted but pleased with yourselves, they don't bother scolding you.... again.",
         "y_p checks in on you in the apprentice's den. You're doing fantastic in training! You brag that you're the best of the apprentices - or at least the one wanting to go go go!."
     ],
-    " brooding": [
+    "brooding": [
         "r_d gives you a quick lesson on mediation but you don't bother to listen. {PRONOUN/r_d/poss/CAP} techniques don't work, anyway.",
         "You spend a day in the medicine cat's den. r_m instructs you about some basic herbs and their uses. You listen in silence, occasionally giving a curt nod.",
         "You sulk in your nest, questioning whether you're truly cut out to be a warrior after a mistake during training.",
         "Jealousy swells in your chest as you watch m_n praising r_a. You wonder bitterly if you'll ever be good enough.",
         "r_a invites you to climb trees with {PRONOUN/r_a/object} and {PRONOUN/r_a/poss} friends, but you bitterly decline, then spend the whole day regretting it."
     ],
-    " cool": [
+    "cool": [
         "You wonder if you look cool and mysterious to other cats while you strut across the camp clearing.",
         "r_d gives you a quick lesson on mediation but you feel like you already know all of what {PRONOUN/r_d/subject}{VERB/r_d/'re/'s} lecturing.",
         "You spend a day in the medicine cat's den. r_m instructs you about some basic herbs and their uses. While you doubt you'll ever use the knowledge, you listen with practiced nonchalance.",
         "Trotting into camp with an impressive catch, you accept your Clanmates' compliments with a flick of your tail.",
         "You roll your eyes as m_n lectures you about how you need to take your training more seriously."
     ],
-    " upstanding": [
+    "upstanding": [
         "r_d gives you a quick lesson on mediation and you listen to the lecture with the same diligence as any other training session.",
         "You spend a day in the medicine cat's den. r_m instructs you about some basic herbs and their uses. You sit upright, your posture rigid, determination etched on your face as you absorb every word with unwavering focus.",
         "Despite your exhaustion, you volunteer for an extra dawn patrol to ensure the Clan's safety.",
@@ -68,14 +68,14 @@
         "r_a invites you to climb trees with {PRONOUN/r_a/object} and {PRONOUN/r_a/poss} friends, but you decline in hopes of getting more training in.",
         "r_a begs you to teach {PRONOUN/r_a/object} to hunt and fight as well as you do, but in your opinion, {PRONOUN/r_a/subject} simply aren't at your level yet."
     ],
-    " introspective": [
+    "introspective": [
         "When m_n pushes you harder in training, you take it in stride, knowing {PRONOUN/m_n/subject} only {VERB/m_n/want/wants} to help you improve.",
         "During a quiet moment, you find yourself pondering the meaning of the Warrior Code and your place within the Clan.",
         "You have a thoughtful discussion with r_e about the nature of life and death.",
         "You spend time observing the medicine cat, r_m, and contemplate the importance of {PRONOUN/r_m/poss} role in the Clan.",
         "You find yourself drawn to stargazing, finding peace in the vastness of Silverpelt."
     ],
-    " neurotic": [
+    "neurotic": [
         "You start a daily routine of practicing relaxation techniques.",
         "You wake up in a cold sweat, convinced that you forgot to do an important task for m_n, only to realize it was just a dream.",
         "During battle training, you become so anxious about making a mistake that you freeze up, missing an easy dodge.",
@@ -102,14 +102,14 @@
         "You spend so long double-checking r_e for ticks that {PRONOUN/r_e/subject} fall asleep.",
         "You wonder if you're living up to y_p's hopes and expectations."
     ],
-    " silly": [
+    "silly": [
         "You put a beetle in r_a's nest as a prank, giggling uncontrollably when {PRONOUN/r_a/subject} {VERB/r_a/leap/leaps} up in surprise.",
         "During a hunting lesson, you pounce on a leaf, pretending it's the fiercest prey in the forest.",
         "You convince the other apprentices to join you in a game of 'catch the falling feather,' leaping and tumbling around the camp.",
         "You make up silly nicknames for all your Clanmates, like 'Fluffy' for r_w and 'Grumpywhiskers' for r_e.",
         "When r_m is stressed, you volunteer to help sort herbs, making up silly songs about each plant to lighten the mood."
     ],
-    " stable": [
+    "stable": [
         "You hope this headache is short-lived so you can get back to training. You've already been stuck in your nest long enough.",
         "You groom your fur carefully, hoping to impress your crush.",
         "You show the kits how to build a little cat made of wood and mud, introducing a new toy to the nursery. Soon the queens are chasing you up on how to make them.",
@@ -124,7 +124,7 @@
         "With a cautious gaze, you watch as m_n talks with your parents. Anxiety tugs at your chest... Oh StarClan, what are they saying?",
         "You leave some prey you caught in y_p's nest as a gift. Later {PRONOUN/y_p/subject} {VERB/y_p/come/comes} up to you and gently {VERB/y_p/rest/rests} {PRONOUN/y_p/poss} head on yours, you snuggle into {PRONOUN/y_p/poss} warm embrace."
     ],
-    " sweet": [
+    "sweet": [
         "You make a point to compliment your denmates every day.",
         "You leave little gifts like pretty feathers or smooth stones in your Clanmates' nests to brighten their day.",
         "You spend your free time making moss beds for the elders, ensuring they have the softest nests in the Clan.",
@@ -133,16 +133,16 @@
         "After a hard day of training, you offer to groom r_a's pelt, knowing how much {PRONOUN/r_a/subject} {VERB/r_a/appreciate/appreciates} a little pampering.",
         "When r_a is struggling with a battle move, you offer to practice with {PRONOUN/r_a/object}, patiently walking {PRONOUN/r_a/object} through the steps until {PRONOUN/r_a/subject} {VERB/r_a/get/gets} it right."
     ],
-    " unabashed": [
+    "unabashed": [
         "You hide in the bushes, then stick out a foreleg and trip r_w on purpose.",
         "During a Gathering, you boast about your hunting skills to apprentices from other Clans.",
         "Much to m_n's horror, you boldly ask l_n if you can lead the next patrol."
     ],
-    " unlawful": [
+    "unlawful": [
         "You kill some prey on o_c_n's territory on purpose.",
         "r_d gives you a quick lesson on mediation. You make a mental note to do the opposite of what {PRONOUN/r_d/subject} told you the next time you're in an argument."
     ],
-    " rare": [
+    "rare": [
         "While hunting with r_a, you catch a squirrel and find a whole nest after looking in the tree they came from! You and r_a bring back plenty of prey.",
         "You wonder if becoming a warrior is truly the path you are destined for.",
         "After an argument between you and m_n, you find yourself crying yourself to sleep that night.",

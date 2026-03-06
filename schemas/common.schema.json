@@ -381,6 +381,10 @@
           {
             "pattern": "^mate:([_,0-9a-zA-Z]+)$",
             "type": "string"
+          },
+          {
+            "pattern": "^residence:(.+)$",
+            "type": "string"
           }
         ]
       },

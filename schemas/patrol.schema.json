@@ -123,7 +123,13 @@
         "medicine cat apprentice",
         "healer cats",
         "normal adult",
-        "all apprentices"
+        "all apprentices",
+        "kitten",
+        "mediator",
+        "queen",
+        "mediator apprentice",
+        "queen's apprentice",
+        "elder"
       ],
       "title": "MinMaxStatusDictKey",
       "type": "string"
@@ -519,7 +525,8 @@
         "app3_mentored",
         "app4_mentored",
         "app5_mentored",
-        "app6_mentored"
+        "app6_mentored",
+        "shunned"
       ],
       "title": "PatrolTagEnum",
       "type": "string"

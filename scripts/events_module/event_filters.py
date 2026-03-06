@@ -863,6 +863,17 @@ def filter_relationship_type(
                 if is_exclusionary and not qualifies:
                     return False
         filter_list.remove("mates")
+    # LG
+    if "not_mates" in filter_list:
+        if not all([test_cat.ID in inter_cat.mate for inter_cat in testing_cats]):
+            if is_exclusionary:
+                qualifies = True
+            else:
+                return False
+        if is_exclusionary and not qualifies:
+            return False
+        filter_list.remove("not_mates")
+    # ---
 
     # check if all cats are mates with p_l (they do not have to be mates with each other)
     if "mates_with_pl" in filter_list:

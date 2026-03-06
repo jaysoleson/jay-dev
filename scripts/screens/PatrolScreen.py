@@ -306,6 +306,7 @@ class PatrolScreen(Screens):
             else:
                 self.patrol_type = "hunting"
             self.update_button()
+
         elif event.ui_element == self.elements["patrol_start"]:
             self.elements["patrol_start"].disable()
             self.selected_cat = None

@@ -392,7 +392,10 @@ class Patrol:
 
             
         print("Patrol Leader:", str(self.patrol_leader.name))
-        print("Random Cat:", str(self.random_cat.name))
+        # LG
+        if self.random_cat:
+        # ---
+            print("Random Cat:", str(self.random_cat.name))
 
     def get_possible_patrols(
         self,
@@ -783,6 +786,9 @@ class Patrol:
             for patrol in possible_patrols:
                 if patrol.frequency != chosen_frequency:
                     continue
+                # LG
+                else:
+                    frequency_found = True
                 if not self._check_constraints(patrol):
                     continue
 
@@ -817,6 +823,7 @@ class Patrol:
                         )
                     continue
 
+                print("Checking", patrol.patrol_id, "for", patrol_type)
                 if not event_for_tags(
                     patrol.tags, Cat, mentor_tags_fulfilled=has_mentor
                 ):
@@ -845,126 +852,130 @@ class Patrol:
                         )
                     continue
 
-                if "hunting" not in patrol.types and patrol_type == "hunting":
-                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                        print(
-                            "DEBUG: requested patrol does not meet constraints (patrol type)"
-                        )
-                    continue
-                elif "border" not in patrol.types and patrol_type == "border":
-                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                        print(
-                            "DEBUG: requested patrol does not meet constraints (patrol type)"
-                        )
-                    continue
-                elif "training" not in patrol.types and patrol_type == "training":
-                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                        print(
-                            "DEBUG: requested patrol does not meet constraints (patrol type)"
-                        )
-                    continue
-                elif "herb_gathering" not in patrol.types and patrol_type == "med":
-                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                        print(
-                            "DEBUG: requested patrol does not meet constraints (patrol type)"
-                        )
-                    continue
+                if switch_get_value(Switch.patrol_category) == "clangen":
+                    # LG: these types dont apply to our patrols
+                    if "hunting" not in patrol.types and patrol_type == "hunting":
+                        if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                            print(
+                                "DEBUG: requested patrol does not meet constraints (patrol type)"
+                            )
+                        continue
+                    elif "border" not in patrol.types and patrol_type == "border":
+                        if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                            print(
+                                "DEBUG: requested patrol does not meet constraints (patrol type)"
+                            )
+                        continue
+                    elif "training" not in patrol.types and patrol_type == "training":
+                        if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                            print(
+                                "DEBUG: requested patrol does not meet constraints (patrol type)"
+                            )
+                        continue
+                    elif "herb_gathering" not in patrol.types and patrol_type == "med":
+                        if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                            print(
+                                "DEBUG: requested patrol does not meet constraints (patrol type)"
+                            )
+                        continue
 
-            if switch_get_value(Switch.patrol_category) in ['lifegen', 'df', 'date']:
-                if switch_get_value(Switch.patrol_category) == "lifegen":
-                    if not any(p in patrol.types for p in ["sc_lifegen", "ur_lifegen", "df_lifegen"]) and game.clan.your_cat.dead:
-                        continue
-                    if "sc_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.STARCLAN):
-                        continue
-                    elif "df_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.DARK_FOREST):
-                        continue
-                    elif "ur_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE):
-                        continue
-                if switch_get_value(Switch.patrol_category) == "df":
-                    if len(self.patrol_cats) > 1:
-                        other_cat = self.patrol_cats[1]
-                        
-                        if not other_cat.joined_df:
-                            if "fellowtrainee" in patrol.tags:
-                                continue
-                        
-                        else:
-                            if "fellowtrainee" not in patrol.tags:
-                                continue
-                            
-                    if "shunned" in patrol.tags:
-                        if not game.clan.your_cat.status.is_shunned():
-                            continue
                 else:
-                    if "shunned" in patrol.tags:
-                        if not game.clan.your_cat.status.is_shunned():
+                    if switch_get_value(Switch.patrol_category) == "lifegen":
+                        if not any(p in patrol.types for p in ["sc_lifegen", "ur_lifegen", "df_lifegen"]) and game.clan.your_cat.dead:
                             continue
-                    
-                    if "shunned" not in patrol.tags and "df" not in patrol.tags:
-                        if game.clan.your_cat.status.is_shunned():
+                        if "sc_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.STARCLAN):
                             continue
-                if switch_get_value(Switch.patrol_category) == "date":
-                    if "df" in patrol.tags:
+                        elif "df_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.DARK_FOREST):
+                            print("Skipping", patrol.patrol_id)
+                            continue
+                        elif "ur_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE):
+                            continue
+                    if switch_get_value(Switch.patrol_category) == "df":
                         if len(self.patrol_cats) > 1:
                             other_cat = self.patrol_cats[1]
-                            if not game.clan.your_cat.joined_df or not other_cat.joined_df:
-                                # need both cats to be trainees for goop romance
+                            
+                            if not other_cat.joined_df:
+                                if "fellowtrainee" in patrol.tags:
+                                    continue
+                            
+                            else:
+                                if "fellowtrainee" not in patrol.tags:
+                                    continue
+                                
+                        if "shunned" in patrol.tags:
+                            if not game.clan.your_cat.status.is_shunned():
                                 continue
+                    else:
+                        if "shunned" in patrol.tags:
+                            if not game.clan.your_cat.status.is_shunned():
+                                continue
+                        
+                        if "shunned" not in patrol.tags and "df" not in patrol.tags:
+                            if game.clan.your_cat.status.is_shunned():
+                                continue
+                    if switch_get_value(Switch.patrol_category) == "date":
+                        if "df" in patrol.tags:
+                            if len(self.patrol_cats) > 1:
+                                other_cat = self.patrol_cats[1]
+                                if not game.clan.your_cat.joined_df or not other_cat.joined_df:
+                                    # need both cats to be trainees for goop romance
+                                    continue
 
-                if "bloodthirsty_only" in patrol.tags:
-                    if Cat.all_cats.get(game.clan.your_cat.mentor).personality.trait != "bloodthirsty":
-                        continue
+                    if "bloodthirsty_only" in patrol.tags:
+                        if Cat.all_cats.get(game.clan.your_cat.mentor).personality.trait != "bloodthirsty":
+                            continue
 
-                if "clan_has_kits" in patrol.tags:
-                    if len(find_alive_cats_with_rank(Cat, [CatRank.NEWBORN, CatRank.KITTEN])) == 0:
-                        continue
-                if "clan_no_kits" in patrol.tags:
-                    if len(find_alive_cats_with_rank(Cat, [CatRank.NEWBORN, CatRank.KITTEN])) > 0:
-                        continue
+                    if "clan_has_kits" in patrol.tags:
+                        if len(find_alive_cats_with_rank(Cat, [CatRank.NEWBORN, CatRank.KITTEN])) == 0:
+                            continue
+                    if "clan_no_kits" in patrol.tags:
+                        if len(find_alive_cats_with_rank(Cat, [CatRank.NEWBORN, CatRank.KITTEN])) > 0:
+                            continue
 
-                # this is testing every piece of text in the patrol
-                # to see if there's an abbrev that cant be fulfilled.
-                # theres probably a better way to do it but.... patrols scare me. and this works
-                tests = []
-                test_runs = {}
-                skip = False
+                    # this is testing every piece of text in the patrol
+                    # to see if there's an abbrev that cant be fulfilled.
+                    # theres probably a better way to do it but.... patrols scare me. and this works
+                    tests = []
+                    test_runs = {}
+                    skip = False
 
-                tests.append(patrol.intro_text)
-                tests.append(patrol.decline_text)
+                    tests.append(patrol.intro_text)
+                    tests.append(patrol.decline_text)
 
-                if len(patrol.antag_fail_outcomes) > 0:
-                    for i in patrol.antag_fail_outcomes:
+                    if len(patrol.antag_fail_outcomes) > 0:
+                        for i in patrol.antag_fail_outcomes:
+                            tests.append(i.text)
+                    if len(patrol.antag_success_outcomes) > 0:
+                        for i in patrol.antag_success_outcomes:
+                            tests.append(i.text)
+
+                    for i in patrol.success_outcomes:
                         tests.append(i.text)
-                if len(patrol.antag_success_outcomes) > 0:
-                    for i in patrol.antag_success_outcomes:
+                    for i in patrol.fail_outcomes:
                         tests.append(i.text)
 
-                for i in patrol.success_outcomes:
-                    tests.append(i.text)
-                for i in patrol.fail_outcomes:
-                    tests.append(i.text)
+                    for i in tests:
+                        # r_c_allowed = True for date_cats
+                        test_runs[i] = lifegen_text_adjust(Cat, str(i), self.patrol_leader, self.patrol_cat_dict, r_c_allowed=True, o_c_allowed=False)
+                        if test_runs[i] == "":
+                            skip = True
+                            # print("Lifegen abbrev repl failed: Skipping", patrol.patrol_id)
+                            break
+                        # else:
+                        #     print(i)
+                    if skip is True:
+                        continue            
+                # cruel season tag check
+                if "cruel_season" in patrol.tags:
+                    if game.clan and game.clan.game_mode != "cruel_season":
+                        continue
 
-                for i in tests:
-                    # r_c_allowed = True for date_cats
-                    test_runs[i] = lifegen_text_adjust(Cat, str(i), self.patrol_leader, self.patrol_cat_dict, r_c_allowed=True, o_c_allowed=False)
-                    if test_runs[i] == "":
-                        skip = True
-                        # print("Lifegen abbrev repl failed: Skipping", patrol.patrol_id)
-                        break
-                    # else:
-                    #     print(i)
-                if skip is True:
-                    continue            
-            # cruel season tag check
-            if "cruel_season" in patrol.tags:
-                if game.clan and game.clan.game_mode != "cruel_season":
-                    continue
-
-            if "romantic" in patrol.tags:
-                romantic_patrols.append(patrol)
-            else:
-                filtered_patrols.append(patrol)
-            
+                if "romantic" in patrol.tags:
+                    romantic_patrols.append(patrol)
+                else:
+                    print("A FILTERED PATROL")
+                    filtered_patrols.append(patrol)
+                
 
             if not filtered_patrols:
                 # if we've circled back around to 4 then we need to reset the used patrols
