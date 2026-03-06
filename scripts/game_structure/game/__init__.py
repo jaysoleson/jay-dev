@@ -32,6 +32,9 @@ just_died = []  # keeps track of which cats died this moon via die()
 told_story = [] # keeps track of who has been told a story by the elders this moon
 # ---
 
+dead_cats_to_grieve = (
+    []
+)  # keeps track of the cats who died and need a clan grieving message
 cur_events_list = []
 ceremony_events_list = []
 birth_death_events_list = []

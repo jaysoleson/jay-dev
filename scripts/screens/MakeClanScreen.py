@@ -25,12 +25,9 @@ from scripts.game_structure import image_cache, constants
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
 
 from scripts.game_structure import game
-from scripts.game_structure.ui_elements import (
-    UIImageButton,
-    UISpriteButton,
-    UISurfaceImageButton,
-    UIModifiedScrollingContainer
-)
+from ..ui.elements.sprite_button import UISpriteButton
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.theme import get_text_box_theme
 from ..ui.scale import ui_scale, ui_scale_dimensions, ui_scale_offset, ui_scale_blit
 from .Screens import Screens
@@ -421,14 +418,7 @@ class MakeClanScreen(Screens):
         elif event.ui_element == self.elements["reset_name"]:
             self.elements["name_entry"].set_text("")
         elif event.ui_element == self.elements["next_step"]:
-            new_name = sub(
-                r"[^A-Za-z0-9 ]+", "", self.elements["name_entry"].get_text()
-            ).strip()
-            if not new_name:
-                self.elements["error"].set_text("Your Clan's name cannot be empty")
-                self.elements["error"].show()
-                return
-            self.clan_name = new_name
+            self.clan_name = self.elements["name_entry"].get_text()
             self.open_choose_leader()
         elif event.ui_element == self.elements["previous_step"]:
             self.clan_name = ""
@@ -1329,6 +1319,22 @@ class MakeClanScreen(Screens):
             self.elements['cat_info'].set_text(display_string)
             self.elements['cat_info'].show()
 
+        if self.sub_screen == "choose leader":
+            self.elements["cat_name"].set_text(
+                str(selected.name)
+                + " --> "
+                + selected.name.get_specsuffix_name(CatRank.LEADER)
+            )
+        else:
+            self.elements["cat_name"].set_text(str(selected.name))
+        self.elements["select_cat"].set_text(
+            self.elements["select_cat"].text, text_kwargs={"m_c": selected}
+        )
+        self.elements["cat_name"].show()
+        self.elements["cat_info"].set_text(
+            selected.get_info_block(make_clan=True), text_kwargs={"m_c": selected}
+        )
+        self.elements["cat_info"].show()
 
     def refresh_cat_images_and_info(self, selected=None):
         """Update the image of the cat selected in the middle. Info and image.
@@ -1531,13 +1537,12 @@ class MakeClanScreen(Screens):
             starting_height=2,
             anchors={"left_target": self.elements["previous_step"]},
         )
-
-        self.elements['next_step'].disable()
-        self.elements["name_entry"] = pygame_gui.elements.UITextEntryLine(ui_scale(pygame.Rect((265, 600), (270, 29)))
-                                                                          , manager=MANAGER)
-        self.elements["name_entry"].set_allowed_characters(
-            list("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_- ")
+        self.elements["next_step"].disable()
+        self.elements["name_entry"] = pygame_gui.elements.UITextEntryLine(
+            ui_scale(pygame.Rect((265, 597), (140, 29))),
+            manager=MANAGER,
         )
+        self.elements["name_entry"].set_forbidden_characters("forbidden_file_path")
         self.elements["name_entry"].set_text_length_limit(11)
         self.elements["clan"] = pygame_gui.elements.UITextBox("-Clan",
                                                               ui_scale(pygame.Rect((750, 1200), (200, 50))),
@@ -4562,75 +4567,76 @@ class MakeClanScreen(Screens):
             game.clan.your_cat.moons = -1
             game.clan.add_cat(game.clan.your_cat)
             self.delete_example_cats()
+            return
+        self.handle_create_other_cats()
+        
+        game.mediated.clear()
+        game.told_story.clear()
+        game.patrolled.clear()
+        game.dated_cats.clear()
+        # game.cat_to_fade.clear()
+        save_load.faded_ids.clear()
+        Cat.outside_cats.clear()
+        Patrol.used_patrols.clear()
+        convert_camp = f"camp{self.selected_camp_tab}"
+        displayname = self.clan_name
+        clan_name = sub(r"[/\\?%*:|\"<>\x7F\x00-\x1F]", "-", self.clan_name)
+        if self._clan_name_exists(clan_name):
+            clan_name = self._generate_unique_clan_name(clan_name)
+
+        self.your_cat.create_inheritance_new_cat()
+
+        new_social = CatSocial(self.social)
+        if self.social != CatSocial.CLANCAT:
+            new_rank = CatRank(new_social)
         else:
-            self.handle_create_other_cats()
-            game.mediated.clear()
-            game.told_story.clear()
-            game.patrolled.clear()
-            game.dated_cats.clear()
-            # game.cat_to_fade.clear()
-            save_load.faded_ids.clear()
-            Cat.outside_cats.clear()
-            Patrol.used_patrols.clear()
-            convert_camp = {1: 'camp1', 2: 'camp2', 3: 'camp3', 4: 'camp4', 5: 'camp5', 6: 'camp6', 7: 'camp7', 8: 'camp8', 9: 'camp9'}
-            displayname = self.clan_name
-            if self._clan_name_exists(self.clan_name):
-                clan_name = self._generate_unique_clan_name(self.clan_name)
-            else:
-                clan_name = self.clan_name
-            self.your_cat.create_inheritance_new_cat()
+            new_rank = CatRank.KITTEN
 
-            new_social = CatSocial(self.social)
-            if self.social != CatSocial.CLANCAT:
-                new_rank = CatRank(new_social)
-            else:
-                new_rank = CatRank.KITTEN
+        group_dict = {
+            CatSocial.CLANCAT: CatGroup.PLAYER_CLAN_ID,
+            CatSocial.ROGUE: CatGroup.ROGUE_GROUP_ID,
+            CatSocial.LONER: CatGroup.LONER_GROUP_ID,
+            CatSocial.KITTYPET: CatGroup.HOUSEHOLD_ID
+        }
 
-            group_dict = {
-                CatSocial.CLANCAT: CatGroup.PLAYER_CLAN_ID,
-                CatSocial.ROGUE: CatGroup.ROGUE_GROUP_ID,
-                CatSocial.LONER: CatGroup.LONER_GROUP_ID,
-                CatSocial.KITTYPET: CatGroup.HOUSEHOLD_ID
-            }
-
-            self.your_cat.status.init_your_cat_status(
-                rank=new_rank,
-                group_ID=group_dict[self.social]
-                )
-
-            game.clan = Clan(
-                name = clan_name,
-                displayname=displayname,
-                leader = self.leader,
-                deputy = self.deputy,
-                medicine_cat = self.med_cat,
-                biome = self.biome_selected,
-                camp_bg = convert_camp[self.selected_camp_tab] if self.social == CatSocial.CLANCAT else "camp1",
-                rogue_group_bg = convert_camp[self.selected_camp_tab] if self.social == CatSocial.ROGUE else "camp1",
-                loner_group_bg = convert_camp[self.selected_camp_tab] if self.social == CatSocial.LONER else "camp1",
-                household_bg = convert_camp[self.selected_camp_tab] if self.social == CatSocial.KITTYPET else "camp1",
-                no_group_bg = convert_camp[self.selected_camp_tab] if self.social is None else "camp1",
-                symbol=self.symbol_selected,
-                game_mode="expanded",
-                starting_members=self.members,
-                starting_season=self.selected_season,
-                your_cat=self.your_cat,
-                clan_age=self.clan_age
+        self.your_cat.status.init_your_cat_status(
+            rank=new_rank,
+            group_ID=group_dict[self.social]
             )
-            game.clan.your_cat.moons = -1
-            game.clan.create_clan()
-            if self.clan_age == "established":
-                game.clan.leader_lives = random.randint(1,9)
-            game.cur_events_list.clear()
-            game.herb_events_list.clear()
-            game.clan.herb_supply.start_storage(len(self.members))
-            game.clan.save_herb_supply(game.clan)
-            Cat.grief_strings.clear()
-            Cat.sort_cats()
 
-            if not game.clan.your_cat.status.group.is_any_clan_group():
-                game.clan.your_cat.specsuffix_hidden = True
-                game.clan.your_cat.change_name(new_prefix=game.clan.your_cat.name.prefix, new_suffix="")
+        game.clan = Clan(
+            name = clan_name,
+            displayname=displayname,
+            leader = self.leader,
+            deputy = self.deputy,
+            medicine_cat = self.med_cat,
+            biome = self.biome_selected,
+            camp_bg = convert_camp[self.selected_camp_tab] if self.social == CatSocial.CLANCAT else "camp1",
+            rogue_group_bg = convert_camp[self.selected_camp_tab] if self.social == CatSocial.ROGUE else "camp1",
+            loner_group_bg = convert_camp[self.selected_camp_tab] if self.social == CatSocial.LONER else "camp1",
+            household_bg = convert_camp[self.selected_camp_tab] if self.social == CatSocial.KITTYPET else "camp1",
+            no_group_bg = convert_camp[self.selected_camp_tab] if self.social is None else "camp1",
+            symbol=self.symbol_selected,
+            game_mode="expanded",
+            starting_members=self.members,
+            starting_season=self.selected_season,
+            your_cat=self.your_cat,
+            clan_age=self.clan_age
+        )
+        game.clan.your_cat.moons = -1
+        game.clan.create_clan()
+        if self.clan_age == "established":
+            game.clan.leader_lives = random.randint(1,9)
+        game.cur_events_list.clear()
+        game.herb_events_list.clear()
+        game.clan.herb_supply.start_storage(len(self.members))
+        game.clan.save_herb_supply(game.clan)
+        Cat.grief_strings.clear()
+        Cat.sort_cats()
+
+        if not game.clan.your_cat.status.group.is_any_clan_group():
+            game.clan.your_cat.specsuffix_hidden = True
+            game.clan.your_cat.change_name(new_prefix=game.clan.your_cat.name.prefix, new_suffix="")
 
     def get_camp_art_path(self, campnum) -> Optional[str]:
         if not campnum:

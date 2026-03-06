@@ -1,6 +1,6 @@
 from collections import defaultdict
 from itertools import groupby
-from random import choice
+from random import choice, choices
 from typing import TypedDict, Optional, List, Dict
 
 from scripts.cat.enums import CatRank, CatSocial, CatStanding, CatAge, CatGroup
@@ -394,20 +394,24 @@ class Status:
             return (
                 CatRank.APPRENTICE
                 if disable_random
-                else choice(
+                else choices(
                     [
                         CatRank.APPRENTICE,
                         CatRank.MEDIATOR_APPRENTICE,
                         CatRank.MEDICINE_APPRENTICE,
-                        CatRank.QUEENS_APPRENTICE
-                    ]
-                )
+                        CatRank.QUEENS_APPRENTICE,
+                    ],
+                    weights=[6, 1, 2],
+                )[0]
             )
         elif age in (CatAge.YOUNG_ADULT, CatAge.ADULT, CatAge.SENIOR_ADULT):
             return (
                 CatRank.WARRIOR
                 if disable_random
-                else choice([CatRank.WARRIOR, CatRank.MEDICINE_CAT, CatRank.MEDIATOR])
+                else choices(
+                    [CatRank.WARRIOR, CatRank.MEDICINE_CAT, CatRank.MEDIATOR],
+                    weights=[6, 2, 1],
+                )[0]
             )
         else:
             return CatRank.ELDER
@@ -714,6 +718,21 @@ class Status:
         for entry in history:
             group_type = game.used_group_IDs.get(entry["group"])
             if group_type and not group_type.is_afterlife():
+                return entry["group"]
+
+        return None
+
+    def get_last_valid_group_id(self) -> Optional[str]:
+        """
+        Returns the last group that this cat was part of. If they have never been affiliated with a group, returns None.
+        :return:
+        """
+        history = self.group_history.copy()
+        history.reverse()
+
+        for entry in history:
+            group_type = game.used_group_IDs.get(entry["group"])
+            if group_type is not None:
                 return entry["group"]
 
         return None

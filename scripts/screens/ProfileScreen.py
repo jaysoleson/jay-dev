@@ -1,30 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: ascii -*-
 import os
-from random import choice, randint
-
-import pygame
-
-from ..cat.history import History
-from ..housekeeping.datadir import get_save_dir
-from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
-
-from scripts.game_structure import constants
-
-import ujson
-
-from scripts.lifegen_utility import get_cluster
-
-from .Screens import Screens
-
-from scripts.cat.cats import Cat, BACKSTORIES
-from scripts.cat.pelts import Pelt
-from scripts.game_structure import image_cache
-import pygame_gui
-from re import sub
-from scripts.cat.skills import SkillPath
-
-import math
+from copy import deepcopy
 from random import choice
 from re import sub
 
@@ -36,12 +13,10 @@ from pygame_gui.core import ObjectID
 
 from scripts.clan_resources.freshkill import FRESHKILL_ACTIVE
 from scripts.game_structure import image_cache, game
-from scripts.game_structure.ui_elements import (
-    UIImageButton,
-    UITextBoxTweaked,
-    UISurfaceImageButton,
-    UIModifiedImage,
-)
+from ..ui.elements.modified_image import UIModifiedImage
+from ..ui.elements.text_box_tweaked import UITextBoxTweaked
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.theme import get_text_box_theme
 from ..events_module.text_adjust import (
     process_text,
@@ -54,9 +29,10 @@ from ..ui.scale import ui_scale, ui_scale_dimensions, ui_scale_offset
 from scripts.cat.pelts import Pelt
 from .Screens import Screens
 from .enums import GameScreen
-from ..cat.enums import CatAge, CatRank, CatGroup
+from ..cat.enums import CatAge, CatRank, CatGroup, CatThought
 from ..cat.sprites.load_sprites import sprites
 from ..clan_package.settings import get_clan_setting
+from ..events import update_afterlife_temper
 from ..game_structure.game.save_load import safe_save
 from ..game_structure.game.settings import game_setting_get
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
@@ -404,13 +380,14 @@ class ProfileScreen(Screens):
                 and event.ui_element == self.profile_elements["leader_ceremony"]
             ):
                 self.change_screen(GameScreen.CEREMONY)
-            elif event.ui_element == self.profile_elements["med_den"]:
+            elif event.ui_element == self.profile_elements.get("med_den"):
                 self.change_screen(GameScreen.MED_DEN)
-            elif (
-                "mediation" in self.profile_elements
-                and event.ui_element == self.profile_elements["mediation"]
-            ):
+            elif event.ui_element == self.profile_elements.get("mediation"):
                 self.change_screen(GameScreen.MEDIATION)
+            elif event.ui_element == self.profile_elements.get("warriors_den"):
+                self.change_screen(GameScreen.WARRIOR_DEN)
+            elif event.ui_element == self.profile_elements.get("leader_den"):
+                self.change_screen(GameScreen.LEADER_DEN)
             elif event.ui_element == self.profile_elements["favourite_button"]:
                 if self.the_cat.favourite == 3:
                     self.the_cat.favourite = 0
@@ -575,6 +552,7 @@ class ProfileScreen(Screens):
                                 new_group_ID=CatGroup.DARK_FOREST_ID
                             )
 
+                        self.the_cat.get_new_thought(CatThought.IS_GUIDE)
                         self.the_cat.pelt.rebuild_sprite = True
                     else:
                         # DF -> UR
@@ -582,21 +560,17 @@ class ProfileScreen(Screens):
                             self.the_cat.status.add_to_group(
                                 new_group_ID=CatGroup.UNKNOWN_RESIDENCE_ID
                             )
-                            self.the_cat.thought = "Is surprised to find themself walking among a foreign land"
                         # UR -> SC
                         elif self.the_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
                             self.the_cat.status.add_to_group(
                                 new_group_ID=CatGroup.STARCLAN_ID
-                            )
-                            self.the_cat.thought = (
-                                "Is relieved to once again hunt in StarClan"
                             )
                         # SC -> DF
                         else:
                             self.the_cat.status.add_to_group(
                                 new_group_ID=CatGroup.DARK_FOREST_ID
                             )
-                            self.the_cat.thought = "Is distraught after being sent to the Place of No Stars"
+                        self.the_cat.get_new_thought(CatThought.ON_AFTERLIFE_CHANGE)
                         self.the_cat.pelt.rebuild_sprite = True
 
                     # LG faith
@@ -878,17 +852,10 @@ class ProfileScreen(Screens):
         if self.the_cat.dead:
             cat_name += " (dead)"  # A dead cat will have the (dead) sign next to their name
 
-
-        if is_sc_instructor:
-
-            if game.clan.followingsc == True:
-                self.the_cat.thought = i18n.t(
-                    "screens.profile.guide_thought_sc_following", clan=game.clan.displayname
-                )
-            else:
-                self.the_cat.thought = i18n.t(
-                    "screens.profile.guide_thought_sc_not_following", clan=game.clan.displayname
-                )
+        # Instructor thoughts
+        if self.the_cat.dead and game.clan.instructor is self.the_cat:
+            self.the_cat.get_new_thought(CatThought.IS_GUIDE)
+            # CHECKMERGE: df guide thought OMG how many times am i gonna have to do this
 
         if is_df_instructor:
             if game.clan.followingsc == True:
@@ -977,38 +944,50 @@ class ProfileScreen(Screens):
         )
         self.profile_elements["cat_image"].disable()
 
-        # if cat is a med or med app, show button for their den
-        self.profile_elements["med_den"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((100, 380), (151, 28))),
-            "screens.core.medicine_cat_den",
-            get_button_dict(ButtonStyles.ROUNDED_RECT, (151, 28)),
-            object_id="@buttonstyles_rounded_rect",
-            manager=MANAGER,
-            starting_height=2,
-            visible=False,
-        )
-        self.profile_elements["mediation"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((130, 380), (81, 28))),
-            "screens.core.clearing",
-            get_button_dict(ButtonStyles.ROUNDED_RECT, (81, 28)),
-            object_id="@buttonstyles_rounded_rect",
-            visible=False,
-            manager=MANAGER,
-            starting_height=2,
-        )
-
         if self.the_cat.status.alive_in_player_clan and (
             self.the_cat.status.rank.is_any_medicine_rank()
-            or self.the_cat.is_ill()
-            or self.the_cat.is_injured()
         ):
-            self.profile_elements["med_den"].show()
+            self.profile_elements["med_den"] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((100, 380), (151, 28))),
+                "screens.core.medicine_cat_den",
+                get_button_dict(ButtonStyles.ROUNDED_RECT, (151, 28)),
+                object_id="@buttonstyles_rounded_rect",
+                manager=MANAGER,
+                starting_height=2,
+            )
         elif (
             self.the_cat.status.alive_in_player_clan
             and self.the_cat.status.rank.is_any_mediator_rank()
         ):
-            self.profile_elements["mediation"].show()
-
+            self.profile_elements["mediation"] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((133, 380), (81, 28))),
+                "screens.core.clearing",
+                get_button_dict(ButtonStyles.ROUNDED_RECT, (81, 28)),
+                object_id="@buttonstyles_rounded_rect",
+                manager=MANAGER,
+                starting_height=2,
+            )
+        elif self.the_cat.status.alive_in_player_clan and self.the_cat.status.rank in (
+            CatRank.DEPUTY,
+            CatRank.WARRIOR,
+        ):
+            self.profile_elements["warriors_den"] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((113, 380), (121, 28))),
+                "screens.core.warriors_den",
+                get_button_dict(ButtonStyles.ROUNDED_RECT, (121, 28)),
+                object_id="@buttonstyles_rounded_rect",
+                manager=MANAGER,
+                starting_height=2,
+            )
+        elif self.the_cat.status.alive_in_player_clan and self.the_cat.status.is_leader:
+            self.profile_elements["leader_den"] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((118, 380), (112, 28))),
+                "screens.core.leader_den",
+                get_button_dict(ButtonStyles.ROUNDED_RECT, (112, 28)),
+                object_id="@buttonstyles_rounded_rect",
+                manager=MANAGER,
+                starting_height=2,
+            )
         favorite_button_rect = ui_scale(pygame.Rect((0, 0), (28, 28)))
         favorite_button_rect.topright = ui_scale_offset((-5, 146))
 
@@ -1961,7 +1940,7 @@ class ProfileScreen(Screens):
                 body_history.append(death_history)
             # separate scar and death
             if body_history:
-                life_history.append("\n".join(body_history))
+                life_history.append("<br>".join(body_history))
 
             murder = self.get_murder_text()
             if murder:
@@ -1972,7 +1951,7 @@ class ProfileScreen(Screens):
                 life_history.append(afterlife_acceptance)
 
             # join together history list with line breaks
-            output = "\n\n".join(life_history)
+            output = "<br><br>".join(life_history)
         return output
 
     def get_living_cats(self):
@@ -3154,11 +3133,12 @@ class ProfileScreen(Screens):
                 self.see_relationships_button.enable()
                 self.change_adoptive_parent_button.enable()
 
-            if (
-                self.the_cat.age
-                not in ["young adult", "adult", "senior adult", "senior"]
-                or not self.the_cat.status.alive_in_player_clan
-            ):
+            if self.the_cat.age not in [
+                "young adult",
+                "adult",
+                "senior adult",
+                "senior",
+            ]:
                 self.choose_mate_button.disable()
             else:
                 self.choose_mate_button.enable()
