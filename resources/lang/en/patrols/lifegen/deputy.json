@@ -736,9 +736,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "sc_lifegen"
         ],
-        "tags": [],
         "patrol_art": "dead_patrol_J3",
         "min_cats": 1,
         "max_cats": 1,

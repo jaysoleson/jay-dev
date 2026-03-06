@@ -453,9 +453,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "sc_lifegen"
         ],
-        "tags": [],
         "patrol_art": "dead_patrol_J4",
         "min_cats": 1,
         "max_cats": 1,
@@ -507,9 +509,11 @@
         	"any"
     	],
     	"types": [
-        	"sc_lifegen"
-    	],
-    	"tags": [],
+            "lifegen"
+        ],
+        "tags": [
+            "sc_lifegen"
+        ],
     	"patrol_art": "lg_default_sc",
     	"min_cats": 1,
     	"max_cats": 1,

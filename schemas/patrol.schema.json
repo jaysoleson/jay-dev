@@ -526,7 +526,10 @@
         "app4_mentored",
         "app5_mentored",
         "app6_mentored",
-        "shunned"
+        "shunned",
+        "sc_lifegen",
+        "ur_lifegen",
+        "df_lifegen"
       ],
       "title": "PatrolTagEnum",
       "type": "string"
@@ -539,10 +542,7 @@
         "training",
         "lifegen",
         "df",
-        "date",
-        "sc_lifegen",
-        "ur_lifegen",
-        "df_lifegen"
+        "date"
       ],
       "title": "PatrolType",
       "type": "string"

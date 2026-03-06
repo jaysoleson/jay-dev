@@ -957,9 +957,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "df_lifegen"
         ],
-        "tags": [],
         "patrol_art": "lg_default_df",
         "min_cats": 1,
         "max_cats": 1,
@@ -1044,9 +1046,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "ur_lifegen"
         ],
-        "tags": [],
         "patrol_art": "lg_default_ur",
         "min_cats": 1,
         "max_cats": 1,

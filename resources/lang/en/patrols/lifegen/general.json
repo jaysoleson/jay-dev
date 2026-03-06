@@ -923,9 +923,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "sc_lifegen"
         ],
-        "tags": [],
         "patrol_art": "lg_default_sc",
         "min_cats": 1,
         "max_cats": 1,
@@ -1003,9 +1005,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "df_lifegen"
         ],
-        "tags": [],
         "patrol_art": "lg_default_df",
         "min_cats": 1,
         "max_cats": 1,
@@ -1060,9 +1064,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "df_lifegen"
         ],
-        "tags": [],
         "patrol_art": "lg_default_df",
         "min_cats": 1,
         "max_cats": 1,
@@ -1097,9 +1103,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "df_lifegen"
         ],
-        "tags": [],
         "patrol_art": "lg_default_df",
         "min_cats": 1,
         "max_cats": 1,
@@ -1155,9 +1163,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "df_lifegen"
         ],
-        "tags": [],
         "patrol_art": "dead_patrol_J5",
         "min_cats": 1,
         "max_cats": 1,
@@ -1220,9 +1230,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "ur_lifegen"
         ],
-        "tags": [],
         "patrol_art": "wanderingalone_URDEAD_H1",
         "min_cats": 1,
         "max_cats": 1,
@@ -1270,9 +1282,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "df_lifegen"
         ],
-        "tags": [],
         "patrol_art": "lg_default_df",
         "min_cats": 1,
         "max_cats": 1,
@@ -1315,9 +1329,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "ur_lifegen"
         ],
-        "tags": [],
         "patrol_art": "lg_default_ur",
         "min_cats": 1,
         "max_cats": 1,
@@ -1355,9 +1371,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "sc_lifegen"
         ],
-        "tags": [],
         "patrol_art": "dead_patrol_J2",
         "min_cats": 1,
         "max_cats": 1,

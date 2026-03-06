@@ -260,9 +260,11 @@
             "any"
         ],
         "types": [
-        "sc_lifegen"
+            "lifegen"
         ],
-        "tags": [],
+        "tags": [
+            "sc_lifegen"
+        ],
         "patrol_art": "lg_default_sc",
         "min_cats": 1,
         "max_cats": 1,

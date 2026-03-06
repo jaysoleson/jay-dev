@@ -2360,9 +2360,11 @@
             "any"
         ],
         "types": [
+            "lifegen"
+        ],
+        "tags": [
             "df_lifegen"
         ],
-        "tags": [],
         "patrol_art": "lg_default_df",
         "min_cats": 1,
         "max_cats": 1,

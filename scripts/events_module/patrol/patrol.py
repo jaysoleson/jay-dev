@@ -881,14 +881,14 @@ class Patrol:
 
                 else:
                     if switch_get_value(Switch.patrol_category) == "lifegen":
-                        if not any(p in patrol.types for p in ["sc_lifegen", "ur_lifegen", "df_lifegen"]) and game.clan.your_cat.dead:
+                        if not any(p in patrol.tags for p in ["sc_lifegen", "ur_lifegen", "df_lifegen"]) and game.clan.your_cat.dead:
                             continue
-                        if "sc_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.STARCLAN):
+                        if "sc_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.STARCLAN):
                             continue
-                        elif "df_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.DARK_FOREST):
+                        elif "df_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.DARK_FOREST):
                             print("Skipping", patrol.patrol_id)
                             continue
-                        elif "ur_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE):
+                        elif "ur_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE):
                             continue
                     if switch_get_value(Switch.patrol_category) == "df":
                         if len(self.patrol_cats) > 1:
