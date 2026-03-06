@@ -14836,7 +14836,7 @@
             "Oh, r_k said {PRONOUN/r_k/subject} {VERB/r_k/are/is} just 'borrowing' it. I'm okay with waiting for my turn!"
         ]
     },
-    "leader-like_kittens_H1": {
+    "leaderlike_kittens_H1": {
         "y_c": {
             "condition": [
                 "deaf:any:false"
@@ -14848,7 +14848,7 @@
         },
         "t_c": {
             "cluster": [
-                "leader-like"
+                "leaderlike"
             ],
             "condition": [
                 "blind:any:false",
@@ -15282,11 +15282,11 @@
             "You're really bad at that... but that's okay! We can practice."
         ]
     },
-    "leader-like_kittens_H2": {
+    "leaderlike_kittens_H2": {
         "y_c": {},
         "t_c": {
             "cluster": [
-                "leader-like"
+                "leaderlike"
             ],
             "age": [
                 "kitten"

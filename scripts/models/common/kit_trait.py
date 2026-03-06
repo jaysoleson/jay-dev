@@ -36,3 +36,13 @@ class KitTrait(Enum):
     not_bossy = "-bossy"
     noisy = "noisy"
     not_noisy = "-noisy"
+
+    smug = "smug"
+    secretive = "secretive"
+    grumpy = "grumpy"
+    manipulative = "manipulative"
+    leaderlike = "leaderlike"
+    passionate = "passionate"
+    daydreamer = "daydreamer"
+    rebellious = "rebellious"
+    honest = "honest"

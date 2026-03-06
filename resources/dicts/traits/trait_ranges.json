@@ -470,7 +470,7 @@
             "aggression": [10, 16],
             "stability": [8, 16]
         },
-        "leader-like": {
+        "leaderlike": {
             "lawfulness": [8, 16],
             "sociability": [8, 16],
             "aggression": [0, 16],

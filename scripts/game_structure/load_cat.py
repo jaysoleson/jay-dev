@@ -264,6 +264,11 @@ def json_load():
             )
             new_cat.moons = cat["moons"]
 
+            # LG
+            if cat["trait"] == "leader-like":
+                cat["trait"] = "leaderlike"
+            # ---
+
             if "facets" in cat and cat["facets"] is not None:
                 facets = [int(i) for i in cat["facets"].split(",")]
                 new_cat.personality = Personality(

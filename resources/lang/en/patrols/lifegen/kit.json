@@ -890,7 +890,7 @@
                 "text": "rsc_c ponders for a bit. They'd imagine that the only suffix right for you is -star.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
-                    "leader-like"
+                    "leaderlike"
                 ],
                 "exp": 15,
                 "frequency": 4
