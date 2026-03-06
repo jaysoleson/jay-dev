@@ -5,10 +5,8 @@ from .Screens import Screens
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.game_structure import game
-from scripts.game_structure.ui_elements import (
-    UISpriteButton,
-    UISurfaceImageButton,
-)
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.sprite_button import UISpriteButton
 from scripts.ui.theme import get_text_box_theme
 from scripts.ui.scale import ui_scale, ui_scale_dimensions
 

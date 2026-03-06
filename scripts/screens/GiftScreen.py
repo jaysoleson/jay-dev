@@ -19,7 +19,11 @@ from ..events_module.text_adjust import pronoun_repl
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.game_structure import game
-from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UISurfaceImageButton
+
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.sprite_button import UISpriteButton
+
 from ..ui.generate_box import BoxStyles, get_box
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles

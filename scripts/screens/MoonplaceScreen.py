@@ -21,9 +21,7 @@ from scripts.game_structure import game
 from enum import Enum  # pylint: disable=no-name-in-module
 from scripts.cat.names import Name
 from scripts.game_structure.screen_settings import MANAGER
-from scripts.game_structure.ui_elements import (
-    UISurfaceImageButton,
-)
+from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.generate_button import ButtonStyles, get_button_dict
 from scripts.events_module.text_adjust import (
     pronoun_repl

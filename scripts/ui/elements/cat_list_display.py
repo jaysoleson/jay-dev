@@ -112,12 +112,26 @@ class UICatListDisplay(UIContainer):
 
         self.show_names = show_names
 
-        self._favor_circle = pygame.transform.scale(
-            pygame.image.load(f"resources/images/fav_marker.png").convert_alpha(),
-            ui_scale_dimensions((50, 50)),
-        )
-        if game_setting_get("dark mode"):
-            self._favor_circle.set_alpha(150)
+        # LG: Redone for multiple fav circles
+        self._favour_circles = {
+            "1": pygame.transform.scale(
+                pygame.image.load(f"resources/images/fav_marker_1.png").convert_alpha(),
+                ui_scale_dimensions((50, 50)),
+            ),
+            "2": pygame.transform.scale(
+                pygame.image.load(f"resources/images/fav_marker_2.png").convert_alpha(),
+                ui_scale_dimensions((50, 50)),
+            ),
+            "3": pygame.transform.scale(
+                pygame.image.load(f"resources/images/fav_marker_3.png").convert_alpha(),
+                ui_scale_dimensions((50, 50)),
+            ),
+        }
+
+        for key, image in self._favour_circles.items():
+            if game_setting_get("dark mode"):
+                image.set_alpha(150)
+        # ---
 
         self.generate_grid()
 
@@ -234,7 +248,7 @@ class UICatListDisplay(UIContainer):
             fav_indexes = [
                 display_cats.index(cat) for cat in display_cats if cat.favourite
             ]
-            [self.create_favor_indicator(i, self.boxes[i]) for i in fav_indexes]
+            [self.create_favor_indicator(i, self.boxes[i], display_cats[i].favourite) for i in fav_indexes]
 
         # CAT SPRITE
         [
@@ -313,10 +327,11 @@ class UICatListDisplay(UIContainer):
             },
         )
 
-    def create_favor_indicator(self, i, container):
+    def create_favor_indicator(self, i, container, fav_number):
+        # LG edited to add fav_number argument
         self.favor_indicator[f"favor{i}"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((0, 15), (50, 50))),
-            self._favor_circle,
+            self._favour_circles[str(fav_number)],
             object_id=f"favor_circle{i}",
             container=container,
             starting_height=1,

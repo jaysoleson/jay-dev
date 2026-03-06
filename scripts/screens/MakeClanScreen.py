@@ -11,6 +11,9 @@ import pygame
 import pygame_gui
 from pygame_gui.core import ObjectID
 from ..cat.enums import CatAge, CatRank, CatGroup, CatSocial, CatStanding
+from scripts.ui.elements.modified_scrolling_container import (
+    UIModifiedScrollingContainer,
+)
 
 import scripts.screens.screens_core.screens_core
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES, create_example_cats, create_cat
@@ -1297,27 +1300,11 @@ class MakeClanScreen(Screens):
 
     def refresh_selected_cat_info(self, selected: Optional[Cat] = None):
         # SELECTED CAT INFO
-        if selected is not None:
-
-            self.elements['cat_name'].set_text(str(selected.name))
-            self.elements['cat_name'].show()
-            
-            display_string = (selected.gender + "\n" +
-                            "fur length: " +
-                            str(selected.pelt.length) +
-                            "\n" +
-                            str(selected.personality.trait) +
-                            "\n" +
-                            str(selected.skills.skill_string())
-                            )
-            if selected.permanent_condition:
-                display_string += (
-                    "\n" +
-                    "permanent condition: "
-                    + list(selected.permanent_condition.keys())[0]
-                    )
-            self.elements['cat_info'].set_text(display_string)
-            self.elements['cat_info'].show()
+        if selected is None:
+            self.elements["next_step"].disable()
+            self.elements["cat_info"].hide()
+            self.elements["cat_name"].hide()
+            return
 
         if self.sub_screen == "choose leader":
             self.elements["cat_name"].set_text(
@@ -1886,8 +1873,13 @@ class MakeClanScreen(Screens):
             skin=random_skin,
             newborn_sprite="newborn" + str(self.newborn_pose),
             kitten_sprite="kitten" + str(self.kitten_sprite),
-            adol_sprite="adolescent" + str(self.adolescent_pose),
-             adult_sprite=(
+            # adol_sprite="adolescent" + str(self.adolescent_pose),
+            adol_sprite=(
+                ("adolescent_short" + str(self.adolescent_pose))
+                if random_pelt_length != "long"
+                else 
+                ("adolescent_long" + str(self.adolescent_pose))),
+            adult_sprite=(
                 ("adult_short" + str(self.adult_pose))
                 if random_pelt_length != "long"
                 else 
@@ -3422,10 +3414,7 @@ class MakeClanScreen(Screens):
                     if event.ui_element == self.fur_length_buttons[i[0]]:
                         self.custom_cat.pelt.length = i[0]
                         # correct long/shorthaired poses
-                        if self.adult_pose in range(9,12) and self.custom_cat.pelt.length in ["short", "medium"]:
-                            self.adult_pose -= 3
-                        elif self.adult_pose in range(6,9) and self.custom_cat.pelt.length == "long":
-                            self.adult_pose += 3
+                        # TODO: yea
                         self.update_custom_cat_pages()
                         self.update_sprite()
                         self.update_disabled_buttons()
@@ -4082,7 +4071,11 @@ class MakeClanScreen(Screens):
             white_patches_tint=initial_pelt.white_patches_tint,
             newborn_sprite="newborn" + str(self.newborn_pose),
             kitten_sprite="kitten" + str(self.kitten_sprite),
-            adol_sprite="adolescent" + str(self.adolescent_pose),
+            adol_sprite=(
+                ("adolescent_short" + str(self.adolescent_pose))
+                if initial_pelt.length != "long"
+                else 
+                ("adolescent_long" + str(self.adolescent_pose))),
             adult_sprite=(
                 ("adult_short" + str(self.adult_pose))
                 if initial_pelt.length != "long"
@@ -4631,7 +4624,7 @@ class MakeClanScreen(Screens):
         game.herb_events_list.clear()
         game.clan.herb_supply.start_storage(len(self.members))
         game.clan.save_herb_supply(game.clan)
-        Cat.grief_strings.clear()
+        game.clan.grief_strings.clear()
         Cat.sort_cats()
 
         if not game.clan.your_cat.status.group.is_any_clan_group():

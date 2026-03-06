@@ -396,9 +396,9 @@ def one_moon():
                 Single_Event(
                     event,
                     ["birth_death"],
-                    [i.ID for i in Cat.dead_cats],
+                    [i.ID for i in game.dead_cats_to_grieve],
                     cat_dict=(
-                        {"m_c": Cat.dead_cats[0]} if len(Cat.dead_cats) == 1 else None
+                        {"m_c": game.dead_cats_to_grieve[0]} if len(game.dead_cats_to_grieve) == 1 else None
                     ),
                 )
             )

@@ -8,16 +8,14 @@ from .Screens import Screens
 from scripts.game_structure.audio import sound_manager
 
 from scripts.cat.cats import Cat, ILLNESSES, INJURIES, PERMANENT, BACKSTORIES
-from ..cat.history import History
 from scripts.game_structure import image_cache
-from scripts.game_structure.ui_elements import (
-    UIImageButton,
-    UISurfaceImageButton,
-)
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+
 from scripts.screens.enums import GameScreen
 
 from scripts.game_structure import constants
-from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
+from ..game_structure.game.switches import switch_get_value, Switch
 from ..game_structure.game.settings import game_setting_get
 from ..cat.enums import CatRank, CatGroup, CatAge
 from ..ui.scale import ui_scale, ui_scale_dimensions

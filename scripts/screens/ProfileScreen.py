@@ -4,12 +4,14 @@ import os
 from copy import deepcopy
 from random import choice
 from re import sub
+import math
 
 import i18n
 import pygame
 import pygame_gui
 import ujson
 from pygame_gui.core import ObjectID
+from scripts.cat.cats import Cat, BACKSTORIES
 
 from scripts.clan_resources.freshkill import FRESHKILL_ACTIVE
 from scripts.game_structure import image_cache, game
@@ -338,7 +340,10 @@ class ProfileScreen(Screens):
             elif event.ui_element == self.delete_accessory:
                 for acc in self.the_cat.pelt.accessory:
                     self.the_cat.pelt.inventory.remove(acc)
-                    self.the_cat.pelt.accessory.remove(acc)
+                    self.the_cat.pelt.accessory = tuple(
+                        accessory for accessory in self.the_cat.pelt.accessory if
+                        accessory != acc
+                    )
                 self.close_current_tab()
                 self.clear_profile()
                 self.build_profile()
@@ -352,28 +357,49 @@ class ProfileScreen(Screens):
             #     self.clear_profile()
             #     self.build_profile()
 
-            elif "talk" in self.profile_elements and event.ui_element == self.profile_elements["talk"]:
+            elif (
+                "talk" in self.profile_elements and
+                event.ui_element == self.profile_elements["talk"]
+                ):
                 self.the_cat.talked_to = True
                 self.affect_relationship("talk")
 
                 switch_set_value(Switch.talk_category, 'talk')
                 self.change_screen(GameScreen.TALK)
-            elif "insult" in self.profile_elements and event.ui_element == self.profile_elements["insult"]:
+            elif (
+                "insult" in self.profile_elements and
+                event.ui_element == self.profile_elements["insult"]
+                ):
                 self.the_cat.insulted = True
                 self.affect_relationship("insult")
                 switch_set_value(Switch.talk_category, 'insult')
                 self.change_screen(GameScreen.TALK)
-            elif "flirt" in self.profile_elements and event.ui_element == self.profile_elements["flirt"]:
+            elif (
+                "flirt" in self.profile_elements and
+                event.ui_element == self.profile_elements["flirt"]
+                ):
                 self.the_cat.flirted = True
                 switch_set_value(Switch.talk_category, 'flirt')
                 self.change_screen(GameScreen.TALK)
-            elif event.ui_element == self.profile_elements["med_den"]:
+            elif (
+                "med_den" in self.profile_elements and
+                event.ui_element == self.profile_elements["med_den"]
+                ):
                 self.change_screen(GameScreen.MED_DEN)
-            elif "queen" in self.profile_elements and event.ui_element == self.profile_elements["queen"]:
+            elif (
+                "queen" in self.profile_elements and
+                event.ui_element == self.profile_elements["queen"]
+                ):
                 self.change_screen(GameScreen.QUEEN)
-            elif "halfmoon" in self.profile_elements and event.ui_element == self.profile_elements["halfmoon"]:
+            elif (
+                "halfmoon" in self.profile_elements and
+                event.ui_element == self.profile_elements["halfmoon"]
+                ):
                 self.change_screen(GameScreen.MOONPLACE)
-            elif "story" in self.profile_elements and event.ui_element == self.profile_elements["story"]:
+            elif (
+                "story" in self.profile_elements and
+                event.ui_element == self.profile_elements["story"]
+                ):
                 self.change_screen(GameScreen.ELDER_STORY)
             elif (
                 "leader_ceremony" in self.profile_elements
@@ -823,7 +849,10 @@ class ProfileScreen(Screens):
             # this way, if lifegen accs are switched off then back on,
             # cats can keep their accessories from before they were toggled off
             if acc not in self.cat_inventory:
-                self.the_cat.pelt.accessory.remove(acc)
+                self.the_cat.pelt.accessory = tuple(
+                    accessory for accessory in self.the_cat.pelt.accessory if
+                    accessory != acc
+                )
         # ---
 
         # use these attributes to create differing profiles for StarClan cats etc.
@@ -3819,9 +3848,12 @@ class ProfileScreen(Screens):
         # Preparing buttons
         n = value
         if self.accessories_list[n] in self.the_cat.pelt.accessory:
-            self.the_cat.pelt.accessory.remove(self.accessories_list[n])
+            self.the_cat.pelt.accessory = tuple(
+                accessory for accessory in self.the_cat.pelt.accessory if
+                accessory != self.accessories_list[n]
+            )
         else:
-            self.the_cat.pelt.accessory.append(self.accessories_list[n])
+            self.the_cat.pelt.accessory = self.the_cat.pelt.accessory + (self.accessories_list[n],)
         self.the_cat.pelt.rebuild_sprite = True
         for acc in self.accessory_buttons:
             self.accessory_buttons[acc].kill()

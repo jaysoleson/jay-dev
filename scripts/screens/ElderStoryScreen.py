@@ -8,13 +8,12 @@ import pygame_gui.elements
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.game_structure import game
-from scripts.game_structure.ui_elements import (
-    UIImageButton,
-    UISpriteButton,
-    UISurfaceImageButton,
-    UITextBoxTweaked,
-    UIModifiedScrollingContainer
-)
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.sprite_button import UISpriteButton
+from ..ui.elements.text_box_tweaked import UITextBoxTweaked
+from ..ui.elements.modified_scrolling_container import UIModifiedScrollingContainer
+
 from scripts.screens.enums import GameScreen
 from ..cat.enums import CatRank
 from ..game_structure.game.settings import game_setting_get

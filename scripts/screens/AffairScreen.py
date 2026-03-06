@@ -10,11 +10,9 @@ from scripts.game_structure import image_cache
 from scripts.game_structure import game
 from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
 from scripts.game_structure.screen_settings import MANAGER
-from scripts.game_structure.ui_elements import (
-    UISpriteButton,
-    UISurfaceImageButton,
-    UIImageButton
-)
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.sprite_button import UISpriteButton
 from scripts.clan_package.settings import get_clan_setting
 from scripts.screens.enums import GameScreen
 

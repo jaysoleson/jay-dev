@@ -9,10 +9,8 @@ from scripts.game_structure import game
 from scripts.game_structure.screen_settings import MANAGER
 from ..cat.enums import CatGroup
 
-from scripts.game_structure.ui_elements import (
-    UISpriteButton,
-    UISurfaceImageButton,
-)
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.sprite_button import UISpriteButton
 from scripts.screens.enums import GameScreen
 
 from scripts.ui.theme import get_text_box_theme

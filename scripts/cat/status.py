@@ -401,7 +401,7 @@ class Status:
                         CatRank.MEDICINE_APPRENTICE,
                         CatRank.QUEENS_APPRENTICE,
                     ],
-                    weights=[6, 1, 2],
+                    weights=[6, 1, 2, 1],
                 )[0]
             )
         elif age in (CatAge.YOUNG_ADULT, CatAge.ADULT, CatAge.SENIOR_ADULT):
@@ -409,8 +409,8 @@ class Status:
                 CatRank.WARRIOR
                 if disable_random
                 else choices(
-                    [CatRank.WARRIOR, CatRank.MEDICINE_CAT, CatRank.MEDIATOR],
-                    weights=[6, 2, 1],
+                    [CatRank.WARRIOR, CatRank.MEDICINE_CAT, CatRank.MEDIATOR, CatRank.QUEEN],
+                    weights=[6, 2, 1, 1],
                 )[0]
             )
         else:

@@ -766,8 +766,8 @@ class Cat:
 
         return_to = self.status.get_last_living_group()
         
-        if self.ID in Cat.dead_cats:
-            Cat.dead_cats.remove(self.ID)
+        if self.ID in game.dead_cats_to_grieve:
+            game.dead_cats_to_grieve.remove(self.ID)
         
         self.thought = "Is surprised to be back home"
 

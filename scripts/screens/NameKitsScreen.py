@@ -9,7 +9,10 @@ from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 
 from scripts.game_structure import game
-from scripts.game_structure.ui_elements import UISpriteButton, UISurfaceImageButton
+
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.sprite_button import UISpriteButton
+
 from ..ui.generate_box import BoxStyles, get_box
 
 from scripts.ui.theme import get_text_box_theme

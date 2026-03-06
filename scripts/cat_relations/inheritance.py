@@ -157,9 +157,9 @@ class Inheritance:
                     if self.cat.ID in self.all_inheritances[cat_id].grandparents:
                         del self.all_inheritances[cat_id].grandparents[self.cat.ID]
                     self.all_inheritances[cat_id].init_grandparents()
-                if cat_id in self.mates:
-                    if self.cat.ID in self.all_inheritances[cat_id].mates:
-                        del self.all_inheritances[cat_id].mates[self.cat.ID]
+                if cat_id in self.mate:
+                    if self.cat.ID in self.all_inheritances[cat_id].mate:
+                        del self.all_inheritances[cat_id].mate[self.cat.ID]
                     self.all_inheritances[cat_id].init_mates()
                 if cat_id in self.parents:
                     if self.cat.ID in self.all_inheritances[cat_id].kits:

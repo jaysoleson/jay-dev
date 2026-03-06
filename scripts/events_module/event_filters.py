@@ -887,15 +887,15 @@ def filter_relationship_type(group: list, filter_types: List[str], patrol_leader
                         return False
                 if "mates" in exclusionary_values and not qualifies:
                     return False
-        filter_filter_typeslist.remove("mates")
+        filter_types.remove("mates")
     # LG
     if "not_mates" in filter_types:
         if not all([test_cat.ID in inter_cat.mate for inter_cat in testing_cats]):
-            if is_exclusionary:
+            if "not_mates" in exclusionary_values:
                 qualifies = True
             else:
                 return False
-        if is_exclusionary and not qualifies:
+        if "not_mates" in exclusionary_values and not qualifies:
             return False
         filter_types.remove("not_mates")
     # ---

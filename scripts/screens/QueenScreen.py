@@ -13,10 +13,8 @@ from scripts.events_module.event_filters import get_personality_compatibility
 
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
-from scripts.game_structure.ui_elements import (
-    UISpriteButton,
-    UISurfaceImageButton
-    )
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.sprite_button import UISpriteButton
 from ..ui.generate_box import BoxStyles, get_box
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles

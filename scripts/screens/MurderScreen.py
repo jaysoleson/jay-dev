@@ -19,7 +19,9 @@ from ..events_module.text_adjust import pronoun_repl, process_text
 
 from scripts.cat.cats import Cat, INJURIES
 from scripts.game_structure import image_cache
-from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UISurfaceImageButton
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.sprite_button import UISpriteButton
 from scripts.game_structure import game
 from scripts.cat.skills import SkillPath
 from ..ui.generate_box import BoxStyles, get_box
