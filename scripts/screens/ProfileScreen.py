@@ -51,6 +51,7 @@ from ..ui.windows.leave_clan import LeaveClanWindow
 from scripts.cat.sprites.display_sprites import generate_sprite
 from scripts.cat.skills import SkillPath
 from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
+from scripts.lifegen_utility import get_cluster
 
 
 # ---------------------------------------------------------------------------- #
