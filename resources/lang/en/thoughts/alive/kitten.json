@@ -559,7 +559,7 @@
         ]
     },
     {
-        "id": "leaderlike_kit",
+        "id": "leader-like_kit",
         "thoughts": [
             "Is assertive with {PRONOUN/m_c/poss} words",
             "Prefers taking charge in anything",
@@ -576,7 +576,7 @@
             "Is a bit bossy"
         ],
         "main_trait_constraint": [
-            "leaderlike"
+            "leader-like"
         ],
         "random_living_status": [
             "living"

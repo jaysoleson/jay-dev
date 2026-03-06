@@ -814,7 +814,7 @@ class TalkScreen(Screens):
 
             # DEMOTED FROM STATUS
             # this allows cats who were shunned and demoted from leader to
-            # still get leaderlike dialogue
+            # still get leader-like dialogue
             # TODO: this is useless rn. do something
             if you.status.is_shunned():
                 murder_history = you.history.murder
