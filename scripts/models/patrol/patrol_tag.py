@@ -23,6 +23,12 @@ class PatrolTagEnum(Enum):
     app5_mentored = "app5_mentored"
     app6_mentored = "app6_mentored"
 
+    # LG
+    sc_lifegen = "sc_lifegen"
+    ur_lifegen = "ur_lifegen"
+    df_lifegen = "df_lifegen"
+    shunned = "shunned"
+
 
 class PatrolTag(RootModel):
     root: Union[
