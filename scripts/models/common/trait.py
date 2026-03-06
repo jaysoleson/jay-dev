@@ -34,7 +34,6 @@ class Trait(Enum):
     wise = "wise"
     arrogant = "arrogant"
     competitive = "competitive"
-    grumpy = "grumpy"
     cunning = "cunning"
     oblivious = "oblivious"
     gloomy = "gloomy"
