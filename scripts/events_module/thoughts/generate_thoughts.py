@@ -99,7 +99,17 @@ def _load_group(
 
     # GUIDES
     if thought_type == CatThought.IS_GUIDE:
-        thoughts = load_lang_resource(f"{start_path}/{main_cat.status.group}.json")
+    # LG EDITED
+        if game.clan.followingsc:
+            thoughts = load_lang_resource(f"{start_path}/starclan.json")
+        else:
+            thoughts = load_lang_resource(f"{start_path}/dark_forest.json")
+    if thought_type == CatThought.IS_DF_GUIDE:
+        if game.clan.followingsc:
+            thoughts = load_lang_resource(f"{start_path}/dark_forest.json")
+        else:
+            thoughts = load_lang_resource(f"{start_path}/starclan.json")
+    # ---
 
     # DEAD CATS
     elif thought_type == CatThought.WHILE_DEAD:

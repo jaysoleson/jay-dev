@@ -5,7 +5,6 @@ import os
 import ujson
 
 from scripts.cat.enums import CatGroup
-# CHECKMERGE: check cg dev for these unused imports
 from scripts.cat.skills import SkillPath
 from scripts.game_structure import game
 from scripts.events_module.text_adjust import adjust_list_text

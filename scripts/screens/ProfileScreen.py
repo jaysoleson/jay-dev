@@ -572,16 +572,17 @@ class ProfileScreen(Screens):
                             self.the_cat.status.add_to_group(
                                 new_group_ID=CatGroup.STARCLAN_ID
                             )
-                        # LG CHANGE:
-                        # clangen reassigns thoughts here. ive taken it out bc thats done in build_profile
 
                         # SC -> DF
                         else:
                             self.the_cat.status.add_to_group(
                                 new_group_ID=CatGroup.DARK_FOREST_ID
                             )
+                        if self.the_cat == game.clan.instructor:
+                            self.the_cat.get_new_thought(CatThought.IS_GUIDE)
+                        else:
+                            self.the_cat.get_new_thought(CatThought.IS_DF_GUIDE)
 
-                        self.the_cat.get_new_thought(CatThought.IS_GUIDE)
                         self.the_cat.pelt.rebuild_sprite = True
                     else:
                         # DF -> UR
@@ -859,22 +860,7 @@ class ProfileScreen(Screens):
         # ---
 
         # use these attributes to create differing profiles for StarClan cats etc.
-        is_sc_instructor = False
-        is_df_instructor = False
-        if self.the_cat is None:
-            return
-        if (
-            self.the_cat.dead
-            and game.clan.instructor.ID == self.the_cat.ID
-            and self.the_cat.status.group == CatGroup.STARCLAN
-        ):
-            is_sc_instructor = True
-        elif (
-            self.the_cat.dead
-            and game.clan.demon.ID == self.the_cat.ID
-            and self.the_cat.status.group == CatGroup.DARK_FOREST
-        ):
-            is_df_instructor = True
+
         if self.the_cat is None:
             return
 
@@ -887,17 +873,8 @@ class ProfileScreen(Screens):
         # Instructor thoughts
         if self.the_cat.dead and game.clan.instructor is self.the_cat:
             self.the_cat.get_new_thought(CatThought.IS_GUIDE)
-            # CHECKMERGE: df guide thought OMG how many times am i gonna have to do this
-
-        if is_df_instructor:
-            if game.clan.followingsc == True:
-                self.the_cat.thought = i18n.t(
-                    "screens.profile.guide_thought_df_not_following", clan=game.clan.displayname
-                )
-            else:
-                self.the_cat.thought = i18n.t(
-                    "screens.profile.guide_thought_df_following", clan=game.clan.displayname
-                )
+        if self.the_cat.dead and game.clan.demon is self.the_cat:
+            self.the_cat.get_new_thought(CatThought.IS_DF_GUIDE)
 
         self.profile_elements["cat_name"] = pygame_gui.elements.UITextBox(cat_name,
                                                                         ui_scale(pygame.Rect((50, 280), (-1, 105))),

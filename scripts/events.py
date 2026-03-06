@@ -943,7 +943,6 @@ def gain_acc():
     if get_clan_setting("all accessories"):
         return
     acc_list = []
-    # CHECKMERGE temp
     if game_setting_get("lifegen_sprite_changes"):
         acc_list.extend(Pelt.all_lifegen_accessories)
     else:
@@ -2729,9 +2728,6 @@ def perform_ceremonies(cat):
                     if cat.status.rank == CatRank.DEPUTY:
                         game.clan.deputy = None
                     ceremony(cat, CatRank.ELDER)
-
-            # CHECKMERGE
-            # this had "shunned" arguments to ceremony before
 
             # apprentice a kitten to either med or warrior
             if cat.moons == cat_class.age_moons[CatAge.ADOLESCENT][0]:

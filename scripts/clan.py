@@ -1492,22 +1492,6 @@ class Clan:
                 game.clan.focus_cat = None
             else:
                 game.clan.focus_cat = Cat.all_cats[clan_data["focus_cat"]]
-
-        # CHECKMERGE
-        # whaaat are theeesse
-        # maybe move other meds to other clan info tbh
-        # im commentign thsi out bc it scares me
-        # if "other_med" in clan_data:
-        #     other_med = []
-        #     for c in clan_data["other_med"]:
-        #         other_clan_meds = []
-        #         for other_clan_med in c:
-        #             other_clan_med = other_clan_med.split(",")
-        #             n = Name(prefix = other_clan_med[0], suffix = other_clan_med[1])
-        #             other_clan_meds.append(n)
-        #         other_med.append(other_clan_meds)
-        #     game.switches["other_med"] = other_med
-        # game.switches["error_message"] = ""
         
         switch_set_value(Switch.error_message, "")
 

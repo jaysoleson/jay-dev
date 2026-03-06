@@ -626,7 +626,6 @@ class Cat:
         Loads the correct pronouns for the loaded language.
         :return: List of dicts for the cat's pronouns
         """
-        # CHECKMERGE: parent and sibling make sure theyre back
         if self.faded:
             value = pronouns.get_default_pronouns()["0"]
             return [value]
@@ -2766,7 +2765,6 @@ class Cat:
 
         is_former_mentor = (other_cat.ID in self.former_apprentices or self.ID in other_cat.former_apprentices)
         if is_former_mentor and not get_clan_setting('romantic with former mentor'):
-            # CHECKMERGE: change all clan settings checks to this function
             return False
         if other_cat.ID in self.apprentice or self.ID in other_cat.apprentice:
             return False
