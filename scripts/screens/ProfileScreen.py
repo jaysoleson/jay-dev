@@ -49,6 +49,8 @@ from ..ui.generate_button import ButtonStyles, get_button_dict
 from ..ui.icon import Icon
 from ..ui.windows.leave_clan import LeaveClanWindow
 from scripts.cat.sprites.display_sprites import generate_sprite
+from scripts.cat.skills import SkillPath
+from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
 
 
 # ---------------------------------------------------------------------------- #
