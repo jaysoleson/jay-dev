@@ -34,6 +34,7 @@ class Trait(Enum):
     wise = "wise"
     arrogant = "arrogant"
     competitive = "competitive"
+    grumpy = "grumpy"
     cunning = "cunning"
     oblivious = "oblivious"
     gloomy = "gloomy"
@@ -81,8 +82,6 @@ class Trait(Enum):
     not_rebellious = "-rebellious"
 
 
-
-    grumpy = "grumpy"
     mellow = "mellow"
     flexible = "flexible"
     stoic = "stoic"
@@ -102,10 +101,6 @@ class Trait(Enum):
     patient = "patient"
     humble = "humble"
     obsessive = "obsessive"
-    
-    
-    
-    not_grumpy = "-grumpy"
     not_mellow = "-mellow"
     not_flexible = "-flexible"
     not_stoic = "-stoic"
