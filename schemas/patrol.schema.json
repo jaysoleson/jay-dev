@@ -163,7 +163,7 @@
         "stat_trait": {
           "description": "Makes this a stat outcome which can occur if a stat cat can be found.",
           "items": {
-            "$ref": "common.schema.json#/$defs/Trait"
+            "$ref": "common.schema.json#/$defs/AllTrait"
           },
           "title": "Stat Trait",
           "type": "array"
