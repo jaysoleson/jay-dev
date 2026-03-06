@@ -2,7 +2,7 @@
 # -*- coding: ascii -*-
 import os
 from copy import deepcopy
-from random import choice
+from random import choice, randint
 from re import sub
 import math
 

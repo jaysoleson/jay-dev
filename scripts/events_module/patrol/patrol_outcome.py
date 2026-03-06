@@ -1335,6 +1335,6 @@ class PatrolOutcome:
 
         chosen_acc = choice(acc_list)
         cat.pelt.inventory.append(chosen_acc)
-        cat.pelt.accessory.append(chosen_acc)
+        cat.pelt.accessory = cat.pelt.accessory + (chosen_acc,)
 
         return chosen_acc

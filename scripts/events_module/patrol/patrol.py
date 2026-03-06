@@ -1291,6 +1291,10 @@ class Patrol:
             success_chance = max(success_chance, 10)
             print(f"c: {c} chance: {success_chance}")
             if c < success_chance:
+                if not date.relationships.get(you.ID):
+                    date.create_one_relationship(you)
+                if not you.relationships.get(date.ID):
+                    you.create_one_relationship(date)
                 date.relationships.get(you.ID).romance += 10
                 you.relationships.get(date.ID).romance += 10
         if success_chance >= 120:

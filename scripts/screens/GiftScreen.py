@@ -636,7 +636,7 @@ class GiftScreen(Screens):
             self.selected_cat.pelt.inventory.append(acc)
             if (acc in ACC_REACTION[cluster1]["like"] or (cluster2 and acc in ACC_REACTION[cluster2]["like"])) or reaction == "accept_favourite":
                 if len(self.selected_cat.pelt.accessory) <= 4:
-                    self.selected_cat.pelt.accessory.append(acc)
+                    self.selected_cat.pelt.accessory = self.selected_cat.pelt.accessory + (acc,)
                     self.update_selected_cat()
 
         if acc in ACC_REACTION_TXT["unique_gifts"].keys() and reaction in ACC_REACTION_TXT["unique_gifts"][acc].keys():

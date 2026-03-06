@@ -30,14 +30,17 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
                             "romance",
                             "like"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {
+                            "cats_from": "from_cat and to_cat had a snowball fight."
+                        }
                     }
                 ]
             }
@@ -75,7 +78,7 @@
         ],
         "success_outcomes": [
             {
-                "text": " r_c shies away from your gaze, but nods slowly and smiles.",
+                "text": "r_c shies away from your gaze, but nods slowly and smiles.",
                 "exp": 0,
                 "frequency": 4,
                 "relationships": [
@@ -84,14 +87,17 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
                             "romance",
                             "comfort"
                         ],
-                        "amount": 13
+                        "amount": 13,
+                        "log": {
+                            "cats_from": "from_cat and to_cat went on a date."
+                        }
                     }
                 ]
             }
@@ -104,7 +110,7 @@
                 "relationships": [
                     {
                         "cats_to": [
-                            "y_c"
+                            "p_l"
                         ],
                         "cats_from": [
                             "r_c"
@@ -113,7 +119,10 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {
+                            "cats_from": "to_cat thought {PRONOUN/to_cat/subject} {VERB/to_cat/were/was} on a date with from_cat, but from_cat disagreed."
+                        }
                     }
                 ]
             }
@@ -150,13 +159,16 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
                             "romance"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {
+                            "cats_from": "from_cat and to_cat watched a meteor shower together."
+                        }
                     }
                 ]
             }
@@ -172,13 +184,16 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": false,
                         "values": [
                             "comfort"
                         ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {
+                            "cats_from": "from_cat asked to_cat to watch the meteor shower with {PRONOUN/from_cat/object}, but to_cat was already watching it with another cat."
+                        }
                     }
                 ]
             }
@@ -212,7 +227,7 @@
                 "relationships": [
                     {
                         "cats_to": [
-                            "y_c"
+                            "p_l"
                         ],
                         "cats_from": [
                             "r_c"
@@ -266,7 +281,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -286,7 +301,7 @@
                 "relationships": [
                     {
                         "cats_to": [
-                            "y_c"
+                            "p_l"
                         ],
                         "cats_from": [
                             "r_c"
@@ -332,7 +347,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -393,7 +408,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -447,7 +462,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": false,
                         "values": [
@@ -497,7 +512,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -520,7 +535,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -563,7 +578,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -614,14 +629,17 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
                             "comfort",
                             "like"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {
+                            "cats_from": "from_cat invited to_cat to watch a nest of hawk eggs hatch."
+                        }
                     }
                 ]
             }
@@ -665,7 +683,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -718,7 +736,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -772,7 +790,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -822,7 +840,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -882,14 +900,17 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
                             "romance",
                             "like"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {
+                            "cats_from": "to_cat and from_cat frolicked through a flower field together."
+                        }
                     }
                 ]
             }
@@ -933,13 +954,16 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
                             "romance"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {
+                            "cats_from": "to_cat and from_cat frolicked through an enchanting swarm of fireflies together."
+                        }
                     }
                 ]
             }
@@ -983,14 +1007,17 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
                             "romance",
                             "like"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {
+                            "cats_from": "to_cat and from_cat played in the ocean together."
+                        }
                     }
                 ]
             }
@@ -1034,13 +1061,16 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
                             "romance"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {
+                            "cats_from": "During a quiet moment, from_cat brushed a leaf from to_cat's shoulder."
+                        }
                     }
                 ]
             }
@@ -1094,7 +1124,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -1144,7 +1174,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -1197,7 +1227,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -1250,7 +1280,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -1302,7 +1332,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -1356,7 +1386,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": false,
                         "values": [
@@ -1406,7 +1436,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -1457,7 +1487,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -1511,7 +1541,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -1564,7 +1594,7 @@
                     {
                         "cats": [
                             "r_c",
-                            "y_c"
+                            "p_l"
                         ],
                         "accessory": [
                             "LUNAR MOTH"
@@ -1577,7 +1607,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -1681,7 +1711,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -1729,7 +1759,7 @@
                 "accessory": [
                     {
                         "cats": [
-                            "y_c",
+                            "p_l",
                             "o_c1",
                             "r_c"
                         ],
@@ -1797,7 +1827,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -1849,7 +1879,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": false,
                         "values": [
@@ -1906,7 +1936,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -2003,7 +2033,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -2113,7 +2143,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -2133,7 +2163,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -2165,7 +2195,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": false,
                         "values": [
@@ -2185,7 +2215,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -2215,7 +2245,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -2227,7 +2257,7 @@
                 "injury": [
                     {
                         "cats": [
-                            "y_c"
+                            "p_l"
                         ],
                         "injuries": [
                             "bee sting"
@@ -2266,11 +2296,11 @@
                 "frequency": 2,
                 "relationships": [
                     {
+                        "cats_from": [
+                            "p_l"
+                        ],
                         "cats_to": [
                             "r_c"
-                        ],
-                        "cats_from": [
-                            "y_c"
                         ],
                         "mutual": true,
                         "values": [
@@ -2293,7 +2323,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -2328,7 +2358,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -2388,7 +2418,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -2408,7 +2438,7 @@
                             "r_c"
                         ],
                         "cats_from": [
-                            "y_c"
+                            "p_l"
                         ],
                         "mutual": true,
                         "values": [
@@ -2631,7 +2661,7 @@
             "accessory": [
                 {
                     "cats": [
-                        "y_c",
+                        "p_l",
                         "o_c1",
                         "r_c"
                     ],
