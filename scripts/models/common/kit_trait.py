@@ -47,7 +47,6 @@ class KitTrait(Enum):
     not_leaderlike = "-leaderlike"
     passionate = "passionate"
     not_passionate = "-passionate"
-    daydreamer = "daydreamer"
     not_daydreamer = "-daydreamer"
     rebellious = "rebellious"
     not_rebellious = "-rebellious"
