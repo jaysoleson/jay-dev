@@ -2586,6 +2586,22 @@ def perform_ceremonies(cat):
                     newname=cat.name,
                 )
 
+            # LG
+            moonplace_dict = {
+                "Beach": "Mooncove",
+                "Forest": "Moonhollow",
+                "Plains": "Moongrove",
+                "Mountainous": "Moonfalls"
+            }
+
+            text += " " +  i18n.t(
+                "hardcoded.lifegen_ceremony_moonplace",
+                oldname=game.clan.deputy.name,
+                newname=cat.name,
+                moonplace=moonplace_dict[game.clan.biome]
+            )
+            # ---
+
             # game.ceremony_events_list.append(text)
             text += " " + i18n.t("hardcoded.ceremony_closer")
 
@@ -2597,162 +2613,8 @@ def perform_ceremonies(cat):
             ceremony_accessory = True
             gain_accessories(cat)
             game.clan.deputy = None
-
-    # OTHER CEREMONIES ---------------------------------------
-
-    # Protection check, to ensure "None" cats won't cause a crash.
-    if cat:
-        cat_dead = cat.dead
-    else:
-        cat_dead = True
-
-    if not cat_dead:
-        if cat.status.rank == CatRank.DEPUTY and game.clan.deputy is None:
-            game.clan.deputy = cat
-        if cat.status.rank == CatRank.MEDICINE_CAT and game.clan.medicine_cat is None:
-            game.clan.medicine_cat = cat
-
-        # retiring to elder den
-        if (
-            not cat.no_retire
-            and cat.status.rank in (CatRank.WARRIOR, CatRank.DEPUTY)
-            and len(cat.apprentice) < 1
-            and cat.moons > 114
-        ):
-            # There is some variation in the age.
-            if cat.moons > 140 or not int(random.random() * (-0.7 * cat.moons + 100)):
-                if cat.status.rank == CatRank.DEPUTY:
-                    game.clan.deputy = None
-                ceremony(cat, CatRank.ELDER)
-
-        # apprentice a kitten to either med or warrior
-        if cat.moons == cat_class.age_moons[CatAge.ADOLESCENT][0]:
-            if cat.status.rank == CatRank.KITTEN:
-                med_cat_list = [
-                    i
-                    for i in Cat.all_cats_list
-                    if i.status.rank.is_any_medicine_rank()
-                    and i.status.alive_in_player_clan
-                ]
-
-                # check if the medicine cat is an elder
-                has_elder_med = [
-                    c
-                    for c in med_cat_list
-                    if c.age == "senior" and c.status.rank == CatRank.MEDICINE_CAT
-                ]
-
-                very_old_med = [
-                    c
-                    for c in med_cat_list
-                    if c.moons >= 150 and c.status.rank == CatRank.MEDICINE_CAT
-                ]
-
-                # check if the Clan has sufficient med cats
-                has_med = medicine_cats_can_cover_clan(
-                    Cat.all_cats.values(),
-                    amount_per_med=get_amount_cat_for_one_medic(game.clan),
-                )
-
-                # check if a med cat app already exists
-                has_med_app = any(
-                    cat.status.rank == CatRank.MEDICINE_APPRENTICE
-                    for cat in med_cat_list
-                )
-
-                # assign chance to become med app depending on current med cat and traits
-                chance = constants.CONFIG["roles"]["base_medicine_app_chance"]
-                if very_old_med == med_cat_list:
-                    # These chances apply if all the current medicine cats are very old.
-                    if has_med:
-                        chance = int(chance / 3)
-                    else:
-                        chance = int(chance / 14)
-                elif has_elder_med == med_cat_list:
-                    # These chances apply if all the current medicine cats are elders.
-                    if has_med:
-                        chance = int(chance / 2.22)
-                    else:
-                        chance = int(chance / 13.67)
-                # These chances will only be reached if the
-                # Clan has at least one non-elder medicine cat.
-                elif not has_med:
-                    chance = int(chance / 7.125)
-                elif has_med:
-                    chance = int(chance * 2.22)
-
-                if cat.personality.trait in [
-                    "careful",
-                    "compassionate",
-                    "loving",
-                    "wise",
-                    "faithful",
-                ]:
-                    chance = int(chance / 1.3)
-                if cat.is_disabled():
-                    chance = int(chance / 2)
-
-                if chance == 0:
-                    chance = 1
-
-                if not has_med_app and not int(random.random() * chance):
-                    ceremony(cat, CatRank.MEDICINE_APPRENTICE)
-                    ceremony_accessory = True
-                    gain_accessories(cat)
-                else:
-                    c = random.randint(1, 3)
-                    text = i18n.t(
-                        f"hardcoded.ceremony_leader_{c}",
-                        oldname=game.clan.deputy.name,
-                        newname=cat.name,
-                    )
-                
-                # CHECKMERGE
-                # add travelling to moonplace stuff
-                # c = random.choice([1, 2, 3])
-                # moonplace_dict = {
-                #     "Beach": "Mooncove",
-                #     "Mountainous": "Moonfalls",
-                #     "Forest": "Moonhollow",
-                #     "Plains": "Moongrove"
-                # }
-                # moonplace = moonplace_dict.get(game.clan.biome, "Moonplace")
-                # if c == 1:
-                #     text = str(game.clan.deputy.name.prefix) + str(
-                #         game.clan.deputy.name.suffix) + \
-                #             ' has been promoted to the new leader of the Clan. ' \
-                #             f'They travel immediately to the {moonplace} to get their ' \
-                #             'nine lives and are hailed by their new name, ' + \
-                #             str(game.clan.deputy.name) + '.'
-                # elif c == 2:
-                #     text = (
-                #         f"{game.clan.deputy.name} has become the new leader of the Clan. "
-                #         f"They vow that they will protect the Clan, "
-                #         f"even at the cost of their nine lives."
-                #     )
-                # elif c == 3:
-                #     text = (
-                #         f"{game.clan.deputy.name} has received "
-                #         f"their nine lives and became the "
-                #         f"new leader of the Clan. They feel like "
-                #         f"they are not ready for this new "
-                #         f"responsibility, but will try their best "
-                #         f"to do what is right for the Clan."
-                #     )
-
-                # game.ceremony_events_list.append(text)
-                text += " " + i18n.t("hardcoded.ceremony_closer")
-
-                text = event_text_adjust(Cat, text, main_cat=cat)
-
-                game.cur_events_list.append(
-                    Single_Event(text, "ceremony", game.clan.deputy.ID))
-                ceremony_accessory = True
-                gain_accessories(cat)
-                game.clan.deputy = None
-
+            
         # OTHER CEREMONIES ---------------------------------------
-
         # Protection check, to ensure "None" cats won't cause a crash.
         if cat:
             cat_dead = cat.dead
@@ -2904,7 +2766,6 @@ def perform_ceremonies(cat):
                         chance += (cat.empathy * -1)
                         if chance <= 0:
                             chance = 1
-
 
                         if (
                             switch_get_value(Switch.request_apprentice) and
