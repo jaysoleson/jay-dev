@@ -120,10 +120,10 @@ ceremony_id_by_tag = {}
 
 # LG
 checks = []
-b_txt = {}
-c_txt = {}
+b_txt = load_lang_resource("events/birth_events.json")
+c_txt = load_lang_resource("events/lifegen_events/events.json")
+df_txt = load_lang_resource("events/lifegen_events/df.json")
 m_txt = {}
-df_txt = {}
 cat_dict = {}
 
 def one_moon():
@@ -491,11 +491,6 @@ def one_moon():
 
     # LG
     resource_dir = "resources/dicts/events/lifegen_events/"
-    
-    # BIRTH EVENTS
-    b_txt = load_lang_resource("events/birth_events.json")
-    c_txt = load_lang_resource("events/lifegen_events/events.json")
-    df_txt = load_lang_resource("events/lifegen_events/df.json")
 
     if game.clan.your_cat.status.alive_in_your_cat_group:
         if game.clan.your_cat.moons == 0:

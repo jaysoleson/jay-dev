@@ -279,7 +279,10 @@ def generate_sprite(
         if not dead:
             new_sprite.blit(sprites.sprites["lineart" + cat_sprite], (0, 0))
         elif cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
-            new_sprite.blit(sprites.sprites["lineart_ur" + cat_sprite], (0, 0))
+            if game_setting_get("lifegen_sprite_changes"):
+                new_sprite.blit(sprites.sprites["lifegen_lineart_ur" + cat_sprite], (0, 0))
+            else:
+                new_sprite.blit(sprites.sprites["lineart_ur" + cat_sprite], (0, 0))
         elif cat.status.group == CatGroup.DARK_FOREST:
             new_sprite.blit(sprites.sprites["lineart_df" + cat_sprite], (0, 0))
         elif dead:
@@ -437,20 +440,21 @@ def generate_sprite(
                     (0, 0),
                 )
             elif cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
-                # underlay
-                temp_sprite.blit(
-                    sprites.sprites["line_ur_overlay" + cat_sprite],
-                    (0, 0),
-                )
+                if not game_setting_get("lifegen_sprite_changes"):
+                    # underlay
+                    temp_sprite.blit(
+                        sprites.sprites["line_ur_overlay" + cat_sprite],
+                        (0, 0),
+                    )
 
-                # cat sprite
-                temp_sprite.blit(new_sprite, (0, 0))
+                    # cat sprite
+                    temp_sprite.blit(new_sprite, (0, 0))
 
-                # overlay
-                temp_sprite.blit(
-                    sprites.sprites["line_ur_overlay" + cat_sprite],
-                    (0, 0),
-                )
+                    # overlay
+                    temp_sprite.blit(
+                        sprites.sprites["line_ur_overlay" + cat_sprite],
+                        (0, 0),
+                    )
             elif cat.status.group == CatGroup.DARK_FOREST:
                 # no underlay
 
