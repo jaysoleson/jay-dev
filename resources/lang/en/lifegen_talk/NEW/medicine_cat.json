@@ -6438,7 +6438,7 @@
             "Maybe {PRONOUN/r_c:0/subject} would've been better suited for the life of a queen .... In a place like this, there is absolutely no room for weakness."
         ]
     },
-    "skill_J1": {
+    "skill_J1_2": {
         "frequency": 2,
         "cats": {
             "y_c": {
@@ -8070,6 +8070,34 @@
         "cobwebs_comfrey": [
             "Ding ding ding, you got it right! Hehe, I knew you would.",
             "c_n is lucky to have an apprentice as smart as you on our medical staff."
+        ]
+    },
+    "skill_J8_2": {
+        "frequency": 2,
+        "cats": {
+            "t_c": {
+                "skill": [
+                    "NAVIGATOR,2",
+                    "EXPLORER,2"
+                ],
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
+            },
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "r_c:0": {}
+        },
+        "intro": [
+            "y_c! You're headed out for a walk, right?",
+            "Okay, awesome. Would you mind picking up some dandelion for me while you're out? There's a really good patch I've been visiting.",
+            "Head straight out the camp exit, turn right at that cluster of pine saplings, keep going until you see a boulder shaped like r_c:0's nose, then turn left until you're facing the sunset.",
+            "Then you'll go until you find the stream. Follow it until you find the brook. Then hop over and head straight again. After that, it's about, say, fifty pawsteps away? You should smell it by then.",
+            "... What?"
         ]
     }
 }

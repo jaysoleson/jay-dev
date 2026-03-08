@@ -8248,5 +8248,267 @@
             "[t_c doesn't disturb you again, but you can't help a pang of guilt when you see {PRONOUN/t_c/object} observing you sadly from across camp.]",
             "[Was the extra sleep really worth it?]"
         ]
+    },
+    "gardener_notgardener_JOL1": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_newborn"
+                ],
+                "skill": [
+                    "GARDENER,-1"
+                ],
+                "conditions": [
+                    "deaf:any:false"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "skill": [
+                    "GARDENER,1"
+                ],
+                "conditions": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
+            }
+        },
+        "intro": [
+            "[It seems like t_c is picking rocks out of the clearing every day.]",
+            "[You start to wonder if t_c is actually just growing them. How are there always more?]"
+        ]
+    },
+    "story_avix1": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "skill": [
+                    "STORY,1"
+                ],
+                "rank": [
+                    "warrior",
+                    "elder",
+                    "deputy",
+                    "leader"
+                ]
+            }
+        },
+        "intro": [
+            "[As you make your way to the freshkill pile, you catch wind of t_c recalling a tale of an impressive feat. {PRONOUN/t_c/poss/CAP}{VERB/t_c/'ve/'s} ammassed quite the crowd! It seems everycat is a fan of {PRONOUN/t_c/poss} storytelling.]"
+        ]
+    },
+    "finder_avix1": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "skill": [
+                    "TREASURE,1"
+                ]
+            }
+        },
+        "intro": [
+            "Oh, hey, y_c! Look at this huge feather I found earlier!",
+            "[t_c shows off a vulture feather taller than {PRONOUN/t_c/subject} {VERB/t_c/are/is}.]",
+            "[t_c always finds the coolest stuff!]"
+        ]
+    },
+    "artistan_birch_avix1": {
+        "biome": [
+            "forest"
+        ],
+        "camp": [
+            "camp6"
+        ],
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "deaf:any:false"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "skill": [
+                    "ARTISTAN,1"
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
+            }
+        },
+        "intro": [
+            "[t_c has been fiddling with the dangling trinkets since Sunhigh. Only now that the sun has started to set {VERB/t_c/are/is} {PRONOUN/t_c/subject} finally satisfied with {PRONOUN/t_c/poss} work.]",
+            "[With {PRONOUN/t_c/object} gone, you see the sunlight sparkle off the trinkets into beams of beautiful light. t_c did a wonderful job!]"
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "t_c"
+                ],
+                "cats_from": [
+                    "y_c"
+                ],
+                "mutual": false,
+                "values": {
+                    "like": 5
+                }
+            }
+        }
+    },
+    "clean_avix1": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "skill": [
+                    "CLEAN,1"
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "deaf:any:false",
+                    "blind:any:false"
+                ],
+                "skill": [
+                    "CLEAN,-1"
+                ]
+            }
+        },
+        "intro": [
+            "[You have spent all day cleaning out the clearing. Now, it's perfectly tidy, not a speck out of line anywhere to be seen.]",
+            "[Of course, such good things do not last long. t_c, as if compelled by the neatness, rushes into the clearing. Dust, dirt, and pebbles go flying in every direction. All sense of order is completely lost.]",
+            "[t_c shakes {PRONOUN/t_c/poss} pelt before walking off as if the whole ordeal never happened. Looks like you'll have to start again...]"
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "t_c"
+                ],
+                "cats_from": [
+                    "y_c"
+                ],
+                "values": {
+                    "respect": -5
+                },
+                "mutual": false
+            }
+        }
+    },
+    "skill_E3": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "not_newborn"
+                ]
+            },
+            "t_c": {
+                "skill": [
+                    "INNOVATOR",
+                    1
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
+            }
+        },
+        "intro": [
+            "[t_c is sitting in the middle of camp, staring at a branch sticking straight up out of the ground. {PRONOUN/t_c/poss/CAP} ear twitches as you trot by.]",
+            "Hey, y_c! Come check this out!",
+            "See how the branch is casting a shadow? As the day goes on, the shadow slowly moves all the way around until this stone here, when the sun dips below the horizon. And this stone over here marks when the sun rises back up!",
+            "...I'm not exactly sure what to do with this yet, but I'm sure I'll think of something."
+        ]
+    },
+    "skill_E8": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "skill": [
+                    "GRACE,-1"
+                ],
+                "rank": [
+                    "not_newborn"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "skill": [
+                    "GRACE,0"
+                ],
+                "rank": [
+                    "not_newborn"
+                ]
+            }
+        },
+        "intro": [
+            "[While the rest of the clan is stuck with wet paws after a recent storm, t_c manages to keep their own fur dry as {PRONOUN/t_c/subject} {VERB/t_c/traverse/traverses} around the camp with little effort.]"
+        ]
+    },
+    "skill_E9": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "not_newborn"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "not_kitten",
+                    "not_medicine_cat_apprentice",
+                    "not_medicine_cat"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            }
+        ],
+        "intro": [
+            "Hey, y_c! Do you like my new look?",
+            "[You look over at t_c who is covered head to toe in cobwebs, leaves, and colorful herbal remedies.]",
+            "r_c:0 needed somecat to practice a few healing techniques on. I think {PRONOUN/r_c:0/subject} did a pretty good job! c_n is definitely in good paws.",
+            "...I really hope this washes off."
+        ]
     }
 }

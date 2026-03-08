@@ -4,7 +4,8 @@ import copy
 
 # SCRIPT FOR REFORMATTING LIFEGEN DIALOGUE
 # swaps lifegen abbrevs out for r_c:{index} abbrevs
-# this will NOT work on dialogue that has alreayd been reformatted. it will goof it up
+# this will NOT work on dialogue that has already been reformatted. it will goof it up.
+# Simply run this file in the top right to reformat dialogue
 
 DEBUG_KEY = "about_parent4"
 

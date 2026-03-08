@@ -2745,5 +2745,251 @@
             "Ugh... My headache is messing with my ability to mediate arguments.",
             "How have I never noticed how loud arguments are?"
         ]
+    },
+    "comforter_grieving_avix1": {
+        "y_c": {
+            "age": [
+                "not_newborn"
+            ],
+            "condition": [
+                "grief stricken",
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "mediator",
+                "mediator_apprentice"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ],
+            "skill": [
+                "COMFORTER,1"
+            ]
+        },
+        "intro": [
+            "[Even for a mediator, t_c is particularly good at soothing your aching heart.]"
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "t_c"
+                ],
+                "cats_from": [
+                    "y_c"
+                ],
+                "values": {
+                    "comfort": 5
+                },
+                "mutual": false
+            }
+        }
+    },
+    "gardener_mediator_JOL1": {
+        "biome": [
+            "mountainous",
+            "plains",
+            "forest",
+            "beach",
+            "wetlands"
+        ],
+        "season": [
+            "greenleaf",
+            "leaffall"
+        ],
+        "y_c": {
+            "age": [
+                "not_newborn"
+            ],
+            "condition": [
+                "hearing"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "mediator"
+            ],
+            "age": [
+                "not_kitten",
+                "not_adolescent"
+            ],
+            "cluster": [
+                "gloomy",
+                "stoic",
+                "aloof",
+                "reserved",
+                "mellow",
+                "flexible",
+                "righteous",
+                "responsible",
+                "loyal",
+                "methodical",
+                "justified",
+                "lonesome",
+                "wise",
+                "calm",
+                "thoughtful",
+                "lonesome",
+                "nervous",
+                "insecure",
+                "careful",
+                "meek",
+                "cowardly",
+                "emotional",
+                "strange",
+                "faithful",
+                "loving",
+                "sincere",
+                "compassionate",
+                "trusting",
+                "humble",
+                "obsessive"
+            ],
+            "skill": [
+                "GARDENER,1"
+            ]
+        },
+        "intro": [
+            "[t_c squeezes droplets of water from a bundle of moss, dripping it over the white and purple flowers that grow outside of {PRONOUN/t_c/poss} den.]",
+            "[Noticing your attention, t_c blinks in greeting before waving {PRONOUN/t_c/poss} tail over the plants.]",
+            "I'm just giving the chamomile and lavender a drink. I've found the combination to be quite soothing for those who come to me with their troubles, so I'd like to keep them healthy."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I'll leave you to it.",
+                "next_scene": "gmj1"
+            },
+            "choice2": {
+                "text": "How does that work?",
+                "next_scene": "gmj2"
+            },
+            "choice3": {
+                "text": "Stop wasting moss.",
+                "next_scene": "gmj3"
+            },
+            "choice4": {
+                "text": "Can I help?",
+                "next_scene": "gmj4"
+            }
+        },
+        "gmj1": [
+            "[t_c dips {PRONOUN/t_c/poss} head respectfully, returning to {PRONOUN/t_c/poss} work.]"
+        ],
+        "gmj2": [
+            "Why don't you take a whiff and see for yourself?",
+            "[t_c trails {PRONOUN/t_c/poss} tailtip behind your ears, gently guiding your head towards the petals.]",
+            "[You inhale deeply, immersing yourself in the sweet scents. Your heartbeat slows, and you feel a tension drop from your shoulders that you hadn't realized was there.]",
+            "[t_c watches on with a smile for a few moments before returning to {PRONOUN/t_c/poss} task.]"
+        ],
+        "gmj3": [
+            "[t_c snorts, ears flattening ever so slightly.]",
+            "Oh, you don't you worry y_c, it's not coming out of your nest.",
+            "[As you walk away, you could have sworn that you heard {PRONOUN/t_c/object} add the word 'yet' under {PRONOUN/t_c/poss} breath.]"
+        ],
+        "gmj4": [
+            "[Whiskers twitching in surprise, t_c nods.]",
+            "I'd quite appreciate that- we'd get it done much more quickly that way.",
+            "[t_c flicks {PRONOUN/t_c/poss} tail in the direction of a small bundle of soaked moss, only a short distance from the plants.]",
+            "Grab one of those in your jaws and squeeze the water out gently. Try to do it close to the roots- heavy droplets from too high could bend or break the flowers."
+        ],
+        "gmj4_choices": {
+            "choice1": {
+                "text": "Water carefully",
+                "next_scene": "gmj5"
+            },
+            "choice2": {
+                "text": "Water recklessly",
+                "next_scene": "gmj6"
+            }
+        },
+        "gmj5": [
+            "[You take one of the bundles of wet moss and squeeze it onto the flowers, close to the roots as requested.]",
+            "[At your side t_c does the same. The two of you get their garden watered in record time. When all is said and done, t_c smiles warmly, brushing your shoulder with {PRONOUN/t_c/poss} tailtip.]",
+            "Thank you, y_c. I appreciate your help. I'm sure that our clanmates will too. Feel free to come by and help out any time."
+        ],
+        "gmj6": [
+            "[You take a bundle of moss, squeezing it directly atop the flowers. You shuffle through the stems clumsily in an attempt to water all of the petals.]",
+            "What are you doing?! Stop, stop, give me that!",
+            "[t_c snatches the bundle of moss from your jaws, roughly nosing you away from the flowers.]",
+            "Get out, let me do it. You could have just said that you didn't want to help."
+        ],
+        "gmj2_scene_effects": {
+            "cats_to": [
+                "y_c"
+            ],
+            "cats_from": [
+                "t_c"
+            ],
+            "values": {
+                "like": 5,
+                "respect": 1,
+                "comfort": 3,
+                "trust": 3
+            },
+            "mutual": true
+        },
+        "gmj3_scene_effects": {
+            "cats_to": [
+                "y_c"
+            ],
+            "cats_from": [
+                "t_c"
+            ],
+            "values": {
+                "like": -4,
+                "respect": -5,
+                "comfort": -2,
+                "trust": -3
+            },
+            "mutual": true
+        },
+        "gmj4_scene_effects": {
+            "cats_to": [
+                "y_c"
+            ],
+            "cats_from": [
+                "t_c"
+            ],
+            "values": {
+                "like": 4,
+                "respect": 2,
+                "comfort": 2,
+                "trust": 2
+            },
+            "mutual": true
+        },
+        "gmj5_scene_effects": {
+            "cats_to": [
+                "y_c"
+            ],
+            "cats_from": [
+                "t_c"
+            ],
+            "values": {
+                "like": 8,
+                "respect": 8,
+                "comfort": 5,
+                "trust": 15
+            },
+            "mutual": true
+        },
+        "gmj6_scene_effects": {
+            "cats_to": [
+                "y_c"
+            ],
+            "cats_from": [
+                "t_c"
+            ],
+            "values": {
+                "like": -10,
+                "respect": -15,
+                "comfort": -5,
+                "trust": -8
+            },
+            "mutual": true
+        }
     }
 }

@@ -157,10 +157,22 @@ class Dialogue():
         if not possible_dialogue:
             possible_dialogue = load_lang_resource("lifegen_talk/general.json")
             possible_dialogue_keys = ["general"]
-        
+
+        debug_dict = {}
+        for key in possible_dialogue_keys.copy():
+            if len(possible_dialogue_keys) > 2:
+                if key in game.clan.talks:
+                    possible_dialogue_keys.remove(key)
+            if key not in debug_dict:
+                debug_dict[key] = 1
+            else:
+                debug_dict[key] += 1
+
+        # debug print
         # print()
-        # print("POSSIBLE DIALOGUE KEYS")
-        # print(possible_dialogue_keys)
+        # print("DIALOGUE WEIGHTS")
+        # for key, value in debug_dict.items():
+        #     print(f"{key}: {value}")
 
         if self.debug:
             if constants.CONFIG["lifegen"]["debug"]["debug_dialogue_override_filtering"]:
@@ -179,6 +191,7 @@ class Dialogue():
 
         if chosen_key != "general":
             self.cat_dict = self.dialogue_cat_dict[chosen_key]
+            game.clan.talks.append(chosen_key)
         else:
             self.cat_dict = {
                 "t_c": self.cat,

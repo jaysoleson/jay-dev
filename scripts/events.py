@@ -165,6 +165,9 @@ class Events:
         game.mediated = []
         
         game.told_story = []
+
+        if game.clan.age % 3 == 0:
+            game.clan.talks = []
         
         switch_set_value(Switch.saved_clan, False)
         self.new_cat_invited = False

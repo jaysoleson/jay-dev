@@ -5703,5 +5703,66 @@
             "...",
             "You better not be here to ask me to look at a tiny scratch too, y_c."
         ]
+    },
+    "gardenhealer_madmca_JOL1": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_newborn"
+                ],
+                "conditions": [
+                    "hearing",
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "not_medicine cat",
+                    "not_medicine cat apprentice"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "adolescent",
+                    "young adult"
+                ],
+                "cluster": [
+                    "assertive",
+                    "grumpy",
+                    "cold",
+                    "emotional",
+                    "childish",
+                    "shameless",
+                    "spontaneous",
+                    "troublesome",
+                    "rebellious"
+                ],
+                "skill": [
+                    "GARDENER,1",
+                    "HEALER,1"
+                ],
+                "rank": [
+                    "medicine cat apprentice"
+                ]
+            }
+        },
+        "intro": [
+            "[While passing the medicine den, you hear loud bickering from within.]",
+            "How am I supposed to know the difference?! You said it was a round black seed, that's a round black seed! They look exactly the same!",
+            "[t_c's shouts echo, followed by {PRONOUN/t_c/poss} mentor's chastising hushing.]"
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "t_c"
+                ],
+                "cats_from": [
+                    "y_c"
+                ],
+                "values": {
+                    "trust": -3
+                },
+                "mutual": false
+            }
+        }
     }
 }

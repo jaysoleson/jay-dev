@@ -11330,7 +11330,7 @@
             "[Eventually, {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} content to leave you to the queens given your level of vigilance.]"
         ]
     },
-    "skill_J4": {
+    "skill_J4_2": {
         "frequency": 2,
         "cats": {
             "y_c": {
@@ -15134,6 +15134,125 @@
             "No, y_c! You really, really can't. Foxes are big, and they're vicious, and...",
             "[Does t_c notice how much {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} bristling? {PRONOUN/t_c/subject/CAP} {VERB/t_c/lean/leans} down to look you in the eyes.]",
             "Please, y_c. Don't try to be brave, not right now. I don't want anything to happen to you."
+        ]
+    },
+    "gardenerparent_kitapp_JOL1": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten",
+                    "adolescent"
+                ],
+                "conditions": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "not_kitten",
+                    "not_adolescent"
+                ],
+                "cluster": [
+                    "silly",
+                    "sweet",
+                    "unabashed"
+                ],
+                "skill": [
+                    "GARDENER,1"
+                ],
+                "conditions": [
+                    "blind:any:false"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child",
+                    "adoptive parent/adoptive child",
+                    "min_like_50"
+                ]
+            }
+        ],
+        "intro": [
+            "How's my favorite little sprout doing?",
+            "[Before you can respond, t_c pulls you close with their forepaws and begins pelting your forehead in affectionate licks.]",
+            "[You get the urge to shout; 'I don't need to be watered!', but hold back.]",
+            "[It's a moment worth enjoying. Even if you'll have to fix your fur later.]"
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 5,
+                    "comfort": 5
+                },
+                "mutual": true
+            }
+        }
+    },
+    "skill_E7": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "unlawful",
+                    "unabashed",
+                    "silly",
+                    "stable",
+                    "cool"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "skill": [
+                    "SLEEPER",
+                    1
+                ],
+                "rank": [
+                    "not_kitten",
+                    "not_queen's_apprentice",
+                    "not_queen"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "non-related"
+                ]
+            }
+        ],
+        "intro": [
+            "[The silence of the nursery is broken as t_c pushes {PRONOUN/t_c/poss} way into the den. You squeal in protest as {PRONOUN/t_c/poss} paw catches the edge of your nest.]",
+            "Oh-! Shh... shh... it's alright.",
+            "Sorry about that, y_c. The nursery is just so quiet and peaceful... I think I'm going to take a quick nap. You don't mind, right?"
         ]
     }
 }

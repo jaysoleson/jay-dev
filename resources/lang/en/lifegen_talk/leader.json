@@ -4709,5 +4709,101 @@
             "Whatever. I'll be leader again, you don't have to help me.",
             "Way to lose your shot at deputy."
         ]
+    },
+    "leaderskillsHUNTMay": {
+        "y_c": {
+            "status": [
+                "not_kitten"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "leader"
+            ],
+            "skill": [
+                "HUNTER,1"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_like_0"
+        ],
+        "intro": [
+            "[t_c comes padding through the camp entrance one evening, carrying a mouthful of prey.]",
+            "y_c! Good to see you!",
+            "Ever since I became leader, I haven't had enough time to just get out and hunt.",
+            "Everytime I get the chance to join a patrol it seems like another emergency pops up for me to deal with",
+            "At least I managed to sneak a little time to myself today..."
+        ]
+    },
+    "leaderskillsTUNNELMay": {
+        "y_c": {
+            "status": ["warrior", "apprentice"
+            ],
+	        "skill": [
+                "TUNNELER,1", 
+                "EXPLORER,1",
+                "NAVIGATOR,1",
+                "RUNNER,1"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "status": ["leader"
+            ],
+            "skill": ["TUNNELER,1"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_like_0"
+        ],
+        "intro": [
+            "y_c, just the cat I was looking for.",
+            "I'm putting together some patrols to dig new tunnels, and I thought you could join one.",
+            "It'll open up all sorts of new paths through the territory... for hunting and defense."
+        ]
+    },
+    "leaderskillsSTARMay": {
+        "y_c": {
+            "status": [
+                "not_newborn"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "status": ["leader"
+            ],
+            "skill": ["STAR,1"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+	        "min_max_faith": [
+                2,
+                9
+            ]
+        },
+        "relationship": [
+            "min_like_0"
+        ],
+        "intro": [
+            "[t_c is gazing up at the night sky, {PRONOUN/t_c/poss} eyes shining.]",
+            "y_c... do you ever find yourself talking to StarClan like this?",
+            "Maybe it's silly, but it brings me a lot of comfort knowing that our ancestors are up there watching me.",
+            "I didn't believe I could lead this Clan until they gave me my nine lives.",
+            "StarClan's guidance helps me every day."
+        ]
     }
 }

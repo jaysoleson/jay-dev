@@ -576,7 +576,7 @@ def __filter_relationships(all_abbrevs, block, dict_possible_cats, your_cat, the
                                     else:
                                         rel_valid = False
                                         for murder in to_cat.history.murder["is_murderer"]:
-                                            if "victim" == from_cat.ID:
+                                            if murder["victim"] == from_cat.ID:
                                                 rel_valid = True
                                                 break
                                 
@@ -588,7 +588,7 @@ def __filter_relationships(all_abbrevs, block, dict_possible_cats, your_cat, the
                                     else:
                                         rel_valid = False
                                         for murder in from_cat.history.murder["is_murderer"]:
-                                            if "victim" == to_cat.ID:
+                                            if murder["victim"] == to_cat.ID:
                                                 rel_valid = True
                                                 break
                                 elif rel_tag == "non-related":

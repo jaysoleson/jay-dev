@@ -14259,5 +14259,92 @@
             "[You silently turn and walk away, leaving your {PRONOUN/t_c/sibling} standing alone. You hear {PRONOUN/t_c/object} fumbling for words before finally calling after you.]",
             "I'm sorry, y_c! I really am."
         ]
+    },
+    "gardener_nl_JOL1": {
+        "season": [
+            "newleaf"
+        ],
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "conditions": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "warrior"
+                ]
+            },
+            "t_c": {
+                "skill": [
+                    "GARDENER,1"
+                ],
+                "conditions": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "warrior"
+                ]
+            }
+        },
+        "intro": [
+            "[t_c has been toiling in the soil around camp since sunrise. Moving rocks, plucking the odd plant, digging rows and sowing seeds- you'd think the cat was a bee, if it weren't for the mud caking {PRONOUN/t_c/poss} fur.]",
+            "[... You can't help but remember that you have a moon high patrol together tonight. At this rate, you wonder if you'll have to carry {PRONOUN/t_c/object} on the return trip.]"
+        ]
+    },
+    "warriorskillsSONGMay": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "skill": [
+                    "SONG,=1"
+                ],
+                "rank": [
+                    "warrior"
+                ]
+            },
+            "t_c": {
+                "rank": [
+                    "warrior"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_0"
+                ]
+            }
+        ],
+        "intro": [
+            "[On a long border patrol, you start singing absentmindedly to pass the time.]",
+            "Whoa...",
+            "Oh! y_c! I was just uh-",
+            "You have a beautiful voice!",
+            "I wouldn't mind listening to you sing to me all day...",
+            "[Poor t_c realizes {PRONOUN/t_c/subject} said that out loud and looks ready to die of embarrassment. {PRONOUN/t_c/subject} {VERB/t_c/rush/rushes} ahead, mumbling something about needing to check scent markers.]",
+            "[What a strange cat...]"
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "romance": 5
+                },
+                "mutual": false
+            }
+        }
     }
 }

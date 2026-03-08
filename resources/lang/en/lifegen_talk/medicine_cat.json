@@ -5807,5 +5807,29 @@
             "Ding ding ding, you got it right! Hehe, I knew you would.",
             "c_n is lucky to have an apprentice as smart as you on our medical staff."
         ]
+    },
+    "skill_J8": {
+        "t_c": {
+            "skill": [
+                "NAVIGATOR,2",
+                "EXPLORER,2"
+            ],
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ]
+        },
+        "y_c": {
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "intro": [
+            "y_c! You're headed out for a walk, right?",
+            "Okay, awesome. Would you mind picking up some dandelion for me while you're out? There's a really good patch I've been visiting.",
+            "Head straight out the camp exit, turn right at that cluster of pine saplings, keep going until you see a boulder shaped like r_c's nose, then turn left until you're facing the sunset.",
+            "Then you'll go until you find the stream. Follow it until you find the brook. Then hop over and head straight again. After that, it's about, say, fifty pawsteps away? You should smell it by then.",
+            "... What?"
+        ]
     }
 }

@@ -4235,5 +4235,38 @@
             "My job isn't all kits and moss-ball, you know. Who do you think sweeps up the clearing and fixes the dens?",
             "Yeah. Me. Now find somecat else to entertain you. I'm busy."
         ]
+    },
+    "queenskillsKITMay": {
+        "y_c": {
+            "status": [
+                "queen"
+            ],
+            "skill": [
+                "KIT,1"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "queen", "queen's_apprentice"
+            ],
+            "skill": [
+                "KIT,-1"
+            ],
+            "cluster": [
+                "neurotic", "sweet"
+            ]
+        },
+        "relationship": [
+            "min_respect_0"
+        ],
+        "tags": [
+            "clan_has_kits"
+        ],
+        "intro": [
+            "[You notice that t_c has taken to following you around as you take care of the kits, watching everything you do like a hawk.]",
+            "Sorry y_c! I just... you're so good with them, and it looks like it comes so naturally to you, I wish I could be more like you!",
+            "I feel like I never know the right thing to do or say with the kits, so I thought I'd learn by shadowing you.",
+            "I hope that's okay..."
+        ]
     }
 }

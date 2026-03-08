@@ -39297,6 +39297,17 @@
                 "relationship": [
                     "parent/child"
                 ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "parent/child"
+                ]
             }
         ],
         "intro": [
@@ -78386,6 +78397,1295 @@
         "intro": [
             "You have to stop looking at r_c:0 like that.",
             "It's not like {PRONOUN/r_c:0/subject}'ll like you after what you did."
+        ]
+    },
+    "skill_J1": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "skill": [
+                    "HUNTER,1",
+                    "FIGHTER,1",
+                    "RUNNER,1"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "apprentice"
+                ]
+            },
+            "t_c": {
+                "skill": [
+                    "HUNTER,-1",
+                    "FIGHTER,-1",
+                    "RUNNER,-1"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "apprentice"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_respect_0"
+                ]
+            }
+        ],
+        "intro": [
+            "You're always so good at training, y_c. I feel like I learn something new every time we train together.",
+            "You're going to get your warrior name in no time and leave me behind, hehe.",
+            "If you do, do you promise to keep training with me?"
+        ]
+    },
+    "skill_J7": {
+        "season": [
+            "greenleaf"
+        ],
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "skill": [
+                    "SWIMMER,-1"
+                ]
+            },
+            "t_c": {
+                "skill": [
+                    "SWIMMER,1"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "cluster": [
+                    "stable",
+                    "assertive",
+                    "unabashed"
+                ]
+            }
+        },
+        "intro": [
+            "[t_c wanders back into camp after an outing, completely soaking wet.]",
+            "Hey, y_c! It's real hot out today, huh? You should try going for a swim.",
+            "Could you grab me something from the fresh-kill pile? I don't wanna get it all wet.",
+            "[You can't imagine ever being hot enough to want to jump in the river. t_c must be crazy.]"
+        ]
+    },
+    "skill_J8": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "skill": [
+                    "OMEN,1"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_10"
+                ]
+            }
+        ],
+        "intro": [
+            "y_c! Careful! Don't eat that!",
+            "[t_c races forward as you're picking a mouse from the fresh-kill pile and flips it over to reveal a nasty, infected wound on its belly.]",
+            "I knew it... I saw this in a dream. Don't eat that, it'll make you really sick.",
+            "I'll go bury it outside of camp.",
+            "[t_c takes the mouse and trots towards the camp exit. {PRONOUN/t_c/subject/CAP} always {VERB/t_c/seem/seems} to be one step ahead of you...]"
+        ]
+    },
+    "skill_J4": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "not_queen",
+                    "not_queen's_apprentice",
+                    "not_elder"
+                ]
+            },
+            "t_c": {
+                "skill": [
+                    "TEACHER,3"
+                ],
+                "cluster": [
+                    "brooding",
+                    "assertive",
+                    "upstanding"
+                ],
+                "rank": [
+                    "not_queen",
+                    "not_queen's_apprentice",
+                    "not_elder"
+                ]
+            }
+        },
+        "intro": [
+            "[Today, t_c has sat you down with a group of your Clanmates to practice your sign language skills.]",
+            "Pay attention, y_c! We're all going to the Gathering tonight, and o_c_n has a deaf senior warrior. We have to be able to communicate with them.",
+            "Pop quiz! y_c, what's this sign for?",
+            "[t_c stretches {PRONOUN/t_c/poss} neck forward and taps {PRONOUN/t_c/poss} nose with {PRONOUN/t_c/poss} paw.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Sky",
+                "next_scene": "sky"
+            },
+            "choice2": {
+                "text": "Fox",
+                "next_scene": "fox"
+            },
+            "choice3": {
+                "text": "Tree",
+                "next_scene": "tree"
+            }
+        },
+        "sky": [
+            "Nope! For 'sky', we just point upwards. That was the sign for 'fox.'",
+            "It's okay! You're learning. and now you'll know for next time.",
+            "[Even though you got it wrong, you have to admit that t_c is a pretty good teacher.]"
+        ],
+        "fox": [
+            "Correct! That's the sign for 'fox.' Good job, y_c.",
+            "[You're surprised at how much you've learned. t_c is a pretty good teacher!]"
+        ],
+        "tree": [
+            "Not quite. For 'tree', we stick our tails to the side and shake them, like leaves in the wind. I just did the sign for 'fox.'",
+            "It's okay! You're learning. and now you'll know for next time.",
+            "[Even though you got it wrong, you have to admit that t_c is a pretty good teacher.]"
+        ]
+    },
+    "gardener_nllbmpb_JOL1": {
+        "biome": [
+            "mountainous",
+            "plains",
+            "beach"
+        ],
+        "season": [
+            "newleaf",
+            "leaf-bare"
+        ],
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "hearing"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "skill": [
+                    "GARDENER,1"
+                ]
+            }
+        },
+        "intro": [
+            "[t_c has been pawing at a patch of sandy, rock-laden dirt near the edge of camp for a while now. {PRONOUN/t_c/subject/CAP} occasionally {VERB/t_c/cast/casts} a glance at the sky and {VERB/t_c/squint/squints}.]",
+            "The soil here would be perfect for that lavender, but I just don't know about that light...",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/pace/paces} back and forth, clearly deep in thought. You decide not to disrupt {PRONOUN/t_c/poss} planning.]"
+        ]
+    },
+    "huntergardener_gllfw_JOL1": {
+        "biome": [
+            "wetlands"
+        ],
+        "season": [
+            "greenleaf",
+            "leaf-fall"
+        ],
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten",
+                    "not_adolescent"
+                ],
+                "skill": [
+                    "GARDENER,1"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "not_kitten",
+                    "not_adolescent"
+                ],
+                "condition": [
+                    "not:blind"
+                ],
+                "skill": [
+                    "HUNTER,1"
+                ]
+            }
+        },
+        "intro": [
+            "Hey, y_c. You know about those red berries that float in the marsh, right?",
+            "Do you think that you could grow some near camp? The voles and shrews seem to love them, I've been thinking that we might be able to use them as bait.",
+            "Think of all of the prey that we could stock up for leaf-bare."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I don't think so",
+                "next_scene": "hgno"
+            },
+            "choice2": {
+                "text": "It might be possible",
+                "next_scene": "hgmaybe"
+            },
+            "choice3": {
+                "text": "Lets find out",
+                "next_scene": "hgyes"
+            }
+        },
+        "hgno": [
+            "That's a shame."
+        ],
+        "hgmaybe": [
+            "Think on it, will you?"
+        ],
+        "hgyes": [
+            "[You and t_c vow to study the cranberries together. You spend time by the water more regularly, working out the intricacies of their life cycle as a team.]",
+            "[You gained an accessory!"
+        ],
+        "hgmaybe_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 3
+                },
+                "mutual": true
+            }
+        },
+        "hgyes_scene_effects": {
+            "inventory": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "accessory": [
+                    "BERRIES",
+                    "BROWN SNAIL"
+                ],
+                "addition": "choice"
+            },
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 8,
+                    "respect": 10,
+                    "trust": 10
+                },
+                "mutual": true
+            }
+        }
+    },
+    "gardener_senior_JOL1": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "senior adult",
+                    "senior"
+                ],
+                "skill": [
+                    "GARDENER,1"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            }
+        },
+        "intro": [
+            "[After every meal, t_c takes care to bury {PRONOUN/t_c/poss} prey bones in {PRONOUN/t_c/poss} garden patches without disturbing the plants.]",
+            "[One day, you decide to ask {PRONOUN/t_c/object} why.]",
+            "When you plant in the same place for too many moons, the soil can get tired and hungry.",
+            "When that happens, the plants die back and things don't grow as well.",
+            "They need to eat, same as we do. Even if what they're eating is different, it keeps their energy up.",
+            "[t_c purrs fondly, nodding in the direction of a nearby shrub.]",
+            "I care about the ability for this camp to sustain life. So I feed them the parts of my meals that I can't eat.",
+            "We share. They're like Clanmates, in a way. With much simpler diets."
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "t_c"
+                ],
+                "cats_from": [
+                    "y_c"
+                ],
+                "values": {
+                    "respect": 5
+                },
+                "mutual": false
+            }
+        }
+    },
+    "theircat_skills_H1": {
+        "season": [
+            "newleaf",
+            "greenleaf"
+        ],
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "adolescent"
+                ],
+                "skill": [
+                    "SWIMMER,0"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "child/parent",
+                    "adoptive child/adoptive parent"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "littermates"
+                ]
+            }
+        ],
+        "intro": [
+            "{PRONOUN/y_c/parent/CAP}! r_c:0 won't play catfish with me!",
+            "|r_c:0|It's not fun! I always lose or you complain that I don't swim fast enough!",
+            "Well, you really don't swim that fast. I was stating a fact."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "You can't make r_c:0 play.",
+                "next_scene": "scene1"
+            },
+            "choice2": {
+                "text": "[Hide your laughter.]",
+                "next_scene": "scene2"
+            }
+        },
+        "scene1": [
+            "What? I totally can make r_c:0 play catfish with me! {PRONOUN/r_c:0/subject/CAP}{VERB/r_c:0/'re/'s} my littermate. It's basically decided for {PRONOUN/r_c:0/object}.",
+            "Pleasssee, r_c:0? The water is calling my name, but it's no fun swimming alone. I promise I won't comment too much on your swimming...",
+            "|r_c:0|{PRONOUN/y_c/parent/CAP}, {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} definitely lying.",
+            "Am not!"
+        ],
+        "scene2": [
+            "|r_c:0|Yeah, well, it's not like I have some magical swimming gift like you, now do I?",
+            "It's all just tough love!",
+            "... Fine! Let's not play catfish, since you're being such a pain in the tail about it. What do you want to play? Warriors?"
+        ]
+    },
+    "genskillsSPEAKMay": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "skill": [
+                    "SPEAKER,-1"
+                ],
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "skill": [
+                    "SPEAKER,1"
+                ],
+                "cluster": [
+                    "cool",
+                    "unabashed"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_0"
+                ]
+            }
+        ],
+        "intro": [
+            "[t_c is lounging in a prime sunbathing spot, chatting idly with {PRONOUN/t_c/poss} admirers, and has someone bringing {PRONOUN/t_c/object} prey from the pile.]",
+            "[Sometimes it seems like t_c has a silver tongue... it must be nice to be so naturally charming.]"
+        ]
+    },
+    "tracker_avix1": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "skill": [
+                    "TRACKER,-1",
+                    "HUNTER,-1"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
+            },
+            "t_c": {
+                "skill": [
+                    "TRACKER,1",
+                    "HUNTER,1"
+                ],
+                "rank": [
+                    "warrior",
+                    "deputy",
+                    "leader"
+                ]
+            }
+        },
+        "intro": [
+            "[You've been following t_c for quite some time now, aimlessly wandering about on what was meant to be a quick walk to stretch your limbs. Abruptly, {PRONOUN/t_c/subject} {VERB/t_c/stop/stops}, blocking you from stepping any further.]",
+            "y_c, wait! Look, up ahead, in that patch of grass over there! Do you see it? There's the bird I've been looking for!",
+            "[Sure enough, a bird is pecking at the ground, blended into the grass. You had no idea that's what t_c has been searching for this entire time. It's hard to imagine spotting something as tiny as this, let alone track it down.]"
+        ]
+    },
+    "tracker_avix2": {
+        "biome": [
+            "plains",
+            "beach"
+        ],
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "skill": [
+                    "TRACKER,1",
+                    "HUNTER,1"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy",
+                    "leader"
+                ]
+            },
+            "t_c": {
+                "skill": [
+                    "TRACKER,1",
+                    "HUNTER,1"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy",
+                    "leader"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_10"
+                ]
+            }
+        ],
+        "intro": [
+            "[You and t_c are on a goose chase through the territory-- literally. With your combined skills, the two of you have managed to separate the bird from its flock and corner it. t_c, moving with the agility of a fox, is the one to make the killing blow.]",
+            "<i>*huff*</i> Look, y_c! We-- <i>*huff*</i> We did it! Come on, let's get this back to c_n, it'll feed so many cats!"
+        ]
+    },
+    "gardener_avix1": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "skill": [
+                    "GARDENER,1"
+                ]
+            }
+        },
+        "intro": [
+            "NOOOO!!!",
+            "[You hurry over to t_c, concerned about {PRONOUN/t_c/poss} crying. As it turns out, the birds are just as interested in t_c's garden as {PRONOUN/t_c/subject} {VERB/t_c/are/is}.",
+            "All my hard work, gone... Curse those birds!"
+        ]
+    },
+    "gardener_avix2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "deaf:any:false"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "deaf:any:true"
+                ],
+                "skill": [
+                    "GARDENER,1"
+                ]
+            }
+        },
+        "intro": [
+            "[t_c spends the day teaching you different signs for the plants {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} currently growing.]"
+        ]
+    },
+    "song_avix1": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "cluster": [
+                    "sweet",
+                    "silly",
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "skill": [
+                    "SONG,3"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_5"
+                ]
+            }
+        ],
+        "intro": [
+            "[You walk by t_c, who has a bird perched right on top of {PRONOUN/t_c/poss} head, perfectly calm. You look at {PRONOUN/t_c/object} questioningly.]",
+            "Oh, this little guy? I was out on a walk earlier, singing to myself, and I guess they overheard and liked my song. They haven't left my side since!",
+            "[The bird chirps as though it agrees with what {PRONOUN/t_c/subject} said.]",
+            "[(t_c has gained an accessory!)]"
+        ],
+        "intro_scene_effects": {
+            "inventory": {
+                "cats_to": [
+                    "t_c"
+                ],
+                "accessory": [
+                    "JAY",
+                    "ROBIN",
+                    "BLACKBIRD",
+                    "MAGPIE",
+                    "THRUSH",
+                    "CARDINAL",
+                    "CUBAN TROGON"
+                ],
+                "addition": "choice"
+            }
+        }
+    },
+    "song_avix2": {
+        "biome": [
+            "beach"
+        ],
+        "season": [
+            "newleaf",
+            "greenleaf",
+            "leaf-fall"
+        ],
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "cluster": [
+                    "sweet",
+                    "silly",
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "skill": [
+                    "SONG,3"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_5"
+                ]
+            }
+        ],
+        "intro": [
+            "[You walk by t_c, who has a bird perched right on top of {PRONOUN/t_c/poss} head, perfectly calm. You look at {PRONOUN/t_c/object} questioningly.]",
+            "Oh, this little guy? I was out on a walk earlier, singing to myself, and I guess they overheard and liked my song. They haven't left my side since!",
+            "[The bird chirps as though it agrees with what {PRONOUN/t_c/subject} said.]",
+            "[(t_c has gained an accessory!)]"
+        ],
+        "intro_scene_effects": {
+            "inventory": {
+                "cats_to": [
+                    "t_c"
+                ],
+                "accessory": [
+                    "RAINBOWLORIKEET"
+                ],
+                "addition": "all"
+            }
+        }
+    },
+    "genskillsSTORYMay": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "skill": [
+                    "STORY,1"
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "not_newborn"
+                ],
+                "cluster": [
+                    "assertive",
+                    "upstanding",
+                    "unabashed",
+                    "cool"
+                ],
+                "rank": [
+                    "kitten"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "queen"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_0"
+                ]
+            }
+        ],
+        "intro": [
+            "y_c! y_c!",
+            "[t_c practically trips over {PRONOUN/t_c/poss} own paws in {PRONOUN/t_c/subject} rush over to your side.]",
+            "y_c! r_c:0 said that if I was really good and ate all my food and behaved myself all day, I could come ask you for another story!",
+            "[How sweet... but didn't t_c just come and hear a story from you last night?]",
+            "You're the best at stories, I don't want a story from anyone else! Please y_c!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Alright... settle in, what do you want to hear?",
+                "next_scene": "scene1"
+            },
+            "choice2": {
+                "text": "Not tonight.",
+                "next_scene": "scene2"
+            }
+        },
+        "scene1": [
+            "I want to hear the one from yesterday again!",
+            "[t_c sits down, clearly eager to hear the same story told again. Funny how kits are like that.]",
+            "You're the best story-teller ever, y_c."
+        ],
+        "scene2": [
+            "Aww... really?",
+            "[t_c heads back to the queens, giving you a hopeful glance halfway back to see if you've changed your mind.]",
+            "..."
+        ]
+    },
+    "skills_E1": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "deputy"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "skill": [
+                    "OMEN,1"
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            }
+        ],
+        "intro": [
+            "Morning y_c! Before you start organizing patrols-- you may want to send an extra one over to the o_c_n border. I haven't been able to shake off this odd gut feeling.",
+            "[t_c continues on {PRONOUN/t_c/poss} merry way before you can respond. A twinge of unease hits you as {PRONOUN/t_c/subject} {VERB/t_c/disappear/disappears} from view. ...Maybe an extra patrol wouldn't hurt.]"
+        ]
+    },
+    "skill_J9": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
+            },
+            "t_c": {
+                "skill": [
+                    "HEALER,2"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy",
+                    "leader"
+                ]
+            }
+        },
+        "intro": [
+            "Hey, y_c. I sprained a paw out on patrol today.",
+            "No, no, no need to treat me. I know you're busy. I'll just grab some dandelion and be on my way.",
+            "[t_c grabs a modest clump of dandelion stems from your stash, limps outside of the den, and starts expertly applying the poultice to {PRONOUN/t_c/poss} tweaked paw.]",
+            "[Sometimes you wonder if t_c chose the wrong path in life...]"
+        ]
+    },
+    "skill_J10": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "skill": [
+                    "FISHER,1",
+                    "SENSE,1",
+                    "SCHOLAR,1"
+                ],
+                "cluster": [
+                    "cool",
+                    "stable",
+                    "brooding",
+                    "upstanding",
+                    "introspective"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_10"
+                ]
+            }
+        ],
+        "intro": [
+            "[While out on a walk, you find t_c, who is crouched by a pond, staring intently into the water.]",
+            "Hi, y_c. Feel free to join me.",
+            "No, no, I'm not fishing. I'm just watching! They're very pretty when you pay attention.",
+            "Look! See that big silver one? Those are my favourite. I also like those really tiny ones that swim in big groups.",
+            "How about you? What's your favourite kind to watch?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Slow and colourful",
+                "next_scene": "slow_colourful"
+            },
+            "choice2": {
+                "text": "Small and fast",
+                "next_scene": "small_fast"
+            },
+            "choice3": {
+                "text": "Big and shiny",
+                "next_scene": "big_shiny"
+            }
+        },
+        "slow_colourful": [
+            "Ooh, that's a good answer. Not too many fish around here are super colourful, but when you see one, it's wonderful.",
+            "You have great taste. You should come fishwatching with me more often."
+        ],
+        "small_fast": [
+            "Aha, entertained by the super quick and crazy ones? I get that.",
+            "Well, there's plenty of them around here. And if you can't catch them, at least you'll have fun watching them swim away. Hehe."
+        ],
+        "big_shiny": [
+            "Me too! They're so majestic when they get close to the surface and the sunlight hits their scales...",
+            "You have great taste. You should come fishwatching with me more often."
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "romance": 3,
+                    "like": 5,
+                    "respect": 5,
+                    "comfort": 5,
+                    "trust": 5
+                },
+                "mutual": true
+            }
+        }
+    },
+    "skill_J11": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "skill": [
+                    "ARTISTAN,1",
+                    "TREASURE,1"
+                ],
+                "cluster": [
+                    "stable",
+                    "silly",
+                    "upstanding",
+                    "assertive",
+                    "unabashed",
+                    "introspective",
+                    "unlawful"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "warrior"
+                ],
+                "skill": [
+                    "FISHER,1"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            }
+        ],
+        "intro": [
+            "[When you walk past {PRONOUN/t_c/poss} den, you notice that t_c's nest is looking quite a bit shinier than usual. You ask {PRONOUN/t_c/object} about it.]",
+            "Oh, r_c:0 caught a colourful fish earlier today and saved me some of the scales! Isn't it beautiful?",
+            "I can decorate your nest with some of them, too, if you'd like!"
+        ]
+    },
+    "shunned_gardener_JOL1": {
+        "season": [
+            "newleaf",
+            "greenleaf"
+        ],
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "skill": [
+                    "GARDENER,1"
+                ],
+                "condition": [
+                    "hearing",
+                    "blind:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "cluster": [
+                    "introspective",
+                    "neurotic",
+                    "silly",
+                    "stable",
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_60",
+                    "min_respect_50",
+                    "min_trust_40",
+                    "min_comfort_30"
+                ]
+            }
+        ],
+        "intro": [
+            "[t_c approaches subtly, whispering in your ear on {PRONOUN/t_c/poss} way to the freshkill pile.]",
+            "I'll make sure that your plants are still getting what they need while you're... stuck like this, y_c."
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "comfort": 5,
+                    "trust": 5
+                },
+                "mutual": true
+            }
+        }
+    },
+    "skill_E4": {
+        "season": [
+            "newleaf",
+            "greenleaf",
+            "leaf-fall"
+        ],
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "not_kitten",
+                    "not_leader"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "skill": [
+                    "SLEEPER",
+                    0
+                ],
+                "rank": [
+                    "not_kitten",
+                    "not_leader"
+                ]
+            }
+        },
+        "intro": [
+            "[The harsh battering of rain against the den startles you awake. You groan, shifting around in your nest enough to see t_c, who is fast asleep.]",
+            "[How in StarClan's name can {PRONOUN/t_c/subject} sleep through a storm like this?]"
+        ]
+    },
+    "skill_E6": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "not_newborn"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "skill": [
+                    "SLEEPER",
+                    2
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
+            }
+        },
+        "intro": [
+            "[t_c is fast asleep in the middle of camp, snoring into a half-eaten piece of fresh-kill.]"
+        ]
+    },
+    "genskillsMATCHMay": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "skill": [
+                    "MATCHMAKER,1"
+                ],
+                "cluster": [
+                    "cool"
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
+            },
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_0"
+                ]
+            },
+            {
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_romance_20",
+                    "not_mates"
+                ]
+            }
+        ],
+        "intro": [
+            "So... y_c... you and r_c:0, or so I hear?",
+            "I'm not teasing you! I'm just offering my romantic expertise. Not to brag but I do have a special sense for when two cats are meant to be.",
+            "I could set you and r_c:0 up! Ya know... get you two on a patrol together... get you some alone time.",
+            "Think about my offer."
+        ]
+    },
+    "genskillsSLEEPMay": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "skill": [
+                    "SLEEP,1"
+                ],
+                "cluster": [
+                    "cool"
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "warrior"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_0"
+                ]
+            }
+        ],
+        "intro": [
+            "[t_c is snoozing in {PRONOUN/t_c/poss} nest, blissfully oblivious to the thunderstorm raging outside.]",
+            "|r_c:0| I wish I could sleep though this ruckus like {PRONOUN/t_c/subject} can. It sounds like we're under a Thunderpath!"
+        ]
+    },
+    "genskillsPROPHETMay": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "skill": [
+                    "PROPHET,1"
+                ],
+                "cluster": [
+                    "neurotic",
+                    "sweet",
+                    "introspective",
+                    "brooding"
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_5"
+                ]
+            }
+        ],
+        "intro": [
+            "Oh y_c... I know I should be grateful that I have a gift that can help our clan... but...",
+            "Ever since I was given my first prophecy, everyone takes everything I say so seriously!",
+            "Yesterday I didn't feel like eating a specific mouse, so one of the elders tossed it out, just to be safe.",
+            "I'm still just me... Sometimes I wish I could go back to the way things were before the prophecies."
         ]
     }
 }

@@ -17990,5 +17990,181 @@
             "[t_c's eyes widen. {PRONOUN/t_c/subject/CAP} {VERB/t_c/snuggle/snuggles} closer.]",
             "Ohh... I didn't think of that. Okay."
         ]
+    },
+    "theircat_skills_H2": {
+        "season": [
+            "newleaf",
+            "greenleaf"
+        ],
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "kitten"
+            ],
+            "skill": [
+                "SWIMMER,0"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "from_your_kit",
+            "from_adopted_kit"
+        ],
+        "tags": [],
+        "intro": [
+            "{PRONOUN/m_c/parent}, I was trying to get somecat to play catfish with me, and r_k mentioned that {PRONOUN/r_k/subject} can't swim.",
+            "That's weird. I thought everycat knew how to swim!",
+            "Swimming is so fun! Why wouldn't {PRONOUN/r_k/subject} want to learn?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Some kits are afraid of water.",
+                "next_scene": "scene1"
+            },
+            "choice2": {
+                "text": "No one taught {PRONOUN/r_k/object}.",
+                "next_scene": "scene2"
+            }
+        },
+        "scene1": [
+            "Well, you always said not to go into angry water. Angry water is unsafe water.",
+            "Did {PRONOUN/r_k/subject} go into angry water and never tried calm water?",
+            "But... I still don't understand."
+        ],
+        "scene2": [
+            "What? That's mean! r_k has to be taught how to swim.",
+            "You always said it was needed... And it's fun!"
+        ],
+        "scene2_choices": {
+            "choice1": {
+                "text": "Maybe you can teach r_k.",
+                "next_scene": "scene3"
+            },
+            "choice2": {
+                "text": "Let r_k be.",
+                "next_scene": "scene4"
+            }
+        },
+        "scene3": [
+            "You think so? I don't know if r_k would want that, though.",
+            "I'll talk to {PRONOUN/r_k/object}! Maybe r_w can watch us!"
+        ],
+        "scene4": [
+            "Awww, okay.",
+            "But I'm going to ask r_q on why some cats don't swim! Everycat should swim.",
+            "[Before you could say anything else, t_c is already running off to the nursery.]"
+        ]
+    },
+    "beehunter_nlglfwmulti_JOL": {
+        "biome": [
+            "forest",
+            "wetlands"
+        ],
+        "season": [
+            "newleaf",
+            "greenleaf"
+        ],
+        "y_c": {
+            "age": [
+                "not_kitten"
+            ],
+            "conditions": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "not_newborn",
+                "kitten"
+            ],
+            "skill": ["GARDENER,1",
+                "HUNTER,1",
+                "CAMP,1",
+                "GHOST,1",
+                "TRACKER,1",
+                "THINKER,1",
+                "LANGUAGE,1"
+            ],
+            "conditions": [
+                "deaf:any:false"
+            ]
+        },
+        "intro": [
+            "[t_c follows a huge bumble bee around camp, diligently observing its every move.]",
+            "[{PRONOUN/t_c/poss/CAP} crouch is wobbly, but t_c is careful never to venture close enough to startle the insect.]",
+            "[With how focussed the kit is, {PRONOUN/t_c/subject} {VERB/t_c/seem/seems} oblivious to your presence.]"
+        ]
+    },
+    "skill_E2": {
+        "biome": [
+            "forest"
+        ],
+        "y_c": {
+            "status": [
+                "not_kitten",
+                "not_queen's_apprentice",
+                "not_queen"
+            ],
+            "cluster": [
+                "upstanding",
+                "neurotic",
+                "stable"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "skill": [
+                "CLIMBER,0"
+            ]
+        },
+        "relationship": [
+            "non-related"
+        ],
+        "intro": [
+            "y_c! y_c!! Look at me! Look how high up I am!",
+            "[You glance up to see t_c balancing precariously on a small branch that bends and sways under {PRONOUN/t_c/poss} weight.]",
+            "[Your horrified expression catches the attention of r_q, who sighs and shakes {PRONOUN/r_q/poss} head. It looks like this has become a normal occurrence.]"
+        ]
+    },
+    "skill_E5": {
+        "y_c": {
+            "status": [
+                "not_kitten"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ],
+            "skills": [
+                "SLEEPER",
+                0
+            ]
+        },
+        "tags": [
+            "clan_has_kits"
+        ],
+        "intro": [
+            "[While the other kits are out and about exploring the camp, little t_c is fast asleep in the nursery.]"
+        ]
     }
 }
