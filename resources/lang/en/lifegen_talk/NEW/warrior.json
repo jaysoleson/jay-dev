@@ -14298,7 +14298,7 @@
         "cats": {
             "y_c": {
                 "skill": [
-                    "SONG,=1"
+                    "SONG,-1"
                 ],
                 "rank": [
                     "warrior"

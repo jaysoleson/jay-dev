@@ -24,7 +24,6 @@ from scripts.utility import (
     unpack_rel_block,
     event_text_adjust,
     gather_cat_objects,
-    lifegen_text_adjust,
     create_new_cat_block,
     get_cluster,
     adjust_list_text,
@@ -255,39 +254,24 @@ class PatrolOutcome:
 
         return outcome_list
 
-    def execute_outcome(self, patrol: "Patrol") -> Tuple[str, str, Optional[str]]:
+    def execute_outcome(self, patrol: "Patrol", chosen_lifegen_cats=[]) -> Tuple[str, str, Optional[str]]:
         """
         Excutes the outcome. Returns a tuple with the final outcome text, the results text, and any outcome art
         format: (Outcome text, results text, outcome art (might be None))
         """
         # This must be done before text processing so that the new cat's pronouns are generated first
         results = [self._handle_new_cats(patrol)]
-        # lifegen random abbrev processing!
-        if switch_get_value(Switch.patrol_category) != "clangen":
-            try:
-                lifegen_abbrev_text = lifegen_text_adjust(Cat, self.text, patrol.patrol_leader, patrol.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
-
-                text = lifegen_abbrev_text
-                if lifegen_abbrev_text == "":
-                    # print("Lifegen: No abbrevs to adjust")
-                    text = self.text
-            except Exception as e:
-                print("Lifegen: Error adjusting abbrevs:", e)
-                text = self.text
-        else:
-            text = self.text
 
         # the text has to be processed before - otherwise leader might be referenced with their warrior name
         processed_text = event_text_adjust(Cat,
-                                        text,
+                                        self.text,
                                         patrol_leader=patrol.patrol_leader,
-                                        patrol_cat_dict=patrol.patrol_cat_dict,
-                                        # LIFEGEN ^^ pls don't remove
                                         random_cat=patrol.random_cat,
                                         stat_cat=self.stat_cat,
                                         patrol_cats=patrol.patrol_cats,
                                         patrol_apprentices=patrol.patrol_apprentices,
                                         new_cats=patrol.new_cats,
+                                        chosen_lifegen_cats=chosen_lifegen_cats,
                                         clan=game.clan,
                                         other_clan=patrol.other_clan)
 
@@ -315,9 +299,9 @@ class PatrolOutcome:
                         random_cat=patrol.random_cat,
                         stat_cat=self.stat_cat,
                         patrol_cats=patrol.patrol_cats,
-                        patrol_cat_dict=patrol.patrol_cat_dict,
                         patrol_apprentices=patrol.patrol_apprentices,
                         new_cats=patrol.new_cats,
+                        lifegen_cat_constraints=patrol.lifegen_cat_constraints,
                         clan=game.clan,
                         other_clan=patrol.other_clan,
                     )
@@ -415,14 +399,6 @@ class PatrolOutcome:
             and kitty == patrol.patrol_apprentices[1]
         ):
             return True
-        
-        for item in patrol.patrol_cat_dict.items():
-            abbrev = item[0]
-            cat_object = item[1]
-
-            if abbrev in allowed_specific and kitty == cat_object:
-                return True
-
 
         return False
 
@@ -439,12 +415,9 @@ class PatrolOutcome:
         allowed_specific = [
             x
             for x in self.can_have_stat
-            # if x in ("r_c", "p_l", "app1", "app2", "any", "not_pl_rc", "not_pl")
-            # LG: commented out bc any lifegen abbrev can go in can_have_stat
+            if x in ("r_c", "p_l", "app1", "app2", "any", "not_pl_rc", "not_pl")
+            or "r_c:" in x
         ]
-        for i in patrol.patrol_cat_dict.items():
-            if i[0] in self.can_have_stat:
-                allowed_specific.append(i[0])
         
 
         # Special default behavior for patrols less than two cats.
@@ -461,7 +434,7 @@ class PatrolOutcome:
             # this is lifegen stuff to add random abbrevs to the list for stat cat possibilities
             # so its not just cats in the patrol
             patrolcats = patrol.patrol_cats
-            for kitty in patrol.patrol_cat_dict.items():
+            for kitty in patrol.lifegen_cat_constraints.items():
                 patrolcats.append(kitty[1])
 
         possible_stat_cats = []

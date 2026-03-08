@@ -31,7 +31,6 @@ from scripts.utility import (
     find_special_list_types,
     filter_relationship_type,
     get_special_snippet_list,
-    lifegen_text_adjust,
     find_alive_cats_with_rank,
     get_cluster,
     adjust_list_text
@@ -45,6 +44,8 @@ from scripts.game_structure.game.switches import (
     switch_set_value,
     switch_append_list_value
 )
+
+from scripts.events_module.filter_random_cats import choose_random_cats
 
 logger = logging.getLogger(__name__)
 
@@ -72,11 +73,18 @@ class Patrol:
         self.patrol_statuses = {}
         self.patrol_status_list = []
 
-        self.patrol_cat_dict = {}
         # lifegen cat dict for random abbrevs ^^
 
         # Holds new cats for easy access
         self.new_cats: List[List[Cat]] = []
+
+        # LIFEGEN: random cats
+        # constraints present in the patrol JSON
+        self.lifegen_cat_constraints = {}
+
+        # list of cats who were chosen as r_c's for each patrol
+        self.chosen_lifegen_cats = []
+        # ---
 
         # False if no debug patrol set, value if one is set
         self.debug_patrol: Union[bool, str] = False
@@ -194,7 +202,11 @@ class Patrol:
             else:
                 switch_append_list_value(Switch.patrolled, '3')
         
-        return self.process_text(self.patrol_event.intro_text, None)
+        return self.process_text(
+            self.patrol_event.intro_text,
+            None,
+            chosen_lifegen_cats=self.patrol_event.chosen_lifegen_cats
+            )
 
     def proceed_patrol(self, path: str = "proceed") -> Tuple[str, str, Optional[str]]:
         """Proceed the patrol to the next step.
@@ -205,11 +217,15 @@ class Patrol:
                 print(
                     f"PATROL ID: {self.patrol_event.patrol_id} | SUCCESS: N/A (did not proceed)"
                 )
-                return self.process_text(self.patrol_event.decline_text, None), "", None
+                return self.process_text(
+                    self.patrol_event.decline_text,
+                    None,
+                    chosen_lifegen_cats=self.patrol_event.chosen_lifegen_cats
+                    ),"", None
             else:
                 return "Error - no event chosen", "", None
 
-        return self.determine_outcome(antagonize=(path == "antag"))
+        return self.determine_outcome(antagonize=(path == "antag"), chosen_lifegen_cats = self.patrol_event.chosen_lifegen_cats)
 
     def add_patrol_cats(self, patrol_cats: List[Cat], clan: Clan, patrol_type: str = None) -> None:
         """Add the list of cats to the patrol class and handles to set all needed values.
@@ -737,6 +753,20 @@ class Patrol:
             if not self._check_constraints(patrol):
                 continue
 
+            if patrol.lifegen_cat_constraints:
+                print("LG CAT CONSTRAINTS:", patrol.lifegen_cat_constraints)
+                cat_dict = choose_random_cats(
+                    cats_block=patrol.lifegen_cat_constraints,
+                    rel_block=[],
+                    your_cat=game.clan.your_cat,
+                    the_cat=None
+                    )
+                if not cat_dict:
+                    continue
+                for abbrev, cat_obj in cat_dict.items():
+                    if "r_c:" in abbrev:
+                        patrol.chosen_lifegen_cats.append(cat_obj)
+
             # Don't check for repeat patrols if ensure_patrol_id is being used.
             if (
                 constants.CONFIG["patrol_generation"]["debug_ensure_patrol_id"] == ""
@@ -770,29 +800,6 @@ class Patrol:
                 if len(num) != 2:
                     print(f"Issue with status limits: {patrol.patrol_id}")
                     continue
-
-                # LG ---
-                # this problem is obviously coming from somewhere else,
-                # but this does work. lol
-                # convert = {
-                #     "healer cats": (
-                #         self.patrol_statuses.get(CatRank.MEDICINE_CAT, 0) +
-                #         self.patrol_statuses.get(CatRank.MEDICINE_APPRENTICE, 0)
-                #         ),
-                #     "normal adult": (
-                #         self.patrol_statuses.get(CatRank.LEADER, 0) +
-                #         self.patrol_statuses.get(CatRank.DEPUTY, 0) +
-                #         self.patrol_statuses.get(CatRank.WARRIOR, 0)
-                #     )
-                # }
-                # if sta in ["healer cats", "normal adult"]:
-                #     if sta in convert:
-                #         status_number = convert[sta]
-                #     else:
-                #         status_number = -1
-                # else:
-                #     status_number = self.patrol_statuses.get(sta, -1)
-                # -------
 
                 if not (num[0] <= self.patrol_statuses.get(sta, -1) <= num[1]):
                     flag = True
@@ -864,7 +871,7 @@ class Patrol:
                         )
                     continue
 
-            if switch_get_value(Switch.patrol_category) in ['lifegen', 'df', 'date']:
+            else:
                 if switch_get_value(Switch.patrol_category) == "lifegen":
                     if not any(p in patrol.types for p in ["sc_lifegen", "ur_lifegen", "df_lifegen"]) and game.clan.your_cat.dead:
                         continue
@@ -915,40 +922,7 @@ class Patrol:
                 if "clan_no_kits" in patrol.tags:
                     if len(find_alive_cats_with_rank(Cat, [CatRank.NEWBORN, CatRank.KITTEN])) > 0:
                         continue
-
-                # this is testing every piece of text in the patrol
-                # to see if there's an abbrev that cant be fulfilled.
-                # theres probably a better way to do it but.... patrols scare me. and this works
-                tests = []
-                test_runs = {}
-                skip = False
-
-                tests.append(patrol.intro_text)
-                tests.append(patrol.decline_text)
-
-                if len(patrol.antag_fail_outcomes) > 0:
-                    for i in patrol.antag_fail_outcomes:
-                        tests.append(i.text)
-                if len(patrol.antag_success_outcomes) > 0:
-                    for i in patrol.antag_success_outcomes:
-                        tests.append(i.text)
-
-                for i in patrol.success_outcomes:
-                    tests.append(i.text)
-                for i in patrol.fail_outcomes:
-                    tests.append(i.text)
-
-                for i in tests:
-                    # r_c_allowed = True for date_cats
-                    test_runs[i] = lifegen_text_adjust(Cat, str(i), self.patrol_leader, self.patrol_cat_dict, r_c_allowed=True, o_c_allowed=False)
-                    if test_runs[i] == "":
-                        skip = True
-                        # print("Lifegen abbrev repl failed: Skipping", patrol.patrol_id)
-                        break
-                    # else:
-                    #     print(i)
-                if skip is True:
-                    continue            
+        
             # cruel season tag check
             if "cruel_season" in patrol.tags:
                 if game.clan and game.clan.game_mode != "cruel_season":
@@ -1032,6 +1006,7 @@ class Patrol:
                 tags=patrol.get("tags"),
                 weight=patrol.get("weight", 20),
                 types=patrol.get("types"),
+                lifegen_cat_constraints=patrol.get("random_cats"),
                 intro_text=patrol.get("intro_text"),
                 patrol_art=patrol.get("patrol_art"),
                 patrol_art_clean=patrol.get("patrol_art_clean"),
@@ -1061,7 +1036,7 @@ class Patrol:
 
         return all_patrol_events
 
-    def determine_outcome(self, antagonize=False) -> Tuple[str, str, Optional[str]]:
+    def determine_outcome(self, antagonize=False, chosen_lifegen_cats=[]) -> Tuple[str, str, Optional[str]]:
         if self.patrol_event is None:
             raise Exception("No patrol event supplied")
 
@@ -1117,7 +1092,7 @@ class Patrol:
         print(f"PATROL ID: {self.patrol_event.patrol_id} | SUCCESS: {success}")
         
         # Run the chosen outcome
-        return final_event.execute_outcome(self)
+        return final_event.execute_outcome(self, chosen_lifegen_cats=chosen_lifegen_cats)
 
     def calculate_success(
         self, success_outcome: PatrolOutcome, fail_outcome: PatrolOutcome
@@ -1414,7 +1389,7 @@ class Patrol:
 
         return pygame.image.load(f"{root_dir}{file_name}.png")
 
-    def process_text(self, text, stat_cat: Optional[Cat]) -> str:
+    def process_text(self, text, stat_cat: Optional[Cat], chosen_lifegen_cats=[]) -> str:
         """Processes text"""
 
         vowels = ["A", "E", "I", "O", "U"]
@@ -1425,12 +1400,28 @@ class Patrol:
         
         replace_dict = {
             "p_l": (str(self.patrol_leader.name), choice(self.patrol_leader.pronouns)),
-            "r_c": (
-                str(self.random_cat.name),
-                choice(self.random_cat.pronouns),
-            ),
+            # "r_c": (
+            #     str(self.random_cat.name),
+            #     choice(self.random_cat.pronouns),
+            # ),
             "y_c": (str(game.clan.your_cat.name), choice(game.clan.your_cat.pronouns)),
         }
+
+        
+        # LG
+        # LIFEGEN CATS
+        for i, lg_cat in enumerate(chosen_lifegen_cats):
+            name = str(lg_cat.name)
+            pronoun = choice(lg_cat.pronouns)
+
+            replace_dict[f"r_c:{i}"] = (name, pronoun)
+        
+        # LG: r_c is moved here, AFTER the indexed versions
+        replace_dict["r_c"] = (
+                str(self.random_cat.name),
+                choice(self.random_cat.pronouns),
+            )
+        # ---
 
         other_cats = [i for i in self.patrol_cats if i not in [self.patrol_leader, self.random_cat, game.clan.your_cat]]
         if switch_get_value(Switch.patrol_category) == 'df':
@@ -1515,24 +1506,6 @@ class Patrol:
         if stat_cat:
             replace_dict["s_c"] = (str(stat_cat.name), choice(stat_cat.pronouns))
 
-        # this is really bad and hacky
-        if "r_c" in self.patrol_cat_dict:
-            if self.random_cat:
-                self.patrol_cat_dict["r_c"] = self.random_cat
-        # but oh well
-
-        # adjusting text for lifegen abbrevs + adding to replace dict
-        if switch_get_value(Switch.patrol_category) in ['lifegen', 'df', 'date']:
-            text = lifegen_text_adjust(Cat, text, self.patrol_leader, self.patrol_cat_dict, r_c_allowed=True, o_c_allowed=False)
-            if text == "":
-                # This shouldn't ever happen naturally, as the abbrevs in the patrol are all tested during filtering
-                if isinstance(constants.CONFIG["patrol_generation"]["debug_ensure_patrol_id"], str):
-                    text = "Mrrp? Lifegen abbreviations in debug patrol could not be fulfilled."
-                else:
-                    text = "Mrrp? Please report as a Lifegen bug!"
-            for cat in self.patrol_cat_dict.items():
-                replace_dict[cat[0]] = (str(cat[1].name), choice(cat[1].pronouns))
-
         text = process_text(text, replace_dict)
         text = adjust_prey_abbr(text)
 
@@ -1608,6 +1581,7 @@ This is a good starting point for writing your own patrols.
     "season": [],
     "types": [],
     "tags": [],
+    "lifegen_cats": {},
     "patrol_art": null,
     "patrol_art_clean": null,
     "min_cats": 1,

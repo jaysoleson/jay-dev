@@ -1579,17 +1579,6 @@ def gather_cat_objects(
         else:
             print(f"WARNING: Unsupported ClanGen abbreviation {abbr}")
 
-    # LIFEGEN ABBREVS ------------------------
-    try:
-        for kitty in event.patrol_cat_dict.items():
-            print(abbr_list)
-            if kitty[0] in abbr_list:
-                out_set.add(kitty[1])
-    except Exception as e:
-        # print(e)
-        pass
-    # ----------------------------------------
-
     return list(out_set)
 
 
@@ -2230,7 +2219,6 @@ def event_text_adjust(
     Cat: Type["Cat"],
     text,
     *,
-    patrol_cat_dict={},
     patrol_leader=None,
     main_cat=None,
     random_cat=None,
@@ -2239,6 +2227,7 @@ def event_text_adjust(
     patrol_cats: list = None,
     patrol_apprentices: list = None,
     new_cats: list = None,
+    chosen_lifegen_cats: list = None,
     multi_cats: list = None,
     clan=None,
     other_clan=None,
@@ -2248,7 +2237,6 @@ def event_text_adjust(
     handles finding abbreviations in the text and replacing them appropriately, returns the adjusted text
     :param Cat Cat: always pass the Cat class
     :param str text: the text being adjusted
-    :param dict patrol_cat_dict: LIFEGEN: dict to hold random cat abbrevs in LG patrols
     :param Cat patrol_leader: Cat object for patrol_leader (p_l), if present
     :param Cat main_cat: Cat object for main_cat (m_c), if present
     :param Cat random_cat: Cat object for random_cat (r_c), if present
@@ -2257,6 +2245,7 @@ def event_text_adjust(
     :param list[Cat] patrol_cats: List of Cat objects for cats in patrol, if present
     :param list[Cat] patrol_apprentices: List of Cat objects for patrol_apprentices (app#), if present
     :param list[Cat] new_cats: List of Cat objects for new_cats (n_c:index), if present
+    :param chosen_lifegen_cats: List of Cat objects for chosen_lifegen_cats (r_c:index), if present
     :param list[Cat] multi_cats: List of Cat objects for multi_cat (multi_cat), if present
     :param Clan clan: pass game.clan
     :param OtherClan other_clan: OtherClan object for other_clan (o_c_n), if present
@@ -2267,6 +2256,9 @@ def event_text_adjust(
         patrol_apprentices = []
     if not new_cats:
         new_cats = []
+    # LG
+    if not chosen_lifegen_cats:
+        chosen_lifegen_cats = []
 
     if not text:
         text = 'This should not appear, report as a bug please! Tried to adjust the text, but no text was provided.'
@@ -2302,6 +2294,15 @@ def event_text_adjust(
                 choice(patrol_leader.pronouns),
             )
 
+    # LG
+    if "r_c:" in text and chosen_lifegen_cats:
+        for i, lg_cat in enumerate(chosen_lifegen_cats):
+            name = str(lg_cat.name)
+            pronoun = choice(lg_cat.pronouns)
+
+            replace_dict[f"r_c:{i}"] = (name, pronoun)
+    # ---
+
     # random_cat
     if "r_c" in text:
         if random_cat:
@@ -2311,11 +2312,6 @@ def event_text_adjust(
     if "s_c" in text:
         if stat_cat:
             replace_dict["s_c"] = (str(stat_cat.name), get_pronouns(stat_cat))
-
-    # LIFEGEN ABBREVS
-    if game.current_screen == GameScreen.PATROL:
-        for cat in patrol_cat_dict.items():
-            replace_dict[cat[0]] = (str(cat[1].name), choice(cat[1].pronouns))
 
     # other_cats
     if patrol_cats:

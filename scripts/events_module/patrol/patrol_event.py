@@ -14,6 +14,8 @@ class PatrolEvent:
         season: List[str] = None,
         types: List[str] = None,
         tags: List[str] = None,
+        lifegen_cat_constraints: dict = None,
+        chosen_lifegen_cats: List = [],
         weight: int = 20,
         patrol_art: Union[str, None] = None,
         patrol_art_clean: Union[str, None] = None,
@@ -32,6 +34,10 @@ class PatrolEvent:
         pl_trait_constraints: List[str] = None,
     ):
         self.patrol_id = patrol_id
+        # LG
+        self.lifegen_cat_constraints = lifegen_cat_constraints
+        self.chosen_lifegen_cats = chosen_lifegen_cats
+        # ---
         self.weight = weight
         self.types = types if types is not None else []
 

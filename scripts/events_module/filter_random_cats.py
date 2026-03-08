@@ -14,15 +14,17 @@ from scripts.clan_package.settings import get_clan_setting
 possible_cats_dict = {}
 
 def choose_random_cats(
-        block,
-        your_cat: Cat,
+        cats_block: dict={},
+        rel_block: list=[],
+        your_cat: Cat=None,
         the_cat: Cat=None,
         cat_dict={},
         key=""
         ):
     """
     Selects random cats for LG stuff!
-    :param block: A dictionary containing content to be filtered. The "cats" block is INSIDE of this dict. Do not pass "cats" directly into this function.
+    :param block: A dictionary containing content to be filtered. This is the "cats" block, not its parent.
+    :param block: A dictionary containing relationships to be filtered for. This is the "relationships" block, not its parent.
     :param your_cat: Cat object for your cat.
     :param the_cat: Cat object for the talking cat. Outside of dialogue, this is None.
     :param cat_dict: Dict containing existing abbrevs and Cat objects as key-value pairs.
@@ -35,12 +37,12 @@ def choose_random_cats(
     skip = False
 
     try:
-        if "cats" in block:
+        if cats_block:
             skip = False
-            for abbrev in block["cats"]:
+            for abbrev in cats_block:
                 abbrevs.append(abbrev)
                 # checks if there are any valid cats available
-                possible_cats_dict[abbrev] = _validate_cat(abbrev, block, possible_cats, your_cat, the_cat)
+                possible_cats_dict[abbrev] = _validate_cat(abbrev, cats_block, possible_cats, your_cat, the_cat)
                 if not possible_cats_dict[abbrev]:
                     skip = True
                     break
@@ -49,13 +51,21 @@ def choose_random_cats(
 
         # filter rel uses all abbrevs to make choices based on relationships
         # chosen cat dict is the selected cats! one cat object per abbrev!
-        chosen_cat_dict = __filter_relationships(abbrevs, block, possible_cats_dict, your_cat, the_cat, cat_dict, key=key)
+        chosen_cat_dict = __filter_relationships(
+            abbrevs,
+            rel_block,
+            possible_cats_dict,
+            your_cat,
+            the_cat,
+            cat_dict,
+            key=key
+            )
     except Exception as e:
-        print("WARNING: Error with dialogue filtering for", key)
+        print("WARNING: Error with filtering for", key)
         print(e)
     return chosen_cat_dict
 
-def _validate_cat(abbrev, block, possible_cats, your_cat, the_cat):
+def _validate_cat(abbrev, cat_block, possible_cats, your_cat, the_cat):
     """
     Validates each cat block.
     Helper functions will narrow down the possible cat options.
@@ -63,7 +73,6 @@ def _validate_cat(abbrev, block, possible_cats, your_cat, the_cat):
     For t_c and y_c, if the_cat or your_cat are not in the possible cat options,
     the dialogue is filtered out.
     """
-    cat_block = block["cats"]
     new_possible_cats = []
 
     # filtering functions!
@@ -426,12 +435,11 @@ def __filter_conditions(abbrev_block, cat):
 
     return True
 
-def __filter_relationships(all_abbrevs, block, dict_possible_cats, your_cat, the_cat, cat_dict, key=""):
+def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat, the_cat, cat_dict, key=""):
     """
     Chooses final cats based on relationship constraints.
     Not a 'filter' in the same way the other filter functions are. More of a selection tool.
     """
-    rel_block = block["relationships"] if "relationships" in block else []
     new_dict = {
         "y_c": your_cat,
         "t_c": the_cat

@@ -121,7 +121,14 @@ class Dialogue():
                     continue
 
             # now this for the cats block
-            chosen_cat_dict = choose_random_cats(block, self.you, self.cat, self.cat_dict, key=key)
+            chosen_cat_dict = choose_random_cats(
+                cats_block=block['cats'],
+                rel_block=block['relationships'] if "relationships" in block else [],
+                your_cat=self.you,
+                the_cat=self.cat,
+                cat_dict=self.cat_dict,
+                key=key
+                )
             if not chosen_cat_dict:
                 continue
 
