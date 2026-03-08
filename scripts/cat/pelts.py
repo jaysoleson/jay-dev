@@ -1143,16 +1143,15 @@ class Pelt:
 
         if acc_display_choice == 1:
             self.accessory = tuple(
-                choice(
-                        [
-                            choice(Pelt.plant_accessories),
-                            choice(Pelt.wild_accessories),
-                            choice(Pelt.aliveInsect_accessories),
-                            choice(Pelt.deadInsect_accessories),
-                            choice(Pelt.fruit_accessories),
-                            choice(Pelt.plant2_accessories),
-                        ]
+                (choice(
+                    Pelt.plant_accessories +
+                    Pelt.wild_accessories +
+                    Pelt.aliveInsect_accessories +
+                    Pelt.deadInsect_accessories +
+                    Pelt.fruit_accessories +
+                    Pelt.plant2_accessories
                     )
+                ,)
             )
         else:
             self.accessory = tuple()

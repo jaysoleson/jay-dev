@@ -1988,7 +1988,7 @@ class MakeClanScreen(Screens):
         if selected_cat:
             self.custom_cat = Cat(moons=0, pelt=self.selected_cat.pelt, loading_cat=True)
         else:
-            self.custom_cat = Cat(moons=0, pelt=pelt2, loading_cat=True)
+            self.custom_cat = Cat(moons=0, pelt=pelt2)
 
         if self.custom_cat.pelt.length == 'long' and self.adult_pose < 9:
             pelt2.cat_sprites['young adult'] = self.adult_pose + 9
