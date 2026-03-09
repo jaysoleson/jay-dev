@@ -129,17 +129,24 @@ def _test():
         "n_r1": _r,
         "n_r2": _r,
         "insert_siblings": _r,
-        "o_c1": _r
+        "o_c1": _r,
     }
 
     for x in range(0, 11):
         replacement_dict[f"n_c:{x}"] = _r
 
+    # LG
+    for x in range(0, 11):
+        replacement_dict[f"r_c:{x}"] = _r
+    # ---
+
     for root, _, files in os.walk("resources"):
         for file in files:
-            if root == "resources\\dicts\\lifegen_talk\\old\\focuses":
-                continue
-            if root == "resources\\dicts\\lifegen_talk\\old":
+            if (
+                "lifegen_talk" in root and
+                "lifegen_talk\\NEW" not in root
+                ):
+                # TEMP: ignore old dialogue files
                 continue
             if file.endswith(".json") and file not in (
                 "credits_text.json",
