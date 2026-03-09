@@ -57,8 +57,7 @@ def choose_random_cats(
             possible_cats_dict,
             your_cat,
             the_cat,
-            cat_dict,
-            key=key
+            cat_dict
             )
     except Exception as e:
         print("WARNING: Error with filtering for", key)
@@ -107,7 +106,7 @@ def _validate_cat(abbrev, cat_block, possible_cats, your_cat, the_cat):
         return []
     if abbrev == "y_c" and your_cat not in new_possible_cats:
         return []
-    
+
     possible_cat_dict = {}
     possible_cat_dict[abbrev] = new_possible_cats
 
@@ -272,7 +271,7 @@ def __filter_cluster(abbrev_block, cat):
         cat.personality.trait not in abbrev_block["cluster"]
     ):
         return False
-    
+
     return True
 
 def __filter_backstory(abbrev_block, cat):
@@ -435,7 +434,7 @@ def __filter_conditions(abbrev_block, cat):
 
     return True
 
-def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat, the_cat, cat_dict, key=""):
+def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat, the_cat, cat_dict):
     """
     Chooses final cats based on relationship constraints.
     Not a 'filter' in the same way the other filter functions are. More of a selection tool.
@@ -469,11 +468,11 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                         continue
                     if TO == FROM:
                         continue
-                    
+
                     # Grab our possible cats depending on the abbrev
                     to_cat_list = dict_possible_cats[TO].copy()
                     from_cat_list = dict_possible_cats[FROM].copy()
-                    
+
                     # shuffle so the same cat isnt always on top
                     random.shuffle(to_cat_list)
                     random.shuffle(from_cat_list)
@@ -575,7 +574,7 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                                     rel_valid = from_cat.is_related(to_cat, get_clan_setting("first cousin mates"))
                                 elif rel_tag == "non-related":
                                     rel_valid = not from_cat.is_related(to_cat, get_clan_setting("first cousin mates"))
-                                
+
                                 elif rel_tag == "victim/murderer":
                                     if not to_cat.history.murder:
                                         rel_valid = False
@@ -587,7 +586,7 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                                             if murder["victim"] == from_cat.ID:
                                                 rel_valid = True
                                                 break
-                                
+
                                 elif rel_tag == "murderer/victim":
                                     if not from_cat.history.murder:
                                         rel_valid = False

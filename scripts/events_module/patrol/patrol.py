@@ -1556,6 +1556,9 @@ class Patrol:
         # TODO: check if this can be handled in event_text_adjust
         return text
 
+# TODO: jay figure out relationships block in patrols.
+# get the dict passing correctly so p_l, r_c, o_c1, app1 etc. all of those can be used in relationships
+
 
 # ---------------------------------------------------------------------------- #
 #                               PATROL CLASS END                               #
@@ -1581,7 +1584,7 @@ This is a good starting point for writing your own patrols.
     "season": [],
     "types": [],
     "tags": [],
-    "lifegen_cats": {},
+    "random_cats": {},
     "patrol_art": null,
     "patrol_art_clean": null,
     "min_cats": 1,

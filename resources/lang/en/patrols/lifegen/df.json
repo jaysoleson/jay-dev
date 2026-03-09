@@ -3589,30 +3589,25 @@
                 "df"
             ],
             "random_cats": {
-                "r_c:0": {
-                    "rank": ["warrior"]
-                },
-                "r_c:1": {
-                    "rank": ["kitten"]
-                }
+                "r_c:0": {}
             },
             "patrol_art": "life_df_og11",
             "min_cats": 2,
             "max_cats": 2,
             "weight": 20,
-            "intro_text": "You walk into the Dark Forest with r_c and run into r_c:0 and r_c:1.",
-            "decline_text": "Never mind. You leave r_c:0 and r_c:1 alone.",
+            "intro_text": "You walk into the Dark Forest with r_c and run into your parent, r_c:0.",
+            "decline_text": "Never mind. You leave r_c:0 alone.",
             "chance_of_success": 60,
             "success_outcomes": [
                 {
-                    "text": "r_c:0 says hi to you and r_c. r_c:1 ignores you.",
+                    "text": "r_c:0 says hi to you and r_c.",
                     "exp": 10,
                     "weight": 20
                 }
             ],
             "fail_outcomes": [
                 {
-                    "text": "r_c:0 ignores you and r_c. r_c:1 says hi.",
+                    "text": "r_c:0 ignores you and r_c.",
                     "exp": 0,
                     "weight": 20
                 }
