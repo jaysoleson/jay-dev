@@ -301,7 +301,7 @@ class PatrolOutcome:
                         patrol_cats=patrol.patrol_cats,
                         patrol_apprentices=patrol.patrol_apprentices,
                         new_cats=patrol.new_cats,
-                        lifegen_cat_constraints=patrol.lifegen_cat_constraints,
+                        chosen_lifegen_cats=patrol.chosen_lifegen_cats,
                         clan=game.clan,
                         other_clan=patrol.other_clan,
                     )
