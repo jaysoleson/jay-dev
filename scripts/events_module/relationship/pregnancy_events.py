@@ -69,6 +69,9 @@ class Pregnancy_Events:
         if not Pregnancy_Events.biggest_family:
             Pregnancy_Events.set_biggest_family()
 
+        if "undead" in cat.illnesses:
+            return
+
         # Handles if a cat is already pregnant
         if cat.ID in clan.pregnancy_data:
             moons = clan.pregnancy_data[cat.ID]["moons"]
