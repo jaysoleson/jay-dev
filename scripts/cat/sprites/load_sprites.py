@@ -329,6 +329,7 @@ class Sprites:
             "fadeunknownresidence",
             "lifegen_fadeunknownresidence",
             "symbols",
+            "heterochromiamask",
         ]
 
         # separate from data_json list bc we need to handle it differently later
@@ -352,6 +353,9 @@ class Sprites:
         # Line art
         for sheet in self.POSE_DATA["spritesheet"]:
             self.make_group(sheet, (0, 0), sheet)
+
+        # Heterochromia mask
+        self.make_group("heterochromiamask", (0, 0), f"heterochromiamask")
 
         # Fading Fog
         for i in range(0, 3):
