@@ -12,13 +12,6 @@ This file contains:
 """  # pylint: enable=line-too-long
 
 import logging
-import os
-import platform
-import subprocess
-import traceback
-import logging
-import random
-from html import escape
 from ..game_structure.game.settings import game_setting_get
 
 import pygame
@@ -26,13 +19,13 @@ import pygame_gui
 
 from scripts.cat.cats import Cat
 from scripts.game_structure import game
-from scripts.utility import get_text_box_theme, check_achievements  # pylint: disable=redefined-builtin
 from .Screens import Screens
-from ..housekeeping.datadir import get_data_dir, get_cache_dir
-from ..housekeeping.update import has_update, UpdateChannel, get_latest_version_number
-from ..housekeeping.version import get_version_info
-from scripts.utility import get_text_box_theme, ui_scale, load_lang_resource
+from scripts.ui.theme import get_text_box_theme
+from scripts.ui.scale import ui_scale
+from scripts.game_structure.localization import load_lang_resource
 from scripts.game_structure.screen_settings import MANAGER
+
+from scripts.lifegen_utility import check_achievements
 
 
 logger = logging.getLogger(__name__)
@@ -53,10 +46,14 @@ class AchievementScreen(Screens):
         self.show_menu_buttons()
         self.show_mute_buttons()
         # self.set_disabled_menu_buttons(["achievements"])
-        if game.clan.your_cat.status.is_outsider:
-            self.update_heading_text("Your Territory")
-        else:
+        # LG EDIT
+        if game.clan.your_cat.status.alive_in_player_clan:
             self.update_heading_text(f"{game.clan.displayname}Clan")
+        elif game.clan.your_cat.status.group:
+            self.update_heading_text(f"The {(game.clan.your_cat.status.group).capitalize().replace("_", " ")}")
+        else:
+            self.update_heading_text("Outside the Clan")
+        # ---
 
         a_txt = load_lang_resource("achievements.json")
 

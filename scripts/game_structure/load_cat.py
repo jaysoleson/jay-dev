@@ -15,7 +15,7 @@ from scripts.game_structure.game.switches import (
     switch_set_value,
     Switch,
 )
-from scripts.game_structure.localization import get_new_pronouns
+from ..cat.pronouns import get_new_pronouns
 from scripts.housekeeping.version import SAVE_VERSION_NUMBER
 from scripts.game_structure import constants
 from scripts.game_structure import game
@@ -242,9 +242,9 @@ def json_load():
             # converting old specialty saves into new scar parameter
             if "specialty" in cat or "specialty2" in cat:
                 if cat["specialty"] is not None:
-                    new_cat.pelt.scars.append(cat["specialty"])
+                    new_cat.pelt.scars = (*new_cat.pelt.scars, cat["specialty"])
                 if cat["specialty2"] is not None:
-                    new_cat.pelt.scars.append(cat["specialty2"])
+                    new_cat.pelt.scars = (*new_cat.pelt.scars, cat["specialty2"])
 
             new_cat.adoptive_parents = (
                 cat["adoptive_parents"] if "adoptive_parents" in cat else []
@@ -421,6 +421,12 @@ def json_load():
     # replace cat ids with cat objects and add other needed variables
     other_clan_cats = [c for c in Cat.all_cats_list if c.status.is_other_clancat]
     for cat in all_cats:
+        if cat.status.rank in (CatRank.LEADER, CatRank.DEPUTY, CatRank.MEDICINE_CAT):
+            if cat.status.group == CatGroup.STARCLAN:
+                game.starclan.adjust_facets_by_cat(cat)
+            elif cat.status.group == CatGroup.DARK_FOREST:
+                game.dark_forest.adjust_facets_by_cat(cat)
+
         cat.load_conditions()
 
         # this is here to handle paralyzed cats in old saves
@@ -452,7 +458,7 @@ def json_load():
 
         try:
             # initialization of thoughts
-            cat.thoughts(other_clan_cats=other_clan_cats)
+            cat.get_new_thought(other_clan_cats=other_clan_cats)
         except Exception as e:
             logger.exception(
                 f"There was an error when thoughts for cat #{cat} are created."
@@ -600,7 +606,7 @@ def csv_load(all_cats):
                 )
                 the_cat.skill = attr[25]
                 if len(attr) > 28:
-                    the_cat.pelt.accessory = [attr[28]]
+                    the_cat.pelt.accessory = (attr[28],)
                 if len(attr) > 29:
                     the_cat.specialty2 = attr[29]
                 else:
@@ -795,3 +801,18 @@ def version_convert(version_info):
         # freshkill start for older clans
         add_prey = game.clan.freshkill_pile.amount_food_needed() * 2
         game.clan.freshkill_pile.add_freshkill(add_prey)
+
+    if version < 4:
+        for c in Cat.all_cats.values():
+            if not c.status.is_leader:
+                continue
+            for death in c.history.died_by:
+                if death["text"] == "multi_lives":
+                    # skip these as changing them will break stuff
+                    continue
+                death["text"] = (
+                    "m_c lost a life when {PRONOUN/m_c/subject} " + death["text"]
+                )
+                # check if a period is present and append one if not
+                if death["text"][-1] != ".":
+                    death["text"] += "."

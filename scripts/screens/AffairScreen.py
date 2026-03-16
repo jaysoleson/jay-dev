@@ -10,27 +10,22 @@ from scripts.game_structure import image_cache
 from scripts.game_structure import game
 from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
 from scripts.game_structure.screen_settings import MANAGER
-from scripts.game_structure.ui_elements import (
-    UISpriteButton,
-    UISurfaceImageButton,
-    UIImageButton
-)
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.sprite_button import UISpriteButton
 from scripts.clan_package.settings import get_clan_setting
 from scripts.screens.enums import GameScreen
 
-from ..cat.enums import CatAge, CatRank, CatGroup
+from ..cat.enums import CatRank
 
 from scripts.game_structure import constants
 
-from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
+from scripts.ui.theme import get_text_box_theme
+from scripts.ui.scale import ui_scale
+from scripts.events_module.text_adjust import pronoun_repl
+from scripts.clan_package.get_clan_cats import find_alive_cats_with_rank
 
-from scripts.utility import (
-    get_text_box_theme,
-    ui_scale,
-    ui_scale_offset,
-    pronoun_repl,
-    find_alive_cats_with_rank
-)
+
 from ..ui.generate_box import get_box, BoxStyles
 from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon

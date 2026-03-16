@@ -221,5 +221,10 @@
     "guilt": [
         "m_c has finally shaken the guilt for what {PRONOUN/m_c/subject} did.",
         "m_c's troubling guilt has subsided, but {PRONOUN/m_c/subject} will never forget what {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} done."
+    ],
+    "sore throat": [
+        "m_c's throat is no longer sore.",
+        "m_c's throat has healed."
     ]
+    
 }

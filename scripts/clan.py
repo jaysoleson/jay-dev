@@ -12,7 +12,6 @@ import os
 import statistics
 from random import choice, randint
 
-import pygame
 import ujson
 
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
@@ -25,7 +24,6 @@ from scripts.cat.save_load import (
     load_faded_cat_ids,
 )
 from scripts.game_structure.game.settings import game_setting_get
-from scripts.cat.sprites import sprites
 from scripts.clan_package.settings import save_clan_settings, load_clan_settings, get_clan_setting
 from scripts.clan_package.settings.clan_settings import reset_loaded_clan_settings
 from scripts.clan_resources.freshkill import FreshkillPile, Nutrition
@@ -43,14 +41,16 @@ from scripts.game_structure import game
 from scripts.cat.pelts import Pelt
 from scripts.housekeeping.datadir import get_save_dir
 from scripts.housekeeping.version import get_version_info, SAVE_VERSION_NUMBER
-from scripts.utility import (
-    get_current_season,
-    clan_symbol_sprite,
-    get_living_clan_cat_count,
-    get_free_possible_mates,
-    find_alive_cats_with_rank,
+from scripts.clan_package.clan_symbols import clan_symbol_sprite
+from scripts.clan_package.get_clan_cats import get_living_clan_cat_count, find_alive_cats_with_rank
+from scripts.screens.screens_core.screens_core import rebuild_top_menu_buttons
+
+from scripts.events_module.consequences import (
     create_new_cat
-)  # pylint: disable=redefined-builtin
+)
+from scripts.clan_package.get_clan_cats import (
+    get_possible_mates
+)
 
 
 class Clan:
@@ -64,8 +64,9 @@ class Clan:
     clan_cats = []
 
     age = 0
-    current_season = "Newleaf"
     all_other_clans = []
+
+    grief_strings = {}
 
     def __init__(
         self,
@@ -90,6 +91,10 @@ class Clan:
         self_run_init_functions=True,
         displayname="",
     ):
+        """
+        :param name: The save file name for the Clan, this should not be used for player-facing text beyond the save file screen
+        :param displayname: The display name for the Clan, this is what should appear while the playing the game.
+        """
         if name == "":
             return
 
@@ -117,7 +122,6 @@ class Clan:
             self.med_cat_list
         )  # Must do this after the medicine cat is added to the list.
         self.age = 0
-        self.current_season = "Newleaf"
         self.starting_season = starting_season
         self.instructor = None
         # ^^ starclan guide
@@ -169,6 +173,7 @@ class Clan:
         self._reputation = 80
 
         self.all_other_clans = []
+        self.other_clan_IDs = []
 
         self.starting_members = starting_members
         if game_mode in ("expanded", "cruel season"):
@@ -194,22 +199,37 @@ class Clan:
         self.disaster_moon = 0
         self.second_disaster_moon = 0
 
+        rebuild_top_menu_buttons()
+
+    @property
+    def current_season(self):
+        modifiers = {"Newleaf": 0, "Greenleaf": 3, "Leaf-fall": 6, "Leaf-bare": 9}
+        return (
+            self.starting_season
+            if constants.CONFIG["lock_season"]
+            else constants.SEASON_CALENDAR[
+                (self.age + modifiers[self.starting_season]) % 12
+            ]
+        )
+
     # The clan couldn't save itself in time due to issues arising, for example, from this function: "if deputy is not
     # None: self.deputy.status_change('deputy') -> game.clan.remove_med_cat(self)"
     def post_initialization_functions(self):
         if self.deputy and self.deputy.status.alive_in_player_clan:
-            self.deputy.rank_change(CatRank.DEPUTY)
+            self.deputy.rank_change(CatRank.DEPUTY, new_thought=False)
             self.clan_cats.append(self.deputy.ID)
 
         if self.leader and self.leader.status.alive_in_player_clan:
-            self.leader.rank_change(CatRank.LEADER)
+            self.leader.rank_change(CatRank.LEADER, new_thought=False)
             self.clan_cats.append(self.leader.ID)
 
         if self.medicine_cat and self.medicine_cat.status.alive_in_player_clan:
             self.clan_cats.append(self.medicine_cat.ID)
             self.med_cat_list.append(self.medicine_cat.ID)
             if self.medicine_cat.status.rank != CatRank.MEDICINE_CAT:
-                Cat.all_cats[self.medicine_cat.ID].rank_change(CatRank.MEDICINE_CAT)
+                Cat.all_cats[self.medicine_cat.ID].rank_change(
+                    CatRank.MEDICINE_CAT, new_thought=False
+                )
 
     @property
     def settings(self):
@@ -232,8 +252,11 @@ class Clan:
         created in the 'clan created' screen, not every time
         the program starts
         """
+        game.reset_used_group_IDs()
         switch_set_value(Switch.clan_name, self.name)
         reset_loaded_clan_settings()
+        game.starclan = Afterlife()
+        game.dark_forest = Afterlife()
         instructor_rank = choice(
             (
                 CatRank.APPRENTICE,
@@ -302,7 +325,7 @@ class Clan:
                 the_cat.backstory = "clan_founder"
             if the_cat.status.rank == CatRank.APPRENTICE:
                 the_cat.rank_change(CatRank.APPRENTICE)
-            the_cat.thoughts()
+            the_cat.get_new_thought()
 
         # save_cats(game.clan.name, Cat, game)
         number_other_clans = randint(3, 5)
@@ -320,11 +343,6 @@ class Clan:
                 )
             other_clan = OtherClan(name=other_clan_name)
             self.all_other_clans.append(other_clan)
-        
-        # if 'other_med' in game.switches:
-        #     del game.switches['other_med']
-        # CHECKMERGE other meds wtf
-        # i also dk if the clan/cats saving is properly called here. check again
 
         self.save_clan()
         # this has to be done after saving the first time
@@ -372,10 +390,6 @@ class Clan:
             switch_set_value(Switch.game_mode, "classic")
             self.game_mode = "classic"
 
-        # set the starting season
-        season_index = constants.SEASON_CALENDAR.index(self.starting_season)
-        self.current_season = constants.SEASON_CALENDAR[season_index]
-
     def generate_mates(self):
         """Generates up to three pairs of mates."""
 
@@ -395,7 +409,7 @@ class Clan:
             same_age_cats = []
             random_cat = get_adult_mateless_cat()
             if random_cat:
-                same_age_cats = get_free_possible_mates(random_cat)
+                same_age_cats = get_possible_mates(random_cat)[0]
 
             if same_age_cats:
                 random_mate_cat = choice(same_age_cats)
@@ -596,7 +610,7 @@ class Clan:
             same_age_cats = []
             random_cat = get_adult_mateless_cat()
             if random_cat:
-                same_age_cats = get_free_possible_mates(random_cat)
+                same_age_cats = get_possible_mates(random_cat)[0]
 
             if same_age_cats:
                 random_mate_cat = choice(same_age_cats)
@@ -685,6 +699,8 @@ class Clan:
                         Cat.all_cats.get(app.parent2).inheritance.update_inheritance()
 
     def populate_your_group(self):
+        if not game.clan.your_cat:
+            return
         group_ID = game.clan.your_cat.status.group_ID
 
         info_dict = {
@@ -737,7 +753,6 @@ class Clan:
             and cat.status.alive_in_player_clan
             and cat.ID in Cat.outside_cats
         ):
-            # The outside-value must be set to True before the cat can go to cotc
             Cat.outside_cats.pop(cat.ID)
             cat.clan = str(game.clan.name)
 
@@ -863,6 +878,9 @@ class Clan:
             "told_story": game.told_story,
             "starting_season": self.starting_season,
             "temperament": self.temperament,
+            "just_died": game.just_died,
+            "dead_cats_to_grieve": [x.ID for x in game.dead_cats_to_grieve],
+            "grief_to_assign": game.clan.grief_strings,
             "version_name": SAVE_VERSION_NUMBER,
             "version_commit": get_version_info().version_number,
             "source_build": get_version_info().is_source_build,
@@ -972,10 +990,22 @@ class Clan:
                 Switch.error_message, "There was an error loading the clan.json"
             )
 
+        # can't put this in post initialization bc guide isn't made before that func
+        self.add_guide_influence()
         load_clan_settings()
         
 
         return version_info
+
+    @staticmethod
+    def add_guide_influence():
+        """
+        Adds guide's facet influences to their current afterlife
+        """
+        if game.clan.instructor.status.group == CatGroup.STARCLAN:
+            game.starclan.adjust_facets_by_cat(game.clan.instructor)
+        elif game.clan.instructor.status.group == CatGroup.DARK_FOREST:
+            game.dark_forest.adjust_facets_by_cat(game.clan.instructor)
 
     def load_clan_txt(self):
         """
@@ -1104,10 +1134,6 @@ class Clan:
             )
             game.clan.post_initialization_functions()
         game.clan.age = int(general[1])
-        if not constants.CONFIG["lock_season"]:
-            game.clan.current_season = constants.SEASON_CALENDAR[game.clan.age % 12]
-        else:
-            game.clan.current_season = game.clan.starting_season
         game.clan.leader_lives, game.clan.leader_predecessors = int(
             leader_info[1]
         ), int(leader_info[2])
@@ -1273,8 +1299,6 @@ class Clan:
             if "starting_season" in clan_data
             else "Newleaf"
         )
-        get_current_season()
-
         game.clan.leader_lives = leader_lives
         game.clan.leader_predecessors = clan_data["leader_predecessors"]
 
@@ -1403,6 +1427,20 @@ class Clan:
 
         game.clan.clan_age = clan_data["clan_age"] if "clan_age" in clan_data else "established"
 
+        # Cat who had just died
+        if "just_died" in clan_data:
+            game.just_died = clan_data["just_died"]
+
+        # Cats who need to be grieved
+        if "dead_cats_to_grieve" in clan_data:
+            game.dead_cats_to_grieve = [
+                Cat.fetch_cat(x) for x in clan_data["dead_cats_to_grieve"]
+            ]
+
+        # Cats who are gonna grieve
+        if "grief_to_assign" in clan_data:
+            game.clan.grief_strings = clan_data["grief_to_assign"]
+
         self.load_pregnancy(game.clan)
         self.load_herb_supply(game.clan)
         self.load_future_events(game.clan)
@@ -1454,22 +1492,6 @@ class Clan:
                 game.clan.focus_cat = None
             else:
                 game.clan.focus_cat = Cat.all_cats[clan_data["focus_cat"]]
-
-        # CHECKMERGE
-        # whaaat are theeesse
-        # maybe move other meds to other clan info tbh
-        # im commentign thsi out bc it scares me
-        # if "other_med" in clan_data:
-        #     other_med = []
-        #     for c in clan_data["other_med"]:
-        #         other_clan_meds = []
-        #         for other_clan_med in c:
-        #             other_clan_med = other_clan_med.split(",")
-        #             n = Name(prefix = other_clan_med[0], suffix = other_clan_med[1])
-        #             other_clan_meds.append(n)
-        #         other_med.append(other_clan_meds)
-        #     game.switches["other_med"] = other_med
-        # game.switches["error_message"] = ""
         
         switch_set_value(Switch.error_message, "")
 
@@ -1919,22 +1941,7 @@ class Clan:
             print("returned default temper: stoic")
             return "stoic"
 
-        # _temperament = ['low_aggression', 'med_aggression', 'high_aggression', ]
-        if 11 <= clan_sociability:
-            _temperament = constants.TEMPERAMENT_DICT["high_social"]
-        elif 7 <= clan_sociability:
-            _temperament = constants.TEMPERAMENT_DICT["mid_social"]
-        else:
-            _temperament = constants.TEMPERAMENT_DICT["low_social"]
-
-        if 11 <= clan_aggression:
-            _temperament = _temperament[2]
-        elif 7 <= clan_aggression:
-            _temperament = _temperament[1]
-        else:
-            _temperament = _temperament[0]
-
-        return _temperament
+        return get_temper_alignment(clan_sociability, clan_aggression)
 
     @temperament.setter
     def temperament(self, val):
@@ -1970,6 +1977,7 @@ class OtherClan:
         self.group_ID = ID
         if not self.group_ID:
             self.group_ID = game.get_free_group_ID(CatGroup.OTHER_CLAN)
+        game.clan.other_clan_IDs.append(self.group_ID)
 
         clan_names = names.names_dict["normal_prefixes"]
         clan_names.extend(names.names_dict["clan_prefixes"])
@@ -1991,42 +1999,160 @@ class OtherClan:
     def __repr__(self):
         return f"{self.name}Clan"
 
-class StarClan:
-    """
-    TODO: DOCS
-    """
 
-    forgotten_stages = {
-        0: [0, 100],
-        10: [101, 200],
-        30: [201, 300],
-        60: [301, 400],
-        90: [401, 500],
-        100: [501, 502],
-    }  # Tells how faded the cat will be in StarClan by months spent
-    dead_cats = {}
+class Afterlife:
+    """
+    Currently just used for tracking temperament & facets. All facets default to 8 if influencing_cats is empty.
+    """
 
     def __init__(self):
-        """
-        TODO: DOCS
-        """
-        self.instructor = None
-        self.demon = None
+        self.influencing_cats: set[str] = set()
 
-    def fade(self, cat):
+        self._law: int = 0
+        self._social: int = 0
+        self._aggress: int = 0
+        self._stable: int = 0
+
+        self._total_aggression: int = 0
+        self._total_lawfulness: int = 0
+        self._total_sociability: int = 0
+        self._total_stability: int = 0
+
+    @property
+    def aggression(self) -> int:
+        if not self.influencing_cats:
+            return 8
+        else:
+            return self._aggress
+
+    @aggression.setter
+    def aggression(self, value):
+        raise Exception(
+            "ERROR: Afterlife aggression cannot be set manually as it is meant to be calculated from the currently dead cats."
+        )
+
+    @property
+    def sociability(self) -> int:
+        if not self.influencing_cats:
+            return 8
+        else:
+            return self._social
+
+    @sociability.setter
+    def sociability(self, value):
+        raise Exception(
+            "ERROR: Afterlife sociability cannot be set manually as it is meant to be calculated from the currently dead cats."
+        )
+
+    @property
+    def lawfulness(self) -> int:
+        if not self.influencing_cats:
+            return 8
+        else:
+            return self._law
+
+    @lawfulness.setter
+    def lawfulness(self, value):
+        raise Exception(
+            "ERROR: Afterlife lawfulness cannot be set manually as it is meant to be calculated from the currently dead cats."
+        )
+
+    @property
+    def stability(self) -> int:
+        if not self.influencing_cats:
+            return 8
+        else:
+            return self._stable
+
+    @stability.setter
+    def stability(self, value):
+        raise Exception(
+            "ERROR: Afterlife aggresstabilitysion cannot be set manually as it is meant to be calculated from the currently dead cats."
+        )
+
+    @property
+    def temperament(self) -> str:
+        return get_temper_alignment(self.sociability, self.aggression)
+
+    def adjust_facets_by_cat(self, cat: Cat, do_removal: bool = False):
         """
-        TODO: DOCS
+        Adjusts the afterlife's facet averages according to the facets of the given cat
+        :param cat: The cat object adjust facets by
+        :param do_removal: Set True if the cat's facets are being removed from the afterlife's
         """
-        white = pygame.Surface((sprites.size, sprites.size))
-        fade_level = 0
-        if cat.dead:
-            for f in self.forgotten_stages:  # pylint: disable=consider-using-dict-items
-                if cat.dead_for in range(
-                    self.forgotten_stages[f][0], self.forgotten_stages[f][1]
-                ):
-                    fade_level = f
-        white.fill((255, 255, 255, fade_level))
-        return white
+        if do_removal:
+            self.influencing_cats.remove(cat.ID)
+        else:
+            self.influencing_cats.add(cat.ID)
+
+        num_of_influencers = len(self.influencing_cats)
+
+        if do_removal:
+            self._total_lawfulness -= cat.personality.lawfulness
+            self._total_sociability -= cat.personality.sociability
+            self._total_aggression -= cat.personality.aggression
+            self._total_stability -= cat.personality.stability
+        else:
+            self._total_lawfulness += cat.personality.lawfulness
+            self._total_sociability += cat.personality.sociability
+            self._total_aggression += cat.personality.aggression
+            self._total_stability += cat.personality.stability
+
+        self._law = self._get_adjusted_facet_average(
+            self._total_lawfulness,
+            num_of_influencers,
+        )
+
+        self._social = self._get_adjusted_facet_average(
+            self._total_sociability,
+            num_of_influencers,
+        )
+
+        self._aggress = self._get_adjusted_facet_average(
+            self._total_aggression,
+            num_of_influencers,
+        )
+
+        self._stable = self._get_adjusted_facet_average(
+            self._total_stability,
+            num_of_influencers,
+        )
+
+    @staticmethod
+    def _get_adjusted_facet_average(
+        total: int,
+        num_of_influencers: int,
+    ) -> int:
+        """
+        Handles the math for adjust average facets.
+        :param total: The facet's total value derived from all influencing cats
+        :param num_of_influencers: The number of cats influencing the average
+        :return: The adjusted average
+        """
+        if not num_of_influencers:
+            return 0
+        return total // num_of_influencers
+
+
+def get_temper_alignment(sociability: int, aggression: int) -> str:
+    """
+    Returns the temperament string associated with given sociability and aggression values
+    """
+    if 11 <= sociability:
+        _temperament = constants.TEMPERAMENT_DICT["high_social"]
+    elif 7 <= sociability:
+        _temperament = constants.TEMPERAMENT_DICT["mid_social"]
+    else:
+        _temperament = constants.TEMPERAMENT_DICT["low_social"]
+
+    if 11 <= aggression:
+        _temperament = _temperament[2]
+    elif 7 <= aggression:
+        _temperament = _temperament[1]
+    else:
+        _temperament = _temperament[0]
+
+    return _temperament
 
 
 clan_class = Clan()

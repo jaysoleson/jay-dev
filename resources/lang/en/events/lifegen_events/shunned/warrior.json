@@ -1,5 +1,5 @@
 {
-    "warrior general": [
+    "general": [
         "The atmosphere in the warriors' den changes. No one wants to share tongues with you, their eyes filled with distrust and suspicion.",
         "Your Clan leader reassigns your mentoring duties to another warrior, stating that it's for the 'betterment of the apprentice'.",
         "You're given the least desirable tasks: changing the elders' bedding, cleaning out the fresh-kill pile, keeping an eye on mischievous kits.",
@@ -23,16 +23,16 @@
         "Clan meetings are a challenge. Your contributions are often met with silence, the distrust in the air palpable.",
         "Every fresh-kill you bring back to camp is examined closely before it's accepted. As if they expect you to poison them."
     ],
-    "warrior assertive": [],
-    "warrior brooding": [],
-    "warrior cool": [],
-    "warrior upstanding": [],
-    "warrior introspective": [],
-    "warrior neurotic": [],
-    "warrior silly": [],
-    "warrior stable": [],
-    "warrior sweet": [],
-    "warrior unabashed": [],
-    "warrior unlawful": [],
-    "warrior rare": []
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

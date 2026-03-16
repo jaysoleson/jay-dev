@@ -14,10 +14,7 @@ from scripts.events_module.ongoing.ongoing_event import OngoingEvent
 from scripts.game_structure import constants
 from scripts.game_structure import game
 from scripts.game_structure.localization import load_lang_resource
-from scripts.utility import (
-    get_living_clan_cat_count,
-    get_cluster
-)
+from scripts.lifegen_utility import get_cluster
 
 
 def get_resource_directory(fallback=False):

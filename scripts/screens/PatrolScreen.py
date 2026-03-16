@@ -8,19 +8,13 @@ import pygame_gui
 from scripts.cat.cats import Cat
 from scripts.events_module.patrol.patrol import Patrol
 from scripts.game_structure import game
-from scripts.game_structure.ui_elements import (
-    UIImageButton,
-    UISpriteButton,
-    UISurfaceImageButton,
-)
+from ..ui.elements.sprite_button import UISpriteButton
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.theme import get_text_box_theme
+from ..events_module.text_adjust import shorten_text_to_fit
+from ..ui.scale import ui_scale, ui_scale_dimensions
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
-
-from scripts.utility import (
-    get_text_box_theme,
-    ui_scale,
-    shorten_text_to_fit,
-    ui_scale_dimensions
-)
 from .Screens import Screens
 from .enums import GameScreen
 from ..clan_package.settings import get_clan_setting
@@ -32,6 +26,7 @@ from ..game_structure.screen_settings import MANAGER
 from ..ui.generate_box import BoxStyles, get_box
 from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
+from ..ui.windows.rel_change_details import RelChangeDetailWindow
 
 
 class PatrolScreen(Screens):
@@ -84,6 +79,7 @@ class PatrolScreen(Screens):
         self.current_patrol = None
         self.display_text = ""
         self.results_text = ""
+        self.rel_results = {}
         self.start_patrol_thread: Optional[PropagatingThread] = None
         self.proceed_patrol_thread: Optional[PropagatingThread] = None
         self.outcome_art = None
@@ -309,6 +305,7 @@ class PatrolScreen(Screens):
             else:
                 self.patrol_type = "hunting"
             self.update_button()
+
         elif event.ui_element == self.elements["patrol_start"]:
             self.elements["patrol_start"].disable()
             self.selected_cat = None
@@ -381,18 +378,89 @@ class PatrolScreen(Screens):
         elif event.ui_element == self.elements["clan_return"]:
             self.in_progress_data = None
             self.change_screen(GameScreen.CAMP)
+        elif event.ui_element == self.elements.get("rel_detail"):
+            RelChangeDetailWindow(self.rel_results)
 
     def screen_switches(self):
         super().screen_switches()
-        self.set_disabled_menu_buttons(["patrol_screen"])
-        if game.clan.your_cat.status.is_outsider:
-            self.update_heading_text("Your Territory")
-        else:
+        self.set_disabled_menu_buttons(["patrols"])
+        # LG EDIT
+        if game.clan.your_cat.status.alive_in_player_clan:
             self.update_heading_text(f"{game.clan.displayname}Clan")
+        elif game.clan.your_cat.status.group:
+            self.update_heading_text(f"The {(game.clan.your_cat.status.group).capitalize().replace("_", " ")}")
+        else:
+            self.update_heading_text("Outside the Clan")
+        # ---
         self.show_mute_buttons()
         self.show_menu_buttons()
-        self.open_choose_cats_screen()
-        self.update_button()
+        # self.open_choose_cats_screen()
+        # self.update_button()
+
+        if (
+            self.in_progress_data is not None
+            and self.in_progress_data["current_moon"] == game.clan.age
+            and self.in_progress_data["clan_name"] == game.clan.name
+        ):
+            self.display_change_load(self.in_progress_data)
+        else:
+            self.in_progress_data = None
+            self.open_choose_cats_screen()
+
+    def display_change_save(self) -> Dict:
+        if self.start_patrol_thread is not None and self.start_patrol_thread.is_alive():
+            self.start_patrol_thread.join()
+
+        if (
+            self.proceed_patrol_thread is not None
+            and self.proceed_patrol_thread.is_alive()
+        ):
+            self.proceed_patrol_thread.join()
+
+        variable_dict = super().display_change_save()
+
+        variable_dict["patrol_stage"] = self.patrol_stage
+        variable_dict["patrol_screen"] = self.patrol_screen
+        variable_dict["patrol_type"] = self.patrol_type
+
+        variable_dict["selected_cat"] = self.selected_cat
+        variable_dict["current_page"] = self.current_page
+        variable_dict["current_patrol"] = self.current_patrol
+        variable_dict["patrol_obj"] = self.patrol_obj
+        variable_dict["intro_image"] = self.intro_image
+
+        variable_dict["display_text"] = self.display_text
+        variable_dict["results_text"] = self.results_text
+        variable_dict["rel_results"] = self.rel_results.copy()
+        variable_dict["outcome_art"] = self.outcome_art
+
+        variable_dict["current_moon"] = game.clan.age
+        variable_dict["clan_name"] = game.clan.name
+
+        return variable_dict
+
+    def display_change_load(self, variable_dict: Dict):
+        super().display_change_load(variable_dict)
+
+        for key, value in variable_dict.items():
+            try:
+                setattr(self, key, value)
+            except KeyError:
+                continue
+
+        if self.patrol_stage == "choose_cats":
+            self.open_choose_cats_screen()
+            self.update_selected_cat()
+            self.current_patrol = variable_dict["current_patrol"]
+            self.update_cat_images_buttons()
+            self.update_button()
+        elif self.patrol_stage == "patrol_events":
+            self.open_patrol_event_screen()
+        elif self.patrol_stage == "patrol_complete":
+            self.open_patrol_event_screen()
+            self.open_patrol_complete_screen()
+        else:
+            print("how'd that happen? Unidentified patrol stage.")
 
     def update_button(self):
         """" Updates button availabilities. """
@@ -1017,7 +1085,7 @@ class PatrolScreen(Screens):
 
         # Draw Patrol Cats
         pos_x = 400
-        pos_y = 475
+        pos_y = 488
         for u in range(6):
             if u < len(self.patrol_obj.patrol_cats):
                 self.elements["cat" + str(u)] = pygame_gui.elements.UIImage(
@@ -1065,18 +1133,21 @@ class PatrolScreen(Screens):
             (
                 self.display_text,
                 self.results_text,
+                self.rel_results,
                 self.outcome_art,
             ) = self.patrol_obj.proceed_patrol("decline")
         elif user_input in ["antag", "antagonize"]:
             (
                 self.display_text,
                 self.results_text,
+                self.rel_results,
                 self.outcome_art,
             ) = self.patrol_obj.proceed_patrol("antag")
         else:
             (
                 self.display_text,
                 self.results_text,
+                self.rel_results,
                 self.outcome_art,
             ) = self.patrol_obj.proceed_patrol("proceed")
 
@@ -1113,6 +1184,18 @@ class PatrolScreen(Screens):
             object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95"),
             manager=MANAGER,
         )
+
+        if self.rel_results:
+            self.elements["rel_detail"] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((500, -2), (36, 36))),
+                Icon.MAGNIFY,
+                get_button_dict(ButtonStyles.ICON_TAB_BOTTOM, (36, 36)),
+                object_id="@buttonstyles_squoval",
+                manager=MANAGER,
+                anchors={"top_target": self.elements["event_bg"]},
+                tool_tip_text="see relationship changes",
+            )
+
         self.elements["patrol_results"].set_text(self.results_text)
 
         self.elements["patrol_text"].set_text(self.display_text)
@@ -1666,10 +1749,6 @@ class PatrolScreen(Screens):
         self.loading_screen_on_use(
             self.proceed_patrol_thread, self.open_patrol_complete_screen
         )
-
-    @staticmethod
-    def chunks(L, n):
-        return [L[x : x + n] for x in range(0, len(L), n)]
 
     @staticmethod
     def get_list_text(patrol_list):

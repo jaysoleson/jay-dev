@@ -1,5 +1,5 @@
 {
-    "general general": [
+    "general": [
         "You think of a message to send to the medicine cats of c_n during the half-moon meeting.",
         "You will the clouds to cover the moon during a tense Gathering.",
         "r_a gets lost during their first solo hunt. You use the wind and the rustling of the undergrowth to guide {PRONOUN/r_a/object} safely back to camp.",
@@ -13,14 +13,14 @@
         "You watch y_kk run around, in the same way you did when you were {PRONOUN/y_kk/poss} age. StarClan, you'd take being exiled to the Dark Forest for even one minute to run around and play games with {PRONOUN/y_kk/object}.",
         "You comfort r_a-star after {PRONOUN/r_a-star/subject} {VERB/r_a-star/fail/fails} {PRONOUN/r_a-star/poss} first assessment. You also give {PRONOUN/r_a-star/object} some tips for next time. {PRONOUN/r_a-star/subject/CAP} {VERB/r_a-star/thank/thanks} you for your help and seems to be more confident during {PRONOUN/r_a-star/poss} next assessment."
     ],
-    "general assertive": [],
-    "general brooding": [],
-    "general cool": [],
-    "general upstanding": [],
-    "general introspective": [],
-    "general neurotic": [],
-    "general silly": [],
-    "general stable": [
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [
         "You feel accepting of all you did during your life for c_n, you feel it was enough.",
         "You wonder how your family is doing?",
         "You wish you were more adventurous when you were alive.",
@@ -37,8 +37,8 @@
         "You curl in a ball, still unable to accept the truth behind your death.",
         "You're giving r_m a prophecy. Feathers, bars of steel, and scales of fins. What {PRONOUN/r_m/subject} {VERB/r_m/do/does} with that information is out of your control."
     ],
-    "general sweet": [],
-    "general unabashed": [],
-    "general unlawful": [],
-    "general rare": []
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

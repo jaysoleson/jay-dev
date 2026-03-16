@@ -8,25 +8,22 @@ import pygame_gui.elements
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.game_structure import game
-from scripts.game_structure.ui_elements import (
-    UIImageButton,
-    UISpriteButton,
-    UISurfaceImageButton,
-    UITextBoxTweaked,
-    UIModifiedScrollingContainer
-)
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.sprite_button import UISpriteButton
+from ..ui.elements.text_box_tweaked import UITextBoxTweaked
+from ..ui.elements.modified_scrolling_container import UIModifiedScrollingContainer
+
 from scripts.screens.enums import GameScreen
-from ..cat.enums import CatAge, CatRank, CatGroup
+from ..cat.enums import CatRank
 from ..game_structure.game.settings import game_setting_get
 
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
 
-from scripts.utility import (
-    get_text_box_theme,
-    ui_scale,
-    shorten_text_to_fit,
-    ui_scale_dimensions
-)
+from scripts.ui.theme import get_text_box_theme
+from scripts.ui.scale import ui_scale, ui_scale_dimensions
+from ..events_module.text_adjust import shorten_text_to_fit
+
 from scripts.clan_package.settings import get_clan_setting
 from .Screens import Screens
 from ..game_structure.screen_settings import MANAGER

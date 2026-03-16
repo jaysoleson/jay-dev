@@ -8,18 +8,17 @@ from .Screens import Screens
 from scripts.game_structure.audio import sound_manager
 
 from scripts.cat.cats import Cat, ILLNESSES, INJURIES, PERMANENT, BACKSTORIES
-from ..cat.history import History
 from scripts.game_structure import image_cache
-from scripts.game_structure.ui_elements import (
-    UIImageButton,
-    UISurfaceImageButton,
-)
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+
 from scripts.screens.enums import GameScreen
 
 from scripts.game_structure import constants
-from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
+from ..game_structure.game.switches import switch_get_value, Switch
 from ..game_structure.game.settings import game_setting_get
 from ..cat.enums import CatRank, CatGroup, CatAge
+from ..ui.scale import ui_scale, ui_scale_dimensions
 
 import pygame_gui
 from scripts.game_structure import game
@@ -27,19 +26,16 @@ from scripts.housekeeping.version import VERSION_NAME
 from scripts.special_dates import get_special_date, contains_special_date_tag
 # pylint: disable=consider-using-dict-items
 # pylint: disable=consider-using-enumerate
-from scripts.utility import (
-    ui_scale,
-    get_current_season,
-    ui_scale_dimensions,
-    change_relationship_values,
-    generate_sprite,
-    get_cluster,
+from scripts.cat.sprites.display_sprites import generate_sprite
+from scripts.events_module.text_adjust import (
     pronoun_repl,
-    lifegen_text_adjust,
-    shorten_text_to_fit,
-    get_current_camp,
-    assign_new_bg
-    )
+    shorten_text_to_fit
+)
+from scripts.events_module.consequences import (
+    change_relationship_values
+)
+
+from scripts.lifegen_utility import get_current_camp, assign_new_bg, get_cluster, lifegen_text_adjust
 from scripts.game_structure.localization import (
     load_lang_resource
 )
@@ -295,7 +291,7 @@ class TalkScreen(Screens):
             },
         )
 
-        self.set_bg(get_current_season())
+        self.set_bg(game.clan.current_season)
 
     def on_use(self):
         super().on_use()
@@ -816,10 +812,10 @@ class TalkScreen(Screens):
 
             # DEMOTED FROM STATUS
             # this allows cats who were shunned and demoted from leader to
-            # still get leaderlike dialogue
+            # still get leader-like dialogue
             # TODO: this is useless rn. do something
             if you.status.is_shunned():
-                murder_history = History.get_murders(you)
+                murder_history = you.history.murder
                 history = None
                 your_status = you.status.rank
                 if "is_murderer" in murder_history:

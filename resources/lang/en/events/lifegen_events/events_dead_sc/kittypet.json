@@ -1,17 +1,15 @@
 {
-    "kittypet general": [
-        "The Clan cats enjoy the tinkling sound that your collar makes."
-    ],
-    "kittypet assertive": [],
-    "kittypet brooding": [],
-    "kittypet cool": [],
-    "kittypet upstanding": [],
-    "kittypet introspective": [],
-    "kittypet neurotic": [],
-    "kittypet silly": [],
-    "kittypet stable": [],
-    "kittypet sweet": [],
-    "kittypet unabashed": [],
-    "kittypet unlawful": [],
-    "kittypet rare": []
+    "general": [],
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

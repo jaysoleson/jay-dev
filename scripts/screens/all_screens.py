@@ -15,7 +15,6 @@ from .MurderScreen import MurderScreen
 from .DeputyScreen import DeputyScreen
 from .NameKitsScreen import NameKitsScreen
 from .AffairScreen import AffairScreen
-from .ClearingScreen import ClearingScreen
 from .QueenScreen import QueenScreen
 from .MoonplaceScreen import MoonplaceScreen
 from .EventEditScreen import EventEditScreen
@@ -77,7 +76,6 @@ def rebuild_all_screens():
         GameScreen.CAMP: ClanScreen,
         GameScreen.LIST: ListScreen,
         GameScreen.MED_DEN: MedDenScreen,
-        GameScreen.CLEARING: ClearingScreen,
         GameScreen.WARRIOR_DEN: WarriorDenScreen,
         GameScreen.LEADER_DEN: LeaderDenScreen,
         GameScreen.EVENTS: EventsScreen,

@@ -1,17 +1,17 @@
 {
-    "kittypet general": [
+    "general": [
         "You miss your Twolegs."
     ],
-    "kittypet assertive": [],
-    "kittypet brooding": [],
-    "kittypet cool": [],
-    "kittypet upstanding": [],
-    "kittypet introspective": [],
-    "kittypet neurotic": [],
-    "kittypet silly": [],
-    "kittypet stable": [],
-    "kittypet sweet": [],
-    "kittypet unabashed": [],
-    "kittypet unlawful": [],
-    "kittypet rare": []
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }
