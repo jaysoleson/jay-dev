@@ -189,7 +189,10 @@ class ListScreen(Screens):
                     element.set_text("screens.list.view_dead")
                     element.set_tooltip("screens.list.view_dead_tooltip")
                     self.death_status = "living"
-                    self.get_your_clan_cats()
+                    if game.clan.your_cat.alive_in_player_clan:
+                        self.get_your_clan_cats()
+                    else:
+                        self.get_your_group_cats()
 
                 self.update_cat_list(
                     self.cat_list_bar_elements["search_bar_entry"].get_text()
@@ -245,6 +248,10 @@ class ListScreen(Screens):
 
         self.set_disabled_menu_buttons(["cats"])
         self.show_menu_buttons()
+
+        # LG
+        if game.clan.your_cat.status.group != CatGroup.PLAYER_CLAN and not game.clan.your_cat.dead:
+            self.living_group_names = ("general.your_clan", "general.your_group", "general.cotc")
 
         # SCREEN CONTAINER - everything should come back to here
         self.list_screen_container = pygame_gui.core.UIContainer(
@@ -352,6 +359,9 @@ class ListScreen(Screens):
             container=self.cat_list_bar,
             starting_selection=[starting_select],
             anchors={"left_target": self.cat_list_bar_elements["view_button"]},
+
+            # LG
+            your_group=game.clan.your_cat.status.group
         )
 
         # SORT BY
@@ -537,6 +547,8 @@ class ListScreen(Screens):
             )
             if new_group == "your_clan":
                 self.get_your_clan_cats()
+            if new_group == "your_group":
+                self.get_your_group_cats()
             elif new_group == "cotc":
                 self.get_cotc_cats()
             elif new_group == "starclan":
@@ -707,6 +719,9 @@ class ListScreen(Screens):
         elif self.current_group == "cotc":
             self.set_bg(None)
             self.update_heading_text("general.cotc")
+        elif self.current_group == "your_group":
+            self.set_bg(None)
+            self.update_heading_text(f"The {(game.clan.your_cat.status.group).capitalize().replace("_", " ")}")
         elif self.current_group == "starclan":
             self.set_bg("starclan")
             self.update_heading_text("general.starclan")
@@ -732,7 +747,10 @@ class ListScreen(Screens):
             if self.current_group == "dark_forest":
                 group = i18n.t(f"general.the_dark_forest")
             else:
-                group = i18n.t(f"general.{self.current_group}")
+                group = i18n.t(
+                    f"general.{self.current_group}",
+                    your_group=f"The {(game.clan.your_cat.status.group).replace("_", " ")}"
+                    )
             if self.current_group == "starclan":
                 if not game.starclan or not game.starclan.influencing_cats:
                     self.temper_message.hide()
@@ -762,6 +780,8 @@ class ListScreen(Screens):
                 self.get_ur_cats()
             elif game.last_list_forProfile == "cotc":
                 self.get_cotc_cats()
+            elif game.last_list_forProfile == "your_group":
+                self.get_your_group_cats()
             else:
                 self.get_your_clan_cats()
         else:
@@ -789,7 +809,24 @@ class ListScreen(Screens):
             if (
                 not the_cat.dead
                 and not (the_cat.status.alive_in_player_clan)
+                and not (the_cat.status.alive_in_your_cat_group)
                 and the_cat.status.is_near(CatGroup.PLAYER_CLAN_ID)
+                and the_cat.moons >= 0
+            ):
+                self.full_cat_list.append(the_cat)
+
+    def get_your_group_cats(self):
+        """
+        grabs cats in your group if youre an outsider
+        """
+
+        self.current_group = "your_group"
+        self.death_status = "living"
+        self.full_cat_list = []
+        for the_cat in Cat.all_cats_list:
+            if (
+                not the_cat.dead
+                and (the_cat.status.alive_in_your_cat_group)
                 and the_cat.moons >= 0
             ):
                 self.full_cat_list.append(the_cat)

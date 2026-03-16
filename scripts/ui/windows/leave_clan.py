@@ -6,7 +6,7 @@ import pygame
 import pygame_gui
 
 from scripts.cat.cats import Cat
-from scripts.cat.enums import CatSocial
+from scripts.cat.enums import CatSocial, CatGroup
 from scripts.game_structure import game
 from scripts.game_structure.screen_settings import MANAGER
 from scripts.ui.elements.checkbox import UICheckbox
@@ -30,6 +30,8 @@ class LeaveClanWindow(GameWindow):
         self.checkboxes = {}
         self.the_cat = cat
         self.chosen_social = None
+        # LG
+        self.new_group_ID = None
 
         self.heading = pygame_gui.elements.UITextBox(
             "windows.leave_clan",
@@ -41,7 +43,12 @@ class LeaveClanWindow(GameWindow):
         )
 
         prev_element = self.heading
-        for social in (CatSocial.LONER, CatSocial.ROGUE, CatSocial.KITTYPET):
+        # LG edits: changes these tuple items to lists to add group IDs
+        for social in (
+            (CatSocial.LONER, CatGroup.LONER_GROUP_ID),
+            (CatSocial.ROGUE, CatGroup.ROGUE_GROUP_ID),
+            (CatSocial.KITTYPET, CatGroup.HOUSEHOLD_ID)
+            ):
             self.checkboxes[social] = UICheckbox(
                 position=(-30, 10),
                 manager=MANAGER,
@@ -49,8 +56,8 @@ class LeaveClanWindow(GameWindow):
                 anchors={"top_target": prev_element, "centerx": "centerx"},
             )
 
-            self.checkboxes[f"{social}_text"] = pygame_gui.elements.UITextBox(
-                i18n.t(social, count=1),
+            self.checkboxes[f"{social[0]}_text"] = pygame_gui.elements.UITextBox(
+                i18n.t(social[0], count=1),
                 ui_scale(pygame.Rect((0, 10), (100, -1))),
                 object_id="#text_box_30_horizleft_spacing_95",
                 manager=MANAGER,
@@ -77,7 +84,7 @@ class LeaveClanWindow(GameWindow):
 
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.done_button:
-                self.the_cat.leave_clan(self.chosen_social)
+                self.the_cat.leave_clan(self.chosen_social, self.new_group_ID)
                 game.all_screens[GameScreen.PROFILE].exit_screen()
                 game.all_screens[GameScreen.PROFILE].screen_switches()
                 self.kill()
@@ -91,4 +98,5 @@ class LeaveClanWindow(GameWindow):
                         button.uncheck()
                     else:
                         button.check()
-                        self.chosen_social = CatSocial(name)
+                        self.chosen_social = CatSocial(name[0])
+                        self.new_group_ID = CatGroup(name[1])

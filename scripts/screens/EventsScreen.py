@@ -664,7 +664,14 @@ class EventsScreen(Screens):
 
         # Draw and disable the correct menu buttons.
         self.set_disabled_menu_buttons(["events"])
-        self.update_heading_text(f"{game.clan.displayname}Clan")
+        # LG EDIT
+        if game.clan.your_cat.status.alive_in_player_clan:
+            self.update_heading_text(f"{game.clan.displayname}Clan")
+        elif game.clan.your_cat.status.group:
+            self.update_heading_text(f"The {(game.clan.your_cat.status.group).capitalize().replace("_", " ")}")
+        else:
+            self.update_heading_text("Outside the Clan")
+        # ---
         self.show_menu_buttons()
 
     def reset_page_buttons(self, is_page_update=False):

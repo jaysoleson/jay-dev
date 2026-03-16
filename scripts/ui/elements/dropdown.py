@@ -1,4 +1,5 @@
 import pygame
+import i18n
 from pygame_gui.core import UIContainer
 from pygame_gui.core.gui_type_hints import RectLike
 from pygame_gui.core.interfaces import IUIManagerInterface
@@ -33,6 +34,9 @@ class UIDropDown(UIDropDownContainer):
         child_trigger_close: bool = True,
         starting_selection: list = None,
         open_on_hover: bool = False,
+
+        # LG
+        your_group=""
     ):
         """
         Class to handle the creation and management of non-scrolling dropdowns. It's recommended to use the on_use()
@@ -132,11 +136,18 @@ class UIDropDown(UIDropDownContainer):
         self.manager = manager
 
         for child in item_list:
+            # LG
+            # display text change for your_cat's group
+            display_text = i18n.t(
+                child,
+                your_group=f"The {(your_group).capitalize().replace("_", " ")}"
+                )
+
             y_pos = -2 if prev_element else 0
 
             self.child_button_dicts[child] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((0, y_pos), self.child_dimensions)),
-                child,
+                display_text,
                 get_button_dict(self.child_style, self.child_dimensions),
                 manager=manager,
                 object_id=f"@buttonstyles_{self.child_style.value}",

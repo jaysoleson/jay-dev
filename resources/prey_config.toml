@@ -72,7 +72,7 @@ feeding_order = [
 
     loner = 3
     rogue = 3
-    kittypet = 0
+    kittypet = 1
 
 # the bonus prey a hunter skill cat will catch according to exp rank
 [hunter_exp_bonus]
