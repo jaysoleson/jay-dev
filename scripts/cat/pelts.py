@@ -342,6 +342,46 @@ class Pelt:
             elif sprite_list[sprite] == "paws":
                 paw_accessories.append(sprite)
 
+    # PRIDEGEN
+    aroace_bandanas = []
+    for sprite_list in sprites.AROACE_DATA["sprite_list"]:
+        aroace_bandanas.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+            # theres only body accs here
+    gender_bandanas = []
+    for sprite_list in sprites.GENDER_DATA["sprite_list"]:
+        gender_bandanas.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+    label_bandanas = []
+    for sprite_list in sprites.LABELS_DATA["sprite_list"]:
+        label_bandanas.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+    misc_bandanas = []
+    for sprite_list in sprites.PG_MISC_DATA["sprite_list"]:
+        misc_bandanas.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+    sexuality_bandanas = []
+    for sprite_list in sprites.SEXUALITY_DATA["sprite_list"]:
+        sexuality_bandanas.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+    xenogender_bandanas = []
+    for sprite_list in sprites.XENOGENDER_DATA["sprite_list"]:
+        xenogender_bandanas.extend(sprite_list)
+        for sprite in sprite_list:
+            if sprite_list[sprite] == "body":
+                body_accessories.append(sprite)
+    # ---
+
     # this is used for acc-giving events, only change if you're adding a new category tag to the event filter
     # adding a category here will automatically update the event editor's options
   
@@ -366,6 +406,14 @@ class Pelt:
         "SMALLANIMALS": smallanimals_accessories,
         "WILD2": wild2_accessories
     }
+    pridegen_acc_categories = {
+        "AROACE": aroace_bandanas,
+        "GENDER": gender_bandanas,
+        "LABELS": label_bandanas,
+        "PG_MISC": misc_bandanas,
+        "SEXUALITY": sexuality_bandanas,
+        "XENOGENDER": xenogender_bandanas,
+    }
 
     # LIFEGEN
     # for the inventory + customiser
@@ -383,7 +431,14 @@ class Pelt:
         misc2_accessories +
         harness_accessories +
         smallanimals_accessories +
-        wild2_accessories
+        wild2_accessories +
+
+        aroace_bandanas +
+        gender_bandanas +
+        label_bandanas +
+        misc_bandanas +
+        sexuality_bandanas +
+        xenogender_bandanas
         )
 
     all_clangen_accessories = (
@@ -392,8 +447,17 @@ class Pelt:
         collar_accessories
     )
 
+    all_pridegen_accessories = (
+        aroace_bandanas +
+        gender_bandanas +
+        label_bandanas +
+        misc_bandanas +
+        sexuality_bandanas +
+        xenogender_bandanas
+    )
+
     # for generate_sprite()
-    # these are JUST lifegen accessories
+    # these are JUST lifegen accessories (+ pridegen)
     # accessory lists not added here will not show up on sprites.
     # so make sure to add it!
     acc_list_of_lists = [
@@ -407,7 +471,15 @@ class Pelt:
         misc2_accessories,
         harness_accessories,
         smallanimals_accessories,
-        wild2_accessories
+        wild2_accessories,
+
+        aroace_bandanas,
+        gender_bandanas,
+        label_bandanas,
+        misc_bandanas,
+        sexuality_bandanas,
+        xenogender_bandanas
+
     ]
     acc_data_list = [
         sprites.ALIVEINSECT_DATA,
@@ -420,7 +492,14 @@ class Pelt:
         sprites.MISC2_ACCS_DATA,
         sprites.HARNESS_DATA,
         sprites.SMALLANIMALS_DATA,
-        sprites.WILD2_DATA
+        sprites.WILD2_DATA,
+
+        sprites.AROACE_DATA,
+        sprites.GENDER_DATA,
+        sprites.LABELS_DATA,
+        sprites.PG_MISC_DATA,
+        sprites.SEXUALITY_DATA,
+        sprites.XENOGENDER_DATA
     ]
     # ---
 

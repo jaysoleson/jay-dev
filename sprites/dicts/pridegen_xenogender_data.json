@@ -1,0 +1,22 @@
+{
+    "spritesheet": "pridegen_xenogender",
+    "sprite_list": [
+        {
+            "MOSSGENDER": "body",
+            "MOONGENDER": "body",
+            "SUNGENDER": "body",
+            "STARGENDER": "body",
+            "APAGENDER": "body",
+            "ARKHAIGENDER": "body",
+            "ARCHEOGENDER": "body",
+            "CATGENDER": "body",
+            "GENDERDOE": "body",
+            "MOTHGENDER": "body",
+            "SNOWLEOPARDGENDER": "body",
+            "TIGERGENDER": "body",
+            "BUGGENDER": "body",
+            "GENDERFAUN": "body",
+            "XENOGENDER": "body"
+        }
+    ]
+}

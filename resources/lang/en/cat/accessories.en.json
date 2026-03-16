@@ -1514,6 +1514,311 @@
             "zero": "mushrooms",
             "many": "mushrooms",
             "one": "mushroom patch"
+        },
+        "AROACE": {
+            "zero": "aroace bandana",
+            "many": "an aroace bandana",
+            "one": "aroace bandana"
+        },
+        "ASEXUAL": {
+            "zero": "asexual bandana",
+            "many": "an asexual bandana",
+            "one": "asexual bandana"
+        },
+        "DEMISEXUAL": {
+            "zero": "demisexual bandana",
+            "many": "a demisexual bandana",
+            "one": "demisexual"
+        },
+        "GREYASEXUAL": {
+            "zero": "greyasexual bandana",
+            "many": "a greyasexual bandana",
+            "one": "greyasexual bandana"
+        },
+        "AROMANTIC": {
+            "zero": "aromantic bandana",
+            "many": "an aromantic bandana",
+            "one": "aromantic bandana"
+        },
+        "DEMIROMANTIC": {
+            "zero": "demiromantic bandana",
+            "many": "a demiromantic bandana",
+            "one": "demiromantic bandana"
+        },
+        "GREYAROMANTIC": {
+            "zero": "greyaromantic bandana",
+            "many": "a greyaromantic bandana",
+            "one": "greyaromantic bandana"
+        },
+        "LITHROMANTIC": {
+            "zero": "lithromantic bandana",
+            "many": "a lithromantic bandana",
+            "one": "lithromantic bandana"
+        },
+        "CUPIOROMANTIC": {
+            "zero": "cupioromantic bandana",
+            "many": "a cupioromantic bandana",
+            "one": "cupioromantic"
+        },
+        "AROACEFLUX": {
+            "zero": "aroaceflux bandana",
+            "many": "an aroaceflux bandana",
+            "one": "aroaceflux bandana"
+        },
+        "DEMIAROACE": {
+            "zero": "demiaroace bandana",
+            "many": "a demiaroace bandana",
+            "one": "demiaroace"
+        },
+        "GREYAROACE": {
+            "zero": "greyaroace bandana",
+            "many": "a greyaroace bandana",
+            "one": "greyaroace"
+        },
+        "DEMIFLUX": {
+            "zero": "demiflux bandana",
+            "many": "a demiflux bandana",
+            "one": "demiflux bandana"
+        },
+        "NEBULAROMANTIC": {
+            "zero": "nebularomantic bandana",
+            "many": "a nebularomantic bandana",
+            "one": "nebularomantic bandana"
+        },
+        "TRANS": {
+            "zero": "transgender bandana",
+            "many": "a transgender bandana",
+            "one": "transgender"
+        },
+        "NONBINARY": {
+            "zero": "nonbinary bandana",
+            "many": "a nonbinary bandana",
+            "one": "nonbinary bandana"
+        },
+        "DEMIBOY": {
+            "zero": "demiboy bandana",
+            "many": "a demiboy bandana",
+            "one": "demiboy bandana"
+        },
+        "DEMIGIRL": {
+            "zero": "demigirl bandana",
+            "many": "a demigirl bandana",
+            "one": "demigirl bandana"
+        },
+        "BIGENDER": {
+            "zero": "bigender bandana",
+            "many": "a bigender bandana",
+            "one": "bigender bandana"
+        },
+        "AGENDER": {
+            "zero": "agender bandana",
+            "many": "a agender bandana",
+            "one": "agender bandana"
+        },
+        "GENDERFLUID": {
+            "zero": "genderfluid bandana",
+            "many": "a genderfluid bandana",
+            "one": "genderfluid bandana"
+        },
+        "GENDERQUEER": {
+            "zero": "genderqueer bandana",
+            "many": "a genderqueer bandana",
+            "one": "genderqueer bandana"
+        },
+        "GENDERFLUX": {
+            "zero": "genderflux bandana",
+            "many": "a genderflux bandana",
+            "one": "genderflux bandana"
+        },
+        "NEPTUNIC": {
+            "zero": "neptunic bandana",
+            "many": "a neptunic bandana",
+            "one": "neptunic bandana"
+        },
+        "URANIC": {
+            "zero": "uranic bandana",
+            "many": "a uranic bandana",
+            "one": "uranic bandana"
+        },
+        "OMNISAPPHIC": {
+            "zero": "omnisapphic bandana",
+            "many": "a omnisapphic bandana",
+            "one": "omnisapphic bandana"
+        },
+        "SAPPHIC": {
+            "zero": "sapphic bandana",
+            "many": "a sapphic bandana",
+            "one": "sapphic"
+        },
+        "ACHILLEAN": {
+            "zero": "achillean bandana",
+            "many": "a achillean bandana",
+            "one": "achillean bandana"
+        },
+        "T4T": {
+            "zero": "t4t bandana",
+            "many": "a t4t bandana",
+            "one": "t4t bandana"
+        },
+        "BUTCH": {
+            "zero": "butch bandana",
+            "many": "a butch bandana",
+            "one": "butch bandana"
+        },
+        "STRAIGHT": {
+            "zero": "checkered bandana",
+            "many": "a checkered bandana",
+            "one": "checkered bandana"
+        },
+        "INTERSEX": {
+            "zero": "intersex bandana",
+            "many": "a intersex bandana",
+            "one": "intersex bandana"
+        },
+        "UNLABELLED": {
+            "zero": "unlabelled bandana",
+            "many": "a unlabelled bandana",
+            "one": "unlabelled bandana"
+        },
+        "QUESTIONING": {
+            "zero": "questioning bandana",
+            "many": "a questioning bandana",
+            "one": "questioning bandana"
+        },
+        "QUEERPLATONIC": {
+            "zero": "queerplatonic bandana",
+            "many": "a queerplatonic bandana",
+            "one": "queerplatonic bandana"
+        },
+        "DISABILITY": {
+            "zero": "disability bandana",
+            "many": "a disability bandana",
+            "one": "disability bandana"
+        },
+        "RAINBOW": {
+            "zero": "rainbow bandana",
+            "many": "a rainbow bandana",
+            "one": "rainbow bandana"
+        },
+        "GAY": {
+            "zero": "gay bandana",
+            "many": "a gay bandana",
+            "one": "gay bandana"
+        },
+        "LESBIAN": {
+            "zero": "lesbian bandana",
+            "many": "a lesbian bandana",
+            "one": "lesbian bandana"
+        },
+        "BISEXUAL": {
+            "zero": "bisexual bandana",
+            "many": "a bisexual bandana",
+            "one": "bisexual bandana"
+        },
+        "PANSEXUAL": {
+            "zero": "pansexual bandana",
+            "many": "a pansexual bandana",
+            "one": "pansexual bandana"
+        },
+        "POLYAMOROUS": {
+            "zero": "polyamorous bandana",
+            "many": "a polyamorous bandana",
+            "one": "polyamorous bandana"
+        },
+        "ANDROSEXUAL": {
+            "zero": "androsexual bandana",
+            "many": "an androsexual bandana",
+            "one": "androsexual bandana"
+        },
+        "GYNOSEXUAL": {
+            "zero": "gynosexual bandana",
+            "many": "a gynosexual bandana",
+            "one": "gynosexual bandana"
+        },
+        "POLYSEXUAL": {
+            "zero": "polysexual bandana",
+            "many": "a polysexual bandana",
+            "one": "polysexual bandana"
+        },
+        "OMNISEXUAL": {
+            "zero": "omnisexual bandana",
+            "many": "a omnisexual bandana",
+            "one": "omnisexual bandana"
+        },
+        "MOSSGENDER": {
+            "zero": "mossgender bandana",
+            "many": "a mossgender bandana",
+            "one": "mossgender bandana"
+        },
+        "MOONGENDER": {
+            "zero": "moongender bandana",
+            "many": "a moongender bandana",
+            "one": "moongender bandana"
+        },
+        "SUNGENDER": {
+            "zero": "sungender bandana",
+            "many": "a sungender bandana",
+            "one": "sungender bandana"
+        },
+        "STARGENDER": {
+            "zero": "stargender bandana",
+            "many": "a stargender bandana",
+            "one": "stargender bandana"
+        },
+        "APAGENDER": {
+            "zero": "apagender bandana",
+            "many": "an apagender bandana",
+            "one": "apagender bandana"
+        },
+        "ARKHAIGENDER": {
+            "zero": "arkhaigender bandana",
+            "many": "an arkhaigender bandana",
+            "one": "arkhaigender bandana"
+        },
+        "ARCHEOGENDER": {
+            "zero": "archeaogender bandana",
+            "many": "a archeaogenderbandana",
+            "one": "archeaogender bandana"
+        },
+        "CATGENDER": {
+            "zero": "catgender bandana",
+            "many": "a catgender bandana",
+            "one": "catgender bandana"
+        },
+        "GENDERDOE": {
+            "zero": "genderdoe bandana",
+            "many": "a genderdoe bandana",
+            "one": "genderdoe bandana"
+        },
+        "MOTHGENDER": {
+            "zero": "mothgender bandana",
+            "many": "a mothgender bandana",
+            "one": "mothgender bandana"
+        },
+        "SNOWLEOPARDGENDER": {
+            "zero": "snowleopardgender bandana",
+            "many": "a snowleopardgender bandana",
+            "one": "snowleopardgender bandana"
+        },
+        "TIGERGENDER": {
+            "zero": "tigergender bandana",
+            "many": "a tigergender bandana",
+            "one": "tigergender bandana"
+        },
+        "BUGGENDER": {
+            "zero": "buggender bandana",
+            "many": "a buggender bandana",
+            "one": "buggender bandana"
+        },
+        "GENDERFAUN": {
+            "zero": "genderfaun bandana",
+            "many": "a genderfaun bandana",
+            "one": "genderfaun"
+        },
+        "XENOGENDER": {
+            "zero": "xenogender bandana",
+            "many": "a xenogender bandana",
+            "one": "xenogender bandana"
         }
     }
 }

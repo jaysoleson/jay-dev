@@ -299,7 +299,10 @@ def one_moon():
         ghost_names = []
         shaken_cats = []
         extra_event = None
-        for ghost in game.dead_cats_to_grieve:
+        for ghost in game.dead_cats_to_grieve.copy():
+            if not ghost:
+                game.dead_cats_to_grieve.remove(ghost)
+                continue
             # LG if
             if not ghost.dead_for > 1 and ghost.dead:
             # ---

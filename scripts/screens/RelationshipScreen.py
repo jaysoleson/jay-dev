@@ -451,19 +451,19 @@ class RelationshipScreen(Screens):
 
         self.focus_cat_elements["header"] = pygame_gui.elements.UITextBox(
             "screens.relationship.heading",
-            ui_scale(pygame.Rect((75, 75), (400, -1))),
+            ui_scale(pygame.Rect((75, 65), (400, -1))),
             object_id=get_text_box_theme("#text_box_34_horizleft"),
             text_kwargs={"m_c": self.the_cat},
         )
         self.focus_cat_elements["header"].disable()
         self.focus_cat_elements["details"] = pygame_gui.elements.UITextBox(
             self.the_cat.get_info_block(relationship=True),
-            ui_scale(pygame.Rect((80, 105), (400, -1))),
+            ui_scale(pygame.Rect((80, 95), (400, -1))),
             object_id=get_text_box_theme("#text_box_22_horizleft"),
         )
         self.focus_cat_elements["details"].disable()
         self.focus_cat_elements["image"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((25, 75), (50, 50))), self.the_cat.sprite
+            ui_scale(pygame.Rect((25, 65), (50, 50))), self.the_cat.sprite
         )
 
         (

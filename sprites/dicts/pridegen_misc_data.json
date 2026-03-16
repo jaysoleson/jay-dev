@@ -1,0 +1,13 @@
+{
+    "spritesheet": "pridegen_misc",
+    "sprite_list": [
+        {
+            "STRAIGHT": "body",
+            "INTERSEX": "body",
+            "UNLABELLED": "body",
+            "QUESTIONING": "body",
+            "QUEERPLATONIC": "body",
+            "DISABILITY": "body"
+        }
+    ]
+}

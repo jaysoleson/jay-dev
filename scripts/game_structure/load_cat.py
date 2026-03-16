@@ -24,6 +24,8 @@ from ..cat.skills import CatSkills
 from ..cat.status import StatusDict
 from ..housekeeping.datadir import get_save_dir
 
+from scripts.cat.sexuality import Sexuality
+
 logger = logging.getLogger(__name__)
 
 
@@ -144,6 +146,31 @@ def json_load():
                 status_dict = {"rank": cat["status"], "age": age}
             else:
                 status_dict = cat["status"]
+            
+            # if "sexuality" not in cat:
+            #     # TODO: conversion
+            #     cat_sexuality = Sexuality()
+            #     cat_sexuality.init_random_sexuality()
+            # else:
+            #     cat_sexuality = cat["sexuality"]
+            if (
+                "sexuality" not in cat or
+                not isinstance(cat["sexuality"], dict)
+                ):
+                cat_sexuality = Sexuality()
+                cat_sexuality.init_random_sexuality(cat["gender"])
+            else:
+                cat_sexuality = Sexuality(
+                    sexuality_label=cat["sexuality"]["sexuality_label"],
+                    likes_toms=cat["sexuality"]["likes_toms"],
+                    likes_she_cats=cat["sexuality"]["likes_she_cats"],
+                    likes_enbies=cat["sexuality"]["likes_enbies"],
+                    acespec_label=cat["sexuality"]["acespec_label"],
+                    arospec_label=cat["sexuality"]["arospec_label"],
+                    acespec=cat["sexuality"]["acespec"],
+                    arospec=cat["sexuality"]["arospec"],
+                    t4t=cat["sexuality"]["t4t"] if "t4t" in cat["sexuality"] else False
+                )
 
             new_cat = Cat(
                 ID=cat["ID"],
@@ -153,6 +180,7 @@ def json_load():
                     cat["specsuffix_hidden"] if "specsuffix_hidden" in cat else False
                 ),
                 gender=cat["gender"],
+                sexuality=cat_sexuality,
                 status_dict=status_dict,
                 parent1=cat["parent1"],
                 parent2=cat["parent2"],
@@ -160,7 +188,8 @@ def json_load():
                 eye_colour=cat["eye_colour"],
                 loading_cat=True,
             )
-            
+            new_cat.sexuality.sexuality_label = new_cat.sexuality.generate_sexuality_label(cat["gender_align"])
+
             if cat["eye_colour"] == "BLUE2":
                 cat["eye_colour"] = "COBALT"
             if cat["eye_colour"] in ["BLUEYELLOW", "BLUEGREEN"]:

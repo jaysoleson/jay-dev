@@ -1,0 +1,14 @@
+{
+    "spritesheet": "pridegen_labels",
+    "sprite_list": [
+        {
+            "NEPTUNIC": "body",
+            "URANIC": "body",
+            "OMNISAPPHIC": "body",
+            "SAPPHIC": "body",
+            "ACHILLEAN": "body",
+            "T4T": "body",
+            "BUTCH": "body"
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "spritesheet": "pridegen_aroace",
+    "sprite_list": [
+        {
+            "AROACE": "body",
+            "ASEXUAL": "body",
+            "DEMISEXUAL": "body",
+            "GREYASEXUAL": "body",
+            "AROMANTIC": "body",
+            "DEMIROMANTIC": "body",
+            "GREYAROMANTIC": "body",
+            "LITHROMANTIC": "body",
+            "CUPIOROMANTIC": "body",
+            "AROACEFLUX": "body",
+            "DEMIAROACE": "body",
+            "GREYAROACE": "body",
+            "DEMIFLUX": "body",
+            "NEBULAROMANTIC": "body"
+        }
+    ]
+}

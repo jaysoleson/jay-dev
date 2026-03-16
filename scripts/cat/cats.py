@@ -65,6 +65,9 @@ from scripts.clan_package.get_clan_cats import find_alive_cats_with_rank
 
 from scripts.lifegen_utility import get_cluster
 
+# PG
+from scripts.cat.sexuality import Sexuality, Arospec, Acespec
+
 import scripts.game_structure.screen_settings
 
 if TYPE_CHECKING:
@@ -139,6 +142,9 @@ class Cat:
         prefix=None,
         gender=None,
         status_dict: StatusDict = None,
+        # PG
+        sexuality: Sexuality = None,
+        # ---
         backstory="clanborn",
         parent1=None,
         parent2=None,
@@ -161,6 +167,7 @@ class Cat:
         :param prefix: Cat's prefix (e.g. Fire- for Fireheart)
         :param gender: Cat's gender, default None
         :param status_dict: Dict containing information for Cat's status, default None
+        :param sexuality: Dict containing information for Cat's sexuality, default None
         :param backstory: Cat's origin, default "clanborn"
         :param parent1: ID of parent 1, default None
         :param parent2: ID of parent 2, default None
@@ -195,6 +202,14 @@ class Cat:
         # Public attributes
         self.gender = gender
         self.status: Status = Status(**status_dict) if status_dict else Status()
+
+        # PG
+        self.sexuality = sexuality
+        if not sexuality:
+            self.sexuality = Sexuality()
+            self.sexuality.init_random_sexuality(gender)
+        # ---
+
         self.backstory = backstory
         self.age: Optional[CatAge] = None
         self.skills = CatSkills(skill_dict=skill_dict)
@@ -1702,6 +1717,11 @@ class Cat:
             self.status._change_rank(CatRank.KITTEN)
         self.in_camp = 1
 
+        # PG
+        self.sexuality.sexuality_label = self.sexuality.generate_sexuality_label(self.genderalign)
+        self.give_bandanas()
+        # ---
+
         if old_age != self.age:
             # Things to do if the age changes
             self.personality.facet_wobble(facet_max=2)
@@ -2638,6 +2658,9 @@ class Cat:
         age_restriction: bool = True,
         first_cousin_mates: bool = False,
         ignore_no_mates: bool = False,
+        demiromantic_functionality: bool = True
+        # demi is true by default because theres really only one place it should be false
+        # (that being the choose mate screen)
     ):
         """
         Checks if this cat is potential mate for the other cat.
@@ -2697,6 +2720,49 @@ class Cat:
         # Current mentor
         if other_cat.ID in self.apprentice or self.ID in other_cat.apprentice:
             return False
+        
+        # PRIDEGEN
+        if (
+            other_cat.sexuality.is_aroace() or
+            self.sexuality.is_aroace()
+            ):
+            return False
+        if other_cat.genderalign in Sexuality.male_genders:
+            if not self.sexuality.likes_toms:
+                return False
+        elif other_cat.genderalign in Sexuality.female_genders:
+            if not self.sexuality.likes_she_cats:
+                return False
+        else:
+            if not self.sexuality.likes_enbies:
+                return False
+        if self.genderalign in Sexuality.male_genders:
+            if not other_cat.sexuality.likes_toms:
+                return False
+        elif self.genderalign in Sexuality.female_genders:
+            if not other_cat.sexuality.likes_she_cats:
+                return False
+        else:
+            if not other_cat.sexuality.likes_enbies:
+                return False
+        
+        if demiromantic_functionality:
+            demi_false = False
+            if other_cat.sexuality.arospec == Arospec.DEMI:
+                if self.ID not in other_cat.relationships:
+                    demi_false = True
+                else:
+                    if other_cat.relationships[self.ID].like < 50:
+                        demi_false = True
+            if self.sexuality.arospec == Arospec.DEMI:
+                if other_cat.ID not in self.relationships:
+                    demi_false = True
+                else:
+                    if self.relationships[other_cat.ID].like < 50:
+                        demi_false = True
+            if demi_false:
+                return False
+        # ---
 
         # Former mentor
         is_former_mentor = (
@@ -3010,7 +3076,10 @@ class Cat:
                             and the_cat.moons > 11
                             and self.age == the_cat.age
                         ):
-                            romance += randint(15, 30)
+                            if self.is_potential_mate(the_cat):
+                                romance += randint(15, 30)
+                            else:
+                                print(self.name, "and", the_cat.name, "NOT gaining romance")
                             comfort = int(comfort * 1.3)
                             trust = int(trust * 1.2)
 
@@ -3769,7 +3838,7 @@ class Cat:
     #                                  other                                       #
     # ---------------------------------------------------------------------------- #
 
-    def get_info_block(self, *, make_clan=False, patrol=False, relationship=False):
+    def get_info_block(self, *, make_clan=False, patrol=False, relationship=False, sexuality=False):
         if make_clan:
             return "\n".join(
                 [
@@ -3805,9 +3874,20 @@ class Cat:
                 [
                     i18n.t("general.moons_age", count=self.moons),
                     self.genderalign,
-                    i18n.t(f"cat.personality.{self.personality.trait}"),
+                    # i18n.t(f"cat.personality.{self.personality.trait}"),
+                    self.sexuality.get_sexuality_profile_display(kitten=self.age in (CatAge.NEWBORN, CatAge.KITTEN)),
                 ]
             )
+        elif sexuality:
+            return "\n".join(
+            [
+                i18n.t("general.moons_age", count=self.moons),
+                i18n.t(f"general.{self.status.rank.lower()}", count=1),
+                self.genderalign,
+                i18n.t(f"cat.personality.{self.personality.trait}"),
+                self.sexuality.get_sexuality_profile_display(kitten=self.age in (CatAge.NEWBORN, CatAge.KITTEN)),
+            ]
+        )
 
         return "\n".join(
             [
@@ -3846,6 +3926,7 @@ class Cat:
                     if self._pronouns is not None
                     else {i18n.config.get("locale"): self.pronouns}
                 ),
+                "sexuality": self.sexuality.get_sexuality_dict(),
                 "birth_cooldown": self.birth_cooldown,
                 "status": self.status.get_status_dict(),
                 "dark_forest_affinity": self.dark_forest_affinity,
@@ -3990,6 +4071,113 @@ class Cat:
                 cat.status.group == game.clan.your_cat.status.group
             )
         ]
+
+    def find_valid_flags(self):
+        valid_flags = []
+        if self.gender != self.genderalign:
+            valid_flags.append("TRANS")
+
+        if self.genderalign.upper() in Pelt.all_pridegen_accessories:
+            valid_flags.append(self.genderalign.upper())
+        if self.sexuality.sexuality_label.upper() in Pelt.all_pridegen_accessories:
+            valid_flags.append(self.sexuality.sexuality_label.upper())
+
+        # sexuality flags that dont differ based on gender
+        # hacky
+        if self.sexuality.likes_toms and self.sexuality.likes_she_cats:
+            if "bi" in self.sexuality.sexuality_label:
+                valid_flags.append("BISEXUAL")
+            elif "pan" in self.sexuality.sexuality_label:
+                valid_flags.append("PANSEXUAL")
+
+        if (
+            not self.sexuality.likes_toms and
+            not self.sexuality.likes_she_cats and
+            not self.sexuality.likes_enbies and
+            self.sexuality.arospec == Arospec.ARO and
+            self.sexuality.acespec == Acespec.ACE
+        ):
+            valid_flags.append("AROACE")
+            valid_flags.append("AROACEFLUX")
+
+        if self.sexuality.arospec.upper() in Pelt.all_pridegen_accessories:
+            valid_flags.append(self.sexuality.arospec.upper())
+        if self.sexuality.acespec.upper() in Pelt.all_pridegen_accessories:
+            valid_flags.append(self.sexuality.acespec.upper())
+
+        if self.sexuality.arospec == Arospec.DEMI and self.sexuality.acespec == Acespec.DEMI:
+            valid_flags.append("DEMIAROACE")
+        if self.sexuality.arospec == Arospec.GREY and self.sexuality.acespec == Acespec.GREY:
+            valid_flags.append("GREYAROACE")
+
+        if len(self.mate) > 1:
+            valid_flags.append("POLYAMOROUS")
+
+        if self.genderalign in Sexuality.male_genders:
+            if self.sexuality.likes_toms:
+                valid_flags.append("ACHILLEAN")
+                valid_flags.append("RAINBOW")
+                valid_flags.append("NEPTUNIC")
+                if not self.sexuality.likes_she_cats:
+                    valid_flags.append("GAY")
+            elif self.sexuality.likes_she_cats:
+                valid_flags.append("STRAIGHT")
+        elif self.genderalign in Sexuality.female_genders:
+            if self.sexuality.likes_she_cats:
+                valid_flags.append("SAPPHIC")
+                valid_flags.append("RAINBOW")
+                valid_flags.append("URANIC")
+                if not self.sexuality.likes_she_cats:
+                    valid_flags.append("LESBIAN")
+                    valid_flags.append("BUTCH")
+            elif self.sexuality.likes_toms:
+                valid_flags.append("STRAIGHT")
+        else:
+            valid_flags.append("NONBINARY")
+            if self.sexuality.likes_she_cats and not self.sexuality.likes_toms:
+                valid_flags.append("GYNOSEXUAL")
+            elif self.sexuality.likes_toms and not self.sexuality.likes_she_cats:
+                valid_flags.append("ANDROSEXUAL")
+
+        new_valid_flags = []
+        for flag in valid_flags:
+            if flag not in new_valid_flags:
+                new_valid_flags.append(flag)
+
+        return new_valid_flags
+
+    # PRIDEGEN
+    def give_bandanas(self):
+        """
+        Updates bandana inventories.
+        """
+        if self.age in (CatAge.NEWBORN, CatAge.KITTEN):
+            return
+
+        flags_to_remove = []
+        correct_flags = self.find_valid_flags()
+
+
+        for flag in Pelt.all_pridegen_accessories:
+            if flag in self.pelt.inventory and flag not in correct_flags:
+                flags_to_remove.append(flag)
+
+        for acc in self.pelt.inventory:
+            if acc in flags_to_remove:
+                self.pelt.inventory.remove(acc)
+                self.pelt.accessory = tuple(
+                    accessory for accessory in self.pelt.accessory if
+                    accessory != acc
+                )
+        flag_to_equip = None
+        for acc in correct_flags:
+            flag_to_equip = acc
+            if correct_flags not in self.pelt.inventory:
+                self.pelt.inventory.append(acc)
+
+        # TODO: if autoequip
+        self.pelt.accessory = self.pelt.accessory + (flag_to_equip,)
+
 
 # ---------------------------------------------------------------------------- #
 #                               END OF CAT CLASS                               #

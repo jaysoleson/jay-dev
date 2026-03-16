@@ -891,14 +891,14 @@ class ChooseMateScreen(Screens):
             object_id="#text_box_34_horizcenter",
         )
 
-        info = self.the_cat.get_info_block()
+        info = self.the_cat.get_info_block(sexuality=True)
         if self.the_cat.mate:
             info += f"\n{len(self.the_cat.mate)} " + i18n.t(
                 "general.mate", count=len(self.the_cat.mate)
             )
         self.current_cat_elements["info"] = pygame_gui.elements.UITextBox(
             info,
-            ui_scale(pygame.Rect((206, 175), (94, 100))),
+            ui_scale(pygame.Rect((206, 175), (105, 100))),
             object_id="#text_box_22_horizcenter_vertcenter_spacing_95",
             manager=MANAGER,
         )
@@ -1049,7 +1049,7 @@ class ChooseMateScreen(Screens):
             object_id="#text_box_34_horizcenter",
         )
 
-        info = self.selected_cat.get_info_block()
+        info = self.selected_cat.get_info_block(sexuality=True)
         if self.selected_cat.mate:
             info += f"\n{len(self.selected_cat.mate)} " + i18n.t(
                 "general.mate", count=len(self.selected_cat.mate)
@@ -1057,7 +1057,7 @@ class ChooseMateScreen(Screens):
 
         self.selected_cat_elements["info"] = pygame_gui.elements.UITextBox(
             info,
-            ui_scale(pygame.Rect((500, 175), (94, 100))),
+            ui_scale(pygame.Rect((495, 175), (105, 100))),
             object_id="#text_box_22_horizcenter_vertcenter_spacing_95",
             manager=MANAGER,
         )
@@ -1203,7 +1203,7 @@ class ChooseMateScreen(Screens):
             for i in Cat.all_cats_list
             if not i.faded
             and self.the_cat.is_potential_mate(
-                i, for_love_interest=False, age_restriction=False, ignore_no_mates=True
+                i, for_love_interest=False, age_restriction=False, ignore_no_mates=True, demiromantic_functionality=False
             )
             and i.status.is_outsider == self.the_cat.status.is_outsider
             and i.status.group_ID == self.the_cat.status.group_ID

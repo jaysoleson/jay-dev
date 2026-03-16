@@ -84,6 +84,34 @@ class Sprites:
         "sprites/dicts/wild2_sprite_data.json", "r", encoding="utf-8"
     ) as read_file:
         WILD2_DATA = ujson.loads(read_file.read())
+    
+    # PRIDEGEN
+    with open(
+        "sprites/dicts/pridegen_aroace_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        AROACE_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/pridegen_gender_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        GENDER_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/pridegen_labels_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        LABELS_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/pridegen_misc_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        PG_MISC_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/pridegen_sexuality_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        SEXUALITY_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/pridegen_xenogender_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        XENOGENDER_DATA = ujson.loads(read_file.read())
+
+    # ---
 
     # SCARS
     with open(
@@ -212,7 +240,6 @@ class Sprites:
                 except ValueError as e:
                     # Fallback for non-existent sprites
                     print(f"WARNING: nonexistent sprite - {full_name}")
-                    print("LG:", e)
                     if not self.blank_sprite:
                         self.blank_sprite = pygame.Surface(
                             (self.size, self.size), pygame.HWSURFACE | pygame.SRCALPHA
@@ -314,6 +341,13 @@ class Sprites:
             self.HARNESS_DATA,
             self.SMALLANIMALS_DATA,
             self.WILD2_DATA,
+
+            self.AROACE_DATA,
+            self.GENDER_DATA,
+            self.LABELS_DATA,
+            self.PG_MISC_DATA,
+            self.SEXUALITY_DATA,
+            self.XENOGENDER_DATA,
         )
 
         # data jsons that have multiple associated spritesheets

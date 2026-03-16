@@ -1,0 +1,17 @@
+{
+    "spritesheet": "pridegen_sexuality",
+    "sprite_list": [
+        {
+            "RAINBOW": "body",
+            "GAY": "body",
+            "LESBIAN": "body",
+            "BISEXUAL": "body",
+            "PANSEXUAL": "body",
+            "POLYAMOROUS": "body",
+            "ANDROSEXUAL": "body",
+            "GYNOSEXUAL": "body",
+            "POLYSEXUAL": "body",
+            "OMNISEXUAL": "body"
+        }
+    ]
+}

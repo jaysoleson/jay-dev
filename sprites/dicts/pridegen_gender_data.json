@@ -1,0 +1,16 @@
+{
+    "spritesheet": "pridegen_gender",
+    "sprite_list": [
+        {
+            "TRANS": "body",
+            "NONBINARY": "body",
+            "DEMIBOY": "body",
+            "DEMIGIRL": "body",
+            "BIGENDER": "body",
+            "AGENDER": "body",
+            "GENDERFLUID": "body",
+            "GENDERQUEER": "body",
+            "GENDERFLUX": "body"
+        }
+    ]
+}

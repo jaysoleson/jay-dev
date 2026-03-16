@@ -1315,6 +1315,11 @@ class ProfileScreen(Screens):
         # NEWLINE ----------
         output += "\n"
 
+        # PG
+        output += the_cat.sexuality.get_sexuality_profile_display(kitten=the_cat.age in (CatAge.NEWBORN, CatAge.KITTEN))
+        output += "\n"
+        # ---
+
         # AGE
         if the_cat.age == CatAge.KITTEN:
             output += i18n.t("general.kitten_profile")
@@ -2849,7 +2854,7 @@ class ProfileScreen(Screens):
         new_inv = []
         if self.search_bar.get_text() in ["", "search"]:
             inventory_len = len(self.cat_inventory)
-            new_inv = self.cat_inventory
+            new_inv = self.cat_inventory.copy()
         else:
             for ac in self.cat_inventory:
                 if ac and self.search_bar.get_text() and self.search_bar.get_text().lower() in ac.lower():
