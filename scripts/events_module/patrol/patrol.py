@@ -206,16 +206,15 @@ class Patrol:
             clan=game.clan,
             other_clan=self.other_clan,
         )
-        lifegen_adjust = lifegen_text_adjust(
-            Cat,
-            clangen_adjust,
-            self.patrol_leader,
-            self.patrol_cat_dict,
-            r_c_allowed=False,
-            o_c_allowed=False
-            )
-        return lifegen_adjust
-    # this is probably Not functional lol
+        # lifegen_adjust = lifegen_text_adjust(
+        #     Cat,
+        #     clangen_adjust,
+        #     self.patrol_leader,
+        #     self.patrol_cat_dict,
+        #     r_c_allowed=False,
+        #     o_c_allowed=False
+        #     )
+        return clangen_adjust
 
     def proceed_patrol(
         self, path: str = "proceed"
@@ -825,7 +824,6 @@ class Patrol:
                         )
                     continue
 
-                print("Checking", patrol.patrol_id, "for", patrol_type)
                 if not event_for_tags(
                     patrol.tags, Cat, mentor_tags_fulfilled=has_mentor
                 ):

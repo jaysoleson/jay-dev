@@ -971,10 +971,10 @@ class Cat:
                 (CatSocial.KITTYPET, CatSocial.LONER, CatSocial.ROGUE)
             )
         self.status.leave_group(new_social_status=new_social_status)
-
         # LG
         if new_group_ID:
             self.status.add_to_group(new_group_ID)
+
         self.get_new_thought()
 
         for app in self.apprentice.copy():
@@ -986,9 +986,6 @@ class Cat:
 
         for x in self.apprentice:
             Cat.fetch_cat(x).update_mentor()
-
-        print("LEAVING CLAN")
-        print(self.status.social, self.status.group)
 
     def become_lost(self):
         """Makes a Clan cat a lost cat. Makes status changes and removes apprentices."""

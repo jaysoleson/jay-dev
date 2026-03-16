@@ -250,8 +250,10 @@ class ListScreen(Screens):
         self.show_menu_buttons()
 
         # LG
-        if game.clan.your_cat.status.group != CatGroup.PLAYER_CLAN and not game.clan.your_cat.dead:
+        if not game.clan.your_cat.status.alive_in_player_clan and not game.clan.your_cat.dead:
             self.living_group_names = ("general.your_clan", "general.your_group", "general.cotc")
+        else:
+            self.living_group_names = ("general.your_clan", "general.cotc")
 
         # SCREEN CONTAINER - everything should come back to here
         self.list_screen_container = pygame_gui.core.UIContainer(
@@ -507,10 +509,7 @@ class ListScreen(Screens):
         self.cat_display.clear_display()
         self.cat_display = None
         self.list_screen_container.kill()
-        if game.clan.your_cat.status.is_outsider:
-            self.update_heading_text("Your Territory")
-        else:
-            self.update_heading_text(f"{game.clan.displayname}Clan")
+        self.update_heading_text(self.clan_name)
 
     def on_use(self):
         super().on_use()
@@ -718,10 +717,7 @@ class ListScreen(Screens):
         self.temper_message.set_text(self.get_group_temper_message())
         if self.current_group == "your_clan":
             self.set_bg(None)
-            if game.clan.your_cat.status.is_outsider:
-                self.update_heading_text("Your Territory")
-            else:
-                self.update_heading_text(f"{game.clan.displayname}Clan")
+            self.update_heading_text(self.clan_name)
         elif self.current_group == "cotc":
             self.set_bg(None)
             self.update_heading_text("general.cotc")
