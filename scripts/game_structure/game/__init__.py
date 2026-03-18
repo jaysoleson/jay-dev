@@ -308,6 +308,11 @@ def reset_used_group_IDs():
             CatGroup.STARCLAN,
             CatGroup.DARK_FOREST,
             CatGroup.UNKNOWN_RESIDENCE,
+
+            # LG
+            CatGroup.ROGUE_GROUP,
+            CatGroup.LONER_GROUP,
+            CatGroup.HOUSEHOLD
         ):
             used_group_IDs.pop(ID)
 

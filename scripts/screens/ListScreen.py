@@ -363,7 +363,9 @@ class ListScreen(Screens):
             anchors={"left_target": self.cat_list_bar_elements["view_button"]},
 
             # LG
-            your_group=game.clan.your_cat.status.group
+            your_group=game.clan.your_cat.status.group,
+            clan_name=game.clan.displayname,
+            all_clans=game.clan.all_other_clans
         )
 
         # SORT BY
@@ -736,7 +738,7 @@ class ListScreen(Screens):
 
     def get_group_temper_message(self):
         # UR and COTC has no alignment and no message
-        if self.current_group in ("unknown_residence", "cotc"):
+        if self.current_group in ("unknown_residence", "cotc", "your_group"):
             self.temper_message.hide()
             return ""
 

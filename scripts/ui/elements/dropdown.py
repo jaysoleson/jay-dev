@@ -36,7 +36,9 @@ class UIDropDown(UIDropDownContainer):
         open_on_hover: bool = False,
 
         # LG
-        your_group=""
+        your_group="",
+        clan_name="",
+        all_clans=[]
     ):
         """
         Class to handle the creation and management of non-scrolling dropdowns. It's recommended to use the on_use()
@@ -140,7 +142,8 @@ class UIDropDown(UIDropDownContainer):
             # display text change for your_cat's group
             display_text = i18n.t(
                 child,
-                your_group=f"The {(your_group).capitalize().replace("_", " ")}"
+                your_group=f"The {(your_group).capitalize().replace("_", " ")}",
+                name=clan_name
                 )
 
             y_pos = -2 if prev_element else 0

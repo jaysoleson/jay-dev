@@ -522,8 +522,7 @@ class Clan:
                 new_name=True,
                 alive=False,
                 backstory=random_backstory,
-                original_group=CatGroup.NONE,
-                thought="Watches over the Clan"
+                original_group=CatGroup.NONE
                 )[0]
             sc_cat.history.beginning = None
             sc_cat.dead_for = randint(20, 200)
@@ -550,8 +549,7 @@ class Clan:
                 alive=False,
                 outside=True,
                 backstory=random_backstory,
-                original_social=CatSocial.LONER,
-                thought="Wanders the Unknown Residence"
+                original_social=CatSocial.LONER
                 )[0]
             ur_cat.history.beginning = None
             ur_cat.dead_for = randint(20,100)
@@ -574,8 +572,7 @@ class Clan:
                 new_name=True,
                 alive=False,
                 backstory=random_backstory,
-                original_group=CatGroup.NONE,
-                thought="Watches the Clan from the gloom"
+                original_group=CatGroup.NONE
                 )[0]
             df_cat.history.beginning = None
             df_cat.dead_for = randint(20, 200)
@@ -730,14 +727,13 @@ class Clan:
                 rank=info_dict[group_ID]["rank"],
                 original_social=info_dict[group_ID]["social"],
                 new_name=False,
-                outside=True,
-                thought="Is wandering around"
+                outside=True
                 )[0]
             new_cat.history.beginning = None
-            # print("Adding", new_cat.name, "to your group!")
-            # print(new_cat.ID)
             self.add_cat(new_cat)
             new_cat.status.add_to_group(group_ID)
+            # print("Adding", new_cat.name, "to your group!", new_cat.status.group, game.clan.your_cat.status.group)
+            # print(new_cat.ID)
 
     def add_cat(self, cat):  # cat is a 'Cat' object
         """Adds cat into the list of clan cats"""

@@ -322,7 +322,7 @@ def one_moon():
                 alive_cats = [
                     kitty
                     for kitty in Cat.all_cats.values()
-                    if kitty.status.alive_in_player_clan
+                    if kitty.status.alive_in_your_cat_group
                 ]
 
                 # finds a percentage of the living Clan to become shaken
@@ -360,7 +360,7 @@ def one_moon():
                     alive_cats = [
                         kitty
                         for kitty in Cat.all_cats.values()
-                        if kitty.status.alive_in_player_clan
+                        if kitty.status.alive_in_your_cat_group
                     ]
 
                     # finds a percentage of the living Clan to become shaken
@@ -1367,7 +1367,7 @@ def generate_birth_event():
 
     for c in [parent1, parent2] + adoptive_parents_cats:
         for s in siblings + [game.clan.your_cat]:
-            if s and c and c.status.alive_in_player_clan:
+            if s and c and c.status.alive_in_your_cat_group:
                 y = random.randrange(0, 20)
                 start_relation = Relationship(c, s, False, True)
                 start_relation.like += 30 + y

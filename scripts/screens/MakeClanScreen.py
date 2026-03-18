@@ -4594,6 +4594,7 @@ class MakeClanScreen(Screens):
             rank=new_rank,
             group_ID=group_dict[self.social]
             )
+        # TODO: prefix-only names are fucked
 
         game.clan = Clan(
             name = clan_name,

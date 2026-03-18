@@ -748,7 +748,7 @@ class Cat:
         ):
             self.grief(body)
             game.dead_cats_to_grieve.append(self)
-            print("dead_cats_to_grieve adding:", self.name)
+
 
         # CHECKMERGE
         # faith effects, df for murderers + wrong placement. look at old lg code
