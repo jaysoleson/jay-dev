@@ -1,12 +1,16 @@
 {
-    "general": [],
+    "general": [
+        "Your housefolk leaves during the day. You spend a few hours staring out the window, waiting for them to come back."
+    ],
     "assertive": [],
     "brooding": [],
     "cool": [],
     "upstanding": [],
     "introspective": [],
     "neurotic": [],
-    "silly": [],
+    "silly": [
+        "Your housefolk leaves during the day. You spend a few hours staring out the window, waiting for them to come back..."
+    ],
     "stable": [],
     "sweet": [],
     "unabashed": [],

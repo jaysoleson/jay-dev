@@ -60,6 +60,22 @@
         "camp_shipwreck": "Shipwreck",
         "camp_fjord": "Fjord",
         "camp_tropical_island": "Tropical Island",
+
+        "loner_forest": "Forest",
+        "loner_plains": "Plains",
+        "loner_mountainous": "Mountains",
+        "loner_beach": "Beach",
+
+        "rogue_forest": "Forest",
+        "rogue_plains": "Plains",
+        "rogue_mountainous": "Mountains",
+        "rogue_beach": "Beach",
+
+        "household_forest": "Forest",
+        "household_plains": "Plains",
+        "household_mountainous": "Mountains",
+        "household_beach": "Beach",
+
         "Forest": "Forest",
         "Mountainous": "Mountainous",
         "Plains": "Plains",

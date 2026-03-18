@@ -1187,6 +1187,7 @@ class ProfileScreen(Screens):
                 tool_tip_text="Attempt to return to the Clan",
                 manager=MANAGER,
             )
+            self.profile_elements["exile_return"].hide()
         else:
             if self.the_cat.status.rank == CatRank.LEADER and not self.the_cat.dead:
                 self.profile_elements["leader_ceremony"] = UIImageButton(ui_scale(pygame.Rect(
@@ -3390,7 +3391,8 @@ class ProfileScreen(Screens):
                 self.kill_cat_button.enable()
 
                 # no exile allowed if not in a clan
-                if not self.the_cat.status.is_clancat:
+                # LG edit
+                if self.the_cat.moons < 1:
                     self.exile_cat_button.disable()
                     self.leave_clan_button.disable()
 

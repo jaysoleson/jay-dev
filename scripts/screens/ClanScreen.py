@@ -19,7 +19,7 @@ from .enums import GameScreen
 from ..clan_package.settings import get_clan_setting
 from ..clan_package.settings.clan_settings import switch_clan_setting
 from ..game_structure.game.switches import switch_set_value, Switch
-from ..cat.enums import CatRank, CatAge
+from ..cat.enums import CatRank, CatAge, CatGroup
 from ..ui.elements.save_button import UISaveButton
 from ..ui.generate_button import ButtonStyles, get_button_dict
 
@@ -89,8 +89,19 @@ class ClanScreen(Screens):
         self.show_mute_buttons()
         self.update_camp_bg()
         switch_set_value(Switch.cat, None)
-        if game.clan.biome + game.clan.camp_bg in constants.LAYOUTS:
-            self.layout = constants.LAYOUTS[game.clan.biome + game.clan.camp_bg]
+
+        if game.clan.your_cat.status.group == CatGroup.HOUSEHOLD:
+            current_bg = game.clan.household_bg
+        elif game.clan.your_cat.status.group == CatGroup.LONER_GROUP:
+            current_bg = game.clan.loner_group_bg
+        elif game.clan.your_cat.status.group == CatGroup.ROGUE_GROUP:
+            current_bg = game.clan.rogue_group_bg
+        else:
+            current_bg = game.clan.camp_bg
+
+
+        if game.clan.biome + current_bg in constants.LAYOUTS:
+            self.layout = constants.LAYOUTS[game.clan.biome + current_bg]
         else:
             self.layout = constants.LAYOUTS["default"]
 
@@ -100,7 +111,15 @@ class ClanScreen(Screens):
         self.choose_cat_positions()
 
         self.set_disabled_menu_buttons(["camp_screen"])
-        self.update_heading_text(f"{game.clan.displayname}Clan")
+
+        # LG EDIT
+        if game.clan.your_cat.status.alive_in_player_clan:
+            self.update_heading_text(f"{game.clan.displayname}Clan")
+        elif game.clan.your_cat.status.group:
+            self.update_heading_text(f"The {(game.clan.your_cat.status.group).capitalize().replace("_", " ")}")
+        else:
+            self.update_heading_text("Outside the Clan")
+        # ---
         self.show_menu_buttons()
         Screens.menu_buttons["back_to_camp"].hide()
 

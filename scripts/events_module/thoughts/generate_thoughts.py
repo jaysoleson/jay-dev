@@ -250,6 +250,7 @@ def new_thought(
 
             chosen_thought = choice(chosen_thought_group["thoughts"])
     except IndexError:
+        print(main_cat.name, "thought error!")
         traceback.print_exc()
         chosen_thought = i18n.t("defaults.thought")
 

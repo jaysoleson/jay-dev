@@ -22,18 +22,6 @@
             "EGG": "body",
             "POPTABS": "body",
             "BATHARNESS": "body"
-        },
-        {
-            "PURPLERAINCOAT": "body",
-            "BLUERAINCOAT": "body",
-            "GREENRAINCOAT": "body",
-            "PINKRAINCOAT": "body",
-            "REDRAINCOAT": "body",
-            "LIMERAINCOAT": "body",
-            "ORANGERAINCOAT": "body"
-        },
-        {
-            "YELLOWRAINCOAT": "body"
         }
     ]
 }

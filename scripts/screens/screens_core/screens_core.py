@@ -79,7 +79,7 @@ def rebuild_core(*, should_rebuild_bgs=True):
     if get_version_info().is_source_build or get_version_info().is_dev():
         dev_watermark = pygame_gui.elements.UILabel(
             ui_scale(pygame.Rect((545, 660), (300, 50))),
-            "Build: " + version_number.text,
+            "LGDEV: " + version_number.text,
             object_id="#dev_watermark",
             text_kwargs={"ver": version_number.text},
         )

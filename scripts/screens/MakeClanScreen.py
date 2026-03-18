@@ -1309,8 +1309,6 @@ class MakeClanScreen(Screens):
         if self.sub_screen == "choose leader":
             self.elements["cat_name"].set_text(
                 str(selected.name)
-                # + " --> "
-                # + selected.name.get_specsuffix_name(CatRank.LEADER)
             )
         else:
             self.elements["cat_name"].set_text(str(selected.name))
@@ -4596,6 +4594,7 @@ class MakeClanScreen(Screens):
             rank=new_rank,
             group_ID=group_dict[self.social]
             )
+        # TODO: prefix-only names are fucked
 
         game.clan = Clan(
             name = clan_name,

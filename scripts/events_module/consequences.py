@@ -737,7 +737,10 @@ def create_new_cat(
 
         # KILL >:D only if we're sposed to tho
         if not alive:
-            new_cat.die()
+            # new_cat.die()
+            # LG change. dont grieve cats who weren't known in life
+            # this will only affect pre-dead cats when making established clans
+            new_cat.die(grief_allowed=False)
 
         # newbie thought
         new_cat.get_new_thought(thought)

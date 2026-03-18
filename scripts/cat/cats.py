@@ -764,6 +764,7 @@ class Cat:
             self.grief(body)
             game.dead_cats_to_grieve.append(self)
 
+
         # CHECKMERGE
         # faith effects, df for murderers + wrong placement. look at old lg code
         # mark the sprite as outdated
@@ -772,7 +773,6 @@ class Cat:
     def revive(self):
         """ LG: Revives a cat from the dead. """
         self.revives += 1
-        print("REVIVE")
 
         if self.status.rank == CatRank.LEADER:
             if game.clan.leader_lives < 1:
@@ -978,13 +978,18 @@ class Cat:
         else:
             return "general"
 
-    def leave_clan(self, new_social_status: CatSocial):
+    def leave_clan(self, new_social_status: CatSocial, new_group_ID: CatGroup = None):
         """Removes cat from the Clan willingly. Makes status changes and removes apprentices."""
+        # The CatGroup argument is a LifeGen addition!!!! make sure it stays in merges. -jay
         if not new_social_status:
             new_social_status = choice(
                 (CatSocial.KITTYPET, CatSocial.LONER, CatSocial.ROGUE)
             )
         self.status.leave_group(new_social_status=new_social_status)
+        # LG
+        if new_group_ID:
+            self.status.add_to_group(new_group_ID)
+
         self.get_new_thought()
 
         for app in self.apprentice.copy():
