@@ -1,6 +1,7 @@
 from strenum import StrEnum
 import random
 
+from scripts.cat.pelts import Pelt
 from scripts.events_module.text_adjust import adjust_list_text
 
 class Acespec(StrEnum):
@@ -100,6 +101,8 @@ class Sexuality():
             first_label = first_label.replace("XX", "romantic")
         elif cat_arospec and not cat_acespec:
             first_label = first_label.replace("XX", "sexual")
+        elif not cat_arospec and not cat_acespec:
+            first_label = first_label.replace("XX", "sexual")
         else:
             first_label = first_label.replace("XX", "")
 
@@ -134,15 +137,48 @@ class Sexuality():
         Randomises a new cat's sexuality.
         """
         self.sexuality_label = "TEMP"
-        self.likes_toms = random.choice([True, False])
-        self.likes_she_cats = random.choice([True, False])
+        if gender in self.male_genders:
+            self.likes_toms = random.choice([True, False])
+            self.likes_she_cats = random.choice([True, False, True])
+        elif gender in self.female_genders:
+            self.likes_toms = random.choice([True, False, True])
+            self.likes_she_cats = random.choice([True, False])
+        else:
+            self.likes_toms = random.choice([True, False])
+            self.likes_she_cats = random.choice([True, False])
+
 
         # likes enbies cant be true if the other two are false. no enby chasers sorry
         self.likes_enbies = random.choice([True, False]) if self.likes_toms or self.likes_she_cats else False
 
+        acespec_chance = 20
+        arospec_chance = 20
 
-        self.acespec = random.choice([Acespec.ALLO, Acespec.DEMI, Acespec.GREY, Acespec.ACE])
-        self.arospec = random.choice([Arospec.ALLO, Arospec.DEMI, Arospec.GREY, Arospec.ARO])
+        if not int(random.random() * acespec_chance):
+            self.acespec = random.choice(
+                [
+                    Acespec.DEMI,
+                    Acespec.GREY,
+                    Acespec.ACE,
+                    Acespec.ACE,
+                    Acespec.ACE,
+                ]
+            )
+        else:
+            self.acespec = Acespec.ALLO
+
+        if not int(random.random() * arospec_chance):
+            self.arospec = random.choice(
+                [
+                    Arospec.DEMI,
+                    Arospec.GREY,
+                    Arospec.ARO,
+                    Arospec.ARO,
+                    Arospec.ARO,
+                ]
+            )
+        else:
+            self.arospec = Arospec.ALLO
 
         self.correct_aroace()
 
@@ -193,3 +229,121 @@ class Sexuality():
             all_labels.append(self.arospec)
 
         return adjust_list_text(all_labels)
+    
+
+    # FLAGS
+    def find_valid_flags(self, cat):
+        valid_flags = []
+        if cat.gender != cat.genderalign:
+            valid_flags.append("TRANS")
+
+        if cat.genderalign.upper() in Pelt.all_pridegen_accessories:
+            valid_flags.append(cat.genderalign.upper())
+        if self.sexuality_label.upper() in Pelt.all_pridegen_accessories:
+            valid_flags.append(self.sexuality_label.upper())
+
+        # sexuality flags that dont differ based on gender
+        # hacky
+        if self.likes_toms and self.likes_she_cats:
+            if "bi" in self.sexuality_label:
+                valid_flags.append("BISEXUAL")
+            elif "pan" in self.sexuality_label:
+                valid_flags.append("PANSEXUAL")
+
+        if (
+            not self.likes_toms and
+            not self.likes_she_cats and
+            not self.likes_enbies and
+            self.arospec == Arospec.ARO and
+            self.acespec == Acespec.ACE
+        ):
+            valid_flags.append("AROACE")
+            valid_flags.append("AROACEFLUX")
+
+        if self.arospec.upper() in Pelt.all_pridegen_accessories:
+            valid_flags.append(self.arospec.upper())
+        if self.acespec.upper() in Pelt.all_pridegen_accessories:
+            valid_flags.append(self.acespec.upper())
+
+        if self.arospec == Arospec.DEMI and self.acespec == Acespec.DEMI:
+            valid_flags.append("DEMIAROACE")
+        if self.arospec == Arospec.GREY and self.acespec == Acespec.GREY:
+            valid_flags.append("GREYAROACE")
+
+        if len(cat.mate) > 1:
+            valid_flags.append("POLYAMOROUS")
+
+        if cat.genderalign in Sexuality.male_genders:
+            if self.likes_toms:
+                valid_flags.append("ACHILLEAN")
+                valid_flags.append("RAINBOW_BANDANA")
+                valid_flags.append("NEPTUNIC")
+                if not self.likes_she_cats:
+                    valid_flags.append("GAY")
+            elif self.likes_she_cats:
+                valid_flags.append("STRAIGHT")
+        elif cat.genderalign in Sexuality.female_genders:
+            if self.likes_she_cats:
+                valid_flags.append("SAPPHIC")
+                valid_flags.append("RAINBOW_BANDANA")
+                valid_flags.append("URANIC")
+                if not self.likes_she_cats:
+                    valid_flags.append("LESBIAN")
+                    valid_flags.append("BUTCH")
+            elif self.likes_toms:
+                valid_flags.append("STRAIGHT")
+        else:
+            valid_flags.append("NONBINARY")
+            if self.likes_she_cats and not self.likes_toms:
+                valid_flags.append("GYNOSEXUAL")
+            elif self.likes_toms and not self.likes_she_cats:
+                valid_flags.append("ANDROSEXUAL")
+
+        new_valid_flags = []
+        for flag in valid_flags:
+            if flag not in new_valid_flags:
+                new_valid_flags.append(flag)
+
+        return new_valid_flags
+    
+
+     # PRIDEGEN
+    def give_bandanas(self, cat):
+        """
+        Updates bandana inventories.
+        """
+        # TODO: clan setting for disabling bandanas
+        if cat.age.is_baby():
+            return
+
+        correct_flags = cat.sexuality.find_valid_flags(cat)
+
+        for flag in Pelt.all_pridegen_accessories:
+            if flag in cat.pelt.inventory:
+                cat.pelt.inventory.remove(flag)
+                cat.pelt.accessory = tuple(
+                    accessory for accessory in cat.pelt.accessory if
+                    accessory != flag
+                )
+
+        sorted_flags = list(set(correct_flags))
+
+        for acc in sorted_flags:
+            if acc not in cat.pelt.inventory:
+                cat.pelt.inventory.append(acc)
+
+        # TODO: if autoequip setting
+        autoequip = True
+        if autoequip:
+            skip = False
+            for acc in cat.pelt.accessory:
+                if acc in correct_flags:
+                    skip = True
+                    break
+            if not skip:
+                cat.pelt.accessory = cat.pelt.accessory + (sorted_flags[0],)
+                if sorted_flags[0] not in cat.pelt.inventory:
+                    cat.pelt.inventory.append(sorted_flags[0])
+
+        cat.pelt.rebuild_sprite = True
+

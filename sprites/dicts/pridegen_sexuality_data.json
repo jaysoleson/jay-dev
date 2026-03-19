@@ -2,7 +2,7 @@
     "spritesheet": "pridegen_sexuality",
     "sprite_list": [
         {
-            "RAINBOW": "body",
+            "RAINBOW_BANDANA": "body",
             "GAY": "body",
             "LESBIAN": "body",
             "BISEXUAL": "body",

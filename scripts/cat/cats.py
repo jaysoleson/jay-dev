@@ -205,9 +205,6 @@ class Cat:
 
         # PG
         self.sexuality = sexuality
-        if not sexuality:
-            self.sexuality = Sexuality()
-            self.sexuality.init_random_sexuality(gender)
         # ---
 
         self.backstory = backstory
@@ -496,6 +493,11 @@ class Cat:
             [Cat.fetch_cat(i) for i in (self.parent1, self.parent2) if i],
             self.age,
         )
+
+        # PRIDEGEN-- Sexuality
+        if not self.sexuality:
+            self.sexuality = Sexuality()
+            self.sexuality.init_random_sexuality(self.genderalign)
 
         # Personality
         if disable_random:
@@ -1721,11 +1723,6 @@ class Cat:
         if self.moons == 1 and self.status.rank == CatRank.NEWBORN:
             self.status._change_rank(CatRank.KITTEN)
         self.in_camp = 1
-
-        # PG
-        self.sexuality.sexuality_label = self.sexuality.generate_sexuality_label(self.genderalign)
-        self.give_bandanas()
-        # ---
 
         if old_age != self.age:
             # Things to do if the age changes
@@ -3083,8 +3080,6 @@ class Cat:
                         ):
                             if self.is_potential_mate(the_cat):
                                 romance += randint(15, 30)
-                            else:
-                                print(self.name, "and", the_cat.name, "NOT gaining romance")
                             comfort = int(comfort * 1.3)
                             trust = int(trust * 1.2)
 
@@ -4076,112 +4071,6 @@ class Cat:
                 cat.status.group == game.clan.your_cat.status.group
             )
         ]
-
-    def find_valid_flags(self):
-        valid_flags = []
-        if self.gender != self.genderalign:
-            valid_flags.append("TRANS")
-
-        if self.genderalign.upper() in Pelt.all_pridegen_accessories:
-            valid_flags.append(self.genderalign.upper())
-        if self.sexuality.sexuality_label.upper() in Pelt.all_pridegen_accessories:
-            valid_flags.append(self.sexuality.sexuality_label.upper())
-
-        # sexuality flags that dont differ based on gender
-        # hacky
-        if self.sexuality.likes_toms and self.sexuality.likes_she_cats:
-            if "bi" in self.sexuality.sexuality_label:
-                valid_flags.append("BISEXUAL")
-            elif "pan" in self.sexuality.sexuality_label:
-                valid_flags.append("PANSEXUAL")
-
-        if (
-            not self.sexuality.likes_toms and
-            not self.sexuality.likes_she_cats and
-            not self.sexuality.likes_enbies and
-            self.sexuality.arospec == Arospec.ARO and
-            self.sexuality.acespec == Acespec.ACE
-        ):
-            valid_flags.append("AROACE")
-            valid_flags.append("AROACEFLUX")
-
-        if self.sexuality.arospec.upper() in Pelt.all_pridegen_accessories:
-            valid_flags.append(self.sexuality.arospec.upper())
-        if self.sexuality.acespec.upper() in Pelt.all_pridegen_accessories:
-            valid_flags.append(self.sexuality.acespec.upper())
-
-        if self.sexuality.arospec == Arospec.DEMI and self.sexuality.acespec == Acespec.DEMI:
-            valid_flags.append("DEMIAROACE")
-        if self.sexuality.arospec == Arospec.GREY and self.sexuality.acespec == Acespec.GREY:
-            valid_flags.append("GREYAROACE")
-
-        if len(self.mate) > 1:
-            valid_flags.append("POLYAMOROUS")
-
-        if self.genderalign in Sexuality.male_genders:
-            if self.sexuality.likes_toms:
-                valid_flags.append("ACHILLEAN")
-                valid_flags.append("RAINBOW")
-                valid_flags.append("NEPTUNIC")
-                if not self.sexuality.likes_she_cats:
-                    valid_flags.append("GAY")
-            elif self.sexuality.likes_she_cats:
-                valid_flags.append("STRAIGHT")
-        elif self.genderalign in Sexuality.female_genders:
-            if self.sexuality.likes_she_cats:
-                valid_flags.append("SAPPHIC")
-                valid_flags.append("RAINBOW")
-                valid_flags.append("URANIC")
-                if not self.sexuality.likes_she_cats:
-                    valid_flags.append("LESBIAN")
-                    valid_flags.append("BUTCH")
-            elif self.sexuality.likes_toms:
-                valid_flags.append("STRAIGHT")
-        else:
-            valid_flags.append("NONBINARY")
-            if self.sexuality.likes_she_cats and not self.sexuality.likes_toms:
-                valid_flags.append("GYNOSEXUAL")
-            elif self.sexuality.likes_toms and not self.sexuality.likes_she_cats:
-                valid_flags.append("ANDROSEXUAL")
-
-        new_valid_flags = []
-        for flag in valid_flags:
-            if flag not in new_valid_flags:
-                new_valid_flags.append(flag)
-
-        return new_valid_flags
-
-    # PRIDEGEN
-    def give_bandanas(self):
-        """
-        Updates bandana inventories.
-        """
-        if self.age in (CatAge.NEWBORN, CatAge.KITTEN):
-            return
-
-        flags_to_remove = []
-        correct_flags = self.find_valid_flags()
-
-
-        for flag in Pelt.all_pridegen_accessories:
-            if flag in self.pelt.inventory and flag not in correct_flags:
-                flags_to_remove.append(flag)
-
-        for acc in self.pelt.inventory:
-            if acc in flags_to_remove:
-                self.pelt.inventory.remove(acc)
-                self.pelt.accessory = tuple(
-                    accessory for accessory in self.pelt.accessory if
-                    accessory != acc
-                )
-        flag_to_equip = None
-        for acc in correct_flags:
-            flag_to_equip = acc
-            if correct_flags not in self.pelt.inventory:
-                self.pelt.inventory.append(acc)
-
-        # TODO: if autoequip
-        self.pelt.accessory = self.pelt.accessory + (flag_to_equip,)
 
 
 # ---------------------------------------------------------------------------- #

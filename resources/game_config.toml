@@ -360,6 +360,12 @@ dev_tools = false
   # modifies transition chance based on if cat is an adult or older
   older_modifier = 256
 
+[sexuality_change_related]
+  base_chance = 64
+  adolescent_modifier = -32
+  older_modifier = 128
+  mate_modifier = 3
+
 [fading]
   # age that a cat will complete fading
   age_to_fade = 202

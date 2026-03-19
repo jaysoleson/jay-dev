@@ -1632,7 +1632,6 @@ class Pelt:
                 return True
             return False
 
-
 def _describe_pattern(cat, short=False):
     color_name = [f"cat.pelts.{str(cat.pelt.colour)}"]
     pelt_name = f"cat.pelts.{cat.pelt.name}{'' if short else '_long'}"

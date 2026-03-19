@@ -352,13 +352,9 @@ class ProfileScreen(Screens):
                 self.build_profile()
                 self.toggle_accessories_tab()
             elif event.ui_element == self.clear_accessories:
-                self.the_cat.pelt.accessory.clear()
+                self.the_cat.pelt.accessory = tuple()
                 self.build_inventory(event)
                 self.update_disabled_buttons_and_text()
-            # elif "joinclan" in self.profile_elements and event.ui_element == self.profile_elements["joinclan"]:
-            #     switch_set_value(Switch.change_group, CatGroup.PLAYER_CLAN_ID)
-            #     self.clear_profile()
-            #     self.build_profile()
 
             elif (
                 "talk" in self.profile_elements and
@@ -786,12 +782,13 @@ class ProfileScreen(Screens):
         self.hide_menu_buttons()  # Menu buttons don't appear on the profile screen
         if game.last_screen_forProfile == GameScreen.MED_DEN:
             self.toggle_conditions_tab()
-        # game.clan.load_accessories()
 
         self.set_cat_location_bg(self.the_cat)
 
     def clear_profile(self):
         """Clears all profile objects."""
+        self.cat_inventory = []
+
         for ele in self.profile_elements:
             self.profile_elements[ele].kill()
         self.profile_elements = {}
@@ -828,12 +825,15 @@ class ProfileScreen(Screens):
         """Rebuild builds the cat profile. Run when you switch cats
         or for changes in the profile."""
         self.the_cat = Cat.all_cats.get(switch_get_value(Switch.cat))
+        if self.the_cat is None:
+            return
 
         # LG: accessories
         if get_clan_setting('all accessories'):
-            self.cat_inventory = game.clan.load_accessories()
+            self.cat_inventory = game.clan.load_accessories(self.the_cat)
         else:
             if game_setting_get("lifegen_sprite_changes"):
+
                 self.cat_inventory = [
                     i for i in self.the_cat.pelt.inventory
                     if i in Pelt.all_lifegen_accessories
@@ -852,17 +852,14 @@ class ProfileScreen(Screens):
             # but don't remove from inventory
             # this way, if lifegen accs are switched off then back on,
             # cats can keep their accessories from before they were toggled off
-            if acc not in self.cat_inventory:
-                self.the_cat.pelt.accessory = tuple(
-                    accessory for accessory in self.the_cat.pelt.accessory if
-                    accessory != acc
-                )
+            # if acc not in self.cat_inventory:
+            #     self.the_cat.pelt.accessory = tuple(
+            #         accessory for accessory in self.the_cat.pelt.accessory if
+            #         accessory != acc
+            #     )
         # ---
 
         # use these attributes to create differing profiles for StarClan cats etc.
-
-        if self.the_cat is None:
-            return
 
         # Info in string
         cat_name = str(self.the_cat.name)
@@ -3847,7 +3844,7 @@ class ProfileScreen(Screens):
         new_inv = []
         if self.search_bar.get_text() in ["", "search"]:
             inventory_len = len(self.cat_inventory)
-            new_inv = self.cat_inventory
+            new_inv = self.cat_inventory.copy()
         else:
             for ac in self.cat_inventory:
                 if self.search_bar.get_text().lower() in ac.lower():

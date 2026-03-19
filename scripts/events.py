@@ -2494,6 +2494,13 @@ def one_moon_cat(cat):
     # gain_accessories(cat)
 
     coming_out(cat)
+
+    # PG
+    sexuality_change(cat)
+    cat.sexuality.give_bandanas(cat)
+    cat.pelt.rebuild_sprite = True
+    # ---
+
     Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
     # Stop the timeskip if the cat died in childbirth
     if cat.dead:
@@ -4134,6 +4141,69 @@ def generate_faith_events(cat):
                             random_cat=random_cat,
                             sub_type=[])
     
+
+def sexuality_change(cat):
+    """
+    Randomly changes cats sexualities!
+    """
+
+    if cat.age.is_baby():
+        return
+    
+    change_chance = constants.CONFIG["sexuality_change_related"]
+    chance = change_chance["base_chance"]
+    if cat.age in [CatAge.ADOLESCENT]:
+        chance += change_chance["adolescent_modifier"]
+    elif cat.age in [CatAge.ADULT, CatAge.SENIOR_ADULT, CatAge.SENIOR]:
+        chance += change_chance["older_modifier"]
+
+    if cat.mate:
+        chance /= change_chance["mate_modifier"]
+
+    if not int(random.random() * chance):
+        print(cat.name, "hit sexuality change chance: label resetting!")
+        print(cat.sexuality.sexuality_label)
+        old_orientation = cat.sexuality.get_sexuality_dict()
+
+        cat.sexuality.init_random_sexuality(cat.genderalign)
+        print(cat.sexuality.sexuality_label)
+
+        # TODO: pick only one item to change (aroness, aceness, or orientation)
+        # TODO: future sexuality changes? so relationships change to reflect it before the cat realises?
+        # "upcoming_sexuality": {} in save dict with moons_until
+
+        # also adjust chances based on existing relationships.
+        # a tom with a huge crush on a shecat shouldnt have the same chance as one who doesnt to turn gay
+
+        difference = False
+        for item in cat.sexuality.get_sexuality_dict():
+            if cat.sexuality.get_sexuality_dict()[item] != old_orientation[item]:
+                print("DIFF:", item, old_orientation[item], "->", cat.sexuality.get_sexuality_dict()[item])
+                difference = True
+
+        # format_maybe = {
+        #     "old": {
+        #         "likes_toms": False,
+        #         "likes_shecats": True
+        #     },
+        #     "new": {
+        #         "likes_toms": True,
+        #         "likes_shecats": False
+        #     }
+        # }
+
+        if difference:
+            game.cur_events_list.append(
+                    Single_Event(
+                        event_text_adjust(
+                            Cat, f"m_c has a new identity ({cat.sexuality.sexuality_label})!", clan=game.clan, main_cat=cat
+                        ),
+                        cats_involved=[cat.ID]
+                    ),
+                )
+            return
+        print("No difference! No event.")
+
 
 def coming_out(cat):
     """turnin' the kitties trans..."""

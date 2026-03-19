@@ -364,6 +364,11 @@ class Clan:
         # self.leader.generate_lead_ceremony()
         # lifegen commented out
 
+        # # PG
+        # for cat in Cat.all_cats_list:
+        #     cat.sexuality.give_bandanas(cat)
+        #     # ---
+
         save_cats(game.clan.name, Cat, game)
         self.save_clan()
         save_clanlist(self.name)
@@ -1441,7 +1446,6 @@ class Clan:
         self.load_herb_supply(game.clan)
         self.load_future_events(game.clan)
         self.load_disaster(game.clan)
-        self.load_accessories()
         if game.clan.game_mode != "classic":
             self.load_freshkill_pile(game.clan)
 
@@ -1531,34 +1535,34 @@ class Clan:
                             }
                             cat.status.group_history.insert(index, new_group_block)
     
-    def load_accessories(self):
+    def load_accessories(self, cat):
         """
         loads all accessories for cat inventories
         when all accessories is toggled on
         """
-        if get_clan_setting('all accessories'):
-            for cat in Cat.all_cats_list:
-                if game_setting_get("lifegen_sprite_changes"):
-                    acc_list = Pelt.all_lifegen_accessories
-                else:
-                    acc_list = Pelt.all_clangen_accessories
-                
-                if "NOTAIL" in cat.pelt.scars or "HALFTAIL" in cat.pelt.scars:
-                    for acc in Pelt.tail_accessories:
-                        if acc in acc_list:
-                            try:
-                                acc_list.remove(acc)
-                            except ValueError:
-                                print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
-                # LG
-                if "NOPAW" in cat.pelt.scars:
-                    for acc in Pelt.paw_accessories:
-                        if acc in acc_list:
-                            try:
-                                acc_list.remove(acc)
-                            except ValueError:
-                                print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
-                return acc_list
+        if not get_clan_setting('all accessories'):
+            return []
+        if game_setting_get("lifegen_sprite_changes"):
+            acc_list = [acc for acc in Pelt.all_lifegen_accessories if acc not in Pelt.all_pridegen_accessories]
+        else:
+            acc_list = Pelt.all_clangen_accessories
+
+        if "NOTAIL" in cat.pelt.scars or "HALFTAIL" in cat.pelt.scars:
+            for acc in Pelt.tail_accessories:
+                if acc in acc_list:
+                    try:
+                        acc_list.remove(acc)
+                    except ValueError:
+                        print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
+        # LG
+        if "NOPAW" in cat.pelt.scars:
+            for acc in Pelt.paw_accessories:
+                if acc in acc_list:
+                    try:
+                        acc_list.remove(acc)
+                    except ValueError:
+                        print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
+        return acc_list
 
     def load_pregnancy(self, clan):
         """

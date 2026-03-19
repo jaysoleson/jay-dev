@@ -56,6 +56,7 @@
         fading = true
         save_faded_copy = false
         backgrounds = true
+        freshkill = true
     
     [clan.role]
         deputy = false
