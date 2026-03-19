@@ -1,5 +1,5 @@
 {
-    "elder general": [
+    "general": [
         "The Clan is uneasy, unsure how to deal with the chilling revelation about you.",
         "No kits visit you anymore.",
         "Cats treat you differently, avoiding the elders' den and your stories of the old times.",
@@ -12,16 +12,16 @@
         "You notice your name whispered around the fresh-kill pile, your actions the subject of hushed and anxious conversations.",
         "At gatherings, other Clans regard you warily, the grim knowledge about you having spread."
     ],
-    "elder assertive": [],
-    "elder brooding": [],
-    "elder cool": [],
-    "elder upstanding": [],
-    "elder introspective": [],
-    "elder neurotic": [],
-    "elder silly": [],
-    "elder stable": [],
-    "elder sweet": [],
-    "elder unabashed": [],
-    "elder unlawful": [],
-    "elder rare": []
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

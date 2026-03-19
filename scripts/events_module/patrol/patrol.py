@@ -3,49 +3,50 @@
 import logging
 import random
 from copy import deepcopy
-from itertools import repeat
 from os.path import exists as path_exists
 from random import choice, randint, choices
 from typing import List, Tuple, Optional, Union
 
 import pygame
 
+from scripts.cat import pronouns
 from scripts.cat.cats import Cat
 from scripts.cat_relations.enums import RelType
 from scripts.cat.enums import CatAge, CatRank, CatGroup, CatCompatibility
 from scripts.clan import Clan
 from scripts.cat.history import History
 from scripts.clan_package.settings import get_clan_setting
-from scripts.events_module.event_filters import event_for_tags
+from scripts.events_module.event_filters import (
+    event_for_tags,
+    get_frequency,
+    find_new_frequency,
+    filter_relationship_type,
+    check_relationship_value,
+    get_personality_compatibility,
+)
 from scripts.events_module.patrol.patrol_event import PatrolEvent
 from scripts.events_module.patrol.patrol_outcome import PatrolOutcome
 from scripts.game_structure import localization, constants
 from scripts.game_structure.game.settings import game_setting_get
 from scripts.game_structure import game
 from scripts.game_structure.localization import load_lang_resource
-from scripts.utility import (
-    get_personality_compatibility,
-    check_relationship_value,
+from scripts.events_module.text_adjust import (
     process_text,
     adjust_prey_abbr,
-    find_special_list_types,
-    filter_relationship_type,
     get_special_snippet_list,
-    find_alive_cats_with_rank,
-    get_cluster,
-    adjust_list_text
+    find_special_list_types,
+    adjust_list_text,
+    event_text_adjust,
 )
-from itertools import combinations
-from scripts.cat.cats import Cat
-
+from scripts.clan_package.get_clan_cats import find_alive_cats_with_rank
 from scripts.game_structure.game.switches import (
-    Switch,
     switch_get_value,
-    switch_set_value,
+    Switch,
     switch_append_list_value
 )
 
 from scripts.events_module.filter_random_cats import choose_random_cats
+from scripts.lifegen_utility import lifegen_text_adjust, get_cluster, get_cluster
 
 logger = logging.getLogger(__name__)
 
@@ -208,7 +209,9 @@ class Patrol:
             chosen_lifegen_cats=self.patrol_event.chosen_lifegen_cats
             )
 
-    def proceed_patrol(self, path: str = "proceed") -> Tuple[str, str, Optional[str]]:
+    def proceed_patrol(
+        self, path: str = "proceed"
+    ) -> Tuple[str, str, list, Optional[str]]:
         """Proceed the patrol to the next step.
         path can be: "proceed", "antag", or "decline" """
 
@@ -335,7 +338,7 @@ class Patrol:
             # youre always da leader here
             
         # DETERMINE RANDOM CAT
-        #Find random cat
+        # Find random cat
         if switch_get_value(Switch.patrol_category) == 'date':
             for date_cat in patrol_cats:
                 if date_cat.ID != game.clan.your_cat.ID:
@@ -353,14 +356,30 @@ class Patrol:
             else:
                 possible_random_cats = [i for i in patrol_cats if i.ID != game.clan.your_cat.ID]
                 self.random_cat = choice(possible_random_cats)
+        # Find random cat
         else:
             if len(patrol_cats) > 1:
-                self.random_cat = choice([i for i in patrol_cats if i != self.patrol_leader])
-            else:
-                self.random_cat = choice(patrol_cats)
+                # prioritize grabbing an adult as the random cat
+                if self.patrol_statuses.get("normal adult", 0) > 1:
+                    self.random_cat = choice(
+                        [
+                            i
+                            for i in self.patrol_cats
+                            if i != self.patrol_leader and i not in self.patrol_apprentices
+                        ]
+                    )
+                # if no adults, grab anyone
+                else:
+                    self.random_cat = choice(
+                        [i for i in patrol_cats if i != self.patrol_leader]
+                    )
+
             
         print("Patrol Leader:", str(self.patrol_leader.name))
-        print("Random Cat:", str(self.random_cat.name))
+        # LG
+        if self.random_cat:
+        # ---
+            print("Random Cat:", str(self.random_cat.name))
 
     def get_possible_patrols(
         self,
@@ -468,12 +487,8 @@ class Patrol:
             clan_hostile = True
         elif 7 <= clan_relations <= 17:
             clan_neutral = True
-        # this is just for separating them a bit from the other patrols, it means they can always happen
-        other_clan_chance = 1
         # chance for each kind of loner event to occur
         small_clan = False
-        if not other_clan:
-            other_clan_chance = 0
         if clan_size < 20:
             small_clan = True
         regular_chance = int(random.getrandbits(2))
@@ -579,7 +594,7 @@ class Patrol:
                 )
 
         # other Clan patrols
-        if other_clan_chance == 1 and switch_get_value(Switch.patrol_category) == 'clangen':
+        if other_clan and switch_get_value(Switch.patrol_category) == 'clangen':
             if clan_neutral:
                 possible_patrols.extend(self.generate_patrol_events(self.OTHER_CLAN))
             elif clan_allies:
@@ -637,7 +652,6 @@ class Patrol:
         if not filter_relationship_type(
             group=self.patrol_cats,
             filter_types=patrol.relationship_constraints,
-            event_id=patrol.patrol_id,
             patrol_leader=self.patrol_leader,
         ):
             if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
@@ -727,6 +741,9 @@ class Patrol:
         current_season: str,
         patrol_type: str,
     ):
+        chosen_frequency = get_frequency()
+        used_frequencies = set()
+
         filtered_patrols = []
         romantic_patrols = []
         # This make sure general only gets hunting, border, or training patrols
@@ -748,173 +765,162 @@ class Patrol:
         has_mentor = {"general": general_mentor_checks, **app_number_mentor_checks}
 
         # makes sure that it grabs patrols in the correct biomes, season, with the correct number of cats
-        for patrol in possible_patrols:
-
-            if not self._check_constraints(patrol):
-                continue
-
-            if patrol.lifegen_cat_constraints:
-                print("LG CAT CONSTRAINTS:", patrol.lifegen_cat_constraints)
-                cat_dict = choose_random_cats(
-                    cats_block=patrol.lifegen_cat_constraints,
-                    rel_block=[],
-                    your_cat=game.clan.your_cat,
-                    the_cat=None
-                    )
-                if not cat_dict:
+        while not filtered_patrols:
+            for patrol in possible_patrols:
+                if patrol.frequency != chosen_frequency:
                     continue
-                for abbrev, cat_obj in cat_dict.items():
-                    if "r_c:" in abbrev:
-                        patrol.chosen_lifegen_cats.append(cat_obj)
-
-            # Don't check for repeat patrols if ensure_patrol_id is being used.
-            if (
-                constants.CONFIG["patrol_generation"]["debug_ensure_patrol_id"] == ""
-                and patrol.patrol_id in self.used_patrols
-            ):
-                continue
-
-            # filtering for dates
-            # if contains_special_date_tag(patrol.tags):
-            #     if not special_date or special_date.patrol_tag not in patrol.tags:
-            #         continue
-                
-
-            if not (patrol.min_cats <= len(self.patrol_cats) <= patrol.max_cats):
-                if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                    print(
-                        "DEBUG: requested patrol does not meet constraints (min or max cats range)"
-                    )
-                continue
-
-            flag = False
-
-            # LG
-            df_status = False
-            # ---
-            for sta, num in patrol.min_max_status.items():
-                # LG 
-                if sta == "df":
-                    df_status = True
-                # ---
-                if len(num) != 2:
-                    print(f"Issue with status limits: {patrol.patrol_id}")
-                    continue
-
-                if not (num[0] <= self.patrol_statuses.get(sta, -1) <= num[1]):
-                    flag = True
-                    break
-            
-            # LG
-            # DF patrols will default to being alive cats only
-            # So if theres no "df" in min_max_status, it will auto disallow df cats from being in it
-            if "df" in self.patrol_statuses:
-                if not df_status and self.patrol_statuses["df"] > 0:
-                    flag = True
-            # ---
-
-            if flag:
-                if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                    print(
-                        "DEBUG: requested patrol does not meet constraints (min max status)"
-                    )
-                    print(patrol.min_max_status, self.patrol_statuses)
-                continue
-
-            if not event_for_tags(patrol.tags, Cat, mentor_tags_fulfilled=has_mentor):
-                if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                    print("DEBUG: requested patrol does not meet constraints (tags)")
-                continue
-
-            if biome not in patrol.biome and "any" not in patrol.biome:
-                if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                    print("DEBUG: requested patrol does not meet constraints (biome)")
-                continue
-            if camp not in patrol.camp and "any" not in patrol.camp:
-                if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                    print("DEBUG: requested patrol does not meet constraints (camp)")
-                continue
-            if current_season not in patrol.season and "any" not in patrol.season:
-                if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                    print("DEBUG: requested patrol does not meet constraints (season)")
-                continue
-
-
-            if switch_get_value(Switch.patrol_category) == 'df':
-                if "you_med" in patrol.tags:
-                    if game.clan.your_cat.status != 'medicine cat':
-                        continue
-            #  correct button check
-            if switch_get_value(Switch.patrol_category) == 'clangen':
-                if "hunting" not in patrol.types and patrol_type == "hunting":
-                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                        print(
-                            "DEBUG: requested patrol does not meet constraints (patrol type)"
-                        )
-                    continue
-                elif "border" not in patrol.types and patrol_type == "border":
-                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                        print(
-                            "DEBUG: requested patrol does not meet constraints (patrol type)"
-                        )
-                    continue
-                elif "training" not in patrol.types and patrol_type == "training":
-                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                        print(
-                            "DEBUG: requested patrol does not meet constraints (patrol type)"
-                        )
-                    continue
-                elif "herb_gathering" not in patrol.types and patrol_type == "med":
-                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                        print(
-                            "DEBUG: requested patrol does not meet constraints (patrol type)"
-                        )
-                    continue
-
-            else:
-                if switch_get_value(Switch.patrol_category) == "lifegen":
-                    if not any(p in patrol.types for p in ["sc_lifegen", "ur_lifegen", "df_lifegen"]) and game.clan.your_cat.dead:
-                        continue
-                    if "sc_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.STARCLAN):
-                        continue
-                    elif "df_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.DARK_FOREST):
-                        continue
-                    elif "ur_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE):
-                        continue
-                if switch_get_value(Switch.patrol_category) == "df":
-                    if len(self.patrol_cats) > 1:
-                        other_cat = self.patrol_cats[1]
-                        
-                        if not other_cat.joined_df:
-                            if "fellowtrainee" in patrol.tags:
-                                continue
-                        
-                        else:
-                            if "fellowtrainee" not in patrol.tags:
-                                continue
-                            
-                    if "shunned" in patrol.tags:
-                        if not game.clan.your_cat.status.is_shunned():
-                            continue
+                # LG
                 else:
-                    if "shunned" in patrol.tags:
-                        if not game.clan.your_cat.status.is_shunned():
+                    frequency_found = True
+                if not self._check_constraints(patrol):
+                    continue
+
+                # LG
+                if patrol.lifegen_cat_constraints:
+                    print("LG CAT CONSTRAINTS:", patrol.lifegen_cat_constraints)
+                    cat_dict = choose_random_cats(
+                        cats_block=patrol.lifegen_cat_constraints,
+                        rel_block=[],
+                        your_cat=game.clan.your_cat,
+                        the_cat=None
+                        )
+                    if not cat_dict:
+                        continue
+                    for abbrev, cat_obj in cat_dict.items():
+                        if "r_c:" in abbrev:
+                            patrol.chosen_lifegen_cats.append(cat_obj)
+
+                # Don't check for repeat patrols if ensure_patrol_id is being used.
+                if (
+                    constants.CONFIG["patrol_generation"]["debug_ensure_patrol_id"]
+                    == ""
+                    and patrol.patrol_id in self.used_patrols
+                ):
+                    continue
+
+                if not (patrol.min_cats <= len(self.patrol_cats) <= patrol.max_cats):
+                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                        print(
+                            "DEBUG: requested patrol does not meet constraints (min or max cats range)"
+                        )
+                    continue
+
+                flag = False
+                for sta, num in patrol.min_max_status.items():
+                    if len(num) != 2:
+                        print(f"Issue with status limits: {patrol.patrol_id}")
+                        continue
+
+                    if not (num[0] <= self.patrol_statuses.get(sta, -1) <= num[1]):
+                        flag = True
+                        break
+                if flag:
+                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                        print(
+                            "DEBUG: requested patrol does not meet constraints (min max status)"
+                        )
+                    continue
+
+                if not event_for_tags(
+                    patrol.tags, Cat, mentor_tags_fulfilled=has_mentor
+                ):
+                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                        print(
+                            "DEBUG: requested patrol does not meet constraints (tags)"
+                        )
+                    continue
+
+                if biome not in patrol.biome and "any" not in patrol.biome:
+                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                        print(
+                            "DEBUG: requested patrol does not meet constraints (biome)"
+                        )
+                    continue
+                if camp not in patrol.camp and "any" not in patrol.camp:
+                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                        print(
+                            "DEBUG: requested patrol does not meet constraints (camp)"
+                        )
+                    continue
+                if current_season not in patrol.season and "any" not in patrol.season:
+                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                        print(
+                            "DEBUG: requested patrol does not meet constraints (season)"
+                        )
+                    continue
+
+                if switch_get_value(Switch.patrol_category) == "clangen":
+                    # LG: these types dont apply to our patrols
+                    if "hunting" not in patrol.types and patrol_type == "hunting":
+                        if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                            print(
+                                "DEBUG: requested patrol does not meet constraints (patrol type)"
+                            )
+                        continue
+                    elif "border" not in patrol.types and patrol_type == "border":
+                        if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                            print(
+                                "DEBUG: requested patrol does not meet constraints (patrol type)"
+                            )
+                        continue
+                    elif "training" not in patrol.types and patrol_type == "training":
+                        if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                            print(
+                                "DEBUG: requested patrol does not meet constraints (patrol type)"
+                            )
+                        continue
+                    elif "herb_gathering" not in patrol.types and patrol_type == "med":
+                        if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
+                            print(
+                                "DEBUG: requested patrol does not meet constraints (patrol type)"
+                            )
+                        continue
+
+                else:
+                    if switch_get_value(Switch.patrol_category) == "lifegen":
+                        if not any(p in patrol.tags for p in ["sc_lifegen", "ur_lifegen", "df_lifegen"]) and game.clan.your_cat.dead:
                             continue
-                    
-                    if "shunned" not in patrol.tags and "df" not in patrol.tags:
-                        if game.clan.your_cat.status.is_shunned():
+                        if "sc_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.STARCLAN):
                             continue
-                if switch_get_value(Switch.patrol_category) == "date":
-                    if "df" in patrol.tags:
+                        elif "df_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.DARK_FOREST):
+                            print("Skipping", patrol.patrol_id)
+                            continue
+                        elif "ur_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE):
+                            continue
+                    if switch_get_value(Switch.patrol_category) == "df":
                         if len(self.patrol_cats) > 1:
                             other_cat = self.patrol_cats[1]
-                            if not game.clan.your_cat.joined_df or not other_cat.joined_df:
-                                # need both cats to be trainees for goop romance
+                            
+                            if not other_cat.joined_df:
+                                if "fellowtrainee" in patrol.tags:
+                                    continue
+                            
+                            else:
+                                if "fellowtrainee" not in patrol.tags:
+                                    continue
+                                
+                        if "shunned" in patrol.tags:
+                            if not game.clan.your_cat.status.is_shunned():
                                 continue
+                    else:
+                        if "shunned" in patrol.tags:
+                            if not game.clan.your_cat.status.is_shunned():
+                                continue
+                        
+                        if "shunned" not in patrol.tags and "df" not in patrol.tags:
+                            if game.clan.your_cat.status.is_shunned():
+                                continue
+                    if switch_get_value(Switch.patrol_category) == "date":
+                        if "df" in patrol.tags:
+                            if len(self.patrol_cats) > 1:
+                                other_cat = self.patrol_cats[1]
+                                if not game.clan.your_cat.joined_df or not other_cat.joined_df:
+                                    # need both cats to be trainees for goop romance
+                                    continue
 
-                if "bloodthirsty_only" in patrol.tags:
-                    if Cat.all_cats.get(game.clan.your_cat.mentor).personality.trait != "bloodthirsty":
-                        continue
+                    if "bloodthirsty_only" in patrol.tags:
+                        if Cat.all_cats.get(game.clan.your_cat.mentor).personality.trait != "bloodthirsty":
+                            continue
 
                 if "clan_has_kits" in patrol.tags:
                     if len(find_alive_cats_with_rank(Cat, [CatRank.NEWBORN, CatRank.KITTEN])) == 0:
@@ -922,16 +928,28 @@ class Patrol:
                 if "clan_no_kits" in patrol.tags:
                     if len(find_alive_cats_with_rank(Cat, [CatRank.NEWBORN, CatRank.KITTEN])) > 0:
                         continue
-        
-            # cruel season tag check
-            if "cruel_season" in patrol.tags:
-                if game.clan and game.clan.game_mode != "cruel_season":
-                    continue
 
-            if "romantic" in patrol.tags:
-                romantic_patrols.append(patrol)
-            else:
-                filtered_patrols.append(patrol)
+                # cruel season tag check
+                if "cruel_season" in patrol.tags:
+                    if game.clan and game.clan.game_mode != "cruel_season":
+                        continue
+
+                if "romantic" in patrol.tags:
+                    romantic_patrols.append(patrol)
+                else:
+                    print("A FILTERED PATROL")
+                    filtered_patrols.append(patrol)
+                
+
+            if not filtered_patrols:
+                # if we've circled back around to 4 then we need to reset the used patrols
+                if 4 in used_frequencies and chosen_frequency == 4:
+                    self.used_patrols.clear()
+                    used_frequencies.clear()
+                else:
+                    used_frequencies.add(chosen_frequency)
+                    chosen_frequency = find_new_frequency(used_frequencies)
+
             
         # make sure the hunting patrols are balanced
         if patrol_type == "hunting":
@@ -1004,7 +1022,7 @@ class Patrol:
                 season=patrol.get("season"),
                 camp=patrol.get("camp"),
                 tags=patrol.get("tags"),
-                weight=patrol.get("weight", 20),
+                frequency=patrol.get("frequency", 4),
                 types=patrol.get("types"),
                 lifegen_cat_constraints=patrol.get("random_cats"),
                 intro_text=patrol.get("intro_text"),
@@ -1036,7 +1054,9 @@ class Patrol:
 
         return all_patrol_events
 
-    def determine_outcome(self, antagonize=False, chosen_lifegen_cats=[]) -> Tuple[str, str, Optional[str]]:
+    def determine_outcome(
+        self, antagonize=False, chosen_lifegen_cats=[]
+    ) -> Tuple[str, str, list, Optional[str]]:
         if self.patrol_event is None:
             raise Exception("No patrol event supplied")
 
@@ -1058,13 +1078,33 @@ class Patrol:
         )
         fail_outcomes = PatrolOutcome.prepare_allowed_outcomes(fail_outcomes, self)
 
+        chosen_success = None
+        chosen_failure = None
+
         # Choose a success and fail outcome
-        chosen_success = choices(
-            success_outcomes, weights=[x.weight for x in success_outcomes]
-        )[0]
-        chosen_failure = choices(
-            fail_outcomes, weights=[x.weight for x in fail_outcomes]
-        )[0]
+        chosen_frequency = get_frequency()
+        used_frequencies = set()
+        while not chosen_success or not chosen_failure:
+            if not chosen_success:
+                possible_successes = [
+                    x for x in success_outcomes if x.frequency == chosen_frequency
+                ]
+                if possible_successes:
+                    chosen_success = choices(
+                        possible_successes,
+                        weights=[x.weight for x in possible_successes],
+                    )[0]
+            if not chosen_failure:
+                possible_failures = [
+                    x for x in fail_outcomes if x.frequency == chosen_frequency
+                ]
+                if possible_failures:
+                    chosen_failure = choices(
+                        possible_failures, weights=[x.weight for x in possible_failures]
+                    )[0]
+            if not chosen_success or not chosen_failure:
+                used_frequencies.add(chosen_frequency)
+                chosen_frequency = find_new_frequency(used_frequencies)
 
         final_event, success = self.calculate_success(chosen_success, chosen_failure)
 
@@ -1085,6 +1125,18 @@ class Patrol:
                 self.random_cat.relationships[game.clan.your_cat.ID].comfort -= randint(1,5)
             except:
                 print("ERROR: handling relationship changes in date patrol")
+        print(f"PATROL ID: {self.patrol_event.patrol_id} | SUCCESS: {success}")
+        print(
+            f"Patrol Frequency: {self.patrol_event.frequency} | Patrol Weight: {self.patrol_event.weight}"
+        )
+        if success:
+            print(
+                f"Outcome Frequency: {chosen_success.frequency} | Outcome Weight: {chosen_success.weight}"
+            )
+        else:
+            print(
+                f"Outcome Frequency: {chosen_failure.frequency} | Outcome Weight: {chosen_failure.weight}"
+            )
 
         if success and switch_get_value(Switch.patrol_category) == "df":
             game.clan.your_cat.df_patrols += 1
@@ -1202,6 +1254,10 @@ class Patrol:
             success_chance = max(success_chance, 10)
             print(f"c: {c} chance: {success_chance}")
             if c < success_chance:
+                if not date.relationships.get(you.ID):
+                    date.create_one_relationship(you)
+                if not you.relationships.get(date.ID):
+                    you.create_one_relationship(date)
                 date.relationships.get(you.ID).romance += 10
                 you.relationships.get(date.ID).romance += 10
         if success_chance >= 120:
@@ -1306,27 +1362,24 @@ class Patrol:
             else game.clan.override_biome
         )
         season = game.clan.current_season
-        possible_prey_size = []
-        idx = 0
         prey_size = ["very_small", "small", "medium", "large", "huge"]
-        for amount in PATROL_BALANCE[biome][season]:
-            possible_prey_size.extend(repeat(prey_size[idx], amount))
-            idx += 1
-        chosen_prey_size = choice(possible_prey_size)
+
+        chosen_prey_size = choices(prey_size, weights=PATROL_BALANCE[biome][season])[0]
         print(f"chosen filter prey size: {chosen_prey_size}")
 
         # filter all possible patrol depending on the needed prey size
         for patrol in possible_patrols:
             for adaption, needed_weight in PATROL_WEIGHT_ADAPTION.items():
-                if needed_weight[0] <= patrol.weight < needed_weight[1]:
+                if needed_weight == patrol.frequency:
                     # get the amount of class sizes which can be increased
                     increment = int(adaption.split("_")[0])
                     new_idx = prey_size.index(chosen_prey_size) + increment
-                    # check that the increment does not lead to a overflow
+                    # check that the increment does not lead to an overflow
                     new_idx = (
                         new_idx if new_idx < len(prey_size) else len(prey_size) - 1
                     )
                     chosen_prey_size = deepcopy(prey_size[new_idx])
+                    break
 
             # now count the outcomes + prey size
             prey_types = {}
@@ -1389,324 +1442,10 @@ class Patrol:
 
         return pygame.image.load(f"{root_dir}{file_name}.png")
 
-    def process_text(self, text, stat_cat: Optional[Cat], chosen_lifegen_cats=[]) -> str:
-        """Processes text"""
-
-        vowels = ["A", "E", "I", "O", "U"]
-        if not text:
-            text = "This should not appear, report as a bug please!"
-        
-        # new dict for lifegen abbrevs ^^
-        
-        replace_dict = {
-            "p_l": (str(self.patrol_leader.name), choice(self.patrol_leader.pronouns)),
-            # "r_c": (
-            #     str(self.random_cat.name),
-            #     choice(self.random_cat.pronouns),
-            # ),
-            "y_c": (str(game.clan.your_cat.name), choice(game.clan.your_cat.pronouns)),
-        }
-
-        
-        # LG
-        # LIFEGEN CATS
-        for i, lg_cat in enumerate(chosen_lifegen_cats):
-            name = str(lg_cat.name)
-            pronoun = choice(lg_cat.pronouns)
-
-            replace_dict[f"r_c:{i}"] = (name, pronoun)
-        
-        # LG: r_c is moved here, AFTER the indexed versions
-        replace_dict["r_c"] = (
-                str(self.random_cat.name),
-                choice(self.random_cat.pronouns),
-            )
-        # ---
-
-        other_cats = [i for i in self.patrol_cats if i not in [self.patrol_leader, self.random_cat, game.clan.your_cat]]
-        if switch_get_value(Switch.patrol_category) == 'df':
-            other_cats = [i for i in self.patrol_cats if i not in [self.random_cat, game.clan.your_cat]]
-        text, senses, list_type, cat_tag = find_special_list_types(text)
-        if list_type:
-            sign_list = get_special_snippet_list(
-                list_type, amount=randint(1, 3), sense_groups=senses
-            )
-            text = text.replace(list_type, str(sign_list))
-            if cat_tag:
-                text = text.replace("cat_tag", cat_tag)
-
-        other_cats = [
-            i
-            for i in self.patrol_cats
-            if i not in [self.patrol_leader, self.random_cat]
-        ]
-        if len(other_cats) >= 1:
-            replace_dict["o_c1"] = (
-                str(other_cats[0].name),
-                choice(other_cats[0].pronouns),
-            )
-        if len(other_cats) >= 2:
-            replace_dict["o_c2"] = (
-                str(other_cats[1].name),
-                choice(other_cats[1].pronouns),
-            )
-        if len(other_cats) >= 3:
-            replace_dict["o_c3"] = (
-                str(other_cats[2].name),
-                choice(other_cats[2].pronouns),
-            )
-        if len(other_cats) == 4:
-            replace_dict["o_c4"] = (
-                str(other_cats[3].name),
-                choice(other_cats[3].pronouns),
-            )
-
-        # New Cats
-        for i, new_cats in enumerate(self.new_cats):
-            if len(new_cats) == 1:
-                names = str(new_cats[0].name)
-                pronoun = choice(new_cats[0].pronouns)
-            else:
-                names = adjust_list_text([str(cat.name) for cat in new_cats])
-                pronoun = localization.get_new_pronouns("default plural")
-
-            replace_dict[f"n_c:{i}"] = (names, pronoun)
-
-        if len(self.patrol_apprentices) > 0:
-            replace_dict["app1"] = (
-                str(self.patrol_apprentices[0].name),
-                choice(self.patrol_apprentices[0].pronouns),
-            )
-        if len(self.patrol_apprentices) > 1:
-            replace_dict["app2"] = (
-                str(self.patrol_apprentices[1].name),
-                choice(self.patrol_apprentices[1].pronouns),
-            )
-        if len(self.patrol_apprentices) > 2:
-            replace_dict["app3"] = (
-                str(self.patrol_apprentices[2].name),
-                choice(self.patrol_apprentices[2].pronouns),
-            )
-        if len(self.patrol_apprentices) > 3:
-            replace_dict["app4"] = (
-                str(self.patrol_apprentices[3].name),
-                choice(self.patrol_apprentices[3].pronouns),
-            )
-        if len(self.patrol_apprentices) > 4:
-            replace_dict["app5"] = (
-                str(self.patrol_apprentices[4].name),
-                choice(self.patrol_apprentices[4].pronouns),
-            )
-        if len(self.patrol_apprentices) > 5:
-            replace_dict["app6"] = (
-                str(self.patrol_apprentices[5].name),
-                choice(self.patrol_apprentices[5].pronouns),
-            )
-
-        if stat_cat:
-            replace_dict["s_c"] = (str(stat_cat.name), choice(stat_cat.pronouns))
-
-        text = process_text(text, replace_dict)
-        text = adjust_prey_abbr(text)
-
-        other_clan_name = self.other_clan.name
-        s = 0
-        for x in range(text.count("o_c_n")):
-            if "o_c_n" in text:
-                for y in vowels:
-                    if str(other_clan_name).startswith(y):
-                        modify = text.split()
-                        pos = 0
-                        if "o_c_n" in modify:
-                            pos = modify.index("o_c_n")
-                        if "o_c_n's" in modify:
-                            pos = modify.index("o_c_n's")
-                        if "o_c_n." in modify:
-                            pos = modify.index("o_c_n.")
-                        if modify[pos - 1] == "a":
-                            modify.remove("a")
-                            modify.insert(pos - 1, "an")
-                        text = " ".join(modify)
-                        break
-
-        text = text.replace("o_c_n", str(other_clan_name) + "Clan")
-
-        clan_name = game.clan.displayname
-        s = 0
-        pos = 0
-        for x in range(text.count("c_n")):
-            if "c_n" in text:
-                for y in vowels:
-                    if str(clan_name).startswith(y):
-                        modify = text.split()
-                        if "c_n" in modify:
-                            pos = modify.index("c_n")
-                        if "c_n's" in modify:
-                            pos = modify.index("c_n's")
-                        if "c_n." in modify:
-                            pos = modify.index("c_n.")
-                        if modify[pos - 1] == "a":
-                            modify.remove("a")
-                            modify.insert(pos - 1, "an")
-                        text = " ".join(modify)
-                        break
-
-        text = text.replace("c_n", str(game.clan.displayname) + "Clan")
-
-        # TODO: check if this can be handled in event_text_adjust
-        return text
-
-# TODO: jay figure out relationships block in patrols.
-# get the dict passing correctly so p_l, r_c, o_c1, app1 etc. all of those can be used in relationships
-
 
 # ---------------------------------------------------------------------------- #
 #                               PATROL CLASS END                               #
 # ---------------------------------------------------------------------------- #
 
-PATROL_WEIGHT_ADAPTION = game.prey_config["patrol_weight_adaption"]
-PATROL_BALANCE = game.prey_config["patrol_balance"]
-
-# ---------------------------------------------------------------------------- #
-#                              GENERAL INFORMATION                             #
-# ---------------------------------------------------------------------------- #
-
-"""
-More Documentation: https://docs.google.com/document/d/1Vuyclyd40mjG7PFXtl0852DlkcxIiyi_uIWxyi41sbI/edit?usp=sharing
-
-
-Patrol Template.
-This is a good starting point for writing your own patrols. 
-
-{
-    "patrol_id": "some_unique_id",
-    "biome": [],
-    "season": [],
-    "types": [],
-    "tags": [],
-    "random_cats": {},
-    "patrol_art": null,
-    "patrol_art_clean": null,
-    "min_cats": 1,
-    "max_cats": 6,
-    "min_max_status": {
-        "apprentice": [0, 6],
-        "medicine cat apprentice": [0, 6],
-        "medicine cat": [0, 6],
-        "deputy": [0, 6]
-        "warrior": [0, 6],
-        "leader": [0, 6],
-        "healer cats": [0, 6],
-        "normal_adult": [1, 6],
-        "all apprentices": [1, 6]
-    }
-    "weight": 20,
-    "chance_of_success": 50,
-    "relationship_constraint": [],
-    "pl_skill_constraint": [],
-    "intro_text": "The patrol heads out.",
-    "decline_text": "And they head right back!",
-    "success_outcomes": [
-        {
-            SEE OUTCOME BLOCK TEMPLATE
-        },
-        {
-            SEE OUTCOME BLOCK TEMPLATE
-            
-        },
-    ],
-    "fail_outcomes": [
-        {
-            SEE OUTCOME BLOCK TEMPLATE
-        },
-        {
-            SEE OUTCOME BLOCK TEMPLATE
-            
-        },
-    ],
-
-    "antag_success_outcomes": [
-        {
-            SEE OUTCOME BLOCK TEMPLATE
-        },
-        {
-            SEE OUTCOME BLOCK TEMPLATE
-            
-        },
-    ],
-
-    "antag_fail_outcomes": [
-        {
-            SEE OUTCOME BLOCK TEMPLATE
-        },
-        {
-            SEE OUTCOME BLOCK TEMPLATE
-            
-        },
-    ],
-
-}
-
-
-
-----------------------------------------------------------------------------------------
-
-Outcome Block Template.
-This is a good starting point for writing your own outcomes.
-{
-    "text": "The raw displayed outcome text.",
-    "exp": 0,
-    "weight": 20,
-    "stat_skill": [],
-    "stat_trait": [],
-    "stat_cluster": [],
-    "stat_faith": [],
-    "stat_residence": [],
-    "can_have_stat": [],
-    "lost_cats": [],
-    "dead_cats": [],
-    "outsider_rep": null,
-    "other_clan_rep": null,
-    "injury": [
-        {
-            "cats": [],
-            "injuries": [],
-            "scars": [],
-            "no_results": false
-        },
-        {
-            "cats": [],
-            "injuries": [],
-            "scars": [],
-            "no_results": false
-        }
-    ]
-    "history_text": {
-        "reg_death": "m_c died while on a patrol.",
-        "leader_death": "died on patrol",
-        "scar": "m_c was scarred on patrol",
-    }
-    "relationships": [
-        {
-            "cats_to": [],
-            "cats_from": [],
-            "mutual": false
-            "values": [],
-            "amount": 5
-        },	
-        {
-            "cats_to": [],
-            "cats_from": [],
-            "mutual": false
-            "values": [],
-            "amount": 5
-        }
-    ],
-    "new_cat" [
-        [],
-        []
-    ],
-
-}
-
-"""
+PATROL_WEIGHT_ADAPTION = constants.PREY_CONFIG["patrol_weight_adaption"]
+PATROL_BALANCE = constants.PREY_CONFIG["patrol_balance"]

@@ -1,5 +1,5 @@
 {
-    "apprentice general": [
+    "general": [
         "You start to feel bad about disappointing your mentor.",
         "Your mentor, once proud and supportive, avoids your gaze. There's a new hardness in their eyes that wasn't there before, a wall erected to keep you at a distance.",
         "The other apprentices keep their distance during training. The whispers behind hushed whispers fill the air. Their friendly camaraderie is now replaced by a stiff formality.",
@@ -15,18 +15,18 @@
         "You notice the queens shooing their kits away when you're nearby, their worried eyes not missing a single move you make.",
         "Your mentor often leaves you to practice alone. They used to be so attentive, but now their actions seem obligatory."
     ],
-    "apprentice assertive": [],
-    "apprentice brooding": [],
-    "apprentice cool": [],
-    "apprentice upstanding": [],
-    "apprentice introspective": [
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [
         "You find yourself drifting further into your mind, separating you from the harsh judgments as the time goes on. You got your silence, but at what cost?"
     ],
-    "apprentice neurotic": [],
-    "apprentice silly": [],
-    "apprentice stable": [],
-    "apprentice sweet": [],
-    "apprentice unabashed": [],
-    "apprentice unlawful": [],
-    "apprentice rare": []
+    "neurotic": [],
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

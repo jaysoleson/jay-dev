@@ -1,6 +1,7 @@
 from math import ceil
 from typing import Union, Dict
 
+import i18n
 import pygame
 import pygame_gui
 from pygame_gui.core import ObjectID
@@ -20,17 +21,16 @@ from scripts.game_structure.game.switches import (
 from scripts.cat.enums import CatGroup
 from scripts.game_structure import game
 from scripts.game_structure.screen_settings import game_screen_size, MANAGER
-from scripts.game_structure.ui_elements import (
-    UIImageButton,
-    UICatListDisplay,
-    UISurfaceImageButton,
-    UIDropDown,
-)
+from scripts.ui.elements.dropdown import UIDropDown
+from scripts.ui.elements.cat_list_display import UICatListDisplay
+from scripts.ui.elements.image_button import UIImageButton
+from scripts.ui.elements.surface_image_button import UISurfaceImageButton
 from scripts.screens.Screens import Screens
 from scripts.screens.enums import GameScreen
 from scripts.ui.generate_button import ButtonStyles, get_button_dict
 from scripts.ui.icon import Icon
-from scripts.utility import ui_scale, get_text_box_theme, ui_scale_value
+from scripts.ui.theme import get_text_box_theme
+from scripts.ui.scale import ui_scale, ui_scale_value
 
 
 class ListScreen(Screens):
@@ -45,6 +45,8 @@ class ListScreen(Screens):
         "screens.list.filter_id",
         "screens.list.filter_exp",
         "screens.list.filter_death",
+        "screens.list.filter_name",
+        "screens.list.filter_reverse_name",
     )
     living_filter_names = (
         "screens.list.filter_rank",
@@ -52,6 +54,8 @@ class ListScreen(Screens):
         "screens.list.filter_reverse_age",
         "screens.list.filter_id",
         "screens.list.filter_exp",
+        "screens.list.filter_name",
+        "screens.list.filter_reverse_name",
     )
 
     living_group_names = ("general.your_clan", "general.cotc")
@@ -80,6 +84,7 @@ class ListScreen(Screens):
         self.current_group = "your_clan"
         self.full_cat_list = []
         self.current_listed_cats = []
+        self.temper_message = None
 
         self.list_screen_container = None
 
@@ -132,13 +137,6 @@ class ListScreen(Screens):
         self.clan_name = None
 
     def handle_event(self, event):
-        if event.type == pygame_gui.UI_BUTTON_ON_HOVERED:
-            if event.ui_element == self.cat_list_bar_elements["sort_by_label"]:
-                self.cat_list_bar_elements["sort_by_button"].on_hovered()
-
-        elif event.type == pygame_gui.UI_BUTTON_ON_UNHOVERED:
-            if event.ui_element == self.cat_list_bar_elements["sort_by_label"]:
-                self.cat_list_bar_elements["sort_by_button"].on_unhovered()
         if event.type == pygame_gui.UI_BUTTON_PRESSED:
             element = event.ui_element
 
@@ -191,7 +189,10 @@ class ListScreen(Screens):
                     element.set_text("screens.list.view_dead")
                     element.set_tooltip("screens.list.view_dead_tooltip")
                     self.death_status = "living"
-                    self.get_your_clan_cats()
+                    if game.clan.your_cat.alive_in_player_clan:
+                        self.get_your_clan_cats()
+                    else:
+                        self.get_your_group_cats()
 
                 self.update_cat_list(
                     self.cat_list_bar_elements["search_bar_entry"].get_text()
@@ -245,8 +246,14 @@ class ListScreen(Screens):
         self.show_mute_buttons()
         self.clan_name = game.clan.displayname + "Clan"
 
-        self.set_disabled_menu_buttons(["catlist_screen"])
+        self.set_disabled_menu_buttons(["cats"])
         self.show_menu_buttons()
+
+        # LG
+        if not game.clan.your_cat.status.alive_in_player_clan and not game.clan.your_cat.dead:
+            self.living_group_names = ("general.your_clan", "general.your_group", "general.cotc")
+        else:
+            self.living_group_names = ("general.your_clan", "general.cotc")
 
         # SCREEN CONTAINER - everything should come back to here
         self.list_screen_container = pygame_gui.core.UIContainer(
@@ -256,6 +263,15 @@ class ListScreen(Screens):
             manager=MANAGER,
             visible=True,
         )
+        self.temper_message = UISurfaceImageButton(
+            ui_scale(pygame.Rect((200, 104), (400, 35))),
+            "testtestestesttesttest",
+            get_button_dict(ButtonStyles.HORIZONTAL_TAB, (400, 35)),
+            object_id="@buttonstyles_horizontal_tab",
+            manager=MANAGER,
+            container=self.list_screen_container,
+        )
+        self.temper_message.disable()
 
         # BAR CONTAINER
         self.cat_list_bar = pygame_gui.core.UIContainer(
@@ -345,44 +361,49 @@ class ListScreen(Screens):
             container=self.cat_list_bar,
             starting_selection=[starting_select],
             anchors={"left_target": self.cat_list_bar_elements["view_button"]},
+
+            # LG
+            your_group=game.clan.your_cat.status.group,
+            clan_name=game.clan.displayname,
+            all_clans=game.clan.all_other_clans
         )
 
         # SORT BY
+        button_dict = get_button_dict(ButtonStyles.DROPDOWN, (75, 34))
+        button_dict["disabled"] = button_dict["normal"]
         self.cat_list_bar_elements["sort_by_label"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((-2, 0), (75, 34))),
             f"screens.list.filter_label",
-            {
-                "normal": get_button_dict(ButtonStyles.DROPDOWN, (77, 34))[
-                    "normal"
-                ].subsurface(
-                    (0, 0), (75, 34)
-                )  # this horrific thing gets rid of the double-thick line
-            },
+            button_dict,
             object_id="@buttonstyles_dropdown",
             container=self.cat_list_bar,
             starting_height=1,
             manager=MANAGER,
             anchors={"left_target": self.choose_group_dropdown},
         )
+        self.cat_list_bar_elements["sort_by_label"].disable()
+
+        sort_by_text = f"screens.list.filter_{switch_get_value(Switch.sort_type)}"
 
         self.cat_list_bar_elements["sort_by_button"] = UIImageButton(
             ui_scale(pygame.Rect((0, 0), (63, 34))),
-            f"screens.list.filter_{switch_get_value(Switch.sort_type)}",
+            sort_by_text,
             object_id=ObjectID("#filter_by_button", "@buttonstyles_dropdown"),
-            container=self.cat_list_bar,
             starting_height=1,
             manager=MANAGER,
             anchors={"left_target": self.cat_list_bar_elements["sort_by_label"]},
         )
 
         self.sort_by_dropdown = UIDropDown(
-            pygame.Rect((-2, 0), (63, 34)),
-            f"screens.list.filter_{switch_get_value(Switch.sort_type)}",
-            item_list=self.living_filter_names,
+            pygame.Rect((0, 0), (63, 34)),
+            sort_by_text,
+            item_list=self.living_filter_names
+            if self.death_status == "living"
+            else self.dead_filter_names,
             manager=MANAGER,
             container=self.cat_list_bar,
             parent_override=self.cat_list_bar_elements["sort_by_button"],
-            starting_selection=["screens.list.filter_rank"],
+            starting_selection=[sort_by_text],
             anchors={"left_target": self.cat_list_bar_elements["sort_by_label"]},
         )
 
@@ -530,6 +551,8 @@ class ListScreen(Screens):
             )
             if new_group == "your_clan":
                 self.get_your_clan_cats()
+            if new_group == "your_group":
+                self.get_your_group_cats()
             elif new_group == "cotc":
                 self.get_cotc_cats()
             elif new_group == "starclan":
@@ -693,12 +716,16 @@ class ListScreen(Screens):
         """
         sets the background and heading according to current group
         """
+        self.temper_message.set_text(self.get_group_temper_message())
         if self.current_group == "your_clan":
             self.set_bg(None)
             self.update_heading_text(self.clan_name)
         elif self.current_group == "cotc":
             self.set_bg(None)
             self.update_heading_text("general.cotc")
+        elif self.current_group == "your_group":
+            self.set_bg(None)
+            self.update_heading_text(f"The {(game.clan.your_cat.status.group).capitalize().replace("_", " ")}")
         elif self.current_group == "starclan":
             self.set_bg("starclan")
             self.update_heading_text("general.starclan")
@@ -708,6 +735,41 @@ class ListScreen(Screens):
         elif self.current_group == "dark_forest":
             self.set_bg("dark_forest")
             self.update_heading_text("general.dark_forest")
+
+    def get_group_temper_message(self):
+        # UR and COTC has no alignment and no message
+        if self.current_group in ("unknown_residence", "cotc", "your_group"):
+            self.temper_message.hide()
+            return ""
+
+        self.temper_message.show()
+
+        if self.current_group == "your_clan":
+            group = self.clan_name
+            temper = i18n.t(f"screens.leader_den.{game.clan.temperament}")
+        else:
+            if self.current_group == "dark_forest":
+                group = i18n.t(f"general.the_dark_forest")
+            else:
+                group = i18n.t(
+                    f"general.{self.current_group}",
+                    your_group=f"The {(game.clan.your_cat.status.group).replace("_", " ")}"
+                    )
+            if self.current_group == "starclan":
+                if not game.starclan or not game.starclan.influencing_cats:
+                    self.temper_message.hide()
+
+                    # this means there's probably no cats in starclan, so no temper
+                    return ""
+                temper = i18n.t(f"screens.leader_den.{game.starclan.temperament}")
+            else:
+                if not game.dark_forest or not game.dark_forest.influencing_cats:
+                    self.temper_message.hide()
+                    # this means there's probably no cats in df, so no temper
+                    return ""
+                temper = i18n.t(f"screens.leader_den.{game.dark_forest.temperament}")
+
+        return i18n.t("screens.list.temper", group=group, temper=temper)
 
     def get_cat_list(self):
         """
@@ -722,6 +784,8 @@ class ListScreen(Screens):
                 self.get_ur_cats()
             elif game.last_list_forProfile == "cotc":
                 self.get_cotc_cats()
+            elif game.last_list_forProfile == "your_group":
+                self.get_your_group_cats()
             else:
                 self.get_your_clan_cats()
         else:
@@ -749,7 +813,24 @@ class ListScreen(Screens):
             if (
                 not the_cat.dead
                 and not (the_cat.status.alive_in_player_clan)
+                and not (the_cat.status.alive_in_your_cat_group)
                 and the_cat.status.is_near(CatGroup.PLAYER_CLAN_ID)
+                and the_cat.moons >= 0
+            ):
+                self.full_cat_list.append(the_cat)
+
+    def get_your_group_cats(self):
+        """
+        grabs cats in your group if youre an outsider
+        """
+
+        self.current_group = "your_group"
+        self.death_status = "living"
+        self.full_cat_list = []
+        for the_cat in Cat.all_cats_list:
+            if (
+                not the_cat.dead
+                and (the_cat.status.alive_in_your_cat_group)
                 and the_cat.moons >= 0
             ):
                 self.full_cat_list.append(the_cat)

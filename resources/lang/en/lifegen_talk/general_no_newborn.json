@@ -5576,223 +5576,295 @@
             "[Was the extra sleep really worth it?]"
         ]
     },
-    "gardener_notgardener_JOL1": {
+    "language_parentsibling_JOL": {
         "y_c": {
             "age": [
                 "not_newborn"
             ],
             "skill": [
-                "GARDENER,-1"
+                "LANGUAGE,0"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "not_kitten",
+                "not_adolescent"
             ],
-            "conditions": [
-                "deaf:any:false"
+            "cluster": [
+                "assertive",
+                "brooding",
+                "cool",
+                "upstanding",
+                "introspective",
+                "neurotic",
+                "stable",
+                "sweet",
+                "unlawful"
+            ],
+            "skill": [
+                "LANGUAGE,1"
+            ]
+        },
+        "relationship": [
+            "parents_siblings",
+            "parent"
+        ],
+        "tags": [
+            "parents_siblings",
+            "from_your_parent"
+        ],
+        "intro": [
+            "[t_c approaches you while you chitter to a bird circling above camp.]",
+            "It runs in the family, you know.",
+            "[t_c sits down beside you, looking up to the bird with a fond smile. {PRONOUN/t_c/subject/CAP}, too, {VERB/t_c/chitter/chitters} a greeting.]",
+            "Our ancestors would be proud to see you communicating with the other animals like this.",
+            "This camp- this territory- is home to so many creatures, big and small. All with vast interior lives, and more stories to tell than leaves on the tallest oak.",
+            "The capacity to explore them is a gift. Use it well."
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 10,
+                    "respect": 10,
+                    "comfort": 10,
+                    "trust": 10
+                },
+                "mutual": true
+            }
+        }
+    },
+    "sillyunlawful_familygiftwarm_JOL": {
+        "season": [
+            "newleaf",
+            "greenleaf"
+        ],
+        "y_c": {
+            "age": [
+                "not_newborn"
             ]
         },
         "t_c": {
             "age": [
                 "not_kitten"
             ],
-            "skill": [
-                "GARDENER,1"
+            "cluster": [
+                "silly",
+                "unlawful"
             ],
-            "conditions": [
-                "blind:any:false",
-                "deaf:any:false"
-            ]
-        },
-        "intro": [
-            "[It seems like t_c is picking rocks out of the clearing every day.]",
-            "[You start to wonder if t_c is actually just growing them. How are there always more?]"
-        ]
-    },
-    "story_avix1": {
-        "y_c": {},
-        "t_c": {
-            "status": [
-                "warrior",
-                "elder",
-                "deputy",
-                "leader"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "skill": [
-                "STORY,1"
-            ]
-        },
-        "intro": [
-            "[As you make your way to the freshkill pile, you catch wind of t_c recalling a tale of an impressive feat. {PRONOUN/t_c/poss/CAP}{VERB/t_c/'ve/'s} ammassed quite the crowd! It seems everycat is a fan of {PRONOUN/t_c/poss} storytelling.]"
-        ]
-    },
-    "finder_avix1": {
-        "y_c": {},
-        "t_c": {
             "skill": [
                 "TREASURE,1"
             ]
         },
-        "intro": [
-            "Oh, hey, y_c! Look at this huge feather I found earlier!",
-            "[t_c shows off a vulture feather taller than {PRONOUN/t_c/subject} {VERB/t_c/are/is}.]",
-            "[t_c always finds the coolest stuff!]"
-        ]
-    },
-    "artistan_birch_avix1": {
-        "biome": [
-            "forest"
+        "relationship": [
+            "min_like_40",
+            "min_trust_40",
+            "min_comfort_40"
         ],
-        "camp": [
-            "camp6"
+        "tags": [
+            "parents_siblings",
+            "cousin",
+            "half_sibling",
+            "littermate",
+            "siblings_mate"
         ],
-        "y_c": {
-            "condition": [
-                "deaf:any:false"
-            ]
-        },
-        "t_c": {
-            "status": [
-                "not_kitten"
-            ],
-            "condition": [
-                "deaf:any:false"
-            ],
-            "skill": [
-                "ARTISTAN,1"
-            ]
-        },
         "intro": [
-            "[t_c has been fiddling with the dangling trinkets since Sunhigh. Only now that the sun has started to set {VERB/t_c/are/is} {PRONOUN/t_c/subject} finally satisfied with {PRONOUN/t_c/poss} work.]",
-            "[With {PRONOUN/t_c/object} gone, you see the sunlight sparkle off the trinkets into beams of beautiful light. t_c did a wonderful job!]"
+            "Heyy there bud! Just the cat I was looking for!",
+            "I saw this while I was out on patrol and thought of you. Don't go running off to remind the rest of the family that I'm your favorite too quickly now!",
+            "[You have gained an accessory!]"
         ],
         "intro_scene_effects": {
-            "relationship": {
+            "inventory": {
                 "cats_to": [
-                    "t_c"
-                ],
-                "cats_from": [
                     "y_c"
                 ],
-                "mutual": false,
-                "values": {
-                    "like": 5
-                }
-            }
-        }
-    },
-    "clean_avix1": {
-        "y_c": {
-            "status": [
-                "not_kitten"
-            ],
-            "condition": [
-                "deaf:any:false"
-            ],
-            "skill": [
-                "CLEAN,1"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "deaf:any:false",
-                "blind:any:false"
-            ],
-            "skill": [
-                "CLEAN,-1"
-            ]
-        },
-        "intro": [
-            "[You have spent all day cleaning out the clearing. Now, it's perfectly tidy, not a speck out of line anywhere to be seen.]",
-            "[Of course, such good things do not last long. t_c, as if compelled by the neatness, rushes into the clearing. Dust, dirt, and pebbles go flying in every direction. All sense of order is completely lost.]",
-            "[t_c shakes {PRONOUN/t_c/poss} pelt before walking off as if the whole ordeal never happened. Looks like you'll have to start again...]"
-        ],
-        "intro_scene_effects": {
+                "accessory": [
+                    "CATNIP FLOWER",
+                    "CATMINT",
+                    "FLOWERCROWN",
+                    "EGG",
+                    "HONEYCOMB"
+                ],
+                "addition": "choice"
+            },
             "relationship": {
                 "cats_to": [
-                    "t_c"
-                ],
-                "cats_from": [
                     "y_c"
                 ],
+                "cats_from": [
+                    "t_c"
+                ],
                 "values": {
-                    "respect": -5
+                    "like": 10,
+                    "comfort": 10
                 },
-                "mutual": false
+                "mutual": true
             }
         }
     },
-    "skill_E3": {
+    "sillyunlawful_familygiftcold_JOL": {
+        "season": [
+            "leaf-fall",
+            "leaf-bare"
+        ],
         "y_c": {
-            "status": [
+            "age": [
                 "not_newborn"
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "not_kitten"
             ],
+            "cluster": [
+                "silly",
+                "unlawful"
+            ],
             "skill": [
-                "INNOVATOR",
-                1
+                "TREASURE,1"
             ]
         },
+        "relationship": [
+            "min_like_40",
+            "min_trust_40",
+            "min_comfort_40"
+        ],
+        "tags": [
+            "parents_siblings",
+            "cousin",
+            "half_sibling",
+            "littermate",
+            "siblings_mate"
+        ],
         "intro": [
-            "[t_c is sitting in the middle of camp, staring at a branch sticking straight up out of the ground. {PRONOUN/t_c/poss/CAP} ear twitches as you trot by.]",
-            "Hey, y_c! Come check this out!",
-            "See how the branch is casting a shadow? As the day goes on, the shadow slowly moves all the way around until this stone here, when the sun dips below the horizon. And this stone over here marks when the sun rises back up!",
-            "...I'm not exactly sure what to do with this yet, but I'm sure I'll think of something."
-        ]
+            "Heyy there bud! Just the cat I was looking for!",
+            "I saw this while I was out on patrol and thought of you. Don't go running off to remind the rest of the family that I'm your favorite too quickly now!",
+            "[You have gained an accessory!]"
+        ],
+        "intro_scene_effects": {
+            "inventory": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "accessory": [
+                    "LANTERNS",
+                    "WILLOWBARK BAG",
+                    "PUMPKIN",
+                    "DRY CATMINT",
+                    "STICK"
+                ],
+                "addition": "choice"
+            },
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": 10,
+                    "comfort": 10
+                },
+                "mutual": true
+            }
+        }
     },
-    "skill_E8": {
+    "elderswimmer_notnewborn_JOL": {
+        "biome": [
+            "beach"
+        ],
+        "season": [
+            "greenleaf"
+        ],
         "y_c": {
-            "status": [
+            "age": [
                 "not_newborn"
-            ],
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false"
-            ],
-            "skill": [
-                "GRACE,-1"
             ]
         },
         "t_c": {
             "status": [
-                "not_newborn"
+                "elder"
             ],
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false"
+            "age": [
+                "senior"
+            ],
+            "cluster": [
+                "grumpy",
+                "stoic",
+                "aloof",
+                "reserved",
+                "mellow",
+                "flexible",
+                "responsible",
+                "loyal",
+                "methodical",
+                "wise",
+                "calm",
+                "mellow",
+                "flexible",
+                "thoughtful",
+                "strange",
+                "faithful",
+                "disciplined",
+                "patient",
+                "sweet",
+                "unabashed",
+                "unlawful"
             ],
             "skill": [
-                "GRACE,0"
+                "SWIMMER,1"
             ]
         },
         "intro": [
-            "[While the rest of the clan is stuck with wet paws after a recent storm, t_c manages to keep their own fur dry as {PRONOUN/t_c/subject} {VERB/t_c/traverse/traverses} around the camp with little effort.]"
-        ]
+            "The water is such a relief for my joints this time of year.",
+            "[t_c stretches with a yawn, and you hear a few faint pops.]",
+            "I'm about ready to head down that way now.",
+            "Remember to keep up with your exercise too, y_c."
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "respect": 2,
+                    "trust": 2
+                },
+                "mutual": true
+            }
+        }
     },
-    "skill_E9": {
+    "neurotic_avix1": {
         "y_c": {
             "status": [
-                "not_newborn"
-            ]
-        },
-        "t_c": {
-            "status": [
-                "not_kitten",
-                "not_medicine_cat_apprentice",
-                "not_medicine_cat"
+                "not_kitten"
             ],
             "condition": [
                 "blind:any:false"
             ]
         },
+        "t_c": {
+            "age": [
+                "not_newborn"
+            ],
+            "cluster": [
+                "neurotic"
+            ]
+        },
         "intro": [
-            "Hey, y_c! Do you like my new look?",
-            "[You look over at t_c who is covered head to toe in cobwebs, leaves, and colorful herbal remedies.]",
-            "plike-r_m needed somecat to practice a few healing techniques on. I think {PRONOUN/plike-r_m/subject} did a pretty good job! c_n is definitely in good paws.",
-            "...I really hope this washes off."
+            "[t_c has been staring up into the trees since sunhigh, when {PRONOUN/t_c/subject} had spotted a hawk above camp.]",
+            "It's not coming back, right? Should we hide? Maybe we should all hide.",
+            "[You assure t_c that the hawk is probably not coming back.]",
+            "Just… Just keep an eye out, okay, y_c?"
         ]
     }
 }

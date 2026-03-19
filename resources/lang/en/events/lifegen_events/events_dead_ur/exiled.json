@@ -1,17 +1,17 @@
 {
-    "exiled general": [
+    "general": [
         "You wander around, lost."
     ],
-    "exiled assertive": [],
-    "exiled brooding": [],
-    "exiled cool": [],
-    "exiled upstanding": [],
-    "exiled introspective": [],
-    "exiled neurotic": [],
-    "exiled silly": [],
-    "exiled stable": [],
-    "exiled sweet": [],
-    "exiled unabashed": [],
-    "exiled unlawful": [],
-    "exiled rare": []
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

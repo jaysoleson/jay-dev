@@ -1021,5 +1021,32 @@
         "intro": [
             "[You feel a cold ghostly presence nearby. It must be one of those 'lost cats' you've heard about, since it doesn't feel like another Dark Forest cat.]"
         ]
+    },
+    "df_newdf_outsider_avix1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "df"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "loner",
+                "kittypet"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ],
+            "dead": [
+                "df",
+                "max_theydeadfor_5"
+            ]
+        },
+        "intro": [
+            "[As soon as t_c sees you, {PRONOUN/t_c/subject} {VERB/t_c/yelp/yelps} and {VERB/t_c/bolt/bolts} off into the murky depths.]",
+            "[{PRONOUN/t_c/subject/CAP} must be new.]"
+        ]
     }
 }

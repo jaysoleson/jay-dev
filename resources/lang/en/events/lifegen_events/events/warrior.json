@@ -1,5 +1,5 @@
 {
-    "warrior general": [
+    "general": [
         "In a moment of downtime, you take the time to impress the kits with your finest hunting crouch.",
         "d_n informs you that you are scheduled for yet another midnight patrol. Seriously?",
         "A heated argument with a o_c_n patrol leaves you ruffled, claws itching for a fight.",
@@ -35,62 +35,62 @@
         "You take the long route back to camp after patrol just to have some time alone.",
         "You make some time to visit y_p after a patrol."
     ],
-    "warrior assertive": [
+    "assertive": [
         "You often volunteer yourself to lead patrols. d_n appreciates your willingness to take charge.",
         "You and r_w argue about what prey tastes best.",
         "You tell d_n that more hunting patrols should be sent to the far side of the territory, as you've noticed more prey there recently."
     ],
-    "warrior brooding": [
+    "brooding": [
         "During a border patrol, while marking the lines that separate c_n and o_c_n, you think about how much blood has been shed at this very spot.",
         "r_k is constantly in your way, and while you feign annoyance, you'd almost miss them if {PRONOUN/r_k/subject}'d stop.",
         "You can't shake the feeling of unease after the morning patrol."
     ],
-    "warrior cool": [
+    "cool": [
         "You hold your prey high as you return from a successful hunting trip.",
         "l_n makes a remark about how charismatic you are, and you puff out your chest proudly.",
         "r_d tells you that you'd make a good mediator."
     ],
-    "warrior upstanding": [
+    "upstanding": [
         "Despite your exhaustion, you volunteer for an extra dawn patrol to ensure the Clan's safety.",
         "You make sure the elders are fed before taking any prey for yourself.",
         "You assign yourself to guard camp at night, knowing that you can keep yourself awake and alert the entire night. Unlike some warriors."
     ],
-    "warrior introspective": [
+    "introspective": [
         "You often volunteer for the dawn patrol, enjoying the peaceful moments to reflect as the world awakens.",
         "You find yourself lost in thought lately.",
         "r_a asks for words of wisdom before {PRONOUN/r_a/poss} assessment, and despite having an inkling r_a is joking, you give {PRONOUN/r_a/object} a heartfelt speech anyway to uplift {PRONOUN/r_a/poss} spirits. You don't notice r_a left during your rambling until you're finished."
     ],
-    "warrior neurotic": [
+    "neurotic": [
         "r_a looks to you for reassurance before {PRONOUN/r_a/poss} assessment, and your encouraging words soothe {PRONOUN/r_a/poss} fears. You remember when you were in the same place, moons ago.",
         "When a hunting patrol takes longer than expected to return, you fear the worst, convinced something terrible happened.",
         "You're not too disappointed when neutral-r_w1 has to help r_w2 instead of joining you on a hunting patrol, leaving you to go alone. You spend an afternoon traipsing through the territory, enjoying the solitude."
     ],
-    "warrior silly": [
+    "silly": [
         "You pounce on r_a, laughing when {PRONOUN/r_a/subject} {VERB/r_a/jump/jumps}.",
         "You hide with r_e in the elders' den, trying to avoid dawn patrol.",
         "You pretend y_s's tail is a piece of prey and jump on it, just like when you both were kits."
     ],
-    "warrior stable": [
+    "stable": [
         "When r_k wanders too close to the edge of the camp, you gently guide {PRONOUN/r_k/object} back to the nursery, promising to teach them about the territory when {PRONOUN/r_k/subject}{VERB/r_k/'s/'re} older.",
         "You make a habit of visiting the nursery each night to check for any holes in the den before heading to bed.",
         "You methodically remark the c_n borders while on patrol."
     ],
-    "warrior sweet": [
+    "sweet": [
         "When r_e complains of aching joints, you go out of your way to find {PRONOUN/r_e/object} the softest moss for {PRONOUN/r_e/poss} bedding.",
         "You spend your free time playing with the kits, patiently letting them clamber all over you.",
         "You help r_m fetch water-soaked moss for the medicine den."
     ],
-    "warrior unabashed": [
+    "unabashed": [
         "At the full moon Gathering, you enthusiastically greet everycat, completely unashamed of your excitement.",
         "When d_n questions your hunting techniques, you firmly remind {PRONOUN/d_n/object} that your methods get results.",
         "You coat yourself in mud to camoflague yourself from prey."
     ],
-    "warrior unlawful": [
+    "unlawful": [
         "On a solo hunt, you purposely cross Clan boundaries to chase a fat squirrel, telling no one.",
         "You 'accidentally' forget to wake up r_w for {PRONOUN/r_w/poss} dawn patrol shift after {PRONOUN/r_w/subject} annoyed you the day before.",
         "r_a catches you sneaking out of camp at night, but you threaten {PRONOUN/r_a/object} to keep quiet about it."
     ],
-    "warrior rare": [
+    "rare": [
         "On a foggy morning patrol, you swear you see glowing eyes watching you from the shadows."
     ]
 }

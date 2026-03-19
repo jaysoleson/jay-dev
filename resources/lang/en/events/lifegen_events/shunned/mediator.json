@@ -1,5 +1,5 @@
 {
-    "mediator general": [
+    "general": [
         "The queens, who once trusted you to resolve quarrels amongst their kits, now steer their young ones away from you. Their disappointed looks serve as a bitter reminder of your deeds.",
         "Every disagreement in the Clan now seems amplified, your guilt twisting every dispute into a possible harbinger of violence.",
         "As the Clan's mediator, your role was to solve conflicts, not create them. The trust that your Clanmates once had in your ability to maintain peace has vanished.",
@@ -14,16 +14,16 @@
         "Cats speak in hushed tones when you approach, leaving you paranoid about their conversations.",
         "You struggle to sleep, haunted by the memory of your actions and the implications they hold for your role within the Clan."
     ],
-    "mediator assertive": [],
-    "mediator brooding": [],
-    "mediator cool": [],
-    "mediator upstanding": [],
-    "mediator introspective": [],
-    "mediator neurotic": [],
-    "mediator silly": [],
-    "mediator stable": [],
-    "mediator sweet": [],
-    "mediator unabashed": [],
-    "mediator unlawful": [],
-    "mediator rare": []
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

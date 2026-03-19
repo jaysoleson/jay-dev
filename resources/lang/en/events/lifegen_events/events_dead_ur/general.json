@@ -1,5 +1,5 @@
 {
-    "general general": [
+    "general": [
         "You wander around, exploring places you've never seen before.",
         "You find yourself quickly getting bored in death.",
         "You catch another cat's gaze for a moment. They startle a bit, but move on quickly. Perhaps they caught a glimpse of you?",
@@ -31,18 +31,18 @@
         "The longer you spend watching living cats, the more you realize just how much you didn't know. It feels so foolish now to think back on all of the miscommunications and mistakes you made.",
         "As you're wandering around, you encounter another lost spirit. You two watch c_n for a while together, laughing at the current argument between r_c1 and r_c2. Eventually, the argument gets resolved and you part ways, both of you happier than before."
     ],
-    "general assertive": [],
-    "general brooding": [],
-    "general cool": [],
-    "general upstanding": [],
-    "general introspective": [],
-    "general neurotic": [],
-    "general silly": [],
-    "general stable": [],
-    "general sweet": [],
-    "general unabashed": [],
-    "general unlawful": [],
-    "general rare": [
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": [
         "You're wandering around c_n, when r_k-ghost stares right into your eyes, almost as if {PRONOUN/r_k-ghost/subject} could see you. As you're about to approach {PRONOUN/r_k-ghost/object}, {PRONOUN/r_k-ghost/subject} {VERB/r_k-ghost/get/gets} pulled away by r_q. You wonder if there are other cats in c_n that can see you."
     ]
 }

@@ -1,5 +1,5 @@
 {
-    "medicine cat apprentice general": [
+    "general": [
         "You start to feel bad about disappointing your mentor.",
         "The herbs in your den, once comforting, now feel sinister. They were supposed to heal, not to hurt. You wonder if your mentor feels the same unease around you.",
         "The cats you once treated now shrink away from your touch. Their grateful mews are replaced by fearful whispers.",
@@ -17,16 +17,16 @@
         "At the half-moon meeting, you wake up to a shadow-filled forest instead of starry meadows.",
         "You wonder if being a medicine cat apprentice is the right path for you."
     ],
-    "medicine cat apprentice assertive": [],
-    "medicine cat apprentice brooding": [],
-    "medicine cat apprentice cool": [],
-    "medicine cat apprentice upstanding": [],
-    "medicine cat apprentice introspective": [],
-    "medicine cat apprentice neurotic": [],
-    "medicine cat apprentice silly": [],
-    "medicine cat apprentice stable": [],
-    "medicine cat apprentice sweet": [],
-    "medicine cat apprentice unabashed": [],
-    "medicine cat apprentice unlawful": [],
-    "medicine cat apprentice rare": []
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

@@ -1,15 +1,19 @@
 {
-    "kittypet general": [],
-    "kittypet assertive": [],
-    "kittypet brooding": [],
-    "kittypet cool": [],
-    "kittypet upstanding": [],
-    "kittypet introspective": [],
-    "kittypet neurotic": [],
-    "kittypet silly": [],
-    "kittypet stable": [],
-    "kittypet sweet": [],
-    "kittypet unabashed": [],
-    "kittypet unlawful": [],
-    "kittypet rare": []
+    "general": [
+        "Your housefolk leaves during the day. You spend a few hours staring out the window, waiting for them to come back."
+    ],
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [
+        "Your housefolk leaves during the day. You spend a few hours staring out the window, waiting for them to come back..."
+    ],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

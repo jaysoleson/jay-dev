@@ -1,5 +1,11 @@
 # LifeGen - A ClanGen Mod
 
+## On AI & LLMs
+
+> [!WARNING]
+> Issues and Pull Requests created with AI based tools are going to be closed without further comment.
+> Repeat offenders will be blocked from this project until further notice.
+
 ### [Discord Server](https://discord.gg/lifegen) || [Official website](https://mods.clangen.io/LifeGen/download) || [ClanGen Itch.io Page](https://sablesteel.itch.io/clan-gen-fan-edit) 
 
 ## Description

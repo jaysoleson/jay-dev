@@ -1,5 +1,5 @@
 {
-    "deputy general": [
+    "general": [
         "You wonder if there's any way to get promoted to leader in the Dark Forest.",
         "You reminisce about when your hunting patrols would return with heaps of prey in their jaws.",
         "You almost had it all, and then it was taken from you.",
@@ -7,16 +7,16 @@
         "You and l_n are getting into arguments more often than not, these moons.",
         "You watch, hopelessly, as the seasons change and c_n along with it."
     ],
-    "deputy assertive": [],
-    "deputy brooding": [],
-    "deputy cool": [],
-    "deputy upstanding": [],
-    "deputy introspective": [],
-    "deputy neurotic": [],
-    "deputy silly": [],
-    "deputy stable": [],
-    "deputy sweet": [],
-    "deputy unabashed": [],
-    "deputy unlawful": [],
-    "deputy rare": []
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [],
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": []
 }

@@ -1,5 +1,5 @@
 {
-    "kitten general": [
+    "general": [
         "You roll a piece of moss into a ball and bat it around with your tiny paws.",
         "A bug skitters around the nursery, catching your eye. You pounce on it, and hold it up proudly so that the warriors can see your accomplishment.",
         "As the camp settles down for the night, you curl up in your nest but can't seem to fall asleep! You want to continue to play, play, play.",
@@ -33,7 +33,7 @@
         "Snuggled close to y_l and y_p, you can't imagine life without them.",
         "The camp is too stuffy. You wonder what it's like to run across c_n's territory."
     ],
-    "kitten assertive": [
+    "assertive": [
         "You watch the battle-scarred warriors coming back into camp from the border patrol, eyes wide. You hope you'll be just like them someday!",
         "y_p scolds you for playing too roughly with your sibling y_s, and makes you apologize. You stick out your tongue at {PRONOUN/y_s/object} for being such a tattle-tail.",
         "You and r_k have a yowling competition, which stresses out y_p so much that {PRONOUN/y_p/subject} {VERB/y_p/have/has} to take a break and {VERB/y_p/unload/unloads} you onto the queens.",
@@ -49,7 +49,7 @@
         "You help y_s devise a plan to get back at a cat who was bullying {PRONOUN/y_s/object}.",
         "You yell at r_c who had accidentally stepped on a bug that you were watching."
     ],
-    "kitten brooding": [
+    "brooding": [
         "You find a quiet, shaded spot beneath an old oak tree and spend hours there, just observing the comings and goings of the Clan.",
         "You sit and stare at your reflection in a puddle, dipping in a tiny paw and watching the water ripple.",
         "r_w approaches you, asking if you are okay. You just wanted some solitude, away from the nursery for once!",
@@ -62,7 +62,7 @@
         "You roll your eyes when r_k cries over a small cut. You're so much stronger than {PRONOUN/r_k/subject} {VERB/r_k/are/is}.",
         "You help y_s devise a plan to get back at a cat who was bullying {PRONOUN/y_s/object}."
     ],
-    "kitten cool": [
+    "cool": [
         "As r_e tells you a long and boring story, you restlessly paw at the grass, waiting for {PRONOUN/r_e/object} to be done.",
         "After a particularly rowdy play session, you find a small tuft of fur missing from your flank. You can't wait to show off your 'battle scar'!",
         "The whole hunting patrol comes to visit you in the nursery, showering you with gifts and praise.",
@@ -74,7 +74,7 @@
         "Your denmates watch enviously as r_w brings you a special gift.",
         "A lot of the kits in the nursery get picked on, but never you ... Must be your natural charm."
     ],
-    "kitten upstanding": [
+    "upstanding": [
         "r_q lectures about the basics of the Warrior Code. You make it a point to memorize each rule, hoping to get a head start on your apprenticeship.",
         "The deputy visits the nursery to teach the kits about border safety, and you're thrilled to answer all their questions correctly. Maybe you'll be their deputy someday!",
         "You peek into the leader's den, eyes wide with awe. You wish you were as big and important as l_n is.",
@@ -85,7 +85,7 @@
         "You demand that d_n give you a task or put you on a patrol, just like the warriors. {PRONOUN/d_n/subject/CAP} {VERB/d_n/assign/assigns} you to watch the nursery. You take this new responsibility seriously, standing guard with unwavering focus.",
         "You spend the day ordering around r_k, acting out a story you spent hours planning and getting upset when {PRONOUN/r_k/subject} {VERB/r_k/try/tries} to deviate."
     ],
-    "kitten introspective": [
+    "introspective": [
         "You ask r_e about life after death. r_e tells you more about the warrior ancestors up in StarClan and how each star in the sky represents an ancestor who is watching over you.",
         "You ask r_e about the Dark Forest. r_e tells you that it is a place where unruly kits go.",
         "You spend an entire day watching the clouds slowly drift over camp.",
@@ -97,7 +97,7 @@
         "You ask y_p about the meaning of life. {PRONOUN/y_p/subject/CAP} {VERB/y_p/laugh/laughs} and {VERB/y_p/tell/tells} you you're too young to worry about things like that, and yet you can't seem to stop ...",
         "You try to get y_s to ponder about the nature of your warrior ancestors with you, but {PRONOUN/y_s/subject} {VERB/y_s/get/gets} bored and {VERB/y_s/wander/wanders} off to do something else."
     ],
-    "kitten neurotic": [
+    "neurotic": [
         "When you catch the gaze of l_n, you nervously duck your head back into the nursery.",
         "You tell y_p that you don't want to become an apprentice. y_p reassures you that it won't be so bad.",
         "You're kept awake all night, terrified of the shadows on the nursery walls.",
@@ -109,7 +109,7 @@
         "r_w asks if you've started thinking about what you'd like to be when you're older, and anxiety fills your heart, overwhelmed by the possibilities of the future.",
         "A checkup trip to the medicine den leaves you terrified of all the strange sights and smells, and y_p has to bribe you with prey to even look in r_m's direction again."
     ],
-    "kitten silly": [
+    "silly": [
         "You and r_k imitate l_n and d_n, pretending to order around some warriors.",
         "You and y_s hatch a plan to sneak out of camp, only for r_q to catch you and stop your plan before it even starts!",
         "You ask r_d if you can come along the next time {PRONOUN/r_d/subject} {VERB/r_d/travel/travels} to o_c_n.",
@@ -117,14 +117,14 @@
         "You ask r_d what the point of {PRONOUN/r_d/poss} role is.",
         "You imitate r_q, ordering the other kits to go to bed and stop talking."
     ],
-    "kitten stable": [
+    "stable": [
         "You can't wait to grow up! It's only a matter of time before l_n makes you an apprentice.",
         "You groom your fur until it's sparkling. You now look much more put together than r_k!",
         "You dig some holes around the clearing, apologizing profusely after r_w trips over one.",
         "You overhear l_n talking about some upcoming ceremonies. You wonder if it's your apprenticeship ceremony!",
         "r_a gives some advice to you about hunting. You make a mental note and intend to practice later."
     ],
-    "kitten sweet": [
+    "sweet": [
         "You bring r_m a flower that you found near the nursery. Perhaps it's an herb that will help {PRONOUN/r_m/object} cure sick cats.",
         "When you notice r_k getting left out of a game, you immediately invite {PRONOUN/r_k/object} to join.",
         "You listen to r_e tell a story, listening politely even though it is a bit boring.",
@@ -132,7 +132,7 @@
         "When r_k takes a tumble and gets a small scrape, you are the first to hurry over to the medicine den to get r_m.",
         "You tear up at the sight of a squished bug. y_p remarks how sensitive you are."
     ],
-    "kitten unabashed": [
+    "unabashed": [
         "You play in the middle of the camp clearing, making the warriors have to step around you constantly to get around.",
         "You pretend to collapse in front of the medicine den to get r_m's attention, pleased when {PRONOUN/r_m/subject} {VERB/r_m/rush/rushes} over to you in concern.",
         "You see r_a practice a battle move near the apprentice den. You loudly critique {PRONOUN/r_a/poss} technique, ensuring the warriors can hear your 'expert' opinion.",
@@ -145,7 +145,7 @@
         "y_p grooms your fur after your third trip today, remarking how clumsy you are.",
         "Curious, you venture into a thicket of brambles, and return to an exasperated r_q covered in thorns."
     ],
-    "kitten unlawful": [
+    "unlawful": [
         "r_q lectures about the basics of the Warrior Code, but you don't pay attention. Rules are boring, you'd much rather be outside playing mossball!",
         "You and y_s hatch a plan to sneak out of camp, only for r_q to catch you and stop your plan before it even starts!",
         "You poke your nose outside camp when none of the warriors are looking, and are amazed by the sights and smells of the vast territory.",
@@ -159,57 +159,11 @@
         "You stomp around on an anthill, crushing every ant that tries to escape your massacre.",
         "You ask r_m what the point of {PRONOUN/r_m/poss} role is."
     ],
-    "kitten rare": [
+    "rare": [
         "One night, as you sneak out of the nursery, you look up to see brilliant streaks of white light traveling across the sky. You watch the meteor shower, your eyes wide with amazement and wonder.",
         "One night, starry cats visit you in a dream, stating that you are destined for greatness.",
         "One night, some unknown cats visit you in a dream, their pelts dripping with an unknown substance. They tell you that you are destined for something great.",
         "The leader of o_c_n visits camp, but no one will tell you why.",
         "You often feel as if something's watching you."
-    ],
-    "moon_2_one_parent": [
-        "You feel the soft touch of parent1's fur as {PRONOUN/parent1/subject} {VERB/parent1/curl/curls} around you. {PRONOUN/parent1/poss/CAP} warm purr is comforting, making you feel safe. The world may be wide and unknown, but here, buried in {PRONOUN/parent1/poss} fur, you know you are loved and protected.",
-        "Even though your eyes are still closed, you know you're not alone. parent1 is there, brushing your head with {PRONOUN/parent1/poss} muzzle.",
-        "The wind picks up outside the nursery causing you to tremble. parent1 comes closer, whispering into your ear that it's just the wind, nothing to fear. Your trembling lessens as {PRONOUN/parent1/poss} comforting purrs reassure you.",
-        "One day, you feel the soft nudge of parent1. {PRONOUN/parent1/subject/CAP} {VERB/parent1/encourage/encourages} you to stand on your tiny paws. Despite a few stumbles, you manage to stand tall, looking up to see parent1's eyes glowing with pride.",
-        "parent1 takes you to the entrance of the nursery for the first time. The camp is buzzing with activity, making your heart pound with excitement and fear. parent1's reassuring nudge reminds you that this is your future - you're not just a kit - you're a part of the Clan.",
-        "Trying to run for the first time, you stumble and fall flat on your face. parent1 asks if you're okay, hiding a smile."
-    ],
-    "moon_2_two_parents": [
-        "One day, parent1 takes your tiny paw into {PRONOUN/parent1/poss} own, guiding you to make your first paw print in the soft mud outside the nursery. parent2 watches from a distance, {PRONOUN/parent2/poss} eyes gleaming with pride.",
-        "parent1 and parent2 take turns teaching you the Warrior Code, their voices filling the nursery with tales of honor, loyalty, and bravery.",
-        "One evening, under the star-studded sky, parent1 points out various constellations to you. parent2 whispers stories that align with each constellation, legends of the great warriors who now watch over you from StarClan.",
-        "The day comes when you leave the nursery for the first time, exploring the bustling Clan camp. parent1 and parent2 stay close, guiding and watching as you interact with your future Clanmates."
-    ],
-    "moon_3_one_parent": [
-        "One day, while the camp is buzzing with the morning's activity, parent1 gently wakes you. {PRONOUN/parent1/subject/CAP} {VERB/parent1/tell/tells} you it's time to explore the camp, {PRONOUN/parent1/poss} voice warm and encouraging. Your tiny heart races with anticipation as you venture out of the nursery, parent1's reassuring presence guiding you every step of the way.",
-        "parent1's voice pulls you from your dream, a soft hum singing praises of StarClan.",
-        "parent1's voice pulls you from your dream. {PRONOUN/parent1/subject/CAP}{VERB/parent1/'re/'s} quietly singing a haunting melody of the Dark Forest.",
-        "You feel the tickle of parent1's tail against your nose, waking you up from your mid-day nap. With a playful swat, {PRONOUN/parent1/subject} {VERB/parent1/invite/invites} you to join in a gentle play-fight.",
-        "parent1 leads you to the fresh-kill pile. You observe as {PRONOUN/parent1/subject} skillfully {VERB/parent1/select/selects} the perfect meal, teaching you about the different prey in the process.",
-        "As the moon shines brightly overhead, parent1 tells you tales of the great gatherings of the four Clans that happen every full moon."
-    ],
-    "moon_3_two_parents": [
-        "One quiet evening, parent1 and parent2 sit with you under the starlit sky. They tell you tales of the ancient Clans and the great warriors that now shimmer above you in StarClan. These stories fill your dreams, painting them with acts of courage, wisdom, and sacrifice that one day, you too, might echo.",
-        "During a particularly warm day, parent1 nudges you towards a shady spot under a tree. parent2 fetches a small piece of fresh-kill for you, teaching you the importance of staying nourished and cool.",
-        "One day, parent1 and parent2 take turns teaching you about different prey. You learn about their smells, sounds, and tracks, feeling a rush of excitement with every new discovery.",
-        "One moonlit night, parent1 shares with you the Warrior Code while parent2 attentively listens. As you memorize the code, {PRONOUN/parent1/subject} {VERB/parent1/explain/explains} each law, helping you understand the principles that bind your Clan together."
-    ],
-    "moon_4_one_parent": [
-        "One day, parent1 shows you the apprentice's den. Though it seems big and somewhat intimidating, the prospect of joining the apprentices fills you with excitement.",
-        "You tried to sneak out of camp after parent1 was called elsewhere. Sadly, your denmate snitched on you, and you were brought back to the nursery."
-    ],
-    "moon_4_two_parents": [
-        "One day, parent1 shows you the apprentice's den while parent2 watches with a warm smile. It seems big and somewhat intimidating, but the prospect of joining the apprentices fills you with excitement.",
-        "You tried to sneak out of camp after parent1 and parent2 were called elsewhere. Sadly, your denmate snitched on you, and you were brought back to the nursery."
-    ],
-    "moon_5_one_parent": [
-        "parent1 encourages you to speak with the elders about the different paths you can take when you become an apprentice. Your head starts to feel like it's going to explode after you learn about what each role -- warrior, medicine cat, and mediator -- entails.",
-        "You're so excited for your upcoming apprentice ceremony that you jump up and down with excitement. parent1 watches you with amusement.",
-        "As your sixth moon approaches, parent1 tells you about the approaching ceremony where you'll be assigned a mentor and begin your training."
-    ],
-    "moon_5_two_parents": [
-        "parent1 and parent2 encourage you to speak with the elders about the different paths you can take when you become an apprentice. Your head starts to feel like it's going to explode after you learn about what each role -- warrior, medicine cat, queen, and mediator -- entails.",
-        "You're so excited for your upcoming apprentice ceremony that you jump up and down with excitement. parent1 and parent2 watch you with amusement.",
-        "As your sixth moon approaches, parent1 and parent2 tell you about the approaching ceremony where you'll be assigned a mentor and begin your training."
     ]
 }

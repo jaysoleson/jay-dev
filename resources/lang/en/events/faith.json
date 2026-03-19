@@ -1904,5 +1904,21 @@
             "affected": false,
             "age": ["adult", "senior adult", "senior"]
         }
+    },
+    {
+        "event_id": "gen_war_J1",
+        "sub_type": ["war"],
+        "faith_effect": 1,
+        "frequency": 5,
+        "event_text": [
+            "m_c prays to StarClan for the war to end.",
+            "m_c looks to the stars for guidance during the war.",
+            "m_c believes that StarClan will soon see an end to the war."
+        ],
+        "m_c": {
+            "min_max_faith": [-9, 9],
+            "affected": true,
+            "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
+        }
     }
 ]

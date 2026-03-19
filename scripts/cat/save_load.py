@@ -66,42 +66,43 @@ def save_faded_cats(clanname, cat_class: Type["Cat"], game: "Game"):
 
     copy_of_info = ""
     for cat in cat_to_fade:
-        inter_cat = cat_class.all_cats[cat]
+        if cat in cat_class.all_cats:
+            inter_cat = cat_class.all_cats[cat]
 
-        # Add ID to list of faded cats.
-        faded_ids.append(cat)
+            # Add ID to list of faded cats.
+            faded_ids.append(cat)
 
-        # If they have a mate, break it up
-        if inter_cat.mate:
-            for mate_id in inter_cat.mate:
-                if mate_id in cat_class.all_cats:
-                    cat_class.all_cats[mate_id].unset_mate(inter_cat)
+            # If they have a mate, break it up
+            if inter_cat.mate:
+                for mate_id in inter_cat.mate:
+                    if mate_id in cat_class.all_cats:
+                        cat_class.all_cats[mate_id].unset_mate(inter_cat)
 
-        # If they have parents, add them to their parents "faded offspring" list:
-        for x in inter_cat.get_parents():
-            if x in cat_class.all_cats:
-                cat_class.all_cats[x].faded_offspring.append(cat)
-            else:
-                parent_faded = add_faded_offspring_to_faded_cat(clanname, x, cat)
-                if not parent_faded:
-                    print(f"WARNING: Can't find parent {x} of {cat.name}")
+            # If they have parents, add them to their parents "faded offspring" list:
+            for x in inter_cat.get_parents():
+                if x in cat_class.all_cats:
+                    cat_class.all_cats[x].faded_offspring.append(cat)
+                else:
+                    parent_faded = add_faded_offspring_to_faded_cat(clanname, x, cat)
+                    if not parent_faded:
+                        print(f"WARNING: Can't find parent {x} of {cat.name}")
 
-        # Get a copy of info
-        if game_setting_get("save_faded_copy"):
-            copy_of_info += (
-                ujson.dumps(inter_cat.get_save_dict(), indent=4)
-                + "\n--------------------------------------------------------------------------\n"
-            )
+            # Get a copy of info
+            if game_setting_get("save_faded_copy"):
+                copy_of_info += (
+                    ujson.dumps(inter_cat.get_save_dict(), indent=4)
+                    + "\n--------------------------------------------------------------------------\n"
+                )
 
-        # SAVE TO ITS OWN LITTLE FILE. This is a trimmed-down version for relation keeping only.
-        cat_data = inter_cat.get_save_dict(faded=True)
-        cat_path = fade_cat_dir / f"{cat}.json"
-        safe_save(cat_path, cat_data)
+            # SAVE TO ITS OWN LITTLE FILE. This is a trimmed-down version for relation keeping only.
+            cat_data = inter_cat.get_save_dict(faded=True)
+            cat_path = fade_cat_dir / f"{cat}.json"
+            safe_save(cat_path, cat_data)
 
-        # Remove the cat from the active cats lists
-        game.clan.remove_cat(
-            cat
-        )  # todo: when catdirectory is added, this dependency injection can be removed
+            # Remove the cat from the active cats lists
+            game.clan.remove_cat(
+                cat
+            )  # todo: when catdirectory is added, this dependency injection can be removed
 
     cat_to_fade = []
 

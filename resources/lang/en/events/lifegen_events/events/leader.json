@@ -1,5 +1,5 @@
 {
-        "leader general": [
+    "general": [
         "You spend some time thinking about which warriors would be good mentors in the future.",
         "You find yourself stuck while trying to think of fitting suffix choices for r_a.",
         "You have a quick word with r_d about rising tensions with the other Clans.",
@@ -18,12 +18,12 @@
         "You forbid r_a from going to the Gathering after finding out that {PRONOUN/r_a/subject} had intentionally antagonized a o_c_n patrol, leading to an unnecessary fight.",
         "You stand up against untrue allegations presented by the o_c_n leader, prepared to defend your Clan with your life."
     ],
-    "leader assertive": [],
-    "leader brooding": [],
-    "leader cool": [],
-    "leader upstanding": [],
-    "leader introspective": [],
-    "leader neurotic": [
+    "assertive": [],
+    "brooding": [],
+    "cool": [],
+    "upstanding": [],
+    "introspective": [],
+    "neurotic": [
         "When you're unsure if you're the right cat to lead c_n, you remember your leadership ceremony. StarClan chose you for this role, and you're determined to prove they made a good decision.",
         "You hope the stars are watching. You hope they approve of your decisions.",
         "You know it's wrong, but you eavesdrop when you overhear r_w1 and r_w2 talking about your recent leadership choices.",
@@ -43,12 +43,12 @@
         "You ask r_d to teach all of the apprentices a bit about strategies for working with other Clans, so they learn how to solve problems with words in addition to claws.",
         "r_k innocently asks if you like being the leader. It takes you a while to formulate a response."
     ],
-    "leader silly": [],
-    "leader stable": [],
-    "leader sweet": [],
-    "leader unabashed": [],
-    "leader unlawful": [],
-    "leader rare": [
+    "silly": [],
+    "stable": [],
+    "sweet": [],
+    "unabashed": [],
+    "unlawful": [],
+    "rare": [
         "You find r_a sitting in thought at the edge of camp. Curious, you approach {PRONOUN/r_a/object}, inquiring about {PRONOUN/r_a/poss} training. {PRONOUN/r_a/subject/CAP} {VERB/r_a/confess/confesses} {PRONOUN/r_a/poss} worries, wondering if {PRONOUN/r_a/poss} mentor is really the right fit for {PRONOUN/r_a/object}. You sit silently for a moment before advising {PRONOUN/r_a/object} that, no matter what, you are all Clanmates. You are certain that {PRONOUN/r_a/poss} mentor is doing their best to train {PRONOUN/r_a/object} well, but if it comes to it, you can always find a better mentor for {PRONOUN/r_a/object}. The apprentice purrs gratefully, happy that {PRONOUN/r_a/subject} could confide in you, before scampering off with renewed energy.",
         "You catch r_m's eye, confused as {PRONOUN/r_m/subject} quickly {VERB/r_m/turn/turns} away, bristling. It seems like {PRONOUN/r_m/subject}{VERB/r_m/'re/'s} trying to avoid you. Why? What has StarClan told {PRONOUN/r_m/object}?",
         "You wonder if d_n is really the right cat to be your successor.",
