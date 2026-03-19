@@ -11330,7 +11330,7 @@
             "[Eventually, {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} content to leave you to the queens given your level of vigilance.]"
         ]
     },
-    "skill_J4_2": {
+    "skill_J4": {
         "frequency": 2,
         "cats": {
             "y_c": {
@@ -15136,33 +15136,189 @@
             "Please, y_c. Don't try to be brave, not right now. I don't want anything to happen to you."
         ]
     },
-    "gardenerparent_kitapp_JOL1": {
+    "sleeperorkit_tokit_JOL1": {
         "frequency": 2,
         "cats": {
             "y_c": {
-                "age": [
-                    "kitten",
-                    "adolescent"
-                ],
-                "conditions": [
-                    "blind:any:false"
+                "rank": [
+                    "kitten"
                 ]
             },
             "t_c": {
-                "age": [
-                    "not_kitten",
-                    "not_adolescent"
-                ],
                 "cluster": [
                     "silly",
                     "sweet",
                     "unabashed"
                 ],
                 "skill": [
-                    "GARDENER,1"
+                    "SLEEPER,1",
+                    "KIT,1"
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
+            }
+        },
+        "intro": [
+            "[You've been looking for something that will pass as a highrock during a game of Clan with the other kits, and t_c has been sleeping in the middle of camp since sunhigh.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} seem like {PRONOUN/t_c/subject}'ll be waking up any time soon...]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Climb up t_c",
+                "next_scene": "climbingkit"
+            },
+            "choice2": {
+                "text": "Let {PRONOUN/t_c/object} rest.",
+                "next_scene": "consideratekit"
+            }
+        },
+        "climbingkit": [
+            "[You clumsily clamber up {PRONOUN/t_c/poss} back while your denmates giggle from the sidelines.]",
+            "[The game of Clan goes off without a hitch, and t_c turns out to be the most fun highrock you've ever had!]",
+            "[Later in the evening, you see t_c talking with your Clanmates.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/throw/throws} a glance your way mid conversation, with an amused glimmer in {PRONOUN/t_c/poss} eye that makes you wonder exactly how much of that {PRONOUN/t_c/subject} really slept through...]"
+        ],
+        "consideratekit": [
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} tired, it would be best to play elsewhere.]",
+            "[You continue your search with your fellow kits, soon finding a more secluded perch on the other end of camp with which to carry out your game.]"
+        ],
+        "climbingkit_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "t_c"
+                ],
+                "cats_from": [
+                    "y_c"
+                ],
+                "values": {
+                    "like": 10,
+                    "comfort": 10,
+                    "trust": 5
+                },
+                "mutual": true
+            }
+        },
+        "consideratekit_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "comfort": 2,
+                    "trust": 2
+                },
+                "mutual": true
+            }
+        }
+    },
+    "sleeperorkit_tokit_JOL2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "brooding"
+                ],
+                "skill": [
+                    "SLEEPER,1",
+                    "KIT,1"
+                ],
+                "rank": [
+                    "not_kitten"
+                ]
+            }
+        },
+        "intro": [
+            "[You've been looking for something that will pass as a highrock during a game of Clan with the other kits, and t_c has been sleeping in the middle of camp since sunhigh.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} seem like {PRONOUN/t_c/subject}'ll be waking up any time soon...]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Climb up t_c",
+                "next_scene": "climbingkit1"
+            },
+            "choice2": {
+                "text": "Let {PRONOUN/t_c/object} rest.",
+                "next_scene": "consideratekit1"
+            }
+        },
+        "climbingkit1": [
+            "[You leap atop your new highrock, sinking your tiny claws in for a better grip as your perch stirs beneath you.]",
+            "[t_c awakens with a start, bolting to a sitting position and sending you tumbling down {PRONOUN/t_c/poss} back.]",
+            "[Tossing you an icy glare that halts any thoughts of reclaiming your position, t_c stalks off towards the far side of camp, grumbling about the manners of kits these days.]"
+        ],
+        "consideratekit1": [
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} tired, it would be best to play elsewhere.]",
+            "[You continue your search with your fellow kits, soon finding a more secluded perch on the other end of camp with which to carry out your game.]"
+        ],
+        "climbingkit1_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "like": -10,
+                    "respect": -5,
+                    "comfort": -5,
+                    "trust": -5
+                },
+                "mutual": true
+            }
+        },
+        "consideratekit1_scene_effects": {
+            "relationship": {
+                "cats_to": [
+                    "y_c"
+                ],
+                "cats_from": [
+                    "t_c"
+                ],
+                "values": {
+                    "comfort": 2,
+                    "trust": 2
+                },
+                "mutual": true
+            }
+        }
+    },
+    "cleanparent_kit_JOL": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
                 ],
                 "conditions": [
+                    "deaf:any:false",
                     "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "strict",
+                    "methodical",
+                    "justified",
+                    "disciplined",
+                    "obsessive",
+                    "strange"
+                ],
+                "skill": [
+                    "CLEAN,1"
+                ],
+                "conditions": [
+                    "deaf:any:false"
                 ]
             }
         },
@@ -15176,83 +15332,94 @@
                 ],
                 "relationship": [
                     "parent/child",
-                    "adoptive parent/adoptive child",
-                    "min_like_50"
+                    "adoptive parent/adoptive child"
                 ]
             }
         ],
         "intro": [
-            "How's my favorite little sprout doing?",
-            "[Before you can respond, t_c pulls you close with their forepaws and begins pelting your forehead in affectionate licks.]",
-            "[You get the urge to shout; 'I don't need to be watered!', but hold back.]",
-            "[It's a moment worth enjoying. Even if you'll have to fix your fur later.]"
+            "[t_c spends a long time getting your fur just right this morning.]",
+            "[You feel like you might not have any left by the time it's over...]"
         ],
         "intro_scene_effects": {
             "relationship": {
                 "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
                     "t_c"
                 ],
+                "cats_from": [
+                    "y_c"
+                ],
                 "values": {
-                    "like": 5,
-                    "comfort": 5
+                    "like": 2,
+                    "comfort": -2
                 },
-                "mutual": true
+                "mutual": false
             }
         }
     },
-    "skill_E7": {
+    "sc_kit_avix1": {
         "frequency": 2,
         "cats": {
             "y_c": {
-                "condition": [
-                    "blind:any:false"
+                "age": [
+                    "kitten"
                 ],
-                "rank": [
-                    "newborn"
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "residence": [
+                    "sc"
                 ]
             },
             "t_c": {
-                "cluster": [
-                    "unlawful",
-                    "unabashed",
-                    "silly",
-                    "stable",
-                    "cool"
-                ],
                 "condition": [
-                    "blind:any:false"
-                ],
-                "skill": [
-                    "SLEEPER",
-                    1
+                    "deaf:any:false"
                 ],
                 "rank": [
-                    "not_kitten",
-                    "not_queen's_apprentice",
-                    "not_queen"
+                    "warrior",
+                    "apprentice",
+                    "guide"
+                ],
+                "residence": [
+                    "sc"
                 ]
             }
         },
-        "relationships": [
-            {
-                "cats_from": [
-                    "t_c"
+        "intro": [
+            "[t_c is trying to teach you to hunt.]",
+            "[Your tiny limbs don't move like t_c's does, and the experience is frustrating.]"
+        ]
+    },
+    "sc_kit_avix2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
                 ],
-                "cats_to": [
-                    "y_c"
+                "condition": [
+                    "deaf:any:false"
                 ],
-                "relationship": [
-                    "non-related"
+                "residence": [
+                    "sc"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "guide"
+                ],
+                "residence": [
+                    "sc"
                 ]
             }
-        ],
+        },
         "intro": [
-            "[The silence of the nursery is broken as t_c pushes {PRONOUN/t_c/poss} way into the den. You squeal in protest as {PRONOUN/t_c/poss} paw catches the edge of your nest.]",
-            "Oh-! Shh... shh... it's alright.",
-            "Sorry about that, y_c. The nursery is just so quiet and peaceful... I think I'm going to take a quick nap. You don't mind, right?"
+            "[t_c is trying to teach you to hunt.]",
+            "[Despite your size, you're doing pretty well!]"
         ]
     }
 }

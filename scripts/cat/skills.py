@@ -224,7 +224,13 @@ class SkillPath(Enum):
         "sunhigh log",
         "dormouse", 
         "leader of SnoozeClan"
-    ) 
+    )
+    GARDENER = (
+        "curious about plants",
+        "plant enthusiast",
+        "observant gardener",
+        "green nose"
+    )
 
     @staticmethod
     def get_random(exclude: list = ()):
@@ -321,7 +327,8 @@ class Skill:
         SkillPath.TREASURE: "finding",
         SkillPath.FISHER: "fishing",
         SkillPath.LANGUAGE: "language",
-        SkillPath.SLEEPER: "sleeping"
+        SkillPath.SLEEPER: "sleeping",
+        SkillPath.GARDENER: "gardening"
     }
 
     def __init__(self, path: SkillPath, points: int = 0, interest_only: bool = False):

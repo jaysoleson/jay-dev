@@ -50823,7 +50823,7 @@
             "age": ["not_kitten"],
             "skill": ["MATCHMAKER,1"]
         },
-        "relationship": ["non_mates"],
+        "relationship": ["non-mates"],
         "intro": [
             "[t_c smiles coyly as you approach, a mischievous glint in {PRONOUN/t_c/poss} eye.]",
             "My my, you've certainly got some pep in your step today. Your morning meal with  yourcrush was pleasant, I presume?"
@@ -51077,7 +51077,7 @@
                 "EXPLORER,1",
                 "NAVIGATOR,1",
                 "TUNNELER,1",
-                "RUNNER"
+                "RUNNER,1"
             ]
         },
         "t_c": {

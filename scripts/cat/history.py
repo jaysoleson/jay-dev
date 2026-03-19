@@ -334,7 +334,8 @@ class History:
                 SkillPath.TREASURE: ["finding gifts"],
                 SkillPath.FISHER: ["fishing"],
                 SkillPath.LANGUAGE: ["using their words"],
-                SkillPath.SLEEPER: ["self-care"]
+                SkillPath.SLEEPER: ["self-care"],
+                SkillPath.GARDENER: ["taking care of plants"]
             }
         
         for _ment in self.mentor_influence["skill"]:

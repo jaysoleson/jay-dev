@@ -5607,7 +5607,7 @@
         },
         "relationship": [
             "parents_siblings",
-            "parent"
+            "from_parent"
         ],
         "tags": [
             "parents_siblings",

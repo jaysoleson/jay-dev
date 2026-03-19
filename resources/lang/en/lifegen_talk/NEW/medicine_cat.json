@@ -6438,7 +6438,7 @@
             "Maybe {PRONOUN/r_c:0/subject} would've been better suited for the life of a queen .... In a place like this, there is absolutely no room for weakness."
         ]
     },
-    "skill_J1_2": {
+    "skill_J1": {
         "frequency": 2,
         "cats": {
             "y_c": {
@@ -8072,7 +8072,7 @@
             "c_n is lucky to have an apprentice as smart as you on our medical staff."
         ]
     },
-    "skill_J8_2": {
+    "skill_J8": {
         "frequency": 2,
         "cats": {
             "t_c": {

@@ -88,6 +88,20 @@ class Dialogue():
                                 f"{resource_dir}/focuses/aprilfools.json"
                                 )
                             )
+        
+        # uncomment below to limit dialogue range
+        # this can cut down on dialogue delay, but also cause some meow errors
+
+        # dialogue_range = 200
+        # shuffled_dict = dict(random.sample(list(possible_texts.items()), len(possible_texts)))
+        # new_dict = {}
+        # count = 0
+        # for key, dialogue in shuffled_dict.items():
+        #     if count >= dialogue_range:
+        #         break
+        #     new_dict[key] = dialogue
+        #     count += 1
+        # possible_texts = new_dict
 
         # DEBUG
         # possible_texts = load_lang_resource("lifegen_talk/TEST.json")
@@ -95,13 +109,12 @@ class Dialogue():
 
     def filter_dialogue(self, possible_texts):
         """
-        Filters possible dialogue for selection
+        Filters possible dialogue for selection.
+        Season, biome, camp, and frequency are addressed here. Cats are validated later.
         """
 
-        possible_dialogue = {}
         possible_dialogue_keys = []
         for key, block in possible_texts.items():
-            # print("Checking", key)
             if "season" in block:
                 if (
                     block["season"] and
@@ -120,21 +133,6 @@ class Dialogue():
                 if block["camp"] and game.clan.camp_bg not in block["camp"]:
                     continue
 
-            # now this for the cats block
-            chosen_cat_dict = choose_random_cats(
-                cats_block=block['cats'],
-                rel_block=block['relationships'] if "relationships" in block else [],
-                your_cat=self.you,
-                the_cat=self.cat,
-                cat_dict=self.cat_dict,
-                key=key
-                )
-            if not chosen_cat_dict:
-                continue
-
-            # populates the dict that holds dialogue keys
-            self._populate_cat_dict(key, chosen_cat_dict)
-            possible_dialogue[key] = block
             if "frequency" in block:
                 count = block["frequency"]
                 for other_block in block:
@@ -147,7 +145,7 @@ class Dialogue():
                 possible_dialogue_keys.append(key)
 
 
-        return possible_dialogue, possible_dialogue_keys
+        return possible_dialogue_keys
 
     def get_cat_dict(self):
         """
@@ -160,7 +158,9 @@ class Dialogue():
         Makes a final selection.
         Returns the key and the dict object.
         """
-        possible_dialogue, possible_dialogue_keys = self.filter_dialogue(possible_dialogue)
+        possible_dialogue_keys = self.filter_dialogue(possible_dialogue)
+
+    
         if not possible_dialogue:
             possible_dialogue = load_lang_resource("lifegen_talk/general.json")
             possible_dialogue_keys = ["general"]
@@ -180,7 +180,7 @@ class Dialogue():
         # print("DIALOGUE WEIGHTS")
         # for key, value in debug_dict.items():
         #     print(f"{key}: {value}")
-
+        chosen_key = None
         if self.debug:
             if constants.CONFIG["lifegen"]["debug"]["debug_dialogue_override_filtering"]:
                 chosen_key = self.debug
@@ -194,7 +194,29 @@ class Dialogue():
                     " Set debug_dialogue_override_filtering to true to override filtering."
                     )
         else:
-            chosen_key = random.choice(possible_dialogue_keys)
+            # shuffle dialogue
+            possible_dialogue = dict(random.sample(list(possible_dialogue.items()), len(possible_dialogue)))
+            # check possible dialogue for valid cat constraints
+            for key, dialogue_block in possible_dialogue.items():
+                chosen_cat_dict = choose_random_cats(
+                    cats_block=dialogue_block['cats'],
+                    rel_block=dialogue_block['relationships'] if "relationships" in dialogue_block else [],
+                    your_cat=self.you,
+                    the_cat=self.cat,
+                    cat_dict=self.cat_dict
+                )
+                if not chosen_cat_dict:
+                    continue
+                else:
+                    chosen_key = key
+                    # print("Choosing key:", chosen_key)
+                    # print()
+                    self._populate_cat_dict(chosen_key, chosen_cat_dict)
+                    break
+            if not chosen_key:
+                # none possible within the attempt range :(
+                possible_dialogue = load_lang_resource("lifegen_talk/general.json")
+                chosen_key = "general"
 
         if chosen_key != "general":
             self.cat_dict = self.dialogue_cat_dict[chosen_key]

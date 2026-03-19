@@ -202,12 +202,19 @@ class Patrol:
                 switch_append_list_value(Switch.patrolled, '4')
             else:
                 switch_append_list_value(Switch.patrolled, '3')
-        
-        return self.process_text(
+
+        return event_text_adjust(
+            Cat,
             self.patrol_event.intro_text,
-            None,
+            patrol_leader=self.patrol_leader,
+            random_cat=self.random_cat,
+            patrol_cats=self.patrol_cats,
+            patrol_apprentices=self.patrol_apprentices,
+            new_cats=self.new_cats,
+            clan=game.clan,
+            other_clan=self.other_clan,
             chosen_lifegen_cats=self.patrol_event.chosen_lifegen_cats
-            )
+        )
 
     def proceed_patrol(
         self, path: str = "proceed"
@@ -220,11 +227,24 @@ class Patrol:
                 print(
                     f"PATROL ID: {self.patrol_event.patrol_id} | SUCCESS: N/A (did not proceed)"
                 )
-                return self.process_text(
-                    self.patrol_event.decline_text,
+                return (
+                    event_text_adjust(
+                        Cat,
+                        self.patrol_event.decline_text,
+                        patrol_leader=self.patrol_leader,
+                        random_cat=self.random_cat,
+                        patrol_cats=self.patrol_cats,
+                        patrol_apprentices=self.patrol_apprentices,
+                        new_cats=self.new_cats,
+                        clan=game.clan,
+                        other_clan=self.other_clan,
+                        chosen_lifegen_cats=self.patrol_event.chosen_lifegen_cats
+                    ),
+                    "",
+                    [],
                     None,
-                    chosen_lifegen_cats=self.patrol_event.chosen_lifegen_cats
-                    ),"", None
+                )
+                    
             else:
                 return "Error - no event chosen", "", None
 

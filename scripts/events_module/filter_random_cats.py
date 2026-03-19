@@ -3,7 +3,7 @@ import random
 from scripts.game_structure import game
 from scripts.cat.enums import CatGroup
 from scripts.cat.cats import Cat, BACKSTORIES
-from scripts.utility import get_cluster
+from scripts.lifegen_utility import get_cluster
 from scripts.clan_package.settings import get_clan_setting
 
 # pylint: disable=consider-using-dict-items
@@ -36,18 +36,23 @@ def choose_random_cats(
     abbrevs = []
     skip = False
 
+    cat_limit = 50
+
     try:
         if cats_block:
             skip = False
             for abbrev in cats_block:
                 abbrevs.append(abbrev)
                 # checks if there are any valid cats available
-                possible_cats_dict[abbrev] = _validate_cat(abbrev, cats_block, possible_cats, your_cat, the_cat)
+                possible_cats_dict[abbrev] = _validate_cat(
+                    abbrev,
+                    cats_block,
+                    possible_cats,
+                    your_cat,
+                    the_cat
+                    )
                 if not possible_cats_dict[abbrev]:
-                    skip = True
-                    break
-            if skip:
-                return {}
+                    return {}
 
         # filter rel uses all abbrevs to make choices based on relationships
         # chosen cat dict is the selected cats! one cat object per abbrev!

@@ -357,9 +357,6 @@ def event_text_adjust(
     Cat: Type["Cat"],
     text,
     *,
-    # LG
-    patrol_cat_dict={},
-    # ---
     patrol_leader=None,
     main_cat=None,
     random_cat=None,
@@ -372,6 +369,8 @@ def event_text_adjust(
     clan=None,
     other_clan=None,
     chosen_herb: str = None,
+    # LG: random cats in patrols
+    chosen_lifegen_cats: list = None
 ):
     """
     handles finding abbreviations in the text and replacing them appropriately, returns the adjusted text
@@ -395,6 +394,10 @@ def event_text_adjust(
         patrol_apprentices = []
     if not new_cats:
         new_cats = []
+
+    # LG
+    if not chosen_lifegen_cats:
+        chosen_lifegen_cats = []
 
     if not text:
         text = "This should not appear, report as a bug please! Tried to adjust the text, but no text was provided."
@@ -429,6 +432,14 @@ def event_text_adjust(
                 str(patrol_leader.name),
                 choice(patrol_leader.pronouns),
             )
+    
+    # LG
+    for i, lg_cat in enumerate(chosen_lifegen_cats):
+        name = str(lg_cat.name)
+        pronoun = choice(lg_cat.pronouns)
+
+        replace_dict[f"r_c:{i}"] = (name, pronoun)
+    # ---
 
     # random_cat
     if "r_c" in text:
@@ -439,11 +450,6 @@ def event_text_adjust(
     if "s_c" in text:
         if stat_cat:
             replace_dict["s_c"] = (str(stat_cat.name), get_pronouns(stat_cat))
-
-    # LIFEGEN ABBREVS
-    if game.current_screen == GameScreen.PATROL:
-        for cat in patrol_cat_dict.items():
-            replace_dict[cat[0]] = (str(cat[1].name), choice(cat[1].pronouns))
 
     # other_cats
     if patrol_cats:
