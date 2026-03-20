@@ -56,7 +56,7 @@ class AchievementScreen(Screens):
         if game.clan.your_cat.status.is_outsider:
             self.update_heading_text("Your Territory")
         else:
-            self.update_heading_text(self.clan_name)
+            self.update_heading_text(game.clan.name + "Clan")
 
         a_txt = load_lang_resource("achievements.json")
 
