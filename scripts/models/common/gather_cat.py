@@ -9,6 +9,7 @@ class GatherCatEnum(Enum):
     r_c = "r_c"
     p_l = "p_l"
     s_c = "s_c"
+    y_c = "y_c"
     app1 = "app1"
     app2 = "app2"
     app3 = "app3"
