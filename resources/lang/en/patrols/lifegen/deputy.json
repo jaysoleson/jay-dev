@@ -766,23 +766,28 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["deputy"]
+            }
+        },
         "frequency": 4,
-        "intro_text": "Today, you've found yourself watching c_n through a puddle during a Clan meeting. You listen closely as d_n assembles today's patrols. Wait-- no, no, no! {PRONOUN/d_n/subject/CAP}{VERB/d_n/'re/'s} doing it all wrong!",
-        "decline_text": "You decide to walk away from the puddle and leave d_n to it. If {PRONOUN/d_n/subject} {VERB/d_n/want/wants} to create inefficient patrols, that's {PRONOUN/d_n/poss} business.",
+        "intro_text": "Today, you've found yourself watching c_n through a puddle during a Clan meeting. You listen closely as r_c:0 assembles today's patrols. Wait-- no, no, no! {PRONOUN/r_c:0/subject/CAP}{VERB/r_c:0/'re/'s} doing it all wrong!",
+        "decline_text": "You decide to walk away from the puddle and leave r_c:0 to it. If {PRONOUN/r_c:0/subject} {VERB/r_c:0/want/wants} to create inefficient patrols, that's {PRONOUN/r_c:0/poss} business.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "Wanting to somehow voice your frustration, you splash your forepaws into the puddle. To your surprise, d_n's ear flicks, and {PRONOUN/d_n/subject} {VERB/d_n/mutter/mutters} something about rain. You splash more water into {PRONOUN/d_n/poss} face until the slight shift in the weather ends up causing {PRONOUN/d_n/object} to rethink {PRONOUN/d_n/poss} patrol groupings. The final result is a much more efficient plan than before, and you finally leave d_n be, satisfied.",
+                "text": "Wanting to somehow voice your frustration, you splash your forepaws into the puddle. To your surprise, r_c:0's ear flicks, and {PRONOUN/r_c:0/subject} {VERB/r_c:0/mutter/mutters} something about rain. You splash more water into {PRONOUN/r_c:0/poss} face until the slight shift in the weather ends up causing {PRONOUN/r_c:0/object} to rethink {PRONOUN/r_c:0/poss} patrol groupings. The final result is a much more efficient plan than before, and you finally leave r_c:0 be, satisfied.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "You reach behind you and pick up a nearby twig. You chuck it into the puddle as hard as you can, and you manage to break through and bonk d_n on the head with it. Somehow, d_n gets the message that the two warriors {PRONOUN/d_n/subject} just paired up were a horrible match, and {PRONOUN/d_n/subject} {VERB/d_n/take/takes} it back and {VERB/d_n/make/makes} a much better decision.",
+                "text": "You reach behind you and pick up a nearby twig. You chuck it into the puddle as hard as you can, and you manage to break through and bonk r_c:0 on the head with it. Somehow, r_c:0 gets the message that the two warriors {PRONOUN/r_c:0/subject} just paired up were a horrible match, and {PRONOUN/r_c:0/subject} {VERB/r_c:0/take/takes} it back and {VERB/r_c:0/make/makes} a much better decision.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "Luckily for you, d_n falls asleep before the patrols get sent out! You manage to visit d_n's dreams, expressing how incorrectly {PRONOUN/d_n/subject} did the patrols. d_n takes your advice and changes the patrols to a much better arrangement.",
+                "text": "Luckily for you, r_c:0 falls asleep before the patrols get sent out! You manage to visit r_c:0's dreams, expressing how incorrectly {PRONOUN/r_c:0/subject} did the patrols. r_c:0 takes your advice and changes the patrols to a much better arrangement.",
                 "exp": 0,
                 "frequency": 4
             }
@@ -790,22 +795,22 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You yowl your frustrations into the puddle, but d_n can't hear you. {PRONOUN/d_n/poss/CAP} inefficient patrols end up being sent out, and when today's fresh-kill pile is a less-than-ideal size, you just sigh.",
+                "text": "You yowl your frustrations into the puddle, but r_c:0 can't hear you. {PRONOUN/r_c:0/poss/CAP} inefficient patrols end up being sent out, and when today's fresh-kill pile is a less-than-ideal size, you just sigh.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "Annoyed, you splash your paws into the puddle, hoping to get through to {PRONOUN/d_n/object} somehow. However, as the water falls, all d_n does is mutter something about rain and proceed with {PRONOUN/d_n/poss} sloppy patrols.",
+                "text": "Annoyed, you splash your paws into the puddle, hoping to get through to {PRONOUN/r_c:0/object} somehow. However, as the water falls, all r_c:0 does is mutter something about rain and proceed with {PRONOUN/r_c:0/poss} sloppy patrols.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "You heckle d_n's decisions through the puddle as you enjoy a midday mouse. How could they pair those two warriors together? They clearly hate each other! You remind yourself to try to visit d_n's dreams later to ask {PRONOUN/d_n/object} what {PRONOUN/d_n/subject} {VERB/d_n/were/was} thinking.",
+                "text": "You heckle r_c:0's decisions through the puddle as you enjoy a midday mouse. How could they pair those two warriors together? They clearly hate each other! You remind yourself to try to visit r_c:0's dreams later to ask {PRONOUN/r_c:0/object} what {PRONOUN/r_c:0/subject} {VERB/r_c:0/were/was} thinking.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "Luckily for you, d_n falls asleep before the patrols get sent out! You manage to visit d_n's dreams, expressing how incorrectly {PRONOUN/d_n/subject} did the patrols. Despite your warnings, d_n doesn't listen to your advice. When the patrols come back with less fresh-kill than usual, you can see the look on d_n's face of realization that {PRONOUN/d_n/subject} should've listened to you.",
+                "text": "Luckily for you, r_c:0 falls asleep before the patrols get sent out! You manage to visit r_c:0's dreams, expressing how incorrectly {PRONOUN/r_c:0/subject} did the patrols. Despite your warnings, r_c:0 doesn't listen to your advice. When the patrols come back with less fresh-kill than usual, you can see the look on r_c:0's face of realization that {PRONOUN/r_c:0/subject} should've listened to you.",
                 "exp": 0,
                 "frequency": 4
             }

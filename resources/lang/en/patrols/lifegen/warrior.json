@@ -1593,6 +1593,11 @@
         "min_cats": 1,
         "max_cats": 6,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["mediator", "mediator apprentice"]
+            }
+        },
         "frequency": 3,
         "intro_text": "You're out on patrol with a few other warriors, trying to take a break from the blooming chaos in c_n. As you're walking near the Twoleg's graves, you realize they're decorated with bright colors, plentiful food, and glowing sticks.",
         "decline_text": "As tempted as you are, your curiosity does not outweigh your need for a break. You walk past, ignoring the colorful display.",
@@ -1645,7 +1650,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You point out the strange display, and r_d explains that every year during leaffall, Twolegs come together around the graves to decorate. r_d admits to not knowing why, but you find the display strangely captivating. The patrol doesn't proceed closer.",
+                "text": "You point out the strange display, and r_c:0 explains that every year during leaffall, Twolegs come together around the graves to decorate. r_c:0 admits to not knowing why, but you find the display strangely captivating. The patrol doesn't proceed closer.",
                 "exp": 0,
                 "frequency": 4
             },

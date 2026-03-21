@@ -540,7 +540,8 @@
         "ur_lifegen",
         "df_lifegen",
         "fellowtrainee",
-        "mc_death"
+        "mc_death",
+        "shunned"
       ],
       "title": "PatrolTagEnum",
       "type": "string"

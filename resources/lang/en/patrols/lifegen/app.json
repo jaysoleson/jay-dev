@@ -1491,7 +1491,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You become so lost in your thoughts that you misplace some moss. {PRONOUN/r_c:0/subject} {VERB/r_c:0/help/helps} you correct the mistake, but you're left feeling embarrassed.",
+                "text": "You become so lost in your thoughts that you misplace some moss. {PRONOUN/r_c:0/subject/CAP} {VERB/r_c:0/help/helps} you correct the mistake, but you're left feeling embarrassed.",
                 "exp": 0,
                 "frequency": 4
             }

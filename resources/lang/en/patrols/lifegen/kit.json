@@ -795,13 +795,19 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "residence": ["sc"],
+                "age": ["not_kitten"]
+            }
+        },
         "frequency": 4,
-        "intro_text": "You can't help but wonder what your full name would have been had you not entered StarClan so early. Perhaps you could ask rsc_c what suffix they think would fit you?",
+        "intro_text": "You can't help but wonder what your full name would have been had you not entered StarClan so early. Perhaps you could ask r_c:0 what suffix they think would fit you?",
         "decline_text": "Maybe it's best not to dwell upon what could have been.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a vibrant suffix like -shine or -spark would reflect a cat like you who thrives on being noticed.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a vibrant suffix like -shine or -spark would reflect a cat like you who thrives on being noticed.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "attention-seeker"
@@ -810,7 +816,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a bold and intimidating suffix like -claw or -fang would reflect a cat like you who always stands their ground.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a bold and intimidating suffix like -claw or -fang would reflect a cat like you who always stands their ground.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "bullying"
@@ -819,7 +825,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a melodic suffix like -song or -heart would reflect a cat like you who charms everyone they meet.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a melodic suffix like -song or -heart would reflect a cat like you who charms everyone they meet.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "charming"
@@ -828,7 +834,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a dreamy suffix like -cloud or -sky would reflect a cat like you who is often lost in thought.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a dreamy suffix like -cloud or -sky would reflect a cat like you who is often lost in thought.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "daydreamer"
@@ -837,7 +843,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a strong and structured suffix like -stone or -strike would reflect a cat like you who shows such discipline.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a strong and structured suffix like -stone or -strike would reflect a cat like you who shows such discipline.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "disciplined"
@@ -846,7 +852,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a powerful suffix like -storm or -fire would reflect a cat like you who never backs down from danger.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a powerful suffix like -storm or -fire would reflect a cat like you who never backs down from danger.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "fearless"
@@ -855,7 +861,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a prickly suffix like -thorn or -frost would reflect a cat like you who appears standoffish -- until cats get to know you better.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a prickly suffix like -thorn or -frost would reflect a cat like you who appears standoffish -- until cats get to know you better.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "grumpy"
@@ -864,7 +870,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a genuine suffix like -truth or -heart would reflect a cat like you who values honesty above all else.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a genuine suffix like -truth or -heart would reflect a cat like you who values honesty above all else.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "honest"
@@ -873,7 +879,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a quick suffix like -flight or -rush would reflect a cat like you who acts on instinct.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a quick suffix like -flight or -rush would reflect a cat like you who acts on instinct.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "impulsive"
@@ -882,7 +888,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a clever suffix like -whisker or -sage would reflect a cat like you who always seems to know best.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a clever suffix like -whisker or -sage would reflect a cat like you who always seems to know best.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "know-it-all"
@@ -891,7 +897,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine that the only suffix right for you is -star.",
+                "text": "r_c:0 ponders for a bit. They'd imagine that the only suffix right for you is -star.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "leader-like"
@@ -900,7 +906,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine an cool suffix like -shade or -mask would reflect a cat like you who knows how to get their way.",
+                "text": "r_c:0 ponders for a bit. They'd imagine an cool suffix like -shade or -mask would reflect a cat like you who knows how to get their way.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "manipulative"
@@ -909,7 +915,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a lively suffix like -screech or -chatter would reflect a cat like you who rarely stays quiet.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a lively suffix like -screech or -chatter would reflect a cat like you who rarely stays quiet.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "noisy"
@@ -918,7 +924,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a fiery suffix like -flame or -spirit would reflect a cat like you who puts their whole heart into everything.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a fiery suffix like -flame or -spirit would reflect a cat like you who puts their whole heart into everything.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "passionate"
@@ -927,7 +933,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a calm suffix like -pool or -stone would reflect a cat like you who waits for the right moment.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a calm suffix like -pool or -stone would reflect a cat like you who waits for the right moment.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "patient"
@@ -936,7 +942,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a gentle suffix like -flower or -breeze would reflect a cat like you who always shows courtesy.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a gentle suffix like -flower or -breeze would reflect a cat like you who always shows courtesy.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "polite"
@@ -945,7 +951,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a quiet suffix like -whisper or -shadow would reflect a cat like you who prefers staying unnoticed.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a quiet suffix like -whisper or -shadow would reflect a cat like you who prefers staying unnoticed.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "quiet"
@@ -954,7 +960,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a mysterious suffix like -shade or -mist would reflect a cat like you who always keeps their secrets.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a mysterious suffix like -shade or -mist would reflect a cat like you who always keeps their secrets.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "secretive"
@@ -963,7 +969,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a delicate suffix like -fern or -dawn would reflect a cat like you who's thoughtful and often self-conscious.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a delicate suffix like -fern or -dawn would reflect a cat like you who's thoughtful and often self-conscious.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "self-conscious"
@@ -972,7 +978,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a soft suffix like -mouse or -willow would reflect a cat like you who is quiet and reserved around others.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a soft suffix like -mouse or -willow would reflect a cat like you who is quiet and reserved around others.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "shy"
@@ -981,7 +987,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a cautious suffix like -hare or -finch would reflect a cat like you who startles easily.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a cautious suffix like -hare or -finch would reflect a cat like you who startles easily.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "skittish"
@@ -990,7 +996,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a proud suffix like -stride or -nose would reflect a cat like you who carries themselves confidently.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a proud suffix like -stride or -nose would reflect a cat like you who carries themselves confidently.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "smug"
@@ -999,7 +1005,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a sweet suffix like -berry or -petal would reflect a cat like you whose kindness is unmistakable.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a sweet suffix like -berry or -petal would reflect a cat like you whose kindness is unmistakable.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "sweet"
@@ -1010,12 +1016,12 @@
         ],
         "fail_outcomes": [
             {
-                "text": "rsc_c thinks and thinks but can't seem to find a suffix that would fit you.",
+                "text": "r_c:0 thinks and thinks but can't seem to find a suffix that would fit you.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "rsc_c declines to answer. After all, only warriors have earned the right to their full names -- not kits who hadn't even caught a piece of prey.",
+                "text": "r_c:0 declines to answer. After all, only warriors have earned the right to their full names -- not kits who hadn't even caught a piece of prey.",
                 "exp": 0,
                 "frequency": 4
             }

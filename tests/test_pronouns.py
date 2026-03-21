@@ -49,6 +49,7 @@ def _test():
         "p_l": _r,
         "s_c": _r,
         "(mentor)": _r,
+        "l_n": _r,
         "dead_par1": _r,
         "dead_par2": _r,
         "p1": _r,
