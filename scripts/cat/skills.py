@@ -525,7 +525,8 @@ class CatSkills:
         SkillPath.TREASURE: SkillTypeFlag.SMART | SkillTypeFlag.OBSERVANT,
         SkillPath.FISHER: SkillTypeFlag.STRONG | SkillTypeFlag.AGILE | SkillTypeFlag.OBSERVANT,
         SkillPath.LANGUAGE: SkillTypeFlag.SOCIAL,
-        SkillPath.SLEEPER: SkillTypeFlag.STRONG
+        SkillPath.SLEEPER: SkillTypeFlag.STRONG,
+        SkillPath.GARDENER: SkillTypeFlag.OBSERVANT
     }
 
     # pylint: enable=unsupported-binary-operation
