@@ -3067,12 +3067,6 @@ class ProfileScreen(Screens):
                 manager=MANAGER,
                 anchors={"top_target": self.kill_cat_button},
             )
-
-            if game.clan.your_cat.moons == 0:
-                self.murder_cat_button.disable()
-            
-            if "moon" in game.clan.murdered and game.clan.murdered["moon"] == game.clan.age:
-                self.murder_cat_button.disable()
                 
             if game.clan.your_cat.joined_df:
                 self.exit_df_button = UIImageButton(
@@ -3118,6 +3112,11 @@ class ProfileScreen(Screens):
                 manager=MANAGER,
                 anchors={"top_target": self.affair_button},
             )
+            if game.clan.your_cat.moons == 0:
+                self.murder_cat_button.disable()
+            
+            if "moon" in game.clan.murdered and game.clan.murdered["moon"] == game.clan.age:
+                self.murder_cat_button.disable()
 
             # These are a placeholders, to be killed and recreated in self.update_disabled_buttons_and_text().
             #   This it due to the image switch depending on the cat's status, and the location switch the close button
