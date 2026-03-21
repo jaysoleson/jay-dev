@@ -26,9 +26,9 @@ class Status(Enum):
     not_elder = "-elder"
 
     queen = "queen"
-    queens_apprentice = "queen's apprenntice"
+    queens_apprentice = "queen's apprentice"
     not_queen = "-queen"
-    not_queens_apprentice = "-queen's apprenntice"
+    not_queens_apprentice = "-queen's apprentice"
 
     any = "any"
     living = "living"
