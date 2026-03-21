@@ -47,9 +47,11 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
     # Add protection about the "insert" sometimes used
     if m.group(0) == "{insert}":
         return m.group(0)
-    # LG: this is used in mc birth events
+
+    # LG
     if m.group(0) == "{cap_insert}":
         return m.group(0)
+    # ---
 
     inner_details = m.group(1).split("/")
     out = None
@@ -57,29 +59,14 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
     # if the cat that the pronoun is assigned to wasn't passed with the dict, then we just return
     # it's assumed that the text is going to be processed at some other point with that cat's info
     # (for example, this is required for rel log processing to be done correctly)
-
-    # LG EDIT
-    abbrev_check = inner_details[1]
-
-    # LG
-    # addon pronoun test stuff
-    # grabbing the real abbrev from inside of the addons
-    if raise_exception:
-        if "-" in abbrev_check:
-            fragments = abbrev_check.split("-")
-            for f in fragments:
-                if "_" in f or f in ["theircrush", "yourcrush"]:
-                    abbrev_check = f
-                    break
-    # ---
-    if abbrev_check != "PLURAL" and abbrev_check not in cat_pronouns_dict:
+    if inner_details[1] != "PLURAL" and inner_details[1] not in cat_pronouns_dict:
         return m.group(0)
 
     try:
-        if abbrev_check.upper() == "PLURAL":
+        if inner_details[1].upper() == "PLURAL":
             inner_details.pop(1)  # remove plural tag so it can be processed as normal
             catlist = []
-            for cat in abbrev_check.split("+"):
+            for cat in inner_details[1].split("+"):
                 try:
                     catlist.append(cat_pronouns_dict[cat][1])
                 except KeyError as e:
