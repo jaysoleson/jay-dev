@@ -539,7 +539,8 @@
         "sc_lifegen",
         "ur_lifegen",
         "df_lifegen",
-        "fellowtrainee"
+        "fellowtrainee",
+        "mc_death"
       ],
       "title": "PatrolTagEnum",
       "type": "string"

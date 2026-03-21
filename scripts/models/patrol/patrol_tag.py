@@ -29,6 +29,7 @@ class PatrolTagEnum(Enum):
     df_lifegen = "df_lifegen"
     shunned = "shunned"
     fellowtrainee = "fellowtrainee"
+    mc_death = "mc_death"
 
 
 class PatrolTag(RootModel):

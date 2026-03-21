@@ -927,6 +927,10 @@ class Patrol:
                             else:
                                 if "fellowtrainee" not in patrol.tags:
                                     continue
+
+                        if "mc_death" in patrol.tags:
+                            if random.randint(1,8) != 1:
+                                continue
                                 
                         if "shunned" in patrol.tags:
                             if not game.clan.your_cat.status.is_shunned():

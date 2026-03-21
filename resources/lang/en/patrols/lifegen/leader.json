@@ -667,6 +667,11 @@
     	"min_cats": 1,
     	"max_cats": 1,
     	"min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["elder"]
+            }
+        },
     	"frequency": 4,
     	"intro_text": "All your life, your Clanmates would share scary stories about leaders who wound up in the Dark Forest. Now that you're one of those leaders in Dark Forest, you can't help but be curious... What stories are living cats telling about <i>you</i>?",
     	"decline_text": "Though you could easily find out, you decide not to. You already imagine them telling wild and outlandish stories about you, and you don't want to be disappointed if the real ones are boring.",
@@ -678,11 +683,11 @@
             	"frequency": 4
         	},
         	{
-            	"text": "Determined to find out for yourself, you manage to enter the c_n elders' den, secretly joining an audience of cats who are waiting to listen to a story from r_e. It's a nice surprise when {PRONOUN/r_e/subject} {VERB/r_e/start/stars} regaling a tale of your misdeeds, and an even bigger surprise that {PRONOUN/r_e/subject}{VERB/r_e/'re/'s} describing you quite warmly and correctly explaining every justification you had for your actions. You smile as you listen along with the living cats, knowing your legacy is being passed down by good paws.",
+            	"text": "Determined to find out for yourself, you manage to enter the c_n elders' den, secretly joining an audience of cats who are waiting to listen to a story from r_c:0. It's a nice surprise when {PRONOUN/r_c:0/subject} {VERB/r_c:0/start/stars} regaling a tale of your misdeeds, and an even bigger surprise that {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} describing you quite warmly and correctly explaining every justification you had for your actions. You smile as you listen along with the living cats, knowing your legacy is being passed down by good paws.",
             	"exp": 0,
             	"frequency": 4,
             	"stat_faith": [-9, -6],
-            	"can_have_stat": ["r_e"]
+            	"can_have_stat": ["r_c:0"]
         	},
         	{
             	"text": "Some of your former Clanmates are always keen to give the younger cats a good scare, so you slip out of the confines of the Dark Forest and slink into the c_n camp. Once the cats start sharing spooky stories, you're dismayed to realize that not one of them is about you. Perhaps, during your life, you didn't accomplish anything worthy of becoming a warning tale to your Clanmates... But then again, you realize, your presence in the Dark Forest means you can accomplish that during death.",
