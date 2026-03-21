@@ -24,6 +24,12 @@ class Status(Enum):
     not_leader = "-leader"
     elder = "elder"
     not_elder = "-elder"
+
+    queen = "queen"
+    queens_apprentice = "queen's apprenntice"
+    not_queen = "-queen"
+    not_queens_apprentice = "-queen's apprenntice"
+
     any = "any"
     living = "living"
     starclan = "starclan"
