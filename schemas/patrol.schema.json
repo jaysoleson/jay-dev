@@ -19,22 +19,30 @@
       "type": "string"
     },
     "CanHaveStat": {
-      "enum": [
-        "p_l",
-        "r_c",
-        "app1",
-        "app2",
-        "not_pl",
-        "not_rc",
-        "not_pl_rc",
-        "any",
-        "adult",
-        "app",
-        "healer",
-        "y_c"
-      ],
-      "title": "CanHaveStat",
-      "type": "string"
+      "anyOf": [
+        {
+          "title": "CanHaveStat",
+          "type": "string",
+          "enum": [
+            "p_l",
+            "r_c",
+            "app1",
+            "app2",
+            "not_pl",
+            "not_rc",
+            "not_pl_rc",
+            "any",
+            "adult",
+            "app",
+            "healer",
+            "y_c"
+          ]
+        },
+        {
+          "pattern": "^r_c:[0-9]+$",
+          "type": "string"
+        }
+      ]
     },
     "HistoryText": {
       "properties": {
