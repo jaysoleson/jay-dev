@@ -1,3 +1,4 @@
+from pydoc import plain
 import random
 from random import choice
 from re import sub
@@ -1530,27 +1531,38 @@ class Pelt:
         """
         LIFEGEN: Checks if a pelt is a wildcard for LG achievement purposes
         """
-        not_wildcard_patterns = ['tabby', 'ticked', 'mackerel', 'classic', 'agouti', 'smoke', 'single']
         if self.name == "Tortie" or self.name == "Calico":
-            ##Check if wildcard colour combo
-            if (self.colour == "WHITE" and not self.tortie_colour == "WHITE"):
+            #If I have to rewrite this code again, I will have a breakdown, do not tempt me. I will cry. It will be pathetic.
+            ##Check wildcard colour combo
+            is_base_black_white = self.colour in [self.white_colours, self.black_colours]
+            is_base_ginger = self.colour in self.ginger_colours
+            if self.tortie_colour in self.white_colours:
                 return True
-            elif ((self.colour in self.black_colours or self.colour in self.white_colours) and self.tortie_colour in Pelt.black_colours or self.tortie_colour in self.white_colours):
+            elif self.tortie_colour in self.black_colours and is_base_black_white:
                 return True
-            elif ((self.colour in self.ginger_colours) and self.tortie_colour in self.ginger_colours or self.tortie_colour in self.white_colours):
+            elif self.tortie_colour in self.ginger_colours and is_base_ginger:
                 return True
-            elif ((self.colour in self.brown_colours) and self.tortie_colour in self.white_colours):
+
+            ##Check wildcard pattern combo
+            not_wildcard_patterns = [
+                "tabby",
+                "ticked",
+                "mackerel",
+                "classic",
+                "agouti",
+                "single",
+                "smoke"
+                ]
+            plain_lower = [
+                "singlestripe",
+                "smoke",
+                "single"] #Placeholder Variable Name, my hed hurr
+            if self.tortie_base in plain_lower:
+                if self.tortie_pattern not in not_wildcard_patterns:
+                    return True
+            elif self.tortie_pattern not in [self.tortie_base, "single"]:
                 return True
-            ##Check if wildcard pattern combo       
-            ##rewritten wildcard pattern combo
-            if self.tortie_base in self.tabbies and self.tortie_pattern != "single" and self.tortie_base != self.tortie_pattern:
-                return True
-            if self.tortie_base in self.spotted and self.tortie_pattern != "single" and self.tortie_base != self.tortie_pattern:
-                return True
-            if self.tortie_base in self.exotic and self.tortie_pattern != "single" and self.tortie_base != self.tortie_pattern:
-                return True
-            if self.tortie_base in self.plain and self.tortie_pattern not in not_wildcard_patterns and self.tortie_base != self.tortie_pattern:
-                return True
+
             return False
 
 
