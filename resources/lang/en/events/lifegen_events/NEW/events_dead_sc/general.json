@@ -115,7 +115,9 @@
     "general11": {
         "cats": {
             "y_c": {},
-            "r_c:0": {}
+            "r_c:0": {
+                "age": ["kitten"]
+            }
         },
         "relationships": [
             {
@@ -133,7 +135,7 @@
         "types": [
             "general"
         ],
-        "event": "You watch r_c:0k run around, in the same way you did when you were {PRONOUN/r_c:0k/poss} age. StarClan, you'd take being exiled to the Dark Forest for even one minute to run around and play games with {PRONOUN/r_c:0k/object}."
+        "event": "You watch r_c:0 run around, in the same way you did when you were {PRONOUN/r_c:0/poss} age. StarClan, you'd take being exiled to the Dark Forest for even one minute to run around and play games with {PRONOUN/r_c:0/object}."
     },
     "general12": {
         "cats": {

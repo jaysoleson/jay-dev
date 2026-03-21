@@ -1833,7 +1833,9 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {}
+            "r_c:0": {
+                "age": ["kitten"]
+            }
         },
         "relationships": [
             {
@@ -1856,8 +1858,8 @@
             "Look, I know I haven't exactly been the best cat ... But I could really use some help. Or, guidance, or whatever.",
             "Um ... Well, I guess my whole life I always swore that I would never get too attached to anyone. It just seemed easier that way. Easier to protect what was mine.",
             "But, now, ah ...",
-            "You see, I've got this kid. r_c:0k. {PRONOUN/r_c:0k/subject/CAP}{VERB/r_c:0k/'re/'s} the most perfect kid on the planet. How a cat like me ended up with a kid like {PRONOUN/r_c:0k/object}, I don't know, but it worries me half to death.",
-            "I've never in my life been more terrified, StarClan. What if I mess something up? What if I'm too jaded to be a good {PRONOUN/t_c/parent}? What if something happens to {PRONOUN/r_c:0k/object}, and I can't keep {PRONOUN/r_c:0k/object} safe?",
+            "You see, I've got this kid. r_c:0. {PRONOUN/r_c:0/subject/CAP}{VERB/r_c:0/'re/'s} the most perfect kid on the planet. How a cat like me ended up with a kid like {PRONOUN/r_c:0/object}, I don't know, but it worries me half to death.",
+            "I've never in my life been more terrified, StarClan. What if I mess something up? What if I'm too jaded to be a good {PRONOUN/t_c/parent}? What if something happens to {PRONOUN/r_c:0/object}, and I can't keep {PRONOUN/r_c:0/object} safe?",
             "Could I get a little guidance? Advice from the other side? Hello? Is anyone listening? Is anyone even there ...?",
             "Ah, forget it. This is stupid.",
             "[t_c spits and returns to {PRONOUN/t_c/poss} nest, curling up into a tiny, dark shape; receding back into the dark.]"
@@ -5672,7 +5674,10 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {}
+            "r_c:0": {
+                "age": ["kitten"],
+                "cluster": ["neurotic"]
+            }
         },
         "relationships": [
             {
@@ -5699,8 +5704,8 @@
             }
         ],
         "intro": [
-            "I'm worried about how nervous r_c:0k-neurotic is. It's important to be careful, of course, but I don't like seeing {PRONOUN/r_c:0k-neurotic/object} so  <i>scared</i> all the time...",
-            "...Hm. {PRONOUN/r_c:0k-neurotic/subject/CAP} probably got that from me, huh?"
+            "I'm worried about how nervous r_c:0 is. It's important to be careful, of course, but I don't like seeing {PRONOUN/r_c:0/object} so  <i>scared</i> all the time...",
+            "...Hm. {PRONOUN/r_c:0/subject/CAP} probably got that from me, huh?"
         ]
     },
     "about_neurotic_SQ6": {
@@ -5970,7 +5975,9 @@
                     "df"
                 ]
             },
-            "r_c:0": {},
+            "r_c:0": {
+                "age": ["kitten"]
+            },
             "r_c:1": {
                 "residence": [
                     "df"
@@ -5993,7 +6000,7 @@
         "intro": [
             "[t_c doesn't look up at you, but unlike your Clanmates it does not appear like {PRONOUN/t_c/subject} {VERB/t_c/are/is} intentionally ignoring you...]",
             "[You squeak in an attempt to be heard, and {PRONOUN/t_c/subject} head snaps up. Success!]",
-            "Oh... y_c. I was just wondering about your Clan... is- is r_c:0k okay? I try to stay away in case {PRONOUN/r_c:0k/subject}{VERB/r_c:0k/'re/'s} like you, and I can't ask r_c:1.",
+            "Oh... y_c. I was just wondering about your Clan... is- is r_c:0 okay? I try to stay away in case {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} like you, and I can't ask r_c:1.",
             "[Seems like an adventure! You scamper off and keep {PRONOUN/t_c/poss} request in your mind.]"
         ]
     },
@@ -6010,7 +6017,9 @@
                     "df"
                 ]
             },
-            "r_c:0": {}
+            "r_c:0": {
+                "age": ["kitten"]
+            }
         },
         "relationships": [
             {
@@ -6026,7 +6035,7 @@
             }
         ],
         "intro": [
-            "[You spend the entire day playing with r_c:0k, taking extra care to ensure {PRONOUN/r_c:0k/subject} {VERB/r_c:0k/are/is} included in everything.]"
+            "[You spend the entire day playing with r_c:0, taking extra care to ensure {PRONOUN/r_c:0/subject} {VERB/r_c:0/are/is} included in everything.]"
         ]
     },
     "kit_df_Guy~3": {
