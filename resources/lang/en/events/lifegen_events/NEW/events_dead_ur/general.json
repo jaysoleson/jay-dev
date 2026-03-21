@@ -313,6 +313,9 @@
             "r_c:1": {
                 "rank": [
                     "kitten"
+                ],
+                "skill": [
+                    "ghost"
                 ]
             }
         },
@@ -320,6 +323,6 @@
         "types": [
             "rare"
         ],
-        "event": "You're wandering around c_n, when r_c:1-ghost stares right into your eyes, almost as if {PRONOUN/r_c:1-ghost/subject} could see you. As you're about to approach {PRONOUN/r_c:1-ghost/object}, {PRONOUN/r_c:1-ghost/subject} {VERB/r_c:1-ghost/get/gets} pulled away by r_c:0. You wonder if there are other cats in c_n that can see you."
+        "event": "You're wandering around c_n, when r_c:1 stares right into your eyes, almost as if {PRONOUN/r_c:1/subject} could see you. As you're about to approach {PRONOUN/r_c:1/object}, {PRONOUN/r_c:1/subject} {VERB/r_c:1/get/gets} pulled away by r_c:0. You wonder if there are other cats in c_n that can see you."
     }
 }

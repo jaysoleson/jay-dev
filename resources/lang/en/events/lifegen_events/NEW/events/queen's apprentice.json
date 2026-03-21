@@ -267,11 +267,23 @@
                 ]
             }
         },
-        "relationships": [],
+        "relationships": [
+            {
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "max_like_-15"
+                ]
+            }
+        ],
         "types": [
             "general"
         ],
-        "event": "With all the respect you can muster, you do not judge dislike-r_c:0 as {PRONOUN/dislike-r_c:0/subject} {VERB/dislike-r_c:0/walk/walks} through the camp covered in thorns. And you <i>totally</i> don't whisper to the kittens that dislike-r_c:0 turned into a porcupine overnight. Totally not."
+        "event": "With all the respect you can muster, you do not judge r_c:0 as {PRONOUN/r_c:0/subject} {VERB/r_c:0/walk/walks} through the camp covered in thorns. And you <i>totally</i> don't whisper to the kittens that r_c:0 turned into a porcupine overnight. Totally not."
     },
     "cool19": {
         "cats": {
@@ -415,6 +427,9 @@
             "r_c:0": {
                 "rank": [
                     "kitten"
+                ],
+                "cluster": [
+                    "assertive"
                 ]
             }
         },
@@ -422,7 +437,7 @@
         "types": [
             "general"
         ],
-        "event": "You feel distracted today. Staring off into space while in-charge of watching over the kittens is not a good idea, and you learn this brutally as r_c:0-assertive pulls a dirty prank on you."
+        "event": "You feel distracted today. Staring off into space while in-charge of watching over the kittens is not a good idea, and you learn this brutally as r_c:0 pulls a dirty prank on you."
     },
     "introspective27": {
         "cats": {
@@ -575,11 +590,23 @@
                 ]
             }
         },
-        "relationships": [],
+        "relationships": [
+            {
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "max_like_-15"
+                ]
+            }
+        ],
         "types": [
             "general"
         ],
-        "event": "With all the respect you can muster, you do not judge dislike-r_c:0 as {PRONOUN/dislike-r_c:0/subject} {VERB/dislike-r_c:0/walk/walks} through the camp covered in thorns. And you <i>totally</i> don't whisper to the kittens that dislike-r_c:0 turned into a porcupine overnight. Totally not."
+        "event": "With all the respect you can muster, you do not judge r_c:0 as {PRONOUN/r_c:0/subject} {VERB/r_c:0/walk/walks} through the camp covered in thorns. And you <i>totally</i> don't whisper to the kittens that r_c:0 turned into a porcupine overnight. Totally not."
     },
     "unlawful34": {
         "cats": {

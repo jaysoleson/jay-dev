@@ -891,11 +891,23 @@
                 ]
             }
         },
-        "relationships": [],
+        "relationships": [
+            {
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "max_like_-15"
+                ]
+            }
+        ],
         "types": [
             "general"
         ],
-        "event": "You can't help but find dislike-r_c:0's porcupine-like appearance fitting, considering {PRONOUN/dislike-r_c:0/poss} prickly personality."
+        "event": "You can't help but find r_c:0's porcupine-like appearance fitting, considering {PRONOUN/r_c:0/poss} prickly personality."
     },
     "sweet57": {
         "cats": {

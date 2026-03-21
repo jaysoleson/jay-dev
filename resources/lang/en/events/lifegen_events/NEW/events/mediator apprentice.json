@@ -130,6 +130,9 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
+                ],
+                "cluster": [
+                    "unabashed"
                 ]
             }
         },
@@ -137,7 +140,7 @@
         "types": [
             "general"
         ],
-        "event": "r_c:0-unabashed approaches you while you're eating freshkill, claiming proudly that {PRONOUN/r_c:0-unabashed/subject} {VERB/r_c:0-unabashed/were/was} the one to catch it. What a nice way to rub {PRONOUN/r_c:0-unabashed/poss} success in your face."
+        "event": "r_c:0 approaches you while you're eating freshkill, claiming proudly that {PRONOUN/r_c:0/subject} {VERB/r_c:0/were/was} the one to catch it. What a nice way to rub {PRONOUN/r_c:0/poss} success in your face."
     },
     "introspective10": {
         "cats": {

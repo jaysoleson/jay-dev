@@ -100,6 +100,9 @@
             "r_c:0": {
                 "rank": [
                     "warrior"
+                ],
+                "skill": [
+                    "clairvoyant"
                 ]
             }
         },
@@ -107,7 +110,7 @@
         "types": [
             "general"
         ],
-        "event": "When r_c:0-clairvoyant is on a patrol, you sense foxes nearby. You send {PRONOUN/r_c:0-clairvoyant/object} a sign, willing {PRONOUN/r_c:0-clairvoyant/object} to leave before the foxes arrive. Luckily, {PRONOUN/r_c:0-clairvoyant/subject} {VERB/r_c:0-clairvoyant/pick/picks} up on the sign and {VERB/r_c:0-clairvoyant/head/heads} home quickly."
+        "event": "When r_c:0 is on a patrol, you sense foxes nearby. You send {PRONOUN/r_c:0/object} a sign, willing {PRONOUN/r_c:0/object} to leave before the foxes arrive. Luckily, {PRONOUN/r_c:0/subject} {VERB/r_c:0/pick/picks} up on the sign and {VERB/r_c:0/head/heads} home quickly."
     },
     "general11": {
         "cats": {
@@ -138,6 +141,9 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
+                ],
+                "skill": [
+                    "star"
                 ]
             }
         },
@@ -145,7 +151,7 @@
         "types": [
             "general"
         ],
-        "event": "You comfort r_c:0-star after {PRONOUN/r_c:0-star/subject} {VERB/r_c:0-star/fail/fails} {PRONOUN/r_c:0-star/poss} first assessment. You also give {PRONOUN/r_c:0-star/object} some tips for next time. {PRONOUN/r_c:0-star/subject/CAP} {VERB/r_c:0-star/thank/thanks} you for your help and seems to be more confident during {PRONOUN/r_c:0-star/poss} next assessment."
+        "event": "You comfort r_c:0 after {PRONOUN/r_c:0/subject} {VERB/r_c:0/fail/fails} {PRONOUN/r_c:0/poss} first assessment. You also give {PRONOUN/r_c:0/object} some tips for next time. {PRONOUN/r_c:0/subject/CAP} {VERB/r_c:0/thank/thanks} you for your help and seems to be more confident during {PRONOUN/r_c:0/poss} next assessment."
     },
     "stable13": {
         "cats": {

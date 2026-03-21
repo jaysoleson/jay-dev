@@ -297,6 +297,9 @@
             "r_c:0": {
                 "rank": [
                     "apprentice"
+                ],
+                "skill": [
+                    "dark"
                 ]
             }
         },
@@ -304,7 +307,7 @@
         "types": [
             "general"
         ],
-        "event": "After r_c:0-dark fails {PRONOUN/r_c:0-dark/poss} first assessment, you try to convince {PRONOUN/r_c:0-dark/object} to abandon {PRONOUN/r_c:0-dark/poss} training with the living and to put all {PRONOUN/r_c:0-dark/poss} effort into training with you in the Dark Forest. It's safe to say {PRONOUN/r_c:0-dark/subject} didn't like that idea."
+        "event": "After r_c:0 fails {PRONOUN/r_c:0/poss} first assessment, you try to convince {PRONOUN/r_c:0/object} to abandon {PRONOUN/r_c:0/poss} training with the living and to put all {PRONOUN/r_c:0/poss} effort into training with you in the Dark Forest. It's safe to say {PRONOUN/r_c:0/subject} didn't like that idea."
     },
     "general26": {
         "cats": {
@@ -332,6 +335,9 @@
             "r_c:1": {
                 "rank": [
                     "kitten"
+                ],
+                "skill": [
+                    "dark"
                 ]
             }
         },
@@ -339,6 +345,6 @@
         "types": [
             "rare"
         ],
-        "event": "r_c:1-dark locks eyes with you, slowly backing away. When {PRONOUN/r_c:1-dark/subject} {VERB/r_c:1-dark/run/runs} off to get r_c:0, you walk away.  For now, you'll let {PRONOUN/r_c:1-dark/object} be a kit. {PRONOUN/r_c:1-dark/subject/CAP} can be recruited later."
+        "event": "r_c:1 locks eyes with you, slowly backing away. When {PRONOUN/r_c:1/subject} {VERB/r_c:1/run/runs} off to get r_c:0, you walk away.  For now, you'll let {PRONOUN/r_c:1/object} be a kit. {PRONOUN/r_c:1/subject/CAP} can be recruited later."
     }
 }

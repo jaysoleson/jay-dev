@@ -398,11 +398,23 @@
                 ]
             }
         },
-        "relationships": [],
+        "relationships": [
+            {
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "max_like_-15"
+                ]
+            }
+        ],
         "types": [
             "general"
         ],
-        "event": "With all the respect you can muster, you do not judge dislike-r_c:0 as {PRONOUN/dislike-r_c:0/subject} {VERB/dislike-r_c:0/walk/walks} through the camp covered in thorns. And you <i>totally</i> don't whisper to the kittens that dislike-r_c:0 turned into a porcupine overnight. Totally not."
+        "event": "With all the respect you can muster, you do not judge r_c:0 as {PRONOUN/r_c:0/subject} {VERB/r_c:0/walk/walks} through the camp covered in thorns. And you <i>totally</i> don't whisper to the kittens that r_c:0 turned into a porcupine overnight. Totally not."
     },
     "cool33": {
         "cats": {
@@ -433,6 +445,9 @@
             "r_c:0": {
                 "rank": [
                     "kitten"
+                ],
+                "cluster": [
+                    "assertive"
                 ]
             }
         },
@@ -440,7 +455,7 @@
         "types": [
             "general"
         ],
-        "event": "r_c:0-assertive calls you bossy after a long scolding, saying you're ruining the fun in things. Are you really bossy? Or is r_c:0-assertive just trying to deviate your focus from {PRONOUN/r_c:0-assertive/poss} actions?"
+        "event": "r_c:0 calls you bossy after a long scolding, saying you're ruining the fun in things. Are you really bossy? Or is r_c:0 just trying to deviate your focus from {PRONOUN/r_c:0/poss} actions?"
     },
     "introspective35": {
         "cats": {
@@ -524,6 +539,9 @@
             "r_c:0": {
                 "rank": [
                     "kitten"
+                ],
+                "cluster": [
+                    "assertive"
                 ]
             }
         },
@@ -531,7 +549,7 @@
         "types": [
             "general"
         ],
-        "event": "You feel distracted today. Staring off into space while in-charge of watching over the kittens is not a good idea, and you learn this brutally as r_c:0-assertive pulls a dirty prank on you."
+        "event": "You feel distracted today. Staring off into space while in-charge of watching over the kittens is not a good idea, and you learn this brutally as r_c:0 pulls a dirty prank on you."
     },
     "silly40": {
         "cats": {
@@ -546,11 +564,23 @@
                 ]
             }
         },
-        "relationships": [],
+        "relationships": [
+            {
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "max_like_-15"
+                ]
+            }
+        ],
         "types": [
             "general"
         ],
-        "event": "With all the respect you can muster, you do not judge dislike-r_c:0 as {PRONOUN/dislike-r_c:0/subject} {VERB/dislike-r_c:0/walk/walks} through the camp covered in thorns. And you <i>totally</i> don't whisper to the kittens that dislike-r_c:0 turned into a porcupine overnight. Totally not."
+        "event": "With all the respect you can muster, you do not judge r_c:0 as {PRONOUN/r_c:0/subject} {VERB/r_c:0/walk/walks} through the camp covered in thorns. And you <i>totally</i> don't whisper to the kittens that r_c:0 turned into a porcupine overnight. Totally not."
     },
     "shunned41": {
         "cats": {

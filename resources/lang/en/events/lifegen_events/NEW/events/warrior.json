@@ -180,11 +180,23 @@
                 ]
             }
         },
-        "relationships": [],
+        "relationships": [
+            {
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            }
+        ],
         "types": [
             "general"
         ],
-        "event": "You and plike-r_c:0 chase each other through the territory!"
+        "event": "You and r_c:0 chase each other through the territory!"
     },
     "general16": {
         "cats": {
@@ -744,7 +756,7 @@
         "types": [
             "general"
         ],
-        "event": "You're not too disappointed when neutral-r_c:0 has to help r_c:1 instead of joining you on a hunting patrol, leaving you to go alone. You spend an afternoon traipsing through the territory, enjoying the solitude."
+        "event": "You're not too disappointed when r_c:0 has to help r_c:1 instead of joining you on a hunting patrol, leaving you to go alone. You spend an afternoon traipsing through the territory, enjoying the solitude."
     },
     "silly53": {
         "cats": {
