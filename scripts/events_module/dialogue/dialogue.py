@@ -30,8 +30,7 @@ class Dialogue():
         Loads dialogue depending on rank, group, age
         """
 
-        # resource_dir = "lifegen_talk"
-        resource_dir = "lifegen_talk/NEW"
+        resource_dir = "lifegen_talk"
         possible_texts = {}
 
         special_date = get_special_date()

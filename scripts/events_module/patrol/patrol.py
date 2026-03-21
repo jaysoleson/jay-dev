@@ -951,13 +951,6 @@ class Patrol:
                         if Cat.all_cats.get(game.clan.your_cat.mentor).personality.trait != "bloodthirsty":
                             continue
 
-                if "clan_has_kits" in patrol.tags:
-                    if len(find_alive_cats_with_rank(Cat, [CatRank.NEWBORN, CatRank.KITTEN])) == 0:
-                        continue
-                if "clan_no_kits" in patrol.tags:
-                    if len(find_alive_cats_with_rank(Cat, [CatRank.NEWBORN, CatRank.KITTEN])) > 0:
-                        continue
-
                 # cruel season tag check
                 if "cruel_season" in patrol.tags:
                     if game.clan and game.clan.game_mode != "cruel_season":

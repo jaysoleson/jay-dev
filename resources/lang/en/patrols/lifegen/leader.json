@@ -714,9 +714,7 @@
         "types": [
             "lifegen"
         ],
-        "tags": [
-            "clan_has_kits"
-        ],
+        "tags": [],
         "patrol_art": "leaderwithkits_H1",
         "min_cats": 1,
         "max_cats": 2,
@@ -728,6 +726,9 @@
             "r_c:1": {
                 "skill": ["KIT,1"],
                 "age": ["not_kitten"]
+            },
+            "r_c:2": {
+                "rank": ["kitten"]
             }
         },
         "frequency": 4,

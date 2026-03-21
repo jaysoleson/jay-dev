@@ -1,27 +1,27 @@
 {
     "starving_elder": {
-        "y_c": {
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "unabashed",
+                    "sweet",
+                    "stable",
+                    "introspective"
+                ],
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "unabashed",
-                "sweet",
-                "stable",
-                "introspective"
-            ],
-            "condition": [
-                "starving"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "...",
             "Oh...? Is that mouse for me?",
@@ -30,37 +30,37 @@
         ]
     },
     "theystarving_1": {
-        "y_c": {},
-        "t_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false",
-                "starving"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false",
+                    "starving"
+                ]
+            }
         },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "[t_c kneads {PRONOUN/t_c/poss} stomach, eyes hollow with hunger.]",
             "[Seems like this famine is really doing a number on everycat...]"
         ]
     },
     "theystarving_2": {
-        "y_c": {
-            "status": [
-                "warrior"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "warrior"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false",
-                "starving"
-            ]
-        },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "Is it time for another hunting patrol already?",
             "[t_c struggles to {PRONOUN/t_c/poss} paws and heads to the camp's entrance.]",
@@ -68,19 +68,19 @@
         ]
     },
     "they_starving_3": {
-        "y_c": {},
-        "t_c": {
-            "cluster": [
-                "introspective"
-            ],
-            "condition": [
-                "blind:any:false",
-                "starving"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ]
+            }
         },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "... y_c. Hello.",
             "This situation... I can barely describe it.",
@@ -90,18 +90,18 @@
         ]
     },
     "they_starving_5": {
-        "y_c": {},
-        "t_c": {
-            "cluster": [
-                "introspective"
-            ],
-            "condition": [
-                "starving"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "starving"
+                ]
+            }
         },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "...",
             "[t_c is staring up at the trees, scanning the branches.]",
@@ -110,44 +110,44 @@
         ]
     },
     "they_starving_6": {
-        "y_c": {},
-        "t_c": {
-            "condition": [
-                "blind:any:false",
-                "starving"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ]
+            }
         },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "I'd give anything for a nice mouse right now. StarClan, I'd even settle for a stale one! Anything to get rid of this hunger..."
         ]
     },
     "starving_queen": {
-        "y_c": {
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet",
+                    "stable",
+                    "introspective",
+                    "neurotic",
+                    "upstanding"
+                ],
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "sweet",
-                "stable",
-                "introspective",
-                "neurotic",
-                "upstanding"
-            ],
-            "condition": [
-                "starving"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "[t_c stares into the nursery, eyes hollow.]",
             "None of the kits have been out to play today.",
@@ -157,77 +157,78 @@
         ]
     },
     "theystarving_sweet1": {
-        "y_c": {
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "deaf:any:false",
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "r_c:0": {}
         },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "condition": [
-                "deaf:any:false",
-                "starving"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "tags": [
-            "focus"
-        ],
         "intro": [
-            "[Despite {PRONOUN/t_c/poss} obvious hunger, you can see t_c nudging what little {PRONOUN/t_c/subject} {VERB/t_c/have/has} to r_c.]",
+            "[Despite {PRONOUN/t_c/poss} obvious hunger, you can see t_c nudging what little {PRONOUN/t_c/subject} {VERB/t_c/have/has} to r_c:0.]",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} at you and {VERB/t_c/smile/smiles} tiredly. The pain means nothing to {PRONOUN/t_c/object} if it means {PRONOUN/t_c/subject} could help someone else.]"
         ]
     },
     "theystarving_sweet2": {
-        "y_c": {
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "condition": [
-                "blind:any:false",
-                "starving"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "I'm gonna do what I can to get more food... I promise.",
             "If I can't, you can have my portion tonight... I don't mind."
         ]
     },
     "theystarving_sweet3": {
-        "y_c": {
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "condition": [
-                "starving"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "[Despite everything, t_c continues to smile. Despite everything, {PRONOUN/t_c/subject} {VERB/t_c/keep/keeps} trying to make you happy.]",
             "StarClan will bring us food, we just need to be patient.",
@@ -235,21 +236,31 @@
         ]
     },
     "youstarving_1": {
-        "y_c": {
-            "condition": [
-                "starving"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "starving"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "relationship": [
-            "min_like_20"
-        ],
-        "tags": [
-            "focus"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            }
         ],
         "intro": [
             "[t_c drops a small mouse at your paws, nosing it towards you.]",
@@ -257,15 +268,15 @@
         ]
     },
     "you_starving_2": {
-        "y_c": {
-            "condition": [
-                "starving"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "starving"
+                ]
+            },
+            "t_c": {}
         },
-        "t_c": {},
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "Oh, y_c.",
             "[t_c comes trotting up to you, worry carved into {PRONOUN/t_c/poss} face.]",
@@ -274,15 +285,15 @@
         ]
     },
     "you_starving_3": {
-        "y_c": {
-            "condition": [
-                "starving"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "starving"
+                ]
+            },
+            "t_c": {}
         },
-        "t_c": {},
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "Oh, y_c. I'm so sorry...",
             "[t_c scans over the fresh kill pile, it appearing to be barren.]",
@@ -292,19 +303,19 @@
         ]
     },
     "you_starving_4": {
-        "y_c": {
-            "status": [
-                "warrior",
-                "apprentice"
-            ],
-            "condition": [
-                "starving"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "starving"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
+            },
+            "t_c": {}
         },
-        "t_c": {},
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "y_c?",
             "[You turn to look up at t_c.]",
@@ -314,15 +325,15 @@
         ]
     },
     "you_starving_6": {
-        "y_c": {
-            "condition": [
-                "starving"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "starving"
+                ]
+            },
+            "t_c": {}
         },
-        "t_c": {},
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "[t_c trudges back into camp with {PRONOUN/t_c/poss} head and tail lowered in defeat. {PRONOUN/t_c/poss/CAP} dull eyes meet yours and {PRONOUN/t_c/subject} {VERB/t_c/shake/shakes} {PRONOUN/t_c/poss} head.]",
             "There's not even so much as a mouse out there... I'm sorry. Let's try not to worry though, we have to catch at least something sooner or later!",
@@ -331,57 +342,57 @@
         ]
     },
     "you_starving_7": {
-        "y_c": {
-            "condition": [
-                "starving"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false",
-                "starving"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
         "season": [
             "greenleaf"
         ],
-        "tags": [
-            "focus"
-        ],
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            }
+        },
         "intro": [
             "Ironic, isn't it? Greenleaf is supposed to be the time of year when prey is the most abundant, yet here we are. Starving."
         ]
     },
     "theystarving_silly": {
-        "y_c": {
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "unabashed",
+                    "stable",
+                    "cool",
+                    "silly"
+                ],
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "unabashed",
-                "stable",
-                "cool",
-                "silly"
-            ],
-            "condition": [
-                "starving"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "Y'know, I heard that if you imagine a meal in vivid enough detail, you can trick your brain into thinking you've eaten!",
             "Okay, so ... I'm imagining a mouse still warm from the hunting patrol, with super tender flesh.",
@@ -391,32 +402,42 @@
         ]
     },
     "you_starving_8": {
-        "y_c": {
-            "condition": [
-                "starving"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet",
+                    "stable",
+                    "introspective"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "sweet",
-                "stable",
-                "introspective"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_like_20"
-        ],
-        "tags": [
-            "focus"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            }
         ],
         "intro": [
             "[t_c noses a small sparrow towards you.]",
@@ -427,30 +448,40 @@
         ]
     },
     "you_starving_9": {
-        "y_c": {
-            "condition": [
-                "starving"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "brooding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "brooding"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_like_20"
-        ],
-        "tags": [
-            "focus"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            }
         ],
         "intro": [
             "[t_c drops a tiny mouse at your paws and looks away shyly.]",
@@ -461,18 +492,18 @@
         ]
     },
     "they_starving_4": {
-        "y_c": {},
-        "t_c": {
-            "condition": [
-                "starving"
-            ],
-            "status": [
-                "newborn"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "condition": [
+                    "starving"
+                ],
+                "rank": [
+                    "newborn"
+                ]
+            }
         },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "Meeewwww!!!!",
             "[A newborn kitten kneads against a queen trying to get milk, but seemingly being unable to.]",
@@ -480,19 +511,19 @@
         ]
     },
     "you_starving_5": {
-        "y_c": {
-            "condition": [
-                "starving"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "starving"
+                ]
+            },
+            "t_c": {
+                "rank": [
+                    "medicine cat"
+                ]
+            }
         },
-        "t_c": {
-            "status": [
-                "medicine cat"
-            ]
-        },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "Oh, good morning, y_c.",
             "[You look over to see t_c coming over to you, a bundle of herbs wrapped in a leaf in {PRONOUN/t_c/poss} mouth. {PRONOUN/t_c/subject/CAP} gently {VERB/t_c/place/places} the package down next to you.]",
@@ -503,19 +534,19 @@
         ]
     },
     "you_starving_51": {
-        "y_c": {
-            "condition": [
-                "starving"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "starving"
+                ]
+            },
+            "t_c": {
+                "rank": [
+                    "medicine cat apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "status": [
-                "medicine cat apprentice"
-            ]
-        },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "Oh, good morning, y_c.",
             "[You look over to see t_c coming over to you, a bundle of herbs wrapped in a leaf in {PRONOUN/t_c/poss} mouth. {PRONOUN/t_c/subject/CAP} gently {VERB/t_c/place/places} the package down next to you.]",
@@ -526,19 +557,19 @@
         ]
     },
     "you_starving_31": {
-        "y_c": {
-            "condition": [
-                "starving"
-            ],
-            "age": [
-                "kitten",
-                "newborn"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "starving"
+                ],
+                "age": [
+                    "kitten",
+                    "newborn"
+                ]
+            },
+            "t_c": {}
         },
-        "t_c": {},
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "Oh, y_c. I'm so sorry...",
             "[t_c scanned over the fresh kill pile, it appearing to be barren.]",
@@ -548,38 +579,47 @@
         ]
     },
     "starving_unlawful_Guy1": {
-        "y_c": {
-            "condition": [
-                "starving"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "unlawful"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "starving"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "unlawful"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "leader"
+                ]
+            }
         },
         "intro": [
             "Psst, y_c.",
             "[You gather the strength to look at t_c, and notice that {PRONOUN/t_c/subject} {VERB/t_c/have/has} somehow found a skinny vole.",
-            "It was supposed to be l_n's... But you need it more."
+            "It was supposed to be r_c:0's... But you need it more."
         ]
     },
     "starve_shunned_CM1": {
-        "y_c": {
-            "shunned": true,
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "standing": [
+                    "shunned"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            }
         },
-        "t_c": {
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "tags": [
-            "starving",
-            "focus"
-        ],
         "intro": [
             "[t_c looks down at your pelt, dull and thin from what feels like moons of endless hunger.]",
             "Preparing for the Dark Forest early, y_c?",
@@ -587,23 +627,34 @@
         ]
     },
     "starve_shunned_CM2": {
-        "y_c": {
-            "shunned": true,
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "standing": [
+                    "shunned"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            }
         },
-        "t_c": {
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_like_50"
-        ],
-        "tags": [
-            "starving",
-            "focus"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
+            }
         ],
         "intro": [
             "[Since the Clan has been so low on prey recently, you've had even rarer meals than you would have before. The days spent stuck in camp are long and hard. And yet...]",
@@ -615,59 +666,69 @@
         ]
     },
     "dead_to_starving_H5": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "any"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ],
+                "rank": [
+                    "newborn"
+                ]
+            }
         },
-        "t_c": {
-            "status": [
-                "newborn"
-            ],
-            "condition": [
-                "blind:any:false",
-                "starving"
-            ]
-        },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "[t_c makes a small, pitiful mewl from where {PRONOUN/t_c/subject} {VERB/t_c/lay/lays} against the nest.]"
         ]
     },
     "dead_to_starving_H3~1": {
-        "y_c": {
-            "dead": [
-                "sc"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "starving"
+                ],
+                "min_max_faith": [
+                    0,
+                    9
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "introspective"
-            ],
-            "condition": [
-                "starving"
-            ],
-            "min_max_faith": [
-                0,
-                9
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_trust_50"
-        ],
-        "tags": [
-            "focus"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50"
+                ]
+            }
         ],
         "intro": [
             "[t_c looks up as you approach, {PRONOUN/t_c/poss} body sunken from the lack of fresh-kill.]",
@@ -706,32 +767,41 @@
         ]
     },
     "dead_to_starving_H3~2": {
-        "y_c": {
-            "dead": [
-                "sc"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "introspective"
+                ],
+                "min_max_faith": [
+                    0,
+                    9
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "introspective"
-            ],
-            "min_max_faith": [
-                0,
-                9
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_trust_50"
-        ],
-        "tags": [
-            "focus",
-            "connected"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50"
+                ]
+            }
         ],
         "intro": [
             "[You decided to visit t_c once more, curious about {PRONOUN/t_c/poss} situation. t_c smiles brightly as {PRONOUN/t_c/subject} catch sight of your star-speckled pelt.]",
@@ -762,34 +832,44 @@
         ]
     },
     "dead_to_starving_H4~1": {
-        "y_c": {
-            "dead": [
-                "sc"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "starving"
+                ],
+                "min_max_faith": [
+                    0,
+                    9
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "introspective"
-            ],
-            "condition": [
-                "starving"
-            ],
-            "min_max_faith": [
-                0,
-                9
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_trust_50"
-        ],
-        "tags": [
-            "focus"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50"
+                ]
+            }
         ],
         "intro": [
             "[t_c looks up as you approach, {PRONOUN/t_c/poss} body sunken from the lack of fresh-kill.]",
@@ -828,31 +908,44 @@
         ]
     },
     "dead_to_starving_H4~2": {
-        "y_c": {
-            "dead": [
-                "sc"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "introspective"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "min_max_dead_moons": [
+                    0,
+                    5
+                ],
+                "residence": [
+                    "any"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "introspective"
-            ],
-            "dead": [
-                "any",
-                "max_they_deadfor_5"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_trust_50"
-        ],
-        "tags": [
-            "connected"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50"
+                ]
+            }
         ],
         "intro": [
             "[It didn't surprise you to see t_c in the afterlife, regardless of the saddening discovery. c_n must have not thrived, in the end.]",
@@ -880,45 +973,45 @@
         ]
     },
     "dead_to_starving_H1": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "sc"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false",
-                "starving"
-            ]
-        },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "It must be nice to have infinite amounts of food."
         ]
     },
     "dead_to_starving_H2": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "any"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false",
+                    "starving"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false",
-                "starving"
-            ]
-        },
-        "tags": [
-            "focus"
-        ],
         "intro": [
             "Hey... y_c?",
             "[You hear t_c's stomach growl. t_c sighs from the recent familiar feeling of being hungry.]",
