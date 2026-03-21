@@ -544,18 +544,28 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "cluster": ["neurotic"],
+                "rank": ["warrior", "apprentice"]
+            },
+            "r_c:1": {
+                "cluster": ["brooding", "unlawful"],
+                "rank": ["warrior"]
+            }
+        },
         "frequency": 4,
-        "intro_text": "As you're leaving your den in the morning to assemble dawn patrols, r_w1-neurotic stops you, apologises for bothering you, and asks not to be put on patrol with r_w2-brooding this morning.",
-        "decline_text": "You wave r_w1-neurotic off. All Clanmates must learn to work together, and if they end up on patrol together, {PRONOUN/r_w1-neurotic/subject}'ll have to deal with it!",
+        "intro_text": "As you're leaving your den in the morning to assemble dawn patrols, r_c:0 stops you, apologises for bothering you, and asks not to be put on patrol with r_c:1 this morning.",
+        "decline_text": "You wave r_c:0 off. All Clanmates must learn to work together, and if they end up on patrol together, {PRONOUN/r_c:0/subject}'ll have to deal with it!",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You ask why, and r_w1-neurotic explains that r_w2-brooding is a bit intimidating, and tends to throw off {PRONOUN/r_w1-neurotic/poss} focus. You tell r_w1-neurotic you'll assign {PRONOUN/r_w1-neurotic/object} and r_w2-brooding to separate duties, but let {PRONOUN/r_w1-neurotic/object} know that r_w2-brooding isn't as scary as {PRONOUN/r_w2-brooding/subject} {VERB/r_w2-brooding/seem/seems}.",
+                "text": "You ask why, and r_c:0 explains that r_c:1 is a bit intimidating, and tends to throw off {PRONOUN/r_c:0/poss} focus. You tell r_c:0 you'll assign {PRONOUN/r_c:0/object} and r_c:1 to separate duties, but let {PRONOUN/r_c:0/object} know that r_c:1 isn't as scary as {PRONOUN/r_c:1/subject} {VERB/r_c:1/seem/seems}.",
                 "exp": 15,
                 "frequency": 4
             },
             {
-                "text": "You tell r_w1-neurotic that {PRONOUN/r_w1-neurotic/subject} can't avoid {PRONOUN/r_w1-neurotic/poss} Clanmates, and in fact, you'll make sure {PRONOUN/r_w1-neurotic/subject}{VERB/r_w1-neurotic/'re/'s} put on a patrol with r_w2-brooding today. r_w1-neurotic looks upset, but when {PRONOUN/r_w1-neurotic/subject} {VERB/r_w1-neurotic/return/returns} from {PRONOUN/r_w1-neurotic/poss} dawn patrol later, you see {PRONOUN/r_w1-neurotic/object} laughing and joking around with r_w2-brooding. Looks like {PRONOUN/r_w2-brooding/subject} {VERB/r_w2-brooding/weren't/wasn't} so scary after all.",
+                "text": "You tell r_c:0 that {PRONOUN/r_c:0/subject} can't avoid {PRONOUN/r_c:0/poss} Clanmates, and in fact, you'll make sure {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} put on a patrol with r_c:1 today. r_c:0 looks upset, but when {PRONOUN/r_c:0/subject} {VERB/r_c:0/return/returns} from {PRONOUN/r_c:0/poss} dawn patrol later, you see {PRONOUN/r_c:0/object} laughing and joking around with r_c:1. Looks like {PRONOUN/r_c:1/subject} {VERB/r_c:1/weren't/wasn't} so scary after all.",
                 "exp": 15,
                 "frequency": 4,
                 "can_have_stat": ["p_l"],
@@ -571,8 +581,8 @@
                 ],
                 "relationships": [
                     {
-                        "cats_to": ["r_w1-neurotic"],
-                        "cats_from": ["r_w2-brooding"],
+                        "cats_to": ["r_c:0"],
+                        "cats_from": ["r_c:1"],
                         "mutual": true,
                         "values": ["like"],
                         "amount": 10
@@ -582,17 +592,17 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You're about to ask why, but just as you do, you notice r_w2-brooding emerging from {PRONOUN/r_w2-brooding/poss} den, blinking sleep from {PRONOUN/r_w2-brooding/poss} eyes. You give r_w1-neurotic a quick nod, approving of {PRONOUN/r_w1-neurotic/subject} request, and continue on your way to the front of camp.",
+                "text": "You're about to ask why, but just as you do, you notice r_c:1 emerging from {PRONOUN/r_c:1/poss} den, blinking sleep from {PRONOUN/r_c:1/poss} eyes. You give r_c:0 a quick nod, approving of {PRONOUN/r_c:0/subject} request, and continue on your way to the front of camp.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "You dismiss r_w1-neurotic-- surely {PRONOUN/r_w1-neurotic/subject} can't be that intimidated by r_w2-brooding. You put the two on the dawn patrol together, but r_w1-neurotic returns home early, muttering that {PRONOUN/r_w1-neurotic/subject} {VERB/r_w1-neurotic/don't/doesn't} feel well as {PRONOUN/r_w1-neurotic/subject} {VERB/r_w1-neurotic/run/runs} past you to go back to sleep.",
+                "text": "You dismiss r_c:0-- surely {PRONOUN/r_c:0/subject} can't be that intimidated by r_c:1. You put the two on the dawn patrol together, but r_c:0 returns home early, muttering that {PRONOUN/r_c:0/subject} {VERB/r_c:0/don't/doesn't} feel well as {PRONOUN/r_c:0/subject} {VERB/r_c:0/run/runs} past you to go back to sleep.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "You sympathise with r_w1-neurotic but deny {PRONOUN/r_w1-neurotic/poss} request. r_w2-brooding isn't a bad cat - surely there is no harm in patrolling with {PRONOUN/r_w2-brooding/object} once in a while. Though, you start to regret your decision as r_w1-neurotic falls further into {PRONOUN/r_w1-neurotic/poss} nerves when the patrol heads off.",
+                "text": "You sympathise with r_c:0 but deny {PRONOUN/r_c:0/poss} request. r_c:1 isn't a bad cat - surely there is no harm in patrolling with {PRONOUN/r_c:1/object} once in a while. Though, you start to regret your decision as r_c:0 falls further into {PRONOUN/r_c:0/poss} nerves when the patrol heads off.",
                 "exp": 0,
                 "frequency": 4,
                 "stat_trait": [
@@ -609,7 +619,7 @@
                 "relationship": [
                     {
                         "cats_to": ["p_l"],
-                        "cats_from": ["r_w1-neurotic"],
+                        "cats_from": ["r_c:0"],
                         "mutual": false,
                         "values": ["comfort"],
                         "amount": -5
@@ -634,18 +644,29 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["leader"]
+            },
+            "r_c:1": {
+                "rank": ["medicine cat", "medicine cat"]
+            },
+            "r_c:2": {
+                "rank": ["warrior"]
+            }
+        },
         "frequency": 4,
         "intro_text": "It's frigid this morning. Your Clanmates wake with numb paws and drops of their breath frozen to their whiskers. You've organized a morning border patrol, but you're not sure whether to tell its members to stay home for their safety.",
-        "decline_text": "You decide to let l_n figure out this one. You have a lot of other things to do today.",
+        "decline_text": "You decide to let r_c:0 figure out this one. You have a lot of other things to do today.",
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "You remember r_m warning you that at these temperatures, frostbite is a real risk. Leafbare is difficult enough without cats getting hurt, so you call off the patrol. You doubt any threats will be out in this weather anyways, and sure enough, nothing unusual happens in the following days.",
+                "text": "You remember r_c:1 warning you that at these temperatures, frostbite is a real risk. Leafbare is difficult enough without cats getting hurt, so you call off the patrol. You doubt any threats will be out in this weather anyways, and sure enough, nothing unusual happens in the following days.",
                 "exp": 15,
                 "frequency": 4
             },
             {
-                "text": "You ask r_w, the patrol's leader, for {PRONOUN/r_w/poss} opinion on whether {PRONOUN/r_w/subject} {VERB/r_w/want/wants} to patrol today. r_w seems to appreciate you asking, and after a brief discussion, decides to take a shorter route. You help {PRONOUN/r_w/object} plan the specific path, and remind {PRONOUN/r_w/object} to come back early if any cats are having trouble. ",
+                "text": "You ask r_c:2, the patrol's leader, for {PRONOUN/r_c:2/poss} opinion on whether {PRONOUN/r_c:2/subject} {VERB/r_c:2/want/wants} to patrol today. r_c:2 seems to appreciate you asking, and after a brief discussion, decides to take a shorter route. You help {PRONOUN/r_c:2/object} plan the specific path, and remind {PRONOUN/r_c:2/object} to come back early if any cats are having trouble. ",
                 "exp": 15,
                 "frequency": 4
             },
@@ -668,7 +689,7 @@
                 ]
             },
             {
-                "text": "You decide that it would be a good idea to send a patrol out anyways, but as you start to let r_w, the patrol's leader, know, a chill shoots up your spine. You have the sudden feeling that sending cats out in this weather is a terrible decision. Though you're unsure of the cause for your unease, you tell r_w to stay in camp instead. Shortly afterwards, a blizzard hits the territory, turning the world white and dropping the temperatures even further. You're thankful that you kept the patrol in camp, not wanting to think about what could have happened to any cats caught in the storm.",
+                "text": "You decide that it would be a good idea to send a patrol out anyways, but as you start to let r_c:2, the patrol's leader, know, a chill shoots up your spine. You have the sudden feeling that sending cats out in this weather is a terrible decision. Though you're unsure of the cause for your unease, you tell r_c:2 to stay in camp instead. Shortly afterwards, a blizzard hits the territory, turning the world white and dropping the temperatures even further. You're thankful that you kept the patrol in camp, not wanting to think about what could have happened to any cats caught in the storm.",
                 "exp": 15,
                 "frequency": 4,
                 "stat_skill": [
@@ -681,26 +702,26 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You decide to send the patrol out anyways, but regret it when a blizzard sweeps through the territory shortly afterwards. Just after the storm settles, though, your disoriented Clanmates stumble back into camp, chilled but otherwise unharmed. r_w explains that they were lost in the snow, but a starry cat led them to shelter, and then back home...",
+                "text": "You decide to send the patrol out anyways, but regret it when a blizzard sweeps through the territory shortly afterwards. Just after the storm settles, though, your disoriented Clanmates stumble back into camp, chilled but otherwise unharmed. r_c:2 explains that they were lost in the snow, but a starry cat led them to shelter, and then back home...",
                 "exp": 0,
                 "frequency": 4,
                 "faith_effects": [
                     {
                         "faith_cat": [
-                            "r_w"
+                            "r_c:2"
                         ],
                         "amount": 1
                     }
                 ]
             },
             {
-                "text": "You decide to send the patrol out anyways, but regret it when a blizzard sweeps through the territory shortly afterwards. Your Clanmates don't return to camp on time, so l_n and you go looking for them as soon as the storm clears. You find them huddled together beneath a bush, shivering violently. r_w is particularly cold and wind-battered.",
+                "text": "You decide to send the patrol out anyways, but regret it when a blizzard sweeps through the territory shortly afterwards. Your Clanmates don't return to camp on time, so r_c:0 and you go looking for them as soon as the storm clears. You find them huddled together beneath a bush, shivering violently. r_c:2 is particularly cold and wind-battered.",
                 "exp": 0,
                 "frequency": 2,
                 "injury": [
                     {
                         "cats": [
-                            "r_w"
+                            "r_c:2"
                         ],
                         "injuries": [
                             "shivering"
@@ -709,7 +730,7 @@
                 ]
             },
             {
-                "text": "You can think of so many things that could go wrong if you send the patrol out, and so many things that could go wrong if you instead tell them to stay in camp. Paralyzed by the potential consequences, you're unable to make a decision. l_n steps in and decides to run the patrols like usual despite the weather, and then tells you to take a break for the rest of the day.",
+                "text": "You can think of so many things that could go wrong if you send the patrol out, and so many things that could go wrong if you instead tell them to stay in camp. Paralyzed by the potential consequences, you're unable to make a decision. r_c:0 steps in and decides to run the patrols like usual despite the weather, and then tells you to take a break for the rest of the day.",
                 "exp": 0,
                 "frequency": 4,
                 "stat_trait": [

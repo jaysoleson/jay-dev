@@ -34,39 +34,41 @@ def choose_random_cats(
     possible_cats = Cat.all_cats_list.copy()
     chosen_cat_dict = {}
     abbrevs = []
-    skip = False
 
-    cat_limit = 50
+    # try:
+    if cats_block:
+        if "y_c" not in cats_block:
+            cats_block["y_c"] = {}
+        for abbrev in cats_block:
+            abbrevs.append(abbrev)
+            # checks if there are any valid cats available
+            possible_cats_dict[abbrev] = _validate_cat(
+                abbrev,
+                cats_block,
+                possible_cats,
+                your_cat,
+                the_cat
+                )
+            if not possible_cats_dict[abbrev]:
+                return {}
 
-    try:
-        if cats_block:
-            skip = False
-            for abbrev in cats_block:
-                abbrevs.append(abbrev)
-                # checks if there are any valid cats available
-                possible_cats_dict[abbrev] = _validate_cat(
-                    abbrev,
-                    cats_block,
-                    possible_cats,
-                    your_cat,
-                    the_cat
-                    )
-                if not possible_cats_dict[abbrev]:
-                    return {}
+    for abbrev, cat_object in cat_dict.items():
+        if abbrev not in possible_cats_dict:
+            possible_cats_dict[abbrev] = [cat_object]
 
-        # filter rel uses all abbrevs to make choices based on relationships
-        # chosen cat dict is the selected cats! one cat object per abbrev!
-        chosen_cat_dict = __filter_relationships(
-            abbrevs,
-            rel_block,
-            possible_cats_dict,
-            your_cat,
-            the_cat,
-            cat_dict
-            )
-    except Exception as e:
-        print("WARNING: Error with filtering for", key)
-        print(e)
+    # filter rel uses all abbrevs to make choices based on relationships
+    # chosen cat dict is the selected cats! one cat object per abbrev!
+    chosen_cat_dict = __filter_relationships(
+        abbrevs,
+        rel_block,
+        possible_cats_dict,
+        your_cat,
+        the_cat,
+        cat_dict
+        )
+    # except Exception as e:
+    #     print("WARNING: Error with filtering for", key)
+    #     print(e)
     return chosen_cat_dict
 
 def _validate_cat(abbrev, cat_block, possible_cats, your_cat, the_cat):
@@ -104,6 +106,12 @@ def _validate_cat(abbrev, cat_block, possible_cats, your_cat, the_cat):
 
         if not __filter_conditions(cat_block[abbrev], cat):
             continue
+
+        if "focus_cat" in cat_block[abbrev]:
+            if cat_block[abbrev]["focus_cat"] and cat.ID != game.clan.focus_cat:
+                continue
+            elif not cat_block[abbrev]["focus_cat"] and cat.ID == game.clan.focus_cat:
+                continue
 
         new_possible_cats.append(cat)
 
@@ -177,6 +185,9 @@ def __filter_group(abbrev_block, cat):
 
 def __filter_standing(abbrev_block, cat, your_cat):
     if "standing" not in abbrev_block:
+        if cat.status.is_shunned() and random.randint(1,4) != 1:
+            # hack
+            return False
         return True
 
     standing_found = False
@@ -475,8 +486,8 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                         continue
 
                     # Grab our possible cats depending on the abbrev
-                    to_cat_list = dict_possible_cats[TO].copy()
-                    from_cat_list = dict_possible_cats[FROM].copy()
+                    to_cat_list = dict_possible_cats[TO].copy() if TO in dict_possible_cats else Cat.all_cats_list.copy()
+                    from_cat_list = dict_possible_cats[FROM].copy() if FROM in dict_possible_cats else Cat.all_cats_list.copy()
 
                     # shuffle so the same cat isnt always on top
                     random.shuffle(to_cat_list)

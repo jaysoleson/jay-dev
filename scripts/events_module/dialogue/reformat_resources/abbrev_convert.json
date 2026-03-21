@@ -292,5 +292,22 @@
             "relationship": ["dead/grieving"]
         },
         "dead": ["any"]
+    },
+    "df_cm": {
+        "rank": ["df_trainee"]
+    },
+    "crush1": {
+        "relationship": {
+            "cats_from": ["y_c"],
+            "cats_to": ["crush1"],
+            "relationship": ["min_romance_15", "non-mates"]
+        }
+    },
+    "affair_ym": {
+        "relationship": {
+            "cats_from": ["y_c"],
+            "cats_to": ["affair_ym"],
+            "relationship": ["max_trust_30", "mates"]
+        }
     }
 }

@@ -165,5 +165,20 @@
         "One night, some unknown cats visit you in a dream, their pelts dripping with an unknown substance. They tell you that you are destined for something great.",
         "The leader of o_c_n visits camp, but no one will tell you why.",
         "You often feel as if something's watching you."
+    ],
+    "shunned": [
+        "The older cats are watching you with a wariness in their eyes that wasn't there before.",
+        "You beg one of the queens to play and they snap at you to quiet down.",
+        "You overhear whispers about you amongst the older cats.",
+        "Suspicious glances follow you around the camp, making you feel like an outsider in your own home.",
+        "The nursery, once filled with laughter and warmth, becomes eerily silent when you enter. The other kits avoid your gaze and huddle close to their parents.",
+        "One of the queens, once so welcoming, now flinches away when you approach. Their eyes are full of mistrust and fear, as if you are a stranger to them.",
+        "The medicine cat treats you with a cool detachment, their gaze distant and hardened. It feels like their once comforting presence has become cold and unwelcoming.",
+        "The apprentices, who you once admired and aspired to join, now avoid you, crossing the camp to keep their distance. Their chatter stops when you approach, replaced by an uncomfortable silence.",
+        "Even the leader's gaze darkens when {PRONOUN/l_n/subject} {VERB/l_n/see/sees} you. {PRONOUN/l_n/subject/CAP} {VERB/l_n/have/has} yet to say a word to you since the incident, but {PRONOUN/l_n/poss} silence speaks volumes.",
+        "Playtime is no longer a joyful event. The queens watch you carefully, their eyes narrowing whenever you play a little too rough with the other kits.",
+        "You play with a mossball alone.",
+        "You overhear the leader debating whether your apprenticeship should be delayed.",
+        "You are left alone more often than not."
     ]
 }

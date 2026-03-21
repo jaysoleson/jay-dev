@@ -167,6 +167,10 @@
         {
           "pattern": "^n_c:[0-9]+$",
           "type": "string"
+        },
+        {
+          "pattern": "^r_c:[0-9]+$",
+          "type": "string"
         }
       ],
       "title": "GatherCat"
@@ -176,6 +180,7 @@
         "m_c",
         "r_c",
         "p_l",
+        "y_c",
         "s_c",
         "app1",
         "app2",

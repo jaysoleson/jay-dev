@@ -55,5 +55,33 @@
         "l_n rests {PRONOUN/l_n/poss} tail on you, sharing how much {PRONOUN/l_n/subject} {VERB/l_n/appreciate/appreciates} what you do for c_n. {PRONOUN/l_n/subject/CAP} {VERB/l_n/are/is} grateful to have chosen you as {PRONOUN/l_n/poss} deputy, knowing that you will be a great leader when {PRONOUN/l_n/subject} {VERB/l_n/are/is} in StarClan.",
         "r_m is watching you closely today. You finally stop to ask {PRONOUN/r_m/object} if {PRONOUN/r_m/subject} {VERB/r_m/need/needs} something and r_m just smiles before sharing that {PRONOUN/r_m/subject} {VERB/r_m/know/knows} you will be a great leader before walking away, leaving you to wonder if StarClan sent {PRONOUN/r_m/object} a sign...",
         "You watch l_n as {PRONOUN/l_n/subject} {VERB/l_n/address/addresses} a Clan meeting to grieve over tg_c, knowing one day you will have to do the same."
+    ],
+    "shunned": [
+        "Patrol assignments become tense, with many warriors wary of being sent out alone with you.",
+        "Cats whisper and quickly disperse when you approach, making it difficult for you to maintain Clan order.",
+        "You notice an undercurrent of mistrust among the Clanmates you were meant to lead.",
+        "You wonder if it's better to step down",
+        "Decisions you make are questioned more than ever, your judgment considered tainted.",
+        "Apprentices appear intimidated by you, their respect for your position replaced by fear.",
+        "Sometimes you wish you can turn back time.",
+        "Your leader keeps a closer watch on your actions, a troubled look always present.",
+        "The younger members of the Clan look at you with wide, frightened eyes, the stories of your deeds carried through whispers.",
+        "Mentors subtly steer their apprentices away from you during training sessions.",
+        "Warriors subtly challenge your authority, a silent rebellion growing in the ranks.",
+        "You feel a sense of unease and tension during Clan meetings, your previous position of respect now tainted by your actions.",
+        "You reflect on the events that brought you here, wondering what sort of leader you'd be in an alternate reality.",
+        "The current c_n seems to be overwhelmed. You remember making the same fumbles. Unfortunately, you're unable to offer them advice.",
+        "Patrol assignments become tense, with many warriors wary of being sent out alone with you.",
+        "Cats whisper and quickly disperse when you approach, making it difficult for you to maintain Clan order.",
+        "You notice an undercurrent of mistrust among the Clanmates you were meant to lead.",
+        "You wonder if it's better to step down",
+        "Decisions you make are questioned more than ever, your judgment considered tainted.",
+        "Apprentices appear intimidated by you, their respect for your position replaced by fear.",
+        "Sometimes you wish you can turn back time.",
+        "Your leader keeps a closer watch on your actions, a troubled look always present.",
+        "The younger members of the Clan look at you with wide, frightened eyes, the stories of your deeds carried through whispers.",
+        "Mentors subtly steer their apprentices away from you during training sessions.",
+        "Warriors subtly challenge your authority, a silent rebellion growing in the ranks.",
+        "You feel a sense of unease and tension during Clan meetings, your previous position of respect now tainted by your actions."
     ]
 }

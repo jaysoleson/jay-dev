@@ -23,6 +23,7 @@ class PatrolEvent:
         types: List[str] = None,
         tags: List[str] = None,
         lifegen_cat_constraints: dict = None,
+        lifegen_relationship_constraints: List = [],
         chosen_lifegen_cats: List = [],
         frequency: int = 4,
         patrol_art: Union[str, None] = None,
@@ -46,6 +47,8 @@ class PatrolEvent:
         self.patrol_id = patrol_id
         # LG
         self.lifegen_cat_constraints = lifegen_cat_constraints
+        self.lifegen_relationship_constraints = lifegen_relationship_constraints
+
         self.chosen_lifegen_cats = chosen_lifegen_cats
         # ---
         self.frequency = frequency

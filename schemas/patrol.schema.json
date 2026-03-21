@@ -30,7 +30,8 @@
         "any",
         "adult",
         "app",
-        "healer"
+        "healer",
+        "y_c"
       ],
       "title": "CanHaveStat",
       "type": "string"
@@ -129,7 +130,8 @@
         "queen",
         "mediator apprentice",
         "queen's apprentice",
-        "elder"
+        "elder",
+        "df"
       ],
       "title": "MinMaxStatusDictKey",
       "type": "string"
@@ -526,10 +528,11 @@
         "app4_mentored",
         "app5_mentored",
         "app6_mentored",
-        "shunned",
+
         "sc_lifegen",
         "ur_lifegen",
-        "df_lifegen"
+        "df_lifegen",
+        "fellowtrainee"
       ],
       "title": "PatrolTagEnum",
       "type": "string"

@@ -82,6 +82,7 @@ class Patrol:
         # LIFEGEN: random cats
         # constraints present in the patrol JSON
         self.lifegen_cat_constraints = {}
+        self.lifegen_relationship_constraints = []
 
         # list of cats who were chosen as r_c's for each patrol
         self.chosen_lifegen_cats = []
@@ -186,6 +187,13 @@ class Patrol:
             self.patrol_event = romantic_event_choice
         else:
             self.patrol_event = normal_event_choice
+            # print("CHOSE PATROL:", self.patrol_event.patrol_id)
+            # print("CAT CONSTRAINTS:", self.patrol_event.lifegen_cat_constraints)
+            # print("REL CONSTRAINTS:", self.patrol_event.lifegen_relationship_constraints)
+            # print("LG CATS:", self.patrol_event.chosen_lifegen_cats)
+            # if self.patrol_event.chosen_lifegen_cats:
+            #     for cat in self.patrol_event.chosen_lifegen_cats:
+            #         print(cat.name)
 
         Patrol.used_patrols.append(self.patrol_event.patrol_id)
         
@@ -787,22 +795,24 @@ class Patrol:
         # makes sure that it grabs patrols in the correct biomes, season, with the correct number of cats
         while not filtered_patrols:
             for patrol in possible_patrols:
-                if patrol.frequency != chosen_frequency:
-                    continue
                 # LG
-                else:
-                    frequency_found = True
+                if switch_get_value(Switch.patrol_category) == "clangen":
+                # we dont have enough patrols to rely on the frequency like that......
+                # ---
+                    if patrol.frequency != chosen_frequency:
+                        continue
                 if not self._check_constraints(patrol):
                     continue
 
                 # LG
+                patrol.chosen_lifegen_cats = []
                 if patrol.lifegen_cat_constraints:
-                    print("LG CAT CONSTRAINTS:", patrol.lifegen_cat_constraints)
                     cat_dict = choose_random_cats(
                         cats_block=patrol.lifegen_cat_constraints,
-                        rel_block=[],
+                        rel_block=patrol.lifegen_relationship_constraints if patrol.lifegen_relationship_constraints else [],
                         your_cat=game.clan.your_cat,
-                        the_cat=None
+                        the_cat=None,
+                        cat_dict= {"p_l": game.clan.your_cat}
                         )
                     if not cat_dict:
                         continue
@@ -903,7 +913,6 @@ class Patrol:
                         if "sc_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.STARCLAN):
                             continue
                         elif "df_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.DARK_FOREST):
-                            print("Skipping", patrol.patrol_id)
                             continue
                         elif "ur_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE):
                             continue
@@ -957,7 +966,6 @@ class Patrol:
                 if "romantic" in patrol.tags:
                     romantic_patrols.append(patrol)
                 else:
-                    print("A FILTERED PATROL")
                     filtered_patrols.append(patrol)
                 
 
@@ -1045,6 +1053,7 @@ class Patrol:
                 frequency=patrol.get("frequency", 4),
                 types=patrol.get("types"),
                 lifegen_cat_constraints=patrol.get("random_cats"),
+                lifegen_relationship_constraints=patrol.get("relationships"),
                 intro_text=patrol.get("intro_text"),
                 patrol_art=patrol.get("patrol_art"),
                 patrol_art_clean=patrol.get("patrol_art_clean"),

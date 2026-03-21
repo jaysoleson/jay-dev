@@ -67,7 +67,13 @@ class Status:
             standing_copy = entry["standing"].copy()
             entry["standing"].clear()
             for standing in standing_copy:
-                entry["standing"].append(CatStanding(standing))
+                # LG
+                # because the "shunned" standing is a list containing the shunned moon
+                if isinstance(standing, list):
+                    entry["standing"].append(standing)
+                else:
+                    entry["standing"].append(CatStanding(standing))
+                # ---
 
         # just some extra checks in case a str snuck in
         if rank or social:
@@ -534,15 +540,15 @@ class Status:
             forced_old_group_ID=specific_group,
         )
 
-    def shun_from_group(self):
+    def shun_from_group(self, group_ID=None):
         """
         Removes cat from current group and changes their standing with that group to be shunned.
         """
 
-        self.change_standing(CatStanding.SHUNNED)
+        self.change_standing(CatStanding.SHUNNED, group_ID=group_ID)
 
-    def unshun_from_group(self):
-        self.change_standing(CatStanding.MEMBER)
+    def unshun_from_group(self, group_ID=None):
+        self.change_standing(CatStanding.MEMBER, group_ID=group_ID)
 
     def exile_from_group(self):
         """

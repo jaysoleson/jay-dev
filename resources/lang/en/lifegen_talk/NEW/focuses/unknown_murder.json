@@ -2809,7 +2809,7 @@
             }
         ],
         "intro": [
-            "I can't believe r_c:0 is gone and we don't even know who killed {PRONOUN/fc_c/object}...",
+            "I can't believe r_c:0 is gone and we don't even know who killed {PRONOUN/r_c:0/object}...",
             "The camp seems so empty now. And even worse, one of us is a murderer! How are we supposed to sleep at night?"
         ]
     },

@@ -805,6 +805,10 @@ def gather_cat_objects(
             found_cat = event.patrol_apprentices[4]
         elif abbr == "app6" and len(event.patrol_apprentices) >= 6:
             found_cat = event.patrol_apprentices[5]
+        
+        # LG
+        elif abbr == "y_c":
+            found_cat = game.clan.your_cat
 
         # add/remove cat if found and then continue for loop
         if is_exclusionary and found_cat:
@@ -836,6 +840,14 @@ def gather_cat_objects(
             found_cat_list.update(
                 sample(clan_cats, randint(1, max(1, round(len(clan_cats) / 8))))
             )
+        
+        # LG
+        elif re.match(r"r_c:[0-9]+", abbr):  # new_cats
+            index = re.match(r"r_c:([0-9]+)", abbr).group(1)
+            index = int(index)
+            if index < len(event.chosen_lifegen_cats):
+                found_cat_list.update(event.chosen_lifegen_cats[index])
+        # ---
 
         # add/remove cats if found and then continue for loop
         if is_exclusionary and found_cat_list:

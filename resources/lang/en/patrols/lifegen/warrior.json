@@ -15,6 +15,11 @@
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["warrior"]
+            }
+        },
         "frequency": 4,
         "intro_text": "You catch the scent of a mouse nearby.",
         "decline_text": "You ignore the mouse.",
@@ -52,7 +57,7 @@
                 ]
             },
             {
-                "text": "You follow the scent and encounter r_w, who is tracking the same mouse, in the process. You both locate the mouse not long after, completely unaware of the nearby cats. You direct r_w to sneak around it so you can approach from two directions at once, making it less likely for the mouse to escape. When you're both in position, you leap, frightening the creature right into r_w's paws. Teamwork!",
+                "text": "You follow the scent and encounter r_c:0, who is tracking the same mouse, in the process. You both locate the mouse not long after, completely unaware of the nearby cats. You direct r_c:0 to sneak around it so you can approach from two directions at once, making it less likely for the mouse to escape. When you're both in position, you leap, frightening the creature right into r_c:0's paws. Teamwork!",
                 "exp": 10,
                 "frequency": 4,
                 "stat_skill": [
@@ -468,6 +473,17 @@
         "min_cats": 1,
         "max_cats": 5,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["warrior"]
+            },
+            "r_c:1": {
+                "rank": ["warrior"]
+            },
+            "r_c:2": {
+                "rank": ["deputy"]
+            }
+        },
         "frequency": 4,
         "intro_text": "The deputy is forming a border patrol. Do you want to volunteer?",
         "decline_text": "You decide to stay in camp and rest for now.",
@@ -514,7 +530,7 @@
                 ]
             },
             {
-                "text": "You volunteer and follow d_n,  r_w1, and r_w2 to the edge of the territory, but the patrol is derailed when you notice the scent of a dog crossing the border. Aware of your proficiency with tracking, d_n tells r_w1 and r_w2 to finish the patrol while you track the dog with {PRONOUN/d_n/object}. You successfully follow the scent trail through the territory until, to your relief, it crosses back over the border. Your Clanmates are grateful that you took the effort to make sure the territory was safe.",
+                "text": "You volunteer and follow r_c:2,  r_c:0, and r_c:1 to the edge of the territory, but the patrol is derailed when you notice the scent of a dog crossing the border. Aware of your proficiency with tracking, r_c:2 tells r_c:0 and r_c:1 to finish the patrol while you track the dog with {PRONOUN/r_c:2/object}. You successfully follow the scent trail through the territory until, to your relief, it crosses back over the border. Your Clanmates are grateful that you took the effort to make sure the territory was safe.",
                 "exp": 10,
                 "frequency": 4,
                 "stat_skill": [
@@ -525,7 +541,7 @@
                 ]
             },
             {
-                "text": "You set off with r_w1 and r_w2, and the first part of the patrol passes without incident. When the three of you reach the o_c_n border, however, you encounter another patrol. Its leader doesn't seem pleased to see your group. You break the silence and make small talk with the other patrol, breaking the tension and putting everycat a bit more at ease.",
+                "text": "You set off with r_c:0 and r_c:1, and the first part of the patrol passes without incident. When the three of you reach the o_c_n border, however, you encounter another patrol. Its leader doesn't seem pleased to see your group. You break the silence and make small talk with the other patrol, breaking the tension and putting everycat a bit more at ease.",
                 "exp": 10,
                 "frequency": 4,
                 "stat_skill": [
@@ -547,7 +563,7 @@
                 "frequency": 4
             },
             {
-                "text": "You join the patrol but are unfortunately joined by r_w, who was rude to you earlier in the day. You hope you just misunderstood {PRONOUN/r_w/object}, but you're too nervous to ask. Your awkwardness distracts the rest of the patrol and makes the situation uncomfortable for everycat.",
+                "text": "You join the patrol but are unfortunately joined by r_c:0, who was rude to you earlier in the day. You hope you just misunderstood {PRONOUN/r_c:0/object}, but you're too nervous to ask. Your awkwardness distracts the rest of the patrol and makes the situation uncomfortable for everycat.",
                 "exp": 0,
                 "frequency": 4,
                 "stat_trait": [
@@ -565,7 +581,7 @@
                 ]
             },
             {
-                "text": "You join the patrol but feel especially jumpy today, and keep getting startled by the wind or your Clanmates' pawsteps. d_n, who's leading the patrol, repeatedly asks you to settle down. Unfortunately, you can't seem to calm your nerves, putting the rest of the group on edge.",
+                "text": "You join the patrol but feel especially jumpy today, and keep getting startled by the wind or your Clanmates' pawsteps. r_c:2, who's leading the patrol, repeatedly asks you to settle down. Unfortunately, you can't seem to calm your nerves, putting the rest of the group on edge.",
                 "exp": 0,
                 "frequency": 4,
                 "stat_trait": [
@@ -633,6 +649,11 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["warrior"]
+            }
+        },
         "frequency": 4,
         "intro_text": "There's a stale piece of prey left in the fresh-kill pile. Do you want to remove it?",
         "decline_text": "You decide to leave the prey and let someone else handle it.",
@@ -667,7 +688,7 @@
                 "frequency": 4
             },
             {
-                "text": "You start to remove the piece of prey, but stop when you realize it looks like you're digging through the pile. Will your Clanmates think you're trying to take the best prey for yourself? You pause, frozen in thought. After a moment, r_w walks by, looks at you in confusion, and removes the stale prey {PRONOUN/r_w/self}.",
+                "text": "You start to remove the piece of prey, but stop when you realize it looks like you're digging through the pile. Will your Clanmates think you're trying to take the best prey for yourself? You pause, frozen in thought. After a moment, r_c:0 walks by, looks at you in confusion, and removes the stale prey {PRONOUN/r_c:0/self}.",
                 "exp": 0,
                 "frequency": 4,
                 "stat_trait": [
@@ -889,6 +910,11 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["medicine cat", "medicine cat apprentice"]
+            }
+        },
         "frequency": 4,
         "intro_text": "The medicine cat runs out of marigold and asks for your help to find some. It's a chance to help the Clan and learn more about herbs.",
         "decline_text": "You respectfully decline, not feeling confident in your knowledge of herbs. The medicine cat understands and decides to search themselves.",
@@ -900,7 +926,7 @@
                 "frequency": 4
             },
             {
-                "text": "You diligently search the areas that r_m directed you to and find several plants which could be marigold. You don't feel confident in deciding which is correct, so you bring leaves from each of them back to camp. r_m praises your care, identifies the marigold, and keeps the other leaves to use for bandages.",
+                "text": "You diligently search the areas that r_c:0 directed you to and find several plants which could be marigold. You don't feel confident in deciding which is correct, so you bring leaves from each of them back to camp. r_c:0 praises your care, identifies the marigold, and keeps the other leaves to use for bandages.",
                 "exp": 10,
                 "frequency": 4,
                 "stat_trait": [
@@ -916,7 +942,7 @@
                 ]
             },
             {
-                "text": "You want to help, but aren't confident that you can successfully identify marigold. You confess this to r_m, expecting disappointment, but instead they take you on a short walk to show you nearby herb patches and teach you how to identify plants! r_m tells you they'll be sure to ask for your help in the future.",
+                "text": "You want to help, but aren't confident that you can successfully identify marigold. You confess this to r_c:0, expecting disappointment, but instead they take you on a short walk to show you nearby herb patches and teach you how to identify plants! r_c:0 tells you they'll be sure to ask for your help in the future.",
                 "exp": 10,
                 "frequency": 4,
                 "stat_trait": [
@@ -932,7 +958,7 @@
                 ]
             },
             {
-                "text": "You might not be a medicine cat, but for some reason, herb identification has always been easy for you. You remember seeing some flowers while on patrol yesterday, and sure enough, when you return to that spot, you find a thick patch of marigold! r_m is thrilled. There's even enough flowers for you to take one for yourself!",
+                "text": "You might not be a medicine cat, but for some reason, herb identification has always been easy for you. You remember seeing some flowers while on patrol yesterday, and sure enough, when you return to that spot, you find a thick patch of marigold! r_c:0 is thrilled. There's even enough flowers for you to take one for yourself!",
                 "exp": 10,
                 "frequency": 4,
                 "accessory": [
@@ -1657,20 +1683,32 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["warrior"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["y_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["max_like_-10"]
+            }
+        ],
         "frequency": 4,
-        "intro_text": "You're sitting in camp in the afternoon when dislike-r_w returns home from a solo hunting patrol, carrying such a huge rabbit that {PRONOUN/dislike-r_w/subject}{VERB/dislike-r_w/'re/'s} tripping over it. You wonder if you should get up to help.",
-        "decline_text": "dislike-r_w is plenty capable. You sit and watch {PRONOUN/dislike-r_w/object} stumble to the fresh-kill pile, snickering to yourself at the trouble {PRONOUN/dislike-r_w/subject}{VERB/dislike-r_w/'re/'s} having. Though you can't deny it's an impressive catch.",
+        "intro_text": "You're sitting in camp in the afternoon when r_c:0 returns home from a solo hunting patrol, carrying such a huge rabbit that {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} tripping over it. You wonder if you should get up to help.",
+        "decline_text": "r_c:0 is plenty capable. You sit and watch {PRONOUN/r_c:0/object} stumble to the fresh-kill pile, snickering to yourself at the trouble {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} having. Though you can't deny it's an impressive catch.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "Despite dislike-r_w being one of your least favourite cats at the moment, you push aside your personal feelings and get up to ask dislike-r_w if {PRONOUN/dislike-r_w/subject}'d like any help. Thankfully, dislike-r_w accepts without any unnecessary fuss and you work as a team to get the huge rabbit to the freshkill pile.",
+                "text": "Despite r_c:0 being one of your least favourite cats at the moment, you push aside your personal feelings and get up to ask r_c:0 if {PRONOUN/r_c:0/subject}'d like any help. Thankfully, r_c:0 accepts without any unnecessary fuss and you work as a team to get the huge rabbit to the freshkill pile.",
                 "exp": 15,
                 "frequency": 4
             }
         ],
         "fail_outcomes": [
             {
-                "text": "You stand up to give dislike-r_w a paw, but {PRONOUN/dislike-r_w/subject} {VERB/dislike-r_w/swat/swats} you away, hissing through a mouthful of rabbit fur that {PRONOUN/dislike-r_w/subject} {VERB/dislike-r_w/don't/doesn't} need any help. You return to your nest with a flick of your tail and make sure {PRONOUN/dislike-r_w/subject} can hear you laughing when {PRONOUN/dislike-r_w/subject} immediately {VERB/dislike-r_w/trip/trips} over the prey and {VERB/dislike-r_w/fall/falls} flat on {PRONOUN/dislike-r_w/poss} face.",
+                "text": "You stand up to give r_c:0 a paw, but {PRONOUN/r_c:0/subject} {VERB/r_c:0/swat/swats} you away, hissing through a mouthful of rabbit fur that {PRONOUN/r_c:0/subject} {VERB/r_c:0/don't/doesn't} need any help. You return to your nest with a flick of your tail and make sure {PRONOUN/r_c:0/subject} can hear you laughing when {PRONOUN/r_c:0/subject} immediately {VERB/r_c:0/trip/trips} over the prey and {VERB/r_c:0/fall/falls} flat on {PRONOUN/r_c:0/poss} face.",
                 "exp": 0,
                 "frequency": 4,
                 "stat_trait": [
@@ -1682,10 +1720,10 @@
                         "competitive",
                         "smug"
                     ],
-                "can_have_stat": ["dislike-r_w"],
+                "can_have_stat": ["r_c:0"],
                 "relationships": [
                     {
-                        "cats_to": ["dislike-r_w"],
+                        "cats_to": ["r_c:0"],
                         "cats_from": ["y_c"],
                         "mutual": true,
                         "values": ["like"],
@@ -1694,7 +1732,7 @@
                 ]
             },
             {
-                "text": "You know that dislike-r_w doesn't like you that much, so you decide to start chatting with {PRONOUN/dislike-r_w/object}! You hope that this will motivate {PRONOUN/dislike-r_w/object} to move faster, but it turns out that chatting with {PRONOUN/dislike-r_w/object} made dislike-r_w move slower. You just wanted the rabbit to be brought to the fresh-kill pile faster, not to strike up an actual conversation with {PRONOUN/dislike-r_w/object}.",
+                "text": "You know that r_c:0 doesn't like you that much, so you decide to start chatting with {PRONOUN/r_c:0/object}! You hope that this will motivate {PRONOUN/r_c:0/object} to move faster, but it turns out that chatting with {PRONOUN/r_c:0/object} made r_c:0 move slower. You just wanted the rabbit to be brought to the fresh-kill pile faster, not to strike up an actual conversation with {PRONOUN/r_c:0/object}.",
                 "exp": 0,
                 "frequency": 4,
                 "stat_trait": ["troublesome","childish","playful","strange","rebellious","spontaneous","energetic","bouncy"],
@@ -1702,14 +1740,14 @@
                 "relationships": [
                     {
                         "cats_to": ["p_l"],
-                        "cats_from": ["dislike-r_w"],
+                        "cats_from": ["r_c:0"],
                         "mutual": false,
                         "values": ["comfort", "like"],
                         "amount": 10
                     },
                     {
                         "cats_to": ["p_l"],
-                        "cats_from": ["dislike-r_w"],
+                        "cats_from": ["r_c:0"],
                         "mutual": false,
                         "values": ["like"],
                         "amount": 5
@@ -1717,7 +1755,7 @@
                 ]
             },
             {
-                "text": "You're nothing but awkward as you approach dislike-r_w, asking if {PRONOUN/dislike-r_w/subject} would like any help. Your awkwardness must have peeved dislike-r_w off and {PRONOUN/dislike-r_w/subject} {VERB/dislike-r_w/refuse/refuses} the offer, only to take one more step and fall directly on {PRONOUN/dislike-r_w/poss} face. It takes everything in you to not laugh.",
+                "text": "You're nothing but awkward as you approach r_c:0, asking if {PRONOUN/r_c:0/subject} would like any help. Your awkwardness must have peeved r_c:0 off and {PRONOUN/r_c:0/subject} {VERB/r_c:0/refuse/refuses} the offer, only to take one more step and fall directly on {PRONOUN/r_c:0/poss} face. It takes everything in you to not laugh.",
                 "exp": 0,
                 "frequency": 4
             }

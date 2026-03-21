@@ -31,5 +31,5 @@ class GatherCatEnum(Enum):
 
 class GatherCat(RootModel):
     root: Union[
-        GatherCatEnum, Annotated[str, StringConstraints(pattern=r"^n_c:[0-9]+$")]
+        GatherCatEnum, Annotated[str, StringConstraints(pattern=r"^(n_c|r_c):[0-9]+$")]
     ]

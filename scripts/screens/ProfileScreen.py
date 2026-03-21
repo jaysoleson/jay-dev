@@ -3057,14 +3057,6 @@ class ProfileScreen(Screens):
                 starting_height=2,
                 manager=MANAGER,
             )
-            self.murder_cat_button = UIImageButton(
-                ui_scale(pygame.Rect((578, 522), (172, 36))),
-                "",
-                object_id="#murder_button",
-                tool_tip_text='Choose to murder one of your Clanmates',
-                starting_height=2,
-                manager=MANAGER
-            )
             self.leave_clan_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((578, 0), (172, 36))),
                 "screens.profile.leave_clan",
@@ -3116,6 +3108,16 @@ class ProfileScreen(Screens):
                         alive_mate = True
                 if not alive_mate:
                     self.affair_button.disable()
+            
+            self.murder_cat_button = UIImageButton(
+                ui_scale(pygame.Rect((578, 0), (172, 36))),
+                "",
+                object_id="#murder_button",
+                tool_tip_text='Choose to murder one of your Clanmates',
+                starting_height=2,
+                manager=MANAGER,
+                anchors={"top_target": self.affair_button},
+            )
 
             # These are a placeholders, to be killed and recreated in self.update_disabled_buttons_and_text().
             #   This it due to the image switch depending on the cat's status, and the location switch the close button
