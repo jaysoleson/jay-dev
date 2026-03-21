@@ -58,9 +58,9 @@
             ],
             "moon2": [
                 "Suddenly hot fire-water makes its way into Camp. Warriors are instructed to get cats to high ground to avoid the strange phenomena. The trees and grass are melting within the red destruction, and cats are getting hurt from even being near it.",
-                "The moon was like any other, until r_w notifies lead_name about fire-water coming out of the earth. It reaches Camp, burning everything in its path as c_n scrambles to find a place to flee to. Cats watch as their Camp is engulfed in flames.",
+                "The moon was like any other, until a warrior notifies lead_name about fire-water coming out of the earth. It reaches Camp, burning everything in its path as c_n scrambles to find a place to flee to. Cats watch as their Camp is engulfed in flames.",
                 "It's every cat for themselves as fire-water runs through Camp at alarming speeds. c_n is filled with screams, horror, and devastation as their home is destroyed before their very eyes.",
-                "lead_name can recognize the warnings given. {PRONOUN/lead_name/subject/CAP} {VERB/lead_name/gather/gathers} any cat {PRONOUN/lead_name/subject} can and {VERB/lead_name/lead/leads} them away from the Camp, hoping to minimize the injuries. l_c can only hope the Camp is still standing when c_n travels back."
+                "lead_name can recognize the warnings given. {PRONOUN/lead_name/subject/CAP} {VERB/lead_name/gather/gathers} any cat {PRONOUN/lead_name/subject} can and {VERB/lead_name/lead/leads} them away from the Camp, hoping to minimize the injuries."
             ]
         },
         "conclusion_events": [
@@ -110,7 +110,7 @@
         "duration": 2,
         "rarity": "rare",
         "trigger_events": [
-            "r_w comments that the ground is steaming at the edge of Camp. {PRONOUN/r_w/subject/CAP} {VERB/r_w/express/expresses} worry over what it is, and lead_name suggests cats be cautious while exploring the specific area."
+            "A warrior comments that the ground is steaming at the edge of Camp. The express worry over what it is, and lead_name suggests cats be cautious while exploring the specific area."
         ],
         "progress_events": {
             "moon1": [

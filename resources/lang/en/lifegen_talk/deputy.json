@@ -4094,7 +4094,7 @@
         },
         "intro": [
             "Oh, hi y_c! I had a question for you, actually.",
-            "Well... is it mean to send r_c:0 on a border patrol if I know {PRONOUN/r_w/subject} {VERB/t_c/don't/doesn't} like them?",
+            "Well... is it mean to send r_c:0 on a border patrol if I know {PRONOUN/r_c:0/subject} {VERB/t_c/don't/doesn't} like them?",
             "{PRONOUN/r_c:1/subject/CAP} told me I was as helpful as a Twoleg kit chasing prey, and I'm feeling extra petty today."
         ]
     },

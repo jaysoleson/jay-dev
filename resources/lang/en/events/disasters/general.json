@@ -14,7 +14,7 @@
         "rarity": "rare",
         "trigger_events": [
             "A c_n hunting patrol spots a group of Twolegs dumping a large amount of Twoleg rubbish and crowfood into the river. The water now has a bitter, metallic taste, and the cats who drink it notice their stomachs begin to hurt when they return home.",
-            "r_w stops by the river on their way back from a hunting patrol to have a drink. An awful smell stops them in their tracks, and they notice a strange mound sticking out of the water. It seems that some Twolegs have cleaned out their dirtplace into the water and contaminated it.",
+            "A warrior stops by the river on their way back from a hunting patrol to have a drink. An awful smell stops them in their tracks, and they notice a strange mound sticking out of the water. It seems that some Twolegs have cleaned out their dirtplace into the water and contaminated it.",
             "A regular border patrol stumbles across the large body of a moose. They're excited at first, but when they get closer, they notice that its body has begun rotting, and that half of it is laying in the river that c_n regularly drinks from. Crowfood and blood mix with the flow of the freshwater, contaminating it."
         ],
         "progress_events": {
@@ -31,7 +31,7 @@
             ]
         },
         "conclusion_events": [
-            "Unable to stand the thirst anymore, a weak r_w stumbles to the river, knowing of the sickness that they might have to battle because of it. They take a sip, and are surprised when they taste and smell cool, fresh water. They look down through the clear river, finally able to see the pebbles on the bottom again. Rejuvenated, r_w takes a few gracious gulps before sprinting back to camp with the good news. The river is clean!",
+            "Unable to stand the thirst anymore, a weak warrior stumbles to the river, knowing of the sickness that they might have to battle because of it. They take a sip, and are surprised when they taste and smell cool, fresh water. They look down through the clear river, finally able to see the pebbles on the bottom again. Rejuvenated, the warrior takes a few gracious gulps before sprinting back to camp with the good news. The river is clean!",
             "The foul scent from the river has begun to fade, until one day, it seems to be completely gone. A border patrol visits the site of the pollution, and are elated to find it completely clear! Twoleg paw prints are evident in the mud. It seems that they've finally done something right!",
             "The Clan has been closely monitoring the state of the river. Finally, lead_name has announced that the contamination is gone, and the water is once more safe to drink. Thirsty warriors rush to the camp entrance, clearing the medicine den of their moss stores, to fetch water for the ill."
         ],
