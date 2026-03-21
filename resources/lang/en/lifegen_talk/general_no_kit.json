@@ -51213,7 +51213,7 @@
                     "r_c:0"
                 ],
                 "cats_to": [
-                    "n_r2"
+                    "r_c:1"
                 ],
                 "relationship": [
                     "min_romance_20"
@@ -51224,7 +51224,7 @@
                     "r_c:1"
                 ],
                 "cats_to": [
-                    "n_r1"
+                    "r_c:0"
                 ],
                 "relationship": [
                     "min_romance_20"
@@ -72296,7 +72296,7 @@
                     "r_c:0"
                 ],
                 "cats_to": [
-                    "n_r2"
+                    "r_c:1"
                 ],
                 "relationship": [
                     "min_romance_20"
@@ -72307,7 +72307,7 @@
                     "r_c:1"
                 ],
                 "cats_to": [
-                    "n_r1"
+                    "r_c:0"
                 ],
                 "relationship": [
                     "min_romance_20"
