@@ -19,30 +19,22 @@
       "type": "string"
     },
     "CanHaveStat": {
-      "anyOf": [
-        {
-          "title": "CanHaveStat",
-          "type": "string",
-          "enum": [
-            "p_l",
-            "r_c",
-            "app1",
-            "app2",
-            "not_pl",
-            "not_rc",
-            "not_pl_rc",
-            "any",
-            "adult",
-            "app",
-            "healer",
-            "y_c"
-          ]
-        },
-        {
-          "pattern": "^r_c:[0-9]+$",
-          "type": "string"
-        }
-      ]
+      "enum": [
+        "p_l",
+        "r_c",
+        "app1",
+        "app2",
+        "not_pl",
+        "not_rc",
+        "not_pl_rc",
+        "any",
+        "adult",
+        "app",
+        "healer",
+        "y_c"
+      ],
+      "title": "CanHaveStat",
+      "type": "string"
     },
     "HistoryText": {
       "properties": {
@@ -181,7 +173,14 @@
         "can_have_stat": {
           "description": "Overrides default behavior or adds additional requirements for stat_cat picking.",
           "items": {
-            "$ref": "#/$defs/CanHaveStat"
+            "anyOf": [
+              {
+                "$ref": "#/$defs/CanHaveStat"
+              },
+              {
+                "$ref": "common.schema.json#/$defs/GatherCat"
+              }
+            ]
           },
           "title": "Can Have Stat",
           "type": "array"
