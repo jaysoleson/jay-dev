@@ -937,7 +937,7 @@
                 "frequency": 4
             },
             {
-                "text": "Swimming! You're a master at that! Without hesitation you dive in and show off your skills. m_n jokes that {PRONOUN/m_n/subject} should learn from you instead of teaching you!",
+                "text": "Swimming! You're a master at that! Without hesitation you dive in and show off your skills. r_c:0 jokes that {PRONOUN/r_c:0/subject} should learn from you instead of teaching you!",
                 "exp": 10,
                 "frequency": 4,
                 "stat_trait": [

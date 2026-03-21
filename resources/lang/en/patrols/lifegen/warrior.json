@@ -166,6 +166,11 @@
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "residence": ["df"]
+            }
+        },
         "frequency": 4,
         "intro_text": "During a hunting patrol, you spot a large, plump squirrel. However, it's close to the o_c_n border, and crossing it could lead to a skirmish.",
         "decline_text": "You decide to respect the border and leave the squirrel. Your Clanmates commend your respect for the Warrior Code.",
@@ -206,7 +211,7 @@
                 ]
             },
             {
-                "text": "As you sit by the border, debating whether to cross, a familiar cat pads up with a translucent, muck-matted pelt. rdf_c looks from you to the squirrel, purring in amusement when they understand the situation. They motion for you to cross the border, indicating that they'll watch for any o_c_n cats. You successfully catch the squirrel and return to your territory, unnoticed, and rdf_c chuckles as they slink away.",
+                "text": "As you sit by the border, debating whether to cross, a familiar cat pads up with a translucent, muck-matted pelt. r_c:0 looks from you to the squirrel, purring in amusement when {PRONOUN/r_c:0/subject} {VERB/r_c:0/understand/understands} the situation. {PRONOUN/r_c:0/subject/CAP} {VERB/r_c:0/motion/motions} for you to cross the border, indicating that {PRONOUN/r_c:0/subject}'ll watch for any o_c_n cats. You successfully catch the squirrel and return to your territory, unnoticed, and r_c:0 chuckles as {PRONOUN/r_c:0/subject} {VERB/r_c:0/slink/slinks} away.",
                 "exp": 10,
                 "frequency": 4,
                 "stat_skill": [

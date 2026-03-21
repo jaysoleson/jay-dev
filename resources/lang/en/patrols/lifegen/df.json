@@ -3416,7 +3416,10 @@
             "max_cats": 1,
             "min_max_status": {},
             "random_cats": {
-                "r_c:0": {}
+                "r_c:0": {},
+                "r_c:1": {
+                    "residence": ["df"]
+                }
             },
             "relationships": [
                 {
@@ -3442,14 +3445,14 @@
                     "frequency": 4
                 },
                 {
-                    "text": "You enter the clearing with your head held high, cats watching you as you make your way over to the cat you usually spar with, rdf_c. Curiosity lights their eyes as they ask you all about what happened, and soon you're retelling the story to a small crowd of cats.",
+                    "text": "You enter the clearing with your head held high, cats watching you as you make your way over to the cat you usually spar with, r_c:1. Curiosity lights their eyes as they ask you all about what happened, and soon you're retelling the story to a small crowd of cats.",
                     "exp": 10,
                     "frequency": 4
                 }
             ],
             "fail_outcomes": [
                 {
-                    "text": "As you walk into the clearing, you try to ignore the murmurs and pointed stares that follow you. However, as you begin to spar with rdf_c, who keeps looking at you nervously, it's soon too much to handle. You mumble a lame excuse about being tired and flee the scene without a glance back.",
+                    "text": "As you walk into the clearing, you try to ignore the murmurs and pointed stares that follow you. However, as you begin to spar with r_c:1, who keeps looking at you nervously, it's soon too much to handle. You mumble a lame excuse about being tired and flee the scene without a glance back.",
                     "exp": 0,
                     "frequency": 4
                 }
@@ -3477,6 +3480,11 @@
                     -1,
                     0
                 ]
+            },
+            "random_cats": {
+                "r_c:0": {
+                    "residence": ["df"]
+                }
             },
             "frequency": 4,
             "intro_text": "An apprentice trainee from o_c_n does a battle move wrong, unknowingly leaving their throat vulnerable to retaliation. When you try to correct them, the small cat snaps at you, scoffing and asking why they should listen to a cat that their own Clan doesn't even trust anymore.",
@@ -3521,7 +3529,7 @@
             ],
             "antag_success_outcomes": [
                 {
-                    "text": "You lunge forward, leaving a wound across the apprentice's eye before they can even react. Even if you've been shunned in your own Clan, you harshly remind them that that doesn't apply here, and they'd better not talk back to you, or else. The Dark Forest cat, rdf_c-brooding, catches your eye from afar and gives you a small nod of approval.",
+                    "text": "You lunge forward, leaving a wound across the apprentice's eye before they can even react. Even if you've been shunned in your own Clan, you harshly remind them that that doesn't apply here, and they'd better not talk back to you, or else. The Dark Forest cat, r_c:0, catches your eye from afar and gives you a small nod of approval.",
                     "exp": 30,
                     "frequency": 4
                 }
