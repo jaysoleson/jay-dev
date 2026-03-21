@@ -145,10 +145,12 @@ def _test():
     for root, _, files in os.walk("resources"):
         for file in files:
             if (
-                "lifegen_talk" in root and
-                "lifegen_talk\\NEW" not in root
+                (
+                    "lifegen_events" in root and
+                    "lifegen_events\\NEW" not in root
+                )
                 ):
-                # TEMP: ignore old dialogue files
+                # TEMP: ignore old event files
                 continue
             if file.endswith(".json") and file not in (
                 "credits_text.json",

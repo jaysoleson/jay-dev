@@ -98,13 +98,6 @@
             "relationship": ["mates"]
         }
     },
-    "m_n": {
-        "relationship": {
-            "cats_from": ["m_n"],
-            "cats_to": ["y_c"],
-            "relationship": ["mentor/app"]
-        }
-    },
     "r_q": {
         "rank": ["queen"]
     },
@@ -184,15 +177,15 @@
             "relationship": ["df mentor/df app"]
         }
     },
+    "m_n": {
+        "relationship": {
+            "cats_from": ["m_n"],
+            "cats_to": ["y_c"],
+            "relationship": ["mentor/app"]
+        }
+    },
     "rsc_c": {
         "dead": ["sc"]
-    },
-    "y_k": {
-        "relationship": {
-            "cats_from": ["y_k"],
-            "cats_to": ["y_c"],
-            "relationship": ["child/parent"]
-        }
     },
     "y_kk": {
         "relationship": {
@@ -209,6 +202,13 @@
             "relationship": ["child/parent"]
         },
         "age": ["adolescent"]
+    },
+    "y_k": {
+        "relationship": {
+            "cats_from": ["y_k"],
+            "cats_to": ["y_c"],
+            "relationship": ["child/parent"]
+        }
     },
     "rdf_c": {
         "dead": ["df"]
