@@ -6260,11 +6260,27 @@
                     "leader",
                     "df_trainee"
                 ]
+            },
+            "r_c:0": {
+                "residence": ["df"]
             }
         },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "df mentor/df app"
+                ]
+            }
+        ],
         "intro": [
-            "Hey y_c! Will you be training with me and t_df_mn tonight?",
-            "There was this move {PRONOUN/t_df_mn/subject} {VERB/t_df_mn/were/was} teaching me, and I thought you might like to try it!"
+            "Hey y_c! Will you be training with me and r_c:0 tonight?",
+            "There was this move {PRONOUN/r_c:0/subject} {VERB/r_c:0/were/was} teaching me, and I thought you might like to try it!"
         ],
         "intro_choices": {
             "choice1": {

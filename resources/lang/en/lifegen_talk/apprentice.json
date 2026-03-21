@@ -6925,6 +6925,9 @@
                 "rank": [
                     "df_trainee"
                 ]
+            },
+            "r_c:0": {
+                "residence": ["df"]
             }
         },
         "relationships": [
@@ -6938,12 +6941,23 @@
                 "relationship": [
                     "min_like_50"
                 ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "df mentor/df app"
+                ]
             }
         ],
         "intro": [
             "I can tell you anything, right, t_c?",
             "[You nod. t_c hesitates before speaking again.]",
-            "I... joined the Dark Forest. There's a cat there called t_df_mn. {PRONOUN/t_df_mn/subject/CAP}{VERB/t_df_mn/'re/'s} going to train me.",
+            "I... joined the Dark Forest. There's a cat there called r_c:0. {PRONOUN/r_c:0/subject/CAP}{VERB/r_c:0/'re/'s} going to train me.",
             "Why, you ask? I just want to be strong enough to protect you!"
         ]
     },

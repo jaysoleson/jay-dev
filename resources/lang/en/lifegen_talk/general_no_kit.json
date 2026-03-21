@@ -36115,7 +36115,9 @@
                     "df"
                 ]
             },
-            "r_c:0": {}
+            "r_c:0": {
+                "residence": ["df"]
+            }
         },
         "relationships": [
             {
@@ -36126,18 +36128,18 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "mentor/app"
+                    "df mentor/df app"
                 ]
             }
         ],
         "intro": [
             "[You are currently training in the Dark Forest, your bones feel like they're on fire.]",
             "[You've been doing the same move nonstop, over and over again. You're exhausted, and you hurt so bad.]",
-            "[You hear df_r_c:0 roar to do it again, you feel like if you try you'll end up hurt.]",
+            "[You hear r_c:0 roar to do it again, you feel like if you try you'll end up hurt.]",
             "[Suddenly, another cat explodes out of the bushes, {PRONOUN/t_c/poss} ears pinned back.]",
             "Would you cut {PRONOUN/y_c/object} some slack? You've pushed {PRONOUN/y_c/object} way too far!",
             "The little wisp looks like {PRONOUN/y_c/subject}'ll fall apart if you make {PRONOUN/y_c/object} do that move again.",
-            "[It's easy to see t_c hates arguing with df_r_c:0, but {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing it anyway just for your sake.]",
+            "[It's easy to see t_c hates arguing with r_c:0, but {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing it anyway just for your sake.]",
             "[At least someone here is on your side.]"
         ]
     },
@@ -50051,7 +50053,9 @@
                     "df_trainee"
                 ]
             },
-            "r_c:0": {}
+            "r_c:0": {
+                "residence": ["df"]
+            }
         },
         "relationships": [
             {
@@ -50073,12 +50077,12 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "mentor/app"
+                    "df mentor/df app"
                 ]
             }
         ],
         "intro": [
-            "You're not going to train tonight, right? df_r_c:0 wouldn't make you... not while you're like this?",
+            "You're not going to train tonight, right? r_c:0 wouldn't make you... not while you're like this?",
             "Please be careful, y_c. Everycat's already worried enough about you as it is."
         ]
     },
@@ -55827,7 +55831,9 @@
                     "df_trainee"
                 ]
             },
-            "r_c:0": {}
+            "r_c:0": {
+                "residence": ["df"]
+            }
         },
         "relationships": [
             {
@@ -55838,13 +55844,13 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "mentor/app"
+                    "df mentor/df app"
                 ]
             }
         ],
         "intro": [
             "[In the Dark Forest, t_c looks even smaller than usual next to so many muck-pelted, fierce-looking cats.]",
-            "[As df_r_c:0 pairs up cats for the night's training, you watch t_c from across the clearing. {PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} around with {PRONOUN/t_c/poss} typical nervous expression, and for a moment, {PRONOUN/t_c/subject} {VERB/t_c/seem/seems} ready to bolt.]",
+            "[As r_c:0 pairs up cats for the night's training, you watch t_c from across the clearing. {PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} around with {PRONOUN/t_c/poss} typical nervous expression, and for a moment, {PRONOUN/t_c/subject} {VERB/t_c/seem/seems} ready to bolt.]",
             "[Then, {PRONOUN/t_c/subject} {VERB/t_c/take/takes} a deep breath and {VERB/t_c/close/closes} {PRONOUN/t_c/poss} eyes. When {PRONOUN/t_c/subject} {VERB/t_c/open/opens} them again, {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} shifted {PRONOUN/t_c/poss} face to match the steely, fierce expressions of the warriors surrounding you.]"
         ]
     },
@@ -66720,7 +66726,12 @@
                     "df_trainee"
                 ]
             },
-            "r_c:0": {}
+            "r_c:0": {
+                "residence": ["df"]
+            },
+            "r_c:1": {
+                "residence": ["df"]
+            }
         },
         "relationships": [
             {
@@ -66733,12 +66744,23 @@
                 "relationship": [
                     "mentor/app"
                 ]
+            },
+            {
+                "cats_from": [
+                    "r_c:1"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "df mentor/df app"
+                ]
             }
         ],
         "intro": [
             "[t_c looks around for a moment before whispering to you.]",
             "I saw you in the Dark Forest last night.",
-            "Nope, don't try to deny it, I saw you. I was training with t_df_mn. Who were you training with? I never caught {PRONOUN/df_r_c:0/poss} name.",
+            "Nope, don't try to deny it, I saw you. I was training with r_c:1. Who were you training with? I never caught {PRONOUN/r_c:0/poss} name.",
             "I won't tell anyone. I promise.",
             "As long as you promise to not tell anyone about how I was training in the Dark Forest.",
             "Deal. See you tonight?"

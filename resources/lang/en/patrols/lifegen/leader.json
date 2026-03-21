@@ -407,7 +407,7 @@
         },
         "frequency": 4,
         "intro_text": "r_c:1 has come to you with an issue. More warriors are reporting to {PRONOUN/r_c:1/object} that r_c:0 has been starting more arguments as of late on patrols. Before {PRONOUN/r_c:1/subject} {VERB/r_c:1/speak/speaks} to {PRONOUN/r_c:0/object}, {PRONOUN/r_c:1/subject} wanted your opinion.",
-        "decline_text": "r_c:1 should trust {PRONOUN/r_c:1/self} more. {PRONOUN/r_c:1/subject/CAP} {VERB/d_r_c:1n/know/knows} what is best.",
+        "decline_text": "r_c:1 should trust {PRONOUN/r_c:1/self} more. {PRONOUN/r_c:1/subject/CAP} {VERB/r_c:1/know/knows} what is best.",
         "chance_of_success": 65,
         "success_outcomes": [
             {

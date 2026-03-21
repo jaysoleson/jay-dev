@@ -3664,7 +3664,9 @@
                     "not_df_trainee"
                 ]
             },
-            "r_c:0": {}
+            "r_c:0": {
+                "residence": ["df"]
+            }
         },
         "relationships": [
             {
@@ -3695,7 +3697,7 @@
             "All medicine cats need to take part in basic battle training lessons.",
             "Nervous? Don't worry, you'll hopefully never have to use these skills. It's just a precaution!",
             "Alright, now let me show you a basic battle stance.",
-            "[t_c moves into a battle stance. {PRONOUN/t_c/poss/CAP} form is sloppy -- df_r_c:0 would never allow that.]",
+            "[t_c moves into a battle stance. {PRONOUN/t_c/poss/CAP} form is sloppy -- r_c:0 would never allow that.]",
             "[You settle in and prepare yourself for a long day of learning things you already know.]"
         ]
     },

@@ -1116,7 +1116,9 @@
     "df74": {
         "cats": {
             "y_c": {},
-            "r_c:0": {}
+            "r_c:0": {
+                "residence": ["df"]
+            }
         },
         "relationships": [
             {
@@ -1134,12 +1136,14 @@
         "types": [
             "df"
         ],
-        "event": "df_r_c:0 introduces you to other Dark Forest cats. Perhaps one day you'll join them as a warrior among their ranks."
+        "event": "r_c:0 introduces you to other Dark Forest cats. Perhaps one day you'll join them as a warrior among their ranks."
     },
     "df75": {
         "cats": {
             "y_c": {},
-            "r_c:0": {}
+            "r_c:0": {
+                "residence": ["df"]
+            }
         },
         "relationships": [
             {
@@ -1157,12 +1161,14 @@
         "types": [
             "df"
         ],
-        "event": "df_r_c:0 drills you on advanced battle techniques again and again. Your muscles ache when you wake up."
+        "event": "r_c:0 drills you on advanced battle techniques again and again. Your muscles ache when you wake up."
     },
     "df76": {
         "cats": {
             "y_c": {},
-            "r_c:0": {}
+            "r_c:0": {
+                "residence": ["df"]
+            }
         },
         "relationships": [
             {
@@ -1180,7 +1186,7 @@
         "types": [
             "df"
         ],
-        "event": "Out of the corner of your eye, you swear you see df_r_c:0 disappearing into the shadows."
+        "event": "Out of the corner of your eye, you swear you see r_c:0 disappearing into the shadows."
     },
     "df77": {
         "cats": {

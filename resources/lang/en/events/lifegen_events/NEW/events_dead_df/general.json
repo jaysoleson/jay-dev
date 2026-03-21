@@ -202,7 +202,9 @@
     "general21": {
         "cats": {
             "y_c": {},
-            "r_c:0": {}
+            "r_c:0": {
+                "residence": ["df"]
+            }
         },
         "relationships": [
             {
@@ -220,12 +222,14 @@
         "types": [
             "general"
         ],
-        "event": "You train with df_r_c:0 the whole night, denying {PRONOUN/df_r_c:0/poss} request for a break."
+        "event": "You train with r_c:0 the whole night, denying {PRONOUN/r_c:0/poss} request for a break."
     },
     "general22": {
         "cats": {
             "y_c": {},
-            "r_c:0": {}
+            "r_c:0": {
+                "residence": ["df"]
+            }
         },
         "relationships": [
             {
@@ -236,19 +240,21 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "app/mentor"
+                    "df app/df mentor"
                 ]
             }
         ],
         "types": [
             "general"
         ],
-        "event": "df_r_c:0 begs you to teach {PRONOUN/df_r_c:0/object} a complex battle move."
+        "event": "r_c:0 begs you to teach {PRONOUN/r_c:0/object} a complex battle move."
     },
     "general23": {
         "cats": {
             "y_c": {},
-            "r_c:0": {}
+            "r_c:0": {
+                "residence": ["df"]
+            }
         },
         "relationships": [
             {
@@ -259,19 +265,21 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "app/mentor"
+                    "df app/df mentor"
                 ]
             }
         ],
         "types": [
             "general"
         ],
-        "event": "You watch df_r_c:0 train with the other Dark Forest trainees."
+        "event": "You watch r_c:0 train with the other Dark Forest trainees."
     },
     "general24": {
         "cats": {
             "y_c": {},
-            "r_c:0": {}
+            "r_c:0": {
+                "residence": ["df"]
+            }
         },
         "relationships": [
             {
@@ -282,14 +290,14 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "app/mentor"
+                    "df app/df mentor"
                 ]
             }
         ],
         "types": [
             "general"
         ],
-        "event": "df_r_c:0 doesn't appear during the night and you decide to make a visit to the Clan to see what's going on."
+        "event": "r_c:0 doesn't appear during the night and you decide to make a visit to the Clan to see what's going on."
     },
     "general25": {
         "cats": {
