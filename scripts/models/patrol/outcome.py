@@ -39,7 +39,12 @@ class Outcome(BaseModel):
         MISSING,
         description="Makes this a stat outcome which can occur if a stat cat can be found.",
     )
-    can_have_stat: Union[List[CanHaveStat], MISSING] = Field(
+    # can_have_stat: Union[List[CanHaveStat], MISSING] = Field(
+    #     MISSING,
+    #     description="Overrides default behavior or adds additional requirements for stat_cat picking.",
+    # )
+    # LG change
+    can_have_stat: Union[List[Union[CanHaveStat, GatherCat]], MISSING] = Field(
         MISSING,
         description="Overrides default behavior or adds additional requirements for stat_cat picking.",
     )
