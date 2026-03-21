@@ -23919,7 +23919,9 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {},
+            "r_c:0": {
+                "age": ["adolescent"]
+            },
             "r_c:1": {
                 "rank": [
                     "leader"
@@ -23953,8 +23955,8 @@
             }
         ],
         "intro": [
-            "Hey, did you see r_c:0a got recognized by r_c:1 the other day?",
-            "Not to brag, or anything, but {PRONOUN/r_c:0a/subject}{VERB/r_c:0a/'ve/'s} really come into {PRONOUN/r_c:0a/poss} own!",
+            "Hey, did you see r_c:0 got recognized by r_c:1 the other day?",
+            "Not to brag, or anything, but {PRONOUN/r_c:0/subject}{VERB/r_c:0/'ve/'s} really come into {PRONOUN/r_c:0/poss} own!",
             "I just couldn't be more proud of my little guy."
         ]
     },
@@ -23971,7 +23973,9 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {}
+            "r_c:0": {
+                "age": ["adolescent"]
+            }
         },
         "relationships": [
             {
@@ -23999,9 +24003,9 @@
             }
         ],
         "intro": [
-            "y_c, how has r_c:0a been doing? Could you check up on {PRONOUN/r_c:0a/object} for me?",
-            "I haven't been able to see {PRONOUN/r_c:0a/object} much, ever since {PRONOUN/r_c:0a/subject}{VERB/r_c:0a/'ve/'s} gotten older ...",
-            "I just want to make sure {PRONOUN/r_c:0a/subject}{VERB/r_c:0a/'re/'s} alright."
+            "y_c, how has r_c:0 been doing? Could you check up on {PRONOUN/r_c:0/object} for me?",
+            "I haven't been able to see {PRONOUN/r_c:0/object} much, ever since {PRONOUN/r_c:0/subject}{VERB/r_c:0/'ve/'s} gotten older ...",
+            "I just want to make sure {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} alright."
         ]
     },
     "about_kit2": {
@@ -24028,7 +24032,9 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {}
+            "r_c:0": {
+                "age": ["adolescent"]
+            }
         },
         "relationships": [
             {
@@ -24058,9 +24064,9 @@
         "intro": [
             "*Sigh*",
             "Oh, hey, y_c. Man, parenthood isn't always easy, huh?",
-            "r_c:0a and I just got into a little argument. {PRONOUN/r_c:0a/subject/CAP} say I'm too controlling. But I just want what's best for {PRONOUN/r_c:0a/object}!",
+            "r_c:0 and I just got into a little argument. {PRONOUN/r_c:0/subject/CAP} say I'm too controlling. But I just want what's best for {PRONOUN/r_c:0/object}!",
             "Truthfully, I just ... Really worry, y'know?",
-            "I just want to be sure {PRONOUN/r_c:0a/subject} {VERB/r_c:0a/turn/turns} out okay."
+            "I just want to be sure {PRONOUN/r_c:0/subject} {VERB/r_c:0/turn/turns} out okay."
         ]
     },
     "gen_siblings21": {
@@ -40557,7 +40563,9 @@
                     "upstanding"
                 ]
             },
-            "r_c:0": {}
+            "r_c:0": {
+                "age": ["adolescent"]
+            }
         },
         "relationships": [
             {
@@ -40584,8 +40592,8 @@
             }
         ],
         "intro": [
-            "Can you help me talk some sense into r_c:0a?",
-            "{PRONOUN/r_c:0a/subject/CAP}{VERB/r_c:0a/'re/'s} just so stubborn ... It's practically impossible to reason with {PRONOUN/r_c:0a/object}! It's like, once {PRONOUN/r_c:0a/subject} {VERB/r_c:0a/have/has} {PRONOUN/r_c:0a/poss} mind set on an idea, that's it, there's no convincing {PRONOUN/r_c:0a/subject} otherwise!",
+            "Can you help me talk some sense into r_c:0?",
+            "{PRONOUN/r_c:0/subject/CAP}{VERB/r_c:0/'re/'s} just so stubborn ... It's practically impossible to reason with {PRONOUN/r_c:0/object}! It's like, once {PRONOUN/r_c:0/subject} {VERB/r_c:0/have/has} {PRONOUN/r_c:0/poss} mind set on an idea, that's it, there's no convincing {PRONOUN/r_c:0/subject} otherwise!",
             "[You consider telling t_c that the qualities {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} describing remind you of a certain other cat in your life ... But decide to hold your tongue.]"
         ]
     },
@@ -71787,7 +71795,9 @@
                     "not_kitten"
                 ]
             },
-            "r_c:0": {}
+            "r_c:0": {
+                "age": ["adolescent"]
+            }
         },
         "relationships": [
             {
@@ -71809,12 +71819,12 @@
                     "t_c"
                 ],
                 "relationship": [
-                    "child/parent"
+                    "child/parent", "neutral"
                 ]
             }
         ],
         "intro": [
-            "neutral_r_c:0a hasn't been... talking to me much recently.",
+            "r_c:0 hasn't been... talking to me much recently.",
             "...",
             "[You consider pointing out that t_c doesn't go out of {PRONOUN/t_c/poss} way to talk to {PRONOUN/t_c/poss} kit, either, but decide to leave the issue alone.]"
         ]
@@ -71861,12 +71871,12 @@
                 ],
                 "relationship": [
                     "child/parent",
-                    "min_like_20"
+                    "max_like_20"
                 ]
             }
         ],
         "intro": [
-            "I told r_c:0a {PRONOUN/r_c:0a/subject} {VERB/r_c:0a/were/was} doing a good job today, and {PRONOUN/r_c:0a/subject} looked at me like I'd grown wings.",
+            "I told r_c:0 {PRONOUN/r_c:0/subject} {VERB/r_c:0/were/was} doing a good job today, and {PRONOUN/r_c:0/subject} looked at me like I'd grown wings.",
             "...I suppose I don't say that kind of thing often."
         ]
     },
