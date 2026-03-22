@@ -90,7 +90,7 @@ def _validate_cat(abbrev, cat_block, possible_cats, your_cat, the_cat):
         if not __filter_rank(cat_block[abbrev], cat):
             continue
 
-        if not __filter_group(cat_block[abbrev], cat):
+        if not __filter_group(cat_block[abbrev], cat, your_cat):
             continue
         if not __filter_standing(cat_block[abbrev], cat, your_cat):
             continue
@@ -161,7 +161,7 @@ def __filter_dead(abbrev_block, cat):
             return False
     return True
 
-def __filter_group(abbrev_block, cat):
+def __filter_group(abbrev_block, cat, your_cat):
     if "group" in abbrev_block:
         if (
             (
@@ -178,6 +178,10 @@ def __filter_group(abbrev_block, cat):
             ) or
             (
                 f"not_{cat.status.group}" in abbrev_block["group"]
+            ) or 
+            (
+                "your_group" in abbrev_block["group"] and
+                not cat.status.group == your_cat.status.group
             )
         ):
             return False

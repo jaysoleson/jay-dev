@@ -186,10 +186,25 @@ class Dialogue():
             if constants.CONFIG["lifegen"]["debug"]["debug_dialogue_override_filtering"]:
                 print(f"Debug: Dialogue set to {self.debug} with overridden filtering.")
                 chosen_key = self.debug
+                
+                # assembling a new "cats" block with empty constraints for purely random cats
+                debugged_cats_block = {}
+                for cat in possible_dialogue[chosen_key]["cats"]:
+                    debugged_cats_block[cat] = {}
+
+                # pick cats
+                chosen_cat_dict = choose_random_cats(
+                    cats_block=debugged_cats_block,
+                    rel_block=[],
+                    your_cat=self.you,
+                    the_cat=self.cat,
+                    cat_dict=self.cat_dict
+                )
                 debug_valid = True
             elif self.debug in possible_dialogue:
                 print(f"Debug: Dialogue set to {self.debug}")
                 chosen_key = self.debug
+
                 chosen_cat_dict = choose_random_cats(
                     cats_block=possible_dialogue[chosen_key]['cats'],
                     rel_block=(
@@ -203,11 +218,13 @@ class Dialogue():
                 )
                 if chosen_cat_dict:
                     debug_valid = True
+
             if debug_valid:
                 self._populate_cat_dict(chosen_key, chosen_cat_dict)
 
         if not debug_valid:
-            # if the debug dialogue failed OR debug isnt swt at all:
+            # if the debug dialogue failed OR debug isnt set at all
+            # so, normal dialogue
             if self.debug:
                 print(
                     f"Debugged Dialogue ID ({self.debug}) is not in possible dialogue options." +

@@ -79547,6 +79547,9 @@
             },
             "t_c": {
                 "backstory": ["clanborn"]
+            },
+            "r_c:0": {
+                "rank": ["kitten"]
             }
         },
         "relationships": [
