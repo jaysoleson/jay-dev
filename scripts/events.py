@@ -1407,15 +1407,16 @@ def generate_lifegen_events():
     """
     LIFEGEN: Random flavour events on moonskip!
     """
-    resource_dir = "events/lifegen_events/NEW/events/"
-    
+
+    resource_dir = "events/lifegen_events/moon_events/living/"
+
     if game.clan.your_cat.dead:
         if game.clan.your_cat.status.group == CatGroup.STARCLAN:
-            resource_dir = "events/lifegen_events/NEW/events_dead_sc/"
+            resource_dir = "events/lifegen_events/moon_events/starclan/"
         elif game.clan.your_cat.status.group == CatGroup.DARK_FOREST:
-            resource_dir = "events/lifegen_events/NEW/events_dead_df/"
+            resource_dir = "events/lifegen_events/moon_events/dark_forest/"
         elif game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
-            resource_dir = "events/lifegen_events/NEW/events_dead_ur/"
+            resource_dir = "events/lifegen_events/moon_events/unknown_residence/"
 
     loaded_events = {}
     loaded_events.update(load_lang_resource(resource_dir + "general_no_kit.json"))
