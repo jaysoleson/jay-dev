@@ -1,32 +1,45 @@
 {
-    "queen_1": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "any"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+    "queen_1_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet",
+                    "stable",
+                    "introspective"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "sweet",
-                "stable",
-                "introspective"
-            ],
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_trust_50"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_50"
+                ]
+            }
         ],
         "intro": [
             "Being a queen... it's a role filled with both joy and heartache. Every kit that's born, I feel an overwhelming surge of love and protectiveness. I watch them take their first breath, open their eyes, and explore the world.",
@@ -38,36 +51,46 @@
             "For I know, I've played a part in shaping the Clan's future, one kit at a time."
         ]
     },
-    "assertivewarriorapp_comfort": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+    "assertivewarriorapp_comfort_4": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "assertive"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_comfort_50",
-            "min_like_50"
-        ],
-        "tags": [
-            "clan_has_kits"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_comfort_50",
+                    "min_like_50"
+                ]
+            }
         ],
         "intro": [
             "Huh? Oh, nothing's wrong ...",
@@ -80,97 +103,123 @@
             "[Still, you sit with t_c through the night, hoping to stabilize {PRONOUN/t_c/object} through whatever storm {PRONOUN/t_c/subject} might be weathering right now.]"
         ]
     },
-    "queen_2": {
-        "y_c": {
-            "age": [
-                "kitten"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ]
+    "queen_2_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "Come here, little one. Your fur is so spiky!",
             "Hey! Don't run away from me!"
         ]
     },
-    "assertive_medapp2": {
-        "y_c": {
-            "status": [
-                "medicine cat apprentice"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+    "assertive_medapp2_3": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "medicine cat apprentice"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "unabashed",
+                    "sweet",
+                    "stable",
+                    "cool"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "unabashed",
-                "sweet",
-                "stable",
-                "cool"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "min_platonic_20",
-            "min_comfort_50",
-            "min_like_20",
-            "min_romance_20"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20",
+                    "min_comfort_50",
+                    "min_like_20",
+                    "min_romance_20"
+                ]
+            }
         ],
         "intro": [
             "Hey, y_c ... do you ever get lonely sleeping here in the medicine den all by yourself? I know I would ...",
             "Tell you what, if you ever get scared or cold in the night, just come over to my den. You can sleep in my nest, with me. Okay?"
         ]
     },
-    "broodingapp_toqueenapp": {
-        "y_c": {
-            "condition": [
-                "deaf:any:false"
-            ],
-            "status": [
-                "any"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+    "broodingapp_toqueenapp_5": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "brooding"
+                ],
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "brooding"
-            ],
-            "condition": [
-                "deaf:any:false"
-            ],
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "neutral"
-        ],
-        "tags": [
-            "clan_has_kits"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "strangers"
+                ]
+            }
         ],
         "intro": [
             "[You notice t_c playing with some kits, a rare smile on {PRONOUN/t_c/poss} face.]",
@@ -179,30 +228,43 @@
         ]
     },
     "brooding_queen": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "brooding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "brooding"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_like_50"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
+            }
         ],
         "intro": [
             "*Sigh*",
@@ -212,24 +274,37 @@
         ]
     },
     "introspective_queenapp_to_queen": {
-        "y_c": {
-            "status": [
-                "queen"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "introspective"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "introspective"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "min_like_20"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            }
         ],
         "intro": [
             "Oh morning, y_c. Is there anything you need me to get you while I'm up?",
@@ -241,105 +316,135 @@
         ]
     },
     "introspective_queenapp": {
-        "y_c": {
-            "status": [
-                "any"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "introspective"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {}
         },
-        "t_c": {
-            "cluster": [
-                "introspective"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "neutral",
-            "non-related"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "strangers",
+                    "non-related"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
         ],
         "intro": [
             "y_c? Oh hello. Are you lost?",
             "You're in the nursery. Cats don't generally go out of their way to come here.",
             "Huh? You've come to see me? Oh that's lovely, thank you.",
-            "It makes me happy that you've come to see me. I don't... often get to see cats who aren't kits, you know? Or tm_n.",
+            "It makes me happy that you've come to see me. I don't... often get to see cats who aren't kits, you know? Or r_c:0.",
             "I love being a queen, it's the reason I chose to train to be one permanently, but it does make you feel a little...",
             "Disconnected. You know?",
             "Thank you for coming out of your way. Want to play with the kits? They love seeing different faces!"
         ]
     },
     "introspective_queenapp_1": {
-        "y_c": {
-            "status": [
-                "any"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "introspective"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "introspective"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
-        ],
         "intro": [
-            "Oh, y_c! Quick, grab {PRONOUN/r_k/object}!",
-            "[r_k rushes towards you, away from the nursery. You quickly grab {PRONOUN/r_k/object} by the scruff to stop {PRONOUN/r_k/object} from escaping any further.]",
-            "|r_k|Dang it!",
-            "Oh, StarClan's grace. Thank you, y_c. I owe you my next freshkill for that. I had my eyes off r_k for a second and {PRONOUN/r_k/subject} made a wild rush out the nursery!",
+            "Oh, y_c! Quick, grab {PRONOUN/r_c:0/object}!",
+            "[r_c:0 rushes towards you, away from the nursery. You quickly grab {PRONOUN/r_c:0/object} by the scruff to stop {PRONOUN/r_c:0/object} from escaping any further.]",
+            "|r_c:0|Dang it!",
+            "Oh, StarClan's grace. Thank you, y_c. I owe you my next freshkill for that. I had my eyes off r_c:0 for a second and {PRONOUN/r_c:0/subject} made a wild rush out the nursery!",
             "I promise I won't make a habit out of this. Have a nice rest of your day.",
             "[t_c gently picks up the kitten and walks back into the nursery.]"
         ]
     },
-    "introspective_queenapp_2": {
-        "y_c": {
-            "status": [
-                "any"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+    "introspective_queenapp_2_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "unabashed",
+                    "introspective"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "unabashed",
-                "introspective"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
-        ],
         "intro": [
             "Hm? Oh hello, y_c. What's wrong?",
             "Why am I out of the nursery? You know I'm not stuck in there, right? I can actually leave.",
@@ -349,64 +454,78 @@
         ]
     },
     "introspective_queenapp_3": {
-        "y_c": {
-            "status": [
-                "any"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "introspective"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {}
         },
-        "t_c": {
-            "cluster": [
-                "introspective"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
         ],
         "intro": [
             "[You hear a soft hum coming from the nursery.]",
             "... and pollen will spring from wilted flowers, and the day will rise again...",
             "[You look into the medicine den, watching t_c singing a lullaby to the sleeping kits.]",
-            "y_c? It's nice to see you. Sorry, the kits wanted to be sung to, and tm_n suggested that I get some practice in. There'll be lots of future kits wanting songs.",
+            "y_c? It's nice to see you. Sorry, the kits wanted to be sung to, and r_c:0 suggested that I get some practice in. There'll be lots of future kits wanting songs.",
             "You can stay to listen if you want. But don't feel like you're forced to.",
             "[t_c returns to humming the same tune.]"
         ]
     },
     "introspective_queenapp_4": {
-        "y_c": {
-            "status": [
-                "any"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "introspective",
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "introspective",
-                "silly"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
-        ],
         "intro": [
             "Oh no... I've been defeated!",
             "[t_c is playing dead on the floor, covered in kittens. Seems like {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} playing along with the kits game.]",
@@ -414,120 +533,185 @@
             "[You decide to leave t_c to it. {PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} really busy being dead.]"
         ]
     },
-    "introspective_queenapp_5": {
-        "y_c": {
-            "status": [
-                "any"
-            ]
+    "introspective_queenapp_5_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "stable",
+                    "introspective"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "stable",
-                "introspective"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
-        ],
         "intro": [
             "It'll be okay. I promise.",
-            "[t_c is talking to an upset r_k, who is curled up against {PRONOUN/t_c/poss} side.]",
+            "[t_c is talking to an upset r_c:0, who is curled up against {PRONOUN/t_c/poss} side.]",
             "You don't need to try and force yourself to be something you're not. I get tired of talking to others too.",
             "You're still a wonderful part of c_n. Even if you need space sometimes... You'll always have cats who want to be around you, and see you.",
-            "|r_k|*Sniffle* ... Really?",
+            "|r_c:0|*Sniffle* ... Really?",
             "[You notice t_c is looking at you. {PRONOUN/t_c/subject/CAP} {VERB/t_c/smile/smiles} pleasantly, then returns {PRONOUN/t_c/poss} full attention to the kit.]",
             "Of course. You'll never be forgotten, no matter what path your paws will lead you."
         ]
     },
-    "assertive_elder": {
-        "y_c": {
-            "status": [
-                "any"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+    "assertive_elder_8": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {}
         },
-        "t_c": {
-            "cluster": [
-                "assertive"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "neutral",
-            "min_like_20"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "strangers",
+                    "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
         ],
         "intro": [
             "y_c, can you believe it? I actually got to advise a real queen today! Eeee, so cool!!!",
             "I mean, uh, definitely not cool. I'm definitely very serious and respectful towards my sacred duty to c_n.",
-            "... Is tm_n still there?"
+            "... Is r_c:0 still there?"
         ]
     },
-    "assertive_elder_2": {
-        "y_c": {
-            "status": [
-                "elder"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+    "assertive_elder_2_6": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "elder"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {}
         },
-        "t_c": {
-            "cluster": [
-                "assertive"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "min_like_20"
-        ],
-        "tags": [
-            "clan_has_kits"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
         ],
         "intro": [
             "Er, sorry, y_c. I can't chat right now ...",
-            "tm_n really needs me to give the kits a lesson right now, and I kinda actually have to focus.",
+            "r_c:0 really needs me to give the kits a lesson right now, and I kinda actually have to focus.",
             "I'll come and find you as soon as I'm free, though, okay?"
         ]
     },
-    "assertive_elder_4": {
-        "y_c": {
-            "status": [
-                "queen"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+    "assertive_elder_4_8": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "unabashed"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "unabashed"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "from_your_apprentice"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
         ],
         "intro": [
             "Ugh, do I really have to hold all these dumb rule-teaching sessions all the time?",
@@ -536,95 +720,67 @@
             "I dunno! But anything beats sitting around and memorizing!"
         ]
     },
-    "assertive_queensapp": {
-        "y_c": {
-            "status": [
-                "queen"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "neurotic"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "from_your_apprentice"
-        ],
-        "tags": [
-            "clan_has_kits"
-        ],
-        "intro": [
-            "r_k's crying again. {PRONOUN/r_k/subject/CAP}{VERB/r_k/'ve/'s} been having such a hard time lately ...",
-            "Why haven't I comforted them?",
-            "I dunno, I was waiting for you.",
-            "I ... guess I was worried I'd mess it up somehow.",
-            "You want me to try? Uh, are you positive? I'm pretty good at the 'playing' and 'telling stories' parts. This, the emotional part ... uh, not so much, hehe.",
-            "But, if you insist.",
-            "[t_c goes across the nursery and sits near wailing r_k. {PRONOUN/t_c/subject/CAP} start off stiff and awkward, attempting to crack jokes to play off the mood, but slowly, {PRONOUN/t_c/poss} cadence grows more natural, more confident.]",
-            "[{PRONOUN/t_c/subject/CAP} tentatively lay a tail across the kit's shoulders. To your surprise, r_k buries {PRONOUN/r_k/self} in t_c's fur with a purr.]",
-            "[t_c glances back to you with an elated look.]",
-            "[{PRONOUN/t_c/subject/CAP} don't say anything, but {PRONOUN/t_c/poss} eyes tell you all you need to know.]"
-        ]
-    },
     "assertive_queensapp_2": {
-        "y_c": {
-            "status": [
-                "queen"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "unabashed"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "unabashed"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
-        ],
         "intro": [
             "Happy to report everything's been going good today, y_c!",
-            "I did some exercises with an expecting queen, I got the kits down for a nap, and - Oh, fox-dung! I completely forgot I have training with r_m today!!!",
-            "[t_c rushes out of the nursery, leaving a trail of dust behind {PRONOUN/t_c/object}. You hope r_m isn't too upset with {PRONOUN/t_c/object}.]"
+            "I did some exercises with an expecting queen, I got the kits down for a nap, and - Oh, fox-dung! I completely forgot I have training with r_c:0 today!!!",
+            "[t_c rushes out of the nursery, leaving a trail of dust behind {PRONOUN/t_c/object}. You hope r_c:0 isn't too upset with {PRONOUN/t_c/object}.]"
         ]
     },
     "assertive_queensapp_3": {
-        "y_c": {
-            "status": [
-                "any"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "unlawful",
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "unlawful",
-                "silly"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
-        ],
         "intro": [
             "You want me to stop roughhousing with the kits?",
             "Psh, c'mon, y_c, loosen up! You worry too much!",
@@ -634,25 +790,28 @@
         ]
     },
     "assertive_queensapp_4": {
-        "y_c": {
-            "age": [
-                "kitten"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "silly"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "Hey! I'll race ya to the other side of the nursery!",
@@ -661,24 +820,27 @@
             "Hehe, you'll be a great warrior yet!"
         ]
     },
-    "assertive_mediatorapp": {
-        "y_c": {
-            "status": [
-                "mediator apprentice",
-                "mediator"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "upstanding"
-            ],
-            "status": [
-                "queen's apprentice",
-                "apprentice",
-                "medicine cat apprentice",
-                "kitten"
-            ]
+    "assertive_mediatorapp_4": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "mediator apprentice",
+                    "mediator"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "upstanding"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "apprentice",
+                    "medicine cat apprentice",
+                    "kitten"
+                ]
+            }
         },
         "intro": [
             "Is it really true that you're allowed to just ... Travel between the Clans as you please?",
@@ -688,28 +850,28 @@
         ]
     },
     "assertive_queensapp_6": {
-        "y_c": {
-            "status": [
-                "queen"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "assertive"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
-        ],
         "intro": [
             "[t_c is barreling through the nursery, pretending to be a monster in one of the kits' games.]",
             "Raaahhh! I'm gonna get you!",
@@ -719,116 +881,134 @@
         ]
     },
     "assertive_queensapp_7": {
-        "y_c": {
-            "status": [
-                "queen"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "sweet",
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "sweet",
-                "upstanding"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
-        ],
         "intro": [
             "Hey! I just finished giving the kits their lesson for the day!",
             "This one was about safety around brambles ... I came up with it myself! Did I do good?"
         ]
     },
     "assertive_queensapp_8": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "unabashed",
+                    "sweet",
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "unabashed",
-                "sweet",
-                "silly"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
-        ],
         "intro": [
             "It's so quiet while the kits are sleeping ...",
             "I almost wanna wake them up again! The nursery doesn't feel alive without them!",
             "[You truly cannot fathom how t_c never seems to run out of energy.]"
         ]
     },
-    "assertive_queensapp_9": {
-        "y_c": {
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+    "assertive_queensapp_9_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "sweet",
+                    "silly"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "warrior"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "sweet",
-                "silly"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
-        ],
         "intro": [
-            "r_w was in here earlier asking about kits ... I didn't know what to tell {PRONOUN/r_w/object}. Sorta weird that {PRONOUN/r_w/subject} {VERB/r_w/were/was} asking, no?",
+            "r_c:0 was in here earlier asking about kits ... I didn't know what to tell {PRONOUN/r_c:0/object}. Sorta weird that {PRONOUN/r_c:0/subject} {VERB/r_c:0/were/was} asking, no?",
             "What do you think it means?",
-            "Ooh! Maybe {PRONOUN/r_w/subject}{VERB/r_w/'re/'s} in a forbidden relationship! A star-crossed love that can never be, with a rugged yet good-looking rogue who would do anything to protect {PRONOUN/r_w/object}!",
+            "Ooh! Maybe {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} in a forbidden relationship! A star-crossed love that can never be, with a rugged yet good-looking rogue who would do anything to protect {PRONOUN/r_c:0/object}!",
             "*Sigh* ... Sorry, what was I talking about?"
         ]
     },
     "assertive_queensapp_10": {
-        "y_c": {
-            "age": [
-                "kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "sweet"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "min_like_20"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            }
         ],
         "intro": [
             "y_c! I found something I think you're really gonna love!",
@@ -837,96 +1017,111 @@
             "Come find me later, and maybe we can play a game with it!"
         ]
     },
-    "assertive_queensapp1": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "any"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "silly"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+    "assertive_queensapp1_6": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            }
         },
         "intro": [
             "[As you watch t_c move around the nursery, it's easy to tell why {PRONOUN/t_c/subject} chose to become a queen.]",
             "[{PRONOUN/t_c/subject/CAP} have so much energy, it's almost like t_c is still a kit {PRONOUN/t_c/self}!]"
         ]
     },
-    "assertive_queensapp3": {
-        "y_c": {
-            "age": [
-                "kitten"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "cool"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
+    "assertive_queensapp3_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "cool"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
+            }
         },
         "intro": [
             "Hey, guess what time it is?",
             "... Do you reeeaally wanna know?",
             "Do you REALLY, REALLY, REALLY wanna know?!",
-            "... It's time to take the herbs r_m gave you for your tummy! Yaaaayyy!",
+            "... It's time to take the herbs r_c:0 gave you for your tummy! Yaaaayyy!",
             "[Grinning, t_c pushes the herbs towards you, and you find yourself feeling a little tricked.]"
         ]
     },
-    "assertive_queensapp4": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "any"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "silly"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+    "assertive_queensapp4_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            }
         },
         "intro": [
             "[t_c is currently being used as a climbing rock by all the kits in the nursery.]",
@@ -936,54 +1131,57 @@
             "So, is there something you need?"
         ]
     },
-    "assertive_queensapp4_2": {
-        "y_c": {
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ]
+    "assertive_queensapp4_2_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "assertive"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
-        ],
         "intro": [
             "Shh - Not too loud! The kits are sleeping.",
             "Getting them down was such a nightmare ... Oh, but they're so cute, though.",
             "Seeing them all curled up together like that ... All the headaches and pain suddenly seem worth it, don'tcha think?"
         ]
     },
-    "assertive_queensapp5": {
-        "y_c": {
-            "age": [
-                "kitten"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "unabashed",
-                "cool",
-                "strange"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
+    "assertive_queensapp5_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "unabashed",
+                    "cool",
+                    "strange"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            }
         },
         "intro": [
             "Alright, alright, settle down! Time for a nap everybody, playtime's over!",
@@ -994,56 +1192,59 @@
             "Now, do you wanna be Quietkit's next playmate? Or do you wanna put the moss-ball down and get in your nest?"
         ]
     },
-    "queens_app_general_newborn": {
-        "y_c": {
-            "status": [
-                "newborn"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet",
-                "stable"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
+    "queens_app_general_newborn_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet",
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            }
         },
         "intro": [
             "Hi there, sweet kit. You're so precious."
         ]
     },
-    "upstanding_queenapp": {
-        "y_c": {
-            "status": [
-                "any"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+    "upstanding_queenapp_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "upstanding"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "upstanding"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
-        ],
         "intro": [
             "Oh, hey there y_c! What are you doing up this early?",
             "Hm. I guess that camp is pretty nice when you have it all to yourself. As for me, I've been a little busy making a few things for the kits.",
@@ -1051,26 +1252,29 @@
             "Isn't it great? Sure, it was pretty hard to put those together, and yeah, it might have taken me all night, but it'll be so worth it once I see the looks on their faces!"
         ]
     },
-    "upstanding_queenapp1": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "age": [
-                "kitten"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "upstanding"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
+    "upstanding_queenapp1_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            }
         },
         "intro": [
             "Hey! C'mere you little furball! What did I tell you about leaving the nursery at this hour?",
@@ -1078,24 +1282,27 @@
         ]
     },
     "upstanding_queenapp2": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "age": [
-                "kitten"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "upstanding"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "Oh hey there y_c, didn't think I'd find you in here all by yourself. How about you go out into the clearing and play? There's plenty of space out there!",
@@ -1106,21 +1313,24 @@
         ]
     },
     "sweet_queenapp_1": {
-        "y_c": {
-            "status": [
-                "newborn"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "Why hello there, y_c!! Welcome to the world!! I can't wait to see you become the best warrior you can.",
@@ -1128,24 +1338,27 @@
         ]
     },
     "sweet_queenapp_2": {
-        "y_c": {
-            "age": [
-                "kitten"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "Hello y_c! How are you today? Did you go to bed at a good hour last night?",
@@ -1153,51 +1366,57 @@
         ]
     },
     "sweet_queenapp_3": {
-        "y_c": {
-            "age": [
-                "kitten"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "What do you have there, y_c? A little bug?",
             "Ah, I know that guy! When I was your age, he was my best friend! Come on, let's take him over here to play, alright?"
         ]
     },
-    "sweet_queenapp_4": {
-        "y_c": {
-            "age": [
-                "kitten"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet",
-                "stable"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
+    "sweet_queenapp_4_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet",
+                    "stable"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            }
         },
         "intro": [
             "Hmhm, what do we have here? Oh, I couldn't possibly be stalked by a fearsome predator, could I?",
@@ -1206,50 +1425,70 @@
         ]
     },
     "sweet_queenapp_5": {
-        "y_c": {
-            "age": [
-                "adolescent"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "adolescent"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {}
         },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
+            }
+        ],
         "intro": [
-            "Ah, y_c! How have you been, has m_n been good to you? Ah- I'm sorry, I know I worry too much.",
+            "Ah, y_c! How have you been, has r_c:0 been good to you? Ah- I'm sorry, I know I worry too much.",
             "Just make sure you're taking care of yourself, okay? Being a queen's apprentice... I've learned a lot about cats bottling up their stress just to 'do things right'.",
-            "I'm rooting for you! Now go get some rest, hehe, before m_n takes my fur off for distracting you!"
+            "I'm rooting for you! Now go get some rest, hehe, before r_c:0 takes my fur off for distracting you!"
         ]
     },
     "sweet_queenapp_6": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "any"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "Another good day in c_n, right y_c? Ah- I'm sorry, I didn't mean to startle you!",
@@ -1258,22 +1497,35 @@
         ]
     },
     "sweet_queenapp_7": {
-        "y_c": {
-            "age": [
-                "adolescent"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "adolescent"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "min_comfort_50",
-            "min_like_20"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_comfort_50",
+                    "min_like_20"
+                ]
+            }
         ],
         "intro": [
             "[t_c seems surprised to see you rush in here in a panic.]",
@@ -1283,33 +1535,46 @@
         ]
     },
     "sweet_queenapp_8": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_like_20"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            }
         ],
         "intro": [
             "You know, it's kinda lonely in here... it feels cramped at times, and whilst I love being a queen's apprentice and helping out with the kits, I sometimes miss the companionship warriors have.",
@@ -1318,165 +1583,226 @@
         ]
     },
     "sweet_queenapp_9": {
-        "y_c": {
-            "status": [
-                "mediator apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "mediator apprentice"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "min_like_20"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            }
         ],
         "intro": [
             "Oh, y_c! I've been looking everywhere for you, how have you been?",
-            "[{PRONOUN/t_c/subject/CAP} press {PRONOUN/t_c/poss} forehead against yours as a friendly gesture, {PRONOUN/t_c/poss} whiskers twitching as {PRONOUN/t_c/subject} step back to reveal r_k.]",
-            "r_k wasn't feeling very well, are you free to look at {PRONOUN/r_k/object} right now?"
+            "[{PRONOUN/t_c/subject/CAP} press {PRONOUN/t_c/poss} forehead against yours as a friendly gesture, {PRONOUN/t_c/poss} whiskers twitching as {PRONOUN/t_c/subject} step back to reveal r_c:0.]",
+            "r_c:0 wasn't feeling very well, are you free to look at {PRONOUN/r_c:0/object} right now?"
         ]
     },
     "sweet_queenapp_10": {
-        "y_c": {
-            "status": [
-                "mediator apprentice"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "mediator apprentice"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            }
         },
         "intro": [
             "Hey, y_c? Can I please get your help? The kits...",
-            "One of the kits stole r_k's toy and now they keep fighting... I've tried everything I could.",
+            "One of the kits stole r_c:0's toy and now they keep fighting... I've tried everything I could.",
             "Oh thank you so much! You're a lifesaver, y_c!"
         ]
     },
-    "sweet_queenapp_11": {
-        "y_c": {
-            "status": [
-                "any"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
+    "sweet_queenapp_11_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            }
         },
         "intro": [
-            "Oh, y_c! Just the cat I've been looking for. r_k made a gift for you, and {PRONOUN/r_k/subject} wanted me to bring it to you!",
+            "Oh, y_c! Just the cat I've been looking for. r_c:0 made a gift for you, and {PRONOUN/r_c:0/subject} wanted me to bring it to you!",
             "[It's a small stone, with berry juice hastily splattered onto it. Truly artistic.]"
         ]
     },
     "sweet_queenapp_12": {
-        "y_c": {
-            "status": [
-                "any"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            }
         },
         "intro": [
             "[With t_c being an apprentice, it can be a bit hard to spot {PRONOUN/t_c/object} amongst the hoards of kits.]",
-            "[However, you do find {PRONOUN/t_c/object}, snuggled down with r_k resting across {PRONOUN/t_c/poss} back.]",
+            "[However, you do find {PRONOUN/t_c/object}, snuggled down with r_c:0 resting across {PRONOUN/t_c/poss} back.]",
             "Shh, they're sleeping!"
         ]
     },
-    "sweet_queenapp_13": {
-        "y_c": {
-            "status": [
-                "warrior",
-                "apprentice"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
+    "sweet_queenapp_13_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            }
         },
         "intro": [
             "[You were just trying to go on patrol, when you suddenly find yourself pounced on.]",
-            "Ah, no no r_k! y_c is not pounce practice!",
+            "Ah, no no r_c:0! y_c is not pounce practice!",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/pluck/plucks} the kitten off of you, giving you a sheepish look.]",
             "Sorry about that! They've been pretty restless.",
             "Hehe, I think someone needs some new toys to play with... so that the warriors don't become the toys."
         ]
     },
     "sweet_queenapp_14": {
-        "y_c": {
-            "status": [
-                "medicine cat apprentice",
-                "medicine cat"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "medicine cat apprentice",
+                    "medicine cat"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            }
         },
         "intro": [
             "[t_c stumbles into your den, {PRONOUN/t_c/poss} fur ruffled and filled with thorns.]",
-            "I hope I'm not being a bother... r_k fell into a thorny bush and I dove in to grab {PRONOUN/r_k/object}. Now I'm-",
+            "I hope I'm not being a bother... r_c:0 fell into a thorny bush and I dove in to grab {PRONOUN/r_c:0/object}. Now I'm-",
             "Well, frankly, I think I look like a porcupine, hehe."
         ]
     },
     "sweet_queenapp_15": {
-        "y_c": {
-            "condition": [
-                "deaf:any:false"
-            ],
-            "status": [
-                "mediator",
-                "mediator apprentice"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "condition": [
-                "deaf:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "mediator",
+                    "mediator apprentice"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "[You spot the queen's apprentice near the edge of camp, {PRONOUN/t_c/subject} {VERB/t_c/seem/seems} to be pretty tired.]",
@@ -1485,24 +1811,27 @@
         ]
     },
     "sweet_queenapp_16": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "Hey y_c?",
@@ -1512,76 +1841,106 @@
             "Heh... Thanks. I've been told I'm... Too nice, hehe."
         ]
     },
-    "sweet_queenapp_17": {
-        "y_c": {
-            "status": [
-                "deputy"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
+    "sweet_queenapp_17_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "deputy"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            },
+            "r_c:1": {
+                "rank": [
+                    "leader"
+                ]
+            }
         },
         "intro": [
-            "[You've been trying to get your duties done, but r_k has been trying to play all day.]",
-            "[{PRONOUN/r_k/subject/CAP}{VERB/r_k/'re/'s} very cute and you'd probably play with {PRONOUN/r_k/object} any other day, but l_n was practically begging you to finish this as soon as possible.]",
+            "[You've been trying to get your duties done, but r_c:0 has been trying to play all day.]",
+            "[{PRONOUN/r_c:0/subject/CAP}{VERB/r_c:0/'re/'s} very cute and you'd probably play with {PRONOUN/r_c:0/object} any other day, but r_c:1 was practically begging you to finish this as soon as possible.]",
             "y_c! Ah!",
             "[You hear t_c bouncing towards you, here to rescue you from the kit.]",
-            "Sorry about that! r_k lost {PRONOUN/r_k/poss} favorite toy and I went to go find it.",
+            "Sorry about that! r_c:0 lost {PRONOUN/r_c:0/poss} favorite toy and I went to go find it.",
             "[As {PRONOUN/t_c/subject} carry the kitten away, you let out a sigh of relief. Finally, you can finish your task.]"
         ]
     },
     "sweet_queenapp_18": {
-        "y_c": {
-            "status": [
-                "deputy"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "deputy"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
+            },
+            "r_c:1": {
+                "rank": [
+                    "leader"
+                ]
+            }
         },
         "intro": [
             "[It's been a while since t_c left camp, and you're quite concerned. Queens aren't typically good fighters or hunters, and t_c is an apprentice.]",
             "[Finally, you find t_c outside of camp, {PRONOUN/t_c/subject} {VERB/t_c/seem/seems} to be hiding something as soon as you approach though.]",
             "y_c! I just- we just...",
             "[You ask {PRONOUN/t_c/object} to tell you what's going on and {PRONOUN/t_c/subject} move some leaves, revealing an injured kittypet.]",
-            "... r_m and I found this kittypet out in the territory... {PRONOUN/t_c/subject/CAP} were pretty badly hurt.",
-            "[You ask where r_m is, sighing softly.]",
-            "{PRONOUN/r_m/subject/CAP}{VERB/r_m/'re/'s} out gathering herbs... we were out getting stuff for the nursery together.",
-            "You won't tell l_n will you? ... I just want to make sure this cat makes it home safely.",
+            "... r_c:0 and I found this kittypet out in the territory... {PRONOUN/t_c/subject/CAP} were pretty badly hurt.",
+            "[You ask where r_c:0 is, sighing softly.]",
+            "{PRONOUN/r_c:0/subject/CAP}{VERB/r_c:0/'re/'s} out gathering herbs... we were out getting stuff for the nursery together.",
+            "You won't tell r_c:1 will you? ... I just want to make sure this cat makes it home safely.",
             "[You sigh, agreeing only under the condition that you supervise.]",
             "T- Thank you! Thank you so much! I'll make it up to you, I promise."
         ]
     },
     "sweet_queenapp_19": {
-        "y_c": {
-            "status": [
-                "deputy"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "deputy"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "[You spot the queen's apprentice sitting and looking at the stars, the kits of the Clan snuggled up close.]",
@@ -1589,26 +1948,29 @@
             "[You can't resist the pleading gazes of the kits, sitting and joining in on the lesson.]"
         ]
     },
-    "sweet_queenapp_20": {
-        "y_c": {
-            "status": [
-                "leader"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
+    "sweet_queenapp_20_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "leader"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            }
         },
         "intro": [
             "Hey y_c! Would you mind if I asked which kits are becoming which roles?",
@@ -1617,43 +1979,53 @@
         ]
     },
     "sweet_queenapp_21": {
-        "y_c": {
-            "status": [
-                "leader"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "leader"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            }
         },
         "intro": [
             "[You hear the shriek of laughter ring out through the camp. Curious, you go to see the origin.]",
-            "[You spot t_c with r_k, their paws are covered in colors and smashed berries are off to the side.]",
+            "[You spot t_c with r_c:0, their paws are covered in colors and smashed berries are off to the side.]",
             "[You approach, asking what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing.]",
-            "Oh! You see, r_k was playing a bit too rough, so I tried to find a different outlet for {PRONOUN/r_k/poss} energy.",
-            "{PRONOUN/r_k/subject/CAP} {VERB/r_k/seem/seems} to be enjoying making colorful rocks and I can't blame {PRONOUN/r_k/object}, I'm having fun too!"
+            "Oh! You see, r_c:0 was playing a bit too rough, so I tried to find a different outlet for {PRONOUN/r_c:0/poss} energy.",
+            "{PRONOUN/r_c:0/subject/CAP} {VERB/r_c:0/seem/seems} to be enjoying making colorful rocks and I can't blame {PRONOUN/r_c:0/object}, I'm having fun too!"
         ]
     },
     "sweet_queenapp_22": {
-        "y_c": {
-            "status": [
-                "leader"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "leader"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet",
+                    "sensitive"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "sweet",
-                "sensitive"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "tags": [],
         "intro": [
             "[You're up late. It's a beautiful night in c_n and you wanted to see the stars.]",
             "[Surprisingly, you were not alone. You exited the camp to spot t_c, sobbing to {PRONOUN/t_c/self}.]",
@@ -1667,23 +2039,26 @@
             "[You stay there to comfort t_c for a while before sending {PRONOUN/t_c/object} back to camp to go to bed, t_c exhausted after all of that crying.]"
         ]
     },
-    "sweet_queenapp_23": {
-        "y_c": {
-            "status": [
-                "elder"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
+    "sweet_queenapp_23_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "elder"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            }
         },
         "intro": [
             "[You hear the cheer of kits, rushing into the den for storytime.]",
@@ -1692,221 +2067,325 @@
             "We're here for storytime!"
         ]
     },
-    "sweet_queenapp_24": {
-        "y_c": {
-            "status": [
-                "elder"
-            ],
-            "condition": [
-                "deaf:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "condition": [
-                "deaf:any:false"
-            ],
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
+    "sweet_queenapp_24_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "elder"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice",
+                    "queen"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            }
         },
         "intro": [
-            "[t_c looks exhausted, r_k running circles around {PRONOUN/t_c/object} as {PRONOUN/t_c/subject} lay on the ground.]",
+            "[t_c looks exhausted, r_c:0 running circles around {PRONOUN/t_c/object} as {PRONOUN/t_c/subject} lay on the ground.]",
             "[You decide to call the kits over to you to give t_c a break, {PRONOUN/t_c/subject} give you a grateful look.]"
         ]
     },
     "sweet_queenapp_25": {
-        "y_c": {
-            "status": [
-                "elder"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "sweet"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "elder"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "sweet"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            },
+            "r_c:1": {
+                "rank": [
+                    "apprentice"
+                ]
+            }
         },
         "intro": [
             "[You were expecting prey from one of the warrior apprentices, but today it's t_c who pops in with some prey.]",
-            "[r_k trails behind {PRONOUN/t_c/object}, trying to play with {PRONOUN/t_c/poss} tail as {PRONOUN/t_c/subject} plop the piece of prey down right in front of you.]",
-            "Hey y_c! r_a was supposed to bring you this, but {PRONOUN/r_a/subject} needed a day off so I decided to!",
+            "[r_c:0 trails behind {PRONOUN/t_c/object}, trying to play with {PRONOUN/t_c/poss} tail as {PRONOUN/t_c/subject} plop the piece of prey down right in front of you.]",
+            "Hey y_c! r_c:1 was supposed to bring you this, but {PRONOUN/r_c:1/subject} needed a day off so I decided to!",
             "Do you need anything, y_c?"
         ]
     },
-    "neurotic_app4": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "any"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+    "neurotic_app4_4": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "neurotic",
+                    "upstanding"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {}
         },
-        "t_c": {
-            "cluster": [
-                "neurotic",
-                "upstanding"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
+        ],
         "intro": [
             "Gah, stupid, stupid, so stupid, t_c ...",
             "Wuh - y_c? How long have you been standing there?",
             "Why was I talking to myself ...?",
-            "*Sigh* It's, like, the dumbest thing ever. tm_n gave me this surprise assessment today, and I totally flunked it!",
+            "*Sigh* It's, like, the dumbest thing ever. r_c:0 gave me this surprise assessment today, and I totally flunked it!",
             "How could I have answered that the best way to protect kits from hawks is by grabbing them out of the sky? It just doesn't make sense!",
-            "I just know that tm_n is still laughing at me ... The whole Clan probably is.",
+            "I just know that r_c:0 is still laughing at me ... The whole Clan probably is.",
             "[You tell t_c not to be so hard on {PRONOUN/t_c/self}.]",
             "But, if I'm not hard on myself, then how will I ever become stronger?",
             "I refuse to be an embarrassment to my Clan and mentor. I'll pass that assessment next time ... Whatever it takes!"
         ]
     },
     "silly_queenapp_mycats": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "any"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "cool",
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {}
         },
-        "t_c": {
-            "cluster": [
-                "cool",
-                "silly"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "tags": [
-            "clan_has_kits"
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
         ],
         "intro": [
             "I love being a queen! The kits are, like, my cats.",
-            "Plus, since I'm younger than tm_n, the kits listen to me first. Hehe."
+            "Plus, since I'm younger than r_c:0, the kits listen to me first. Hehe."
         ]
     },
     "silly_queenapp_overthrow": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "any"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
+            },
+            "r_c:1": {
+                "rank": [
+                    "kitten"
+                ]
+            },
+            "r_c:2": {
+                "rank": [
+                    "queen"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "silly"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_like_20"
-        ],
-        "tags": [
-            "clan_has_kits"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            }
         ],
         "intro": [
             "y_c, help meeeee...",
-            "I told r_k that {PRONOUN/r_k/subject} shouldn't be conducting plans to overthrow r_m as young as {PRONOUN/r_k/subject} are, and then r_k took it to mean {PRONOUN/r_k/subject} want me to help {PRONOUN/r_k/object}.",
-            "I don't think r_k is serious! I don't even know how chervil root would help them, I think {PRONOUN/r_k/subject} just heard me talking about giving some to r_q and assumed it was some weird evil thing.",
-            "I mean, sure, I did tell r_k I would think about it, but I just thought that was the thing older cats say to mean no when they don't want to disappoint you!"
+            "I told r_c:1 that {PRONOUN/r_c:1/subject} shouldn't be conducting plans to overthrow r_c:0 as young as {PRONOUN/r_c:1/subject} are, and then r_c:1 took it to mean {PRONOUN/r_c:1/subject} want me to help {PRONOUN/r_c:1/object}.",
+            "I don't think r_c:1 is serious! I don't even know how chervil root would help them, I think {PRONOUN/r_c:1/subject} just heard me talking about giving some to r_c:2 and assumed it was some weird evil thing.",
+            "I mean, sure, I did tell r_c:1 I would think about it, but I just thought that was the thing older cats say to mean no when they don't want to disappoint you!"
         ]
     },
     "silly_queenapp_spar": {
-        "y_c": {
-            "age": [
-                "kitten"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "unlawful",
-                "silly"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "unlawful",
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            },
+            "r_c:1": {
+                "rank": [
+                    "leader"
+                ]
+            }
         },
         "intro": [
             "Oh my goodness! Hi, y_c!",
-            "Woah, woah, wait. I was supposed to tell you off for playing too rough with r_k...",
-            "Eh. It's fineee, right? But if you're gonna be that rough, you gotta go spar with l_n! I bet you could beat 'em. Then, they'd have to make you the leader!"
+            "Woah, woah, wait. I was supposed to tell you off for playing too rough with r_c:0...",
+            "Eh. It's fineee, right? But if you're gonna be that rough, you gotta go spar with r_c:1! I bet you could beat 'em. Then, they'd have to make you the leader!"
         ]
     },
     "silly_queenapp_ant": {
-        "y_c": {
-            "age": [
-                "kitten"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "silly"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "neutral"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "strangers"
+                ]
+            }
         ],
         "intro": [
             "Hehe. You're, like, an ant.",
@@ -1914,21 +2393,24 @@
         ]
     },
     "silly_queenapp_bigplan": {
-        "y_c": {
-            "age": [
-                "kitten"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "silly"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "silly"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "[As soon as you see t_c, you run up to {PRONOUN/t_c/object} on your tiny little paws, asking {PRONOUN/t_c/object} about your new biggest, greatest, and possibly stupidest idea you've ever had.]",
@@ -1937,86 +2419,146 @@
         ]
     },
     "neurotic_queenapp_SQ1": {
-        "y_c": {
-            "status": [
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {}
         },
-        "t_c": {
-            "cluster": [
-                "neurotic"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_like_20"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
         ],
         "intro": [
             "[t_c watches over the nursery, tail twitching anxiously.]",
-            "tm_n says that we're important because we're role models for the kits. But what if I'm not a good role model? What if I accidentally model something bad?"
+            "r_c:0 says that we're important because we're role models for the kits. But what if I'm not a good role model? What if I accidentally model something bad?"
         ]
     },
     "neurotic_queenapp_SQ2": {
-        "y_c": {
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {}
         },
-        "t_c": {
-            "cluster": [
-                "neurotic"
-            ],
-            "status": [
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_like_20"
-        ],
-        "tags": [
-            "clan_has_kits"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "app/mentor"
+                ]
+            }
         ],
         "intro": [
-            "The kits are doing well! tm_n is showing me how to build their confidence through stories and games.",
+            "The kits are doing well! r_c:0 is showing me how to build their confidence through stories and games.",
             "I hope they grow up to be self-assured, and stick up for themselves, and...",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/pause/pauses} and {VERB/t_c/duck/ducks} {PRONOUN/t_c/poss} head, suddenly mumbling.]",
             "...you know. Not like me."
         ]
     },
     "neurotic_queenapp_SQ3": {
-        "y_c": {
-            "age": [
-                "adolescent",
-                "adult"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "adolescent",
+                    "adult"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "neurotic"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "neurotic"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "min_like_30"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_30"
+                ]
+            }
         ],
         "intro": [
             "It feels really weird to become an apprentice, but still spend all my time in the same places I did when I was a kit.",
@@ -2026,157 +2568,225 @@
         ]
     },
     "neurotic_queenapp_SQ4": {
-        "y_c": {
-            "age": [
-                "adolescent",
-                "adult"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "adolescent",
+                    "adult"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "neurotic"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ],
+                "cluster": [
+                    "unlawful"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "neurotic"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "min_like_30"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_30"
+                ]
+            }
         ],
         "intro": [
-            "r_k-unlawful said {PRONOUN/r_k-unlawful/subject} didn't have to listen to me, because I'm basically still a kit too...",
-            "I didn't know what to say. {PRONOUN/r_k-unlawful/subject/CAP}{VERB/r_k-unlawful/'re/'s} kind of right. I'm not that much older than {PRONOUN/r_k-unlawful/object}, and I have no idea what I'm doing.",
-            "I guess I just... hoped {PRONOUN/r_k-unlawful/subject}'d still respect me? That sounds stupid when I say it out loud."
+            "r_c:0 said {PRONOUN/r_c:0/subject} didn't have to listen to me, because I'm basically still a kit too...",
+            "I didn't know what to say. {PRONOUN/r_c:0/subject/CAP}{VERB/r_c:0/'re/'s} kind of right. I'm not that much older than {PRONOUN/r_c:0/object}, and I have no idea what I'm doing.",
+            "I guess I just... hoped {PRONOUN/r_c:0/subject}'d still respect me? That sounds stupid when I say it out loud."
         ]
     },
-    "neurotic_skillhealer_SQ2": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "medicine cat",
-                "medicine cat apprentice"
-            ]
+    "neurotic_skillhealer_SQ2_8": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "neurotic"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "skill": [
+                    "HEALER,1"
+                ],
+                "rank": [
+                    "warrior",
+                    "deputy",
+                    "apprentice",
+                    "mediator",
+                    "mediator apprentice",
+                    "queen",
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {}
         },
-        "t_c": {
-            "cluster": [
-                "neurotic"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "warrior",
-                "deputy",
-                "apprentice",
-                "mediator",
-                "mediator apprentice",
-                "queen",
-                "queen's apprentice"
-            ],
-            "skill": [
-                "HEALER,1"
-            ]
-        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_like_50"
+                ]
+            }
+        ],
         "intro": [
-            "Um... sorry, y_c? I don't mean to bother you, but plove-r_c has a bit of a sore throat. Could I have some honey from your stores to give them?",
+            "Um... sorry, y_c? I don't mean to bother you, but r_c:0 has a bit of a sore throat. Could I have some honey from your stores to give them?",
             "O-of course, you could give it to them, too! I don't mean to overstep.",
             "[There's not much that can go terribly wrong with honey. Since t_c seems to know {PRONOUN/t_c/poss} way around medicine despite not being a medicine cat, you give {PRONOUN/t_c/object} a dollop of honey on a stick and send {PRONOUN/t_c/object} on {PRONOUN/t_c/poss} way.]"
         ]
     },
-    "assertive_elder2": {
-        "y_c": {
-            "status": [
-                "warrior",
-                "apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+    "assertive_elder2_5": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "assertive",
+                    "stable",
+                    "upstanding"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "medicine cat",
+                    "mediator",
+                    "mediator apprentice",
+                    "medicine cat apprentice",
+                    "queen",
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "assertive",
-                "stable",
-                "upstanding"
-            ],
-            "status": [
-                "medicine cat",
-                "mediator",
-                "mediator apprentice",
-                "medicine cat apprentice",
-                "queen",
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "neutral"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "strangers"
+                ]
+            }
         ],
         "intro": [
             "*Sigh* Can't you see I have important things to do, y_c?",
             "Go back to catching mice, or whatever it is you warriors do."
         ]
     },
-    "brooding_queen_AJ": {
-        "y_c": {
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "brooding"
-            ],
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+    "brooding_queen_AJ_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "brooding"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            }
         },
         "intro": [
             "[t_c is huddled in the darkest, most secluded corner of camp, seemingly trying to make {PRONOUN/t_c/self} as small as possible.]",
-            "[You go to check on {PRONOUN/t_c/object}, hoping {PRONOUN/t_c/subject} {VERB/t_c/'re/'s} not in the middle of another brooding session, when, out of nowhere, r_k rushes up to {PRONOUN/t_c/object} and prods them with a paw.]",
-            "[t_c rises to {PRONOUN/t_c/poss} paws and smiles softly at r_k, then covers {PRONOUN/t_c/poss} eyes as r_k rushes to hide.]",
+            "[You go to check on {PRONOUN/t_c/object}, hoping {PRONOUN/t_c/subject} {VERB/t_c/'re/'s} not in the middle of another brooding session, when, out of nowhere, r_c:0 rushes up to {PRONOUN/t_c/object} and prods them with a paw.]",
+            "[t_c rises to {PRONOUN/t_c/poss} paws and smiles softly at r_c:0, then covers {PRONOUN/t_c/poss} eyes as r_c:0 rushes to hide.]",
             "[Seems they were just in the middle of a game of hide and seek!]"
         ]
     },
-    "upstanding_both_scE4": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "sc",
-                "min_you_deadfor_1"
-            ],
-            "age": [
-                "kitten"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "upstanding"
-            ],
-            "dead": [
-                "sc",
-                "max_they_deadfor_15"
-            ],
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ]
+    "upstanding_both_scE4_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "min_max_dead_moons": [
+                    1,
+                    -1
+                ],
+                "residence": [
+                    "sc"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "upstanding"
+                ],
+                "min_max_dead_moons": [
+                    0,
+                    15
+                ],
+                "residence": [
+                    "sc"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "y_c! How many times have I told you not to leave the hollow unless you're with another-",
@@ -2184,67 +2794,102 @@
             "... Ahem. Sorry, force of habit."
         ]
     },
-    "about_unlawful_SQ3": {
-        "y_c": {
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "t_c": {
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+    "about_unlawful_SQ3_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ],
+                "cluster": [
+                    "unlawful"
+                ]
+            }
         },
         "intro": [
-            "r_k-unlawful is such a troublemaker. I swear to StarClan, I look away for one moment, and {PRONOUN/r_k-unlawful/subject}{VERB/r_k-unlawful/'ve/'s} already shredded my nest or snuck into the medicine den.",
-            "Whoever becomes {PRONOUN/r_k-unlawful/poss} mentor will have {PRONOUN/r_k-unlawful/poss} paws full!"
+            "r_c:0 is such a troublemaker. I swear to StarClan, I look away for one moment, and {PRONOUN/r_c:0/subject}{VERB/r_c:0/'ve/'s} already shredded my nest or snuck into the medicine den.",
+            "Whoever becomes {PRONOUN/r_c:0/poss} mentor will have {PRONOUN/r_c:0/poss} paws full!"
         ]
     },
-    "about_brooding_AJ2": {
-        "y_c": {
-            "age": [
-                "not_kitten"
-            ]
+    "about_brooding_AJ2_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "queen"
+                ],
+                "cluster": [
+                    "brooding"
+                ]
+            }
         },
-        "t_c": {
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "relationship": [
-            "min_trust_15"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_trust_15"
+                ]
+            }
         ],
         "intro": [
-            "Oh, StarClan, did r_q-brooding chase you out of the nursery again? *Sigh* {PRONOUN/r_q-brooding/subject/CAP} sure {VERB/r_q-brooding/tend/tends} to do that a lot ...",
-            "Try not to take it too personally, y_c. I know {PRONOUN/r_q-brooding/poss} methods may seem ... unorthodox, but r_q-brooding really isn't a bad Queen. {PRONOUN/r_q-brooding/subject/CAP} just {VERB/r_q-brooding/want/wants} to keep everycat safe.",
-            "And if scaring cats stiff into leaving the kits alone is what it takes ... Well, then that's just what {PRONOUN/r_q-brooding/subject}'ll do."
+            "Oh, StarClan, did r_c:0 chase you out of the nursery again? *Sigh* {PRONOUN/r_c:0/subject/CAP} sure {VERB/r_c:0/tend/tends} to do that a lot ...",
+            "Try not to take it too personally, y_c. I know {PRONOUN/r_c:0/poss} methods may seem ... unorthodox, but r_c:0 really isn't a bad Queen. {PRONOUN/r_c:0/subject/CAP} just {VERB/r_c:0/want/wants} to keep everycat safe.",
+            "And if scaring cats stiff into leaving the kits alone is what it takes ... Well, then that's just what {PRONOUN/r_c:0/subject}'ll do."
         ]
     },
     "Introspective_queenapp_to_NB": {
-        "y_c": {
-            "status": [
-                "newborn"
-            ],
-            "condition": [
-                "blind:any:false",
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "introspective"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false",
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "introspective"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "Oh, that's y_c! {PRONOUN/y_c/subject/CAP}{VERB/y_c/'ve/'s} grown so quickly.",
@@ -2253,43 +2898,49 @@
             "But that doesn't matter right now. Just focus on enjoying your life. That's what I think."
         ]
     },
-    "youkit_deaf_J6": {
-        "y_c": {
-            "condition": [
-                "deaf:any:true"
-            ],
-            "age": [
-                "kitten"
-            ]
-        },
-        "t_c": {
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ]
+    "youkit_deaf_J6_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "deaf:any:true"
+                ],
+                "age": [
+                    "kitten"
+                ]
+            },
+            "t_c": {
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "[t_c is teaching some signs to the warriors so they can communicate with you better.]",
             "[But {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} signing so fast, you can't even keep up!]"
         ]
     },
-    "youdeaf_R71": {
-        "y_c": {
-            "condition": [
-                "deaf:any:true"
-            ],
-            "age": [
-                "kitten"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "deaf:any:false"
-            ],
-            "status": [
-                "queen",
-                "queen's apprentice"
-            ]
+    "youdeaf_R71_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "deaf:any:true"
+                ],
+                "age": [
+                    "kitten"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
+            }
         },
         "intro": [
             "[t_c works with you on learning a few new signs. Today is prey!]",
@@ -2303,31 +2954,45 @@
         ]
     },
     "queen_yourapp_theyshunned_gen_rad1": {
-        "y_c": {
-            "status": [
-                "queen"
-            ],
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "queen"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false"
-            ],
-            "shunned": true,
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "max_trust_10",
-            "from_your_apprentice",
-            "min_like_15"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "max_trust_10",
+                    "app/mentor",
+                    "min_like_15"
+                ]
+            }
         ],
-        "tags": [],
         "intro": [
             "[You shoo t_c away from the nursery with a pang of guilt in your heart.]",
             "[{PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} always so good with the kits, and you can't imagine {PRONOUN/t_c/object} doing anything to them.]",
@@ -2335,27 +3000,42 @@
         ]
     },
     "neg_from_appqueen_youshunned_H1": {
-        "y_c": {
-            "condition": [
-                "deaf:any:false"
-            ],
-            "shunned": true
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "standing": [
+                    "shunned"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "introspective"
+                ],
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "introspective"
-            ],
-            "condition": [
-                "deaf:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "max_trust_30",
-            "from_your_apprentice",
-            "max_like_30"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "max_trust_30",
+                    "app/mentor",
+                    "max_like_30"
+                ]
+            }
         ],
         "intro": [
             "[You almost bump into t_c at the entrance of the nursery.]",
@@ -2364,28 +3044,51 @@
         ]
     },
     "pos_from_appqueen_youshunned_H1": {
-        "y_c": {
-            "shunned": true,
-            "skill": [
-                "HEALER,1"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "skill": [
+                    "HEALER,1"
+                ],
+                "standing": [
+                    "shunned"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "introspective",
+                    "neurotic"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
+            },
+            "r_c:1": {
+                "rank": [
+                    "kitten"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "introspective",
-                "neurotic"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "max_trust_30",
-            "from_your_apprentice",
-            "min_like_40"
-        ],
-        "tags": [
-            "clan_has_kits"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "max_trust_30",
+                    "app/mentor",
+                    "min_like_40"
+                ]
+            }
         ],
         "intro": [
             "... y_c?",
@@ -2403,7 +3106,7 @@
         },
         "not_supposed_H": [
             "I know I'm not supposed to talk to you. Everycat knows that.",
-            "It's just-- Uh... Well, r_k has been having really bad ear pain and r_m has been too busy to check on {PRONOUN/r_k/object}.",
+            "It's just-- Uh... Well, r_c:1 has been having really bad ear pain and r_c:0 has been too busy to check on {PRONOUN/r_c:1/object}.",
             "You always had the knack of finding out what's going on, even if you're not a medicine cat and, well, I was hoping you'd agree to help?"
         ],
         "ignore_H": [
@@ -2429,30 +3132,45 @@
         ],
         "refuse_help_H": [
             "Oh, okay. That's fine.",
-            "We'll wait for r_m, then. Have a good day, y_c."
+            "We'll wait for r_c:0, then. Have a good day, y_c."
         ],
         "accept_H": [
             "Awesome!!",
             "I mean, uh... You don't need to if you don't want to, but I am relieved you're willing to help.",
-            "I'll get back to you with r_k soon!"
+            "I'll get back to you with r_c:1 soon!"
         ]
     },
     "neg_from_appqueen_youshunned_H2": {
-        "y_c": {
-            "shunned": true
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "standing": [
+                    "shunned"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "introspective"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "introspective"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
-        },
-        "relationship": [
-            "max_like_-25",
-            "max_trust_30",
-            "from_your_apprentice"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "max_like_-25",
+                    "max_trust_30",
+                    "app/mentor"
+                ]
+            }
         ],
         "intro": [
             "Uhh... I have duties at the nursery.",
@@ -2460,30 +3178,38 @@
         ]
     },
     "redcough_sam1": {
-        "y_c": {
-            "status": [
-                "medicine cat apprentice",
-                "medicine cat"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "redcough",
-                "blind:any:false"
-            ],
-            "status": [
-                "queen's apprentice"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "rank": [
+                    "medicine cat apprentice",
+                    "medicine cat"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "redcough",
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "queen's apprentice"
+                ]
+            },
+            "r_c:0": {
+                "rank": [
+                    "kitten"
+                ]
+            }
         },
         "intro": [
             "y_c? Will I be allowed to help with the kits again?",
             "Will I even recover from this?",
-            "[Before you have a chance to respond, r_k runs into the medicine den.]",
-            "|r_k|t_c! Can we play mossball? I miss playing with you!",
+            "[Before you have a chance to respond, r_c:0 runs into the medicine den.]",
+            "|r_c:0|t_c! Can we play mossball? I miss playing with you!",
             "[t_c sighs softly, a conflict clear in {PRONOUN/t_c/poss} eyes.]",
-            "Not today, r_k. Maybe tomorrow.",
-            "|r_k|Okay! I'll see you tomorrow!",
-            "[r_k runs back out of the medicine den, and t_c looks like {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} going to cry.]",
+            "Not today, r_c:0. Maybe tomorrow.",
+            "|r_c:0|Okay! I'll see you tomorrow!",
+            "[r_c:0 runs back out of the medicine den, and t_c looks like {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} going to cry.]",
             "I miss the kits. I don't think I'll be able to help with them again.",
             "I might not even be able to become a full queen. How sad is that?",
             "A queen apprentice not able to graduate because {PRONOUN/t_c/subject} caught redcough.",

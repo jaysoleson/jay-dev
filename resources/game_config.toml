@@ -435,7 +435,7 @@ dev_tools = false
   chance_of_romance_patrol = 16
 
   # forces patrol with this id to occur, assuming it's possible by constraints
-  debug_ensure_patrol_id = ""
+  debug_ensure_patrol_id = "test_abbrevs_patrol"
 
   # set to true to remove all constraints for patrols regarding location, session, biomes, etc.
   debug_override_patrol_stat_requirements = false
@@ -750,6 +750,7 @@ dev_tools = false
   [lifegen.debug]
     debug_ensure_focus = ""
     debug_ensure_dialogue = ""
+    debug_dialogue_override_filtering = false
     debug_meow_error_locating = false
 
   [lifegen.shunned_cat]

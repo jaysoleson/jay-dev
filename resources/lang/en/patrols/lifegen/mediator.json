@@ -15,6 +15,14 @@
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["warrior"]
+            },
+            "r_c:1": {
+                "rank": ["leader"]
+            }
+        },
         "frequency": 4,
         "intro_text": "An argument breaks out in the Clan over the best way to store fresh-kill for leaf-bare. As a mediator, you step in to settle the dispute.",
         "decline_text": "Deciding the matter is too complex for a single cat to handle, you suggest forming a small committee to make the decision. The Clan appreciates your wise approach.",
@@ -46,17 +54,17 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Despite your efforts, the Clan can't reach an agreement. l_n eventually has to step in and make a decision. This experience is a reminder that some disputes are hard to mediate.",
+                "text": "Despite your efforts, the Clan can't reach an agreement. r_c:1 eventually has to step in and make a decision. This experience is a reminder that some disputes are hard to mediate.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "You try your best to calm the dispute but the cats are adamant that as a mediator, you do not know nearly enough about storing fresh-kill to step into the argument. You're essentially ignored, and r_w has to step in before the argument brews further.",
+                "text": "You try your best to calm the dispute but the cats are adamant that as a mediator, you do not know nearly enough about storing fresh-kill to step into the argument. You're essentially ignored, and r_c:0 has to step in before the argument brews further.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "Though the argument only seems to be about the differencing opinions of storing fresh-kill, it intensifies far too quickly. You find yourself suspicious about the underlining cause. However, before you're able to dig deeper, the argument is settled with a sharp statement from r_w. Interesting.",
+                "text": "Though the argument only seems to be about the differencing opinions of storing fresh-kill, it intensifies far too quickly. You find yourself suspicious about the underlining cause. However, before you're able to dig deeper, the argument is settled with a sharp statement from r_c:0. Interesting.",
                 "exp": 0,
                 "frequency": 4
             }
@@ -391,51 +399,59 @@
     	"min_cats": 1,
     	"max_cats": 1,
     	"min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["leader"]
+            },
+            "r_c:1": {
+                "rank": ["deputy"]
+            }
+        },
     	"frequency": 4,
-    	"intro_text": "d_n is discussing recent border patrols with l_n - apparently some outsiders keep trespassing on c_n territory. l_n, noticing your presence nearby, asks you if you have any ideas for handling the conflict.",
-    	"decline_text": "You tell l_n that you don't have any ideas; you trust that {PRONOUN/l_n/object} and d_n can handle the conflict efficiently.",
+    	"intro_text": "r_c:1 is discussing recent border patrols with r_c:0 - apparently some outsiders keep trespassing on c_n territory. r_c:0, noticing your presence nearby, asks you if you have any ideas for handling the conflict.",
+    	"decline_text": "You tell r_c:0 that you don't have any ideas; you trust that {PRONOUN/r_c:0/object} and r_c:1 can handle the conflict efficiently.",
     	"chance_of_success": 50,
     	"success_outcomes": [
         	{
-            	"text": "You offer to join a patrol and talk to these cats yourself - surely mediators can handle conflict with cats outside Clans, too. l_n and d_n are wary, unsure if non-Clan cats will respect a Clan mediator, but they both agree that your skills are strong enough that it's worth a try. Satisfied, you and d_n begin talking between yourselves to figure out the patrol logistics.",
+            	"text": "You offer to join a patrol and talk to these cats yourself - surely mediators can handle conflict with cats outside Clans, too. r_c:0 and r_c:1 are wary, unsure if non-Clan cats will respect a Clan mediator, but they both agree that your skills are strong enough that it's worth a try. Satisfied, you and r_c:1 begin talking between yourselves to figure out the patrol logistics.",
             	"exp": 10,
             	"frequency": 4
         	},
         	{
-            	"text": "You ask d_n how a typical interaction with these cats goes, and as {PRONOUN/d_n/subject} describes the latest encounters, you quickly realize that the patrols are inadvertently antagonizing the outsiders. The clearer picture allows you, l_n, and d_n to come up with instructions for how future patrols should interact with these cats.",
+            	"text": "You ask r_c:1 how a typical interaction with these cats goes, and as {PRONOUN/r_c:1/subject} describes the latest encounters, you quickly realize that the patrols are inadvertently antagonizing the outsiders. The clearer picture allows you, r_c:0, and r_c:1 to come up with instructions for how future patrols should interact with these cats.",
             	"exp": 10,
             	"frequency": 4
         	},
         	{
-            	"text": "The outsiders keep coming back to c_n territory because there's something they need - food, shelter, herbs, or so forth. Maybe, you suggest, the patrols could ask what the outsiders need and help them find it elsewhere. Both d_n and l_n approve of your idea, and begin discussing instructions for the next patrol that runs across them.",
+            	"text": "The outsiders keep coming back to c_n territory because there's something they need - food, shelter, herbs, or so forth. Maybe, you suggest, the patrols could ask what the outsiders need and help them find it elsewhere. Both r_c:1 and r_c:0 approve of your idea, and begin discussing instructions for the next patrol that runs across them.",
             	"exp": 10,
             	"frequency": 4
         	},
         	{
-            	"text": "You ask if the outsiders might be open to joining the Clan - after all, they can't encroach on c_n territory if they're c_n cats. Though d_n and l_n both seem skeptical, they agree to at least try inviting these cats into c_n the next time a patrol sees them.",
+            	"text": "You ask if the outsiders might be open to joining the Clan - after all, they can't encroach on c_n territory if they're c_n cats. Though r_c:1 and r_c:0 both seem skeptical, they agree to at least try inviting these cats into c_n the next time a patrol sees them.",
             	"exp": 10,
             	"frequency": 4
         	}
     	],
     	"fail_outcomes": [
         	{
-            	"text": "Great minds think alike, much to your annoyance. Every suggestion you make, d_n tells you the patrols have already tried without success. Eventually, you slink away in defeat, hoping that d_n and l_n can find a solution themselves.",
+            	"text": "Great minds think alike, much to your annoyance. Every suggestion you make, r_c:1 tells you the patrols have already tried without success. Eventually, you slink away in defeat, hoping that r_c:1 and r_c:0 can find a solution themselves.",
             	"exp": 0,
             	"frequency": 4
         	},
         	{
-            	"text": "You ask about joining a patrol to talk with these outsiders, like you would with an inter-Clan conflict. Though d_n appreciates the suggestion, {PRONOUN/d_n/subject} {VERB/d_n/remind/reminds} you that your role as a mediator means nothing to the outsiders; they could attack you like they would any other cat on patrol. Disappointed, you return to mulling over potential solutions.",
+            	"text": "You ask about joining a patrol to talk with these outsiders, like you would with an inter-Clan conflict. Though r_c:1 appreciates the suggestion, {PRONOUN/r_c:1/subject} {VERB/r_c:1/remind/reminds} you that your role as a mediator means nothing to the outsiders; they could attack you like they would any other cat on patrol. Disappointed, you return to mulling over potential solutions.",
             	"exp": 0,
             	"frequency": 4
         	},
         	{
-            	"text": "It quickly becomes apparent that l_n and d_n have very different ideas about how to handle these cats: your suggestions are either dismissed by one as too passive, or rejected by the other as too harsh. The two start arguing so intently about the matter, you have to abandon the discussion about the outsiders in favor of mediating d_n's and l_n's bickering.",
+            	"text": "It quickly becomes apparent that r_c:0 and r_c:1 have very different ideas about how to handle these cats: your suggestions are either dismissed by one as too passive, or rejected by the other as too harsh. The two start arguing so intently about the matter, you have to abandon the discussion about the outsiders in favor of mediating r_c:1's and r_c:0's bickering.",
             	"exp": 0,
             	"frequency": 4,
             	"relationships": [
                     {
                         "cats_to": ["p_l"],
-                        "cats_from": ["d_n", "l_n"],
+                        "cats_from": ["r_c:1", "r_c:0"],
                         "mutual": true,
                         "values": [ "respect" ],
                         "amount": -5

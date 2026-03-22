@@ -45,7 +45,8 @@ from scripts.game_structure.game.switches import (
     switch_append_list_value
 )
 
-from scripts.lifegen_utility import lifegen_text_adjust, get_cluster
+from scripts.events_module.filter_random_cats import choose_random_cats
+from scripts.lifegen_utility import lifegen_text_adjust, get_cluster, get_cluster
 
 logger = logging.getLogger(__name__)
 
@@ -73,11 +74,19 @@ class Patrol:
         self.patrol_statuses = {}
         self.patrol_status_list = []
 
-        self.patrol_cat_dict = {}
         # lifegen cat dict for random abbrevs ^^
 
         # Holds new cats for easy access
         self.new_cats: List[List[Cat]] = []
+
+        # LIFEGEN: random cats
+        # constraints present in the patrol JSON
+        self.lifegen_cat_constraints = {}
+        self.lifegen_relationship_constraints = []
+
+        # list of cats who were chosen as r_c's for each patrol
+        self.chosen_lifegen_cats = []
+        # ---
 
         # False if no debug patrol set, value if one is set
         self.debug_patrol: Union[bool, str] = False
@@ -178,6 +187,13 @@ class Patrol:
             self.patrol_event = romantic_event_choice
         else:
             self.patrol_event = normal_event_choice
+            # print("CHOSE PATROL:", self.patrol_event.patrol_id)
+            # print("CAT CONSTRAINTS:", self.patrol_event.lifegen_cat_constraints)
+            # print("REL CONSTRAINTS:", self.patrol_event.lifegen_relationship_constraints)
+            # print("LG CATS:", self.patrol_event.chosen_lifegen_cats)
+            # if self.patrol_event.chosen_lifegen_cats:
+            #     for cat in self.patrol_event.chosen_lifegen_cats:
+            #         print(cat.name)
 
         Patrol.used_patrols.append(self.patrol_event.patrol_id)
         
@@ -194,8 +210,8 @@ class Patrol:
                 switch_append_list_value(Switch.patrolled, '4')
             else:
                 switch_append_list_value(Switch.patrolled, '3')
-        
-        clangen_adjust = event_text_adjust(
+
+        return event_text_adjust(
             Cat,
             self.patrol_event.intro_text,
             patrol_leader=self.patrol_leader,
@@ -205,16 +221,8 @@ class Patrol:
             new_cats=self.new_cats,
             clan=game.clan,
             other_clan=self.other_clan,
+            chosen_lifegen_cats=self.patrol_event.chosen_lifegen_cats
         )
-        # lifegen_adjust = lifegen_text_adjust(
-        #     Cat,
-        #     clangen_adjust,
-        #     self.patrol_leader,
-        #     self.patrol_cat_dict,
-        #     r_c_allowed=False,
-        #     o_c_allowed=False
-        #     )
-        return clangen_adjust
 
     def proceed_patrol(
         self, path: str = "proceed"
@@ -238,15 +246,17 @@ class Patrol:
                         new_cats=self.new_cats,
                         clan=game.clan,
                         other_clan=self.other_clan,
+                        chosen_lifegen_cats=self.patrol_event.chosen_lifegen_cats
                     ),
                     "",
                     [],
                     None,
                 )
+                    
             else:
                 return "Error - no event chosen", "", None
 
-        return self.determine_outcome(antagonize=(path == "antag"))
+        return self.determine_outcome(antagonize=(path == "antag"), chosen_lifegen_cats = self.patrol_event.chosen_lifegen_cats)
 
     def add_patrol_cats(self, patrol_cats: List[Cat], clan: Clan, patrol_type: str = None) -> None:
         """Add the list of cats to the patrol class and handles to set all needed values.
@@ -785,13 +795,30 @@ class Patrol:
         # makes sure that it grabs patrols in the correct biomes, season, with the correct number of cats
         while not filtered_patrols:
             for patrol in possible_patrols:
-                if patrol.frequency != chosen_frequency:
-                    continue
                 # LG
-                else:
-                    frequency_found = True
+                if switch_get_value(Switch.patrol_category) == "clangen":
+                # we dont have enough patrols to rely on the frequency like that......
+                # ---
+                    if patrol.frequency != chosen_frequency:
+                        continue
                 if not self._check_constraints(patrol):
                     continue
+
+                # LG
+                patrol.chosen_lifegen_cats = []
+                if patrol.lifegen_cat_constraints:
+                    cat_dict = choose_random_cats(
+                        cats_block=patrol.lifegen_cat_constraints,
+                        rel_block=patrol.lifegen_relationship_constraints if patrol.lifegen_relationship_constraints else [],
+                        your_cat=game.clan.your_cat,
+                        the_cat=None,
+                        cat_dict= {"p_l": game.clan.your_cat}
+                        )
+                    if not cat_dict:
+                        continue
+                    for abbrev, cat_obj in cat_dict.items():
+                        if "r_c:" in abbrev:
+                            patrol.chosen_lifegen_cats.append(cat_obj)
 
                 # Don't check for repeat patrols if ensure_patrol_id is being used.
                 if (
@@ -886,7 +913,6 @@ class Patrol:
                         if "sc_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.STARCLAN):
                             continue
                         elif "df_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.DARK_FOREST):
-                            print("Skipping", patrol.patrol_id)
                             continue
                         elif "ur_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE):
                             continue
@@ -901,6 +927,10 @@ class Patrol:
                             else:
                                 if "fellowtrainee" not in patrol.tags:
                                     continue
+
+                        if "mc_death" in patrol.tags:
+                            if random.randint(1,8) != 1:
+                                continue
                                 
                         if "shunned" in patrol.tags:
                             if not game.clan.your_cat.status.is_shunned():
@@ -925,46 +955,6 @@ class Patrol:
                         if Cat.all_cats.get(game.clan.your_cat.mentor).personality.trait != "bloodthirsty":
                             continue
 
-                    if "clan_has_kits" in patrol.tags:
-                        if len(find_alive_cats_with_rank(Cat, [CatRank.NEWBORN, CatRank.KITTEN])) == 0:
-                            continue
-                    if "clan_no_kits" in patrol.tags:
-                        if len(find_alive_cats_with_rank(Cat, [CatRank.NEWBORN, CatRank.KITTEN])) > 0:
-                            continue
-
-                    # this is testing every piece of text in the patrol
-                    # to see if there's an abbrev that cant be fulfilled.
-                    # theres probably a better way to do it but.... patrols scare me. and this works
-                    tests = []
-                    test_runs = {}
-                    skip = False
-
-                    tests.append(patrol.intro_text)
-                    tests.append(patrol.decline_text)
-
-                    if len(patrol.antag_fail_outcomes) > 0:
-                        for i in patrol.antag_fail_outcomes:
-                            tests.append(i.text)
-                    if len(patrol.antag_success_outcomes) > 0:
-                        for i in patrol.antag_success_outcomes:
-                            tests.append(i.text)
-
-                    for i in patrol.success_outcomes:
-                        tests.append(i.text)
-                    for i in patrol.fail_outcomes:
-                        tests.append(i.text)
-
-                    for i in tests:
-                        # r_c_allowed = True for date_cats
-                        test_runs[i] = lifegen_text_adjust(Cat, str(i), self.patrol_leader, self.patrol_cat_dict, r_c_allowed=True, o_c_allowed=False)
-                        if test_runs[i] == "":
-                            skip = True
-                            # print("Lifegen abbrev repl failed: Skipping", patrol.patrol_id)
-                            break
-                        # else:
-                        #     print(i)
-                    if skip is True:
-                        continue            
                 # cruel season tag check
                 if "cruel_season" in patrol.tags:
                     if game.clan and game.clan.game_mode != "cruel_season":
@@ -973,7 +963,6 @@ class Patrol:
                 if "romantic" in patrol.tags:
                     romantic_patrols.append(patrol)
                 else:
-                    print("A FILTERED PATROL")
                     filtered_patrols.append(patrol)
                 
 
@@ -1060,6 +1049,8 @@ class Patrol:
                 tags=patrol.get("tags"),
                 frequency=patrol.get("frequency", 4),
                 types=patrol.get("types"),
+                lifegen_cat_constraints=patrol.get("random_cats"),
+                lifegen_relationship_constraints=patrol.get("relationships"),
                 intro_text=patrol.get("intro_text"),
                 patrol_art=patrol.get("patrol_art"),
                 patrol_art_clean=patrol.get("patrol_art_clean"),
@@ -1090,7 +1081,7 @@ class Patrol:
         return all_patrol_events
 
     def determine_outcome(
-        self, antagonize=False
+        self, antagonize=False, chosen_lifegen_cats=[]
     ) -> Tuple[str, str, list, Optional[str]]:
         if self.patrol_event is None:
             raise Exception("No patrol event supplied")
@@ -1179,7 +1170,7 @@ class Patrol:
         print(f"PATROL ID: {self.patrol_event.patrol_id} | SUCCESS: {success}")
         
         # Run the chosen outcome
-        return final_event.execute_outcome(self)
+        return final_event.execute_outcome(self, chosen_lifegen_cats=chosen_lifegen_cats)
 
     def calculate_success(
         self, success_outcome: PatrolOutcome, fail_outcome: PatrolOutcome

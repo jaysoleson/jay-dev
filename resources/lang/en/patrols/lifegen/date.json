@@ -714,13 +714,16 @@
         "types": [
             "date"
         ],
-        "tags": [
-            "you_med"
-        ],
+        "tags": [],
         "patrol_art": "date_default",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
+        "random_cats": {
+            "y_c": {
+                "rank": ["medicine cat", "medicine cat apprentice"]
+            }
+        },
         "frequency": 4,
         "intro_text": "You need herbs for the medicine den, and decide to bring r_c with you. You appreciate {PRONOUN/r_c/object} coming with you, as the extra paws are a massive help! You notice how {PRONOUN/r_c/poss} fur sparkles beautifully with dew, looking almost like Silverpelt had come alive on {PRONOUN/r_c/object}. You consider telling {PRONOUN/r_c/object} so.",
         "decline_text": "Nope. {PRONOUN/r_c/subject/CAP}{VERB/r_c/'re/'s} here on business. {PRONOUN/r_c/subject/CAP}{VERB/r_c/'re/'s} just helping you get herbs. Don't get any weird ideas.",
@@ -1205,13 +1208,16 @@
         "types": [
             "date"
         ],
-        "tags": [
-            "df"
-        ],
+        "tags": [],
         "patrol_art": "df_training",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
+        "random_cats": {
+            "y_c": {
+                "rank": ["df_trainee"]
+            }
+        },
         "frequency": 4,
         "intro_text": "You and r_c go out in the Dark Forest, away from the spirits and trainees. r_c - who you've been practicing with and admiring - enthusiastically offers to teach you some of {PRONOUN/r_c/poss} forbidden moves. Should you practice with {PRONOUN/r_c/object}?",
         "decline_text": "You feel as if this is a bit too risky. You nervously decline r_c's offer.",
@@ -1258,13 +1264,16 @@
         "types": [
             "date"
         ],
-        "tags": [
-            "df"
-        ],
+        "tags": [],
         "patrol_art": "date_default",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
+        "random_cats": {
+            "y_c": {
+                "rank": ["df_trainee"]
+            }
+        },
         "frequency": 4,
         "intro_text": "One of your trainees, r_c, who is also your Clanmate, is being taunted and mistreated by a Dark Forest spirit. You feel like stepping up, but you might be injured.",
         "decline_text": "You don't feel like risking it, so you let r_c be.",
@@ -1310,13 +1319,16 @@
         "types": [
             "date"
         ],
-        "tags": [
-            "df"
-        ],
+        "tags": [],
         "patrol_art": "date_default",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
+        "random_cats": {
+            "y_c": {
+                "rank": ["df_trainee"]
+            }
+        },
         "frequency": 4,
         "intro_text": "A Dark Forest cat whispers threats into your ear and taunts you. An unfamiliar Dark Forest Clanmate sees you and decides to help, chasing the spirit away. You feel your heart beating full of affection, wanting to say something.",
         "decline_text": "You decide to walk away, hastily, dragging your tail through the muck. Maybe you weren't meant for {PRONOUN/r_c/object}.",
@@ -2286,12 +2298,18 @@
         "max_cats": 2,
         "min_max_status": {},
         "frequency": 4,
+        "random_cats": {
+            "y_c": {},
+            "r_c:0": {
+                "rank": ["kitten"]
+            }
+        },
         "intro_text": "You watch from across camp as r_c works hard to help set a haunted den up for the kits. You wonder if {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} distracted enough to allow for you sneak out of camp to find {PRONOUN/r_c/object} a gift.",
         "decline_text": "You dismiss the idea. You shouldn't be distracting {PRONOUN/r_c/object} from {PRONOUN/r_c/poss} work, anyway.",
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "When r_k runs up to {PRONOUN/r_c/object}, you take the opportunity and slide out of the camp entrance while {PRONOUN/r_c/poss} head is turned. While you're out, you collect as many sweet things you can find-- some berries, catmint, and even some honeycombs-- and arrange them on a large rhubarb leaf. When you arrive back to camp, dragging the treats behind you, r_c is excited to receive the gift while {PRONOUN/r_c/poss} friends fawn about it behind {PRONOUN/r_c/object}.",
+                "text": "When r_c:0 runs up to {PRONOUN/r_c/object}, you take the opportunity and slide out of the camp entrance while {PRONOUN/r_c/poss} head is turned. While you're out, you collect as many sweet things you can find-- some berries, catmint, and even some honeycombs-- and arrange them on a large rhubarb leaf. When you arrive back to camp, dragging the treats behind you, r_c is excited to receive the gift while {PRONOUN/r_c/poss} friends fawn about it behind {PRONOUN/r_c/object}.",
                 "exp": 10,
                 "frequency": 2,
                 "relationships": [
@@ -2334,7 +2352,7 @@
                 ]
             },
             {
-                "text": "r_k runs up to r_c, distracting {PRONOUN/r_c/object}, so you take the opportunity and slip out of camp. You're not able to find much, but you manage to snatch a pretty trinket from a display in front of a Twoleg nest. You surprise r_c with it back at camp, who thanks you enthusiastically!",
+                "text": "r_c:0 runs up to r_c, distracting {PRONOUN/r_c/object}, so you take the opportunity and slip out of camp. You're not able to find much, but you manage to snatch a pretty trinket from a display in front of a Twoleg nest. You surprise r_c with it back at camp, who thanks you enthusiastically!",
                 "exp": 10,
                 "frequency": 4,
                 "accessory": [
@@ -2371,7 +2389,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You stand up to leave, but at the same time, r_k sprints up to you, saying r_c needs your help with the den. You'll have to find the time to get a gift later.",
+                "text": "You stand up to leave, but at the same time, r_c:0 sprints up to you, saying r_c needs your help with the den. You'll have to find the time to get a gift later.",
                 "exp": 0,
                 "frequency": 4
             },
@@ -2637,98 +2655,98 @@
                 "can_have_stat": [
                     "p_l"
                 ],
-            "relationships": [
-                {
-                    "cats_to": [
-                        "patrol"
-                    ],
-                    "cats_from": [
-                        "patrol"
-                    ],
-                    "mutual": false,
-                    "values": [
-                        "romance",
-                        "like"
-                    ],
-                    "amount": 5
-                }
-            ]
-        },
-        {
-            "text": "You lead r_c and o_c1 to a rock with a great view of the waterfall and lounge in the sun together, sharing tongues. After a while, the three of you decide to venture closer. You carefully leap across the nearby boulders until you reach the veil of mist coming off of the waterfall, and you admire how the sun sparkles off of the droplets. The extra moisture means moss is growing on the surrounding stones, and r_c gently pulls off some flower-dappled pieces to give you and o_c1.",
-            "exp": 5,
-            "frequency": 3,
-            "accessory": [
-                {
-                    "cats": [
-                        "p_l",
-                        "o_c1",
-                        "r_c"
-                    ],
-                    "accessory": [
-                        "FLOWER MOSS"
-                    ]
-                }
-            ],
-            "relationships": [
-                {
-                    "cats_to": [
-                        "patrol"
-                    ],
-                    "cats_from": [
-                        "patrol"
-                    ],
-                    "mutual": false,
-                    "values": [
-                        "romance",
-                        "like"
-                    ],
-                    "amount": 5
-                }
-            ]
-        }
-    ],
-    "fail_outcomes": [
-        {
-            "text": "You lead r_c and o_c1 to the waterfall the day after you discover it, but find that it's already dried up. The three of you take a long walk through the territory instead, but you can't escape the feeling that you missed a chance to show r_c and o_c1 something special.",
-            "exp": 0,
-            "frequency": 4,
-            "relationships": [
-                {
-                    "cats_to": [
-                        "patrol"
-                    ],
-                    "cats_from": [
-                        "patrol"
-                    ],
-                    "mutual": false,
-                    "values": [
-                        "like"
-                    ],
-                    "amount": 3
-                }
-            ]
-        },
-        {
-            "text": "You lead r_c and o_c1 to the waterfall but find that it's grown significantly since you first visited. Instead of a gentle mist around the falls, water sprays in all directions, and you can't find anywhere with a good view where you won't get soaked. You give up on the attempt, though r_c and o_c1 assure you that they appreciate the thought.",
-            "exp": 0,
-            "frequency": 4,
-            "relationships": [
-                {
-                    "cats_to": [
-                        "patrol"
-                    ],
-                    "cats_from": [
-                        "patrol"
-                    ],
-                    "mutual": false,
-                    "values": [
-                        "like"
-                    ],
-                    "amount": 3
-                }
-            ]
-        }
-    ]
-}
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "romance",
+                            "like"
+                        ],
+                        "amount": 5
+                    }
+                ]
+            },
+            {
+                "text": "You lead r_c and o_c1 to a rock with a great view of the waterfall and lounge in the sun together, sharing tongues. After a while, the three of you decide to venture closer. You carefully leap across the nearby boulders until you reach the veil of mist coming off of the waterfall, and you admire how the sun sparkles off of the droplets. The extra moisture means moss is growing on the surrounding stones, and r_c gently pulls off some flower-dappled pieces to give you and o_c1.",
+                "exp": 5,
+                "frequency": 3,
+                "accessory": [
+                    {
+                        "cats": [
+                            "p_l",
+                            "o_c1",
+                            "r_c"
+                        ],
+                        "accessory": [
+                            "FLOWER MOSS"
+                        ]
+                    }
+                ],
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "romance",
+                            "like"
+                        ],
+                        "amount": 5
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You lead r_c and o_c1 to the waterfall the day after you discover it, but find that it's already dried up. The three of you take a long walk through the territory instead, but you can't escape the feeling that you missed a chance to show r_c and o_c1 something special.",
+                "exp": 0,
+                "frequency": 4,
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "like"
+                        ],
+                        "amount": 3
+                    }
+                ]
+            },
+            {
+                "text": "You lead r_c and o_c1 to the waterfall but find that it's grown significantly since you first visited. Instead of a gentle mist around the falls, water sprays in all directions, and you can't find anywhere with a good view where you won't get soaked. You give up on the attempt, though r_c and o_c1 assure you that they appreciate the thought.",
+                "exp": 0,
+                "frequency": 4,
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "like"
+                        ],
+                        "amount": 3
+                    }
+                ]
+            }
+        ]
+    }
 ]

@@ -1271,22 +1271,7 @@ class Clan:
             game.clan.followingsc = True
         # ---
         
-        if clan_data.get("used_group_IDs"):
-            game.used_group_IDs = clan_data["used_group_IDs"]
-
-            # correct for new lifegen groups
-            if game.used_group_IDs['5'] != CatGroup.ROGUE_GROUP:
-                game.used_group_IDs['5'] = CatGroup.ROGUE_GROUP
-            if game.used_group_IDs['6'] != CatGroup.LONER_GROUP:
-                game.used_group_IDs['6'] = CatGroup.LONER_GROUP
-            if game.used_group_IDs['7'] != CatGroup.HOUSEHOLD:
-                game.used_group_IDs['7'] = CatGroup.HOUSEHOLD
-
-            # LG
-            self.convert_group_IDs()
-
-            for ID in game.used_group_IDs:
-                game.used_group_IDs[ID] = CatGroup(game.used_group_IDs[ID])
+        # LG: loading used IDs used to be here, but its moved below other_clans loading now
 
         game.clan.reputation = max(0, min(100, int(clan_data["reputation"])))
         game.clan.age = clan_data["clanage"]
@@ -1386,6 +1371,43 @@ class Clan:
                     game.clan.all_other_clans.append(
                         OtherClan(name, int(relation), temper, symbol)
                     )
+        
+        # LG
+        # MOVED HERE
+        if clan_data.get("used_group_IDs"):
+            game.used_group_IDs = clan_data["used_group_IDs"]
+
+            # LG
+            # correct for new lifegen groups
+            if game.used_group_IDs['5'] != CatGroup.ROGUE_GROUP:
+                game.used_group_IDs['5'] = CatGroup.ROGUE_GROUP
+            if game.used_group_IDs['6'] != CatGroup.LONER_GROUP:
+                game.used_group_IDs['6'] = CatGroup.LONER_GROUP
+            if game.used_group_IDs['7'] != CatGroup.HOUSEHOLD:
+                game.used_group_IDs['7'] = CatGroup.HOUSEHOLD
+
+            # fix clan IDs. so otherclans with 5, 6, or 7 as their id will move down the list
+            # to make room for the above ones ^^
+            count = 0
+            for other_clan in game.clan.all_other_clans:
+                count += 1
+                if (
+                    other_clan.group_ID in game.used_group_IDs and
+                    game.used_group_IDs[other_clan.group_ID] != other_clan
+                    ):
+                    # generate the new ID. adds to the last number in the existing list (7)
+                    new_group_id = 7 + count
+                    other_clan.group_ID = str(new_group_id)
+                    
+                    # now add to game used IDs
+                    game.used_group_IDs.update({str(new_group_id): CatGroup.OTHER_CLAN})
+
+            self.convert_group_IDs()
+            # ---
+
+            for ID in game.used_group_IDs:
+                game.used_group_IDs[ID] = CatGroup(game.used_group_IDs[ID])
+        # ---
 
         for cat in clan_data["clan_cats"].split(","):
             if cat in Cat.all_cats:

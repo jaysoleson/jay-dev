@@ -11,3 +11,12 @@ class MinMaxStatusDictKey(Enum):
     healer_cats = "healer cats"
     normal_adult = "normal adult"
     all_apprentices = "all apprentices"
+
+    # LG
+    kitten = "kitten"
+    mediator = "mediator"
+    queen = "queen"
+    mediator_apprentice = "mediator apprentice"
+    queens_apprentice = "queen's apprentice"
+    elder = "elder"
+    df = "df"

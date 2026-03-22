@@ -212,7 +212,6 @@ class Sprites:
                 except ValueError as e:
                     # Fallback for non-existent sprites
                     print(f"WARNING: nonexistent sprite - {full_name}")
-                    print("LG:", e)
                     if not self.blank_sprite:
                         self.blank_sprite = pygame.Surface(
                             (self.size, self.size), pygame.HWSURFACE | pygame.SRCALPHA

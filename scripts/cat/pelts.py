@@ -1563,6 +1563,21 @@ class Pelt:
             elif self.tortie_pattern not in [self.tortie_base, "single"]:
                 return True
 
+            # real pattern stuff
+            if self.tortie_base in ("singlestripe", "smoke", "single"):
+                if self.tortie_pattern not in [
+                        "tabby",
+                        "mackerel",
+                        "classic",
+                        "single",
+                        "smoke",
+                        "agouti",
+                        "ticked",
+                    ]:
+                    return True
+            else:
+                if self.tortie_pattern not in  [self.tortie_base, "single"]:
+                    return True
             return False
 
 

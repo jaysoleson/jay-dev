@@ -1,20 +1,23 @@
 {
     "dead_kittypet_J1": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "any"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "any"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ]
+            }
         },
         "intro": [
             "My housefolk got a dog recently.",
@@ -22,18 +25,21 @@
         ]
     },
     "live_df_ps_1": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "df"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
+            }
         },
         "intro": [
             "How curious... a creature, roaming these rooted confinements.",
@@ -41,18 +47,21 @@
         ]
     },
     "live_df_ps_2": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "df"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
+            }
         },
         "intro": [
             "It seems you are lost in more ways than one.",
@@ -60,18 +69,21 @@
         ]
     },
     "live_df_ps_3": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "df"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
+            }
         },
         "intro": [
             "You can run as much as you'd like.",
@@ -80,15 +92,18 @@
         ]
     },
     "live_df_ps_4": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "dead": [
-                "df"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "residence": [
+                    "df"
+                ]
+            }
         },
         "intro": [
             "I've seen wondrous lands, even whilst alone and afraid.",
@@ -97,43 +112,49 @@
         ]
     },
     "live_df_ps_5": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "df"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
+            }
         },
         "intro": [
             "You can't trust anyone, I learnt that out there.",
             "You shouldn't even trust me.."
         ]
     },
-    "dead_outsider_J7": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "age": [
-                "not_kitten"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "df"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+    "dead_outsider_J7_2": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "df"
+                ]
+            }
         },
         "intro": [
             "How awful must I have been, to end up in the hell for a belief that I didn't even hold?",
@@ -142,43 +163,47 @@
         ]
     },
     "living_ur_kit_Guy1": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "age": [
-                "kitten",
-                "newborn"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten",
+                    "newborn"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "ur"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "Do you have a family, little one?",
             "Oh... you're one of them. I'm glad you have someone to look out for you."
         ]
     },
     "living_ur_Guy2": {
-        "y_c": {},
-        "t_c": {
-            "dead": [
-                "ur"
-            ],
-            "status": [
-                "kittypet"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "tags": [],
         "intro": [
             "[t_c visibly flinches when {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you, {PRONOUN/t_c/poss} wispy, otherworldly pelt shaking.]",
             "Oh- a Clancat! I didn't know I was on your territory... or that you could see me.",
@@ -186,41 +211,68 @@
         ]
     },
     "ur_parent_newborn_CM1": {
-        "y_c": {
-            "status": [
-                "newborn",
-                "kitten"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "rank": [
+                    "newborn",
+                    "kitten"
+                ]
+            },
+            "t_c": {
+                "residence": [
+                    "ur"
+                ]
+            },
+            "r_c:0": {}
         },
-        "t_c": {
-            "dead": [
-                "ur"
-            ]
-        },
-        "relationship": [
-            "from_parent"
+        "relationships": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "parent/child"
+                ]
+            },
+            {
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "t_c"
+                ],
+                "relationship": [
+                    "mates"
+                ]
+            }
         ],
         "intro": [
-            "Look, look! t_m!",
+            "Look, look! r_c:0!",
             "I told you that {PRONOUN/y_c/subject} {VERB/y_c/were/was} safe, even when {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} so far away...",
             "Now what did those nice cats name you again? y_c? Strange... But beautiful.",
             "Just like you, my kit."
         ]
     },
     "living_to_ur_kittypet_CM1": {
-        "y_c": {},
-        "t_c": {
-            "dead": [
-                "ur"
-            ],
-            "status": [
-                "kittypet"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "tags": [],
         "intro": [
             "Eep!",
             "[t_c startles when you approach, the cat crouching a bit as {PRONOUN/t_c/subject} {VERB/t_c/cower/cowers} away from you.]",
@@ -232,23 +284,25 @@
         ]
     },
     "living_to_ur_kittypet_CM2": {
-        "y_c": {
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "dead": [
-                "ur"
-            ],
-            "age": [
-                "not_kitten"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "[You go out for a hunting trip, and upon a rock, basking in the early morning sunlight, sits a spirit, purring contently.]",
             "[You move closer, and {PRONOUN/t_c/subject} {VERB/t_c/tilt/tilts} {PRONOUN/t_c/poss} head just enough to catch a glimpse of you, yawning.]",
@@ -260,29 +314,31 @@
         ]
     },
     "dead_kittypet_J3": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "ur"
-            ],
-            "age": [
-                "not_kitten"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "You know, the way you Clan cats live your lives is... interesting.",
             "Why not just find some housefolk? They're very nice, and you can enjoy all sorts of things, like warm blankets, free food, and all the cuddles you want.",
@@ -290,26 +346,28 @@
         ]
     },
     "dead_kittypet_J4": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "ur"
-            ],
-            "status": [
-                "kittypet"
-            ],
-            "age": [
-                "kitten"
-            ]
-        },
-        "tags": [],
         "intro": [
             "Hi! Um, I think I lost my housefolk. You wouldn't know where they are, would you?",
             "Oh, housefolk are, like, these big cats with no fur, and they walk on their back paws, and they have these big warm dens full of lots of stuff!",
@@ -319,16 +377,18 @@
         ]
     },
     "dead_kittypet_J5": {
-        "y_c": {},
-        "t_c": {
-            "dead": [
-                "ur"
-            ],
-            "status": [
-                "kittypet"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "tags": [],
         "intro": [
             "[You find t_c near the Clan border, staring off into the trees.]",
             "Oh! Hi, y_c. I'm just... looking.",
@@ -337,23 +397,25 @@
         ]
     },
     "dead_kittypet_J6": {
-        "y_c": {
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "kitten"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "dead": [
-                "ur"
-            ],
-            "status": [
-                "kittypet"
-            ],
-            "age": [
-                "kitten"
-            ]
-        },
-        "tags": [],
         "intro": [
             "y_c! y_c! Look, look, look!",
             "[As soon as {PRONOUN/t_c/subject} {VERB/t_c/catch/catches} sight of you, t_c turns and sprints away. You run to catch up, almost losing {PRONOUN/t_c/poss} translucent pelt in the scenery.]",
@@ -364,20 +426,22 @@
         ]
     },
     "car_c": {
-        "y_c": {
-            "dead": [
-                "any"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "residence": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "dead": [
-                "ur"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "[t_c is watching the Thunderpath.]",
             "Sometimes I just sit here and make sure that the cars don't hit any cats.",
@@ -386,26 +450,28 @@
         ]
     },
     "you_sc_they_ur_CM1": {
-        "y_c": {
-            "dead": [
-                "sc"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "dead": [
-                "ur"
-            ],
-            "age": [
-                "not_kitten"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "[You see a curious t_c peeking {PRONOUN/t_c/poss} head over the border. With a graceful leap, {PRONOUN/t_c/poss} misty paws hit the star-littered ground.]",
             "Oh! Hello there!",
@@ -416,30 +482,32 @@
         ]
     },
     "sckit_urnew_R1": {
-        "y_c": {
-            "age": [
-                "kitten"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "sc"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "newborn",
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "ur"
-            ],
-            "status": [
-                "newborn",
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "Mewwww...",
             "[Oh! A tiny kittypet kit has wandered to the border you were playing at.]",
@@ -449,27 +517,29 @@
         ]
     },
     "sckit_urnew_R2": {
-        "y_c": {
-            "age": [
-                "kitten"
-            ],
-            "dead": [
-                "sc"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "kitten"
+                ],
+                "residence": [
+                    "sc"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "newborn",
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "ur"
-            ],
-            "status": [
-                "newborn",
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "[You're retrieving a moss-ball from near the border when you notice a newborn kittypet kit with transparent, misty fur that waves softly.]",
             "Mew?",
@@ -479,23 +549,25 @@
         ]
     },
     "df_kittypet_c": {
-        "y_c": {
-            "dead": [
-                "df"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "residence": [
+                    "df"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "ur"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "[t_c approaches you, tail high and eyes bright.]",
             "Hi! What are you doing here? Are you lost?",
@@ -503,26 +575,28 @@
         ]
     },
     "df_kittypet_c2": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "df"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "df"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "ur"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "What's on my agenda today... Hm...",
             "Well, I was going to go visit my housefolk, see how they're doing. I think they've been lonely without me bothering them all day, haha! Someone's got to take care of them.",
@@ -531,43 +605,47 @@
         ]
     },
     "UR_backstory_H1": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "ur"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "ur"
+                ]
+            },
+            "t_c": {
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "dead": [
-                "ur"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "I think I'm struggling a bit without the Twolegs that took care of me.",
             "I like to visit them sometimes... I know they can't see me but I'm at peace just watching them go about their lives."
         ]
     },
     "ur_ur_kittypet_Guy1": {
-        "y_c": {
-            "dead": [
-                "ur"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "residence": [
+                    "ur"
+                ]
+            },
+            "t_c": {
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "dead": [
-                "ur"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "Hello y_c!",
             "Have you seen the new housefolk that moved in to your old home?",
@@ -575,30 +653,32 @@
         ]
     },
     "neurotic_urtoliving_SQ1": {
-        "y_c": {
-            "condition": [
-                "blind:any:false",
-                "injury:any"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false",
+                    "injury:any"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "neurotic"
-            ],
-            "dead": [
-                "ur"
-            ],
-            "age": [
-                "not_kitten"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "[t_c anxiously surveys your injuries.]",
             "I think my housefolk kept most dangerous stuff away from me. I didn't even realize it at the time.",
@@ -606,30 +686,32 @@
         ]
     },
     "neurotic_urtoliving_SQ2": {
-        "y_c": {
-            "condition": [
-                "blind:any:false",
-                "illness:any"
-            ],
-            "age": [
-                "not_kitten"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false",
+                    "illness:any"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
+            },
+            "t_c": {
+                "cluster": [
+                    "neurotic"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "residence": [
+                    "ur"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "cluster": [
-                "neurotic"
-            ],
-            "dead": [
-                "ur"
-            ],
-            "age": [
-                "not_kitten"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "You're really not looking great, y_c. Maybe... maybe you could find a Twoleg to take care of you, just for a bit?",
             "I'm sorry, I know you Clan cats don't like that! It's just... The Twolegs did a lot of scary things, but I think they were trying to help me.",
@@ -638,135 +720,170 @@
         ]
     },
     "kittypet_sc_H1": {
-        "y_c": {
-            "condition": [
-                "deaf:any:false"
-            ],
-            "status": [
-                "any"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "min_max_dead_moons": [
+                    0,
+                    10
+                ],
+                "residence": [
+                    "sc"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "deaf:any:false"
-            ],
-            "dead": [
-                "sc",
-                "max_they_deadfor_10"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "[t_c looks around, unsure of {PRONOUN/t_c/poss} surroundings.]"
         ]
     },
     "kittypet_sc_H2": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "sc"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "All the cats in here keep talking about 'Clans' and 'StarClan' and the 'Dark Forest'.",
             "I don't understand any of it. I just want to go home."
         ]
     },
     "kittypet_sc_H3": {
-        "y_c": {
-            "condition": [
-                "deaf:any:false"
-            ],
-            "status": [
-                "any"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "rank": [
+                    "any"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "deaf:any:false"
+                ],
+                "min_max_dead_moons": [
+                    0,
+                    10
+                ],
+                "residence": [
+                    "any"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "deaf:any:false"
-            ],
-            "dead": [
-                "any",
-                "max_they_deadfor_10"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "[t_c looks around, unsure of {PRONOUN/t_c/poss} surroundings.]"
         ]
     },
     "kittypet_sc_H4": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "sc"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "sc"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "I miss my napping place...",
             "Don't get me wrong. Everything here is very fluffy. But that's the issue! Everything is fluffy. I don't know where to lay!"
         ]
     },
     "kittypet_sc_H5": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "blind:any:false"
+                ],
+                "residence": [
+                    "any"
+                ],
+                "rank": [
+                    "kittypet"
+                ]
+            }
         },
-        "t_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "dead": [
-                "any"
-            ],
-            "status": [
-                "kittypet"
-            ]
-        },
-        "tags": [],
         "intro": [
             "I miss napping in the sun. I guess I just miss being alive in general."
         ]
     },
     "gen_alivekittypet_J1": {
-        "y_c": {
-            "age": ["newborn"],
-            "group": ["household"],
-            "condition": ["blind:any:false"]
-        },
-        "t_c": {
-            "group": ["household"],
-            "cluster": ["assertive", "unlawful", "cool", "stable"],
-            "age": ["not_kitten", "not_adolescent"]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "age": [
+                    "newborn"
+                ],
+                "group": [
+                    "household"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "group": [
+                    "household"
+                ],
+                "cluster": [
+                    "assertive",
+                    "unlawful",
+                    "cool",
+                    "stable"
+                ],
+                "age": [
+                    "not_kitten",
+                    "not_adolescent"
+                ]
+            }
         },
         "intro": [
             "I can't wait until you're big and strong, y_c. I'll show you all of the best places around the house.",
@@ -777,16 +894,35 @@
         ]
     },
     "gen_alivekittypet_J2": {
-        "y_c": {
-            "group": ["household"],
-            "age": ["kitten"],
-            "condition": ["blind:any:false"]
-        },
-        "t_c": {
-            "group": ["household"],
-            "cluster": ["brooding", "cool", "unlawful"],
-            "age": ["not_kitten"],
-            "condition": ["blind:any:false"]
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "group": [
+                    "household"
+                ],
+                "age": [
+                    "kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            },
+            "t_c": {
+                "group": [
+                    "household"
+                ],
+                "cluster": [
+                    "brooding",
+                    "cool",
+                    "unlawful"
+                ],
+                "age": [
+                    "not_kitten"
+                ],
+                "condition": [
+                    "blind:any:false"
+                ]
+            }
         },
         "intro": [
             "Hey!",

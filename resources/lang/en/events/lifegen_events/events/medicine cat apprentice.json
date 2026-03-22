@@ -53,5 +53,22 @@
     "rare": [
         "Whilst you're out training, you see a strange looking cat. You run after them, only to find yourself falling into an empty darkness, only lit by the glow of stars. When you bring this to m_n, {PRONOUN/r_m/subject} immediately {VERB/r_m/seem/seems} concerned, and have you tell l_n everything that happened.",
         "You swear that you can hear ghostly whispers in the wind, begging you to listen."
+    ],
+    "shunned": [
+        "The herbs in your den, once comforting, now feel sinister. They were supposed to heal, not to hurt. You wonder if your mentor feels the same unease around you.",
+        "The cats you once treated now shrink away from your touch. Their grateful mews are replaced by fearful whispers.",
+        "Your mentor refuses to teach you more about the herbs and their uses. {PRONOUN/m_n/subject/CAP} {VERB/m_n/tell/tells} you that a medicine cat's duty is to heal, not to harm.",
+        "You're forbidden from attending the sacred half-moon gatherings. A chill creeps down your spine as you realize you're cut off from StarClan's wisdom.",
+        "Other Clans' medicine cats refuse to meet your gaze at the gatherings. Word of your transgression has spread like wildfire.",
+        "You're relieved from your duties to tend to the wounded after a border skirmish. Your mentor quietly takes over, avoiding your gaze.",
+        "The Clan leader summons you, {PRONOUN/l_n/poss} disappointment clear. The sacred role of a medicine cat requires trust and compassion - attributes you've apparently lost.",
+        "The elders refuse your help, even for the simplest tasks. Their formerly kind mews are replaced by anxious glances and hushed whispers.",
+        "Your dreams are plagued by the faces of StarClan cats, their eyes accusing. You no longer find comfort in sleep.",
+        "Your mentor insists on revisiting the Warrior Code. Each word feels like a stone being piled on your back, heavy with their disappointment.",
+        "You're asked to stay behind this Gathering.",
+        "Your mentor no longer guides you, leaving you alone most days. When you ask questions, {PRONOUN/m_n/subject} {VERB/m_n/answer/answers} shortly out of obligation.",
+        "StarClan's voices in your dreams grow faint. Their messages become obscured and it's harder to find guidance in your slumber.",
+        "At the half-moon meeting, you wake up to a shadow-filled forest instead of starry meadows.",
+        "You wonder if being a medicine cat apprentice is the right path for you."
     ]
 }

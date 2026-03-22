@@ -50,6 +50,11 @@
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["leader"]
+            }
+        },
         "frequency": 4,
         "intro_text": "The leader asks for your opinion on a dispute between two warriors. You feel respected, knowing that your wisdom is still valued.",
         "decline_text": "You politely decline, feeling unsure about your ability to resolve the issue. The leader respects your decision and turns to other Clan members for advice.",
@@ -61,12 +66,12 @@
                 "frequency": 4
             },
             {
-                "text": "As you listen to the details of the conflict, you recall a similar dispute that took place many moons ago, one that neither of the warriors are old enough to remember. You describe the prior conflict and its eventual solution to l_n and the warriors. While it doesn't immediately settle the dispute, you can tell by their quiet discussion afterwards that your memories and experiences have provided valuable insight that will hopefully lead to a quick resolution.",
+                "text": "As you listen to the details of the conflict, you recall a similar dispute that took place many moons ago, one that neither of the warriors are old enough to remember. You describe the prior conflict and its eventual solution to r_c:0 and the warriors. While it doesn't immediately settle the dispute, you can tell by their quiet discussion afterwards that your memories and experiences have provided valuable insight that will hopefully lead to a quick resolution.",
                 "exp": 10,
                 "frequency": 4
             },
             {
-                "text": "You've always had a knack for smoothing out your Clanmates' conflicts. You listen closely to both warriors' perspectives, asking questions where necessary to gain better understanding, and eventually manage to guide the two towards a resolution that both are happy with. l_n later praises you for how well you handled the dispute - apparently even the Clan mediators were having trouble getting the warriors to see eye-to-eye.",
+                "text": "You've always had a knack for smoothing out your Clanmates' conflicts. You listen closely to both warriors' perspectives, asking questions where necessary to gain better understanding, and eventually manage to guide the two towards a resolution that both are happy with. r_c:0 later praises you for how well you handled the dispute - apparently even the Clan mediators were having trouble getting the warriors to see eye-to-eye.",
                 "exp": 10,
                 "frequency": 4,
                 "stat_skill": [
@@ -84,12 +89,12 @@
                 "frequency": 4
             },
             {
-                "text": "Was mediating always this difficult? Despite paying close attention, you keep making mistakes: mixing up which cat said what, misunderstanding the conflict, and asking questions that the warriors have already answered. l_n eventually suggests you return to the elder's den for a nap, much to your embarrassment.",
+                "text": "Was mediating always this difficult? Despite paying close attention, you keep making mistakes: mixing up which cat said what, misunderstanding the conflict, and asking questions that the warriors have already answered. r_c:0 eventually suggests you return to the elder's den for a nap, much to your embarrassment.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "It turns out that in your old age, you've become more short-tempered than anycat realized. When the two warriors begin bickering over the recollection of events, you snap at them to just tell you the facts rather than getting into another ridiculous spat over it. It shocks the two into silence, but that's clearly not the solution l_n was looking for, as {PRONOUN/l_n/subject}{VERB/l_n/'re/'s} very quick to dismiss you to the elder's den after that.",
+                "text": "It turns out that in your old age, you've become more short-tempered than anycat realized. When the two warriors begin bickering over the recollection of events, you snap at them to just tell you the facts rather than getting into another ridiculous spat over it. It shocks the two into silence, but that's clearly not the solution r_c:0 was looking for, as {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} very quick to dismiss you to the elder's den after that.",
                 "exp": 0,
                 "frequency": 4
             }
@@ -111,6 +116,11 @@
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["kitten"]
+            }
+        },
         "frequency": 4,
         "intro_text": "A kit comes running up to you, asking for a play fight. Despite your old bones, you consider their request, remembering your own playful youth.",
         "decline_text": "You decline, explaining that you're too old for play fighting. The kit seems disappointed but understands. They scamper off to find another playmate.",
@@ -476,40 +486,46 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "residence": ["sc"],
+                "age": ["not_kitten"]
+            }
+        },
         "frequency": 4,
-        "intro_text": "You're lounging about StarClan, as you do, and feel a rumble in your stomach. You politely ask rsc_c to catch you a mouse, but rsc_c tells you to catch it yourself.",
+        "intro_text": "You're lounging about StarClan, as you do, and feel a rumble in your stomach. You politely ask r_c:0 to catch you a mouse, but r_c:0 tells you to catch it yourself.",
         "decline_text": "You reluctantly get up to catch yourself a mouse.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You shouldn't have to catch your own prey in StarClan if you didn't catch your own prey when you were alive! rsc_c eventually realizes your point and apologizes, going to catch you the mouse you asked for.",
+                "text": "You shouldn't have to catch your own prey in StarClan if you didn't catch your own prey when you were alive! r_c:0 eventually realizes your point and apologizes, going to catch you the mouse you asked for.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "You shouldn't have to catch your own prey in StarClan if you didn't catch your own prey when you were alive! rsc_c rolls {PRONOUN/rsc_c/poss} eyes, but reluctantly heads to catch you a mouse.",
+                "text": "You shouldn't have to catch your own prey in StarClan if you didn't catch your own prey when you were alive! r_c:0 rolls {PRONOUN/r_c:0/poss} eyes, but reluctantly heads to catch you a mouse.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "In response to rsc_c's refusal, you simply pretend that you did not hear {PRONOUN/rsc_c/object}. You defiantly turn your head away and wait for rsc_c to do what you asked. After a moment of petty silence, {PRONOUN/rsc_c/subject} {VERB/rsc_c/huff/huffs} and {VERB/rsc_c/walk/walks} off to catch you a mouse.",
+                "text": "In response to r_c:0's refusal, you simply pretend that you did not hear {PRONOUN/r_c:0/object}. You defiantly turn your head away and wait for r_c:0 to do what you asked. After a moment of petty silence, {PRONOUN/r_c:0/subject} {VERB/r_c:0/huff/huffs} and {VERB/r_c:0/walk/walks} off to catch you a mouse.",
                 "exp": 0,
                 "frequency": 4
             }
         ],
         "fail_outcomes": [
             {
-                "text": "You shouldn't have to catch your own prey in StarClan if you didn't catch your own prey when you were alive! rsc_c tells you that you're not in c_n anymore, and you catch your own prey in StarClan unless you're a kit. You eventually catch yourself a mouse, but it leaves a bitter taste in your mouth.",
+                "text": "You shouldn't have to catch your own prey in StarClan if you didn't catch your own prey when you were alive! r_c:0 tells you that you're not in c_n anymore, and you catch your own prey in StarClan unless you're a kit. You eventually catch yourself a mouse, but it leaves a bitter taste in your mouth.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "With a grumble that you make sure is loud enough for rsc_c to hear, you stand up and wander off to catch yourself a mouse. However, you appear to be a bit rusty, as even in the endless prey-laden forests of StarClan, you can't seem to find anything! When you return to camp, dejected, rsc_c is waiting for you with a mouse, looking amused at your failure. Hmph.",
+                "text": "With a grumble that you make sure is loud enough for r_c:0 to hear, you stand up and wander off to catch yourself a mouse. However, you appear to be a bit rusty, as even in the endless prey-laden forests of StarClan, you can't seem to find anything! When you return to camp, dejected, r_c:0 is waiting for you with a mouse, looking amused at your failure. Hmph.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "Well, if rsc_c won't catch you a mouse, you'll just starve! You defiantly huff and stay lounging on the fluffed clouds, expecting rsc_c to care at the very least. However, {PRONOUN/rsc_c/subject} {VERB/rsc_c/stand/stands} {PRONOUN/rsc_c/poss} ground and politely tells you again that if you wish for a mouse, you must get it yourself.",
+                "text": "Well, if r_c:0 won't catch you a mouse, you'll just starve! You defiantly huff and stay lounging on the fluffed clouds, expecting r_c:0 to care at the very least. However, {PRONOUN/r_c:0/subject} {VERB/r_c:0/stand/stands} {PRONOUN/r_c:0/poss} ground and politely tells you again that if you wish for a mouse, you must get it yourself.",
                 "exp": 0,
                 "frequency": 4
             }
@@ -533,13 +549,19 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "residence": ["df"],
+                "age": ["not_kitten"]
+            }
+        },
         "frequency": 4,
         "intro_text": "The Dark Forest isn't the most hospitable place for retired cats, and you're trying to find a dry place to rest. Suddenly, a cat barrels into you, claws and teeth out. Your search must have made you seem distracted - in other words, an easy target.",
         "decline_text": "Annoyed, you wriggle out from the other cat's grasp and hiss at them to respect their elders. Before they have a chance to react, you slip into the darkness.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "Irritated, you hiss at your attacker that they must be particularly weak to target an elder. To your surprise, rdf_c agrees as {PRONOUN/rdf_c/subject} {VERB/rdf_c/emerge/emerges} from the gloom. Apparently rdf_c had directed their trainee - the cat who ambushed you - to track down and attack another cat in the Dark Forest as an assessment of sorts. If {PRONOUN/rdf_c/poss} trainee is resorting to attacking elders, though... rdf_c sighs and apologizes, leading {PRONOUN/rdf_c/poss} trainee away as {PRONOUN/rdf_c/subject} coldly {VERB/rdf_c/suggest/suggests} that maybe they go back to basics.",
+                "text": "Irritated, you hiss at your attacker that they must be particularly weak to target an elder. To your surprise, r_c:0 agrees as {PRONOUN/r_c:0/subject} {VERB/r_c:0/emerge/emerges} from the gloom. Apparently r_c:0 had directed their trainee - the cat who ambushed you - to track down and attack another cat in the Dark Forest as an assessment of sorts. If {PRONOUN/r_c:0/poss} trainee is resorting to attacking elders, though... r_c:0 sighs and apologizes, leading {PRONOUN/r_c:0/poss} trainee away as {PRONOUN/r_c:0/subject} coldly {VERB/r_c:0/suggest/suggests} that maybe they go back to basics.",
                 "exp": 0,
                 "frequency": 4
             },

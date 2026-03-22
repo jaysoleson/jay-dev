@@ -30,7 +30,8 @@
         "any",
         "adult",
         "app",
-        "healer"
+        "healer",
+        "y_c"
       ],
       "title": "CanHaveStat",
       "type": "string"
@@ -129,7 +130,8 @@
         "queen",
         "mediator apprentice",
         "queen's apprentice",
-        "elder"
+        "elder",
+        "df"
       ],
       "title": "MinMaxStatusDictKey",
       "type": "string"
@@ -171,7 +173,14 @@
         "can_have_stat": {
           "description": "Overrides default behavior or adds additional requirements for stat_cat picking.",
           "items": {
-            "$ref": "#/$defs/CanHaveStat"
+            "anyOf": [
+              {
+                "$ref": "#/$defs/CanHaveStat"
+              },
+              {
+                "$ref": "common.schema.json#/$defs/GatherCat"
+              }
+            ]
           },
           "title": "Can Have Stat",
           "type": "array"
@@ -526,10 +535,13 @@
         "app4_mentored",
         "app5_mentored",
         "app6_mentored",
-        "shunned",
+
         "sc_lifegen",
         "ur_lifegen",
-        "df_lifegen"
+        "df_lifegen",
+        "fellowtrainee",
+        "mc_death",
+        "shunned"
       ],
       "title": "PatrolTagEnum",
       "type": "string"

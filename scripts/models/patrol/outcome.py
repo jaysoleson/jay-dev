@@ -10,6 +10,7 @@ from scripts.models.common.min_max_status import MinMaxStatusDictKey
 from scripts.models.common.new_cat import NewCat
 from scripts.models.common.skill import Skill
 from scripts.models.common.trait import Trait
+from scripts.models.common.kit_trait import KitTrait
 from scripts.models.patrol.can_have_status import CanHaveStat
 from scripts.models.patrol.history_text import HistoryText
 from scripts.models.patrol.injury_item import InjuryItem
@@ -35,11 +36,22 @@ class Outcome(BaseModel):
         MISSING,
         description="Makes this a stat outcome which can occur if a stat cat can be found.",
     )
-    stat_trait: Union[List[Trait], MISSING] = Field(
+    # stat_trait: Union[List[Trait], MISSING] = Field(
+    #     MISSING,
+    #     description="Makes this a stat outcome which can occur if a stat cat can be found.",
+    # )
+
+    # LG Change: Need kit traits for LG patrols
+    stat_trait: Union[List[Union[Trait, KitTrait]], MISSING] = Field(
         MISSING,
         description="Makes this a stat outcome which can occur if a stat cat can be found.",
     )
-    can_have_stat: Union[List[CanHaveStat], MISSING] = Field(
+    # can_have_stat: Union[List[CanHaveStat], MISSING] = Field(
+    #     MISSING,
+    #     description="Overrides default behavior or adds additional requirements for stat_cat picking.",
+    # )
+    # LG Change: Need r_c:X abbrevs
+    can_have_stat: Union[List[Union[CanHaveStat, GatherCat]], MISSING] = Field(
         MISSING,
         description="Overrides default behavior or adds additional requirements for stat_cat picking.",
     )

@@ -56,5 +56,10 @@
     "rare": [
         "After making a mistake that almost injures one of the kits, you begin to wonder if the path of a queen's apprentice is truly the right choice.",
         "r_k has found out about your feelings toward yourcrush, and the mischievous look in {PRONOUN/r_k/poss} eye has you unnerved. What {VERB/r_k/are/is} {PRONOUN/r_k/subject} planning?"
+    ],
+    "shunned": [
+        "No one trusts you around the kits anymore.",
+        "Kits shrink away from you when you approach them.",
+        "The stories you once told kits to scare them into staying in camp are now told about you."
     ]
 }

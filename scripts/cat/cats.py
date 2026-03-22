@@ -963,17 +963,18 @@ class Cat:
         else:
             return "general"
 
-    def leave_clan(self, new_social_status: CatSocial, new_group_ID: CatGroup = None):
+    def leave_clan(self, new_social_status: CatSocial, new_group_ID: CatGroup = None, cat_age=None):
         """Removes cat from the Clan willingly. Makes status changes and removes apprentices."""
         # The CatGroup argument is a LifeGen addition!!!! make sure it stays in merges. -jay
         if not new_social_status:
             new_social_status = choice(
                 (CatSocial.KITTYPET, CatSocial.LONER, CatSocial.ROGUE)
             )
-        self.status.leave_group(new_social_status=new_social_status)
+        self.status.leave_group(new_social_status=new_social_status, cat_age=cat_age)
         # LG
         if new_group_ID:
             self.status.add_to_group(new_group_ID)
+        # ---
 
         self.get_new_thought()
 
@@ -1986,6 +1987,26 @@ class Cat:
             if "litter mates" in value["additional"]
         ]
         return other_cat.ID in litter_mates
+
+    # LG
+    def is_half_sibling(self, other_cat:Cat):
+        """ Checks if the cats are half-siblings. These cats share one birth parent, but not two."""
+        if not self.inheritance:
+            self.inheritance = Inheritance(self)
+        all_parents = []
+        all_parents.append(self.parent1)
+        all_parents.append(self.parent2)
+
+        parents_found = 0
+        for parent in all_parents:
+            if parent in [other_cat.parent1, other_cat.parent2]:
+                parents_found += 1
+
+        if parents_found == 1:
+            return True
+
+        return False
+    # ---
 
     def is_uncle_aunt(self, other_cat: Cat):
         """Check if the cats are related as uncle/aunt and niece/nephew."""
