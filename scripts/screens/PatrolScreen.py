@@ -518,9 +518,7 @@ class PatrolScreen(Screens):
             # LIFEGEN ---------------------------------------
             if switch_get_value(Switch.patrol_category) == "lifegen":
                 if "2" in switch_get_value(Switch.patrolled):
-                    pass
-                    # debug: need infinite lg patrols for testing. remember to undo
-                    # self.elements["patrol_start"].disable()
+                    self.elements["patrol_start"].disable()
             elif switch_get_value(Switch.patrol_category) == "df":
                 if "3" in switch_get_value(Switch.patrolled):
                     self.elements["patrol_start"].disable()
@@ -1242,7 +1240,7 @@ class PatrolScreen(Screens):
                 (the_cat.status.is_outsider and the_cat.dead)) and
                 the_cat.moons >= 1 and
                 the_cat not in self.current_patrol
-                # and "2" not in switch_get_value(Switch.patrolled)
+                and "2" not in switch_get_value(Switch.patrolled)
                 ):
                 if the_cat not in self.current_patrol and not the_cat.not_working():
                     self.current_patrol.insert(0, the_cat)
