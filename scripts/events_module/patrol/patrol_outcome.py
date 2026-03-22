@@ -1297,7 +1297,11 @@ class PatrolOutcome:
             acc_categories = Pelt.lifegen_acc_categories
         else:
             acc_categories = Pelt.clangen_acc_categories
+
         for item in acc_list:
+            if item not in acc_categories and item not in Pelt.all_lifegen_accessories:
+                print("WARNING: Invalid accessory present in patrol outcome:", item)
+                continue
             if item in acc_categories:
                 acc_list.remove(item)
                 acc_list.extend(acc_categories[item])

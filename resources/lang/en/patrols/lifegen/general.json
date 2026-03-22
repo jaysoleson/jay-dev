@@ -184,9 +184,7 @@
                             "y_c"
                         ],
                         "accessory": [
-                            "BLACKBELL",
-                            "SPIKESBELL",
-                            "WHITEBELL"
+                            "COLLAR"
                         ]
                     }
                 ]
@@ -209,8 +207,7 @@
                             "y_c"
                         ],
                         "accessory": [
-                            "PURPLEBELL",
-                            "CRIMSONBELL"
+                            "COLLAR"
                         ]
                     }
                 ]
@@ -232,8 +229,7 @@
                             "y_c"
                         ],
                         "accessory": [
-                            "MULTIBELL",
-                            "RAINBOWBELL"
+                            "COLLAR"
                         ]
                     }
                 ]
@@ -276,7 +272,7 @@
                             "n_c:0"
                         ],
                         "accessory": [
-                            "CYANBELL"
+                            "COLLAR"
                         ],
                         "no_results": true
                     }
@@ -771,7 +767,21 @@
                             "y_c"
                         ],
                         "accessory": [
-                            "FLOWER"
+                            "POPPY",
+                            "ORANGE POPPY",
+                            "CYAN POPPY",
+                            "WHITE POPPY",
+                            "PINK POPPY",
+                            "DAISIES",
+                            "DIANTHUS",
+                            "BLEEDING HEARTS",
+                            "FRANGIPANI",
+                            "BLUE GLORY",
+                            "CATNIP FLOWER",
+                            "BLANKET FLOWER",
+                            "ALLIUM",
+                            "LACELEAF",
+                            "PURPLE GLORY"
                         ]
                     }
                 ]

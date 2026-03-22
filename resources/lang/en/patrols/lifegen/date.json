@@ -398,7 +398,21 @@
                             "p_l"
                         ],
                         "accessory": [
-                            "FLOWER"
+                            "POPPY",
+                            "ORANGE POPPY",
+                            "CYAN POPPY",
+                            "WHITE POPPY",
+                            "PINK POPPY",
+                            "DAISIES",
+                            "DIANTHUS",
+                            "BLEEDING HEARTS",
+                            "FRANGIPANI",
+                            "BLUE GLORY",
+                            "CATNIP FLOWER",
+                            "BLANKET FLOWER",
+                            "ALLIUM",
+                            "LACELEAF",
+                            "PURPLE GLORY"
                         ]
                     }
                 ],
@@ -1776,7 +1790,11 @@
                             "r_c"
                         ],
                         "accessory": [
-                            "FLOWERCROWN"
+                            "POPPYCROWN",
+                            "DANDELIONCROWN",
+                            "PURPLEFLOWERCROWN",
+                            "BLUEFLOWERCROWN",
+                            "YELLOWFLOWERCROWN"
                         ]
                     }
                 ],
@@ -2190,7 +2208,11 @@
                             "r_c"
                         ],
                         "accessory": [
-                            "FLOWERCROWN"
+                            "POPPYCROWN",
+                            "DANDELIONCROWN",
+                            "PURPLEFLOWERCROWN",
+                            "BLUEFLOWERCROWN",
+                            "YELLOWFLOWERCROWN"
                         ]
                     }
                 ]

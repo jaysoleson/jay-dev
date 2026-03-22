@@ -852,7 +852,11 @@
                             "r_c:0"
                         ],
                         "accessory": [
-                            "FLOWERCROWN"
+                            "POPPYCROWN",
+                            "DANDELIONCROWN",
+                            "PURPLEFLOWERCROWN",
+                            "BLUEFLOWERCROWN",
+                            "YELLOWFLOWERCROWN"
                         ]
                     }
                 ]
