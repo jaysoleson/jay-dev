@@ -560,13 +560,24 @@ class Status:
             new_rank=CatRank.LONER, standing_with_past_group=CatStanding.EXILED
         )
 
-    def leave_group(self, new_social_status: CatSocial):
+    def leave_group(self, new_social_status: CatSocial, cat_age=None):
         """
         Removes cat from previous group and sets standing with that group to Known.
         :param new_social_status: Indicates what social category the cat now belongs to (i.e. they've been taken by
         Twolegs and are now a kittypet)
         """
-        rank = CatRank(new_social_status)
+        # LG edit
+        # required because CG assumes youre only becoming an outside when you leave a group
+        if new_social_status in (
+            CatSocial.KITTYPET,
+            CatSocial.ROGUE,
+            CatSocial.LONER
+        ):
+            rank = CatRank(new_social_status)
+        else:
+            rank = self.get_rank_from_age(age=cat_age)
+        # ---
+
         self._modify_group(rank, standing_with_past_group=CatStanding.KNOWN)
 
     def add_to_group(
@@ -843,6 +854,32 @@ class Status:
                 return True
 
         return False
+    
+    # LG
+    def get_group_heading_text(self):
+        """
+        LIFEGEN: Gets the heading text for the game based on the group you're currently in
+        """
+        heading_text = "DebugClan"
+        if game.clan.your_cat.status.group.is_any_clan_group():
+            if game.clan.your_cat.status.group_ID == CatGroup.PLAYER_CLAN_ID:
+                heading_text = f"{game.clan.displayname}Clan"
+            else:
+                your_clan = None
+                for other_clan in game.clan.all_other_clans:
+                    if other_clan.group_ID == game.clan.your_cat.status.group_ID:
+                        your_clan = other_clan
+                if your_clan:
+                    heading_text = f"{your_clan.name}Clan"
+                else:
+                    print("LG WARNING: Can't find your cat's group!")
+                    heading_text = f"{game.clan.displayname}Clan"
+        elif game.clan.your_cat.status.group:
+            heading_text = f"The {(game.clan.your_cat.status.group).capitalize().replace("_", " ")}"
+        else:
+            heading_text = "Outside the Clan"
+
+        return heading_text
 
 
 class StatusDict(TypedDict, total=False):

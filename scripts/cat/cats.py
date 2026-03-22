@@ -963,17 +963,18 @@ class Cat:
         else:
             return "general"
 
-    def leave_clan(self, new_social_status: CatSocial, new_group_ID: CatGroup = None):
+    def leave_clan(self, new_social_status: CatSocial, new_group_ID: CatGroup = None, cat_age=None):
         """Removes cat from the Clan willingly. Makes status changes and removes apprentices."""
         # The CatGroup argument is a LifeGen addition!!!! make sure it stays in merges. -jay
         if not new_social_status:
             new_social_status = choice(
                 (CatSocial.KITTYPET, CatSocial.LONER, CatSocial.ROGUE)
             )
-        self.status.leave_group(new_social_status=new_social_status)
+        self.status.leave_group(new_social_status=new_social_status, cat_age=cat_age)
         # LG
         if new_group_ID:
             self.status.add_to_group(new_group_ID)
+        # ---
 
         self.get_new_thought()
 
