@@ -79538,5 +79538,53 @@
             "[You watch as t_c's foot gets caught in a dip in the sand and {PRONOUN/t_c/subject} unceremoniously {VERB/t_c/fall/falls} flat on {PRONOUN/t_c/poss} face.}",
             "[t_c frantically searches for any onlookers, tail puffed, before scuttling off to hide in {PRONOUN/t_c/poss} den.]"
         ]
+    },
+    "daylight_warrior_J1": {
+        "frequency": 4,
+        "cats": {
+            "y_c": {
+                "standing": ["daylight"]
+            },
+            "t_c": {
+                "backstory": ["clanborn"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["neutral"]
+            }
+        ],
+        "intro": [
+            "So, when you're not here, you're away in the Twolegplace? Why would you ever wanna do that?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I'm not sure.",
+                "next_scene": "notsure"
+            },
+            "choice2": {
+                "text": "Because my family is there.",
+                "next_scene": "family"
+            },
+            "choice3": {
+                "text": "Because it's safe.",
+                "next_scene": "itssafe"
+            }
+        },
+        "notsure": [
+            "What? Then why not join the Clan full time?",
+            "We'll always take the extra paws! And you seem like you're cut out for it.",
+            "Think about it, okay?"
+        ],
+        "family": [
+            "Your family? You mean... you're part Twoleg?! Is that why you're so funny-looking?",
+            "No? Oh... My bad."
+        ],
+        "itssafe": [
+            "That weird, grey place full of monsters and Twolegs? There's no way that's safer than camp.",
+            "You're a weird one, y_c."
+        ]
     }
 }

@@ -179,20 +179,40 @@ class Dialogue():
         # print("DIALOGUE WEIGHTS")
         # for key, value in debug_dict.items():
         #     print(f"{key}: {value}")
+        debug_valid = False
         chosen_key = None
+        chosen_cat_dict = {}
         if self.debug:
             if constants.CONFIG["lifegen"]["debug"]["debug_dialogue_override_filtering"]:
+                print(f"Debug: Dialogue set to {self.debug} with overridden filtering.")
                 chosen_key = self.debug
+                debug_valid = True
             elif self.debug in possible_dialogue:
-                chosen_key = self.debug
                 print(f"Debug: Dialogue set to {self.debug}")
-            else:
-                chosen_key = random.choice(possible_dialogue_keys)
+                chosen_key = self.debug
+                chosen_cat_dict = choose_random_cats(
+                    cats_block=possible_dialogue[chosen_key]['cats'],
+                    rel_block=(
+                        possible_dialogue[chosen_key]['relationships']
+                        if "relationships" in possible_dialogue[chosen_key]
+                        else []
+                        ),
+                    your_cat=self.you,
+                    the_cat=self.cat,
+                    cat_dict=self.cat_dict
+                )
+                if chosen_cat_dict:
+                    debug_valid = True
+            if debug_valid:
+                self._populate_cat_dict(chosen_key, chosen_cat_dict)
+
+        if not debug_valid:
+            # if the debug dialogue failed OR debug isnt swt at all:
+            if self.debug:
                 print(
                     f"Debugged Dialogue ID ({self.debug}) is not in possible dialogue options." +
                     " Set debug_dialogue_override_filtering to true to override filtering."
                     )
-        else:
             # shuffle dialogue
             possible_dialogue = dict(random.sample(list(possible_dialogue.items()), len(possible_dialogue)))
             # check possible dialogue for valid cat constraints
