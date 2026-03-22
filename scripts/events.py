@@ -88,7 +88,7 @@ from scripts.events_module.filter_random_cats import choose_random_cats
 
 from scripts.ui.windows.retire_prompt import RetireWindow
 from scripts.ui.windows.name_kits import NameKitsWindow
-from scripts.lifegen_utility import lifegen_text_adjust, get_cluster, check_achievements, get_your_cat_group_count
+from scripts.lifegen_utility import get_cluster, check_achievements, get_your_cat_group_count
 
 class BirthType(Enum):
     NO_PARENTS = "birth_no_parents"
@@ -1387,8 +1387,6 @@ def get_living_cats():
 
 def lifegen_process_text(text):
     cat_dict.clear()
-    text = lifegen_text_adjust(Cat, text, game.clan.your_cat, cat_dict, r_c_allowed=True, o_c_allowed=True)
-
     process_text_dict = cat_dict.copy()
     for abbrev in process_text_dict.keys():
         abbrev_cat = process_text_dict[abbrev]

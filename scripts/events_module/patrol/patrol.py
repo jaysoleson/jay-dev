@@ -46,7 +46,7 @@ from scripts.game_structure.game.switches import (
 )
 
 from scripts.events_module.filter_random_cats import choose_random_cats
-from scripts.lifegen_utility import lifegen_text_adjust, get_cluster, get_cluster
+from scripts.lifegen_utility import get_cluster
 
 logger = logging.getLogger(__name__)
 

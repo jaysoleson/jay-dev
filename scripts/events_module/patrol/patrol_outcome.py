@@ -44,7 +44,7 @@ from scripts.game_structure.game.switches import (
     Switch,
 )
 
-from scripts.lifegen_utility import get_cluster, lifegen_text_adjust
+from scripts.lifegen_utility import get_cluster
 
 
 class PatrolOutcome:
