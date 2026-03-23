@@ -9386,7 +9386,7 @@
             "y_c": {
                 "condition": [
                     "blind:any:false",
-                    "deaf:any:false"
+                    "deaf:any:true"
                 ]
             },
             "t_c": {

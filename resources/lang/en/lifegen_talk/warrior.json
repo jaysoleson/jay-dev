@@ -6307,10 +6307,10 @@
             }
         ],
         "intro": [
-            "[r_c:1 runs through the camp. You swing helplessly in {PRONOUN/r_c:1/poss} jaws as {PRONOUN/r_c:1/subject} {VERB/r_c:1/hold/holds} you by the scruff. {PRONOUN/r_c:1/subject/CAP} {VERB/r_c:1/run/runs} up to t_c who's talking with r_c:0. The queen calls out their names, both cats simultaneously turn around.]",
+            "[r_c:1 runs through the camp. You swing helplessly in {PRONOUN/r_c:1/poss} jaws as {PRONOUN/r_c:1/subject} {VERB/r_c:1/hold/holds} you by the scruff. {PRONOUN/r_c:1/subject/CAP} {VERB/r_c:1/run/runs} up to t_c who's talking with {PRONOUN/t_c/poss} apprentice, r_c:0. The queen calls out their names, and both cats simultaneously turn around.]",
             "|r_c:1|t_c! r_c:0! Do you think y_c could watch you train a little, just to see what it's like?",
             "Uh, yeah, sure... r_c:0, let's try that move we were learning the other day. y_c, sit next to me and please don't move.",
-            "[r_c:0 crouches down and leaps into the air, {PRONOUN/r_c:0/poss} paws flying in all directions as {PRONOUN/r_c:2/subject} {VERB/r_c:0/recite/recites} the movement. You watch gleefully then get up and try it yourself.]",
+            "[r_c:0 crouches down and leaps into the air, {PRONOUN/r_c:0/poss} paws flying in all directions as {PRONOUN/r_c:0/subject} {VERB/r_c:0/recite/recites} the movement. You watch gleefully then get up and try it yourself.]",
             "[r_c:0 looks over at you and begins to laugh, abruptly stopping {PRONOUN/r_c:0/poss} motion as {PRONOUN/r_c:0/subject} {VERB/r_c:0/explode/explodes} into a fit of giggles. t_c looks down at you then smiles slightly.]",
             "No, no- no y_c, you're doing it all wrong, like this!",
             "Yes! There we go! Nicely done! Huh, let's try something else.",
