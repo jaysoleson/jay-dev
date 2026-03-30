@@ -4,23 +4,22 @@ from random import choice, randint
 import ujson
 import re
 from .Screens import Screens
-from scripts.utility import get_text_box_theme, pronoun_repl, get_personality_compatibility
+
+from scripts.ui.theme import get_text_box_theme
+from scripts.ui.scale import ui_scale
+from ..events_module.text_adjust import pronoun_repl
+
+from scripts.events_module.event_filters import get_personality_compatibility
+
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
-from scripts.game_structure import game
-from scripts.game_structure.ui_elements import (
-    UIImageButton,
-    UISpriteButton,
-    UISurfaceImageButton,
-    UIDropDown
-    )
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.sprite_button import UISpriteButton
 from ..ui.generate_box import BoxStyles, get_box
-from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
-from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
-from ..game_structure.game.settings import game_setting_get
+from ..game_structure.game.switches import switch_get_value, Switch
 from scripts.screens.enums import GameScreen
 from scripts.clan_package.settings import get_clan_setting
 

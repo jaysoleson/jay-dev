@@ -1,30 +1,34 @@
 import pygame.transform
 import pygame_gui.elements
 from random import choice, randint
-import ujson
 import math
 import re
-from scripts.cat.history import History
 from scripts.event_class import Single_Event
 from scripts.game_structure import constants
 
 from scripts.screens.enums import GameScreen
-from scripts.cat.enums import CatRank, CatGroup, CatAge
+from scripts.cat.enums import CatRank
 from scripts.game_structure.localization import load_lang_resource
 
 from .Screens import Screens
-from scripts.utility import get_text_box_theme, process_text, pronoun_repl, ui_scale_dimensions
+
+from scripts.ui.theme import get_text_box_theme
+from scripts.ui.scale import ui_scale, ui_scale_dimensions
+from ..events_module.text_adjust import pronoun_repl, process_text
+
+
 from scripts.cat.cats import Cat, INJURIES
 from scripts.game_structure import image_cache
-from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UISurfaceImageButton
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.sprite_button import UISpriteButton
 from scripts.game_structure import game
 from scripts.cat.skills import SkillPath
 from ..ui.generate_box import BoxStyles, get_box
-from scripts.utility import ui_scale
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
-from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch, switch_append_list_value
+from ..game_structure.game.switches import switch_set_value, Switch, switch_append_list_value
 
 
 
@@ -1643,8 +1647,8 @@ class MurderScreen(Screens):
         ceremony_txt = choice(ceremony_txt)
 
         other_clan = choice(game.clan.all_other_clans)
-        ceremony_txt = ceremony_txt.replace('c_n', game.clan.name)
         ceremony_txt = ceremony_txt.replace("o_c_n", str(other_clan.name) + "Clan")
+        ceremony_txt = ceremony_txt.replace('c_n', game.clan.name)
     
         medcats = []
         for cat in Cat.all_cats_list:

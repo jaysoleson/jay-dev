@@ -86,6 +86,7 @@
         "dead_cat_backstories": "dead",
         "starclan_backstories": "dead",
         "df_backstories": "dead",
+        "oldstarclan_backstories": "dead",
 
         "beginning_clanborn": "{PRONOUN/m_c/subject/CAP} {VERB/m_c/were/was} born on moon %{birth_moon} during %{birth_season}.",
 

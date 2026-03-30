@@ -5,10 +5,9 @@ import os
 import ujson
 
 from scripts.cat.enums import CatGroup
-# CHECKMERGE: check cg dev for these unused imports
 from scripts.cat.skills import SkillPath
 from scripts.game_structure import game
-from scripts.utility import adjust_list_text
+from scripts.events_module.text_adjust import adjust_list_text
 
 
 class History:
@@ -335,7 +334,8 @@ class History:
                 SkillPath.TREASURE: ["finding gifts"],
                 SkillPath.FISHER: ["fishing"],
                 SkillPath.LANGUAGE: ["using their words"],
-                SkillPath.SLEEPER: ["self-care"]
+                SkillPath.SLEEPER: ["self-care"],
+                SkillPath.GARDENER: ["taking care of plants"]
             }
         
         for _ment in self.mentor_influence["skill"]:

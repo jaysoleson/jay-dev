@@ -18,8 +18,8 @@ import ujson
 os.environ["SDL_VIDEODRIVER"] = "dummy"
 os.environ["SDL_AUDIODRIVER"] = "dummy"
 
-from scripts.game_structure.localization import get_new_pronouns
-from scripts.utility import process_text
+from scripts.cat.pronouns import get_new_pronouns
+from scripts.events_module.text_adjust import process_text
 
 
 def _test():
@@ -59,87 +59,44 @@ def _test():
         "mur_c": _r,
         "t_c": _r,
         "y_c": _r,
-        "d_c": _r,
-        "d_n": _r,
-        "r_a": _r, 
-        "r_m": _r,
-        "y_p": _r,
-        "tm_n": _r,
-        "t_l": _r, 
-        "t_m": _r, 
-        "t_p": _r,
-        "t_a": _r,
         "parent": _r,
         "parent1": _r,
         "parent2": _r,
         "sibling": _r,
-        "t_s": _r,
-        "t_k": _r,
-        "t_ka": _r,
-        "t_kk": _r,
-        "y_m": _r,
-        "m_n": _r,
-        "r_q": _r,
-        "r_k": _r,
-        "r_e": _r,
+       
         "crush1": _r,
         "theircrush": _r,
         "yourcrush": _r,
         "mate1": _r,
-        "r_w": _r,
-        "r_w1": _r,
-        "r_w2": _r,
-        "r_w3": _r,
-        "y_a": _r,
-        "r_s": _r,
-        "r_i": _r,
-        "y_s": _r,
-        "y_l": _r,
-        "r_d": _r,
-        "df_y_a": _r,
-        "df_m_n": _r,
-        "t_df_mn": _r,
-        "rsc_c": _r,
-        "a_n": _r,
-        "t_q": _r,
-        "y_k": _r,
-        "y_kk": _r,
-        "rdf_c": _r,
-        "fc_c": _r,
-        "v_c": _r,
-        "l_c": _r,
-        "e_c": _r,
-        "rsh_c": _r,
-        "rsh_w": _r,
-        "rsh_e": _r,
-        "rsh_a": _r,
-        "rsh_d": _r,
-        "rsh_m": _r,
-        "rsh_k": _r,
-        "sh_d": _r,
-        "sh_l": _r,
         "c_n": _r,
         "o_c_n": _r,
         "lead_name": _r,
         "dep_name": _r,
         "med_name": _r,
         "cat_tag": _r,
-        "tg_c": _r,
-        "yg_c": _r,
-        "n_r1": _r,
-        "n_r2": _r,
         "insert_siblings": _r,
-        "o_c1": _r
+        "o_c1": _r,
+        "to_cat": _r,
+        "from_cat": _r,
     }
 
     for x in range(0, 11):
         replacement_dict[f"n_c:{x}"] = _r
 
+    # LG
+    for x in range(0, 11):
+        replacement_dict[f"r_c:{x}"] = _r
+    # ---
+
     for root, _, files in os.walk("resources"):
         for file in files:
-            if root == "resources\\dicts\\lifegen_talk\\old\\focuses":
-                continue
-            if root == "resources\\dicts\\lifegen_talk\\old":
+            if (
+                (
+                    "lifegen_events" in root and
+                    "lifegen_events\\NEW" not in root
+                )
+                ):
+                # TEMP: ignore old event files
                 continue
             if file.endswith(".json") and file not in (
                 "credits_text.json",

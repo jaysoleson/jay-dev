@@ -1,6 +1,6 @@
 from collections import defaultdict
 from itertools import groupby
-from random import choice
+from random import choice, choices
 from typing import TypedDict, Optional, List, Dict
 
 from scripts.cat.enums import CatRank, CatSocial, CatStanding, CatAge, CatGroup
@@ -67,7 +67,13 @@ class Status:
             standing_copy = entry["standing"].copy()
             entry["standing"].clear()
             for standing in standing_copy:
-                entry["standing"].append(CatStanding(standing))
+                # LG
+                # because the "shunned" standing is a list containing the shunned moon
+                if isinstance(standing, list):
+                    entry["standing"].append(standing)
+                else:
+                    entry["standing"].append(CatStanding(standing))
+                # ---
 
         # just some extra checks in case a str snuck in
         if rank or social:
@@ -325,12 +331,11 @@ class Status:
         """
         Returns True if the cat is currently part of the same group as your cat
         """
+        if not game.clan.your_cat or not game.clan:
+            return self.alive_in_player_clan
         # this fails tests bc it checks this before Clan exists
         # so... nonecheck failsafe
-        if game.clan:
-            return self.group == game.clan.your_cat.status.group
-        else:
-            return self.alive_in_player_clan
+        return self.group == game.clan.your_cat.status.group
 
     @property
     def is_outsider(self) -> bool:
@@ -373,6 +378,13 @@ class Status:
     def is_leader(self) -> bool:
         return self.rank == CatRank.LEADER
 
+    @property
+    def did_join_group_this_moon(self) -> bool:
+        """
+        Returns True if newest group_history entry has a moons_as of 0
+        """
+        return self.group_history[-1]["moons_as"] == 0
+
     @staticmethod
     def get_rank_from_age(age: CatAge, disable_random=False) -> CatRank:
         """
@@ -388,20 +400,24 @@ class Status:
             return (
                 CatRank.APPRENTICE
                 if disable_random
-                else choice(
+                else choices(
                     [
                         CatRank.APPRENTICE,
                         CatRank.MEDIATOR_APPRENTICE,
                         CatRank.MEDICINE_APPRENTICE,
-                        CatRank.QUEENS_APPRENTICE
-                    ]
-                )
+                        CatRank.QUEENS_APPRENTICE,
+                    ],
+                    weights=[6, 1, 2, 1],
+                )[0]
             )
         elif age in (CatAge.YOUNG_ADULT, CatAge.ADULT, CatAge.SENIOR_ADULT):
             return (
                 CatRank.WARRIOR
                 if disable_random
-                else choice([CatRank.WARRIOR, CatRank.MEDICINE_CAT, CatRank.MEDIATOR])
+                else choices(
+                    [CatRank.WARRIOR, CatRank.MEDICINE_CAT, CatRank.MEDIATOR, CatRank.QUEEN],
+                    weights=[6, 2, 1, 1],
+                )[0]
             )
         else:
             return CatRank.ELDER
@@ -444,17 +460,19 @@ class Status:
         new_rank: CatRank,
         standing_with_past_group: CatStanding = None,
         new_group_ID: str = None,
+        forced_old_group_ID: str = None,
     ):
         """
         Changes group status for a cat. They can be entering, leaving, or switching their group.
         :param new_group_ID: the ID of the new group they will be joining, default None
+        :param forced_old_group_ID: Only use if you're trying to modify a cat's place in a group they're no longer part of. Generally don't do this. It's just here for special cases (like when lost clancats have kittens while lost, and those kittens need to be considered lost from a group they weren't part of)
         :param new_rank: Indicate what rank the cat should take, if they aren't joining a new group then this should
         match their social.
         :param standing_with_past_group: Indicate what standing the cat should have with their old group, leave None if
         they didn't have a group
         """
         if standing_with_past_group:
-            self.change_standing(standing_with_past_group)
+            self.change_standing(standing_with_past_group, forced_old_group_ID)
 
         self.group_history.append(
             {"group": new_group_ID, "rank": new_rank, "moons_as": 0}
@@ -492,26 +510,45 @@ class Status:
             {"group": group_ID, "standing": [new_standing], "near": True}
         )
 
-    def become_lost(self, new_social_status: CatSocial = CatSocial.KITTYPET):
+    def make_standing_unknown(self, group_ID: str):
+        """
+        Erases standing with a group and replaces it with UNKNOWN. Best used when generating a new cat.
+        """
+        record = [r for r in self.standing_history if r["group"] == group_ID]
+        if not record:
+            self.change_standing(new_standing=CatStanding.UNKNOWN, group_ID=group_ID)
+        else:
+            record[0]["standing"] = [CatStanding.UNKNOWN]
+
+    def become_lost(
+        self,
+        new_social_status: CatSocial = CatSocial.KITTYPET,
+        specific_group: str = None,
+    ):
         """
         Removes from previous group and sets standing with that group to Lost.
         :param new_social_status: Indicates what social category the cat now belongs to (i.e. they've been taken by
         Twolegs and are now a kittypet)
+        :param specific_group: If you want to make this cat "lost" from a group they aren't currently part of, include the group ID here
         """
         # find matching rank enum
         rank = CatRank(new_social_status)
 
-        self._modify_group(rank, standing_with_past_group=CatStanding.LOST)
+        self._modify_group(
+            rank,
+            standing_with_past_group=CatStanding.LOST,
+            forced_old_group_ID=specific_group,
+        )
 
-    def shun_from_group(self):
+    def shun_from_group(self, group_ID=None):
         """
         Removes cat from current group and changes their standing with that group to be shunned.
         """
 
-        self.change_standing(CatStanding.SHUNNED)
+        self.change_standing(CatStanding.SHUNNED, group_ID=group_ID)
 
-    def unshun_from_group(self):
-        self.change_standing(CatStanding.MEMBER)
+    def unshun_from_group(self, group_ID=None):
+        self.change_standing(CatStanding.MEMBER, group_ID=group_ID)
 
     def exile_from_group(self):
         """
@@ -522,6 +559,26 @@ class Status:
         self._modify_group(
             new_rank=CatRank.LONER, standing_with_past_group=CatStanding.EXILED
         )
+
+    def leave_group(self, new_social_status: CatSocial, cat_age=None):
+        """
+        Removes cat from previous group and sets standing with that group to Known.
+        :param new_social_status: Indicates what social category the cat now belongs to (i.e. they've been taken by
+        Twolegs and are now a kittypet)
+        """
+        # LG edit
+        # required because CG assumes youre only becoming an outside when you leave a group
+        if new_social_status in (
+            CatSocial.KITTYPET,
+            CatSocial.ROGUE,
+            CatSocial.LONER
+        ):
+            rank = CatRank(new_social_status)
+        else:
+            rank = self.get_rank_from_age(age=cat_age)
+        # ---
+
+        self._modify_group(rank, standing_with_past_group=CatStanding.KNOWN)
 
     def add_to_group(
         self,
@@ -550,6 +607,14 @@ class Status:
         if self.group.is_afterlife():
             new_rank = self.rank
         # adding a cat who has been in a clan in the past, they will take their old rank if possible
+        # LG
+        elif new_group_ID == CatGroup.ROGUE_GROUP_ID:
+            new_rank = CatRank.ROGUE
+        elif new_group_ID == CatGroup.HOUSEHOLD_ID:
+            new_rank = CatRank.KITTYPET
+        elif new_group_ID == CatGroup.LONER_GROUP_ID:
+            new_rank = CatRank.LONER
+        # ---
         elif self.is_former_clancat and not self.group.is_afterlife():
             new_rank = self.find_prior_clan_rank()
             # we don't need to change leaders and deps if they're going to an afterlife
@@ -682,11 +747,27 @@ class Status:
 
         return None
 
-    def is_lost(self, group_ID: str = None) -> bool:
+    def get_last_valid_group_id(self) -> Optional[str]:
+        """
+        Returns the last group that this cat was part of. If they have never been affiliated with a group, returns None.
+        :return:
+        """
+        history = self.group_history.copy()
+        history.reverse()
+
+        for entry in history:
+            group_type = game.used_group_IDs.get(entry["group"])
+            if group_type is not None:
+                return entry["group"]
+
+        return None
+
+    def is_lost(self, group_ID: str = CatGroup.PLAYER_CLAN_ID) -> bool:
         """
         Returns True if the cat is considered "lost" by a group.
         :param group_ID: use this to specify a certain group to check lost status against
         """
+
         for entry in self.standing_history:
             if group_ID and entry["group"] != group_ID:
                 continue
@@ -773,6 +854,32 @@ class Status:
                 return True
 
         return False
+    
+    # LG
+    def get_group_heading_text(self):
+        """
+        LIFEGEN: Gets the heading text for the game based on the group you're currently in
+        """
+        heading_text = "DebugClan"
+        if game.clan.your_cat.status.group.is_any_clan_group():
+            if game.clan.your_cat.status.group_ID == CatGroup.PLAYER_CLAN_ID:
+                heading_text = f"{game.clan.displayname}Clan"
+            else:
+                your_clan = None
+                for other_clan in game.clan.all_other_clans:
+                    if other_clan.group_ID == game.clan.your_cat.status.group_ID:
+                        your_clan = other_clan
+                if your_clan:
+                    heading_text = f"{your_clan.name}Clan"
+                else:
+                    print("LG WARNING: Can't find your cat's group!")
+                    heading_text = f"{game.clan.displayname}Clan"
+        elif game.clan.your_cat.status.group:
+            heading_text = f"The {(game.clan.your_cat.status.group).capitalize().replace("_", " ")}"
+        else:
+            heading_text = "Outside the Clan"
+
+        return heading_text
 
 
 class StatusDict(TypedDict, total=False):

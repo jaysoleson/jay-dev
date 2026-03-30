@@ -27,6 +27,8 @@
             "many": "%{cats} ghosts now wander."
         },
         "met_outsider": "The patrol met %{cats}.",
+        "met_first_encountered": "You have met %{cats}.",
+        "met_encountered": "You have spoken with %{cats}.",
         "new_outsider": "%{cats} joined the Clan.",
         "lost_cats": {
             "one": "%{cats} has been lost.",
@@ -55,6 +57,7 @@
         "prey_small": "A small amount of prey is brought to camp.",
         "prey_medium": "A medium amount of prey is brought to camp.",
         "prey_large": "A large amount of prey is brought to camp.",
-        "prey_huge": "A huge amount of prey is brought to camp."
+        "prey_huge": "A huge amount of prey is brought to camp.",
+        "relationship_changed": "Relationships between cats in the Clan have changed."
     }
 }
