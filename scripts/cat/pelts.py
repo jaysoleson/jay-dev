@@ -1221,8 +1221,7 @@ class Pelt:
             acc_display_choice = random.randint(0, 100)
 
         if acc_display_choice == 1:
-            self.accessory = tuple(
-                (choice(
+            chosen_accessory = choice(
                     Pelt.plant_accessories +
                     Pelt.wild_accessories +
                     Pelt.aliveInsect_accessories +
@@ -1230,10 +1229,14 @@ class Pelt:
                     Pelt.fruit_accessories +
                     Pelt.plant2_accessories
                     )
-                ,)
+            self.accessory = tuple(
+                (chosen_accessory,)
             )
+            self.inventory = [chosen_accessory]
         else:
             self.accessory = tuple()
+            self.inventory = []
+
 
     def init_pattern(self):
         if self.name in Pelt.torties:

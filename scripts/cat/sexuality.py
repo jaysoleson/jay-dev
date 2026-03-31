@@ -250,6 +250,11 @@ class Sexuality():
             elif "pan" in self.sexuality_label:
                 valid_flags.append("PANSEXUAL")
 
+        if self.arospec.upper() in Pelt.all_pridegen_accessories:
+            valid_flags.append(self.arospec.upper())
+        if self.acespec.upper() in Pelt.all_pridegen_accessories:
+            valid_flags.append(self.acespec.upper())
+
         if (
             not self.likes_toms and
             not self.likes_she_cats and
@@ -259,11 +264,6 @@ class Sexuality():
         ):
             valid_flags.append("AROACE")
             valid_flags.append("AROACEFLUX")
-
-        if self.arospec.upper() in Pelt.all_pridegen_accessories:
-            valid_flags.append(self.arospec.upper())
-        if self.acespec.upper() in Pelt.all_pridegen_accessories:
-            valid_flags.append(self.acespec.upper())
 
         if self.arospec == Arospec.DEMI and self.acespec == Acespec.DEMI:
             valid_flags.append("DEMIAROACE")
@@ -316,15 +316,15 @@ class Sexuality():
         if cat.age.is_baby():
             return
 
-        correct_flags = cat.sexuality.find_valid_flags(cat)
+        correct_flags = self.find_valid_flags(cat)
 
         for flag in Pelt.all_pridegen_accessories:
             if flag in cat.pelt.inventory:
                 cat.pelt.inventory.remove(flag)
-                cat.pelt.accessory = tuple(
-                    accessory for accessory in cat.pelt.accessory if
-                    accessory != flag
-                )
+                # cat.pelt.accessory = tuple(
+                #     accessory for accessory in cat.pelt.accessory if
+                #     accessory != flag
+                # )
 
         sorted_flags = list(set(correct_flags))
 
@@ -336,6 +336,10 @@ class Sexuality():
         autoequip = True
         if autoequip:
             skip = False
+            cat.pelt.accessory = tuple(
+                accessory for accessory in cat.pelt.accessory if
+                not (accessory in Pelt.all_pridegen_accessories and accessory not in correct_flags)
+            )
             for acc in cat.pelt.accessory:
                 if acc in correct_flags:
                     skip = True

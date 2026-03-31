@@ -641,7 +641,7 @@ class MakeClanScreen(Screens):
                 game.choose_cats[a].moons = choice([1, 2, 3, 4, 5])
 
             # fucking inventory
-            game.choose_cats[a].pelt.inventory = []
+            # game.choose_cats[a].pelt.inventory = []
 
             if self.clan_age == "new":
                 if game.choose_cats[a].status not in ['newborn', 'kitten']:

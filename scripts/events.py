@@ -4198,6 +4198,7 @@ def sexuality_change(cat):
                         event_text_adjust(
                             Cat, f"m_c has a new identity ({cat.sexuality.sexuality_label})!", clan=game.clan, main_cat=cat
                         ),
+                        ["misc"],
                         cats_involved=[cat.ID]
                     ),
                 )

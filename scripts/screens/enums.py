@@ -47,3 +47,6 @@ class GameScreen(StrEnum):
     NAME_KITS = "name_kits_screen"
     QUEEN = "queen_screen"
     TALK = "talk_screen"
+
+    # PRIDEGEN
+    SEXUALITY = "change_sexuality"

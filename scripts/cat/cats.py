@@ -494,11 +494,6 @@ class Cat:
             self.age,
         )
 
-        # PRIDEGEN-- Sexuality
-        if not self.sexuality:
-            self.sexuality = Sexuality()
-            self.sexuality.init_random_sexuality(self.genderalign)
-
         # Personality
         if disable_random:
             self.personality = Personality(
@@ -541,6 +536,12 @@ class Cat:
 
         if not skill_dict:
             self.skills = CatSkills.generate_new_catskills(self.status.rank, self.age)
+
+        # PRIDEGEN-- Sexuality
+        if not self.sexuality:
+            self.sexuality = Sexuality()
+            self.sexuality.init_random_sexuality(self.genderalign)
+            self.sexuality.give_bandanas(self)
 
     def __repr__(self):
         return "CAT OBJECT:" + self.ID

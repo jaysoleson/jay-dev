@@ -39,6 +39,8 @@ from .GiftScreen import GiftScreen
 from .ElderStoryScreen import ElderStoryScreen
 from .enums import GameScreen
 
+from .ChangeSexualityScreen import ChangeSexualityScreen
+
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
 # ---------------------------------------------------------------------------- #
@@ -103,7 +105,9 @@ def rebuild_all_screens():
         GameScreen.CHOOSE_DEPUTY: DeputyScreen,
         GameScreen.ACHIEVEMENTS: AchievementScreen,
         GameScreen.ELDER_STORY: ElderStoryScreen,
-        GameScreen.QUEEN: QueenScreen
+        GameScreen.QUEEN: QueenScreen,
+
+        GameScreen.SEXUALITY: ChangeSexualityScreen
     }
 
     for enum, classobj in enum_to_class.items():
