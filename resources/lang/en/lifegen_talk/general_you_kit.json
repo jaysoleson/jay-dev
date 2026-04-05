@@ -15300,7 +15300,7 @@
                 "age": [
                     "kitten"
                 ],
-                "conditions": [
+                "condition": [
                     "deaf:any:false",
                     "blind:any:false"
                 ]
@@ -15317,7 +15317,7 @@
                 "skill": [
                     "CLEAN,1"
                 ],
-                "conditions": [
+                "condition": [
                     "deaf:any:false"
                 ]
             }
@@ -15431,22 +15431,5 @@
             "[t_c is trying to teach you to hunt.]",
             "[Despite your size, you're doing pretty well!]"
         ]
-    },
-    "testdialogue": {
-        "frequency": 1,
-        "cats": {
-            "y_c": {},
-            "t_c": {
-                "rank": ["df_trainee"]
-            }
-        },
-        "intro": [
-            "I'm leaving the Dark Forest."
-        ],
-        "intro_scene_effects": {
-            "dark_forest": {
-                "leave": ["t_c"]
-            }
-        }
     }
 }

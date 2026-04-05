@@ -5713,7 +5713,7 @@
                 "age": [
                     "not_newborn"
                 ],
-                "conditions": [
+                "condition": [
                     "hearing",
                     "blind:any:false"
                 ],
