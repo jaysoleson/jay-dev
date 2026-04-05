@@ -8313,21 +8313,20 @@
             "The capacity to explore them is a gift. Use it well."
         ],
         "intro_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": 10,
-                    "respect": 10,
-                    "comfort": 10,
-                    "trust": 10
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "comfort",
+                        "respect",
+                        "trust"
+                    ],
+                    "mutual": true,
+                    "amount": 10
+                }
+            ]
         }
     },
     "sillyunlawful_familygiftwarm_JOL": {
@@ -8389,19 +8388,18 @@
                 ],
                 "addition": "choice"
             },
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": 10,
-                    "comfort": 10
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": 10
+                }
+            ]
         }
     },
     "sillyunlawful_familygiftcold_JOL": {
@@ -8463,19 +8461,18 @@
                 ],
                 "addition": "choice"
             },
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": 10,
-                    "comfort": 10
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": 10
+                }
+            ]
         }
     },
     "elderswimmer_notnewborn_JOL": {
@@ -8534,19 +8531,18 @@
             "Remember to keep up with your exercise too, y_c."
         ],
         "intro_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "respect": 2,
-                    "trust": 2
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "respect",
+                        "trust"
+                    ],
+                    "mutual": true,
+                    "amount": 5
+                }
+            ]
         }
     },
     "neurotic_avix1": {

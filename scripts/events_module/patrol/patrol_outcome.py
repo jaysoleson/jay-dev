@@ -710,10 +710,7 @@ class PatrolOutcome:
         results = []
         for _cat in cats_to_convert:
             results.append(f"{_cat.name} has joined the Dark Forest.")
-            _cat.joined_df = True
-            _cat.df_join_moon = game.clan.age
-            _cat.faith -= 1
-            _cat.update_df_mentor()
+            _cat.join_df()
             
         return " ".join(results)
     

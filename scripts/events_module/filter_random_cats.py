@@ -1,7 +1,7 @@
 import random
 
 from scripts.game_structure import game
-from scripts.cat.enums import CatGroup
+from scripts.cat.enums import CatGroup, CatRank
 from scripts.cat.cats import Cat, BACKSTORIES
 from scripts.lifegen_utility import get_cluster
 from scripts.clan_package.settings import get_clan_setting
@@ -233,25 +233,26 @@ def __filter_rank(abbrev_block, cat):
         ):
         return False
     elif (
-        "df_trainee" in abbrev_block["rank"] and
-            not (cat.joined_df)
+        "df_trainee" in abbrev_block["rank"]
         ):
-        return False
+        if not cat.joined_df:
+            return False
     elif (
-        "not_df_trainee" in abbrev_block["rank"] and
-            (cat.joined_df)
+        "not_df_trainee" in abbrev_block["rank"]
         ):
-        return False
+        if cat.joined_df:
+            return False
     elif (
-        "guide" in abbrev_block["rank"] and
-            cat not in (game.clan.instructor, game.clan.demon)
+        "guide" in abbrev_block["rank"]
         ):
-        return False
-    elif (
-        cat.status.rank not in abbrev_block["rank"] and
-        cat.status.rank.replace(' ', '_') not in abbrev_block["rank"]
-        ):
-        return False
+        if cat not in (game.clan.instructor, game.clan.demon):
+            return False
+    elif any(rank in abbrev_block["rank"] for rank in [CatRank.WARRIOR, CatRank.APPRENTICE]):
+        if (
+            cat.status.rank not in abbrev_block["rank"] and
+            cat.status.rank.replace(' ', '_') not in abbrev_block["rank"]
+            ):
+            return False
     return True
 
 def __filter_skill(abbrev_block, cat):
