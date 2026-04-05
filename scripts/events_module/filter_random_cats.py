@@ -180,6 +180,9 @@ def __filter_group(abbrev_block, cat, your_cat):
                 f"not_{cat.status.group}" in abbrev_block["group"]
             ) or 
             (
+                f"-{cat.status.group}" in abbrev_block["group"]
+            ) or 
+            (
                 "your_group" in abbrev_block["group"] and
                 not cat.status.group == your_cat.status.group
             )
@@ -219,6 +222,8 @@ def __filter_age(abbrev_block, cat):
 
     if f"not_{cat.age}" in abbrev_block["age"]:
         return False
+    elif f"-{cat.age}" in abbrev_block["age"]:
+        return False
     elif cat.age not in abbrev_block["age"]:
         return False
 
@@ -229,7 +234,8 @@ def __filter_rank(abbrev_block, cat):
         return True
     if (
         f"not_{cat.status.rank}" in abbrev_block["rank"] or
-        f"not_{cat.status.rank.replace(' ', '_')}" in abbrev_block["rank"]
+        f"not_{cat.status.rank.replace(' ', '_')}" in abbrev_block["rank"] or
+        f"-{cat.status.rank.replace}" in abbrev_block["rank"]
         ):
         return False
     elif (
