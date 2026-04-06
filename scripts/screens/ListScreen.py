@@ -752,7 +752,7 @@ class ListScreen(Screens):
             else:
                 group = i18n.t(
                     f"general.{self.current_group}",
-                    your_group=f"The {(game.clan.your_cat.status.group).replace("_", " ")}"
+                    your_group=f"The {(game.clan.your_cat.status.group).replace('_', ' ')}"
                     )
             if self.current_group == "starclan":
                 if not game.starclan or not game.starclan.influencing_cats:
