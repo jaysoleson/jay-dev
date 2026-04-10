@@ -580,36 +580,36 @@ class SettingsScreen(Screens):
 
         in_use = []
         all_clans = game.read_clans()
-        for clan in all_clans:
-            json_path = f"{get_save_dir()}/{clan}/infection.json"
-            if os.path.exists(json_path):
-                with open(json_path, "r") as read_file:
-                    infection_info = ujson.loads(read_file.read())
-                    if "current_infection" in infection_info:
-                        inftype = infection_info[infection_info['current_infection']]["type"]
-                    elif "infection_type" in infection_info:
-                        inftype = infection_info["infection_type"]
-                    else:
-                        print("No infection type found for save?")
-                        continue
-                    in_use.append(inftype)
-
-            conditions_folder = f"{get_save_dir()}/{clan}/conditions/"
-            if os.path.exists(conditions_folder):
-                for filename in os.listdir(conditions_folder):
-                    json_path = conditions_folder + filename
-
+        if all_clans:
+            for clan in all_clans:
+                json_path = f"{get_save_dir()}/{clan}/infection.json"
+                if os.path.exists(json_path):
                     with open(json_path, "r") as read_file:
-                        conditions_data = ujson.loads(read_file.read())
-                        if 'illnesses' in conditions_data:
-                            for name, condition in conditions_data['illnesses'].items():
-                                if "type" in condition:
-                                    if condition["type"] not in in_use:
-                                        in_use.append(condition["type"])
-                                        print("A cat has", condition["type"])
-                                if all(item in game.settings['custom infection types'] for item in in_use):
-                                    break
-                    break
+                        infection_info = ujson.loads(read_file.read())
+                        if "current_infection" in infection_info:
+                            inftype = infection_info[infection_info['current_infection']]["type"]
+                        elif "infection_type" in infection_info:
+                            inftype = infection_info["infection_type"]
+                        else:
+                            print("No infection type found for save?")
+                            continue
+                        in_use.append(inftype)
+
+                conditions_folder = f"{get_save_dir()}/{clan}/conditions/"
+                if os.path.exists(conditions_folder):
+                    for filename in os.listdir(conditions_folder):
+                        json_path = conditions_folder + filename
+
+                        with open(json_path, "r") as read_file:
+                            conditions_data = ujson.loads(read_file.read())
+                            if 'illnesses' in conditions_data:
+                                for name, condition in conditions_data['illnesses'].items():
+                                    if "type" in condition:
+                                        if condition["type"] not in in_use:
+                                            in_use.append(condition["type"])
+                                    if all(item in game.settings['custom infection types'] for item in in_use):
+                                        break
+                        break
         i = 0
         for inftype in game.settings["custom infection types"]:
             # CHECKBOX
