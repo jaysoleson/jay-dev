@@ -332,6 +332,10 @@ def __filter_backstory(abbrev_block, cat):
                 ):
                 backstory_found = True
                 break
+            if f"-{cat.backstory}" in (
+                BACKSTORIES["backstory_categories"][backstory_tag_dict[tag]]
+                ):
+                break
         elif tag == cat.backstory:
             backstory_found = True
             break
