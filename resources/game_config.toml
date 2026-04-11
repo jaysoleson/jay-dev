@@ -749,7 +749,7 @@ dev_tools = false
 [lifegen]
   [lifegen.debug]
     debug_ensure_focus = ""
-    debug_ensure_dialogue = "testdialogue"
+    debug_ensure_dialogue = ""
     debug_dialogue_override_filtering = false
 
   [lifegen.shunned_cat]
