@@ -2736,17 +2736,11 @@ class Cat:
         elif other_cat.genderalign in Sexuality.female_genders:
             if not self.sexuality.likes_she_cats:
                 return False
-        else:
-            if not self.sexuality.likes_enbies:
-                return False
         if self.genderalign in Sexuality.male_genders:
             if not other_cat.sexuality.likes_toms:
                 return False
         elif self.genderalign in Sexuality.female_genders:
             if not other_cat.sexuality.likes_she_cats:
-                return False
-        else:
-            if not other_cat.sexuality.likes_enbies:
                 return False
         
         if demiromantic_functionality:

@@ -29,19 +29,19 @@ class Sexuality():
             sexuality_label="",
             likes_toms=False,
             likes_she_cats=False,
-            likes_enbies=False,
 
             arospec_label="",
             acespec_label="",
             acespec=Acespec.ALLO,
             arospec=Arospec.ALLO,
 
-            t4t=False
+            t4t=False,
+
+            upcoming_sexuality={}
             ):
         self.sexuality_label = sexuality_label
         self.likes_toms = likes_toms
         self.likes_she_cats = likes_she_cats
-        self.likes_enbies = likes_enbies
 
         self.acespec_label = acespec_label
         self.arospec_label = arospec_label
@@ -50,6 +50,8 @@ class Sexuality():
 
         self.t4t = t4t
 
+        self.upcoming_sexuality = upcoming_sexuality
+
     # CAT GENERATION
     def generate_sexuality_label(self, genderalign):
         """
@@ -57,39 +59,30 @@ class Sexuality():
         """
         if genderalign in self.male_genders:
             label_dict = {
-                (True, False, False): "gay",
-                (True, False, True): "gay",
-                (False, True, False): "straight",
-                (False, True, True): "straight",
-                (True, True, False): random.choice(["biXX", "panXX"]),
-                (True, True, True): random.choice(["biXX", "panXX"]),
-                (False, False, False): "aroace"
+                (True, False): "gay",
+                (False, True): "straight",
+                (True, True): random.choice(["biXX", "panXX"]),
+                (False, False): "aroace"
             }
         elif genderalign in self.female_genders:
             label_dict = {
-                (True, False, False): "straight",
-                (True, False, True): "straight",
-                (False, True, False): "lesbian",
-                (False, True, True): "lesbian",
-                (True, True, False): random.choice(["biXX", "panXX"]),
-                (True, True, True): random.choice(["biXX", "panXX"]),
-                (False, False, False): "aroace"
+                (True, False): "straight",
+                (False, True): "lesbian",
+                (True, True): random.choice(["biXX", "panXX"]),
+                (False, False): "aroace"
             }
         else:
             label_dict = {
-                (True, False, False): "androXX",
-                (True, False, True): "androXX",
-                (False, True, False): "gynoXX",
-                (False, True, True): "gynoXX",
-                (True, True, False): random.choice(["biXX", "panXX"]),
-                (True, True, True): random.choice(["biXX", "panXX"]),
-                (False, False, False): "aroace"
+                (True, False): "androXX",
+                (False, True): "gynoXX",
+                (True, True): random.choice(["biXX", "panXX"]),
+                (False, False): "aroace"
             }
 
         cat_arospec = False
         cat_acespec = False
 
-        first_label = label_dict[(self.likes_toms, self.likes_she_cats, self.likes_enbies)]
+        first_label = label_dict[(self.likes_toms, self.likes_she_cats)]
         if self.acespec != Acespec.ALLO and first_label != "aroace":
             cat_acespec = True
         if self.arospec != Arospec.ALLO and first_label != "aroace":
@@ -115,8 +108,7 @@ class Sexuality():
 
         if (
             not self.likes_toms and
-            not self.likes_she_cats and
-            not self.likes_enbies
+            not self.likes_she_cats
         ):
             self.arospec = Arospec.ARO
             self.acespec = Acespec.ACE
@@ -128,9 +120,78 @@ class Sexuality():
         ):
             self.likes_toms = False
             self.likes_she_cats = False
-            self.likes_enbies = False
         
+    def create_upcoming_sexuality_dict(
+            self,
+            likes_toms=None,
+            likes_she_cats=None,
+            arospec=None,
+            acespec=None,
+            t4t=None
+    ):
+        """
+            Creates the "upcoming_sexuality" dict.
+            All arguments default to None. Any arguments that don't get passed won't be a part of the change.
+        """
+        upcoming_dict = {
+            "moons_until": 4
+        }
+        fix_aroace = False
+        fix_orientation = False
 
+        if likes_toms is not None:
+            upcoming_dict["likes_toms"] = likes_toms
+            fix_aroace = True
+        if likes_she_cats is not None:
+            upcoming_dict["likes_she_cats"] = likes_she_cats
+            fix_aroace = True
+        if arospec is not None:
+            upcoming_dict["arospec"] = arospec
+            fix_orientation = True
+        if acespec is not None:
+            upcoming_dict["acespec"] = acespec
+            fix_orientation = True
+        if t4t is not None:
+            upcoming_dict["t4t"] = t4t
+        
+        # now various corrections
+        if fix_aroace:
+            if (
+                self.arospec == Arospec.ARO and
+                self.acespec == Acespec.ACE
+                ):
+                # print("cat is aroace, and randomly changed orientation. correcting aroace")
+                random_change = random.choice([
+                    ("arospec", Arospec.ALLO),
+                    ("acespec", Acespec.ALLO)
+                ])
+                upcoming_dict[random_change[0]] = random_change[1]
+            if (
+                likes_she_cats is False and self.likes_toms is False or
+                likes_toms is False and self.likes_she_cats is False
+            ):
+                # print("cat going from liking one gender to liking NONE. correcting aroace")
+                upcoming_dict["arospec"] = Arospec.ARO
+                upcoming_dict["acespec"] = Acespec.ACE
+
+        if fix_orientation:
+            if (
+                acespec == Acespec.ACE and self.arospec == Arospec.ARO or
+                arospec == Arospec.ARO and self.acespec == Acespec.ACE
+            ):
+                # print(f"cat is changing to aroace {acespec}, {arospec}. correcting orientaion")
+                upcoming_dict["likes_toms"] = False
+                upcoming_dict["likes_she_cats"] = False
+        
+        if upcoming_dict == {"moons_until": 4}:
+            print("WARNING: Empty upcoming_sexuality dict?")
+            return
+
+        self.upcoming_sexuality = upcoming_dict
+        # print("FINAL: Upcoming sexuality set to:", self.upcoming_sexuality)
+    
+    def clear_upcoming_sexuality(self):
+        self.upcoming_sexuality = {}
 
     def init_random_sexuality(self, gender):
         """
@@ -146,10 +207,6 @@ class Sexuality():
         else:
             self.likes_toms = random.choice([True, False])
             self.likes_she_cats = random.choice([True, False])
-
-
-        # likes enbies cant be true if the other two are false. no enby chasers sorry
-        self.likes_enbies = random.choice([True, False]) if self.likes_toms or self.likes_she_cats else False
 
         acespec_chance = 20
         arospec_chance = 20
@@ -197,14 +254,14 @@ class Sexuality():
             "sexuality_label": self.sexuality_label,
             "likes_toms": self.likes_toms,
             "likes_she_cats": self.likes_she_cats,
-            "likes_enbies": self.likes_enbies,
             "arospec_label": self.arospec_label,
             "acespec_label": self.acespec_label,
             "arospec": self.arospec,
             "acespec": self.acespec,
-            "t4t": self.t4t
+            "t4t": self.t4t,
+            "upcoming": self.upcoming_sexuality
         }
-    
+
     # BOOL RETURNERS
     def is_aroace(self):
         if self.arospec == Arospec.ARO and self.acespec == Acespec.ACE:
@@ -258,7 +315,6 @@ class Sexuality():
         if (
             not self.likes_toms and
             not self.likes_she_cats and
-            not self.likes_enbies and
             self.arospec == Arospec.ARO and
             self.acespec == Acespec.ACE
         ):

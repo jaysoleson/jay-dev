@@ -164,7 +164,6 @@ def json_load():
                     sexuality_label=cat["sexuality"]["sexuality_label"],
                     likes_toms=cat["sexuality"]["likes_toms"],
                     likes_she_cats=cat["sexuality"]["likes_she_cats"],
-                    likes_enbies=cat["sexuality"]["likes_enbies"],
                     acespec_label=cat["sexuality"]["acespec_label"],
                     arospec_label=cat["sexuality"]["arospec_label"],
                     acespec=cat["sexuality"]["acespec"],

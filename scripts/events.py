@@ -87,6 +87,8 @@ from scripts.ui.windows.retire_prompt import RetireWindow
 from scripts.ui.windows.name_kits import NameKitsWindow
 from scripts.lifegen_utility import lifegen_text_adjust, get_cluster, check_achievements, get_your_cat_group_count
 
+from scripts.cat.sexuality import Sexuality, Arospec, Acespec
+
 class BirthType(Enum):
     NO_PARENTS = "birth_no_parents"
     ONE_PARENT = "birth_one_parent"
@@ -4150,6 +4152,43 @@ def sexuality_change(cat):
     if cat.age.is_baby():
         return
     
+    if cat.sexuality.upcoming_sexuality:
+        cat.sexuality.upcoming_sexuality["moons_until"] -= 1
+        if cat.sexuality.upcoming_sexuality["moons_until"] == 0:
+            change_list = []
+            for item, value in cat.sexuality.upcoming_sexuality.items():
+                print(item, value)
+                if item == "moons_until":
+                    continue
+                if item == "acespec":
+                    cat.sexuality.acespec = value
+                    cat.sexuality.acespec_label = value
+                    change_list.append(value)
+                elif item == "arospec":
+                    cat.sexuality.arospec = value
+                    cat.sexuality.arospec_label = value
+                    change_list.append(value)
+                else:
+                    if item == "likes_toms":
+                        cat.sexuality.likes_toms = value
+                    elif item == "likes_she_cats":
+                        cat.sexuality.likes_she_cats = value
+                    cat.sexuality.sexuality_label = cat.sexuality.generate_sexuality_label(cat.genderalign)
+                    change_list.append(cat.sexuality.sexuality_label)
+
+            game.cur_events_list.append(
+                    Single_Event(
+                        event_text_adjust(
+                            Cat, f"m_c has a new identity ({adjust_list_text(change_list)})!", clan=game.clan, main_cat=cat
+                        ),
+                        ["misc"],
+                        cats_involved=[cat.ID]
+                    ),
+                )
+            cat.sexuality.clear_upcoming_sexuality()
+        return
+    
+    # if they dont have a change upcoming, try to give them one!
     change_chance = constants.CONFIG["sexuality_change_related"]
     chance = change_chance["base_chance"]
     if cat.age in [CatAge.ADOLESCENT]:
@@ -4161,49 +4200,56 @@ def sexuality_change(cat):
         chance /= change_chance["mate_modifier"]
 
     if not int(random.random() * chance):
-        print(cat.name, "hit sexuality change chance: label resetting!")
-        print(cat.sexuality.sexuality_label)
-        old_orientation = cat.sexuality.get_sexuality_dict()
+        print(cat.name, "hit sexuality change chance: adding upcoming!")
 
-        cat.sexuality.init_random_sexuality(cat.genderalign)
-        print(cat.sexuality.sexuality_label)
+        item_to_change = random.choice([
+            "orientation", "arospec", "acespec", "orientation", "orientation", "orientation"
+        ])
 
-        # TODO: pick only one item to change (aroness, aceness, or orientation)
-        # TODO: future sexuality changes? so relationships change to reflect it before the cat realises?
-        # "upcoming_sexuality": {} in save dict with moons_until
-
-        # also adjust chances based on existing relationships.
-        # a tom with a huge crush on a shecat shouldnt have the same chance as one who doesnt to turn gay
-
-        difference = False
-        for item in cat.sexuality.get_sexuality_dict():
-            if cat.sexuality.get_sexuality_dict()[item] != old_orientation[item]:
-                print("DIFF:", item, old_orientation[item], "->", cat.sexuality.get_sexuality_dict()[item])
-                difference = True
-
-        # format_maybe = {
-        #     "old": {
-        #         "likes_toms": False,
-        #         "likes_shecats": True
-        #     },
-        #     "new": {
-        #         "likes_toms": True,
-        #         "likes_shecats": False
-        #     }
-        # }
-
-        if difference:
-            game.cur_events_list.append(
-                    Single_Event(
-                        event_text_adjust(
-                            Cat, f"m_c has a new identity ({cat.sexuality.sexuality_label})!", clan=game.clan, main_cat=cat
-                        ),
-                        ["misc"],
-                        cats_involved=[cat.ID]
-                    ),
-                )
-            return
-        print("No difference! No event.")
+        if item_to_change == "arospec":
+            options = [
+                Arospec.ALLO,
+                Arospec.DEMI,
+                Arospec.GREY,
+                Arospec.ARO
+            ]
+            options.remove(cat.sexuality.arospec)
+            new_arospec = random.choice(options)
+            cat.sexuality.create_upcoming_sexuality_dict(
+                arospec=new_arospec
+            )
+        elif item_to_change == "acespec":
+            options = [
+                Acespec.ALLO,
+                Acespec.DEMI,
+                Acespec.GREY,
+                Acespec.ACE
+            ]
+            options.remove(cat.sexuality.acespec)
+            new_acespec = random.choice(options)
+            cat.sexuality.create_upcoming_sexuality_dict(
+                acespec=new_acespec
+            )
+        else:
+            choice = random.choice(["she-cats", "toms"])
+            if choice == "she-cats":
+                if cat.sexuality.likes_she_cats:
+                    cat.sexuality.create_upcoming_sexuality_dict(
+                        likes_she_cats=False
+                    )
+                else:
+                    cat.sexuality.create_upcoming_sexuality_dict(
+                        likes_she_cats=True
+                    )
+            elif choice == "toms":
+                if cat.sexuality.likes_toms:
+                    cat.sexuality.create_upcoming_sexuality_dict(
+                        likes_toms=False
+                    )
+                else:
+                    cat.sexuality.create_upcoming_sexuality_dict(
+                        likes_toms=True
+                    )
 
 
 def coming_out(cat):
