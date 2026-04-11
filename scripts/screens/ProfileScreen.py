@@ -352,13 +352,9 @@ class ProfileScreen(Screens):
                 self.build_profile()
                 self.toggle_accessories_tab()
             elif event.ui_element == self.clear_accessories:
-                self.the_cat.pelt.accessory.clear()
+                self.the_cat.pelt.accessory = tuple()
                 self.build_inventory(event)
                 self.update_disabled_buttons_and_text()
-            # elif "joinclan" in self.profile_elements and event.ui_element == self.profile_elements["joinclan"]:
-            #     switch_set_value(Switch.change_group, CatGroup.PLAYER_CLAN_ID)
-            #     self.clear_profile()
-            #     self.build_profile()
 
             elif (
                 "talk" in self.profile_elements and
