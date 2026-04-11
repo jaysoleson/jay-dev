@@ -327,9 +327,12 @@ class TalkScreen(Screens):
         """
         y_pos = 0
         if f"{self.current_scene}_choices" not in self.chosen_text_value:
-            self.paw.visible = True
             self.created_choice_buttons = True
-            self.dialogue_class.handle_scene_effects(self.current_scene, self.chosen_text_value)
+            self.dialogue_class.handle_scene_effects(
+                self.current_scene,
+                self.chosen_text_value,
+                self.cat_dict
+                )
             return
 
         for c in self.chosen_text_value[f"{self.current_scene}_choices"]:
@@ -483,13 +486,13 @@ class TalkScreen(Screens):
         if self.text_index == len(self.text_frames) - 1:
             if self.frame_index == len(self.text_frames[self.text_index]) - 1:
                 if not self.created_choice_buttons:
-                    # TODO: fix the naming of this stuff so its clearer
                     self.create_choice_buttons()
                 if not self.meow:
                     if "[" not in self.texts[self.text_index]:
                         sound_manager.play("meow")
                     # this plays One meow sound effect at the end of dialogue
                     self.meow = True
+                    self.paw.visible = True
 
         # Always render the current frame
         if self.text_frames:

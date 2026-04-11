@@ -5713,7 +5713,7 @@
                 "age": [
                     "not_newborn"
                 ],
-                "conditions": [
+                "condition": [
                     "hearing",
                     "blind:any:false"
                 ],
@@ -5753,18 +5753,17 @@
             "[t_c's shouts echo, followed by {PRONOUN/t_c/poss} mentor's chastising hushing.]"
         ],
         "intro_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "t_c"
-                ],
-                "cats_from": [
-                    "y_c"
-                ],
-                "values": {
-                    "trust": -3
-                },
-                "mutual": false
-            }
+            "relationships": [
+                {
+                    "cats_from": ["y_c"],
+                    "cats_to": ["t_c"],
+                    "values": [
+                        "trust"
+                    ],
+                    "mutual": false,
+                    "amount": -5
+                }
+            ]
         }
     }
 }

@@ -352,13 +352,9 @@ class ProfileScreen(Screens):
                 self.build_profile()
                 self.toggle_accessories_tab()
             elif event.ui_element == self.clear_accessories:
-                self.the_cat.pelt.accessory.clear()
+                self.the_cat.pelt.accessory = tuple()
                 self.build_inventory(event)
                 self.update_disabled_buttons_and_text()
-            # elif "joinclan" in self.profile_elements and event.ui_element == self.profile_elements["joinclan"]:
-            #     switch_set_value(Switch.change_group, CatGroup.PLAYER_CLAN_ID)
-            #     self.clear_profile()
-            #     self.build_profile()
 
             elif (
                 "talk" in self.profile_elements and
@@ -535,21 +531,12 @@ class ProfileScreen(Screens):
             elif event.ui_element == self.murder_cat_button:
                 self.change_screen(GameScreen.MURDER)
             elif event.ui_element == self.join_df_button:
-                game.clan.your_cat.joined_df = True
-                game.clan.your_cat.df_join_moon = game.clan.age
-                game.clan.your_cat.faith -=1
-                game.clan.your_cat.update_df_mentor()
+                game.clan.your_cat.join_df()
                 self.join_df_button.disable()
                 self.clear_profile()
                 self.build_profile()
             elif event.ui_element == self.exit_df_button:
-                game.clan.your_cat.joined_df = False
-                game.clan.your_cat.faith += 1
-                try:
-                    Cat.all_cats[game.clan.your_cat.df_mentor].df_apprentices.remove(game.clan.your_cat.ID)
-                except:
-                    print("ERROR: removing df apprentice")
-                game.clan.your_cat.df_mentor = None
+                game.clan.your_cat.leave_df()
                 self.exit_df_button.disable()
                 self.clear_profile()
                 self.build_profile()

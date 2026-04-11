@@ -15184,35 +15184,37 @@
             "[You continue your search with your fellow kits, soon finding a more secluded perch on the other end of camp with which to carry out your game.]"
         ],
         "climbingkit_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "t_c"
-                ],
-                "cats_from": [
-                    "y_c"
-                ],
-                "values": {
-                    "like": 10,
-                    "comfort": 10,
-                    "trust": 5
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["y_c"],
+                    "cats_to": ["t_c"],
+                    "values": [
+                        "like",
+                        "comfort",
+                        "trust"
+                    ],
+                    "mutual": true,
+                    "amount": 10,
+                    "log": {
+                        "cats_from": "from_cat pretended to sleep while to_cat climbed all over {PRONOUN/from_cat/object}.",
+                        "cats_to": "to_cat had fun climbing all over from_cat while {PRONOUN/from_cat/subject} {VERB/from_cat/were/was} asleep."
+                    }
+                }
+            ]
         },
         "consideratekit_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "comfort": 2,
-                    "trust": 2
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": 2
+                }
+            ]
         }
     },
     "sleeperorkit_tokit_JOL2": {
@@ -15261,36 +15263,34 @@
             "[You continue your search with your fellow kits, soon finding a more secluded perch on the other end of camp with which to carry out your game.]"
         ],
         "climbingkit1_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": -10,
-                    "respect": -5,
-                    "comfort": -5,
-                    "trust": -5
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "comfort",
+                        "respect",
+                        "trust"
+                    ],
+                    "mutual": true,
+                    "amount": -5
+                }
+            ]
         },
         "consideratekit1_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "comfort": 2,
-                    "trust": 2
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "comfort",
+                        "trust"
+                    ],
+                    "mutual": true,
+                    "amount": 2
+                }
+            ]
         }
     },
     "cleanparent_kit_JOL": {
@@ -15300,7 +15300,7 @@
                 "age": [
                     "kitten"
                 ],
-                "conditions": [
+                "condition": [
                     "deaf:any:false",
                     "blind:any:false"
                 ]
@@ -15317,7 +15317,7 @@
                 "skill": [
                     "CLEAN,1"
                 ],
-                "conditions": [
+                "condition": [
                     "deaf:any:false"
                 ]
             }
@@ -15353,7 +15353,17 @@
                     "comfort": -2
                 },
                 "mutual": false
-            }
+            },
+            "relationships": [
+                {
+                    "cats_from": ["y_c"],
+                    "cats_to": ["t_c"],
+                    "values": [
+                        "comfort"
+                    ],
+                    "amount": -5
+                }
+            ]
         }
     },
     "sc_kit_avix1": {

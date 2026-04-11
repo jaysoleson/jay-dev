@@ -6,6 +6,8 @@ from scripts.game_structure.game.switches import switch_get_value, Switch
 from scripts.game_structure.localization import load_lang_resource
 from scripts.cat.enums import CatRank, CatAge
 from scripts.cat.cats import Cat
+from scripts.events_module.consequences import unpack_rel_block
+
 
 from scripts.events_module.filter_random_cats import choose_random_cats
 
@@ -277,11 +279,43 @@ class Dialogue():
     #                            SCENE EFFECTS                               #
     # ---------------------------------------------------------------------- #
 
-    def handle_scene_effects(self, current_scene, dialogue_object):
+    def handle_scene_effects(self, current_scene, dialogue_object, cat_dict):
         """
         Handles scene effects such as accessories, relationship changes, and more.
         """
-        # TODO: scene effects!
-        if f"{current_scene}_scene_effects" in dialogue_object:
-            print("Scene effects for:", current_scene)
-            print(dialogue_object[f"{current_scene}_scene_effects"])
+        if f"{current_scene}_scene_effects" not in dialogue_object:
+            return
+        scene_effects = dialogue_object[f"{current_scene}_scene_effects"]
+
+        inventory_block = scene_effects["inventory"] if "inventory" in scene_effects else {}
+        relationship_block = scene_effects["relationships"] if "relationships" in scene_effects else {}
+        dark_forest_block = scene_effects["dark_forest"] if "dark_forest" in scene_effects else {}
+
+        # inventory
+        # try:
+        if inventory_block:
+            for cat_abbrev in inventory_block["cats_to"]:
+                cat_to_object = cat_dict[cat_abbrev] if cat_abbrev in cat_dict else None
+                if not cat_to_object:
+                    return
+                if inventory_block["addition"] == "choice":
+                    chosen_accessory = random.choice(inventory_block["accessory"])
+                    cat_to_object.pelt.inventory.append(chosen_accessory)
+                elif inventory_block["addition"] == "all":
+                    for acc in inventory_block["accessory"]:
+                        cat_to_object.pelt.inventory.append(acc)
+
+        if relationship_block:
+            unpack_rel_block(Cat, relationship_block, self, dialogue_dict=cat_dict)
+        
+        if dark_forest_block:
+            if "join" in dark_forest_block:
+                for abbrev in dark_forest_block["join"]:
+                    cat_dict[abbrev].join_df()
+            if "leave" in dark_forest_block:
+                for abbrev in dark_forest_block["leave"]:
+                    cat_dict[abbrev].leave_df()
+                    
+        # except Exception as e:
+        #     print("ERROR with dialogue scene effects:", e)
+        #     return

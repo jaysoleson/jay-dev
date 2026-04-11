@@ -3800,18 +3800,17 @@
             "[Even for a mediator, t_c is particularly good at soothing your aching heart.]"
         ],
         "intro_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "t_c"
-                ],
-                "cats_from": [
-                    "y_c"
-                ],
-                "values": {
-                    "comfort": 5
-                },
-                "mutual": false
-            }
+            "relationships": [
+                {
+                    "cats_from": ["y_c"],
+                    "cats_to": ["t_c"],
+                    "values": [
+                        "comfort"
+                    ],
+                    "mutual": false,
+                    "amount": 5
+                }
+            ]
         }
     },
     "gardener_mediator_JOL1": {
@@ -3946,79 +3945,84 @@
             "Get out, let me do it. You could have just said that you didn't want to help."
         ],
         "gmj2_scene_effects": {
-            "cats_to": [
-                "y_c"
-            ],
-            "cats_from": [
-                "t_c"
-            ],
-            "values": {
-                "like": 5,
-                "respect": 1,
-                "comfort": 3,
-                "trust": 3
-            },
-            "mutual": true
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": 5
+                }
+            ]
         },
         "gmj3_scene_effects": {
-            "cats_to": [
-                "y_c"
-            ],
-            "cats_from": [
-                "t_c"
-            ],
-            "values": {
-                "like": -4,
-                "respect": -5,
-                "comfort": -2,
-                "trust": -3
-            },
-            "mutual": true
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": -5
+                }
+            ]
         },
         "gmj4_scene_effects": {
-            "cats_to": [
-                "y_c"
-            ],
-            "cats_from": [
-                "t_c"
-            ],
-            "values": {
-                "like": 4,
-                "respect": 2,
-                "comfort": 2,
-                "trust": 2
-            },
-            "mutual": true
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": 4
+                }
+            ]
         },
         "gmj5_scene_effects": {
-            "cats_to": [
-                "y_c"
-            ],
-            "cats_from": [
-                "t_c"
-            ],
-            "values": {
-                "like": 8,
-                "respect": 8,
-                "comfort": 5,
-                "trust": 15
-            },
-            "mutual": true
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": 10
+                }
+            ]
         },
         "gmj6_scene_effects": {
-            "cats_to": [
-                "y_c"
-            ],
-            "cats_from": [
-                "t_c"
-            ],
-            "values": {
-                "like": -10,
-                "respect": -15,
-                "comfort": -5,
-                "trust": -8
-            },
-            "mutual": true
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": -10
+                }
+            ]
         }
     }
 }

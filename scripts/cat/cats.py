@@ -2620,6 +2620,24 @@ class Cat:
             if new_mentor:
                 self.__add_mentor(new_mentor.ID)
     
+    # LIFEGEN
+    def join_df(self):
+        """ Becoming a DF trainee """
+        self.joined_df = True
+        self.df_join_moon = game.clan.age
+        self.faith -= 1
+        self.update_df_mentor()
+    
+    def leave_df(self):
+        """ Exiting the DF as a trainee """
+        self.joined_df = False
+        self.faith += 1
+        try:
+            Cat.all_cats[self.df_mentor].df_apprentices.remove(self.ID)
+        except:
+            print("ERROR: removing df apprentice")
+        self.df_mentor = None
+    
     def update_df_mentor(self):
         """Handles giving clan members df mentors"""
         if self.dead or self.df_mentor:

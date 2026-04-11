@@ -7530,19 +7530,18 @@
             "[You swipe back with your claws, but don't touch anything solid. Rats.]"
         ],
         "intro_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "t_c"
-                ],
-                "cats_from": [
-                    "y_c"
-                ],
-                "values": {
-                    "trust": -1,
-                    "like": -1
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust"
+                    ],
+                    "mutual": true,
+                    "amount": -5
+                }
+            ]
         }
     },
     "attack_insult_H2": {
@@ -7586,22 +7585,20 @@
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/let/lets} you go a moment after the assault. It feels like you were let off easy.]"
         ],
         "intro_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "t_c"
-                ],
-                "cats_from": [
-                    "y_c"
-                ],
-                "values": {
-                    "trust": -1,
-                    "comfort": 1,
-                    "respect": 1,
-                    "like": -1,
-                    "romance": 1
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": -5
+                }
+            ]
         }
     },
     "mcgrievingonly_insult_H1": {

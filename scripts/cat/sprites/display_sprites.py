@@ -419,7 +419,11 @@ def generate_sprite(
                 temp.blit(new_sprite, (0, 0))
                 new_sprite = temp
             elif cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
-                temp = sprites.sprites["fadeur" + stage + cat_sprite].copy()
+                if game_setting_get("lifegen_sprite_changes"):
+                    temp = sprites.sprites["fadestarclan" + stage + cat_sprite].copy()
+                else:
+                    temp = sprites.sprites["fadeur" + stage + cat_sprite].copy()
+
                 temp.blit(new_sprite, (0, 0))
                 new_sprite = temp
             else:
@@ -448,7 +452,7 @@ def generate_sprite(
                 if not game_setting_get("lifegen_sprite_changes"):
                     # underlay
                     temp_sprite.blit(
-                        sprites.sprites["line_ur_overlay" + cat_sprite],
+                        sprites.sprites["line_ur_underlay" + cat_sprite],
                         (0, 0),
                     )
 
@@ -460,6 +464,15 @@ def generate_sprite(
                         sprites.sprites["line_ur_overlay" + cat_sprite],
                         (0, 0),
                     )
+                else:
+                    # LG
+                    # no underlay
+
+                    # cat sprite
+                    temp_sprite.blit(new_sprite, (0, 0))
+
+                    # no overlay
+
             elif cat.status.group == CatGroup.DARK_FOREST:
                 # no underlay
 

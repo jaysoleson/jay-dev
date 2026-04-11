@@ -25131,38 +25131,36 @@
             "Oh... I should probably get rid of all of this then, huh..."
         ],
         "appreciate_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": 5,
-                    "respect": 5,
-                    "comfort": 5,
-                    "trust": 5
-                },
-                "mutual": false
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect",
+                        "comfort"
+                    ],
+                    "mutual": false,
+                    "amount": 5
+                }
+            ]
         },
         "scold_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": -5,
-                    "respect": 5,
-                    "comfort": -5,
-                    "trust": -5
-                },
-                "mutual": false
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": -5
+                }
+            ]
         }
     },
     "neurotickit_shytonotkit_JOL": {
@@ -25189,18 +25187,17 @@
             "[You lean over, offering a wordless opening at your side, but the moment t_c realizes that {PRONOUN/t_c/subject} {VERB/t_c/has/have} been spotted, {PRONOUN/t_c/subject} {VERB/t_c/skitters/skitter} off.]"
         ],
         "intro_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": 5
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like"
+                    ],
+                    "mutual": true,
+                    "amount": 5
+                }
+            ]
         }
     },
     "campartistan_tokit_JOL": {
@@ -25249,35 +25246,32 @@
             "Oh... okay."
         ],
         "help_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": 10,
-                    "respect": 10,
-                    "trust": 5
-                },
-                "mutual": false
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect"
+                    ],
+                    "mutual": false,
+                    "amount": 8
+                }
+            ]
         },
         "nohelp_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": -5,
-                    "respect": 5
-                },
-                "mutual": false
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like"
+                    ],
+                    "mutual": false,
+                    "amount": -5
+                }
+            ]
         }
     },
     "admiringdarkfighter_kit_JOL": {
@@ -25372,67 +25366,63 @@
             "[Somehow, you doubt that. But the determination is impressive.]"
         ],
         "stopcopy_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": 1,
-                    "respect": 3
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "respect"
+                    ],
+                    "mutual": true,
+                    "amount": 3
+                }
+            ]
         },
         "notmychoice_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": 4,
-                    "respect": 5
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "respect"
+                    ],
+                    "mutual": true,
+                    "amount": 5
+                }
+            ]
         },
         "wellsee_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": 7,
-                    "respect": 5,
-                    "trust": 5
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect"
+                    ],
+                    "mutual": true,
+                    "amount": 5
+                }
+            ]
         },
         "everymorning_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": 5,
-                    "respect": 5,
-                    "comfort": 2,
-                    "trust": 3
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": 5
+                }
+            ]
         }
     },
     "silly_kit_avix1": {

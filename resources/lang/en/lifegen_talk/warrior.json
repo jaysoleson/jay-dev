@@ -14388,37 +14388,35 @@
             "Hmmph. Fine. I'll just get someone else. Oh, and you'd better not go running your mouth about this."
         ],
         "gohunt_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": 15,
-                    "respect": 10,
-                    "trust": 10
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect"
+                    ],
+                    "mutual": true,
+                    "amount": 10
+                }
+            ]
         },
         "nohunt_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": -5,
-                    "respect": -10,
-                    "comfort": -5,
-                    "trust": -10
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": -10
+                }
+            ]
         }
     },
     "coopswimfish_coolstablecousin_JOL": {
@@ -14494,35 +14492,33 @@
             "Ah, alright. Another time then."
         ],
         "gobeach_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": 10,
-                    "respect": 10,
-                    "trust": 10,
-                    "comfort": 15
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "trust",
+                        "respect",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": 10
+                }
+            ]
         },
         "nobeach_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "comfort": -2
-                },
-                "mutual": false
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "comfort"
+                    ],
+                    "mutual": false,
+                    "amount": -5
+                }
+            ]
         }
     },
     "darkfighter_fromparent_JOL": {
@@ -14586,20 +14582,19 @@
             "[t_c headbutts your shoulder affectionately.]"
         ],
         "intro_scene_effects": {
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "like": 3,
-                    "respect": 6,
-                    "comfort": 5
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "respect",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": 5
+                }
+            ]
         }
     },
     "sweetint_gift_JOL": {
@@ -14689,20 +14684,19 @@
                 ],
                 "addition": "choice"
             },
-            "relationship": {
-                "cats_to": [
-                    "y_c"
-                ],
-                "cats_from": [
-                    "t_c"
-                ],
-                "values": {
-                    "romance": 5,
-                    "like": 5,
-                    "comfort": 7
-                },
-                "mutual": true
-            }
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like",
+                        "romance",
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": 5
+                }
+            ]
         }
     }
 }

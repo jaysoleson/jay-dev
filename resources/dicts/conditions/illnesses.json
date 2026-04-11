@@ -811,8 +811,8 @@
             "senior adult": 0,
             "senior": 0
         },
-        "duration": 100,
-        "medicine_duration": 100,
+        "duration": 12,
+        "medicine_duration": 9,
         "infectiousness": 0,
         "risks": [],
         "herbs": {
