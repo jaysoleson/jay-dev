@@ -875,7 +875,7 @@ class Status:
                     print("LG WARNING: Can't find your cat's group!")
                     heading_text = f"{game.clan.displayname}Clan"
         elif game.clan.your_cat.status.group:
-            heading_text = f"The {(game.clan.your_cat.status.group).capitalize().replace("_", " ")}"
+            heading_text = f"The {(game.clan.your_cat.status.group).capitalize().replace('_', ' ')}"
         else:
             heading_text = "Outside the Clan"
 
