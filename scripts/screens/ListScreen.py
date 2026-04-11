@@ -189,7 +189,7 @@ class ListScreen(Screens):
                     element.set_text("screens.list.view_dead")
                     element.set_tooltip("screens.list.view_dead_tooltip")
                     self.death_status = "living"
-                    if game.clan.your_cat.alive_in_player_clan:
+                    if game.clan.your_cat.status.alive_in_player_clan:
                         self.get_your_clan_cats()
                     else:
                         self.get_your_group_cats()

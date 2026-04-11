@@ -1416,10 +1416,12 @@ def generate_lifegen_events():
         elif game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
             resource_dir = "events/lifegen_events/moon_events/unknown_residence/"
 
-    loaded_events = {}
-    loaded_events.update(load_lang_resource(resource_dir + "general_no_kit.json"))
+    loaded_events = {}    
     loaded_events.update(load_lang_resource(resource_dir + "general.json"))
 
+    if game.clan.your_cat.status.rank.is_any_clancat_rank():
+        loaded_events.update(load_lang_resource(resource_dir + "general_no_kit.json"))
+    
     if (
         game.clan.your_cat.status.rank.is_any_clancat_rank() or
         game.clan.your_cat.status.rank in (
