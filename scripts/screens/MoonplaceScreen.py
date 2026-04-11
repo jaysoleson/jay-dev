@@ -3,11 +3,12 @@ import pygame
 import ujson
 import re
 from .Screens import Screens
+import random
 
-from scripts.lifegen_utility import lifegen_text_adjust
 from ..ui.scale import ui_scale, ui_scale_dimensions
 from scripts.cat.sprites.display_sprites import generate_sprite
 from scripts.clan_package.get_clan_cats import find_alive_cats_with_rank
+from scripts.game_structure.localization import load_lang_resource
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch, switch_append_list_value, switch_remove_list_value
@@ -44,7 +45,6 @@ class MoonplaceScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
         self.back_button = None
-        self.resource_dir = "resources/dicts/lifegen_talk/"
         self.texts = ""
         self.text_frames = [[text[:i+1] for i in range(len(text))] for text in self.texts]
         self.scroll_container = None
@@ -115,7 +115,7 @@ class MoonplaceScreen(Screens):
             )
 
         self.back_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((25, 60), (105, 30))),
+            ui_scale(pygame.Rect((25, 25), (105, 30))),
             "buttons.back",
             get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
@@ -323,12 +323,11 @@ class MoonplaceScreen(Screens):
     def load_texts(self, cat):
         you = game.clan.your_cat
 
-        resource_dir = "resources/dicts/events/lifegen_events/moonplace/moonplace.json"
-        possible_texts = {}
-        with open(f"{resource_dir}", 'r') as read_file:
-            possible_texts = ujson.loads(read_file.read())
+        resource_dir = "events/lifegen_events/moonplace/moonplace.json"
 
-        if you.status.rank in [CatRank.APPRENTICE, CatRank.QUEENS_APPRENTICE, CatRank.MEDIATOR_APPRENTICE]:
+        possible_texts = load_lang_resource(resource_dir)
+
+        if you.status.rank.is_any_apprentice_rank():
             return self.get_adjusted_txt(choice(possible_texts["apprentice_halfmoon"]), cat)
 
         med_type = self.get_med_type(you)
@@ -344,13 +343,37 @@ class MoonplaceScreen(Screens):
         with open(f"{resource_dir}", 'r') as read_file:
             possible_texts2 = ujson.loads(read_file.read())
         switch_set_value(Switch.next_possible_disaster, choice(list(possible_texts2.keys())))
+
         prophecy = choice(possible_texts2[switch_get_value(Switch.next_possible_disaster)]["text"])
-        return self.get_adjusted_txt(choice(possible_texts["intros"][med_type]) + other_med_greeting + choice(possible_texts["moonplace"]["starclan_general"]) + prophecy, cat)
+
+        return self.get_adjusted_txt(
+            choice(possible_texts["intros"][med_type]) +
+            other_med_greeting +
+            choice(possible_texts["moonplace"]["starclan_general"]) +
+            prophecy,
+            cat)
     
     def get_adjusted_txt(self, text, cat):
         you = game.clan.your_cat
+
         process_text_dict = {}
         process_text_dict["t_c"] = cat
+        process_text_dict["y_c"] = you
+
+        healthy_meds = find_alive_cats_with_rank(
+            Cat,
+            ranks=[CatRank.MEDICINE_CAT],
+            working=True,
+        )
+        if "med_name" in text:
+            if not healthy_meds:
+                return ""
+            process_text_dict["med_name"] = random.choice(healthy_meds)
+
+        if "mentor_name" in text:
+            if not you.mentor:
+                return ""
+            process_text_dict["mentor_name"] = Cat.fetch_cat(you.mentor)
 
         for abbrev in process_text_dict.keys():
             abbrev_cat = process_text_dict[abbrev]
@@ -360,44 +383,12 @@ class MoonplaceScreen(Screens):
             text[i] = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), text[i])
 
         text = [t1.replace("c_n", game.clan.name + "Clan") for t1 in text]
-        text = [t1.replace("y_c", str(you.name)) for t1 in text]
-        text = [t1.replace("t_c", str(cat.name)) for t1 in text]
 
         for i in range(len(text)):
-            text[i] = self.adjust_txt(text[i], cat)
+            text[i] = self.replace_moonplace_name(text[i])
             if text[i] == "":
                 return ""
-
-        r_c_found = False
-        for i in range(len(text)):
-            if "r_c" in text[i]:
-                r_c_found = True
-        if r_c_found:
-            alive_cats = self.get_living_cats()
-            alive_cat = choice(alive_cats)
-            while alive_cat.ID == game.clan.your_cat.ID or alive_cat.ID == cat.ID:
-                alive_cat = choice(alive_cats)
-            text = [t1.replace("r_c", str(alive_cat.name)) for t1 in text]
-
-        if "grief stricken" in cat.illnesses:
-            try:
-                dead_cat = Cat.all_cats.get(cat.illnesses['grief stricken'].get("grief_cat"))
-                text = [t1.replace("d_c", str(dead_cat.name)) for t1 in text]
-            except:
-                return ""
-        elif "grief stricken" in you.illnesses:
-            try:
-                dead_cat = Cat.all_cats.get(you.illnesses['grief stricken'].get("grief_cat"))
-                text = [t1.replace("d_c", str(dead_cat.name)) for t1 in text]
-            except:
-                return ""
-        d_c_found = False
-        for t in text:
-            if "d_c" in t:
-                d_c_found = True
-        if d_c_found:
-            dead_cat = str(Cat.all_cats.get(self.starclan_cats[-1]).name)
-            text = [t1.replace("d_c", dead_cat) for t1 in text]
+        
         return text
 
     def get_living_cats(self):
@@ -407,31 +398,20 @@ class MoonplaceScreen(Screens):
                 living_cats.append(the_cat)
         return living_cats
 
-    def adjust_txt(self, text, cat):
+    def replace_moonplace_name(self, text):
+        """
+        Replaces the moonplace name
+        """
 
-        try:
-            text = lifegen_text_adjust(
-                Cat,
-                text,
-                game.clan.your_cat,
-                {},
-                r_c_allowed=True,
-                o_c_allowed=True
-                )
-            if "moonplace" in text or "Moonplace" in text:
-                moonplace_dict = {
-                        "Beach": "Mooncove",
-                        "Mountainous": "Moonfalls",
-                        "Forest": "Moonhollow",
-                        "Plains": "Moongrove"
-                    }
-                moonplace = moonplace_dict.get(game.clan.biome, "Moonplace")
-                text = text.replace("moonplace", moonplace)
-                text = text.replace("Moonplace", moonplace)
-        except Exception as e:
-            print(e)
-            print("ERROR: could not replace abbrv.")
-            return ""
+        if "moonplace" in text or "Moonplace" in text:
+            moonplace_dict = {
+                    "Beach": "Mooncove",
+                    "Mountainous": "Moonfalls",
+                    "Forest": "Moonhollow",
+                    "Plains": "Moongrove"
+                }
+            moonplace = moonplace_dict.get(game.clan.biome, "Moonplace")
+            text = text.replace("moonplace_name", moonplace)
 
 
         return text

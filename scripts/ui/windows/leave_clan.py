@@ -108,11 +108,11 @@ class LeaveClanWindow(GameWindow):
                     CatGroup.HOUSEHOLD_ID
                     ):
                     # this cat is becoming a member of an outsider group
-                    self.the_cat.leave_clan(self.chosen_social, self.new_group_ID)
-                elif self.new_group_ID not in (CatGroup.PLAYER_CLAN_ID):
+                    self.the_cat.leave_clan(self.chosen_social, self.new_group_ID, cat_age=self.the_cat.age)
+                elif self.new_group_ID != CatGroup.PLAYER_CLAN_ID:
                     # this cat is joining a non-player clan
                     # TODO: populate clan?
-                    self.the_cat.status.add_to_group(self.new_group_ID)
+                    self.the_cat.status.add_to_group(str(self.new_group_ID))
                 else:
                     # this cat is joining the player clan
                     self.the_cat.add_to_clan()

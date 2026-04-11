@@ -760,7 +760,8 @@ def create_new_cat(
 
 
 def gather_cat_objects(
-    Cat, abbr_list: List[str], event, stat_cat=None, extra_cat=None
+    Cat, abbr_list: List[str], event, stat_cat=None, extra_cat=None,
+    dialogue_dict={}
 ) -> list:
     """
     gathers cat objects from list of abbreviations used within an event format block
@@ -771,6 +772,7 @@ def gather_cat_objects(
     :param Cat extra_cat: if not passing an event class, include the single affected cat object here. If you are not
     passing a full event class, then be aware that you can only include "m_c" as a cat abbreviation in your rel block.
     The other cat abbreviations will not work.
+    :param dict dialogue_dict: LIFEGEN: dialogue cat dict.
     :return: list of cat objects
     """
 
@@ -806,6 +808,12 @@ def gather_cat_objects(
         elif abbr == "app6" and len(event.patrol_apprentices) >= 6:
             found_cat = event.patrol_apprentices[5]
 
+        # LG
+        if dialogue_dict:
+            if abbr in dialogue_dict:
+                found_cat = dialogue_dict[abbr]
+        # ---
+
         # add/remove cat if found and then continue for loop
         if is_exclusionary and found_cat:
             if found_cat not in out_set:
@@ -836,6 +844,14 @@ def gather_cat_objects(
             found_cat_list.update(
                 sample(clan_cats, randint(1, max(1, round(len(clan_cats) / 8))))
             )
+        
+        # LG
+        elif re.match(r"r_c:[0-9]+", abbr):  # new_cats
+            index = re.match(r"r_c:([0-9]+)", abbr).group(1)
+            index = int(index)
+            if index < len(event.chosen_lifegen_cats):
+                found_cat_list.update(event.chosen_lifegen_cats[index])
+        # ---
 
         # add/remove cats if found and then continue for loop
         if is_exclusionary and found_cat_list:
@@ -881,7 +897,7 @@ def gather_cat_objects(
 
 
 def unpack_rel_block(
-    Cat, relationship_effects: List[dict], event=None, stat_cat=None, extra_cat=None
+    Cat, relationship_effects: List[dict], event=None, stat_cat=None, extra_cat=None, dialogue_dict={}
 ) -> dict:
     """
     Unpacks the info from the relationship effect block used in patrol and moon events, then adjusts rel values
@@ -892,6 +908,7 @@ def unpack_rel_block(
     :param event: the controlling class of the event (e.g. Patrol, HandleShortEvents), default None
     :param Cat stat_cat: if passing the Patrol class, must include stat_cat separately
     :param Cat extra_cat: if not passing an event class, include the single affected cat object here. If you are not passing a full event class, then be aware that you can only include "m_c" as a cat abbreviation in your rel block.  The other cat abbreviations will not work.
+    :param dict dialogue_dict: LIFEGEN: cat dict from dialogue.
     :returns: List of all created rel logs for this rel block.
     """
     possible_values = [*RelType]
@@ -912,9 +929,8 @@ def unpack_rel_block(
         ):
             is_clan_reaction = True
 
-        # Gather actual cat objects:
-        cats_from_ob = gather_cat_objects(Cat, cats_from, event, stat_cat, extra_cat)
-        cats_to_ob = gather_cat_objects(Cat, cats_to, event, stat_cat, extra_cat)
+        cats_from_ob = gather_cat_objects(Cat, cats_from, event, stat_cat, extra_cat, dialogue_dict)
+        cats_to_ob = gather_cat_objects(Cat, cats_to, event, stat_cat, extra_cat, dialogue_dict)
 
         # Remove any "None" that might have snuck in
         if None in cats_from_ob:

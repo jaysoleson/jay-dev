@@ -647,20 +647,25 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["kitten"]
+            }
+        },
         "frequency": 4,
         "intro_text": "A couple of other kits are batting a moss-ball back and forth when it accidentally rolls towards you. You decide to roll it back, but consider taking the opportunity to attempt to join their game.",
         "decline_text": "You pass the ball back without standing, and they get back to their game without another thought.",
         "chance_of_success": 95,
         "success_outcomes": [
             {
-                "text": "You pick up the moss-ball with your mouth and bring it over to the group. When you drop it and paw it in r_k's direction, {PRONOUN/r_k/subject} hit it back, and soon all three of you are playing together like nothing has even changed.",
+                "text": "You pick up the moss-ball with your mouth and bring it over to the group. When you drop it and paw it in r_c:0's direction, {PRONOUN/r_c:0/subject} hit it back, and soon all three of you are playing together like nothing has even changed.",
                 "exp": 0,
                 "frequency": 4
             }
         ],
         "fail_outcomes": [
             {
-                "text": "You approach the group with the moss-ball in your mouth and drop it, batting it in their direction, but r_k awkwardly picks it back up and the two move their game elsewhere.",
+                "text": "You approach the group with the moss-ball in your mouth and drop it, batting it in their direction, but r_c:0 awkwardly picks it back up and the two move their game elsewhere.",
                 "exp": 0,
                 "frequency": 4
             }
@@ -704,17 +709,7 @@
             {
                 "text": "You race out of the nursery, only to have the guard block your escape. You bounce off of them and land in a heap. Luckily, you aren't injured, but you steel yourself for another lecture.",
                 "exp": 0,
-                "frequency": 4,
-                "injury": [
-                    {
-                        "cats": [
-                            "r_c"
-                        ],
-                        "injuries": [
-                            "bruises"
-                        ]
-                    }
-                ]
+                "frequency": 4
             },
             {
                 "text": "The guard's head snaps up just as you try to walk past.",
@@ -739,6 +734,15 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["warrior", "apprentice", "deputy"],
+                "cluster": ["unlawful"]
+            },
+            "r_c:1": {
+                "rank": ["warrior"]
+            }
+        },
         "frequency": 4,
         "intro_text": "It's time for some mischief! You've managed to slip away from keen eyes, and now you've found a private spot in the camp. What's next? Can you sneak out of camp from here?",
         "decline_text": "It's not very fun by yourself. You return to the nursery for company.",
@@ -757,17 +761,17 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You try to make your way through the camp wall, but r_w-unlawful catches you before you can get through. {PRONOUN/r_w-unlawful/subject/CAP}{VERB/r_w-unlawful/'re/'s} seemingly a little impressed you found this spot - but reminds you of the dangers beyond the camp walls. Despite the scolding, you're indulged in a game, and you have a new respect for r_w-unlawful.",
+                "text": "You try to make your way through the camp wall, but r_c:0 catches you before you can get through. {PRONOUN/r_c:0/subject/CAP}{VERB/r_c:0/'re/'s} seemingly a little impressed you found this spot - but reminds you of the dangers beyond the camp walls. Despite the scolding, you're indulged in a game, and you have a new respect for r_c:0.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "You try to make your way through the camp wall, but it's just too strong. You entertain yourself with a make believe game about spying on an enemy clan until you're caught by r_w and returned to the nursery with a scolding.",
+                "text": "You try to make your way through the camp wall, but it's just too strong. You entertain yourself with a make believe game about spying on an enemy Clan until you're caught by r_c:1 and returned to the nursery with a scolding.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "Sneaking out of camp sounds fun, but you know the risk outweighs the reward. Just as you decide to entertain yourself here, r_w finds you and gives you a scolding. Could have been worse...",
+                "text": "Sneaking out of camp sounds fun, but you know the risk outweighs the reward. Just as you decide to entertain yourself here, r_c:1 finds you and gives you a scolding. Could have been worse...",
                 "exp": 0,
                 "frequency": 4
             }
@@ -791,13 +795,19 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "residence": ["sc"],
+                "age": ["not_kitten"]
+            }
+        },
         "frequency": 4,
-        "intro_text": "You can't help but wonder what your full name would have been had you not entered StarClan so early. Perhaps you could ask rsc_c what suffix they think would fit you?",
+        "intro_text": "You can't help but wonder what your full name would have been had you not entered StarClan so early. Perhaps you could ask r_c:0 what suffix they think would fit you?",
         "decline_text": "Maybe it's best not to dwell upon what could have been.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a vibrant suffix like -shine or -spark would reflect a cat like you who thrives on being noticed.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a vibrant suffix like -shine or -spark would reflect a cat like you who thrives on being noticed.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "attention-seeker"
@@ -806,7 +816,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a bold and intimidating suffix like -claw or -fang would reflect a cat like you who always stands their ground.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a bold and intimidating suffix like -claw or -fang would reflect a cat like you who always stands their ground.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "bullying"
@@ -815,7 +825,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a melodic suffix like -song or -heart would reflect a cat like you who charms everyone they meet.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a melodic suffix like -song or -heart would reflect a cat like you who charms everyone they meet.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "charming"
@@ -824,7 +834,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a dreamy suffix like -cloud or -sky would reflect a cat like you who is often lost in thought.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a dreamy suffix like -cloud or -sky would reflect a cat like you who is often lost in thought.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "daydreamer"
@@ -833,7 +843,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a strong and structured suffix like -stone or -strike would reflect a cat like you who shows such discipline.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a strong and structured suffix like -stone or -strike would reflect a cat like you who shows such discipline.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "disciplined"
@@ -842,7 +852,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a powerful suffix like -storm or -fire would reflect a cat like you who never backs down from danger.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a powerful suffix like -storm or -fire would reflect a cat like you who never backs down from danger.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "fearless"
@@ -851,7 +861,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a prickly suffix like -thorn or -frost would reflect a cat like you who appears standoffish -- until cats get to know you better.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a prickly suffix like -thorn or -frost would reflect a cat like you who appears standoffish -- until cats get to know you better.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "grumpy"
@@ -860,7 +870,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a genuine suffix like -truth or -heart would reflect a cat like you who values honesty above all else.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a genuine suffix like -truth or -heart would reflect a cat like you who values honesty above all else.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "honest"
@@ -869,7 +879,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a quick suffix like -flight or -rush would reflect a cat like you who acts on instinct.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a quick suffix like -flight or -rush would reflect a cat like you who acts on instinct.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "impulsive"
@@ -878,7 +888,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a clever suffix like -whisker or -sage would reflect a cat like you who always seems to know best.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a clever suffix like -whisker or -sage would reflect a cat like you who always seems to know best.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "know-it-all"
@@ -887,7 +897,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine that the only suffix right for you is -star.",
+                "text": "r_c:0 ponders for a bit. They'd imagine that the only suffix right for you is -star.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "leader-like"
@@ -896,7 +906,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine an cool suffix like -shade or -mask would reflect a cat like you who knows how to get their way.",
+                "text": "r_c:0 ponders for a bit. They'd imagine an cool suffix like -shade or -mask would reflect a cat like you who knows how to get their way.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "manipulative"
@@ -905,7 +915,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a lively suffix like -screech or -chatter would reflect a cat like you who rarely stays quiet.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a lively suffix like -screech or -chatter would reflect a cat like you who rarely stays quiet.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "noisy"
@@ -914,7 +924,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a fiery suffix like -flame or -spirit would reflect a cat like you who puts their whole heart into everything.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a fiery suffix like -flame or -spirit would reflect a cat like you who puts their whole heart into everything.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "passionate"
@@ -923,7 +933,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a calm suffix like -pool or -stone would reflect a cat like you who waits for the right moment.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a calm suffix like -pool or -stone would reflect a cat like you who waits for the right moment.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "patient"
@@ -932,7 +942,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a gentle suffix like -flower or -breeze would reflect a cat like you who always shows courtesy.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a gentle suffix like -flower or -breeze would reflect a cat like you who always shows courtesy.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "polite"
@@ -941,7 +951,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a quiet suffix like -whisper or -shadow would reflect a cat like you who prefers staying unnoticed.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a quiet suffix like -whisper or -shadow would reflect a cat like you who prefers staying unnoticed.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "quiet"
@@ -950,7 +960,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a mysterious suffix like -shade or -mist would reflect a cat like you who always keeps their secrets.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a mysterious suffix like -shade or -mist would reflect a cat like you who always keeps their secrets.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "secretive"
@@ -959,7 +969,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a delicate suffix like -fern or -dawn would reflect a cat like you who's thoughtful and often self-conscious.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a delicate suffix like -fern or -dawn would reflect a cat like you who's thoughtful and often self-conscious.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "self-conscious"
@@ -968,7 +978,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a soft suffix like -mouse or -willow would reflect a cat like you who is quiet and reserved around others.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a soft suffix like -mouse or -willow would reflect a cat like you who is quiet and reserved around others.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "shy"
@@ -977,7 +987,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a cautious suffix like -hare or -finch would reflect a cat like you who startles easily.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a cautious suffix like -hare or -finch would reflect a cat like you who startles easily.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "skittish"
@@ -986,7 +996,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a proud suffix like -stride or -nose would reflect a cat like you who carries themselves confidently.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a proud suffix like -stride or -nose would reflect a cat like you who carries themselves confidently.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "smug"
@@ -995,7 +1005,7 @@
                 "frequency": 4
             },
             {
-                "text": "rsc_c ponders for a bit. They'd imagine a sweet suffix like -berry or -petal would reflect a cat like you whose kindness is unmistakable.",
+                "text": "r_c:0 ponders for a bit. They'd imagine a sweet suffix like -berry or -petal would reflect a cat like you whose kindness is unmistakable.",
 	            "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "sweet"
@@ -1006,12 +1016,12 @@
         ],
         "fail_outcomes": [
             {
-                "text": "rsc_c thinks and thinks but can't seem to find a suffix that would fit you.",
+                "text": "r_c:0 thinks and thinks but can't seem to find a suffix that would fit you.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "rsc_c declines to answer. After all, only warriors have earned the right to their full names -- not kits who hadn't even caught a piece of prey.",
+                "text": "r_c:0 declines to answer. After all, only warriors have earned the right to their full names -- not kits who hadn't even caught a piece of prey.",
                 "exp": 0,
                 "frequency": 4
             }
@@ -1116,9 +1126,14 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "residence": ["ur"]
+            }
+        },
         "frequency": 4,
         "intro_text": "This Unknown Residence place is so boring! You miss all of the c_n cats, they were much more fun than this. You decide to go exploring.",
-        "decline_text": "rur_c calls out for you, warning you not to go further. Realizing you are caught trying to wander, you grumble and reluctantly go back.",
+        "decline_text": "r_c:0 calls out for you, warning you not to go further. Realizing you are caught trying to wander, you grumble and reluctantly go back.",
         "chance_of_success": 50,
         "success_outcomes": [
             {

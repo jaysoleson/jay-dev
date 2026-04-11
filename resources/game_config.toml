@@ -756,7 +756,7 @@ dev_tools = false
   [lifegen.debug]
     debug_ensure_focus = ""
     debug_ensure_dialogue = ""
-    debug_meow_error_locating = false
+    debug_dialogue_override_filtering = false
 
   [lifegen.shunned_cat]
     max_forgiven_moons = 10

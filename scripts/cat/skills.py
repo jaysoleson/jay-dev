@@ -224,7 +224,13 @@ class SkillPath(Enum):
         "sunhigh log",
         "dormouse", 
         "leader of SnoozeClan"
-    ) 
+    )
+    GARDENER = (
+        "curious about plants",
+        "plant enthusiast",
+        "observant gardener",
+        "green nose"
+    )
 
     @staticmethod
     def get_random(exclude: list = ()):
@@ -321,7 +327,8 @@ class Skill:
         SkillPath.TREASURE: "finding",
         SkillPath.FISHER: "fishing",
         SkillPath.LANGUAGE: "language",
-        SkillPath.SLEEPER: "sleeping"
+        SkillPath.SLEEPER: "sleeping",
+        SkillPath.GARDENER: "gardening"
     }
 
     def __init__(self, path: SkillPath, points: int = 0, interest_only: bool = False):
@@ -518,7 +525,8 @@ class CatSkills:
         SkillPath.TREASURE: SkillTypeFlag.SMART | SkillTypeFlag.OBSERVANT,
         SkillPath.FISHER: SkillTypeFlag.STRONG | SkillTypeFlag.AGILE | SkillTypeFlag.OBSERVANT,
         SkillPath.LANGUAGE: SkillTypeFlag.SOCIAL,
-        SkillPath.SLEEPER: SkillTypeFlag.STRONG
+        SkillPath.SLEEPER: SkillTypeFlag.STRONG,
+        SkillPath.GARDENER: SkillTypeFlag.OBSERVANT
     }
 
     # pylint: enable=unsupported-binary-operation
@@ -821,12 +829,34 @@ class CatSkills:
                 return True
         elif isinstance(path, SkillPath):
             if self.primary:
-                if path == self.primary.path and self.primary.tier >= min_tier:
-                    return True
+                # LG
+                if min_tier == -1:
+                    if path != self.primary.path and (
+                        (
+                            not self.secondary or
+                            (self.secondary and path != self.secondary.path)
+                        )
+                    ):
+                        return True
+                else:
+                # --
+                    if path == self.primary.path and self.primary.tier >= min_tier:
+                        return True
 
             if self.secondary:
-                if path == self.secondary.path and self.secondary.tier >= min_tier:
-                    return True
+                # LG
+                if min_tier == -1:
+                    if path != self.secondary.path and (
+                        (
+                            not self.primary or
+                            (self.primary and path != self.primary.path)
+                        )
+                    ):
+                        return True
+                else:
+                # --
+                    if path == self.secondary.path and self.secondary.tier >= min_tier:
+                        return True
 
         return False
 

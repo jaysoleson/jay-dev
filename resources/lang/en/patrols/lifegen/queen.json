@@ -281,6 +281,11 @@
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "age": ["kitten"]
+            }
+        },
         "frequency": 4,
         "intro_text": "Kits are getting curious and start wandering too close to the warrior's training area. You need to ensure their safety.",
         "decline_text": "Feeling the situation might be too much for you alone, you enlist the help of the Clan's deputy.",
@@ -304,13 +309,13 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Though you caution the kits, r_k still ends up wandering into the training area, getting a minor scratch. The experience stresses the need for constant vigilance.",
+                "text": "Though you caution the kits, r_c:0 still ends up wandering into the training area, getting a minor scratch. The experience stresses the need for constant vigilance.",
                 "exp": 0,
                 "frequency": 1,
                 "injury": [
                     {
                         "cats": [
-                            "r_k"
+                            "r_c:0"
                         ],
                         "injuries": [
                             "small cut"
@@ -319,7 +324,7 @@
                 ]
             },
             {
-                "text": "Despite your best efforts, r_k still sneaks under your nose and gets {PRONOUN/r_k/self} too close to an intense spar. Thankfully the warriors stop straight away and give you the room to pull r_k out of the training arena. That was too close!",
+                "text": "Despite your best efforts, r_c:0 still sneaks under your nose and gets {PRONOUN/r_c:0/self} too close to an intense spar. Thankfully the warriors stop straight away and give you the room to pull r_c:0 out of the training arena. That was too close!",
                 "exp": 0,
                 "frequency": 4
             },
@@ -787,13 +792,18 @@
         "min_cats": 1,
         "max_cats": 6,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "age": ["kitten"]
+            }
+        },
         "frequency": 1,
-        "intro_text": "r_k runs up to you in a frenzy, claiming there is a 'friend' in the woods and you need to follow {PRONOUN/r_k/object} now now now! r_k looks particularly anxious as {PRONOUN/r_k/subject} {VERB/r_k/attempt/attempts} to push you in the direct {PRONOUN/r_k/subject} {VERB/r_k/want/wants} to go.",
-        "decline_text": "You chalk it up as an imaginary friend and brush off r_k's sudden concerns.",
+        "intro_text": "r_c:0 runs up to you in a frenzy, claiming there is a 'friend' in the woods and you need to follow {PRONOUN/r_c:0/object} now now now! r_c:0 looks particularly anxious as {PRONOUN/r_c:0/subject} {VERB/r_c:0/attempt/attempts} to push you in the direct {PRONOUN/r_c:0/subject} {VERB/r_c:0/want/wants} to go.",
+        "decline_text": "You chalk it up as an imaginary friend and brush off r_c:0's sudden concerns.",
         "chance_of_success": 20,
         "success_outcomes": [
             {
-                "text": "Though a bit spooked by r_k's sudden request, you follow {PRONOUN/r_k/object} to the border of camp. To your surprise, it is not an imaginary friend like you thought - instead you're met with a kitten stuck under a pile of fallen branches. You're able to pull the poor kitten out with a determined tug and rush them to the medicine cat.",
+                "text": "Though a bit spooked by r_c:0's sudden request, you follow {PRONOUN/r_c:0/object} to the border of camp. To your surprise, it is not an imaginary friend like you thought - instead you're met with a kitten stuck under a pile of fallen branches. You're able to pull the poor kitten out with a determined tug and rush them to the medicine cat.",
                 "exp": 10,
                 "frequency": 1,
                 "new_cat": [
@@ -815,7 +825,7 @@
                 ]
             },
             {
-                "text": "r_k pushes you to the edge of camp and directs you to a clearing, in which a medicine cat from another Clan sits. They're surrounded by kittens and as they catch sight of you, they plead to be allowed in the Clan. Though a bit hesitant, you allow the medicine cat to follow you back.",
+                "text": "r_c:0 pushes you to the edge of camp and directs you to a clearing, in which a medicine cat from another Clan sits. They're surrounded by kittens and as they catch sight of you, they plead to be allowed in the Clan. Though a bit hesitant, you allow the medicine cat to follow you back.",
                 "exp": 10,
                 "frequency": 1,
                 "new_cat": [
@@ -832,17 +842,21 @@
                 ]
             },
             {
-                "text": "r_k's urgency makes you curious. You wander with {PRONOUN/r_k/object} to a clearing filled with blooming flowers, yet there's no 'friend' in sight. r_k gives you a cheeky little smile, saying {PRONOUN/r_k/subject} just wanted to get out of the nursery for a while and make some flower crowns! {PRONOUN/r_k/subject/CAP} {VERB/r_k/dash/dashes} off before you're able to protest, but... what's the harm in a little fun?",
+                "text": "r_c:0's urgency makes you curious. You wander with {PRONOUN/r_c:0/object} to a clearing filled with blooming flowers, yet there's no 'friend' in sight. r_c:0 gives you a cheeky little smile, saying {PRONOUN/r_c:0/subject} just wanted to get out of the nursery for a while and make some flower crowns! {PRONOUN/r_c:0/subject/CAP} {VERB/r_c:0/dash/dashes} off before you're able to protest, but... what's the harm in a little fun?",
                 "exp": 10,
                 "frequency": 4,
                 "accessory": [
                     {
                         "cats": [
                             "p_l",
-                            "r_k"
+                            "r_c:0"
                         ],
                         "accessory": [
-                            "FLOWERCROWN"
+                            "POPPYCROWN",
+                            "DANDELIONCROWN",
+                            "PURPLEFLOWERCROWN",
+                            "BLUEFLOWERCROWN",
+                            "YELLOWFLOWERCROWN"
                         ]
                     }
                 ]
@@ -850,7 +864,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Begrudgingly, you follow r_k to the woods. There's nothing there. The kitten swears {PRONOUN/r_k/poss} friend was there underneath a pile of fallen branches, but you shake your head and coax r_k back to c_n. As you approach the treeline, you see a pair of eyes surrounded by black mist in the corner of your vision. With a turn of your head, there's nothing there... A shiver runs down your spine as you hurry out of there.",
+                "text": "Begrudgingly, you follow r_c:0 to the woods. There's nothing there. The kitten swears {PRONOUN/r_c:0/poss} friend was there underneath a pile of fallen branches, but you shake your head and coax r_c:0 back to c_n. As you approach the treeline, you see a pair of eyes surrounded by black mist in the corner of your vision. With a turn of your head, there's nothing there... A shiver runs down your spine as you hurry out of there.",
                 "exp": 0,
                 "frequency": 2,
                 "stat_skill": [
@@ -858,23 +872,23 @@
                 ],
 	            "can_have_stat": [
                     "p_l",
-                    "r_k"
+                    "r_c:0"
                 ]
             },
             {
-                "text": "You sigh and ask r_k if this is a real friend or a make-believe friend. {PRONOUN/r_k/subject/CAP} {VERB/r_k/is/are} not happy with your reluctance and bursts into tears, running in the opposite direction. Realising you've upset the kitten greatly, you spend the rest of dusk trying to coax r_k back to the nursery before {PRONOUN/r_k/subject} {VERB/r_k/do/does} something rash.",
+                "text": "You sigh and ask r_c:0 if this is a real friend or a make-believe friend. {PRONOUN/r_c:0/subject/CAP} {VERB/r_c:0/is/are} not happy with your reluctance and bursts into tears, running in the opposite direction. Realising you've upset the kitten greatly, you spend the rest of dusk trying to coax r_c:0 back to the nursery before {PRONOUN/r_c:0/subject} {VERB/r_c:0/do/does} something rash.",
                 "exp": 0,
                 "frequency": 2
             },
             {
-                "text": "You decide there is no harm in humouring r_k. You follow {PRONOUN/r_k/object} to the edge of camp, only to see a small dog just outside the territory and r_k calls out to {PRONOUN/r_k/poss} so-called-friend. The dog's wagging tail and pipsqueak of a bark is only a cover-up for their true personality, and you waste no time rushing r_k out of there. That's the last time you're following r_k anywhere!",
+                "text": "You decide there is no harm in humouring r_c:0. You follow {PRONOUN/r_c:0/object} to the edge of camp, only to see a small dog just outside the territory and r_c:0 calls out to {PRONOUN/r_c:0/poss} so-called-friend. The dog's wagging tail and pipsqueak of a bark is only a cover-up for their true personality, and you waste no time rushing r_c:0 out of there. That's the last time you're following r_c:0 anywhere!",
                 "exp": 0,
                 "frequency": 2,
                 "stat_skill": [
                     "LANGUAGE,1"
                 ],
                 "can_have_stat": [
-                    "r_k"
+                    "r_c:0"
                 ]
             }
         ]
@@ -895,18 +909,27 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["warrior"]
+            },
+            "r_c:1": {
+                "age": ["kitten"],
+                "cluster": ["neurotic"]
+            }
+        },
         "frequency": 4,
-        "intro_text": "r_k-neurotic is missing! Just as you leave the den to look for them, they barrel into you, crying so hard they can't get a word out.",
-        "decline_text": "You let the kit cry into your fur without a word until {PRONOUN/r_k-neurotic/subject} {VERB/r_k-neurotic/tucker/tuckers} {PRONOUN/r_k-neurotic/self} out.",
+        "intro_text": "r_c:1 is missing! Just as you leave the den to look for {PRONOUN/r_c:1/object}, {PRONOUN/r_c:1/subject} {VERB/r_c:1/barrel/barrels} into you, crying so hard {PRONOUN/r_c:1/subject} can't get a word out.",
+        "decline_text": "You let the kit cry into your fur without a word until {PRONOUN/r_c:1/subject} {VERB/r_c:1/tucker/tuckers} {PRONOUN/r_c:1/self} out.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You know that if r_k-neurotic doesn't get regulated, {PRONOUN/r_k-neurotic/subject}{VERB/r_k-neurotic/'re/'s} not going to be able to breathe properly. Instead of asking what happened, you hug {PRONOUN/r_k-neurotic/object} close and begin to groom {PRONOUN/r_k-neurotic/poss} fur until {PRONOUN/r_k-neurotic/subject} {VERB/r_k-neurotic/fall/falls} asleep. Later, r_w comes in to check on {PRONOUN/r_k-neurotic/object} and tells you {PRONOUN/r_k-neurotic/subject} got startled by an angry squirrel. Poor little kit!",
+                "text": "You know that if r_c:1 doesn't get regulated, {PRONOUN/r_c:1/subject}{VERB/r_c:1/'re/'s} not going to be able to breathe properly. Instead of asking what happened, you hug {PRONOUN/r_c:1/object} close and begin to groom {PRONOUN/r_c:1/poss} fur until {PRONOUN/r_c:1/subject} {VERB/r_c:1/fall/falls} asleep. Later, r_c:0 comes in to check on {PRONOUN/r_c:1/object} and tells you {PRONOUN/r_c:1/subject} got startled by an angry squirrel. Poor little kit!",
                 "exp": 15,
                 "frequency": 4
             },
             {
-                "text": "Though startled, you understand that r_k-neurotic is suffocating underneath {PRONOUN/r_k-neurotic/poss} panic and you need to act quickly. You curl around r_k-neurotic and start humming a rhythmic tune, hoping the vibrations will be a welcome distraction from {PRONOUN/r_k-neurotic/poss} fear. It takes a bit, but r_k-neurotic takes comfort in your humming and calms down enough to breathe properly again.",
+                "text": "Though startled, you understand that r_c:1 is suffocating underneath {PRONOUN/r_c:1/poss} panic and you need to act quickly. You curl around r_c:1 and start humming a rhythmic tune, hoping the vibrations will be a welcome distraction from {PRONOUN/r_c:1/poss} fear. It takes a bit, but r_c:1 takes comfort in your humming and calms down enough to breathe properly again.",
                 "exp": 10,
                 "frequency": 4,
                 "stat_skill": [
@@ -917,7 +940,7 @@
                 ]
             },
             {
-                "text": "You coax r_k-neurotic to a secluded area within the nursery to give {PRONOUN/r_k-neurotic/poss} some privacy, and stay with {PRONOUN/r_k-neurotic/object} as a comforting presence until r_k-neurotic is able to catch {PRONOUN/r_k-neurotic/poss} breath. r_k-neurotic blubbers out that a bird of prey scared {PRONOUN/r_k-neurotic/object} and {PRONOUN/r_k-neurotic/subject}{VERB/r_k-neurotic/'re/'s} sorry, but you shush {PRONOUN/r_k-neurotic/object} gently before r_k-neurotic apologizes again. There's no need for apologies when seeking comfort.",
+                "text": "You coax r_c:1 to a secluded area within the nursery to give {PRONOUN/r_c:1/poss} some privacy, and stay with {PRONOUN/r_c:1/object} as a comforting presence until r_c:1 is able to catch {PRONOUN/r_c:1/poss} breath. r_c:1 blubbers out that a bird of prey scared {PRONOUN/r_c:1/object} and {PRONOUN/r_c:1/subject}{VERB/r_c:1/'re/'s} sorry, but you shush {PRONOUN/r_c:1/object} gently before r_c:1 apologizes again. There's no need for apologies when seeking comfort.",
                 "exp": 10,
                 "frequency": 4,
                 "stat_trait": [
@@ -937,12 +960,12 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You try to guide the kit through some breathing exercises, but {PRONOUN/r_k-neurotic/subject} {VERB/r_k-neurotic/don't/doesn't} seem to hear you. Whatever happened must have scared {PRONOUN/r_k-neurotic/object} a lot.",
+                "text": "You try to guide the kit through some breathing exercises, but {PRONOUN/r_c:1/subject} {VERB/r_c:1/don't/doesn't} seem to hear you. Whatever happened must have scared {PRONOUN/r_c:1/object} a lot.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "You try to ask what is wrong, but r_k-neurotic is unable to speak through {PRONOUN/r_k-neurotic/poss} tears and quickened breath. You make the mistake of allowing panic to appear in your expression and r_k-neurotic cries harder, not finding any comfort at all. In a last ditch effort, you call over another queen and they take care of the issue with hushed words and gentle snuggles.",
+                "text": "You try to ask what is wrong, but r_c:1 is unable to speak through {PRONOUN/r_c:1/poss} tears and quickened breath. You make the mistake of allowing panic to appear in your expression and r_c:1 cries harder, not finding any comfort at all. In a last ditch effort, you call over another queen and they take care of the issue with hushed words and gentle snuggles.",
                 "exp": 0,
                 "frequency": 4
             }
@@ -966,18 +989,26 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "residence": ["df"]
+            },
+            "r_c:1": {
+                "rank": ["warrior"]
+            }
+        },
         "frequency": 4,
         "intro_text": "You're sitting with the Dark Forest kits, when you can't help but wish you knew how to fight so you could protect them better. It's good to know how to fight - you're in the Dark Forest, after all.",
         "decline_text": "Most of the Dark Forest cats probably don't have time, or don't care enough, to teach you even the basics of fighting. You just hope that you won't run into any situations where you'd need to fight.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You eventually ask rdf_c to help you learn to fight, and {PRONOUN/rdf_c/subject} {VERB/rdf_c/agree/agrees}! You spend a few hours with {PRONOUN/rdf_c/object}, training and learning the basics of fighting. You leave the training session with confidence that you'll be able to protect the kits now.",
+                "text": "You eventually ask r_c:0 to help you learn to fight, and {PRONOUN/r_c:0/subject} {VERB/r_c:0/agree/agrees}! You spend a few hours with {PRONOUN/r_c:0/object}, training and learning the basics of fighting. You leave the training session with confidence that you'll be able to protect the kits now.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "When you ask rdf_c to help you learn to fight, {PRONOUN/rdf_c/subject} {VERB/rdf_c/agree/agrees}. You quickly realize that you're actually a natural at fighting! Who knew? You leave the training session with much more confidence, despite not having learned anything.",
+                "text": "When you ask r_c:0 to help you learn to fight, {PRONOUN/r_c:0/subject} {VERB/r_c:0/agree/agrees}. You quickly realize that you're actually a natural at fighting! Who knew? You leave the training session with much more confidence, despite not having learned anything.",
                 "exp": 0,
                 "frequency": 4,
                 "can_have_stat": ["p_l"],
@@ -998,42 +1029,42 @@
                 "stat_skill": ["INNOVATOR,1", "THINKER,1"]
             },
             {
-                "text": "When you ask rdf_c to help you, {PRONOUN/rdf_c/subject} {VERB/rdf_c/agree/agrees}, but {VERB/rdf_c/say/says} it'll come with a price. {PRONOUN/rdf_c/subject/CAP} {VERB/rdf_c/have/has} you do a few tasks to 'earn' the training, and you do them gladly. You'd do anything for the kits, after all. Once you've done the tasks, rdf_c eagerly teaches you anything you want to know.",
+                "text": "When you ask r_c:0 to help you, {PRONOUN/r_c:0/subject} {VERB/r_c:0/agree/agrees}, but {VERB/r_c:0/say/says} it'll come with a price. {PRONOUN/r_c:0/subject/CAP} {VERB/r_c:0/have/has} you do a few tasks to 'earn' the training, and you do them gladly. You'd do anything for the kits, after all. Once you've done the tasks, r_c:0 eagerly teaches you anything you want to know.",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["rdf_c"],
+                "can_have_stat": ["r_c:0"],
                 "stat_cluster": ["upstanding"]
             },
             {
-                "text": "Just as you begin to lose hope on learning how to fight, r_w appears in the Dark Forest. {PRONOUN/r_w/subject/CAP} {VERB/r_w/are/is} clearly in distress, but calms down after seeing you with the kits. You approach {PRONOUN/r_w/object} and ask for {PRONOUN/r_w/object} to help you learn to fight. {PRONOUN/r_w/subject/CAP} {VERB/r_w/agree/agrees}, and even decides to train in the Dark Forest! rdf_c would be proud.",
+                "text": "Just as you begin to lose hope on learning how to fight, r_c:1 appears in the Dark Forest. {PRONOUN/r_c:1/subject/CAP} {VERB/r_c:1/are/is} clearly in distress, but calms down after seeing you with the kits. You approach {PRONOUN/r_c:1/object} and ask for {PRONOUN/r_c:1/object} to help you learn to fight. {PRONOUN/r_c:1/subject/CAP} {VERB/r_c:1/agree/agrees}, and even decides to train in the Dark Forest! r_c:0 would be proud.",
                 "exp": 0,
                 "frequency": 3,
-                "convert": ["r_w"]
+                "convert": ["r_c:1"]
             }
         ],
         "fail_outcomes": [
             {
-                "text": "You eventually ask rdf_c to help you learn to fight, but {PRONOUN/rdf_c/subject} {VERB/rdf_c/decline/declines}. Maybe you'll be able to ask a different cat.",
+                "text": "You eventually ask r_c:0 to help you learn to fight, but {PRONOUN/r_c:0/subject} {VERB/r_c:0/decline/declines}. Maybe you'll be able to ask a different cat.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "You eventually ask rdf_c to help you learn to fight, and {PRONOUN/rdf_c/subject} {VERB/rdf_c/agree/agrees}! After only a few minutes of training, you unfortunately realize that rdf_c is <i>not</i> a good teacher. You spend about an hour training with {PRONOUN/rdf_c/object}, but you learn nothing from the session.",
+                "text": "You eventually ask r_c:0 to help you learn to fight, and {PRONOUN/r_c:0/subject} {VERB/r_c:0/agree/agrees}! After only a few minutes of training, you unfortunately realize that r_c:0 is <i>not</i> a good teacher. You spend about an hour training with {PRONOUN/r_c:0/object}, but you learn nothing from the session.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "When you ask rdf_c to help you learn to fight, {PRONOUN/rdf_c/subject} {VERB/rdf_c/laugh/laughs} and leads you on a wild goose chase around the Dark Forest, doing odd tasks for hours. After you finish the last task, you turn around to see {PRONOUN/rdf_c/object} gone. This was all for nothing?!",
+                "text": "When you ask r_c:0 to help you learn to fight, {PRONOUN/r_c:0/subject} {VERB/r_c:0/laugh/laughs} and leads you on a wild goose chase around the Dark Forest, doing odd tasks for hours. After you finish the last task, you turn around to see {PRONOUN/r_c:0/object} gone. This was all for nothing?!",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["rdf_c"],
+                "can_have_stat": ["r_c:0"],
                 "stat_cluster": ["unlawful"]
             },
             {
-                "text": "You're beginning to lose hope on learning how to fight, when r_w shows up! Before you can approach {PRONOUN/r_w/object}, {PRONOUN/r_w/subject} {VERB/r_w/run/runs} away from you. Well, without a guide, {PRONOUN/r_w/subject}{VERB/r_w/'re/'s} definitely getting lost.",
+                "text": "You're beginning to lose hope on learning how to fight, when r_c:1 shows up! Before you can approach {PRONOUN/r_c:1/object}, {PRONOUN/r_c:1/subject} {VERB/r_c:1/run/runs} away from you. Well, without a guide, {PRONOUN/r_c:1/subject}{VERB/r_c:1/'re/'s} definitely getting lost.",
                 "exp": 0,
                 "frequency": 1,
-                "lost_cats": ["r_w"]
+                "lost_cats": ["r_c:1"]
             }
         ]
     },
@@ -1055,6 +1086,11 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "age": ["kitten"]
+            }
+        },
         "frequency": 4,
         "intro_text": "You could've sworn you heard soft meowing nearby, as if there were kits in the Unknown Residence too.",
         "decline_text": "You shake your head, and convince yourself that you're just hearing things.",
@@ -1076,11 +1112,11 @@
         ],
         "fail_outcomes": [
             {
-                "text": "After searching for what feels like moons, you discover there <i>is</i> a kit in the Unknown Residence... but that kit isn't a resident. Somehow a very-much-alive kit from one of the Clans has managed to slip into this ghostly afterlife, and {PRONOUN/r_k/subject}{VERB/r_k/'ve/'s} been calling to you, thinking the two of you were playing some game {PRONOUN/r_k/subject} {VERB/r_k/have/has} with {PRONOUN/r_k/poss} Clanmates. While you're relieved that the kit is still alive, you can't help but feel disappointed; you were truly hoping you could care for kittens again like you did in life.",
+                "text": "After searching for what feels like moons, you discover there <i>is</i> a kit in the Unknown Residence... but that kit isn't a resident. Somehow a very-much-alive kit from one of the Clans has managed to slip into this ghostly afterlife, and {PRONOUN/r_c:0/subject}{VERB/r_c:0/'ve/'s} been calling to you, thinking the two of you were playing some game {PRONOUN/r_c:0/subject} {VERB/r_c:0/have/has} with {PRONOUN/r_c:0/poss} Clanmates. While you're relieved that the kit is still alive, you can't help but feel disappointed; you were truly hoping you could care for kittens again like you did in life.",
                 "exp": 0,
                 "frequency": 4,
                 "stat_skill": ["GHOST,1"],
-                "can_have_stat": ["r_k"]
+                "can_have_stat": ["r_c:0"]
             },
             {
                 "text": "You turn your head and see a shadow in the mist, strangely kitten-like in shape. You tentatively creep closer, calling out for them, but they do not move or respond back. Once you get near enough to see through the mist, you only find a pile of sticks and a goop-like substance from the Dark Forest. You've been pranked again!",

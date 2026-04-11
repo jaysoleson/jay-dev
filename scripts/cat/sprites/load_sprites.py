@@ -361,7 +361,6 @@ class Sprites:
             "fadestarclan",
             "fadedarkforest",
             "fadeunknownresidence",
-            "lifegen_fadeunknownresidence",
             "symbols",
             "heterochromiamask",
         ]
@@ -397,7 +396,6 @@ class Sprites:
             self.make_group("fadestarclan", (i, 0), f"fadestarclan{i}")
             self.make_group("fadedarkforest", (i, 0), f"fadedf{i}")
             self.make_group("fadeunknownresidence", (i, 0), f"fadeur{i}")
-            self.make_group("lifegen_fadeunknownresidence", (i, 0), f"lifegen_fadeur{i}")
 
         for data in data_jsons:
             # collar accs

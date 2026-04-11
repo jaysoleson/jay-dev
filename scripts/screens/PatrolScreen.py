@@ -385,12 +385,7 @@ class PatrolScreen(Screens):
         super().screen_switches()
         self.set_disabled_menu_buttons(["patrols"])
         # LG EDIT
-        if game.clan.your_cat.status.alive_in_player_clan:
-            self.update_heading_text(f"{game.clan.displayname}Clan")
-        elif game.clan.your_cat.status.group:
-            self.update_heading_text(f"The {(game.clan.your_cat.status.group).capitalize().replace("_", " ")}")
-        else:
-            self.update_heading_text("Outside the Clan")
+        self.update_heading_text(game.clan.your_cat.status.get_group_heading_text())
         # ---
         self.show_mute_buttons()
         self.show_menu_buttons()
@@ -1244,8 +1239,8 @@ class PatrolScreen(Screens):
                 (the_cat.status.alive_in_your_cat_group or
                 (the_cat.status.is_outsider and the_cat.dead)) and
                 the_cat.moons >= 1 and
-                the_cat not in self.current_patrol and
-                "2" not in switch_get_value(Switch.patrolled)
+                the_cat not in self.current_patrol
+                and "2" not in switch_get_value(Switch.patrolled)
                 ):
                 if the_cat not in self.current_patrol and not the_cat.not_working():
                     self.current_patrol.insert(0, the_cat)

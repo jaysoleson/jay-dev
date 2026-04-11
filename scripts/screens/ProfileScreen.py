@@ -533,21 +533,12 @@ class ProfileScreen(Screens):
             elif event.ui_element == self.murder_cat_button:
                 self.change_screen(GameScreen.MURDER)
             elif event.ui_element == self.join_df_button:
-                game.clan.your_cat.joined_df = True
-                game.clan.your_cat.df_join_moon = game.clan.age
-                game.clan.your_cat.faith -=1
-                game.clan.your_cat.update_df_mentor()
+                game.clan.your_cat.join_df()
                 self.join_df_button.disable()
                 self.clear_profile()
                 self.build_profile()
             elif event.ui_element == self.exit_df_button:
-                game.clan.your_cat.joined_df = False
-                game.clan.your_cat.faith += 1
-                try:
-                    Cat.all_cats[game.clan.your_cat.df_mentor].df_apprentices.remove(game.clan.your_cat.ID)
-                except:
-                    print("ERROR: removing df apprentice")
-                game.clan.your_cat.df_mentor = None
+                game.clan.your_cat.leave_df()
                 self.exit_df_button.disable()
                 self.clear_profile()
                 self.build_profile()
@@ -3070,14 +3061,6 @@ class ProfileScreen(Screens):
                 starting_height=2,
                 manager=MANAGER,
             )
-            self.murder_cat_button = UIImageButton(
-                ui_scale(pygame.Rect((578, 522), (172, 36))),
-                "",
-                object_id="#murder_button",
-                tool_tip_text='Choose to murder one of your Clanmates',
-                starting_height=2,
-                manager=MANAGER
-            )
             self.leave_clan_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((578, 0), (172, 36))),
                 "screens.profile.leave_clan",
@@ -3088,12 +3071,6 @@ class ProfileScreen(Screens):
                 manager=MANAGER,
                 anchors={"top_target": self.kill_cat_button},
             )
-
-            if game.clan.your_cat.moons == 0:
-                self.murder_cat_button.disable()
-            
-            if "moon" in game.clan.murdered and game.clan.murdered["moon"] == game.clan.age:
-                self.murder_cat_button.disable()
                 
             if game.clan.your_cat.joined_df:
                 self.exit_df_button = UIImageButton(
@@ -3129,6 +3106,21 @@ class ProfileScreen(Screens):
                         alive_mate = True
                 if not alive_mate:
                     self.affair_button.disable()
+            
+            self.murder_cat_button = UIImageButton(
+                ui_scale(pygame.Rect((578, 0), (172, 36))),
+                "",
+                object_id="#murder_button",
+                tool_tip_text='Choose to murder one of your Clanmates',
+                starting_height=2,
+                manager=MANAGER,
+                anchors={"top_target": self.affair_button},
+            )
+            if game.clan.your_cat.moons == 0:
+                self.murder_cat_button.disable()
+            
+            if "moon" in game.clan.murdered and game.clan.murdered["moon"] == game.clan.age:
+                self.murder_cat_button.disable()
 
             # These are a placeholders, to be killed and recreated in self.update_disabled_buttons_and_text().
             #   This it due to the image switch depending on the cat's status, and the location switch the close button

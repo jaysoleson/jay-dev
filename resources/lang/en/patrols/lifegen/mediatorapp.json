@@ -15,6 +15,11 @@
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["deputy"]
+            }
+        },
         "frequency": 4,
         "intro_text": "A dispute breaks out between two apprentices over who gets to go on the next patrol. As a mediator apprentice, it's your job to resolve it.",
         "decline_text": "You decide to let a senior warrior handle the situation, feeling it's beyond your current capabilities. They handle it effectively, and you learn from their methods.",
@@ -61,7 +66,7 @@
                 ]
             },
             {
-                "text": "You hesitate for too long. Before you're able to do anything, d_n notices and gets in-between the two apprentices with a look of disappointment. The three of them have a quick conversation, in which d_n doesn't allow them any room to speak, and the apprentices sulk off. Neither are going on patrol because of their behavior, it seems.",
+                "text": "You hesitate for too long. Before you're able to do anything, r_c:0 notices and gets in-between the two apprentices with a look of disappointment. The three of them have a quick conversation, in which r_c:0 doesn't allow them any room to speak, and the apprentices sulk off. Neither are going on patrol because of their behavior, it seems.",
                 "exp": 0,
                 "frequency": 4,
                 "stat_trait": [
@@ -75,7 +80,7 @@
                     "aloof"
                 ],
                 "can_have_stat": [
-                    "d_n"
+                    "r_c:0"
                 ]
             }
         ]
@@ -273,6 +278,11 @@
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["leader"]
+            }
+        },
         "frequency": 4,
         "intro_text": "A couple of apprentices have started a prank war, disrupting the peace in the camp. You decide to step in.",
         "decline_text": "You decide to let the senior warriors handle this, as it involves maintaining discipline in the Clan. You observe how they handle the situation.",
@@ -289,7 +299,7 @@
                 "frequency": 4
             },
             {
-                "text": "Confronting the apprentices on their pranks proves to be a bit difficult as they deny the claims and brush your concerns off. In a last ditch effort, you threaten to tell l_n about their refusal to comply. The apprentices reluctantly agree to take their prank war elsewhere, not without calling you a tattletail first, of course.",
+                "text": "Confronting the apprentices on their pranks proves to be a bit difficult as they deny the claims and brush your concerns off. In a last ditch effort, you threaten to tell r_c:0 about their refusal to comply. The apprentices reluctantly agree to take their prank war elsewhere, not without calling you a tattletail first, of course.",
                 "exp": 10,
                 "frequency": 4
             }
@@ -339,6 +349,11 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["deputy"]
+            }
+        },
         "frequency": 4,
         "intro_text": "While assisting in various menial tasks around camp, you notice a commotion coming from a couple of warriors in the clearing. They seem to be locked in an argument over an event that occurred earlier that day.",
         "decline_text": "You shrug and continue your task with a dismissive flick of your tail. Whatever the issue is can be resolved without your help.",
@@ -350,7 +365,7 @@
                 "frequency": 4
             },
             {
-                "text": "You cower away from the argument, knowing getting in-between two highly trained, angry warriors is not good for any cat - let alone a mediator still in training. Instead, you get d_n involved, and you take a relieved inhale as the warriors immediately halt their argument at the sight of d_n.",
+                "text": "You cower away from the argument, knowing getting in-between two highly trained, angry warriors is not good for any cat - let alone a mediator still in training. Instead, you get r_c:0 involved, and you take a relieved inhale as the warriors immediately halt their argument at the sight of r_c:0.",
                 "exp": 5,
                 "frequency": 4,
                 "stat_trait": [
@@ -465,32 +480,47 @@
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},
+        "random_cats": {
+            "r_c:0": {
+                "rank": ["leader"]
+            },
+            "r_c:1": {}
+        },
+        "relationships": [
+            {
+                "cats_from": ["r_c:1"],
+                "cats_to": ["y_c"],
+                "relationship": ["mentor/app"]
+            }
+        ],
         "frequency": 4,
-        "intro_text": "m_n and l_n are in an argument. l_n seems angry, and m_n is trying to calm them down.",
-        "decline_text": "After a bit of thought, you decide it's better to let m_n handle that and you back off.",
+        "intro_text": "r_c:1 and r_c:0 are in an argument. r_c:0 seems angry, and r_c:1 is trying to calm them down.",
+        "decline_text": "After a bit of thought, you decide it's better to let r_c:1 handle that and you back off.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You step in and after a few calming words, you manage to get through to l_n, and they can come to a compromise. m_n is proud of how you handled the situation.",
+                "text": "You step in and after a few calming words, you manage to get through to r_c:0, and they can come to a compromise. r_c:1 is proud of how you handled the situation.",
                 "exp": 10,
                 "frequency": 4
             },
             {
-                "text": "l_n calms down reluctantly as you try to intervene, and {PRONOUN/l_n/subject} {VERB/l_n/apologize/apologizes} for allowing {PRONOUN/l_n/poss} anger to get to {PRONOUN/l_n/object}. This allows your mentor room to successfully mediate a little bit before l_n has to attend to other duties.",
+                "text": "r_c:0 calms down reluctantly as you try to intervene, and {PRONOUN/r_c:0/subject} {VERB/r_c:0/apologize/apologizes} for allowing {PRONOUN/r_c:0/poss} anger to get to {PRONOUN/r_c:0/object}. This allows your mentor room to successfully mediate a little bit before r_c:0 has to attend to other duties.",
                 "exp": 10,
                 "frequency": 4
             }
         ],
         "fail_outcomes": [
             {
-                "text": "You step in to try and calm l_n down, but you just escalate the situation further, leading {PRONOUN/l_n/object} to leave. Your mentor thanks you for the attempt, and tells you the leader will calm down eventually.",
+                "text": "You step in to try and calm r_c:0 down, but you just escalate the situation further, leading {PRONOUN/r_c:0/object} to leave. Your mentor thanks you for the attempt, and tells you the leader will calm down eventually.",
                 "exp": 0,
                 "frequency": 4
             },
             {
-                "text": "l_n_introspective is never angry without reason and you back away slowly, unwilling to get into that mess. Your mentor must have messed up big time, and you're not staying around to find out what {PRONOUN/m_n/subject} did to anger l_n_introspective.",
+                "text": "s_c is never angry without reason and you back away slowly, unwilling to get into that mess. Your mentor must have messed up big time, and you're not staying around to find out what {PRONOUN/r_c:1/subject} did to anger s_c.",
                 "exp": 0,
-                "frequency": 4
+                "frequency": 4,
+                "can_have_stat": ["r_c:0"],
+                "stat_cluster": ["introspective"]
             },
             {
                 "text": "You try to mediate, but both your mentor and leader are ignoring you in favor of trying to get their point across - and quite loudly, too. Thankfully, the loud argument catches the deputy's attention and they're able to get the leader to see reason. Phew...",
@@ -567,10 +597,10 @@
         "season": [
             "any"
         ],
-        "types": [
+        "types": [],
+        "tags": [
             "sc_lifegen"
         ],
-        "tags": [],
         "patrol_art": "lg_default_sc",
         "min_cats": 1,
         "max_cats": 1,

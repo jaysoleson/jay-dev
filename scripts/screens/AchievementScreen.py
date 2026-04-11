@@ -47,12 +47,7 @@ class AchievementScreen(Screens):
         self.show_mute_buttons()
         # self.set_disabled_menu_buttons(["achievements"])
         # LG EDIT
-        if game.clan.your_cat.status.alive_in_player_clan:
-            self.update_heading_text(f"{game.clan.displayname}Clan")
-        elif game.clan.your_cat.status.group:
-            self.update_heading_text(f"The {(game.clan.your_cat.status.group).capitalize().replace("_", " ")}")
-        else:
-            self.update_heading_text("Outside the Clan")
+        self.update_heading_text(game.clan.your_cat.status.get_group_heading_text())
         # ---
 
         a_txt = load_lang_resource("achievements.json")

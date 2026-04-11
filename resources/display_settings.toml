@@ -106,6 +106,9 @@
         "show empty relation" = [
             false, true
         ]
+        "show only you" = [
+            false, true
+        ]
         "den labels" = [
             true, false
         ]

@@ -146,6 +146,7 @@
         "good tunneler": "good tunneler",
         "great tunneler": "great tunneler",
         "fantastic tunneler": "fantastic tunneler",
+        "navigating": "navigating",
         "good with directions": "good with directions",
         "good navigator": "good navigator",
         "great navigator": "great navigator",
@@ -219,6 +220,11 @@
         "dozes easily": "dozes easily",
         "sunhigh log": "sunhigh log",
         "dormouse": "dormouse",
-        "leader of SnoozeClan": "leader of SnoozeClan"
+        "leader of SnoozeClan": "leader of SnoozeClan",
+        "gardening": "gardening",
+        "curious about plants": "curious about plants",
+        "plant enthusiast": "plant enthusiast",
+        "observant gardener": "observant gardener",
+        "green nose": "green nose"
     }
 }
