@@ -171,8 +171,10 @@ class Sexuality():
                 likes_toms is False and self.likes_she_cats is False
             ):
                 # print("cat going from liking one gender to liking NONE. correcting aroace")
-                upcoming_dict["arospec"] = Arospec.ARO
-                upcoming_dict["acespec"] = Acespec.ACE
+                if self.arospec != Arospec.ARO:
+                    upcoming_dict["arospec"] = Arospec.ARO
+                if self.acespec != Acespec.ACE:
+                    upcoming_dict["acespec"] = Acespec.ACE
 
         if fix_orientation:
             if (
@@ -180,15 +182,17 @@ class Sexuality():
                 arospec == Arospec.ARO and self.acespec == Acespec.ACE
             ):
                 # print(f"cat is changing to aroace {acespec}, {arospec}. correcting orientaion")
-                upcoming_dict["likes_toms"] = False
-                upcoming_dict["likes_she_cats"] = False
+                if self.likes_toms:
+                    upcoming_dict["likes_toms"] = False
+                if self.likes_she_cats:
+                    upcoming_dict["likes_she_cats"] = False
         
         if upcoming_dict == {"moons_until": 4}:
             print("WARNING: Empty upcoming_sexuality dict?")
             return
 
         self.upcoming_sexuality = upcoming_dict
-        # print("FINAL: Upcoming sexuality set to:", self.upcoming_sexuality)
+        print("FINAL: Upcoming sexuality set to:", self.upcoming_sexuality)
     
     def clear_upcoming_sexuality(self):
         self.upcoming_sexuality = {}

@@ -1,0 +1,128 @@
+{
+    "gen_change_2": {
+        "new": {
+            "likes_she_cats": [true]
+        },
+        "old": {
+            "likes_toms": [true]
+        },
+        "events": [
+            "m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/like/likes} she-cats as well as toms!"
+        ]
+    },
+    "gen_change_3": {
+        "new": {
+            "likes_toms": [true]
+        },
+        "old": {
+            "likes_she_cats": [true]
+        },
+        "events": [
+            "m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/like/likes} toms as well as she-cats!"
+        ]
+    },
+    "gen_change_4": {
+        "new": {
+            "likes_toms": [true]
+        },
+        "old": {},
+        "events": [
+            "m_c has been taking more interest in toms lately."
+        ]
+    },
+    "gen_change_5": {
+        "new": {
+            "likes_toms": [false]
+        },
+        "old": {},
+        "events": [
+            "m_c no longer finds {PRONOUN/m_c/self} interested in toms."
+        ]
+    },
+    "gen_change_6": {
+        "new": {
+            "likes_she_cats": [true]
+        },
+        "old": {},
+        "events": [
+            "m_c has been taking more interest in she-cats lately."
+        ]
+    },
+    "gen_change_7": {
+        "new": {
+            "likes_she_cats": [false]
+        },
+        "old": {},
+        "events": [
+            "m_c no longer finds {PRONOUN/m_c/self} interested in she-cats."
+        ]
+    },
+    "demi_1": {
+        "new": {
+            "arospec": ["demiromantic"]
+        },
+        "old": {},
+        "events": [
+            "After some thinking, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/are/is} demiromantic.",
+            "m_c comes out as demiromantic.",
+            "m_c figures out that {PRONOUN/m_c/subject} only {VERB/m_c/experience/experiences} romantic attraction to cats {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} already close with. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as demiromantic!"
+        ]
+    },
+    "grey_1": {
+        "new": {
+            "arospec": ["greyaromantic"]
+        },
+        "old": {},
+        "events": [
+            "After some thinking, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/are/is} greyaromantic.",
+            "m_c comes out as greyaromantic.",
+            "m_c figures out that {PRONOUN/m_c/subject} {VERB/m_c/experience/experiences} romantic attraction to other cats much more rarely than others. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as greyaromantic!"
+        ]
+    },
+    "aro_1": {
+        "new": {
+            "arospec": ["aromantic"]
+        },
+        "old": {},
+        "events": [
+            "After some thinking, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/are/is} aromantic.",
+            "m_c comes out as aromantic.",
+            "m_c figures out that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} feel any romantic attraction. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as aromantic!",
+            "m_c realises that romance isn't for {PRONOUN/m_c/object}.",
+            "m_c has come to terms with the fact that romance just isn't {PRONOUN/m_c/poss} thing."
+        ]
+    },
+    "demis_1": {
+        "new": {
+            "acespec": ["demisexual"]
+        },
+        "old": {},
+        "events": [
+            "After some thinking, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/are/is} demisexual.",
+            "m_c comes out as demisexual.",
+            "m_c figures out that {PRONOUN/m_c/subject} only {VERB/m_c/experience/experiences} attraction to cats {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} already close with. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as demisexual!"
+        ]
+    },
+    "greys_1": {
+        "new": {
+            "acespec": ["greyasexual"]
+        },
+        "old": {},
+        "events": [
+            "After some thinking, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/are/is} greyasexual.",
+            "m_c comes out as greyasexual.",
+            "m_c figures out that {PRONOUN/m_c/subject} {VERB/m_c/experience/experiences} attraction to other cats much more rarely than others. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as greyasexual!"
+        ]
+    },
+    "ace_1": {
+        "new": {
+            "acespec": ["asexual"]
+        },
+        "old": {},
+        "events": [
+            "After some thinking, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/are/is} asexual.",
+            "m_c comes out as asexual.",
+            "m_c figures out that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} feel any physical attraction. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as asexual!"
+        ]
+    }
+}

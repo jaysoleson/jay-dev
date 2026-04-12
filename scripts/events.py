@@ -1501,7 +1501,6 @@ def generate_lifegen_events():
         ]
         if not events_for_type:
             continue
-        print("Generating", chosen_type, "event.")
         chosen_event = random.choice(events_for_type)
         game.cur_events_list.insert(0, Single_Event(chosen_event, "alert", chosen_event[1]))
 
@@ -4045,7 +4044,9 @@ def sexuality_change(cat):
     if cat.sexuality.upcoming_sexuality:
         cat.sexuality.upcoming_sexuality["moons_until"] -= 1
         if cat.sexuality.upcoming_sexuality["moons_until"] == 0:
+            print(cat.name, "CHANGING SEXUALITY. EVENT TIME")
             change_list = []
+            label = False
             for item, value in cat.sexuality.upcoming_sexuality.items():
                 print(item, value)
                 if item == "moons_until":
@@ -4063,13 +4064,19 @@ def sexuality_change(cat):
                         cat.sexuality.likes_toms = value
                     elif item == "likes_she_cats":
                         cat.sexuality.likes_she_cats = value
-                    cat.sexuality.sexuality_label = cat.sexuality.generate_sexuality_label(cat.genderalign)
-                    change_list.append(cat.sexuality.sexuality_label)
+                    label = True
+            cat.sexuality.sexuality_label = cat.sexuality.generate_sexuality_label(cat.genderalign)
+            if label:
+                change_list.append(cat.sexuality.sexuality_label)
+
+            event_text = find_sexuality_change_event(cat)
+            if not event_text:
+                event_text = f"m_c has a new identity ({adjust_list_text(change_list)})!"
 
             game.cur_events_list.append(
                     Single_Event(
                         event_text_adjust(
-                            Cat, f"m_c has a new identity ({adjust_list_text(change_list)})!", clan=game.clan, main_cat=cat
+                            Cat, event_text, clan=game.clan, main_cat=cat
                         ),
                         ["misc"],
                         cats_involved=[cat.ID]
@@ -4140,6 +4147,83 @@ def sexuality_change(cat):
                     cat.sexuality.create_upcoming_sexuality_dict(
                         likes_toms=True
                     )
+
+def find_sexuality_change_event(cat):
+    upcoming = cat.sexuality.upcoming_sexuality
+
+    all_change_events = load_lang_resource("events/sexuality_change.json")
+    possible_events = []
+
+    for key, event in all_change_events.items():
+        # OLD
+        if "arospec" in event["old"]:
+            if (
+                cat.sexuality.arospec not in event["old"]["arospec"]
+            ):
+                continue
+        if "acespec" in event["old"]:
+            if (
+                cat.sexuality.acespec not in event["old"]["acespec"]
+            ):
+                continue
+        if "likes_toms" in event["old"]:
+            if (
+                cat.sexuality.likes_toms not in event["old"]["likes_toms"]
+            ):
+                continue
+        if "likes_she_cats" in event["old"]:
+            if (
+                cat.sexuality.likes_she_cats not in event["old"]["likes_she_cats"]
+            ):
+                continue
+        if "t4t" in event["old"]:
+            if (
+                cat.sexuality.t4t not in event["old"]["t4t"]
+            ):
+                continue
+        # NEW
+        if "arospec" in event["new"]:
+            if "arospec" not in upcoming:
+                continue
+            if (
+                upcoming["arospec"] not in event["new"]["arospec"]
+            ):
+                continue
+        if "acespec" in event["new"]:
+            if "acespec" not in upcoming:
+                continue
+            if (
+                upcoming["acespec"] not in event["new"]["acespec"]
+            ):
+                continue
+        if "likes_toms" in event["new"]:
+            if "likes_toms" not in upcoming:
+                continue
+            if (
+                upcoming["likes_toms"] not in event["new"]["likes_toms"]
+            ):
+                continue
+        if "likes_she_cats" in event["new"]:
+            if "likes_she_cats" not in upcoming:
+                continue
+            if (
+                upcoming["likes_she_cats"] not in event["new"]["likes_she_cats"]
+            ):
+                continue
+        if "t4t" in event["new"]:
+            if "t4t" not in upcoming:
+                continue
+            if (
+                upcoming["t4t"] not in event["new"]["t4t"]
+            ):
+                continue
+
+        print("Adding to possible events:", key)
+        possible_events.extend(event["events"])
+    
+    if possible_events:
+        return random.choice(possible_events)
+    return None
 
 
 def coming_out(cat):
