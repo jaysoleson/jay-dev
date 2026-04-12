@@ -4044,11 +4044,11 @@ def sexuality_change(cat):
     if cat.sexuality.upcoming_sexuality:
         cat.sexuality.upcoming_sexuality["moons_until"] -= 1
         if cat.sexuality.upcoming_sexuality["moons_until"] == 0:
-            print(cat.name, "CHANGING SEXUALITY. EVENT TIME")
+            print()
+            print(cat.name, "SEXUALITY CHANGE EVENT")
             change_list = []
             label = False
             for item, value in cat.sexuality.upcoming_sexuality.items():
-                print(item, value)
                 if item == "moons_until":
                     continue
                 if item == "acespec":
@@ -4155,6 +4155,13 @@ def find_sexuality_change_event(cat):
     possible_events = []
 
     for key, event in all_change_events.items():
+        if "gender" in event:
+            if "female" in event["gender"] and cat.genderalign not in Sexuality.female_genders:
+                continue
+            if "male" in event["gender"] and cat.genderalign not in Sexuality.male_genders:
+                continue
+            if "nonbinary" in event["gender"] and cat.genderalign in Sexuality.female_genders + Sexuality.male_genders:
+                continue
         # OLD
         if "arospec" in event["old"]:
             if (

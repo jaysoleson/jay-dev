@@ -124,5 +124,63 @@
             "m_c comes out as asexual.",
             "m_c figures out that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} feel any physical attraction. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as asexual!"
         ]
+    },
+    "bi_to_lesbian": {
+        "gender": ["female"],
+        "new": {
+            "likes_she_cats": [true]
+        },
+        "old": {
+            "likes_she_cats": [true],
+            "likes_toms": [true]
+        },
+        "events": [
+            "m_c used to believe {PRONOUN/m_c/subject} liked all cats, but {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} recently realised that {PRONOUN/m_c/subject} only {VERB/m_c/likes/likes} fellow she-cats.",
+            "m_c has been ignoring this for a while, but {PRONOUN/m_c/subject} can't keep it in anymore. {PRONOUN/m_c/subject/CAP} finally {VERB/m_c/accept/accepts} that {PRONOUN/m_c/subject} only {VERB/m_c/like/likes} {PRONOUN/m_c/poss} fellow she-cats.",
+            "m_c has been getting caught staring at other she-cats from across camp one too many times now. It's like {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} no longer interested in toms at all!"
+        ]
+    },
+    "bi_to_gay": {
+        "gender": ["male"],
+        "new": {
+            "likes_toms": [true]
+        },
+        "old": {
+            "likes_she_cats": [true],
+            "likes_toms": [true]
+        },
+        "events": [
+            "m_c used to believe {PRONOUN/m_c/subject} liked all cats, but {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} recently realised that {PRONOUN/m_c/subject} only {VERB/m_c/likes/likes} fellow toms.",
+            "m_c has been ignoring this for a while, but {PRONOUN/m_c/subject} can't keep it in anymore. {PRONOUN/m_c/subject/CAP} finally {VERB/m_c/accept/accepts} that {PRONOUN/m_c/subject} only {VERB/m_c/like/likes} {PRONOUN/m_c/poss} fellow toms.",
+            "m_c has been getting caught staring at other toms from across camp one too many times now. It's like {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} no longer interested in she-cats at all!"
+        ]
+    },
+    "straight_or_gay_to_bi_1": {
+        "new": {
+            "likes_she_cats": [true]
+        },
+        "old": {
+            "likes_she_cats": [false],
+            "likes_toms": [true]
+        },
+        "events": [
+            "m_c has realised that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} just like toms-- {PRONOUN/m_c/subject} {VERB/m_c/like/likes} she-cats, too!",
+            "m_c discovers that {PRONOUN/m_c/poss} admiration of she-cats goes beyond just aesthetic appreciation.",
+            "m_c newly feels attracted to both toms and she-cats."
+        ]
+    },
+    "straight_or_gay_to_bi_2": {
+        "new": {
+            "likes_toms": [true]
+        },
+        "old": {
+            "likes_toms": [false],
+            "likes_she_cats": [true]
+        },
+        "events": [
+            "m_c has realised that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} just like she-cats-- {PRONOUN/m_c/subject} {VERB/m_c/like/likes} toms, too!",
+            "m_c discovers that {PRONOUN/m_c/poss} admiration of toms goes beyond just aesthetic appreciation.",
+            "m_c newly feels attracted to both she-cats and toms."
+        ]
     }
 }
