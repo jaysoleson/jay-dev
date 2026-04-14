@@ -178,7 +178,7 @@ class Sexuality():
                 self.acespec == Acespec.ACE
                 ):
                 # print("cat is aroace, and randomly changed orientation. correcting aroace")
-                upcoming_dict = self.correct_aroace_to_match_new_orientation()
+                upcoming_dict = self.correct_aroace_to_match_new_orientation(upcoming_dict)
             if (
                 likes_she_cats is False and self.likes_toms is False or
                 likes_toms is False and self.likes_she_cats is False
