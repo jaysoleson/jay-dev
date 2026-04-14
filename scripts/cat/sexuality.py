@@ -242,10 +242,20 @@ class Sexuality():
     def clear_upcoming_sexuality(self):
         self.upcoming_sexuality = {}
 
-    def init_random_sexuality(self, gender):
+    def init_random_sexuality(self, gender, disable_random=False):
         """
         Randomises a new cat's sexuality.
+        disable_random gets passes as true for test cats
         """
+        if disable_random:
+            self.likes_toms = True
+            self.likes_she_cats = True
+            self.acespec = Acespec.ACE
+            self.arospec = Arospec.ARO
+            self.sexuality_label = self.generate_sexuality_label(gender)
+            self.t4t = False
+            return
+
         self.sexuality_label = "TEMP"
         if gender in self.male_genders:
             self.likes_toms = random.choice([True, False])
