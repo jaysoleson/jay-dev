@@ -540,8 +540,11 @@ class Cat:
         # PRIDEGEN-- Sexuality
         if not self.sexuality:
             self.sexuality = Sexuality()
-            self.sexuality.init_random_sexuality(self.genderalign)
-            self.sexuality.give_bandanas(self)
+            if disable_random:
+                self.sexuality.init_random_sexuality(self.genderalign, disable_random=disable_random)
+            else:
+                self.sexuality.init_random_sexuality(self.genderalign)
+                self.sexuality.give_bandanas(self)
 
     def __repr__(self):
         return "CAT OBJECT:" + self.ID
