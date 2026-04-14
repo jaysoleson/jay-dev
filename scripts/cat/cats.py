@@ -2000,7 +2000,7 @@ class Cat:
         romance_to_remove = round(self.relationships[other_cat.ID].romance / 5)
         if self.relationships[other_cat.ID].romance - romance_to_remove < 0:
             romance_to_remove = self.relationships[other_cat.ID].romance
-        print("Removing romance", romance_to_remove, "from", self.name, "=>", other_cat.name)
+        # print("Removing romance", romance_to_remove, "from", self.name, "=>", other_cat.name)
         self.relationships[other_cat.ID].romance -= round(romance_to_remove)
 
     # ---------------------------------------------------------------------------- #
@@ -2819,14 +2819,27 @@ class Cat:
         if other_cat.genderalign in Sexuality.male_genders:
             if not self.sexuality.attracted_to_toms():
                 return False
-        elif other_cat.genderalign in Sexuality.female_genders:
+        if other_cat.genderalign in Sexuality.female_genders:
             if not self.sexuality.attracted_to_shecats():
                 return False
+        if not other_cat.sexuality.attracted_to_toms():
+            if self.genderalign in Sexuality.male_genders:
+                return False
+        if not other_cat.sexuality.attracted_to_shecats():
+            if self.genderalign in Sexuality.female_genders:
+                return False
+
         if self.genderalign in Sexuality.male_genders:
             if not other_cat.sexuality.attracted_to_toms():
                 return False
-        elif self.genderalign in Sexuality.female_genders:
+        if self.genderalign in Sexuality.female_genders:
             if not other_cat.sexuality.attracted_to_shecats():
+                return False
+        if not self.sexuality.attracted_to_toms():
+            if other_cat.genderalign in Sexuality.male_genders:
+                return False
+        if not self.sexuality.attracted_to_shecats():
+            if other_cat.genderalign in Sexuality.female_genders:
                 return False
 
         if demiromantic_functionality:

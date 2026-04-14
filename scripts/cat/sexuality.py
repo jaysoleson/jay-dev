@@ -198,7 +198,7 @@ class Sexuality():
             return
 
         self.upcoming_sexuality = upcoming_dict
-        print("FINAL: Upcoming sexuality set to:", self.upcoming_sexuality)
+        # print("FINAL: Upcoming sexuality set to:", self.upcoming_sexuality)
     
     def correct_aroace_to_match_lost_orientation(self, upcoming_dict={}):
         """
