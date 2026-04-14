@@ -3832,5 +3832,294 @@
                 "path": "resources/images/buttons/gift_accessory_unavaliable.png"
             }
         }
+    },
+    "#change_to_gay_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_gay.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_gay_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_gay_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_gay_hover.png"
+            }
+        }
+    },
+    "#change_to_straight_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_straight.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_straight_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_straight_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_straight_hover.png"
+            }
+        }
+    },
+    "#change_to_allosexual_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_straight.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_straight_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_straight_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_straight_hover.png"
+            }
+        }
+    },
+    "#change_to_alloromantic_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_straight.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_straight_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_straight_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_straight_hover.png"
+            }
+        }
+    },
+    "#change_to_lesbian_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_lesbian.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_lesbian_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_lesbian_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_lesbian_hover.png"
+            }
+        }
+    },
+    "#change_to_biXX_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_bi.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_bi_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_bi_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_bi_hover.png"
+            }
+        }
+    },
+    "#change_to_panXX_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_pan.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_pan_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_pan_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_pan_hover.png"
+            }
+        }
+    },
+    "#change_to_aroace_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_aroace.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_aroace_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_aroace_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_aroace_hover.png"
+            }
+        }
+    },
+    "#change_to_questioning_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_questioning.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_questioning_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_questioning_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_questioning_hover.png"
+            }
+        }
+    },
+    "#change_to_gynoXX_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_gyno.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_gyno_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_gyno_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_gyno_hover.png"
+            }
+        }
+    },
+    "#change_to_androXX_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_andro.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_andro_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_andro_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_andro_hover.png"
+            }
+        }
+    },
+    "#change_to_aromantic_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_aromantic.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_aromantic_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_aromantic_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_aromantic_hover.png"
+            }
+        }
+    },
+    "#change_to_asexual_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_asexual.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_asexual_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_asexual_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_asexual_hover.png"
+            }
+        }
+    },
+    "#change_to_demiromantic_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_demiromantic.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_demiromantic_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_demiromantic_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_demiromantic_hover.png"
+            }
+        }
+    },
+    "#change_to_demisexual_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_demisexual.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_demisexual_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_demisexual_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_demisexual_hover.png"
+            }
+        }
+    },
+    "#change_to_greyaromantic_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_greyaromantic.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_greyaromantic_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_greyaromantic_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_greyaromantic_hover.png"
+            }
+        }
+    },
+    "#change_to_greyasexual_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pridegen_greyasexual.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pridegen_greyasexual_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pridegen_greyasexual_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pridegen_greyasexual_hover.png"
+            }
+        }
     }
 }

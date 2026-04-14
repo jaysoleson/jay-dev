@@ -4047,29 +4047,29 @@ def sexuality_change(cat):
             print()
             print(cat.name, "SEXUALITY CHANGE EVENT")
             change_list = []
-            label = False
+
+            event_text = find_sexuality_change_event(cat)
+            
+            new_label = False
             for item, value in cat.sexuality.upcoming_sexuality.items():
                 if item == "moons_until":
                     continue
                 if item == "acespec":
                     cat.sexuality.acespec = value
-                    cat.sexuality.acespec_label = value
                     change_list.append(value)
                 elif item == "arospec":
                     cat.sexuality.arospec = value
-                    cat.sexuality.arospec_label = value
                     change_list.append(value)
                 else:
                     if item == "likes_toms":
                         cat.sexuality.likes_toms = value
                     elif item == "likes_she_cats":
                         cat.sexuality.likes_she_cats = value
-                    label = True
+                    new_label = True
             cat.sexuality.sexuality_label = cat.sexuality.generate_sexuality_label(cat.genderalign)
-            if label:
+            if new_label:
                 change_list.append(cat.sexuality.sexuality_label)
 
-            event_text = find_sexuality_change_event(cat)
             if not event_text:
                 event_text = f"m_c has a new identity ({adjust_list_text(change_list)})!"
 
@@ -4083,9 +4083,13 @@ def sexuality_change(cat):
                     ),
                 )
             cat.sexuality.clear_upcoming_sexuality()
+            cat.sexuality.total_changes += 1
         return
     
     # if they dont have a change upcoming, try to give them one!
+    if cat.sexuality.total_changes >= 5:
+        # thats enough girl
+        return
     change_chance = constants.CONFIG["sexuality_change_related"]
     chance = change_chance["base_chance"]
     if cat.age in [CatAge.ADOLESCENT]:
@@ -4095,13 +4099,16 @@ def sexuality_change(cat):
 
     if cat.mate:
         chance /= change_chance["mate_modifier"]
+    
+    chance += cat.sexuality.total_changes * 10
 
     if not int(random.random() * chance):
         print(cat.name, "hit sexuality change chance: adding upcoming!")
 
-        item_to_change = random.choice([
-            "orientation", "arospec", "acespec", "orientation", "orientation", "orientation"
-        ])
+        items = ["arospec", "acespec", "likes_toms", "likes_she_cats"]
+        item_weights = [10, 10, 20, 20]
+
+        item_to_change = random.choices(items, weights=item_weights, k=1)[0]
 
         if item_to_change == "arospec":
             options = [
@@ -4127,26 +4134,24 @@ def sexuality_change(cat):
             cat.sexuality.create_upcoming_sexuality_dict(
                 acespec=new_acespec
             )
-        else:
-            choice = random.choice(["she-cats", "toms"])
-            if choice == "she-cats":
-                if cat.sexuality.likes_she_cats:
-                    cat.sexuality.create_upcoming_sexuality_dict(
-                        likes_she_cats=False
-                    )
-                else:
-                    cat.sexuality.create_upcoming_sexuality_dict(
-                        likes_she_cats=True
-                    )
-            elif choice == "toms":
-                if cat.sexuality.likes_toms:
+        elif item_to_change == "likes_toms":
+            if cat.sexuality.likes_toms:
                     cat.sexuality.create_upcoming_sexuality_dict(
                         likes_toms=False
                     )
-                else:
-                    cat.sexuality.create_upcoming_sexuality_dict(
-                        likes_toms=True
-                    )
+            else:
+                cat.sexuality.create_upcoming_sexuality_dict(
+                    likes_toms=True
+                )
+        elif item_to_change == "likes_she_cats":
+            if cat.sexuality.likes_she_cats:
+                cat.sexuality.create_upcoming_sexuality_dict(
+                    likes_she_cats=False
+                )
+            else:
+                cat.sexuality.create_upcoming_sexuality_dict(
+                    likes_she_cats=True
+                )
 
 def find_sexuality_change_event(cat):
     upcoming = cat.sexuality.upcoming_sexuality

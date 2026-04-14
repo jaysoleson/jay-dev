@@ -94,6 +94,21 @@ dev_tools = false
     respect = 0
     comfort = 20
     trust = 0
+  
+  # PRIDEGEN ONES
+  [mates.demirom_mate_condition]
+    romance = 20
+    like = 70
+    respect = 20
+    comfort = 30
+    trust = 20
+
+  [mates.aro_mate_condition]
+    romance = 0
+    like = 80
+    respect = 50
+    comfort = 50
+    trust = 50
 
   # requirements for a like relationship to become romance
   [mates.like_to_romance]

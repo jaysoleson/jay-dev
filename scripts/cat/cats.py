@@ -1746,6 +1746,8 @@ class Cat:
         self.personality.set_kit(self.age.is_baby())
         # Upon age-change
 
+        self.upcoming_attraction_adjust()
+
         if self.status.rank.is_any_apprentice_rank():
             self.update_mentor()
 
@@ -1955,6 +1957,51 @@ class Cat:
                 game.clan.leader_lives -= 1
             self.die()
             return "continue"
+    
+    def upcoming_attraction_adjust(self):
+        """
+        Runs on moonskip. If the cat has a sexuality change upcoming, starts slowly adjusting
+        relationships to match it.
+        """
+        if not self.sexuality.upcoming_sexuality:
+            return
+        # pylint: disable=consider-using-dict-items
+        match_dict = {
+            "likes_toms": Sexuality.male_genders,
+            "likes_she_cats": Sexuality.female_genders
+        }
+        for value, wrong_genders in match_dict.items():
+            if value in self.sexuality.upcoming_sexuality:
+                if self.sexuality.upcoming_sexuality[value] is False:
+                    for cat_ID in self.relationships:
+                        if (
+                            Cat.fetch_cat(cat_ID).genderalign in wrong_genders and
+                            self.relationships[cat_ID].romance > 0
+                            ):
+                            self.reduce_romance(Cat.fetch_cat(cat_ID))
+        if (
+            "arospec" in self.sexuality.upcoming_sexuality and
+            self.sexuality.upcoming_sexuality["arospec"] == Arospec.ARO
+            ):
+            for cat_ID in self.relationships:
+                self.reduce_romance(Cat.fetch_cat(cat_ID))
+        if (
+            "arospec" in self.sexuality.upcoming_sexuality and
+            self.sexuality.upcoming_sexuality["arospec"] == Arospec.DEMI
+            ):
+            for cat_ID in self.relationships:
+                if (
+                    self.relationships[cat_ID].romance > 0 and
+                    self.relationships[cat_ID].like < 50
+                    ):
+                    self.reduce_romance(Cat.fetch_cat(cat_ID))
+
+    def reduce_romance(self, other_cat):
+        romance_to_remove = round(self.relationships[other_cat.ID].romance / 5)
+        if self.relationships[other_cat.ID].romance - romance_to_remove < 0:
+            romance_to_remove = self.relationships[other_cat.ID].romance
+        print("Removing romance", romance_to_remove, "from", self.name, "=>", other_cat.name)
+        self.relationships[other_cat.ID].romance -= round(romance_to_remove)
 
     # ---------------------------------------------------------------------------- #
     #                                   relative                                   #
@@ -2770,18 +2817,18 @@ class Cat:
             ):
             return False
         if other_cat.genderalign in Sexuality.male_genders:
-            if not self.sexuality.likes_toms:
+            if not self.sexuality.attracted_to_toms():
                 return False
         elif other_cat.genderalign in Sexuality.female_genders:
-            if not self.sexuality.likes_she_cats:
+            if not self.sexuality.attracted_to_shecats():
                 return False
         if self.genderalign in Sexuality.male_genders:
-            if not other_cat.sexuality.likes_toms:
+            if not other_cat.sexuality.attracted_to_toms():
                 return False
         elif self.genderalign in Sexuality.female_genders:
-            if not other_cat.sexuality.likes_she_cats:
+            if not other_cat.sexuality.attracted_to_shecats():
                 return False
-        
+
         if demiromantic_functionality:
             demi_false = False
             if other_cat.sexuality.arospec == Arospec.DEMI:
@@ -2798,6 +2845,15 @@ class Cat:
                         demi_false = True
             if demi_false:
                 return False
+        
+        if self.sexuality.t4t and (
+            other_cat.gender == other_cat.genderalign
+        ):
+            return False
+        if other_cat.sexuality.t4t and (
+            self.gender == self.genderalign
+        ):
+            return False
         # ---
 
         # Former mentor

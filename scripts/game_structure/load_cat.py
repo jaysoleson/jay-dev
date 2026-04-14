@@ -146,13 +146,7 @@ def json_load():
                 status_dict = {"rank": cat["status"], "age": age}
             else:
                 status_dict = cat["status"]
-            
-            # if "sexuality" not in cat:
-            #     # TODO: conversion
-            #     cat_sexuality = Sexuality()
-            #     cat_sexuality.init_random_sexuality()
-            # else:
-            #     cat_sexuality = cat["sexuality"]
+
             if (
                 "sexuality" not in cat or
                 not isinstance(cat["sexuality"], dict)
@@ -164,12 +158,17 @@ def json_load():
                     sexuality_label=cat["sexuality"]["sexuality_label"],
                     likes_toms=cat["sexuality"]["likes_toms"],
                     likes_she_cats=cat["sexuality"]["likes_she_cats"],
+                    custom_sexuality_label=cat["sexuality"]["custom_sexuality_label"] if "custom_sexuality_label" in cat["sexuality"] else "",
                     acespec_label=cat["sexuality"]["acespec_label"],
                     arospec_label=cat["sexuality"]["arospec_label"],
                     acespec=cat["sexuality"]["acespec"],
                     arospec=cat["sexuality"]["arospec"],
                     t4t=cat["sexuality"]["t4t"] if "t4t" in cat["sexuality"] else False
                 )
+                if cat_sexuality.acespec == cat_sexuality.acespec_label:
+                    cat_sexuality.acespec_label = ""
+                if cat_sexuality.arospec == cat_sexuality.arospec_label:
+                    cat_sexuality.arospec_label = ""
 
             new_cat = Cat(
                 ID=cat["ID"],

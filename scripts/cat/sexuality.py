@@ -30,6 +30,7 @@ class Sexuality():
             likes_toms=False,
             likes_she_cats=False,
 
+            custom_sexuality_label="",
             arospec_label="",
             acespec_label="",
             acespec=Acespec.ALLO,
@@ -37,14 +38,18 @@ class Sexuality():
 
             t4t=False,
 
-            upcoming_sexuality={}
+            upcoming_sexuality={},
+
+            total_changes=0,
             ):
         self.sexuality_label = sexuality_label
         self.likes_toms = likes_toms
         self.likes_she_cats = likes_she_cats
 
+        self.custom_sexuality_label = custom_sexuality_label
         self.acespec_label = acespec_label
         self.arospec_label = arospec_label
+        
         self.acespec = acespec
         self.arospec = arospec
 
@@ -52,8 +57,10 @@ class Sexuality():
 
         self.upcoming_sexuality = upcoming_sexuality
 
+        self.total_changes = total_changes
+
     # CAT GENERATION
-    def generate_sexuality_label(self, genderalign):
+    def generate_sexuality_label(self, genderalign, change_sexuality_screen=False, override_label=None):
         """
         Generates the sexuality string based on gender.
         """
@@ -62,27 +69,34 @@ class Sexuality():
                 (True, False): "gay",
                 (False, True): "straight",
                 (True, True): random.choice(["biXX", "panXX"]),
-                (False, False): "aroace"
+                (False, False): "aroace",
+                (None, None): "questioning"
             }
         elif genderalign in self.female_genders:
             label_dict = {
                 (True, False): "straight",
                 (False, True): "lesbian",
                 (True, True): random.choice(["biXX", "panXX"]),
-                (False, False): "aroace"
+                (False, False): "aroace",
+                (None, None): "questioning"
             }
         else:
             label_dict = {
                 (True, False): "androXX",
                 (False, True): "gynoXX",
                 (True, True): random.choice(["biXX", "panXX"]),
-                (False, False): "aroace"
+                (False, False): "aroace",
+                (None, None): "questioning"
             }
 
         cat_arospec = False
         cat_acespec = False
 
         first_label = label_dict[(self.likes_toms, self.likes_she_cats)]
+
+        if override_label in ("panXX", "biXX"):
+            first_label = override_label
+
         if self.acespec != Acespec.ALLO and first_label != "aroace":
             cat_acespec = True
         if self.arospec != Arospec.ALLO and first_label != "aroace":
@@ -90,6 +104,9 @@ class Sexuality():
         
         # labels like bi will change to "bisexual" or "biromantic" depending on the cats
         # ace/arospec orientations
+        if change_sexuality_screen:
+            return first_label
+
         if cat_acespec and not cat_arospec:
             first_label = first_label.replace("XX", "romantic")
         elif cat_arospec and not cat_acespec:
@@ -161,31 +178,20 @@ class Sexuality():
                 self.acespec == Acespec.ACE
                 ):
                 # print("cat is aroace, and randomly changed orientation. correcting aroace")
-                random_change = random.choice([
-                    ("arospec", Arospec.ALLO),
-                    ("acespec", Acespec.ALLO)
-                ])
-                upcoming_dict[random_change[0]] = random_change[1]
+                upcoming_dict = self.correct_aroace_to_match_new_orientation()
             if (
                 likes_she_cats is False and self.likes_toms is False or
                 likes_toms is False and self.likes_she_cats is False
             ):
                 # print("cat going from liking one gender to liking NONE. correcting aroace")
-                if self.arospec != Arospec.ARO:
-                    upcoming_dict["arospec"] = Arospec.ARO
-                if self.acespec != Acespec.ACE:
-                    upcoming_dict["acespec"] = Acespec.ACE
+                upcoming_dict = self.correct_aroace_to_match_lost_orientation(upcoming_dict)
 
         if fix_orientation:
             if (
                 acespec == Acespec.ACE and self.arospec == Arospec.ARO or
                 arospec == Arospec.ARO and self.acespec == Acespec.ACE
             ):
-                # print(f"cat is changing to aroace {acespec}, {arospec}. correcting orientaion")
-                if self.likes_toms:
-                    upcoming_dict["likes_toms"] = False
-                if self.likes_she_cats:
-                    upcoming_dict["likes_she_cats"] = False
+                upcoming_dict = self.correct_orientation_to_match_new_aroace(upcoming_dict)
         
         if upcoming_dict == {"moons_until": 4}:
             print("WARNING: Empty upcoming_sexuality dict?")
@@ -193,6 +199,45 @@ class Sexuality():
 
         self.upcoming_sexuality = upcoming_dict
         print("FINAL: Upcoming sexuality set to:", self.upcoming_sexuality)
+    
+    def correct_aroace_to_match_lost_orientation(self, upcoming_dict={}):
+        """
+        When a cat goes from having an orientation to becoming aroace.
+        Corrects both aro/acespec values to be aroace.
+        """
+        if self.arospec != Arospec.ARO:
+            upcoming_dict["arospec"] = Arospec.ARO
+        if self.acespec != Acespec.ACE:
+            upcoming_dict["acespec"] = Acespec.ACE
+        
+        return upcoming_dict
+
+    def correct_aroace_to_match_new_orientation(self, upcoming_dict={}):
+        """
+        When an aroace cat gains an orientation, use to make them allo somewhere.
+        Makes a cat either aro OR ace.
+        """
+        random_change = random.choice([
+            ("arospec", Arospec.ALLO),
+            ("acespec", Acespec.ALLO)
+        ])
+        upcoming_dict[random_change[0]] = random_change[1]
+        return upcoming_dict
+
+    
+    def correct_orientation_to_match_new_aroace(self, upcoming_dict={}):
+        """
+        When a cat goes from having only one aro/ace value to having both.
+        Removes any True orientations, as they are now aroace.
+        """
+        # print(f"cat is changing to aroace {acespec}, {arospec}. correcting orientaion")
+        if self.likes_toms:
+            upcoming_dict["likes_toms"] = False
+        if self.likes_she_cats:
+            upcoming_dict["likes_she_cats"] = False
+        
+        return upcoming_dict
+
     
     def clear_upcoming_sexuality(self):
         self.upcoming_sexuality = {}
@@ -242,10 +287,6 @@ class Sexuality():
             self.arospec = Arospec.ALLO
 
         self.correct_aroace()
-
-        # Labels!
-        self.acespec_label = self.acespec
-        self.arospec_label = self.arospec
         self.sexuality_label = self.generate_sexuality_label(gender)
 
         self.t4t = False
@@ -258,19 +299,15 @@ class Sexuality():
             "sexuality_label": self.sexuality_label,
             "likes_toms": self.likes_toms,
             "likes_she_cats": self.likes_she_cats,
+            "custom_sexuality_label": self.custom_sexuality_label,
             "arospec_label": self.arospec_label,
             "acespec_label": self.acespec_label,
             "arospec": self.arospec,
             "acespec": self.acespec,
             "t4t": self.t4t,
-            "upcoming": self.upcoming_sexuality
+            "upcoming": self.upcoming_sexuality,
+            "total_changes": self.total_changes
         }
-
-    # BOOL RETURNERS
-    def is_aroace(self):
-        if self.arospec == Arospec.ARO and self.acespec == Acespec.ACE:
-            return True
-        return False
     
     # PROFILE DISPLAY
     def get_sexuality_profile_display(self, kitten=False):
@@ -281,13 +318,19 @@ class Sexuality():
             return "???"
 
         all_labels = []
-        first_label = self.sexuality_label
+        first_label = self.custom_sexuality_label if self.custom_sexuality_label else self.sexuality_label
         all_labels.append(first_label)
 
-        if self.acespec != Acespec.ALLO and first_label != "aroace":
-            all_labels.append(self.acespec)
-        if self.arospec != Arospec.ALLO and first_label != "aroace":
-            all_labels.append(self.arospec)
+        if self.acespec_label and self.acespec_label != self.acespec:
+            all_labels.append(self.acespec_label)
+        else:
+            if self.acespec != Acespec.ALLO and first_label != "aroace":
+                all_labels.append(self.acespec)
+        if self.arospec_label and self.arospec_label != self.arospec:
+            all_labels.append(self.arospec_label)
+        else:
+            if self.arospec != Arospec.ALLO and first_label != "aroace":
+                all_labels.append(self.arospec)
 
         return adjust_list_text(all_labels)
     
@@ -302,6 +345,12 @@ class Sexuality():
             valid_flags.append(cat.genderalign.upper())
         if self.sexuality_label.upper() in Pelt.all_pridegen_accessories:
             valid_flags.append(self.sexuality_label.upper())
+        if self.custom_sexuality_label.upper() in Pelt.all_pridegen_accessories:
+            valid_flags.append(self.custom_sexuality_label.upper())
+        if self.arospec_label.upper() in Pelt.all_pridegen_accessories:
+            valid_flags.append(self.arospec_label.upper())
+        if self.acespec_label.upper() in Pelt.all_pridegen_accessories:
+            valid_flags.append(self.acespec_label.upper())
 
         # sexuality flags that dont differ based on gender
         # hacky
@@ -310,11 +359,15 @@ class Sexuality():
                 valid_flags.append("BISEXUAL")
             elif "pan" in self.sexuality_label:
                 valid_flags.append("PANSEXUAL")
+    
 
         if self.arospec.upper() in Pelt.all_pridegen_accessories:
             valid_flags.append(self.arospec.upper())
         if self.acespec.upper() in Pelt.all_pridegen_accessories:
             valid_flags.append(self.acespec.upper())
+        
+        if cat.is_disabled():
+            valid_flags.append("DISABILITY")
 
         if (
             not self.likes_toms and
@@ -411,3 +464,56 @@ class Sexuality():
 
         cat.pelt.rebuild_sprite = True
 
+
+    # attraction helpers
+    def is_aroace(self):
+        if (
+            self.arospec == Arospec.ARO and self.acespec == Acespec.ACE and not self.upcoming_sexuality
+            ):
+            return True
+        if (
+            self.upcoming_sexuality and
+            (
+                "arospec" in self.upcoming_sexuality and self.upcoming_sexuality["arospec"] == Arospec.ARO and
+                "acespec" in self.upcoming_sexuality and self.upcoming_sexuality["acespec"] == Acespec.ACE
+            )
+            or
+            (
+                "arospec" in self.upcoming_sexuality and self.upcoming_sexuality["arospec"] == Arospec.ARO and
+                "acespec" not in self.upcoming_sexuality and self.acespec == Acespec.ACE
+            )
+            or 
+            (
+                "acespec" in self.upcoming_sexuality and self.upcoming_sexuality["acespec"] == Acespec.ACE and
+                "arospec" not in self.upcoming_sexuality and self.arospec == Arospec.ARO
+            )
+        ):
+            return True
+        return False
+
+    def aromantic(self):
+        if (
+            self.arospec == Arospec.ARO and not self.upcoming_sexuality or
+            (
+                self.upcoming_sexuality and
+                "arospec" in self.upcoming_sexuality and
+                self.upcoming_sexuality["arospec"] == Arospec.ARO
+            )
+        ):
+            return True
+        return False
+    def attracted_to_toms(self):
+        if (
+            (self.likes_toms and not self.upcoming_sexuality) or
+            "likes_toms" in self.upcoming_sexuality and self.upcoming_sexuality["likes_toms"] is True
+        ):
+            return True
+        return False
+
+    def attracted_to_shecats(self):
+        if (
+            (self.likes_she_cats and not self.upcoming_sexuality) or
+            "likes_she_cats" in self.upcoming_sexuality and self.upcoming_sexuality["likes_she_cats"] is True
+        ):
+            return True
+        return False

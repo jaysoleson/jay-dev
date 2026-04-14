@@ -27,7 +27,7 @@ from scripts.game_structure.game.switches import (
     switch_set_value,
     switch_append_list_value
 )
-
+from scripts.cat.sexuality import Sexuality, Arospec, Acespec
 
 class RomanticEvents:
     """
@@ -739,13 +739,20 @@ class RomanticEvents:
         if poly and not RomanticEvents.current_mates_allow_new_mate(cat_from, cat_to):
             return False, None
 
+        # PG
+        arospec_dict = {
+            Arospec.GREY: "mate_condition",
+            Arospec.DEMI: "demirom_mate_condition",
+            Arospec.ALLO: "mate_condition",
+            Arospec.ARO: "aro_mate_condition"
+        }
         if (
             not hit
             and RomanticEvents.relationship_fulfill_condition(
-                relationship_from, constants.CONFIG["mates"]["mate_condition"]
+                relationship_from, constants.CONFIG["mates"][arospec_dict[cat_from.sexuality.arospec]]
             )
             and RomanticEvents.relationship_fulfill_condition(
-                relationship_to, constants.CONFIG["mates"]["mate_condition"]
+                relationship_to, constants.CONFIG["mates"][arospec_dict[cat_to.sexuality.arospec]]
             )
         ):
             become_mates = True

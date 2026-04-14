@@ -15,7 +15,7 @@ from scripts.clan_package.get_clan_cats import (
     get_cats_same_age,
     get_possible_mates,
 )
-
+from scripts.cat.sexuality import Sexuality, Arospec, Acespec
 
 class Relation_Events:
     """All relationship events."""
@@ -53,7 +53,14 @@ class Relation_Events:
         Relation_Events.same_age_events(cat)
 
         # 1/16 for an additional event
-        if not random.getrandbits(4):
+
+        # PG: change chances for romantic orientation
+        if cat.sexuality.arospec == Arospec.GREY:
+            chance = random.getrandbits(8)
+        else:
+            chance = random.getrandbits(4)
+
+        if not chance:
             Relation_Events.romantic_events(cat)
 
         RomanticEvents.handle_mating_and_breakup(cat)
