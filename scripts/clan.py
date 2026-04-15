@@ -1565,7 +1565,7 @@ class Clan:
         if not get_clan_setting('all accessories'):
             return []
         if game_setting_get("lifegen_sprite_changes"):
-            acc_list = [acc for acc in Pelt.all_lifegen_accessories if acc not in Pelt.all_pridegen_accessories]
+            acc_list = [acc for acc in Pelt.all_lifegen_accessories]
         else:
             acc_list = Pelt.all_clangen_accessories
 

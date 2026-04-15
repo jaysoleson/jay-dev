@@ -432,6 +432,23 @@ class Pelt:
         misc2_accessories +
         harness_accessories +
         smallanimals_accessories +
+        wild2_accessories
+        )
+
+    all_pridegen_lifegen_accessories = (
+        plant_accessories +
+        wild_accessories +
+        collar_accessories +
+        aliveInsect_accessories +
+        plant2_accessories +
+        sophisticated_accessories +
+        deadInsect_accessories +
+        fruit_accessories +
+        flower_crown_accessories +
+        misc_accessories +
+        misc2_accessories +
+        harness_accessories +
+        smallanimals_accessories +
         wild2_accessories +
 
         aroace_bandanas +

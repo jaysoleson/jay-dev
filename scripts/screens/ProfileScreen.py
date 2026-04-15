@@ -828,7 +828,7 @@ class ProfileScreen(Screens):
             if game_setting_get("lifegen_sprite_changes"):
                 self.cat_inventory = [
                     i for i in self.the_cat.pelt.inventory
-                    if i in Pelt.all_lifegen_accessories
+                    if i in Pelt.all_pridegen_lifegen_accessories
                 ]
             else:
                 self.cat_inventory = [
@@ -3006,13 +3006,14 @@ class ProfileScreen(Screens):
             # PG
             self.specify_sexuality_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((402, 0), (172, 36))),
-                ":3",
+                "specify sexuality",
                 get_button_dict(ButtonStyles.LADDER_MIDDLE, (172, 36)),
                 object_id="@buttonstyles_ladder_middle",
                 starting_height=2,
                 manager=MANAGER,
                 anchors={"top_target": self.specify_gender_button},
             )
+            # ---
             self.cat_toggles_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((402, 0), (172, 36))),
                 "screens.profile.toggles",
@@ -3809,7 +3810,7 @@ class ProfileScreen(Screens):
             )
         
         if game_setting_get("lifegen_sprite_changes"):
-            all_accs = (Pelt.all_lifegen_accessories)
+            all_accs = (Pelt.all_pridegen_lifegen_accessories)
         else:
             all_accs = (Pelt.all_clangen_accessories)
 
@@ -3838,13 +3839,14 @@ class ProfileScreen(Screens):
         else:
             self.the_cat.pelt.accessory = self.the_cat.pelt.accessory + (self.accessories_list[n],)
             # PG: remove other flags
-            other_bandanas = [
-                i for i in self.the_cat.pelt.accessory if i in Pelt.all_pridegen_accessories and i != self.accessories_list[n]
-            ]
-            self.the_cat.pelt.accessory = tuple(
-                accessory for accessory in self.the_cat.pelt.accessory if
-                accessory not in other_bandanas
-            )
+            if self.accessories_list[n] in Pelt.all_pridegen_accessories:
+                other_bandanas = [
+                    i for i in self.the_cat.pelt.accessory if i in Pelt.all_pridegen_accessories and i != self.accessories_list[n]
+                ]
+                self.the_cat.pelt.accessory = tuple(
+                    accessory for accessory in self.the_cat.pelt.accessory if
+                    accessory not in other_bandanas
+                )
             # --
         self.the_cat.pelt.rebuild_sprite = True
         for acc in self.accessory_buttons:

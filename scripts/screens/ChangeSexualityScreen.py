@@ -50,6 +50,10 @@ class ChangeSexualityScreen(Screens):
         self.arospec_cycle = []
         self.acespec_cycle = []
 
+        self.sexuality_checkboxes = {}
+        self.acespec_checkboxes = {}
+        self.arospec_checkboxes = {}
+
 
         # starting LABELS for the cycle buttons
         self.current_sexuality_label = None
@@ -109,6 +113,7 @@ class ChangeSexualityScreen(Screens):
         self.update_selected_cat()
 
         self.update_cycle_progressions()
+        self.get_initial_sexuality_labels()
         self.current_arospec_label = self.the_cat.sexuality.arospec
         self.current_acespec_label = self.the_cat.sexuality.acespec
         self.current_t4t = self.the_cat.sexuality.t4t
@@ -116,7 +121,35 @@ class ChangeSexualityScreen(Screens):
         self.create_sexuality_panels()
 
         self.update_save_button()
-    
+
+        self.elements["help"] = UIImageButton(
+            ui_scale(pygame.Rect((100, 160), (34, 34))),
+            "",
+            object_id="#help_button",
+            manager=MANAGER,
+            tool_tip_text="<b>Welcome to the sexuality screen!</b>\nHere, you can set your cat's orientations to be one of the already existing ones ingame, or give them a custom one. Use the checkboxes to define their attraction and use the text box to give them a label.<br>There are only checkboxes for toms and she-cats. Nonbinary cats will always be included.",
+        )
+    def get_initial_sexuality_labels(self):
+        self.current_sexuality_label = (
+            self.the_cat.sexuality.custom_sexuality_label if
+            self.the_cat.sexuality.custom_sexuality_label else
+            self.the_cat.sexuality.generate_sexuality_label(
+                self.the_cat.genderalign,
+                change_sexuality_screen=True,
+                existing_label=self.the_cat.sexuality.sexuality_label
+            )
+        )
+        self.current_acespec_label = (
+            self.the_cat.sexuality.acespec_label if
+            self.the_cat.sexuality.acespec_label else
+            self.the_cat.sexuality.acespec
+        )
+        self.current_arospec_label = (
+            self.the_cat.sexuality.arospec_label if
+            self.the_cat.sexuality.arospec_label else
+            self.the_cat.sexuality.arospec
+        )
+
     def update_save_button(self):
         if not self.new_sexuality:
             self.save_button.disable()
@@ -130,17 +163,23 @@ class ChangeSexualityScreen(Screens):
             if event.ui_element == self.save_button:
                 self.save_new_sexuality()
                 self.update_selected_cat()
+                self.clear_sexuality_panels()
+                self.create_sexuality_panels()
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
                     switch_set_value(Switch.cat, self.next_cat)
+                    self.new_sexuality = {}
                     self.update_selected_cat()
+                    self.get_initial_sexuality_labels()
                     self.update_cycle_progressions()
                     self.clear_sexuality_panels()
                     self.create_sexuality_panels()
             elif event.ui_element == self.previous_cat_button:
                 if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
                     switch_set_value(Switch.cat, self.previous_cat)
+                    self.new_sexuality = {}
                     self.update_selected_cat()
+                    self.get_initial_sexuality_labels()
                     self.update_cycle_progressions()
                     self.clear_sexuality_panels()
                     self.create_sexuality_panels()
@@ -163,6 +202,47 @@ class ChangeSexualityScreen(Screens):
                 else:
                     event.ui_element.check()
                     self.current_t4t = True
+            elif event.ui_element == self.sexuality_panel_items["clear_label"]:
+                self.the_cat.sexuality.custom_sexuality_label = ""
+                self.update_selected_cat()
+                self.clear_sexuality_panel()
+                self.create_sexuality_panel()
+            elif event.ui_element == self.acespec_panel_items["clear_label"]:
+                self.the_cat.sexuality.acespec_label = ""
+                self.update_selected_cat()
+                self.clear_acespec_panel()
+                self.create_acespec_panel()
+            elif event.ui_element == self.arospec_panel_items["clear_label"]:
+                self.the_cat.sexuality.arospec_label = ""
+                self.update_selected_cat()
+                self.clear_arospec_panel()
+                self.create_arospec_panel()
+            
+            # CHECKBOXES
+            for value, button in self.sexuality_checkboxes.items():
+                if event.ui_element == button:
+                    if value not in self.new_sexuality:
+                        self.new_sexuality[value] = True
+                    else:
+                        if self.new_sexuality[value] is True:
+                            self.new_sexuality[value] = False
+                        else:
+                            self.new_sexuality[value] = True
+                    self.update_sexuality_checkboxes()
+            for value, button in self.acespec_checkboxes.items():
+                if event.ui_element == button:
+                    if "acespec" in self.new_sexuality and self.new_sexuality["acespec"] == value:
+                        self.new_sexuality.pop("acespec")
+                    else:
+                        self.new_sexuality["acespec"] = value
+                    self.update_acespec_checkboxes()
+            for value, button in self.arospec_checkboxes.items():
+                if event.ui_element == button:
+                    if "arospec" in self.new_sexuality and self.new_sexuality["arospec"] == value:
+                        self.new_sexuality.pop("arospec")
+                    else:
+                        self.new_sexuality["arospec"] = value
+                    self.update_arospec_checkboxes()
             self.update_save_button()
 
     def exit_screen(self):
@@ -197,9 +277,8 @@ class ChangeSexualityScreen(Screens):
         self.acespec_panel_items = {}
 
     def save_new_sexuality(self):
-        # self.new_sexuality = Sexuality.correct_aroace_to_match_new_orientation(self.new_sexuality)
-
         self.the_cat.sexuality.clear_upcoming_sexuality()
+        # print("Saving:", self.new_sexuality)
 
         if "likes_toms" in self.new_sexuality:
             self.the_cat.sexuality.likes_toms = self.new_sexuality["likes_toms"]
@@ -219,18 +298,31 @@ class ChangeSexualityScreen(Screens):
         custom_label = self.sexuality_panel_items["sexuality_label_input"].get_text()
         if custom_label and custom_label != self.the_cat.sexuality.sexuality_label:
             self.the_cat.sexuality.custom_sexuality_label = custom_label
-        
+
         acespec_label = self.acespec_panel_items["acespec_label_input"].get_text()
-        if acespec_label and acespec_label != self.the_cat.sexuality.acespec:
+        if (
+            acespec_label and
+            acespec_label != self.the_cat.sexuality.acespec and
+            acespec_label not in self.acespec_cycle
+            ):
             self.the_cat.sexuality.acespec_label = acespec_label
-        
+
         arospec_label = self.arospec_panel_items["arospec_label_input"].get_text()
-        if arospec_label and arospec_label != self.the_cat.sexuality.arospec:
+        if (
+            arospec_label and
+            arospec_label != self.the_cat.sexuality.arospec and
+            arospec_label not in self.arospec_cycle
+            ):
             self.the_cat.sexuality.arospec_label = arospec_label
-        
+
         if self.current_t4t:
             self.the_cat.sexuality.t4t = True
-        
+
+        # variables
+        self.current_acespec_label = self.the_cat.sexuality.acespec
+        self.current_arospec_label = self.the_cat.sexuality.arospec
+
+        self.new_sexuality = {}
 
     def update_selected_cat(self):
         self.the_cat = Cat.all_cats[switch_get_value(Switch.cat)]
@@ -239,11 +331,15 @@ class ChangeSexualityScreen(Screens):
         
         for ele in self.selected_cat_elements:
             self.selected_cat_elements[ele].kill()
-
         self.selected_cat_elements = {}
 
+        self.new_sexuality["likes_toms"] = self.the_cat.sexuality.likes_toms
+        self.new_sexuality["likes_she_cats"] = self.the_cat.sexuality.likes_she_cats
+        self.new_sexuality["acespec"] = self.the_cat.sexuality.acespec
+        self.new_sexuality["arospec"] = self.the_cat.sexuality.arospec
+
         self.selected_cat_elements["cat_image"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((180, 105), (150, 150))),
+            ui_scale(pygame.Rect((180, 115), (150, 150))),
             pygame.transform.scale(
                 self.the_cat.sprite, ui_scale_dimensions((150, 150))
             ),
@@ -263,6 +359,7 @@ class ChangeSexualityScreen(Screens):
             anchors={"centerx": "centerx"},
         )
         info = ""
+        info += self.the_cat.genderalign + "\n"
         if self.the_cat.sexuality.custom_sexuality_label:
             info += self.the_cat.sexuality.custom_sexuality_label
         else:
@@ -286,18 +383,18 @@ class ChangeSexualityScreen(Screens):
         )
         self.selected_cat_elements["info"] = pygame_gui.elements.UITextBox(
             info,
-            ui_scale(pygame.Rect((355, 170), (105, 80))),
+            ui_scale(pygame.Rect((355, 170), (185, 120))),
             object_id="#text_box_26_horizleft",
             manager=MANAGER,
         )
         self.selected_cat_elements["t4t_label"] = pygame_gui.elements.UITextBox(
             "T4T",
-            ui_scale(pygame.Rect((520, 190), (105, 30))),
+            ui_scale(pygame.Rect((550, 192), (105, 30))),
             object_id="#text_box_26_horizleft",
             manager=MANAGER,
         )
         self.selected_cat_elements["t4t_checkbox"] = UICheckbox(
-            (490, 190),
+            (520, 190),
             container=None,
             manager=MANAGER,
             check=self.current_t4t,
@@ -335,29 +432,76 @@ class ChangeSexualityScreen(Screens):
             ui_scale(pygame.Rect((0, 20), (117, 45))),
             "",
             object_id=f"#change_to_{next_sexuality}_button",
-            tool_tip_text=f"Change to {next_sexuality}",
+            tool_tip_text=f"Change to {next_sexuality.replace('XX', '')}",
             manager=MANAGER,
             anchors={"centerx": "centerx"},
             container=self.sexuality_panel_items["container"]
         )
         self.sexuality_panel_items["sexuality_label_input_label"] = pygame_gui.elements.UITextBox(
             "Custom Sexuality",
-            ui_scale(pygame.Rect((0, 110), (165, 30))),
+            ui_scale(pygame.Rect((0, 107), (165, 30))),
             object_id="#text_box_26_horizcenter",
             manager=MANAGER,
             container=self.sexuality_panel_items["container"],
             anchors={"centerx": "centerx"}
         )
+        self.sexuality_panel_items["clear_label"] = UIImageButton(
+            ui_scale(pygame.Rect((8, 142), (25, 25))),
+            "",
+            object_id="#exit_window_button",
+            tool_tip_text="Remove custom label",
+            container=self.sexuality_panel_items["container"],
+            manager=MANAGER,
+            )
+        if self.the_cat.sexuality.custom_sexuality_label:
+            self.sexuality_panel_items["clear_label"].enable()
+        else:
+            self.sexuality_panel_items["clear_label"].disable()
+
         self.sexuality_panel_items["sexuality_label_input"] = pygame_gui.elements.UITextEntryLine(
-            ui_scale(pygame.Rect((0, 140), (165, 30))),
+            ui_scale(pygame.Rect((10, 140), (165, 30))),
             placeholder_text=(
-                self.the_cat.sexuality.custom_sexuality_label if
-                self.the_cat.sexuality.custom_sexuality_label else
                 self.current_sexuality_label.replace("XX", "")
                 ),
             manager=MANAGER,
             container=self.sexuality_panel_items["container"],
             anchors={"centerx": "centerx"}
+        )
+        # checkbox labels
+        self.sexuality_panel_items["likes_toms_label"] = pygame_gui.elements.UITextBox(
+            "Toms",
+            ui_scale(pygame.Rect((75, 180), (140, 30))),
+            object_id="#text_box_26_horizleft",
+            manager=MANAGER,
+            container=self.sexuality_panel_items["container"]
+        )
+        self.sexuality_panel_items["likes_she_cats_label"] = pygame_gui.elements.UITextBox(
+            "She-cats",
+            ui_scale(pygame.Rect((75, 220), (140, 30))),
+            object_id="#text_box_26_horizleft",
+            manager=MANAGER,
+            container=self.sexuality_panel_items["container"]
+        )
+        self.update_sexuality_checkboxes()
+
+    def update_sexuality_checkboxes(self):
+        for ele in self.sexuality_checkboxes:
+            self.sexuality_checkboxes[ele].kill()
+        self.sexuality_checkboxes = {}
+
+        # LIKES TOMS
+        self.sexuality_checkboxes["likes_toms"] = UICheckbox(
+            (40, 180),
+            container=self.sexuality_panel_items["container"],
+            manager=MANAGER,
+            check="likes_toms" in self.new_sexuality and self.new_sexuality["likes_toms"]
+        )
+        # LIKES SHECATS
+        self.sexuality_checkboxes["likes_she_cats"] = UICheckbox(
+            (40, 220),
+            container=self.sexuality_panel_items["container"],
+            manager=MANAGER,
+            check="likes_she_cats" in self.new_sexuality and self.new_sexuality["likes_she_cats"]
         )
 
     def cycle_next_sexuality(self):
@@ -421,24 +565,83 @@ class ChangeSexualityScreen(Screens):
         )
         self.acespec_panel_items["acespec_label_input_label"] = pygame_gui.elements.UITextBox(
             "Custom Acespec",
-            ui_scale(pygame.Rect((0, 110), (165, 30))),
+            ui_scale(pygame.Rect((0, 107), (165, 30))),
             object_id="#text_box_26_horizcenter",
             manager=MANAGER,
             container=self.acespec_panel_items["container"],
             anchors={"centerx": "centerx"}
         )
+        self.acespec_panel_items["clear_label"] = UIImageButton(
+            ui_scale(pygame.Rect((8, 142), (25, 25))),
+            "",
+            object_id="#exit_window_button",
+            tool_tip_text="Remove custom label",
+            container=self.acespec_panel_items["container"],
+            manager=MANAGER,
+            )
+        if self.the_cat.sexuality.acespec_label:
+            self.acespec_panel_items["clear_label"].enable()
+        else:
+            self.acespec_panel_items["clear_label"].disable()
         placeholdertext = (
                 self.the_cat.sexuality.acespec_label if
                 self.the_cat.sexuality.acespec_label else
                 self.current_acespec_label
                 )
         self.acespec_panel_items["acespec_label_input"] = pygame_gui.elements.UITextEntryLine(
-            ui_scale(pygame.Rect((0, 140), (165, 30))),
+            ui_scale(pygame.Rect((10, 140), (165, 30))),
             placeholder_text=placeholdertext,
             manager=MANAGER,
             container=self.acespec_panel_items["container"],
             anchors={"centerx": "centerx"}
         )
+
+        # checkbox labels
+        y_pos = 170
+        self.acespec_panel_items["allo_label"] = pygame_gui.elements.UITextBox(
+            "Regular attraction",
+            ui_scale(pygame.Rect((55, y_pos), (140, 30))),
+            object_id="#text_box_26_horizleft",
+            manager=MANAGER,
+            container=self.acespec_panel_items["container"]
+        )
+        self.acespec_panel_items["demi_label"] = pygame_gui.elements.UITextBox(
+            "Demi attraction",
+            ui_scale(pygame.Rect((55, y_pos + 35), (140, 30))),
+            object_id="#text_box_26_horizleft",
+            manager=MANAGER,
+            container=self.acespec_panel_items["container"]
+        )
+        self.acespec_panel_items["grey_label"] = pygame_gui.elements.UITextBox(
+            "Rare attraction",
+            ui_scale(pygame.Rect((55, y_pos + 35 * 2), (140, 30))),
+            object_id="#text_box_26_horizleft",
+            manager=MANAGER,
+            container=self.acespec_panel_items["container"]
+        )
+        self.acespec_panel_items["ace_label"] = pygame_gui.elements.UITextBox(
+            "No attraction",
+            ui_scale(pygame.Rect((55, y_pos + 35 * 3), (140, 30))),
+            object_id="#text_box_26_horizleft",
+            manager=MANAGER,
+            container=self.acespec_panel_items["container"]
+        )
+        self.update_acespec_checkboxes()
+
+    def update_acespec_checkboxes(self):
+        for ele in self.acespec_checkboxes:
+            self.acespec_checkboxes[ele].kill()
+        self.acespec_checkboxes = {}
+
+        y_pos = 170
+        for item in self.acespec_cycle:
+            self.acespec_checkboxes[item] = UICheckbox(
+                (25, y_pos),
+                container=self.acespec_panel_items["container"],
+                manager=MANAGER,
+                check="acespec" in self.new_sexuality and self.new_sexuality["acespec"] == item
+            )
+            y_pos += 35
     
     def cycle_next_acespec(self):
         """
@@ -492,14 +695,27 @@ class ChangeSexualityScreen(Screens):
         )
         self.arospec_panel_items["arospec_label_input_label"] = pygame_gui.elements.UITextBox(
             "Custom Arospec",
-            ui_scale(pygame.Rect((0, 110), (165, 30))),
+            ui_scale(pygame.Rect((0, 107), (165, 30))),
             object_id="#text_box_26_horizcenter",
             manager=MANAGER,
             container=self.arospec_panel_items["container"],
             anchors={"centerx": "centerx"}
         )
+        self.arospec_panel_items["clear_label"] = UIImageButton(
+            ui_scale(pygame.Rect((8, 142), (25, 25))),
+            "",
+            object_id="#exit_window_button",
+            tool_tip_text="Remove custom label",
+            container=self.arospec_panel_items["container"],
+            manager=MANAGER
+            )
+        if self.the_cat.sexuality.arospec_label:
+            self.arospec_panel_items["clear_label"].enable()
+        else:
+            self.arospec_panel_items["clear_label"].disable()
+
         self.arospec_panel_items["arospec_label_input"] = pygame_gui.elements.UITextEntryLine(
-            ui_scale(pygame.Rect((0, 140), (165, 30))),
+            ui_scale(pygame.Rect((10, 140), (165, 30))),
             placeholder_text=(
                 self.the_cat.sexuality.arospec_label if
                 self.the_cat.sexuality.arospec_label else
@@ -509,6 +725,53 @@ class ChangeSexualityScreen(Screens):
             container=self.arospec_panel_items["container"],
             anchors={"centerx": "centerx"}
         )
+        # checkbox labels
+        y_pos = 170
+        self.arospec_panel_items["allo_label"] = pygame_gui.elements.UITextBox(
+            "Regular attraction",
+            ui_scale(pygame.Rect((55, y_pos), (140, 30))),
+            object_id="#text_box_26_horizleft",
+            manager=MANAGER,
+            container=self.arospec_panel_items["container"]
+        )
+        self.arospec_panel_items["demi_label"] = pygame_gui.elements.UITextBox(
+            "Demi attraction",
+            ui_scale(pygame.Rect((55, y_pos + 35), (140, 30))),
+            object_id="#text_box_26_horizleft",
+            manager=MANAGER,
+            container=self.arospec_panel_items["container"]
+        )
+        self.arospec_panel_items["grey_label"] = pygame_gui.elements.UITextBox(
+            "Rare attraction",
+            ui_scale(pygame.Rect((55, y_pos + 35 * 2), (140, 30))),
+            object_id="#text_box_26_horizleft",
+            manager=MANAGER,
+            container=self.arospec_panel_items["container"]
+        )
+        self.arospec_panel_items["ace_label"] = pygame_gui.elements.UITextBox(
+            "No attraction",
+            ui_scale(pygame.Rect((55, y_pos + 35 * 3), (140, 30))),
+            object_id="#text_box_26_horizleft",
+            manager=MANAGER,
+            container=self.arospec_panel_items["container"]
+        )
+        self.update_arospec_checkboxes()
+    
+    def update_arospec_checkboxes(self):
+        for ele in self.arospec_checkboxes:
+            self.arospec_checkboxes[ele].kill()
+        self.arospec_checkboxes = {}
+
+        y_pos = 170
+        for item in self.arospec_cycle:
+            self.arospec_checkboxes[item] = UICheckbox(
+                (25, y_pos),
+                container=self.arospec_panel_items["container"],
+                manager=MANAGER,
+                check="arospec" in self.new_sexuality and self.new_sexuality["arospec"] == item
+            )
+            y_pos += 35
+
     def cycle_next_arospec(self):
         """
         Sets all variables to the newly selected arospec label
@@ -535,10 +798,6 @@ class ChangeSexualityScreen(Screens):
 
 
     def update_cycle_progressions(self):
-        self.current_sexuality_label = self.the_cat.sexuality.generate_sexuality_label(
-            self.the_cat.genderalign,
-            change_sexuality_screen=True
-            )
 
         self.acespec_cycle = [
             Acespec.ALLO,
@@ -593,13 +852,13 @@ class ChangeSexualityScreen(Screens):
                 or
                 (
                 self.acespec_panel_items["acespec_label_input"].get_text() not in (
-                "", self.current_acespec_label
+                "", self.current_acespec_label, self.acespec_cycle
                     )
                 )
                 or
                 (
                 self.arospec_panel_items["arospec_label_input"].get_text() not in (
-                "", self.current_arospec_label
+                "", self.current_arospec_label, self.arospec_cycle
                     )
                 )
             ):

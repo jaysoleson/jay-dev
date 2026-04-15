@@ -60,10 +60,18 @@ class Sexuality():
         self.total_changes = total_changes
 
     # CAT GENERATION
-    def generate_sexuality_label(self, genderalign, change_sexuality_screen=False, override_label=None):
+    def generate_sexuality_label(self, genderalign, change_sexuality_screen=False, override_label=None, existing_label=None):
         """
         Generates the sexuality string based on gender.
         """
+        if existing_label:
+            # this returns bi or pan depending on what the cat already is.
+            # for the cycle on the change screen
+            if "bi" in existing_label:
+                return "biXX"
+            if "pan" in existing_label:
+                return "panXX"
+
         if genderalign in self.male_genders:
             label_dict = {
                 (True, False): "gay",
