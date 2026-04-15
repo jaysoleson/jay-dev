@@ -2814,11 +2814,6 @@ class Cat:
             return False
         
         # PRIDEGEN
-        if (
-            other_cat.sexuality.is_aroace() or
-            self.sexuality.is_aroace()
-            ):
-            return False
         if other_cat.genderalign in Sexuality.male_genders:
             if not self.sexuality.attracted_to_toms():
                 return False

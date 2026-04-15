@@ -4044,8 +4044,6 @@ def sexuality_change(cat):
     if cat.sexuality.upcoming_sexuality:
         cat.sexuality.upcoming_sexuality["moons_until"] -= 1
         if cat.sexuality.upcoming_sexuality["moons_until"] == 0:
-            print()
-            print(cat.name, "SEXUALITY CHANGE EVENT")
             change_list = []
 
             event_text = find_sexuality_change_event(cat)
@@ -4103,7 +4101,6 @@ def sexuality_change(cat):
     chance += cat.sexuality.total_changes * 10
 
     if not int(random.random() * chance):
-        print(cat.name, "hit sexuality change chance: adding upcoming!")
 
         items = ["arospec", "acespec", "likes_toms", "likes_she_cats"]
         item_weights = [10, 10, 20, 20]
@@ -4230,7 +4227,6 @@ def find_sexuality_change_event(cat):
             ):
                 continue
 
-        print("Adding to possible events:", key)
         possible_events.extend(event["events"])
     
     if possible_events:
