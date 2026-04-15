@@ -25,6 +25,7 @@
         "all accessories" = true
         lifegen_sprite_changes = true
         red_bg = true
+        auto_equip_bandanas = true
 
 
     [game.other]

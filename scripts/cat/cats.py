@@ -2743,6 +2743,62 @@ class Cat:
     # ---------------------------------------------------------------------------- #
     #                                 relationships                                #
     # ---------------------------------------------------------------------------- #
+    def is_pridegen_compatible(self, other_cat, demiromantic_functionality=False):
+        # PRIDEGEN
+        if other_cat.genderalign in Sexuality.male_genders:
+            if not self.sexuality.attracted_to_toms():
+                return False
+        if other_cat.genderalign in Sexuality.female_genders:
+            if not self.sexuality.attracted_to_shecats():
+                return False
+        if not other_cat.sexuality.attracted_to_toms():
+            if self.genderalign in Sexuality.male_genders:
+                return False
+        if not other_cat.sexuality.attracted_to_shecats():
+            if self.genderalign in Sexuality.female_genders:
+                return False
+
+        if self.genderalign in Sexuality.male_genders:
+            if not other_cat.sexuality.attracted_to_toms():
+                return False
+        if self.genderalign in Sexuality.female_genders:
+            if not other_cat.sexuality.attracted_to_shecats():
+                return False
+        if not self.sexuality.attracted_to_toms():
+            if other_cat.genderalign in Sexuality.male_genders:
+                return False
+        if not self.sexuality.attracted_to_shecats():
+            if other_cat.genderalign in Sexuality.female_genders:
+                return False
+
+        if demiromantic_functionality:
+            demi_false = False
+            if other_cat.sexuality.arospec == Arospec.DEMI:
+                if self.ID not in other_cat.relationships:
+                    demi_false = True
+                else:
+                    if other_cat.relationships[self.ID].like < 50:
+                        demi_false = True
+            if self.sexuality.arospec == Arospec.DEMI:
+                if other_cat.ID not in self.relationships:
+                    demi_false = True
+                else:
+                    if self.relationships[other_cat.ID].like < 50:
+                        demi_false = True
+            if demi_false:
+                return False
+        
+        if self.sexuality.t4t and (
+            other_cat.gender == other_cat.genderalign
+        ):
+            return False
+        if other_cat.sexuality.t4t and (
+            self.gender == self.genderalign
+        ):
+            return False
+        return True
+        # ---
+
     def is_potential_mate(
         self,
         other_cat: Cat,
@@ -2812,60 +2868,9 @@ class Cat:
         # Current mentor
         if other_cat.ID in self.apprentice or self.ID in other_cat.apprentice:
             return False
-        
-        # PRIDEGEN
-        if other_cat.genderalign in Sexuality.male_genders:
-            if not self.sexuality.attracted_to_toms():
-                return False
-        if other_cat.genderalign in Sexuality.female_genders:
-            if not self.sexuality.attracted_to_shecats():
-                return False
-        if not other_cat.sexuality.attracted_to_toms():
-            if self.genderalign in Sexuality.male_genders:
-                return False
-        if not other_cat.sexuality.attracted_to_shecats():
-            if self.genderalign in Sexuality.female_genders:
-                return False
 
-        if self.genderalign in Sexuality.male_genders:
-            if not other_cat.sexuality.attracted_to_toms():
-                return False
-        if self.genderalign in Sexuality.female_genders:
-            if not other_cat.sexuality.attracted_to_shecats():
-                return False
-        if not self.sexuality.attracted_to_toms():
-            if other_cat.genderalign in Sexuality.male_genders:
-                return False
-        if not self.sexuality.attracted_to_shecats():
-            if other_cat.genderalign in Sexuality.female_genders:
-                return False
-
-        if demiromantic_functionality:
-            demi_false = False
-            if other_cat.sexuality.arospec == Arospec.DEMI:
-                if self.ID not in other_cat.relationships:
-                    demi_false = True
-                else:
-                    if other_cat.relationships[self.ID].like < 50:
-                        demi_false = True
-            if self.sexuality.arospec == Arospec.DEMI:
-                if other_cat.ID not in self.relationships:
-                    demi_false = True
-                else:
-                    if self.relationships[other_cat.ID].like < 50:
-                        demi_false = True
-            if demi_false:
-                return False
-        
-        if self.sexuality.t4t and (
-            other_cat.gender == other_cat.genderalign
-        ):
+        if not self.is_pridegen_compatible(other_cat, demiromantic_functionality=demiromantic_functionality):
             return False
-        if other_cat.sexuality.t4t and (
-            self.gender == self.genderalign
-        ):
-            return False
-        # ---
 
         # Former mentor
         is_former_mentor = (
@@ -2929,7 +2934,11 @@ class Cat:
                 > constants.CONFIG["mates"]["age_range"] + 1
             ):
                 return False
-        
+
+        # PG
+        if not self.is_pridegen_compatible(other_cat):
+            return False
+
         # check for mentor
 
         is_former_mentor = (other_cat.ID in self.former_apprentices or self.ID in other_cat.former_apprentices)

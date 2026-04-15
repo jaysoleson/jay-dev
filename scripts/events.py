@@ -2299,7 +2299,6 @@ def one_moon_cat(cat):
     # Handle Mediator Events
     mediator_events(cat)
 
-    
     # LIFEGEN: handle faith events
     # they only get a faith event if they hit the chance. that chance being 8 rn
     if not int(random.random() * 8):
@@ -2358,13 +2357,20 @@ def one_moon_cat(cat):
         perform_ceremonies(cat)
     cat.skills.progress_skill(cat) # This must be done after ceremonies. 
 
+    # PG
+    coming_out(cat)
+    sexuality_change(cat)
+    cat.sexuality.give_bandanas(cat)
+    cat.pelt.rebuild_sprite = True
+    # ---
+
     # check for death/reveal/risks/retire caused by permanent conditions
     if cat.is_disabled():
         Condition_Events.handle_already_disabled(cat)
         if cat.dead:
             return
 
-    coming_out(cat)
+
     Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
     # Stop the timeskip if the cat died in childbirth
     if cat.dead:
@@ -2375,35 +2381,7 @@ def one_moon_cat(cat):
     # relationships have to be handled separately, because of the ceremony name change
     if cat.status.alive_in_player_clan:
         Relation_Events.handle_relationships(cat)
-
-    # now we make sure ill and injured cats don't get interactions they shouldn't
-    if cat.is_ill() or cat.is_injured():
-        return
     
-    invite_new_cats(cat)
-    other_interactions(cat)
-    # gain_accessories(cat)
-
-    coming_out(cat)
-
-    # PG
-    sexuality_change(cat)
-    cat.sexuality.give_bandanas(cat)
-    cat.pelt.rebuild_sprite = True
-    # ---
-
-    Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
-    # Stop the timeskip if the cat died in childbirth
-    if cat.dead:
-        return
-
-    cat.relationship_interaction()
-    cat.get_new_thought()
-
-    # relationships have to be handled separately, because of the ceremony name change
-    if cat.status.alive_in_player_clan:
-        Relation_Events.handle_relationships(cat)
-
     # now we make sure ill and injured cats don't get interactions they shouldn't
     if cat.is_ill() or cat.is_injured():
         return

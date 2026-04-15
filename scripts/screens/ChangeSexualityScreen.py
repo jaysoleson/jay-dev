@@ -323,6 +323,8 @@ class ChangeSexualityScreen(Screens):
         self.current_arospec_label = self.the_cat.sexuality.arospec
 
         self.new_sexuality = {}
+        self.the_cat.sexuality.give_bandanas(self.the_cat)
+        self.the_cat.pelt.rebuild_sprite = True
 
     def update_selected_cat(self):
         self.the_cat = Cat.all_cats[switch_get_value(Switch.cat)]

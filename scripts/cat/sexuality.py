@@ -3,6 +3,7 @@ import random
 
 from scripts.cat.pelts import Pelt
 from scripts.events_module.text_adjust import adjust_list_text
+from scripts.game_structure.game.settings import game_setting_get
 
 class Acespec(StrEnum):
     ALLO = "allosexual"
@@ -463,22 +464,21 @@ class Sexuality():
             if acc not in cat.pelt.inventory:
                 cat.pelt.inventory.append(acc)
 
-        # TODO: if autoequip setting
-        autoequip = True
-        if autoequip:
-            skip = False
-            cat.pelt.accessory = tuple(
-                accessory for accessory in cat.pelt.accessory if
-                not (accessory in Pelt.all_pridegen_accessories and accessory not in correct_flags)
-            )
-            for acc in cat.pelt.accessory:
-                if acc in correct_flags:
-                    skip = True
-                    break
-            if not skip:
-                cat.pelt.accessory = cat.pelt.accessory + (sorted_flags[0],)
-                if sorted_flags[0] not in cat.pelt.inventory:
-                    cat.pelt.inventory.append(sorted_flags[0])
+        autoequip = game_setting_get("auto_equip_bandanas")
+        skip = False
+        cat.pelt.accessory = tuple(
+            accessory for accessory in cat.pelt.accessory if
+            not (accessory in Pelt.all_pridegen_accessories and accessory not in correct_flags)
+        )
+        for acc in cat.pelt.accessory:
+            if acc in correct_flags:
+                skip = True
+                break
+        # autoequip should remove incorrect bandanas but not autoequip the new ones
+        if not skip and autoequip:
+            cat.pelt.accessory = cat.pelt.accessory + (sorted_flags[0],)
+            if sorted_flags[0] not in cat.pelt.inventory:
+                cat.pelt.inventory.append(sorted_flags[0])
 
         cat.pelt.rebuild_sprite = True
 
