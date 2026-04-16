@@ -150,6 +150,9 @@ for dkey, dialogue_block in dialogue_json.items():
                                 new_murder_dict[item][item2] = convert[item][item2]
                         else:
                             new_murder_dict[item] = convert[item]
+                else:
+                    if tag == "reject":
+                        TAGS.append("reject")
 
             for new_item in new_murder_dict.copy():
                 if isinstance(new_murder_dict[new_item], dict):
@@ -396,14 +399,14 @@ for dkey, dialogue_block in dialogue_json.items():
                     item.pop(constraint)
 
         new_block["cats"][key] = item
-    if TAGS:
-        new_block["tags"] = TAGS
     if RELATIONSHIPS:
         new_block["relationships"] = RELATIONSHIPS
     
     if MURDER:
         new_block["recent_murder"] = MURDER
 
+    if TAGS:
+        new_block["tags"] = TAGS
     for key, item in SCENES.items():
         new_block[key] = item
 

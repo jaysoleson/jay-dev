@@ -121,7 +121,7 @@ class TalkScreen(Screens):
         text_options = self.dialogue_class.load_texts()
 
         self.chosen_text_key, self.chosen_text_value = (
-            self.dialogue_class.choose_dialogue(text_options)
+            self.dialogue_class.choose_dialogue(text_options, flirt=switch_get_value(Switch.talk_category) == "flirt")
             )
 
         self.chosen_text_object = {self.chosen_text_key: self.chosen_text_value}

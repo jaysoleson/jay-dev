@@ -23,10 +23,13 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_20"
+                    "min_like_20",
+                    "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Er, sorry, y_c ... But I don't see you that way."
@@ -59,6 +62,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Uh, you meant that in, like, a 'best friends' way ... right?"
         ]
@@ -90,6 +96,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Ehh ... Good one, bestie! Heh ..."
         ]
@@ -116,6 +125,9 @@
                     "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Oh... I didn't know you... saw me that way."
@@ -152,6 +164,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Oh wow, that was funny!",
             "You're such a good friend."
@@ -174,6 +189,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Oh, honey ...",
             "That was... pretty terrible.",
@@ -211,6 +229,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Sorry, I... already like someone else?"
         ]
@@ -232,6 +253,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Huh? Oh, um... Thank you? *Snrk*"
         ]
@@ -254,6 +278,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "That's... nice of you to say."
         ]
@@ -277,6 +304,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Haha! That's the funniest joke I've heard all season!"
         ]
@@ -299,6 +329,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "...That's a joke, right?"
         ]
@@ -323,6 +356,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "You've got to be joking."
         ]
@@ -344,6 +380,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Eh, hehehe ... Might wanna rethink that one a little y_c."
         ]
@@ -365,6 +404,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Whatever."
         ]
@@ -388,6 +430,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... Is that the best you could do?"
         ]
@@ -409,6 +454,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Stop that, it's not getting you anywhere."
         ]
@@ -430,6 +478,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "What is it going to take in order for you to leave me alone?"
         ]
@@ -452,6 +503,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Congratulations, y_c!",
             "That might just be the worst attempt at flirting I've heard in moons!"
@@ -475,6 +529,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... Okay?"
         ]
@@ -511,6 +568,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... Ew."
         ]
@@ -545,6 +605,9 @@
                     "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Ew. No."
@@ -582,6 +645,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Not a chance in StarClan."
         ]
@@ -604,6 +670,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I think StarClan gave me an omen warning me about this."
         ]
@@ -627,6 +696,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "You are <i>so</i> not my type."
         ]
@@ -649,6 +721,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... y_c, was that supposed to be an insult, or an attempt at flirting?",
             "Sorry, I genuinely can't tell."
@@ -685,6 +760,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Um... No. You're not even on my playing field."
         ]
@@ -720,6 +798,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Ew. I'm too good for you..."
         ]
@@ -754,6 +835,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Sorry, but I just don't see how this factors into my 20-moon plan."
         ]
@@ -778,6 +862,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... What are you trying to do?"
         ]
@@ -812,6 +899,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I think I'd rather take my chances with a Dark Forest cat."
         ]
@@ -843,6 +933,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Hehe! That was so funny, y_c!",
             "This is why you're one of my closest friends."
@@ -865,6 +958,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... Are you trying to start a fight?"
         ]
@@ -886,6 +982,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Um, was that sarcasm?"
         ]
@@ -909,6 +1008,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "...No. I'm sorry but just... no."
         ]
@@ -946,6 +1048,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Uh- me? Sorry, you aren't exactly my type..."
         ]
@@ -970,6 +1075,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Um... no."
         ]
@@ -1000,10 +1108,13 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "max_like_-50"
+                    "min_dislike_50",
+                    "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Don't talk to me."
@@ -1028,6 +1139,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Just...no."
         ]
@@ -1052,6 +1166,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Uhm, I'd rather... not."
         ]
@@ -1082,6 +1199,9 @@
                     "strangers"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Do I know you?"
@@ -1114,6 +1234,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Uh, what's your name again?"
         ]
@@ -1140,6 +1263,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Ahahahahahaha! That was too good!",
             "Wait, wait, stay right there! r_c:0, get over here! Listen to what y_c just said!"
@@ -1162,6 +1288,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Oh, uh I'm sorry, but I think I have to go..."
         ]
@@ -1184,6 +1313,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "...",
             "...",
@@ -1221,6 +1353,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Um, what made you think I'd ever say yes?"
         ]
@@ -1243,6 +1378,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "*Snrk* Did a badger teach you how to flirt?"
         ]
@@ -1264,6 +1402,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Stop."
         ]
@@ -1285,6 +1426,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "You're... you're kidding, right?"
         ]
@@ -1320,6 +1464,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "You're delusional if you think you're good enough for me."
         ]
@@ -1341,6 +1488,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Oh! Um, I'm gonna go..."
         ]
@@ -1359,6 +1509,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Sorry, I... just remembered something I have to do. Bye."
         ]
@@ -1382,6 +1535,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... What's that supposed to mean?"
         ]
@@ -1405,10 +1561,13 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_50"
+                    "min_like_50",
+                    "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Sorry, but I just see us as friends."
@@ -1432,6 +1591,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Oh dear. Let me teach you how to flirt."
         ]
@@ -1456,6 +1618,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Uh... sorry, but that was... horrible."
         ]
@@ -1475,6 +1640,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... You've got a little something on your face..."
         ]
@@ -1496,6 +1664,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Ugh... I'm not that shallow."
         ]
@@ -1529,6 +1700,9 @@
                     "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Frankly, I'd rather eat all our Clan's dirt left in the dirtplace."
@@ -1564,6 +1738,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Hmph. Not interested."
         ]
@@ -1585,6 +1762,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Um ... oof, this is awkward.",
             "Tell you what, y_c. I'll do us both a favor and pretend this never happened. M'kay?"
@@ -1607,6 +1787,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Aww, isn't that cute?",
             "*Snrk*"
@@ -1644,6 +1827,9 @@
                     "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Okay, I'm gonna stop you right there. I can see what you're doing and I'll save you the embarrassment in two simple words:",
@@ -1689,6 +1875,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Uh ... hehe! How sweet of you.",
             "I'll be sure to tell that one to my mate later. {PRONOUN/r_c:0/subject/CAP}'ll definitely love it.",
@@ -1726,6 +1915,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Hehe. Thanks, cutie. But I just don't like you like that.",
             "Hey, keep your chin up, though. Plenty of other cats in the Clan who might catch your interest."
@@ -1749,6 +1941,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Oh, dear ... Um, why don't you just stick to admiring me from afar?"
         ]
@@ -1787,6 +1982,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Hahaha! That one got me laughing!",
             "As if we'd actually get together ... could you imagine?",
@@ -1812,6 +2010,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... For your own sake, I better have misheard you."
         ]
@@ -1843,10 +2044,13 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_20"
+                    "min_like_20",
+                    "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Aw, bestie! That's sweet, but no. My heart belongs to another."
@@ -1882,6 +2086,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... You don't wanna be with a cat like me. Trust me."
         ]
@@ -1904,6 +2111,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Woah... Your breath stinks..."
         ]
@@ -1927,6 +2137,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Eh ... Have you washed today..?"
         ]
@@ -1961,6 +2174,9 @@
                     "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "I'm sorry, y_c... We just ain't got that chemistry, you feel me?"
@@ -1999,6 +2215,9 @@
                     "min_like_20"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Ha! Very funny y_c!",
@@ -2121,6 +2340,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "If I act like I'm interested will it get you to stop?"
         ]
@@ -2176,6 +2398,9 @@
                     "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "As much as I like you, we have got to work on your flirting ability, dear."
@@ -2434,6 +2659,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "No."
         ]
@@ -2494,6 +2722,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Uhm. Why?"
         ]
@@ -2571,6 +2802,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Do you think I'm so shallow ...?"
         ]
@@ -2585,6 +2819,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c narrows {PRONOUN/t_c/poss} eyes suspiciously.]",
             "What's your angle?"
@@ -2626,6 +2863,9 @@
                     "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Uhm ... Have you considered seeing r_c:0?",
@@ -2708,6 +2948,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Echh. Someone get r_c:0. That was so sincere, I think it's causing an allergic reaction."
         ]
@@ -2729,6 +2972,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Cute. Can I go now?"
         ]
@@ -2755,6 +3001,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Hey, r_c:0? Remind me how you teach the kits to spell 'Out of your league'?"
         ]
@@ -2864,6 +3113,9 @@
                     "min_like_30"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Hey, didn't I teach you that line?"
@@ -3294,6 +3546,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I always look lovely. Are you trying to imply that I don't?"
         ]
@@ -3352,6 +3607,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... That was an awful attempt at flirting, but you are cute, so I'll let it slide."
         ]
@@ -3428,6 +3686,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... Hahaha! At least you're funny."
         ]
@@ -3450,6 +3711,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Sorry, I just don't have time for something like this right now."
         ]
@@ -3504,6 +3768,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "..Thanks.. Your pelt looks... scruffy today?"
         ]
@@ -3825,6 +4092,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I must have sand in my ears... What was that again?"
         ]
@@ -3959,6 +4229,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "...",
             "Okay then. Thanks, I guess."
@@ -4165,7 +4438,7 @@
                 ],
                 "relationship": [
                     "mates",
-                    "min_like_-25"
+                    "max_dislike_25"
                 ]
             }
         ],
@@ -4205,6 +4478,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Thanks, honey. That was really cute even though it was kind of lame..."
         ]
@@ -4240,6 +4516,9 @@
                     "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Don't worry! You'll get better one day."
@@ -4313,6 +4592,9 @@
                     "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "You really suck at that, you know? Hah."
@@ -4573,6 +4855,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Not the time or the place. Move along."
         ]
@@ -4620,6 +4905,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "That's cool, but I've got other things on my mind."
         ]
@@ -4693,6 +4981,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Kind words, but I'm walking a solitary path for now."
         ]
@@ -4730,6 +5021,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Why now? Why me?"
         ]
@@ -4766,6 +5060,9 @@
                     "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Trust is earned. Let's keep things as they are."
@@ -4849,6 +5146,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Ew. Why would you say that to anycat, given your situation?",
             "Murderers don't get love, y_c. Stop trying."
@@ -4873,6 +5173,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Please don't say that to me right now."
         ]
@@ -5038,10 +5341,13 @@
                 ],
                 "relationship": [
                     "non-mates",
-                    "min_romance_10",
-                    "max_like_-25"
+                    "min_dislike_25",
+                    "min_romance_10"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Maybe I could have liked you if you weren't so evil."
@@ -5194,6 +5500,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Ugh... Not now..."
         ]
@@ -5215,6 +5524,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Ugh..."
         ]
@@ -5236,6 +5548,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Ugh..."
         ]
@@ -5269,6 +5584,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c frowns at you, {PRONOUN/t_c/poss} claws pressing out.]",
             "You're not supposed to be talking to me, nevermind saying stupid things like that."
@@ -5305,6 +5623,9 @@
                     "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "No.",
@@ -5357,6 +5678,9 @@
         "recent_murder": {
             "victim": "r_c:0"
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[You approached t_c, quietly starting to flirt with {PRONOUN/t_c/object}.]",
             "y_c. I murdered r_c:0. Why are you talking to me, let alone like this?",
@@ -5391,13 +5715,16 @@
                 ],
                 "relationship": [
                     "non-mates",
-                    "max_like_-10"
+                    "min_dislike_10"
                 ]
             }
         ],
         "recent_murder": {
             "victim": "r_c:0"
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[You decide to start flirting with t_c in an attempt to see where it leads. {PRONOUN/t_c/subject/CAP} {VERB/t_c/do/does} not seem amused.]",
             "y_c. I murdered r_c:0. I'm not afraid to go after you too if you keep at it.",
@@ -5431,6 +5758,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c backs away, {PRONOUN/t_c/poss} fur bristling.]",
             "You aren't allowed to <i>talk</i> to me, let alone say something like that.",
@@ -5455,6 +5785,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Ugh..."
         ]
@@ -5524,6 +5857,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Not the time, y_c."
         ]
@@ -5549,6 +5885,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Um... no."
         ]
@@ -5655,9 +5994,12 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "max_like_-10"
+                    "min_dislike_10"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "[t_c stares as you for a second, {PRONOUN/t_c/poss} tail lashing.]",
@@ -5734,6 +6076,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c barely looks up at you, choking out a sob as {PRONOUN/t_c/subject} {VERB/t_c/tremble/trembles}.]",
             "y_c, y_c I'm sorry. I- <i>hic</i> I can't...",
@@ -5760,6 +6105,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Right now, my emotions are too raw for anything more."
         ]
@@ -5784,6 +6132,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I need some time to heal. Please understand."
         ]
@@ -5809,6 +6160,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Now's not a good time for me. I hope you get that."
         ]
@@ -5851,6 +6205,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Not the time or the place. Move along."
         ]
@@ -5875,6 +6232,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Well, that's just what I needed. More complicated feelings!"
         ]
@@ -5899,6 +6259,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Why now? Why me?"
         ]
@@ -5948,6 +6311,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c opens {PRONOUN/t_c/poss} maws and snarls at you.]",
             "How <b>dare</b> you y_c. How dare you think you can replace r_c:0!"
@@ -5973,6 +6339,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Right now, my emotions are too raw for anything more."
         ]
@@ -5998,6 +6367,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I need some time to heal. Please understand."
         ]
@@ -6024,6 +6396,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Now's not a good time for me. I hope you get that."
         ]
@@ -6068,6 +6443,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Not the time or the place. Move along."
         ]
@@ -6093,6 +6471,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Well, that's just what I needed. More complicated feelings!"
         ]
@@ -6118,6 +6499,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Why now? Why me?"
         ]
@@ -6168,6 +6552,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c opens {PRONOUN/t_c/poss} maws and snarls at you.]",
             "How <b>dare</b> you y_c. How dare you think you can replace r_c:0!"
@@ -6213,6 +6600,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Not the time or the place. Move along."
         ]
@@ -6257,6 +6647,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Not the time or the place. Move along."
         ]
@@ -6323,6 +6716,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I must be going insane. y_c is dead... {PRONOUN/y_c/subject} would never say that..."
         ]
@@ -6386,6 +6782,9 @@
                     "dead/grieving"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "You're not thinking clearly right now..."
@@ -6569,6 +6968,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I don't know what's going on anymore."
         ]
@@ -6606,6 +7008,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I don't know what's going on anymore."
         ]
@@ -6642,6 +7047,9 @@
                     "grieving/dead"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "I don't know what's going on anymore."
@@ -6683,6 +7091,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I don't know what's going on anymore."
         ]
@@ -6706,6 +7117,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Absolutely not, y_c. Neither of us are in any state for this. Especially you."
         ]
@@ -6785,6 +7199,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Do you have a death wish, or is this just to humiliate me?"
         ]
@@ -6815,6 +7232,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Get lost, I'm serious.",
             "[t_c hisses in your direction, {PRONOUN/t_c/poss} tail lashing and claws extending.]"
@@ -6837,6 +7257,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "You're going to get in trouble, you know that."
         ]
@@ -6871,6 +7294,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I'm a murderer and you're still trying to get with me?",
             "You have some dedication.",
@@ -6894,6 +7320,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "You know, I would be flattered if there was some freshkill sent my way.",
             "... No? Then you're not worth my time."
@@ -6982,6 +7411,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I cannot deal with this. Not while my life crumbles so quickly.",
             "... Is this my karma?"
@@ -7029,6 +7461,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c hisses at you.]",
             "I'm not even allowed to talk with r_c:0.",
@@ -7052,6 +7487,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "You must be a fool to believe I would take kindly to that.",
             "Scram."
@@ -7074,6 +7512,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I'd consider this an insult."
         ]
@@ -7111,6 +7552,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "r_c:0 just died and you're trying to flirt with me?",
             "... You need to get your priorities in order, y_c. Seriously."
@@ -7132,6 +7576,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c's tail lashes angrily and {PRONOUN/t_c/subject} {VERB/t_c/turn/turns} the other way.]",
             "[Your flirting is not welcome, it seems.]"
@@ -7152,6 +7599,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c rolls {PRONOUN/t_c/poss} eyes and scoffs.]",
             "Words said so often that they lack any meaning."
@@ -7167,6 +7617,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c shrinks back. {PRONOUN/t_c/subject/CAP} {VERB/t_c/narrow/narrows} {PRONOUN/t_c/poss} eyes at {PRONOUN/t_c/poss} paws.]",
             "Are you making fun of me? That's not nice, y_c."
@@ -7342,6 +7795,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Oh, wrap it up."
         ]
@@ -7372,6 +7828,9 @@
                     "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "No, thanks."
@@ -7404,6 +7863,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... And what am I supposed to do with this information, exactly?"
         ]
@@ -7434,6 +7896,9 @@
                     "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "... Right, that made no sense.",
@@ -7477,6 +7942,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Uh, sorry I think I just heard r_c:0 calling for me.",
             "Time to do my duties! Haha... ha...",
@@ -7498,6 +7966,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Hm? What?",
             "Sorry, I couldn't hear you."
@@ -7533,6 +8004,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "What are you doing outside? It's so cold!",
             "[t_c coaxes you back to somewhere warm. Alas, your attempt at flirting either went over {PRONOUN/t_c/poss} head... or was ignored.]",
@@ -7560,6 +8034,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c's tail lashes angrily and {PRONOUN/t_c/subject} {VERB/t_c/turn/turns} the other way.]",
             "[Your flirting is not welcome, it seems.]"
@@ -7579,6 +8056,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "You have some nerve..."
         ]
@@ -7605,6 +8085,9 @@
                     "grieving/dead"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "I don't understand how you can flirt with me right now!",
@@ -7648,6 +8131,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[While laying next to t_c in camp, you reach your paw towards {PRONOUN/t_c/inposs}.]",
             "[{PRONOUN/t_c/subject/CAP} quickly {VERB/t_c/flinch/flinches} and {VERB/t_c/shuffle/shuffles} away from you.]"
@@ -7715,8 +8201,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "min_romance_20",
-                    "max_like_-20"
+                    "min_dislike_20",
+                    "min_romance_20"
                 ]
             }
         ],
@@ -7864,8 +8350,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "mates",
-                    "min_romance_20"
+                    "min_romance_20",
+                    "mates"
                 ]
             },
             {
@@ -7905,6 +8391,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Oh, y_c! Thank you! Do you know who else has gorgeous eyes?",
             "r_c:0!~",
@@ -7940,6 +8429,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Oh, I wish r_c:0 spoke to me like that!"
         ]
@@ -7972,6 +8464,9 @@
                     "not_mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "You're really nice, y_c, but...",
@@ -8014,6 +8509,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Sorry, y_c but... I have my eyes set out for r_c:0."
         ]
@@ -8044,9 +8542,12 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "max_like_-50"
+                    "min_dislike_50"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "I would rather chew on ragwort than flirt with you."
@@ -8083,6 +8584,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I'm really busy with the kits right now, sorry! I'll talk to you later?"
         ]
@@ -8104,6 +8608,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "... This is a weird way to ask for mediation."
         ]
@@ -8143,9 +8650,12 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "max_like_-50"
+                    "min_dislike_50"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "StarClan, do I need to ask r_c:0 to set me out on more patrols so you'll stop flirting with me?"
@@ -8190,6 +8700,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "That was a nice attempt, but I am very happy with r_c:0."
         ]
@@ -8218,8 +8731,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_20"
+                    "min_like_20",
+                    "non-mates"
                 ]
             },
             {
@@ -8233,6 +8746,9 @@
                     "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "[t_c laughs loudly at your flirting.]",
@@ -8278,6 +8794,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Are you joking? You must be joking.",
             "... you know I'm happily in a relationship with r_c:0... right?"
@@ -8307,8 +8826,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "max_like_-30"
+                    "min_dislike_30",
+                    "non-mates"
                 ]
             },
             {
@@ -8322,6 +8841,9 @@
                     "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Back off before I call r_c:0 over."
@@ -8351,8 +8873,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "max_like_-30"
+                    "min_dislike_30",
+                    "non-mates"
                 ]
             },
             {
@@ -8366,6 +8888,9 @@
                     "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "[t_c hisses at you, unamused with your flirting.]",
@@ -8399,6 +8924,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Sorry, you're definitely not my type of cat."
         ]
@@ -8429,6 +8957,9 @@
                     "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "What?",
@@ -8470,6 +9001,9 @@
                     "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Look, y_c, do you not see how happy I am with r_c:0?",
@@ -8515,6 +9049,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Oh uh, I just remembered that I need to do something!",
             "With r_c:0, yup!",
@@ -8541,9 +9078,12 @@
                 ],
                 "relationship": [
                     "non-mates",
-                    "max_like_-10"
+                    "min_dislike_10"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "[t_c narrows {PRONOUN/t_c/poss} eyes at you, thoughtful.]",
@@ -8578,6 +9118,9 @@
                     "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "I'm sorry, y_c, I'm... not in the mood right now."
@@ -8641,6 +9184,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c smiles at you, but it's clear {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} not in the mood for flirting.]"
         ]
@@ -8661,6 +9207,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c curls in a ball, ignoring your attempts to flirt.]"
         ]
@@ -8692,6 +9241,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "y_c, I'm not in the mood."
         ]
@@ -8722,6 +9274,9 @@
                     "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "y_c... is it just me or did your flirting become worse over the moons we've been together?",
@@ -8755,6 +9310,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "You must not mean that."
         ]
@@ -8785,6 +9343,9 @@
                     "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Awh! I can tell you've been... practicing that one!",
@@ -8819,6 +9380,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I'm going to be honest.",
             "That was the worst, y_c."
@@ -8843,6 +9407,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c curls in a ball, ignoring your attempts to flirt.]"
         ]
@@ -8897,6 +9464,9 @@
                     "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Ah... I'm not feeling well right now, y_c.",
@@ -8992,6 +9562,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c frowns a little at your flirting attempt. {PRONOUN/t_c/subject/CAP} {VERB/t_c/turn/turns} away without a response.]"
         ]
@@ -9010,6 +9583,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} seem to know how to respond.]"
         ]
@@ -9218,8 +9794,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_20"
+                    "min_like_20",
+                    "non-mates"
                 ]
             }
         ],
@@ -9259,8 +9835,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_50"
+                    "min_like_50",
+                    "non-mates"
                 ]
             }
         ],
@@ -9300,9 +9876,9 @@
                     "y_c"
                 ],
                 "relationship": [
+                    "min_like_50",
                     "min_romance_10",
-                    "non-mates",
-                    "min_like_50"
+                    "non-mates"
                 ]
             }
         ],
@@ -9346,8 +9922,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_30"
+                    "min_like_30",
+                    "non-mates"
                 ]
             }
         ],
@@ -9382,8 +9958,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_40"
+                    "min_like_40",
+                    "non-mates"
                 ]
             },
             {
@@ -9437,8 +10013,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_20"
+                    "min_like_20",
+                    "non-mates"
                 ]
             }
         ],
@@ -9482,8 +10058,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_30"
+                    "min_like_30",
+                    "non-mates"
                 ]
             }
         ],
@@ -9524,9 +10100,9 @@
                     "y_c"
                 ],
                 "relationship": [
+                    "min_like_50",
                     "min_romance_20",
-                    "non-mates",
-                    "min_like_50"
+                    "non-mates"
                 ]
             }
         ],
@@ -9736,8 +10312,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_20"
+                    "min_like_20",
+                    "non-mates"
                 ]
             }
         ],
@@ -9775,8 +10351,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_20"
+                    "min_like_20",
+                    "non-mates"
                 ]
             }
         ],
@@ -9811,8 +10387,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_20"
+                    "min_like_20",
+                    "non-mates"
                 ]
             }
         ],
@@ -9846,8 +10422,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_20"
+                    "min_like_20",
+                    "non-mates"
                 ]
             }
         ],
@@ -9881,8 +10457,8 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "min_like_50"
+                    "min_like_50",
+                    "non-mates"
                 ]
             }
         ],
@@ -10092,7 +10668,7 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "min_like_-5"
+                    "max_dislike_5"
                 ]
             }
         ],
@@ -10128,7 +10704,7 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "min_like_-5"
+                    "max_dislike_5"
                 ]
             }
         ],
@@ -10169,6 +10745,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Oh! Um...",
             "[t_c freezes, casting {PRONOUN/t_c/poss} gaze around camp.]",
@@ -10195,6 +10774,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c hisses at you when you approach. You can feel {PRONOUN/t_c/poss} disappointment radiating off {PRONOUN/t_c/object}.]"
         ]
@@ -10239,6 +10821,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c hisses at you when you approach. You can feel {PRONOUN/t_c/poss} disappointment radiating off {PRONOUN/t_c/object}.]"
         ]
@@ -10299,6 +10884,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c hisses at you when you approach. You can feel {PRONOUN/t_c/poss} disappointment radiating off {PRONOUN/t_c/object}.]"
         ]
@@ -10347,6 +10935,9 @@
                 "cat": "t_c"
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Umm....",
             "I'm getting very mixed signals from you lately, y_c."
@@ -10414,6 +11005,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Hm? Are you really bored enough to try hitting on me?",
             "Yeesh. There's gotta be better things for you to do. Go try drawing in the dirt, or something. I'm not that desperate yet."
@@ -10448,6 +11042,9 @@
                     "strangers"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "I don't find murderers very attractive, y_c. Sorry."
@@ -10518,6 +11115,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "You take 'heartstopper' both literally and figuratively, huh?"
         ]
@@ -10547,6 +11147,9 @@
                 "success": true
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I agreed to be your partner in crime, not your partner in life."
         ]
@@ -10565,6 +11168,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c stares at you in confusion.]",
             "You have a <i>weird</i> way of trying to flatter me."
@@ -10597,9 +11203,12 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "max_like_-30"
+                    "min_dislike_30"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "[t_c recoils with a hiss.]"
@@ -10633,10 +11242,13 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "mates",
-                    "max_like_25"
+                    "max_like_25",
+                    "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "[t_c blatantly ignores you, barely even twitching an ear as {PRONOUN/t_c/subject} {VERB/t_c/pad/pads} by.]",
@@ -10673,6 +11285,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "There's a time and a place, y_c. This isn't either of those."
         ]
@@ -10697,6 +11312,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c looks away, but {PRONOUN/t_c/poss} face clearly reveals {PRONOUN/t_c/poss} discomfort.]",
             "[... Not the reaction you'd hoped for.]"
@@ -10722,6 +11340,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "...",
             "[Judging by the lengthy pause, you suspect t_c feels extremely uncomfortable.]",
@@ -10748,6 +11369,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c backs away, eyes averted.]"
         ]
@@ -10772,6 +11396,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c stares at you blankly.]"
         ]
@@ -10796,6 +11423,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c looks at you uncertainly, as though {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} hoping you aren't serious.]"
         ]
@@ -10829,6 +11459,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c's eyes are fixed on r_c:0 across camp.]",
             "... Oh, sorry, y_c! What were you saying?"
@@ -10857,6 +11490,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[As you and t_c are sharing tongues, you nervously shift to press yourself against {PRONOUN/t_c/subject} pelt.]",
             "[t_c stiffens, then pulls away.]",
@@ -10883,6 +11519,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[After what feels like moons of working up the courage, you gingerly run your tail over t_c's shoulders.]",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/jerk/jerks} away sharply, leaving your entire pelt burning with embarrassment.]"
@@ -10906,6 +11545,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c seems too fixated on a stick to even notice you.]"
         ]
@@ -10940,6 +11582,9 @@
                     "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "[You press against t_c. {PRONOUN/t_c/subject/CAP} {VERB/t_c/keep/keeps} {PRONOUN/t_c/poss} eyes closed, but press back against you.]",
@@ -10976,6 +11621,9 @@
                     "mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "[t_c lifts {PRONOUN/t_c/poss} head to look at you. {PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} initially react to your signs, so you try again.]",
@@ -11041,6 +11689,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c turns {PRONOUN/t_c/poss} head away and lashes {PRONOUN/t_c/poss} tail.]",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} seem impressed.]"
@@ -11073,10 +11724,13 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "non-mates",
-                    "max_like_-10"
+                    "min_dislike_10",
+                    "non-mates"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Go away!"
@@ -11100,6 +11754,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I do not want to speak with you right now, y_c.",
             "Please, leave me to grieve."
@@ -11120,6 +11777,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "I do not want to speak with you right now, y_c.",
             "Please, leave me to grieve."
@@ -11155,6 +11815,9 @@
                     "grieving/dead"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Don't you think you have caused me enough suffering? I do not need your awful flirting on top of it."
@@ -11196,6 +11859,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c shakes {PRONOUN/t_c/poss} head, eyes shining with disappointment.]",
             "[It's not the time for flirting.]"
@@ -11229,6 +11895,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c shakes {PRONOUN/t_c/poss} head, eyes shining with disappointment.]",
             "[It's not the time for flirting.]"
@@ -11261,7 +11930,7 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "max_like_-40"
+                    "min_dislike_40"
                 ]
             }
         ],
@@ -11336,6 +12005,9 @@
             },
             "t_c": {}
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Has anycat ever told you to look ugly when you cry?"
         ]
@@ -11359,6 +12031,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Are you using flirting as a coping mechanism?"
         ]
@@ -11391,6 +12066,9 @@
                     "min_like_20"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Hey, uh, sorry, but I think you should be reflecting in your feelings before flirting with anycat. You know, think about yourself first."
@@ -11451,7 +12129,7 @@
                     "y_c"
                 ],
                 "relationship": [
-                    "max_like_-25"
+                    "min_dislike_25"
                 ]
             },
             {
@@ -11560,6 +12238,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c shuffles their paws, not meeting your eyes.]",
             "[It doesn't feel entirely appropriate to accept your advances, not when you're missing r_c:0 so much.]"
@@ -11638,6 +12319,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "Now is not the time, y_c..."
         ]
@@ -11667,6 +12351,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c avoids your flirting by sitting with {PRONOUN/t_c/poss} back facing you.]"
         ]
@@ -11739,6 +12426,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c smiles, but {PRONOUN/t_c/subject} {VERB/t_c/look/looks} a little awkward around the eyes.]"
         ]
@@ -11763,6 +12453,9 @@
                 ]
             }
         },
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "[t_c ignores you with a flick of {PRONOUN/t_c/poss} tail.]"
         ]
@@ -11800,6 +12493,9 @@
                 ]
             }
         ],
+        "tags": [
+            "reject"
+        ],
         "intro": [
             "You're not real, you're not real, you're not real."
         ]
@@ -11831,6 +12527,9 @@
                     "grieving/dead"
                 ]
             }
+        ],
+        "tags": [
+            "reject"
         ],
         "intro": [
             "Is my mind playing tricks on me?"

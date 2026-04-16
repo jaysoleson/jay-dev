@@ -108,11 +108,13 @@ class Dialogue():
         # possible_texts = load_lang_resource("lifegen_talk/TEST.json")
         return possible_texts
 
-    def filter_dialogue(self, possible_texts):
+    def filter_dialogue(self, possible_texts, flirt):
         """
         Filters possible dialogue for selection.
         Season, biome, camp, and frequency are addressed here. Cats are validated later.
         """
+
+        flirt_success = self.get_flirt_success()
 
         possible_dialogue_keys = []
         for key, block in possible_texts.items():
@@ -144,6 +146,16 @@ class Dialogue():
             else:
                 print("Warning: Dialogue", key, "has no frequency.")
                 possible_dialogue_keys.append(key)
+            
+            if flirt:
+                if "tags" in block:
+                    if "reject" in block["tags"] and flirt_success:
+                        continue
+                    elif "accept" in block["tags"] and not flirt_success:
+                        continue
+                else:
+                    if not flirt_success:
+                        continue
 
 
         return possible_dialogue_keys
@@ -154,12 +166,12 @@ class Dialogue():
         """
         return self.cat_dict
 
-    def choose_dialogue(self, possible_dialogue):
+    def choose_dialogue(self, possible_dialogue, flirt=False):
         """
         Makes a final selection.
         Returns the key and the dict object.
         """
-        possible_dialogue_keys = self.filter_dialogue(possible_dialogue)
+        possible_dialogue_keys = self.filter_dialogue(possible_dialogue, flirt)
 
     
         if not possible_dialogue:
@@ -274,6 +286,13 @@ class Dialogue():
 
     def _populate_cat_dict(self, key, possible_cats_dict):
         self.dialogue_cat_dict[key] = possible_cats_dict
+    
+    def get_flirt_success(self):
+        if self.you.ID not in self.cat.relationships:
+            return False
+        if self.cat.relationships[self.you.ID].romance < 20:
+            return False
+        return True
 
     # ---------------------------------------------------------------------- #
     #                            SCENE EFFECTS                               #
