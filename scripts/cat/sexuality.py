@@ -98,32 +98,15 @@ class Sexuality():
                 (None, None): "questioning"
             }
 
-        cat_arospec = False
-        cat_acespec = False
-
         first_label = label_dict[(self.likes_toms, self.likes_she_cats)]
 
         if override_label in ("panXX", "biXX"):
             first_label = override_label
-
-        if self.acespec != Acespec.ALLO and first_label != "aroace":
-            cat_acespec = True
-        if self.arospec != Arospec.ALLO and first_label != "aroace":
-            cat_arospec = True
         
         # labels like bi will change to "bisexual" or "biromantic" depending on the cats
         # ace/arospec orientations
         if change_sexuality_screen:
             return first_label
-
-        if cat_acespec and not cat_arospec:
-            first_label = first_label.replace("XX", "romantic")
-        elif cat_arospec and not cat_acespec:
-            first_label = first_label.replace("XX", "sexual")
-        elif not cat_arospec and not cat_acespec:
-            first_label = first_label.replace("XX", "sexual")
-        else:
-            first_label = first_label.replace("XX", "")
 
         return first_label
 
@@ -340,6 +323,26 @@ class Sexuality():
         first_label = self.custom_sexuality_label if self.custom_sexuality_label else self.sexuality_label
         all_labels.append(first_label)
 
+        cat_acespec = False
+        if self.acespec != Acespec.ALLO:
+            cat_acespec = True
+
+        cat_arospec = False
+        if self.arospec != Arospec.ALLO:
+            cat_arospec = True
+
+        for label in all_labels.copy():
+            if cat_acespec and not cat_arospec:
+                new_label = label.replace("XX", "romantic")
+            elif cat_arospec and not cat_acespec:
+                new_label = label.replace("XX", "sexual")
+            elif not cat_arospec and not cat_acespec:
+                new_label = label.replace("XX", "sexual")
+            else:
+                new_label = label.replace("XX", "")
+            all_labels.insert(all_labels.index(label), new_label)
+            all_labels.remove(label)
+
         if self.acespec_label and self.acespec_label != self.acespec:
             all_labels.append(self.acespec_label)
         else:
@@ -352,7 +355,6 @@ class Sexuality():
                 all_labels.append(self.arospec)
 
         return adjust_list_text(all_labels)
-    
 
     # FLAGS
     def find_valid_flags(self, cat):
@@ -378,7 +380,6 @@ class Sexuality():
                 valid_flags.append("BISEXUAL")
             elif "pan" in self.sexuality_label:
                 valid_flags.append("PANSEXUAL")
-    
 
         if self.arospec.upper() in Pelt.all_pridegen_accessories:
             valid_flags.append(self.arospec.upper())

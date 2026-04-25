@@ -127,28 +127,21 @@ class ChangeSexualityScreen(Screens):
             "",
             object_id="#help_button",
             manager=MANAGER,
-            tool_tip_text="<b>Welcome to the sexuality screen!</b>\nHere, you can set your cat's orientations to be one of the already existing ones ingame, or give them a custom one. Use the checkboxes to define their attraction and use the text box to give them a label.<br>There are only checkboxes for toms and she-cats. Nonbinary cats will always be included.",
+            tool_tip_text="<b>Welcome to the sexuality screen!</b>\nHere, you can set your cat's orientations to be one of the already existing ones ingame, or give them a custom one. Use the checkboxes to define their attraction and use the text box to give them a label.<br>There are only checkboxes for attraction to toms and she-cats. Nonbinary cats will always be included.",
         )
     def get_initial_sexuality_labels(self):
         self.current_sexuality_label = (
-            self.the_cat.sexuality.custom_sexuality_label if
-            self.the_cat.sexuality.custom_sexuality_label else
+            self.the_cat.sexuality.sexuality_label if
+            self.the_cat.sexuality.sexuality_label else
             self.the_cat.sexuality.generate_sexuality_label(
                 self.the_cat.genderalign,
                 change_sexuality_screen=True,
                 existing_label=self.the_cat.sexuality.sexuality_label
             )
         )
-        self.current_acespec_label = (
-            self.the_cat.sexuality.acespec_label if
-            self.the_cat.sexuality.acespec_label else
-            self.the_cat.sexuality.acespec
-        )
-        self.current_arospec_label = (
-            self.the_cat.sexuality.arospec_label if
-            self.the_cat.sexuality.arospec_label else
-            self.the_cat.sexuality.arospec
-        )
+        self.current_acespec_label = self.the_cat.sexuality.acespec
+
+        self.current_arospec_label = self.the_cat.sexuality.arospec
 
     def update_save_button(self):
         if not self.new_sexuality:
@@ -362,20 +355,7 @@ class ChangeSexualityScreen(Screens):
         )
         info = ""
         info += self.the_cat.genderalign + "\n"
-        if self.the_cat.sexuality.custom_sexuality_label:
-            info += self.the_cat.sexuality.custom_sexuality_label
-        else:
-            info += self.the_cat.sexuality.sexuality_label
-        info += "\n"
-        if self.the_cat.sexuality.acespec_label:
-            info += self.the_cat.sexuality.acespec_label
-        else:
-            info += self.the_cat.sexuality.acespec
-        info += "\n"
-        if self.the_cat.sexuality.arospec_label:
-            info += self.the_cat.sexuality.arospec_label
-        else:
-            info += self.the_cat.sexuality.arospec
+        info += self.the_cat.sexuality.get_sexuality_profile_display()
 
         self.selected_cat_elements["name"] = pygame_gui.elements.UITextBox(
             f"<b>{self.the_cat.name}</b>",
@@ -385,7 +365,7 @@ class ChangeSexualityScreen(Screens):
         )
         self.selected_cat_elements["info"] = pygame_gui.elements.UITextBox(
             info,
-            ui_scale(pygame.Rect((355, 170), (185, 120))),
+            ui_scale(pygame.Rect((355, 170), (145, 120))),
             object_id="#text_box_26_horizleft",
             manager=MANAGER,
         )

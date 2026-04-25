@@ -88,6 +88,13 @@ class ChangeGenderScreen(Screens):
                         ),
                         manager=MANAGER,
                     )
+                    # PG
+                    self.the_cat.sexuality.sexuality_label = self.the_cat.sexuality.generate_sexuality_label(
+                        self.the_cat.genderalign,
+                        existing_label=self.the_cat.sexuality.sexuality_label
+                    )
+                    self.the_cat.sexuality.give_bandanas(self.the_cat)
+                    self.the_cat.pelt.rebuild_sprite = True
 
             elif event.ui_element == self.buttons["add_pronouns"]:
                 PronounCreationWindow(self.the_cat)
