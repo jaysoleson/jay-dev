@@ -1481,9 +1481,15 @@ def generate_lifegen_events():
             clan=game.clan,
             other_clan=random.choice(game.clan.all_other_clans)
             )
-        
-        possible_events.append([processed_text, event["types"], involved_cats])
-            
+
+        possible_events.append(
+            [
+                processed_text,
+                event["types"],
+                involved_cats
+            ]
+        )
+   
     # except Exception as e:
     #     print("ERROR Generating LifeGen Events:", e)
 
@@ -1494,14 +1500,13 @@ def generate_lifegen_events():
     for i in range(random.randint(0,5)):
         chosen_type = random.choice(possible_types)
         events_for_type = [
-            event[0] for event in possible_events if
+            event for event in possible_events if
             chosen_type in event[1]
         ]
         if not events_for_type:
             continue
-        print("Generating", chosen_type, "event.")
         chosen_event = random.choice(events_for_type)
-        game.cur_events_list.insert(0, Single_Event(chosen_event, "alert", chosen_event[1]))
+        game.cur_events_list.insert(0, Single_Event(chosen_event[0], "alert", chosen_event[2]))
 
         
 def generate_kit_events():
