@@ -20,6 +20,7 @@ from ..game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
 
 from scripts.cat.sexuality import Sexuality, Arospec, Acespec
+from ..ui.icon import Icon
 
 class ChangeSexualityScreen(Screens):
     def __init__(self, name=None):
@@ -91,12 +92,21 @@ class ChangeSexualityScreen(Screens):
         )
 
         self.save_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 640), (105, 30))),
+            ui_scale(pygame.Rect((0, 645), (105, 30))),
             "buttons.save",
             get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
             anchors={"centerx":"centerx"}
+        )
+
+        self.elements["switch_screen"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((15, 645), (30, 30))),
+            Icon.ARROW_RIGHT,
+            get_button_dict(ButtonStyles.ICON, (30, 30)),
+            object_id="@buttonstyles_icon",
+            manager=MANAGER,
+            anchors={"left_target":self.save_button}
         )
 
         self.elements["cat_frame"] = pygame_gui.elements.UIImage(
@@ -210,6 +220,9 @@ class ChangeSexualityScreen(Screens):
                 self.update_selected_cat()
                 self.clear_arospec_panel()
                 self.create_arospec_panel()
+            
+            elif event.ui_element == self.elements["switch_screen"]:
+                self.change_screen(GameScreen.CHANGE_GENDER)
             
             # CHECKBOXES
             for value, button in self.sexuality_checkboxes.items():

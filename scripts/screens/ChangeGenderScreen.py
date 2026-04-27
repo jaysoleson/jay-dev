@@ -24,6 +24,7 @@ from ..game_structure.game.switches import switch_get_value, switch_set_value, S
 from ..game_structure.screen_settings import MANAGER
 from ..ui.windows.pronoun_creation import PronounCreationWindow
 from ..ui.generate_button import get_button_dict, ButtonStyles
+from ..ui.icon import Icon
 
 
 class ChangeGenderScreen(Screens):
@@ -119,6 +120,10 @@ class ChangeGenderScreen(Screens):
                         )
 
                 self.update_selected_cat()
+            
+            # PG
+            elif event.ui_element == self.buttons["switch_screen"]:
+                self.change_screen(GameScreen.SEXUALITY)
 
     def screen_switches(self):
         super().screen_switches()
@@ -272,6 +277,16 @@ class ChangeGenderScreen(Screens):
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
         )
+        # PG
+        self.buttons["switch_screen"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((15, 645), (30, 30))),
+            Icon.ARROW_RIGHT,
+            get_button_dict(ButtonStyles.ICON, (30, 30)),
+            object_id="@buttonstyles_icon",
+            manager=MANAGER,
+            anchors={"left_target":self.buttons["add_pronouns"]}
+        )
+        # ---
         self.selected_cat_elements["gender"] = pygame_gui.elements.UITextEntryLine(
             ui_scale(pygame.Rect((350, 220), (165, 30))),
             placeholder_text=self.the_cat.get_genderalign_string(),
