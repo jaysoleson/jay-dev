@@ -331,7 +331,7 @@ class Status:
         """
         Returns True if the cat is currently part of the same group as your cat
         """
-        if not game.clan.your_cat or not game.clan:
+        if not game.clan.your_cat or not game.clan or (game.clan.your_cat and game.clan.your_cat.dead):
             return self.alive_in_player_clan
         # this fails tests bc it checks this before Clan exists
         # so... nonecheck failsafe
@@ -861,23 +861,26 @@ class Status:
         LIFEGEN: Gets the heading text for the game based on the group you're currently in
         """
         heading_text = "DebugClan"
-        if game.clan.your_cat.status.group.is_any_clan_group():
-            if game.clan.your_cat.status.group_ID == CatGroup.PLAYER_CLAN_ID:
-                heading_text = f"{game.clan.displayname}Clan"
-            else:
-                your_clan = None
-                for other_clan in game.clan.all_other_clans:
-                    if other_clan.group_ID == game.clan.your_cat.status.group_ID:
-                        your_clan = other_clan
-                if your_clan:
-                    heading_text = f"{your_clan.name}Clan"
-                else:
-                    print("LG WARNING: Can't find your cat's group!")
+        if not game.clan.your_cat.dead:
+            if game.clan.your_cat.status.group.is_any_clan_group():
+                if game.clan.your_cat.status.group_ID == CatGroup.PLAYER_CLAN_ID:
                     heading_text = f"{game.clan.displayname}Clan"
-        elif game.clan.your_cat.status.group:
-            heading_text = f"The {(game.clan.your_cat.status.group).capitalize().replace('_', ' ')}"
+                else:
+                    your_clan = None
+                    for other_clan in game.clan.all_other_clans:
+                        if other_clan.group_ID == game.clan.your_cat.status.group_ID:
+                            your_clan = other_clan
+                    if your_clan:
+                        heading_text = f"{your_clan.name}Clan"
+                    else:
+                        print("LG WARNING: Can't find your cat's group!")
+                        heading_text = f"{game.clan.displayname}Clan"
+            elif game.clan.your_cat.status.group:
+                heading_text = f"The {(game.clan.your_cat.status.group).capitalize().replace('_', ' ')}"
+            else:
+                heading_text = "Outside the Clan"
         else:
-            heading_text = "Outside the Clan"
+            heading_text = f"{game.clan.displayname}Clan"
 
         return heading_text
 
