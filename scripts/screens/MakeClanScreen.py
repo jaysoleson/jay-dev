@@ -1920,18 +1920,18 @@ class MakeClanScreen(Screens):
         # scars for conditions
         self.custom_cat.pelt.paralyzed = True if self.permanent_condition == "paralyzed" else False
         if self.permanent_condition == "born without a tail":
-            self.custom_cat.pelt.scars = ["NOTAIL"]
+            self.custom_cat.pelt.scars = ("NOTAIL",)
         elif self.permanent_condition == "born without a leg":
-            self.custom_cat.pelt.scars = ["NOPAW"]
+            self.custom_cat.pelt.scars = ("NOPAW",)
         elif self.permanent_condition == "blind":
             if random.randint(0,10) == 1:
                 self.custom_cat.pelt.scars = ["BOTHBLIND"]
         elif self.permanent_condition == "one bad eye":
             if random.randint(0,10) == 1:
-                self.custom_cat.pelt.scars = [random.choice(["LEFTBLIND", "RIGHTBLIND", "BRIGHTHEART"])]
+                self.custom_cat.pelt.scars = (random.choice(["LEFTBLIND", "RIGHTBLIND", "BRIGHTHEART"]),)
         elif self.permanent_condition in ["deaf", "partial hearing loss"]:
             if random.randint(0,10):
-                self.custom_cat.pelt.scars = [random.choice(["LEFTEAR", "RIGHTEAR", "NOEAR"])]
+                self.custom_cat.pelt.scars = (random.choice(["LEFTEAR", "RIGHTEAR", "NOEAR"]),)
 
         self.faith = random.choice(["flexible", "starclan", "dark forest", "neutral"])
 
@@ -3215,23 +3215,23 @@ class MakeClanScreen(Screens):
                             self.custom_cat.pelt.paralyzed = True
 
                         if self.permanent_condition == "born without a leg":
-                            self.custom_cat.pelt.scars = ["NOPAW"]
+                            self.custom_cat.pelt.scars = ("NOPAW",)
                         else:
                             if "NOPAW" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("NOPAW")
+                                self.custom_cat.pelt.scars = tuple()
 
                         if self.permanent_condition == "born without a tail":
-                            self.custom_cat.pelt.scars = ["NOTAIL"]
+                            self.custom_cat.pelt.scars = ("NOTAIL",)
                         else:
                             if "NOTAIL" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("NOTAIL")
+                                self.custom_cat.pelt.scars = tuple()
                         
                         if self.permanent_condition != "blind":
                             if "BOTHBLIND" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("BOTHBLIND")
+                                self.custom_cat.pelt.scars = tuple()
                         if self.permanent_condition != "one bad eye":
                             if any(scar in ["LEFTBLIND", "RIGHTBLIND", "BRIGHTHEART"] for scar in self.custom_cat.pelt.scars):
-                                self.custom_cat.pelt.scars = []
+                                self.custom_cat.pelt.scars = tuple()
                     elif self.current_selection == "trait":
                         traits = ['unruly','shy','impulsive','bullying','attention-seeker','daydreamer','charming','fearless','skittish','quiet','self-conscious','know-it-all','sweet','polite','bossy','noisy','smug','secretive','grumpy','manipulative','leader-like','passionate','disciplined','patient','rebellious','honest']
                         current_index = traits.index(self.personality)
@@ -3290,7 +3290,7 @@ class MakeClanScreen(Screens):
                     elif self.current_selection == "skin":
                         self.custom_cat.pelt.skin = random.choice(Pelt.skin_sprites)
                     elif self.current_selection == "scar":
-                        self.custom_cat.pelt.scars = [random.choice(Pelt.all_scars)]
+                        self.custom_cat.pelt.scars = (random.choice(Pelt.all_scars),)
                     elif self.current_selection == "accessory":
 
                         acc_list = (self.all_accs)
@@ -3323,15 +3323,15 @@ class MakeClanScreen(Screens):
 
                         self.permanent_condition = random.choice(permanent_conditions)
                         if self.permanent_condition == "born without a leg":
-                            self.custom_cat.pelt.scars = ["NOPAW"]
+                            self.custom_cat.pelt.scars = ("NOPAW",)
                         else:
                             if "NOPAW" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("NOPAW")
+                                self.custom_cat.pelt.scars = tuple()
                         if self.permanent_condition == "born without a tail":
-                            self.custom_cat.pelt.scars = ["NOTAIL"]
+                            self.custom_cat.pelt.scars = ("NOTAIL",)
                         else:
                             if "NOTAIL" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("NOTAIL")
+                                self.custom_cat.pelt.scars = tuple()
                         if self.permanent_condition == "paralyzed":
                             self.custom_cat.pelt.paralyzed = True
                         else:
@@ -3535,9 +3535,9 @@ class MakeClanScreen(Screens):
                 for i in self.scar_buttons.items():
                     if event.ui_element == self.scar_buttons[i[0]]:
                         if i[0] == "None":
-                            self.custom_cat.pelt.scars = []
+                            self.custom_cat.pelt.scars = tuple()
                         else:
-                            self.custom_cat.pelt.scars = [i[0].upper()]
+                            self.custom_cat.pelt.scars = (i[0].upper(),)
                             if i[0] == "NOPAW":
                                 self.permanent_condition = "born without a leg"
                                 self.custom_cat.pelt.paralyzed = False
@@ -3573,17 +3573,17 @@ class MakeClanScreen(Screens):
                         if i[0] == "None":
                             self.permanent_condition = None
                             if "NOTAIL" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("NOTAIL")
+                                self.custom_cat.pelt.scars = tuple()
                             if "NOPAW" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("NOPAW")
+                                self.custom_cat.pelt.scars = tuple()
                             if "BRIGHTHEART" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("BRIGHTHEART")
+                                self.custom_cat.pelt.scars = tuple()
                             if "BOTHBLIND" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("BOTHBLIND")
+                                self.custom_cat.pelt.scars = tuple()
                             if "LEFTBLIND" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("LEFTBLIND")
+                                self.custom_cat.pelt.scars = tuple()
                             if "RIGHTBLIND" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("RIGHTBLIND")
+                                self.custom_cat.pelt.scars = tuple()
                             self.custom_cat.pelt.paralyzed = False
                         else:
                             if i[0] != "paralyzed":
@@ -3592,23 +3592,23 @@ class MakeClanScreen(Screens):
                                 self.custom_cat.pelt.paralyzed = True
 
                             if i[0] == "born without a leg":
-                                self.custom_cat.pelt.scars = ["NOPAW"]
+                                self.custom_cat.pelt.scars = ("NOPAW",)
                             else:
                                 if "NOPAW" in self.custom_cat.pelt.scars:
-                                    self.custom_cat.pelt.scars.remove("NOPAW")
+                                    self.custom_cat.pelt.scars = tuple()
 
                             if i[0] == "born without a tail":
-                                self.custom_cat.pelt.scars = ["NOTAIL"]
+                                self.custom_cat.pelt.scars = ("NOTAIL",)
                             else:
                                 if "NOTAIL" in self.custom_cat.pelt.scars:
-                                    self.custom_cat.pelt.scars.remove("NOTAIL")
+                                    self.custom_cat.pelt.scars = tuple()
                             
                             if i[0] != "blind":
                                 if "BOTHBLIND" in self.custom_cat.pelt.scars:
-                                    self.custom_cat.pelt.scars.remove("BOTHBLIND")
+                                    self.custom_cat.pelt.scars = tuple()
                             if i[0] != "one bad eye":
                                 if any(scar in ["LEFTBLIND", "RIGHTBLIND", "BRIGHTHEART"] for scar in self.custom_cat.pelt.scars):
-                                    self.custom_cat.pelt.scars = []
+                                    self.custom_cat.pelt.scars = tuple()
 
                             self.permanent_condition = i[0]
                         self.update_sprite()
@@ -3718,12 +3718,12 @@ class MakeClanScreen(Screens):
                     self.your_cat.permanent_condition['paralyzed']["moons_with"] = -1
                     self.your_cat.permanent_condition['paralyzed']['born_with'] = True
                 if self.permanent_condition is not None and self.permanent_condition == "born without a tail" and "NOTAIL" not in self.your_cat.pelt.scars:
-                    self.your_cat.pelt.scars.append('NOTAIL')
+                    self.your_cat.pelt.scars = ('NOTAIL',)
                     self.your_cat.permanent_condition['born without a tail']["moons_until"] = 1
                     self.your_cat.permanent_condition['born without a tail']["moons_with"] = -1
                     self.your_cat.permanent_condition['born without a tail']['born_with'] = True
                 elif self.permanent_condition is not None and self.permanent_condition == "born without a leg" and "NOPAW" not in self.your_cat.pelt.scars:
-                    self.your_cat.pelt.scars.append('NOPAW')
+                    self.your_cat.pelt.scars = ('NOPAW',)
                     self.your_cat.permanent_condition['born without a leg']["moons_until"] = 1
                     self.your_cat.permanent_condition['born without a leg']["moons_with"] = -1
                     self.your_cat.permanent_condition['born without a leg']['born_with'] = True
