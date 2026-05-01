@@ -1506,7 +1506,9 @@ def generate_lifegen_events():
         if not events_for_type:
             continue
         chosen_event = random.choice(events_for_type)
-        game.cur_events_list.insert(0, Single_Event(chosen_event[0], "alert", chosen_event[2]))
+
+        if chosen_event[0] not in [event.text for event in game.cur_events_list]:
+            game.cur_events_list.insert(0, Single_Event(chosen_event[0], "alert", chosen_event[2]))
 
         
 def generate_kit_events():
