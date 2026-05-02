@@ -2,7 +2,7 @@ site_name: LifeGen Documentation
 site_url: https://clangen.io/lifegen-docs/
 repo_url: https://github.com/jaysoleson/jay-dev
 repo_name: jaysoleson/jay-dev
-edit_uri: https://github.com/jaysoleson/jay-dev/edit/development/docs/
+edit_uri: https://github.com/jaysoleson/jay-dev/docs-attempt/docs/
 nav:
   - Welcome:
     - index.md
