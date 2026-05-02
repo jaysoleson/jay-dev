@@ -3,6 +3,7 @@
 This wiki is intended to document the intended behavior of implemented systems and provide a range of resources for developers, modders, and players. 
 
 <div class="grid cards" markdown>
+<h1>LIFEGEN DOCS</h1>
 
 - _[Developer Documentation](dev/index.md)_
 
