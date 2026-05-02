@@ -22,6 +22,8 @@ Modded versions of LifeGen, however, are not allowed to be reported to us. Any b
 
 #### Playing stable
 
+If the version number isn't shown at the bottom right hand corner of the game's window, follow below:
+
 1. If you can open the game, press the settings + info button
    ![Main menu of ClanGen, the fourth menu button is highlighted](assets/report-a-bug/find_game_version_stable_step1.png)
    !!! tip "Can't open the game?"

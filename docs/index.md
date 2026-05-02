@@ -1,5 +1,9 @@
 # Welcome to the LifeGen Wiki! 
 
+!!! warning "to-do"
+     contributing page should be changed to reflect lifegen a little more
+
+
 !!! important
     LifeGen is in no way officially affiliated with the ClanGen team. LifeGen is a mod maintained by unprofessionals, therefore amateur code should be expected.
 
