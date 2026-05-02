@@ -14,6 +14,11 @@ nav:
       - lifegen-features/writing/events.md
       - lifegen-features/writing/activities.md
       - lifegen-features/writing/lifegen-additions.md
+    - Art:
+      - lifegen-features/art/favorite-stars.md
+      - lifegen-features/art/patrol-sprites.md
+    - Code:
+      - lifegen-features/code/queen's-activity.md
     - lifegen-features/references.md
     - lifegen-features/index.md
   - LifeGen Catalog:
@@ -27,13 +32,13 @@ nav:
       - tech-help-documentation/installing/application.md
       - tech-help-documentation/installing/source.md
   - User Guides:
-    - user-guides/index.md
     - Save file Editing:
       - user-guides/save-file-editing/lifegen-sfe-additions.md
     - Modding Preparation:
       - user-guides/modding-preparation/github-desktop.md
       - user-guides/modding-preparation/creating-releases.md
       - user-guides/modding-preparation/index.md
+    - user-guides/index.md
   - Contributing to the Wiki:
       - contributing/index.md
       - contributing/documentation-resources.md
