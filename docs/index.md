@@ -5,7 +5,7 @@
 
 Welcome to the LifeGen wiki! This is where guides, information, and catalogs written by the LifeGen team is held.
 
-This wiki only includes *specifically LifeGen* information. If you're searching for a feature added by the base game, please peak at [ClanGen's documentation](https://clangen.io/docs/).
+This wiki only includes *specifically LifeGen* information. If you're searching for a feature added by the base game, please peek at [ClanGen's documentation](https://clangen.io/docs/).
 
 <div class="grid cards" markdown>
 
