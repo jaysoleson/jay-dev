@@ -253,7 +253,7 @@ def __filter_rank(abbrev_block, cat):
         ):
         if cat not in (game.clan.instructor, game.clan.demon):
             return False
-    elif any(rank in abbrev_block["rank"] for rank in [CatRank.WARRIOR, CatRank.APPRENTICE]):
+    elif abbrev_block['rank']:
         if (
             cat.status.rank not in abbrev_block["rank"] and
             cat.status.rank.replace(' ', '_') not in abbrev_block["rank"]
