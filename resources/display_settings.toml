@@ -38,10 +38,13 @@
             false, true
         ]
         music_volume = [
-            100
+            50
+        ]
+        ambiance_volume = [
+            50
         ]
         sound_volume = [
-            100
+            50
         ]
         audio_mute = [
             false, true
@@ -68,6 +71,7 @@
     
     [clan.relation]
         affair = false
+        "unmated parentage" = false
         "same sex birth" = false
         "same sex adoption" = false
         "single parentage" = false

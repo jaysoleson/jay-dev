@@ -6,6 +6,7 @@
   "save": ["Save_Button.mp3"],
   "timeskip": ["Timeskip_Button.mp3"],
   "antagonize": ["Antagonize_Button.mp3"],
+  "fav_cat": ["favorite_cat.mp3"],
 
   "meow": ["dialogue/meow_1.mp3", "dialogue/meow_2.mp3", "dialogue/meow_3.mp3", "dialogue/meow_4.mp3", "dialogue/meow_5.mp3", "dialogue/meow_6.mp3"]
 }

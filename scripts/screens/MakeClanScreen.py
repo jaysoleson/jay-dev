@@ -28,9 +28,11 @@ from scripts.game_structure import image_cache, constants
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
 
 from scripts.game_structure import game
+from .screens_core.screens_core import rebuild_top_menu_buttons
 from ..ui.elements.sprite_button import UISpriteButton
 from ..ui.elements.image_button import UIImageButton
 from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.text_box_tweaked import UITextBoxTweaked
 from ..ui.theme import get_text_box_theme
 from ..ui.scale import ui_scale, ui_scale_dimensions, ui_scale_offset, ui_scale_blit
 from .Screens import Screens
@@ -717,12 +719,9 @@ class MakeClanScreen(Screens):
             self.refresh_text_and_buttons()
         elif event.ui_element == self.elements["random_background"]:
             # Select a random biome and background
-            old_biome = self.biome_selected
-            possible_biomes = ['Forest', 'Mountainous', 'Plains', 'Beach']
-            # ensuring that the new random camp will not be the same one
-            if old_biome is not None:
-                possible_biomes.remove(old_biome)
-            self.biome_selected = choice(possible_biomes)
+
+            self.biome_selected = self.random_biome_selection()
+
             if self.biome_selected == 'Forest':
                 self.selected_camp_tab = 1
                 if self.social == CatSocial.CLANCAT:
@@ -1201,7 +1200,8 @@ class MakeClanScreen(Screens):
                     "6": {"camp_name": "camp_city", "button_width": 85},
                     "7": {"camp_name": "camp_farm", "button_width": 85},
                     "8": {"camp_name": "camp_bushland", "button_width": 105},
-                    "9": {"camp_name": "camp_castle", "button_width": 95}
+                    "9": {"camp_name": "camp_castle", "button_width": 95},
+                    "10": {"camp_name": "Bridge", "button_width": 85}
                 },
                 "Beach": {
                     "1": {"camp_name": "camp_tidepools", "button_width": 110},
@@ -4218,7 +4218,7 @@ class MakeClanScreen(Screens):
             object_id="@buttonstyles_icon_tab_left",
             manager=MANAGER,
             tool_tip_text="screens.make_clan.season_tooltip",
-            tool_tip_text_kwargs={"season": i18n.t("general.leafbare").capitalize()},
+            tool_tip_text_kwargs={"season": i18n.t("general.leaf-bare").capitalize()},
             anchors={"top_target": self.tabs["leaffall_tab"]},
         )
         # Random background
@@ -4566,7 +4566,8 @@ class MakeClanScreen(Screens):
         game.told_story.clear()
         game.patrolled.clear()
         game.dated_cats.clear()
-        # game.cat_to_fade.clear()
+        game.just_died.clear()
+        game.dead_cats_to_grieve.clear()
         save_load.faded_ids.clear()
         Cat.outside_cats.clear()
         Patrol.used_patrols.clear()
@@ -4626,6 +4627,7 @@ class MakeClanScreen(Screens):
         game.clan.save_herb_supply(game.clan)
         game.clan.grief_strings.clear()
         Cat.sort_cats()
+        rebuild_top_menu_buttons()
 
         if not game.clan.your_cat.status.group.is_any_clan_group():
             game.clan.your_cat.specsuffix_hidden = True
