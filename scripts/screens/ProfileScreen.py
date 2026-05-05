@@ -3199,9 +3199,10 @@ class ProfileScreen(Screens):
             self.have_kits_button.disable()
             if (
                 Pregnancy_Events.check_if_can_have_kits(
-                    self.the_cat,
-                    get_clan_setting("single parentage"),
-                    get_clan_setting("affair")
+                    cat=self.the_cat,
+                    single_parentage=get_clan_setting("single parentage"),
+                    allow_unmated=True,
+                    allow_affair=get_clan_setting("affair")
                     ) and 
                     self.the_cat.status.alive_in_player_clan and
                     not switch_get_value(Switch.have_kits)
