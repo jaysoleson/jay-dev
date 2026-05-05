@@ -22,6 +22,8 @@ from scripts.events_module.event_filters import (
     filter_relationship_type,
     check_relationship_value,
     get_personality_compatibility,
+    event_for_location,
+    event_for_season,
 )
 from scripts.events_module.patrol.patrol_event import PatrolEvent
 from scripts.events_module.patrol.patrol_outcome import PatrolOutcome
@@ -398,7 +400,6 @@ class Patrol:
         patrol_size = len(self.patrol_cats)
         reputation = game.clan.reputation  # reputation with outsiders
         other_clan = self.other_clan
-        clan_relations = int(other_clan.relations) if other_clan else 0
         hostile_rep = False
         neutral_rep = False
         welcoming_rep = False
@@ -408,11 +409,12 @@ class Patrol:
         clan_size = int(len(game.clan.clan_cats))
         chance = 0
         # assigning other_clan relations
-        if clan_relations > 17:
+        other_clan_standing = other_clan.get_standing()
+        if other_clan_standing == "ally":
             clan_allies = True
-        elif clan_relations < 7:
+        elif other_clan_standing == "hostile":
             clan_hostile = True
-        elif 7 <= clan_relations <= 17:
+        elif other_clan_standing == "neutral":
             clan_neutral = True
         # chance for each kind of loner event to occur
         small_clan = False
@@ -503,15 +505,20 @@ class Patrol:
         # This is a debug option. If the patrol_id set in "debug_ensure_patrol" is possible,
         # make it the *only* possible patrol
         if self.debug_patrol:
-            for _pat in final_patrols:
+            for _pat in final_patrols + final_romance_patrols:
                 if _pat.patrol_id == self.debug_patrol:
                     patrol_type = choice(_pat.types) if _pat.types != [] else "general"
-                    final_patrols = final_romance_patrols = [_pat]
+                    rom = "non-romance"
+                    if _pat in final_patrols:
+                        final_patrols = [_pat]
+                    elif _pat in final_romance_patrols:
+                        final_romance_patrols = [_pat]
+                        rom = "romance"
                     print(
                         f"debug_ensure_patrol_id: "
                         f'"{constants.CONFIG["patrol_generation"]["debug_ensure_patrol_id"]}" '
                         f"is a possible {patrol_type} patrol, and was set as the only "
-                        f"{patrol_type} patrol option"
+                        f"{patrol_type} {rom} patrol option"
                     )
                     break
             else:
@@ -602,6 +609,12 @@ class Patrol:
             elif value_check > 0:
                 chance_of_romance_patrol += 2
 
+        if (
+            romantic_event.patrol_id
+            == game.constants.CONFIG["patrol_generation"]["debug_ensure_patrol_id"]
+        ):
+            chance_of_romance_patrol = 1
+
         if chance_of_romance_patrol <= 0:
             chance_of_romance_patrol = 1
         print("final romance chance:", chance_of_romance_patrol)
@@ -641,7 +654,11 @@ class Patrol:
         # makes sure that it grabs patrols in the correct biomes, season, with the correct number of cats
         while not filtered_patrols:
             for patrol in possible_patrols:
-                if patrol.frequency != chosen_frequency:
+                if (
+                    patrol.frequency != chosen_frequency
+                    and patrol.patrol_id
+                    != constants.CONFIG["patrol_generation"]["debug_ensure_patrol_id"]
+                ):
                     continue
                 if not self._check_constraints(patrol):
                     continue
@@ -686,7 +703,7 @@ class Patrol:
                         )
                     continue
 
-                if biome not in patrol.biome and "any" not in patrol.biome:
+                if not event_for_location(patrol.biome):
                     if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
                         print(
                             "DEBUG: requested patrol does not meet constraints (biome)"
@@ -698,7 +715,7 @@ class Patrol:
                             "DEBUG: requested patrol does not meet constraints (camp)"
                         )
                     continue
-                if current_season not in patrol.season and "any" not in patrol.season:
+                if not event_for_season(patrol.season):
                     if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
                         print(
                             "DEBUG: requested patrol does not meet constraints (season)"
