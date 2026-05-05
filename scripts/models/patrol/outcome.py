@@ -58,6 +58,21 @@ class Outcome(BaseModel):
         MISSING,
         description="Overrides default behavior or adds additional requirements for stat_cat picking.",
     )
+    # --
+    # LG
+    stat_residence: Union[List[str], MISSING] = Field(
+        MISSING,
+        description="Dead residence the stat cat must be a part of."
+    )
+    stat_cluster: Union[List[str], MISSING] = Field(
+        MISSING,
+        description="Cluster the stat cat must be a part of."
+    )
+    stat_faith: Union[List[int], MISSING] = Field(
+        MISSING,
+        description="Faith range the stat cat must be a part of."
+    )
+    # ---
     prey: Union[List[Prey], MISSING] = Field(
         MISSING, description="Indicates how much prey each cat brings back."
     )
@@ -73,6 +88,26 @@ class Outcome(BaseModel):
     injury: Union[List[InjuryItem], MISSING] = Field(
         MISSING, description="Indicates which cats get injured and how."
     )
+
+    # LG
+    murder: Union[List[dict], MISSING] = Field(
+            MISSING, description="Indicates which cats will be murdered and by who."
+        )
+    accessory: Union[List[dict], MISSING] = Field(
+        MISSING, description="Indicates accessories gained from the outcome."
+    )
+    faith_effects: Union[List[dict], MISSING] = Field(
+        MISSING, description="Indicates faith effects given."
+    )
+    convert: Union[List[str], MISSING] = Field(
+        MISSING, description="Indicates which cats were converted to the Dark Forest."
+    )
+    faith_effect: Union[List[dict], MISSING] = Field(
+        MISSING, description="Indicates faith effects caused by the outcome."
+    )
+
+    # ---
+
     min_max_status: Union[Dict[MinMaxStatusDictKey, Tuple[int, int]], MISSING] = Field(
         MISSING,
         description="Allows specification of the minimum and maximum number of specific types of cats that are allowed on the patrol.",

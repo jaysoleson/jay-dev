@@ -49,6 +49,19 @@ class PatrolSchemaItem(BaseModel):
         MISSING,
         description="Allows specification of the minimum and maximum number of specific types of cats that are allowed on the patrol.",
     )
+
+    # LG
+    random_cats: Union[Dict[str, Dict], MISSING] = Field(
+        MISSING,
+        description="LIFEGNE: Randomly mentioned cats.",
+    )
+    relationships: Union[List, MISSING] = Field(
+        MISSING,
+        description="LIFEGEN: Specified relationships between randomly mentioned cats."
+    )
+    # ---
+
+
     frequency: int = Field(
         ...,
         description="Controls how common a patrol is. 4 is the most common, 1 is the least.",

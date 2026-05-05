@@ -585,7 +585,8 @@
                         "cats_from": ["r_c:1"],
                         "mutual": true,
                         "values": ["like"],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -616,13 +617,14 @@
                     "mellow"
                 ],
                 "can_have_stat": ["p_l"],
-                "relationship": [
+                "relationships": [
                     {
                         "cats_to": ["p_l"],
                         "cats_from": ["r_c:0"],
                         "mutual": false,
                         "values": ["comfort"],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {}
                     }
                 ]
             }

@@ -41,7 +41,7 @@
                 "exp": 10,
                 "frequency": 4,
                 "stat_skill": [
-                    "SINGER,1"
+                    "SONG,1"
                 ],
                 "can_have_stat": [
                     "p_l"

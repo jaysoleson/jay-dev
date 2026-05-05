@@ -101,9 +101,6 @@
             "Is begging r_c to vouch for {PRONOUN/m_c/object} to join StarClan",
             "Is explaining to r_c about {PRONOUN/m_c/poss} backstory and why {PRONOUN/m_c/subject} {VERB/m_c/are/is} here"
         ],
-        "main_living_status": [
-            "darkforest"
-        ],
         "random_living_status": [
             "starclan"
         ]
@@ -488,7 +485,7 @@
 			"mellow",
 			"thoughtful"
 		],
-		"random_living_constraint": [
+		"random_living_status": [
 			"darkforest"
 		]
 	},
@@ -505,7 +502,7 @@
         "relationship_constraint": [
             "siblings"
         ],
-		"random_living_constraint": [
+		"random_living_status": [
 			"living"
 		]
 	}

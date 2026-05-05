@@ -29,6 +29,29 @@ class Skills(Enum):
     PROPHET = "PROPHET"
     GHOST = "GHOST"
 
+    # LG
+    EXPLORER = "EXPLORER"
+    TRACKER = "TRACKER"
+    ARTISTAN = "ARTISTAN"
+    GUARDIAN = "GUARDIAN"
+    TUNNELER = "TUNNELER"
+    NAVIGATOR = "NAVIGATOR"
+    SONG = "SONG"
+    GRACE = "GRACE"
+    CLEAN = "CLEAN"
+    INNOVATOR = "INNOVATOR"
+    COMFORTER = "COMFORTER"
+    MATCHMAKER = "MATCHMAKER"
+    THINKER = "THINKER"
+    COOPERATIVE = "COOPERATIVE"
+    SCHOLAR = "SCHOLAR"
+    TIME = "TIME"
+    TREASURE = "TREASURE"
+    FISHER = "FISHER"
+    LANGUAGE = "LANGUAGE"
+    SLEEPER = "SLEEPER"
+    GARDENER = "GARDENER"
+
     # these ones are NOT real skills! DO NOT USE THEM!!
     # they're just here so that the tests don't error out.
     # we can search/replace them in the json files when backstory constraints are added
