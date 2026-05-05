@@ -487,7 +487,10 @@ class TalkScreen(Screens):
                 self.frame_index += 1
                 self.next_frame_time = now + self.typing_delay
                 if (
-                    self.frame_index % 3 == 0 and
+                    (
+                        self.frame_index == 1 or
+                        self.frame_index % 4 == 0
+                    ) and
                     not action_line and
                     game_setting_get("dialogue_typing_sound")
                     ):
@@ -498,11 +501,11 @@ class TalkScreen(Screens):
                 if not self.created_choice_buttons:
                     self.create_choice_buttons()
                 if not self.meow:
-                    # if "[" not in self.texts[self.text_index]:
+                    # if not action_line:
                     #     game.audio.sound.play("meow")
                     # this plays One meow sound effect at the end of dialogue
                     self.meow = True
-                    self.paw.visible = True
+                self.paw.visible = True
 
         # Always render the current frame
         if self.text_frames:
