@@ -1212,7 +1212,8 @@ class MakeClanScreen(Screens):
                     "2": {"camp_name": "camp_tidal_cave", "button_width": 110},
                     "3": {"camp_name": "camp_shipwreck", "button_width": 110},
                     "4": {"camp_name": "camp_fjord", "button_width": 80},
-                    "5": {"camp_name": "camp_tropical_island", "button_width": 140}
+                    "5": {"camp_name": "camp_tropical_island", "button_width": 140},
+                    "6": {"camp_name": "camp_quay", "button_width": 75},
                 }
             }
         elif self.social == CatSocial.ROGUE:

@@ -93,7 +93,7 @@ used_group_IDs: dict = {
 all_screens = {}
 
 debug_settings = {
-    "showcoords": False,
+    "showcoords": True,
     "showbounds": False,
     "visualdebugmode": False,
     "showfps": False,
