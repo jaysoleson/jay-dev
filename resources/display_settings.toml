@@ -49,6 +49,9 @@
         audio_mute = [
             false, true
         ]
+        dialogue_typing_sound = [
+            true, false
+        ]
 
 [clan]
     [clan.general]

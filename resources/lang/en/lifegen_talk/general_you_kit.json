@@ -15196,8 +15196,8 @@
                     "mutual": true,
                     "amount": 10,
                     "log": {
-                        "cats_from": "from_cat pretended to sleep while to_cat climbed all over {PRONOUN/from_cat/object}.",
-                        "cats_to": "to_cat had fun climbing all over from_cat while {PRONOUN/from_cat/subject} {VERB/from_cat/were/was} asleep."
+                        "cats_from": "cat_from pretended to sleep while cat_to climbed all over {PRONOUN/cat_from/object}.",
+                        "cats_to": "cat_to had fun climbing all over cat_from while {PRONOUN/cat_from/subject} {VERB/cat_from/were/was} asleep."
                     }
                 }
             ]

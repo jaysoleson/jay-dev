@@ -39,7 +39,7 @@
                         ],
                         "amount": 10,
                         "log": {
-                            "cats_from": "from_cat and to_cat had a snowball fight."
+                            "cats_from": "cat_from and cat_to had a snowball fight."
                         }
                     }
                 ]
@@ -96,7 +96,7 @@
                         ],
                         "amount": 13,
                         "log": {
-                            "cats_from": "from_cat and to_cat went on a date."
+                            "cats_from": "cat_from and cat_to went on a date."
                         }
                     }
                 ]
@@ -121,7 +121,7 @@
                         ],
                         "amount": -5,
                         "log": {
-                            "cats_from": "to_cat thought {PRONOUN/to_cat/subject} {VERB/to_cat/were/was} on a date with from_cat, but from_cat disagreed."
+                            "cats_from": "cat_to thought {PRONOUN/cat_to/subject} {VERB/cat_to/were/was} on a date with cat_from, but cat_from disagreed."
                         }
                     }
                 ]
@@ -167,7 +167,7 @@
                         ],
                         "amount": 8,
                         "log": {
-                            "cats_from": "from_cat and to_cat watched a meteor shower together."
+                            "cats_from": "cat_from and cat_to watched a meteor shower together."
                         }
                     }
                 ]
@@ -192,7 +192,7 @@
                         ],
                         "amount": -5,
                         "log": {
-                            "cats_from": "from_cat asked to_cat to watch the meteor shower with {PRONOUN/from_cat/object}, but to_cat was already watching it with another cat."
+                            "cats_from": "cat_from asked cat_to to watch the meteor shower with {PRONOUN/cat_from/object}, but cat_to was already watching it with another cat."
                         }
                     }
                 ]
@@ -652,7 +652,7 @@
                         ],
                         "amount": 10,
                         "log": {
-                            "cats_from": "from_cat invited to_cat to watch a nest of hawk eggs hatch."
+                            "cats_from": "cat_from invited cat_to to watch a nest of hawk eggs hatch."
                         }
                     }
                 ]
@@ -926,7 +926,7 @@
                         ],
                         "amount": 8,
                         "log": {
-                            "cats_from": "to_cat and from_cat frolicked through a flower field together."
+                            "cats_from": "cat_to and cat_from frolicked through a flower field together."
                         }
                     }
                 ]
@@ -979,7 +979,7 @@
                         ],
                         "amount": 8,
                         "log": {
-                            "cats_from": "to_cat and from_cat frolicked through an enchanting swarm of fireflies together."
+                            "cats_from": "cat_to and cat_from frolicked through an enchanting swarm of fireflies together."
                         }
                     }
                 ]
@@ -1033,7 +1033,7 @@
                         ],
                         "amount": 8,
                         "log": {
-                            "cats_from": "to_cat and from_cat played in the ocean together."
+                            "cats_from": "cat_to and cat_from played in the ocean together."
                         }
                     }
                 ]
@@ -1086,7 +1086,7 @@
                         ],
                         "amount": 8,
                         "log": {
-                            "cats_from": "During a quiet moment, from_cat brushed a leaf from to_cat's shoulder."
+                            "cats_from": "During a quiet moment, cat_from brushed a leaf from cat_to's shoulder."
                         }
                     }
                 ]

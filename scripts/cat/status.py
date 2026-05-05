@@ -331,7 +331,7 @@ class Status:
         """
         Returns True if the cat is currently part of the same group as your cat
         """
-        if not game.clan.your_cat or not game.clan or (game.clan.your_cat and game.clan.your_cat.dead):
+        if not game.clan or not game.clan.your_cat or (game.clan.your_cat and game.clan.your_cat.dead):
             return self.alive_in_player_clan
         # this fails tests bc it checks this before Clan exists
         # so... nonecheck failsafe

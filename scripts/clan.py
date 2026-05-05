@@ -1225,8 +1225,10 @@ class Clan:
         if "your_cat" in clan_data:
             your_cat = Cat.all_cats[clan_data["your_cat"]]
         else:
-            print("You don't have a cat! Choosing one for you.")
-            your_cat = choice([x for x in Cat.all_cats_list if x.status.alive_in_your_cat_group]).ID
+            print("You don't have a cat! Choosing one for you...")
+            chosen_id = choice([x for x in Cat.all_cats_list if x.status.alive_in_your_cat_group]).ID
+            your_cat = Cat.all_cats[chosen_id]
+            print(f"Hello, {your_cat.name}!")
 
         if clan_data["leader"]:
             leader = Cat.all_cats[clan_data["leader"]]

@@ -705,6 +705,9 @@ class MakeClanScreen(Screens):
         elif event.ui_element == self.tabs["tab9"]:
             self.selected_camp_tab = 9
             self.refresh_selected_camp()
+        elif event.ui_element == self.tabs["tab10"]:
+            self.selected_camp_tab = 10
+            self.refresh_selected_camp()
         elif event.ui_element == self.tabs["newleaf_tab"]:
             self.selected_season = "Newleaf"
             self.refresh_text_and_buttons()
@@ -733,7 +736,7 @@ class MakeClanScreen(Screens):
             elif self.biome_selected == "Plains":
                 self.selected_camp_tab = 1
                 if self.social == CatSocial.CLANCAT:
-                    self.selected_camp_tab = randrange(1, 9)
+                    self.selected_camp_tab = randrange(1, 10)
             else:
                 self.selected_camp_tab = 1
                 if self.social == CatSocial.CLANCAT:
@@ -1104,6 +1107,7 @@ class MakeClanScreen(Screens):
         self.tabs["tab7"].kill()
         self.tabs["tab8"].kill()
         self.tabs["tab9"].kill()
+        self.tabs["tab10"].kill()
 
         # this is all edited for lg
         camp_dict = self.get_possible_camps()
@@ -1136,7 +1140,7 @@ class MakeClanScreen(Screens):
                 )
             )
 
-        tab_num = 9
+        tab_num = 10
         # how many camp tabs u need
 
         for num in range(tab_num + 1):
@@ -1201,7 +1205,7 @@ class MakeClanScreen(Screens):
                     "7": {"camp_name": "camp_farm", "button_width": 85},
                     "8": {"camp_name": "camp_bushland", "button_width": 105},
                     "9": {"camp_name": "camp_castle", "button_width": 95},
-                    "10": {"camp_name": "Bridge", "button_width": 85}
+                    "10": {"camp_name": "camp_bridge", "button_width": 85}
                 },
                 "Beach": {
                     "1": {"camp_name": "camp_tidepools", "button_width": 110},
@@ -4179,6 +4183,9 @@ class MakeClanScreen(Screens):
             ui_scale(pygame.Rect((0, 0), (0, 0))), "", visible=False, manager=MANAGER
         )
         self.tabs["tab9"] = UIImageButton(
+            ui_scale(pygame.Rect((0, 0), (0, 0))), "", visible=False, manager=MANAGER
+        )
+        self.tabs["tab10"] = UIImageButton(
             ui_scale(pygame.Rect((0, 0), (0, 0))), "", visible=False, manager=MANAGER
         )
 
