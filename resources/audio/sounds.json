@@ -9,13 +9,22 @@
   "fav_cat": ["favorite_cat.mp3"],
 
   "meow": ["dialogue/meow_1.mp3", "dialogue/meow_2.mp3", "dialogue/meow_3.mp3", "dialogue/meow_4.mp3", "dialogue/meow_5.mp3", "dialogue/meow_6.mp3"],
-  "dialogue_type": [
-    "dialogue/typing_01.wav",
-    "dialogue/typing_02.wav",
-    "dialogue/typing_02.wav",
-    "dialogue/typing_02.wav",
-    "dialogue/typing_03.wav",
-    "dialogue/typing_03.wav",
-    "dialogue/typing_03.wav"
+  "dialogue_type_classic_high": [
+    "dialogue/classic/high_01.wav",
+    "dialogue/classic/high_01.wav",
+    "dialogue/classic/high_01.wav",
+    "dialogue/classic/high_02.wav",
+    "dialogue/classic/high_02.wav",
+    "dialogue/classic/high_03.wav",
+    "dialogue/classic/high_03.wav"
+  ],
+  "dialogue_type_classic_low": [
+    "dialogue/classic/low_01.wav",
+    "dialogue/classic/low_01.wav",
+    "dialogue/classic/low_01.wav",
+    "dialogue/classic/low_02.wav",
+    "dialogue/classic/low_02.wav",
+    "dialogue/classic/low_03.wav",
+    "dialogue/classic/low_03.wav"
   ]
 }

@@ -482,6 +482,7 @@ class TalkScreen(Screens):
                 self.speaking_cat_elements["cat_image"].show()
 
         self.text_frames = [[text[:i+1] for i in range(len(text))] for text in self.texts]
+    
         if self.text_index < len(self.text_frames):
             if now >= self.next_frame_time and self.frame_index < len(self.text_frames[self.text_index]) - 1:
                 self.frame_index += 1
@@ -494,7 +495,8 @@ class TalkScreen(Screens):
                     not action_line and
                     game_setting_get("dialogue_typing_sound")
                     ):
-                    game.audio.sound.play("dialogue_type")
+
+                    game.audio.sound.play("dialogue_type_classic_high")
         # the end of the line
         if self.text_index == len(self.text_frames) - 1:
             if self.frame_index == len(self.text_frames[self.text_index]) - 1:
