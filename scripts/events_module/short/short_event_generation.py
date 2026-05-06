@@ -121,6 +121,7 @@ def create_short_event(
         events = find_needed_events(
             frequency,
             event_type,
+            main_cat=main_cat,
         )
 
         chosen_event, random_cat = filter_events(
@@ -170,11 +171,12 @@ def create_short_event(
         return
 
 
-def find_needed_events(frequency, event_type=None) -> list:
+def find_needed_events(frequency, event_type=None, main_cat=None) -> list:
     """
     Handles detecting the biome and collecting all events possible for biome and type
     :param frequency: The event frequency to look for
     :param event_type: The type of event to pull
+    :param main_cat: The main cat for this event
     """
     event_list = []
 
@@ -200,11 +202,12 @@ def find_needed_events(frequency, event_type=None) -> list:
 
     biome = temp_biome.lower()
 
-    # biome specific events
-    event_list.extend(generate_event_objects(event_type, biome, frequency))
+    if main_cat is None or main_cat.status.alive_in_player_clan:
+        # biome specific events
+        event_list.extend(generate_event_objects(event_type, biome, frequency))
 
-    # any biome events
-    event_list.extend(generate_event_objects(event_type, "general", frequency))
+        # general (non-biome) events 
+        event_list.extend(generate_event_objects(event_type, "general", frequency))
 
     return event_list
 
