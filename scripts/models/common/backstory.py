@@ -90,7 +90,7 @@ class Backstory(Enum):
     otherclan5 = "otherclan5"
     not_otherclan5 = "-otherclan5"
     otherclan6 = "otherclan6"
-    not_v = "-otherclan6"
+    not_otherclan6 = "-otherclan6"
     otherclan7 = "otherclan7"
     not_otherclan7 = "-otherclan7"
     otherclan8 = "otherclan8"
@@ -105,9 +105,6 @@ class Backstory(Enum):
     nototherclan12 = "-otherclan12"
     otherclan13 = "otherclan13"
     not_otherclan13 = "-otherclan13"
-    
-
-
 
     ostracized_warrior = "ostracized_warrior"
     not_ostracized_warrior = "-ostracized_warrior"
