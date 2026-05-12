@@ -304,6 +304,10 @@
             {
                 "name": "whitecough",
                 "chance": 20
+            },
+            {
+                "name": "breathless fit",
+                "chance": 10
             }
         ],
         "herbs": {

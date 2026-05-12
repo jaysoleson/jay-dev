@@ -312,7 +312,8 @@
                             "comfort",
                             "like"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             }
@@ -928,7 +929,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             },
@@ -1381,7 +1383,7 @@
         "patrol_art": "lg_default_df",
         "min_cats": 1,
         "max_cats": 1,
-        "min_max_cat_status": {},
+        "min_max_status": {},
         "frequency": 4,
         "intro_text": "The Dark Forest has always been a bit...dull. This is why you, in your long-standing effort to try and restore a little bit of life into the gloomy forest, are making your way through the dark forest with a muck-soaked ball of moss held tightly in your jaws. You're eager to check on the progress of the sparkling blue flower that you have managed to sneak over from StarClan's hunting grounds.",
         "decline_text": "On second thought, maybe you should just leave it alone for a little while.",
@@ -1426,7 +1428,7 @@
         "patrol_art": "lg_default_ur",
         "min_cats": 1,
         "max_cats": 1,
-        "min_max_cat_status": {},
+        "min_max_status": {},
         "random_cats": {
             "y_c": {
                 "group": [

@@ -64,6 +64,8 @@
         "become_queen_tooltip": "Warriors and elders will have a chance to become queens upon moonskip.",
         "affair": "Allow cats to breed with cats that aren't their mates",
         "affair_tooltip": "This will allow mated and unmated cats to have kits with other cats they are not mated with. This includes, but is not limited to, affairs/cheating.",
+        "unmated parentage": "Allow unmated cats to breed",
+        "unmated parentage_tooltip": "This will allow unmated cats to have kits with other unmated cats.",
         "same sex birth": "Pregnancy ignores biology",
         "same sex birth_tooltip": "Allow all cats to get pregnant despite their gender and all couples to birth kittens despite same-sex status.",
         "same sex adoption": "Increase same-sex adoption",
@@ -115,6 +117,9 @@
         "hoarding": "Hoarding Resources",
         "hoarding_tooltip": "Your warriors begin stockpiling as many resources as they can get their paws on, regardless of their own safety. Prey and herbs will increase each moonskip, but injuries and illnesses will also increase.",
         "requires_mediator": "-requires mediator-",
-        "requires_medicine_cat": "-requires medicine cat-"
+        "requires_medicine_cat": "-requires medicine cat-",
+
+        "dialogue_typing_sound": "Dialogue sound effects",
+        "dialogue_typing_sound_tooltip": "Whether or not typing sounds will play as dialogue displays."
     }
 }

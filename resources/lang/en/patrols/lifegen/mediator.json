@@ -454,7 +454,8 @@
                         "cats_from": ["r_c:1", "r_c:0"],
                         "mutual": true,
                         "values": [ "respect" ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {}
                     }
                 ]
         	}
@@ -487,7 +488,7 @@
                 "text": "Perhaps, if you can't find any problems... you can create one! You spend the afternoon sneaking around, mucking up nests and leaving the sparkly fur of other cats at the scenes of the crimes. By the time the evening comes, the StarClan camp has erupted into half a dozen arguments that you're able to bravely solve for everyone.",
                 "exp": 0,
                 "frequency": 4,
-                "cat_have_stat": ["p_l"],
+                "can_have_stat": ["p_l"],
                 "stat_cluster": [
                     "unlawful"
                 ]

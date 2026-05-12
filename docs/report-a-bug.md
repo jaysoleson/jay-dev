@@ -26,8 +26,10 @@ If the version number isn't shown at the bottom right hand corner of the game's 
 
 1. If you can open the game, press the settings + info button
    ![Main menu of ClanGen, the fourth menu button is highlighted](assets/report-a-bug/find_game_version_stable_step1.png)
-   !!! tip "Can't open the game?"
-   Jump to [can't open the game](#cant-open-the-game).
+
+    !!! tip "Can't open the game?"
+        Jump to [can't open the game](#cant-open-the-game).
+
 2. Press "Open Data Directory". This will open a file explorer on your computer.
    ![Settings screen with bottom-left button highlighted](assets/report-a-bug/find_game_version_stable_step2.png)
 3. Open the "logs" folder.
@@ -35,8 +37,9 @@ If the version number isn't shown at the bottom right hand corner of the game's 
 4. Find the most recent stdout file and open it in Notepad or a similar text editing program.
 5. Copy the version number from the third line, "Running on commit [...]"
    ![Stdout log with the correct version number highlighted](assets/report-a-bug/find_game_version_stable_step5.png)
-   !!! tip
-   If you don't see something that looks like this, ensure you selected std**OUT**, not std**ERR**.
+
+    !!! tip
+        If you don't see something that looks like this, ensure you selected std**OUT**, not std**ERR**.
 
 #### Playing source
 
@@ -59,6 +62,6 @@ If you are running a source code version of LifeGen, the log files are stored in
 
 ### How do I find the error log?
 
-See the section on [finding your game version](#how-do-i-find-my-game-version) to find the logs directory. Instead of
+See the section on [finding your game version](#how-do-i-find-my-game-version) to find the log directory. Instead of
 selecting `stdout`, find and upload the most recent `stderr`. You can either upload the file or copy its contents, but
 the entire file's contents are required.

@@ -211,7 +211,7 @@ class EventsScreen(Screens):
                 else:
                     self.timeskip_button.disable()
                     self.events_thread = self.loading_screen_start_work(events.one_moon)
-                    rebuild_moon_n_season_indicator(change_moon=True, visible=True)
+                    # rebuild_moon_n_season_indicator(change_moon=True, visible=True)
                     self.save_button.reset_save()
 
             elif self.death_button and event.ui_element == self.death_button:
@@ -1268,6 +1268,13 @@ class EventsScreen(Screens):
 
         anchor = {"top": "top"}
 
+        default_color = pygame.Color(
+            constants.CONFIG["theme"][
+                ("dark" if game_setting_get("dark mode") else "light")
+                + "_mode_background"
+            ]
+        )
+
         alternate_color = (
             pygame.Color(87, 76, 55)
             if game_setting_get("dark mode")
@@ -1295,9 +1302,10 @@ class EventsScreen(Screens):
 
             self.event_display_containers.append(display_element_container)
 
-            if i % 2 == 0:
-                display_element_container.background_colour = alternate_color
-                display_element_container.rebuild()
+            display_element_container.background_colour = (
+                alternate_color if i % 2 else default_color
+            )
+            display_element_container.rebuild()
 
             # TEXT BOX
             display_element_event = pygame_gui.elements.UITextBox(
@@ -1402,6 +1410,12 @@ class EventsScreen(Screens):
 
     def timeskip_done(self):
         """Various sorting and other tasks that must be done with the timeskip is over."""
+        rebuild_moon_n_season_indicator(change_moon=True, visible=True)
+        # update audio to use new season ambiance
+        try:
+            game.audio.check(should_fade_out=True)
+        except AttributeError:
+            pass
 
         switch_set_value(Switch.saved_scroll_positions, {})
         switch_set_value(Switch.saved_page_positions, {})
