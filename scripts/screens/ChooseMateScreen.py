@@ -362,12 +362,12 @@ class ChooseMateScreen(Screens):
 
         # This exists solely to stop the code freaking out
         self.toggle_mate = UIImageButton(
-            ui_scale(pygame.Rect((323, 310), (153, 30))),
+            ui_scale(pygame.Rect((308, 320), (153, 30))),
             "",
         )
         # PG
         self.toggle_qpr = UIImageButton(
-            ui_scale(pygame.Rect((323, 310), (153, 30))),
+            ui_scale(pygame.Rect((308, 320), (153, 30))),
             "",
         )
 
@@ -1136,7 +1136,7 @@ class ChooseMateScreen(Screens):
 
         if self.selected_cat.ID in self.the_cat.mate:
             self.toggle_mate = UISurfaceImageButton(
-                ui_scale(pygame.Rect((240, 310), (140, 30))),
+                ui_scale(pygame.Rect((240, 313), (140, 30))),
                 "screens.choose_mate.unset_mate",
                 get_button_dict(ButtonStyles.SQUOVAL_PINK, (140, 30)),
                 object_id="@buttonstyles_squoval",
@@ -1144,7 +1144,7 @@ class ChooseMateScreen(Screens):
             )
         else:
             self.toggle_mate = UISurfaceImageButton(
-                ui_scale(pygame.Rect((240, 310), (140, 30))),
+                ui_scale(pygame.Rect((240, 313), (140, 30))),
                 "screens.choose_mate.set_mate",
                 get_button_dict(ButtonStyles.SQUOVAL_PINK, (140, 30)),
                 object_id="@buttonstyles_squoval",
@@ -1153,7 +1153,7 @@ class ChooseMateScreen(Screens):
         # PG
         if self.selected_cat.ID in self.the_cat.qpp:
             self.toggle_qpr = UISurfaceImageButton(
-                ui_scale(pygame.Rect((423, 310), (140, 30))),
+                ui_scale(pygame.Rect((413, 313), (140, 30))),
                 "screens.choose_mate.unset_qpp",
                 get_button_dict(ButtonStyles.SQUOVAL_BLUE, (140, 30)),
                 object_id="@buttonstyles_squoval",
@@ -1161,7 +1161,7 @@ class ChooseMateScreen(Screens):
             )
         else:
             self.toggle_qpr = UISurfaceImageButton(
-                ui_scale(pygame.Rect((423, 310), (140, 30))),
+                ui_scale(pygame.Rect((413, 313), (140, 30))),
                 "screens.choose_mate.set_qpp",
                 get_button_dict(ButtonStyles.SQUOVAL_BLUE, (140, 30)),
                 object_id="@buttonstyles_squoval",
@@ -1175,7 +1175,7 @@ class ChooseMateScreen(Screens):
         else:
             self.toggle_mate.enable()
 
-        if not self.selected_cat.is_potential_qpp(self.the_cat) and self.selected_cat.ID not in self.the_cat.qpp:
+        if not self.selected_cat.is_potential_qpp(self.the_cat, age_restriction=False) and self.selected_cat.ID not in self.the_cat.qpp:
             self.toggle_qpr.disable()
         else:
             self.toggle_qpr.enable()

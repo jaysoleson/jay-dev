@@ -2801,7 +2801,7 @@ class Cat:
         return True
         # ---
     
-    def is_potential_qpp(self, other_cat: Cat):
+    def is_potential_qpp(self, other_cat: Cat, age_restriction=True):
         if (self.moons < 12 or other_cat.moons < 12):
             return False
         
@@ -2827,14 +2827,15 @@ class Cat:
             return False
 
         # same age check for mates
-        if (
-            constants.CONFIG["mates"].get("override_same_age_group", False)
-            or self.age != other_cat.age
-        ) and (
-            abs(self.moons - other_cat.moons)
-            > constants.CONFIG["mates"]["age_range"] + 1
-        ):
-            return False
+        if age_restriction:
+            if (
+                constants.CONFIG["mates"].get("override_same_age_group", False)
+                or self.age != other_cat.age
+            ) and (
+                abs(self.moons - other_cat.moons)
+                > constants.CONFIG["mates"]["age_range"] + 1
+            ):
+                return False
         return True
 
     def is_potential_mate(
@@ -3098,7 +3099,7 @@ class Cat:
         if other_cat.ID in self.qpp:
             self.qpp.remove(other_cat.ID)
         if self.ID in other_cat.qpp:
-            other_cat.remove(self.ID)
+            other_cat.qpp.remove(self.ID)
 
     def unset_adoptive_parent(self, other_cat: Cat):
         """Unset the adoptive parent from self"""
