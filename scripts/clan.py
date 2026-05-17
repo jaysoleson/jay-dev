@@ -86,6 +86,7 @@ class Clan:
         no_group_bg=None,
         symbol=None,
         game_mode="classic",
+        cruel_cards: list[str] = [],
         starting_members=None,
         starting_season="Newleaf",
         followingsc=True,
@@ -142,6 +143,7 @@ class Clan:
         
         self.chosen_symbol = symbol
         self.game_mode = game_mode
+        self.cruel_cards: list[str] = cruel_cards
         self.pregnancy_data = {}
         self.inheritance = {}
         # NEW LG STUFF
@@ -867,6 +869,7 @@ class Clan:
 
             "clan_symbol": self.chosen_symbol,
             "gamemode": self.game_mode,
+            "cruel_cards": self.cruel_cards,
             "used_group_IDs": game.used_group_IDs,
             "last_focus_change": self.last_focus_change,
             "clans_in_focus": self.clans_in_focus,
@@ -1266,6 +1269,7 @@ class Clan:
             household_bg=clan_data["household_bg"] if "household_bg" in clan_data else "camp1",
             no_group_bg=clan_data["no_group_bg"] if "no_group_bg" in clan_data else "camp1",
             game_mode=clan_data["gamemode"],
+            cruel_cards=clan_data.get("cruel_cards", []),
             self_run_init_functions=False,
         )
         game.clan.post_initialization_functions()
@@ -2068,7 +2072,8 @@ class OtherClan:
         )
 
     def __repr__(self):
-        return f"{self.name}Clan"
+        # has indicators that this is unlocalized, just in case
+        return f"!!{self.name}Clan!!"
 
     def get_standing(self) -> Literal["ally", "neutral", "hostile"]:
         """
@@ -2243,11 +2248,11 @@ def _find_alignment(temper_dict: dict, first_value: int, second_value: int) -> s
     :param second_value: The second value to find the alignment for. This is the chart's "x-value", or when viewing it as a dictionary: its values.
     """
     if 11 <= first_value:
-        temper = list(temper_dict.values())[0]
+        temper = list(temper_dict.values())[2]
     elif 7 <= first_value:
         temper = list(temper_dict.values())[1]
     else:
-        temper = list(temper_dict.values())[2]
+        temper = list(temper_dict.values())[0]
 
     if 11 <= second_value:
         temper = temper[2]

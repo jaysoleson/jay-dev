@@ -677,7 +677,12 @@ class Cat:
     def history(self, val: History):
         self._history = val
 
-    def get_genderalign_string(self):
+    @property
+    def genderalign_string(self):
+        """
+        Returns the localized genderalign string, if one exists, or the original text if not
+        :return: string for display
+        """
         # translate it if it's default
         if self.genderalign in (
             "female",
@@ -690,7 +695,8 @@ class Cat:
         # otherwise, it's custom - just return it directly
         return self.genderalign
 
-    def get_gender_string(self):
+    @property
+    def gender_string(self):
         return i18n.t(f"general.{self.gender}")
 
     def is_alive(self):
@@ -1043,6 +1049,7 @@ class Cat:
                 not child.dead
                 and not child.status.is_exiled(CatGroup.PLAYER_CLAN_ID)
                 and child.moons < 12
+                and not child.status.alive_in_player_clan
             ):
                 child.status.add_to_group(
                     new_group_ID=CatGroup.PLAYER_CLAN_ID, age=child.age
@@ -3473,10 +3480,10 @@ class Cat:
         if not int(random() * chance):
             apply_bonus = False
             if sabotage:
-                output += "Sabotage Failed!\n"
+                output += i18n.t("screens.mediation.sabotage_failed")
                 sabotage = False
             else:
-                output += "Mediate Failed!\n"
+                output += i18n.t("screens.mediation.mediate_failed")
                 sabotage = True
         else:
             apply_bonus = True
@@ -3803,6 +3810,10 @@ class Cat:
                 break
 
     @property
+    def experience_level_string(self):
+        return i18n.t(f"cat.skills.{self.experience_level}")
+
+    @property
     def moons(self):
         return self._moons
 
@@ -3862,7 +3873,7 @@ class Cat:
         if make_clan:
             return "\n".join(
                 [
-                    self.get_genderalign_string(),
+                    self.genderalign_string,
                     i18n.t(
                         (
                             f"general.{self.age}"
@@ -3893,7 +3904,7 @@ class Cat:
             return " - ".join(
                 [
                     i18n.t("general.moons_age", count=self.moons),
-                    self.genderalign,
+                    self.genderalign_string,
                     i18n.t(f"cat.personality.{self.personality.trait}"),
                 ]
             )
@@ -3902,7 +3913,7 @@ class Cat:
             [
                 i18n.t("general.moons_age", count=self.moons),
                 i18n.t(f"general.{self.status.rank.lower()}", count=1),
-                self.genderalign,
+                self.genderalign_string,
                 i18n.t(f"cat.personality.{self.personality.trait}"),
                 self.skills.skill_string(short=True),
             ]
