@@ -335,7 +335,7 @@ def ongoing_event_text_adjust(Cat, text, clan=None, other_clan_name=None):
         else:
             clan_name = str(game.clan.displayname)
 
-    text = text.replace("c_n", clan_name + "Clan")
+    text = text.replace("c_n", i18n.t("general.clan", name=clan_name))
 
     return text
 
@@ -517,7 +517,7 @@ def event_text_adjust(
             "o_c_n",
             other_clan
             if isinstance(other_clan, str)
-            else str(other_clan.name) + "Clan",
+            else i18n.t("general.clan", name=str(other_clan.name)),
         )
 
     # clan_name
@@ -531,7 +531,9 @@ def event_text_adjust(
             except IndexError:
                 clan_name = "Test"
 
-        text = _replace_clan_name(text, "c_n", str(clan_name) + "Clan")
+        text = _replace_clan_name(
+            text, "c_n", i18n.t("general.clan", name=str(clan_name))
+        )
 
     # prey lists
     text = adjust_prey_abbr(text)
@@ -624,7 +626,7 @@ def leader_ceremony_text_adjust(
     if extra_lives:
         text = text.replace("[life_num]", str(extra_lives))
 
-    text = text.replace("c_n", str(game.clan.displayname) + "Clan")
+    text = text.replace("c_n", i18n.t("general.clan", name=str(game.clan.displayname)))
 
     return text
 
@@ -641,7 +643,7 @@ def ceremony_text_adjust(
     living_parents=(),
     dead_parents=(),
 ):
-    clanname = str(game.clan.displayname + "Clan")
+    clanname = i18n.t("general.clan", name=game.clan.displayname)
 
     random_honor = random_honor
     random_living_parent = None
@@ -799,7 +801,7 @@ def history_text_adjust(text, other_clan_name, clan, other_cat_rc=None):
         text = text.replace("o_c_n", str(other_clan_name))
 
     if "c_n" in text:
-        text = text.replace("c_n", clan.displayname + "Clan")
+        text = text.replace("c_n", i18n.t("general.clan", name=clan.displayname))
     if "r_c" in text and other_cat_rc:
         text = selective_replace(text, "r_c", str(other_cat_rc.name))
     return text

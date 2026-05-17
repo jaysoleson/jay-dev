@@ -79,6 +79,7 @@ class LeaveClanWindow(GameWindow):
                 object_id="#text_box_30_horizleft_spacing_95",
                 manager=MANAGER,
                 container=self,
+                text_kwargs={"count": 1},
                 anchors={
                     "top_target": prev_element,
                     "left_target": self.checkboxes[social],
