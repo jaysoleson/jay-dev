@@ -35,6 +35,11 @@ class ButtonStyles(Enum):
     ICON_TAB_BOTTOM = "icon_tab_bottom"
     ICON_TAB_RIGHT = "icon_tab_right"
 
+    # PG coloured buttons
+    SQUOVAL_PINK = "squoval_pink"
+    SQUOVAL_GREEN = "squoval_green"
+    SQUOVAL_BLUE = "squoval_blue"
+
 
 buttonstyles = {
     "mainmenu": {
@@ -364,6 +369,56 @@ buttonstyles = {
         "scale_only": False,
         "tab_movement": {"hovered": True, "disabled": True, "amount": (4, 0)},
     },
+
+    # PG
+    "squoval_pink": {
+        "normal": pygame.image.load(
+            "resources/images/generated_buttons/general_pink_normal.png"
+        ).convert_alpha(),
+        "hovered": pygame.image.load(
+            "resources/images/generated_buttons/general_pink_hovered.png"
+        ).convert_alpha(),
+        "selected": pygame.image.load(
+            "resources/images/generated_buttons/general_pink_normal.png"
+        ).convert_alpha(),
+        "disabled": pygame.image.load(
+            "resources/images/generated_buttons/general_disabled.png"
+        ).convert_alpha(),
+        "ninetile": False,
+        "scale_only": False,
+    },
+    "squoval_blue": {
+        "normal": pygame.image.load(
+            "resources/images/generated_buttons/general_blue_normal.png"
+        ).convert_alpha(),
+        "hovered": pygame.image.load(
+            "resources/images/generated_buttons/general_blue_hovered.png"
+        ).convert_alpha(),
+        "selected": pygame.image.load(
+            "resources/images/generated_buttons/general_blue_normal.png"
+        ).convert_alpha(),
+        "disabled": pygame.image.load(
+            "resources/images/generated_buttons/general_disabled.png"
+        ).convert_alpha(),
+        "ninetile": False,
+        "scale_only": False,
+    },
+    "squoval_green": {
+        "normal": pygame.image.load(
+            "resources/images/generated_buttons/general_green_normal.png"
+        ).convert_alpha(),
+        "hovered": pygame.image.load(
+            "resources/images/generated_buttons/general_green_hovered.png"
+        ).convert_alpha(),
+        "selected": pygame.image.load(
+            "resources/images/generated_buttons/general_green_normal.png"
+        ).convert_alpha(),
+        "disabled": pygame.image.load(
+            "resources/images/generated_buttons/general_disabled.png"
+        ).convert_alpha(),
+        "ninetile": False,
+        "scale_only": False,
+    }
 }
 
 

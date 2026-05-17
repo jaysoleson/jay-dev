@@ -117,6 +117,10 @@
             "one": "mate",
             "many": "mates"
         },
+        "qpp": {
+            "one": "platonic partner",
+            "many": "platonic partners"
+        },
         "she-cat": "she-cat",
         "tom": "tom",
         "cat": "cat",
@@ -191,6 +195,10 @@
         "mate_label": {
             "one": "mate: %{mates}",
             "many": "mates: %{mates}"
+        },
+        "qpp_label": {
+            "one": "platonic partner: %{mates}",
+            "many": "platonic partners: %{mates}"
         },
         "mate_extra": {
             "one": "1 other",

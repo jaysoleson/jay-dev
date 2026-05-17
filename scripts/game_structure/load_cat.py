@@ -146,6 +146,9 @@ def json_load():
                 status_dict = {"rank": cat["status"], "age": age}
             else:
                 status_dict = cat["status"]
+            
+            if "qpp" not in cat:
+                cat["qpp"] = []
 
             if (
                 "sexuality" not in cat or
@@ -337,8 +340,13 @@ def json_load():
                 )
 
             new_cat.mate = cat["mate"] if type(cat["mate"]) is list else [cat["mate"]]
+            new_cat.qpp = cat["qpp"] if type(cat["qpp"]) is list else [cat["qpp"]]
+
             if None in new_cat.mate:
                 new_cat.mate = [i for i in new_cat.mate if i is not None]
+            if None in new_cat.qpp:
+                new_cat.qpp = [i for i in new_cat.qpp if i is not None]
+
             new_cat.previous_mates = (
                 cat["previous_mates"] if "previous_mates" in cat else []
             )

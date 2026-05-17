@@ -1385,43 +1385,49 @@ class ProfileScreen(Screens):
                 elif the_cat.moons != 1:
                     output += ' moons'
 
-        # MATE
-        if len(the_cat.mate) > 0:
-            output += "\n"
+        # MATE and QPP
+        partner_dict = {
+            "mate": the_cat.mate,
+            "qpp": the_cat.qpp
+        }
+        for partner_type, partner_list in partner_dict.items():
 
-            mate_names = []
-            # Grab the names of only the first two, since that's all we will display
-            for _m in the_cat.mate[:2]:
-                mate_ob = Cat.fetch_cat(_m)
-                if not isinstance(mate_ob, Cat):
-                    continue
-                if mate_ob.dead != self.the_cat.dead:
-                    if the_cat.dead:
-                        former_indicate = "general.mate_living"
+            if len(partner_list) > 0:
+                output += "\n"
+
+                mate_names = []
+                # Grab the names of only the first two, since that's all we will display
+                for _m in partner_list[:2]:
+                    partner_ob = Cat.fetch_cat(_m)
+                    if not isinstance(partner_ob, Cat):
+                        continue
+                    if partner_ob.dead != self.the_cat.dead:
+                        if the_cat.dead:
+                            former_indicate = "general.mate_living"
+                        else:
+                            former_indicate = "general.mate_dead"
+
+                        mate_names.append(f"{str(partner_ob.name)} {i18n.t(former_indicate)}")
+                    elif partner_ob.status.group_ID != self.the_cat.status.group_ID:
+                        mate_names.append(
+                            f"{str(partner_ob.name)} {i18n.t('general.mate_away')}"
+                        )
                     else:
-                        former_indicate = "general.mate_dead"
+                        mate_names.append(f"{str(partner_ob.name)}")
 
-                    mate_names.append(f"{str(mate_ob.name)} {i18n.t(former_indicate)}")
-                elif mate_ob.status.group_ID != self.the_cat.status.group_ID:
-                    mate_names.append(
-                        f"{str(mate_ob.name)} {i18n.t('general.mate_away')}"
+                mate_block = ", ".join(mate_names)
+
+                if len(partner_list) > 2:
+                    mate_block = i18n.t(
+                        "utility.items",
+                        count=2,
+                        item1=mate_block,
+                        item2=i18n.t("general.mate_extra", count=len(partner_list) - 2),
                     )
-                else:
-                    mate_names.append(f"{str(mate_ob.name)}")
 
-            mate_block = ", ".join(mate_names)
-
-            if len(the_cat.mate) > 2:
-                mate_block = i18n.t(
-                    "utility.items",
-                    count=2,
-                    item1=mate_block,
-                    item2=i18n.t("general.mate_extra", count=len(the_cat.mate) - 2),
+                output += i18n.t(
+                    f"general.{partner_type}_label", count=len(mate_names), mates=mate_block
                 )
-
-            output += i18n.t(
-                "general.mate_label", count=len(mate_names), mates=mate_block
-            )
 
         if not the_cat.dead:
             # NEWLINE ----------

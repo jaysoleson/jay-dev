@@ -1,8 +1,9 @@
 {
     "en": {
-        "heading": "Choose a mate for %{name}",
-        "info": "If a cat has mates, then they will be loyal and only have kittens with their mates (unless affairs are toggled on). Potential mates are listed below! The lines connecting the two cats may give a hint on their compatibility with one another, and any existing romantic feelings will be shown with small hearts.",
+        "heading": "Choose partners for %{name}",
+        "info": "If a cat has mates, then they will be loyal and only have kittens with their mates (unless affairs are toggled on). Potential partners are listed below! The lines connecting the two cats may give a hint on their compatibility with one another, and any existing romantic feelings will be shown with small hearts.",
         "potential": "Potential Mates",
+        "potential_qpp": "Potential QPPs",
         "current": "Mates",
         "offspring": "Offspring",
         "with_selected_cat": "Offspring with selected cat",
@@ -11,7 +12,9 @@
         "no_kits_pair": "m_c has no offspring with r_c.",
         "no_kits_single": "m_c has no offspring.",
         "no_kit_warning": "This pair can't have biological kittens.",
-        "set_mate": "It's Official!",
-        "unset_mate": "Break It Up"
+        "set_mate": "Set Mate",
+        "unset_mate": "Unset Mate",
+        "set_qpp": "Set QPP",
+        "unset_qpp": "Unset QPP"
     }
 }

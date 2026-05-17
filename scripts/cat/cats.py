@@ -223,6 +223,7 @@ class Cat:
         self.former_apprentices = []
         self.relationships: Dict[str, Relationship] = {}
         self.mate = []
+        self.qpp = []
         self.previous_mates = []
         self._pronouns: Dict[str, List[Dict[str, Union[str, int]]]] = {}
         self.placement = None
@@ -430,6 +431,7 @@ class Cat:
         self.parent2 = None
         self.adoptive_parents = []
         self.mate = []
+        self.qpp = []
         self.status = Status(**status) if status else Status()
         self._pronouns = {}  # Needs to be set as a dict
         self.moons = moons
@@ -2798,6 +2800,42 @@ class Cat:
             return False
         return True
         # ---
+    
+    def is_potential_qpp(self, other_cat: Cat):
+        if (self.moons < 12 or other_cat.moons < 12):
+            return False
+        
+        if self.ID == other_cat.ID:
+            return False
+        
+        try:
+            first_cousin_mates = get_clan_setting("first cousin mates")
+        except:
+            if "unittest" not in sys.modules:
+                raise
+        
+        # Inheritance check
+        if self.is_related(other_cat, first_cousin_mates):
+            return False
+
+        # check dead cats
+        if self.dead != other_cat.dead:
+            return False
+
+        # check that outside status is the same
+        if self.status.is_outsider != other_cat.status.is_outsider:
+            return False
+
+        # same age check for mates
+        if (
+            constants.CONFIG["mates"].get("override_same_age_group", False)
+            or self.age != other_cat.age
+        ) and (
+            abs(self.moons - other_cat.moons)
+            > constants.CONFIG["mates"]["age_range"] + 1
+        ):
+            return False
+        return True
 
     def is_potential_mate(
         self,
@@ -3049,6 +3087,18 @@ class Cat:
             other_relationship.comfort += 20
             other_relationship.trust += 10
             other_relationship.mate = True
+    
+    def set_qpp(self, other_cat: Cat):
+        if other_cat.ID not in self.qpp:
+            self.qpp.append(other_cat.ID)
+        if self.ID not in other_cat.qpp:
+            other_cat.qpp.append(self.ID)
+
+    def unset_qpp(self, other_cat: Cat):
+        if other_cat.ID in self.qpp:
+            self.qpp.remove(other_cat.ID)
+        if self.ID in other_cat.qpp:
+            other_cat.remove(self.ID)
 
     def unset_adoptive_parent(self, other_cat: Cat):
         """Unset the adoptive parent from self"""
@@ -4054,6 +4104,7 @@ class Cat:
                 ),
                 "patrol_with_mentor": (self.patrol_with_mentor or 0),
                 "mate": self.mate,
+                "qpp": self.qpp,
                 "previous_mates": self.previous_mates,
                 "paralyzed": self.pelt.paralyzed,
                 "no_kits": self.no_kits,

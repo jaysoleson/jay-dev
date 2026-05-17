@@ -38,6 +38,11 @@ class ChooseMateScreen(Screens):
         self.back_button = None
 
         self.toggle_mate = None
+
+        # PG
+        self.toggle_qpr = None
+        # --
+
         self.page_number = None
 
         self.mate_frame = None
@@ -108,6 +113,10 @@ class ChooseMateScreen(Screens):
                 if self.work_thread is not None and self.work_thread.is_alive():
                     return
                 self.work_thread = self.loading_screen_start_work(self.change_mate)
+            elif event.ui_element == self.toggle_qpr:
+                if self.work_thread is not None and self.work_thread.is_alive():
+                    return
+                self.work_thread = self.loading_screen_start_work(self.change_qpr)
 
             elif event.ui_element == self.previous_cat_button:
                 if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
@@ -170,6 +179,11 @@ class ChooseMateScreen(Screens):
                 self.switch_tab()
             elif event.ui_element == self.tab_buttons.get("potential"):
                 self.open_tab = "potential"
+                self.update_potential_mates_container()
+                self.switch_tab()
+            elif event.ui_element == self.tab_buttons.get("potential_qpp"):
+                self.open_tab = "potential_qpp"
+                self.update_potential_mates_container()
                 self.switch_tab()
             elif (
                 event.ui_element in self.mates_cat_buttons.values()
@@ -351,6 +365,11 @@ class ChooseMateScreen(Screens):
             ui_scale(pygame.Rect((323, 310), (153, 30))),
             "",
         )
+        # PG
+        self.toggle_qpr = UIImageButton(
+            ui_scale(pygame.Rect((323, 310), (153, 30))),
+            "",
+        )
 
         self.open_tab = "potential"
 
@@ -392,6 +411,16 @@ class ChooseMateScreen(Screens):
 
         else:
             self.the_cat.unset_mate(self.selected_cat, breakup=True)
+
+    def change_qpr(self):
+        if not self.selected_cat:
+            return
+
+        if self.selected_cat.ID not in self.the_cat.qpp:
+            self.the_cat.set_qpp(self.selected_cat)
+
+        else:
+            self.the_cat.unset_qpp(self.selected_cat)
 
     def update_both(self):
         """Updates both the current cat and selected cat info."""
@@ -798,6 +827,8 @@ class ChooseMateScreen(Screens):
         self.next_cat_button = None
         self.toggle_mate.kill()
         self.toggle_mate = None
+        self.toggle_qpr.kill()
+        self.toggle_qpr = None
 
         self.potential_seperator = None
         self.offspring_separator = None
@@ -896,6 +927,10 @@ class ChooseMateScreen(Screens):
             info += f"\n{len(self.the_cat.mate)} " + i18n.t(
                 "general.mate", count=len(self.the_cat.mate)
             )
+        if self.selected_cat and self.selected_cat.qpp:
+            info += f"\n{len(self.selected_cat.qpp)} " + i18n.t(
+                "general.qpp", count=len(self.selected_cat.qpp)
+            )
         self.current_cat_elements["info"] = pygame_gui.elements.UITextBox(
             info,
             ui_scale(pygame.Rect((206, 175), (105, 100))),
@@ -922,12 +957,12 @@ class ChooseMateScreen(Screens):
             self.tab_buttons[x].kill()
         self.tab_buttons = {}
 
-        button_rect = ui_scale(pygame.Rect((0, 0), (153, 39)))
+        button_rect = ui_scale(pygame.Rect((0, 0), (140, 39)))
         button_rect.bottomleft = ui_scale_offset((100, 8))
         self.tab_buttons["potential"] = UISurfaceImageButton(
             button_rect,
             "screens.choose_mate.potential",
-            get_button_dict(ButtonStyles.HORIZONTAL_TAB, (153, 39)),
+            get_button_dict(ButtonStyles.HORIZONTAL_TAB, (140, 39)),
             object_id="@buttonstyles_horizontal_tab",
             starting_height=2,
             anchors={"bottom": "bottom", "bottom_target": self.list_frame_image},
@@ -939,7 +974,7 @@ class ChooseMateScreen(Screens):
             self.tab_buttons["mates"] = UISurfaceImageButton(
                 button_rect,
                 "screens.choose_mate.current",
-                get_button_dict(ButtonStyles.HORIZONTAL_TAB, (153, 39)),
+                get_button_dict(ButtonStyles.HORIZONTAL_TAB, (140, 39)),
                 object_id="@buttonstyles_horizontal_tab",
                 starting_height=2,
                 anchors={
@@ -953,7 +988,7 @@ class ChooseMateScreen(Screens):
         self.tab_buttons["offspring"] = UISurfaceImageButton(
             button_rect,
             "screens.choose_mate.offspring",
-            get_button_dict(ButtonStyles.HORIZONTAL_TAB, (153, 39)),
+            get_button_dict(ButtonStyles.HORIZONTAL_TAB, (140, 39)),
             object_id="@buttonstyles_horizontal_tab",
             starting_height=2,
             anchors={
@@ -964,6 +999,19 @@ class ChooseMateScreen(Screens):
                     if mates_tab_shown
                     else self.tab_buttons["potential"]
                 ),
+            },
+        )
+
+        self.tab_buttons["potential_qpp"] = UISurfaceImageButton(
+            button_rect,
+            "screens.choose_mate.potential_qpp",
+            get_button_dict(ButtonStyles.HORIZONTAL_TAB, (140, 39)),
+            object_id="@buttonstyles_horizontal_tab",
+            starting_height=2,
+            anchors={
+                "bottom": "bottom",
+                "bottom_target": self.list_frame_image, 
+                "left_target": self.tab_buttons["offspring"]
             },
         )
 
@@ -982,6 +1030,7 @@ class ChooseMateScreen(Screens):
                 self.tab_buttons["mates"].disable()
             self.tab_buttons["offspring"].enable()
             self.tab_buttons["potential"].enable()
+            self.tab_buttons["potential_qpp"].enable()
         elif self.open_tab == "offspring":
             self.mates_container.hide()
             self.offspring_container.show()
@@ -991,6 +1040,17 @@ class ChooseMateScreen(Screens):
                 self.tab_buttons["mates"].enable()
             self.tab_buttons["offspring"].disable()
             self.tab_buttons["potential"].enable()
+            self.tab_buttons["potential_qpp"].enable()
+        elif self.open_tab == "potential_qpp":
+            self.mates_container.hide()
+            self.offspring_container.hide()
+            self.potential_container.show()
+
+            if "mates" in self.tab_buttons:
+                self.tab_buttons["mates"].enable()
+            self.tab_buttons["potential_qpp"].disable()
+            self.tab_buttons["potential"].enable()
+            self.tab_buttons["offspring"].enable()
         else:
             self.mates_container.hide()
             self.offspring_container.hide()
@@ -1000,6 +1060,7 @@ class ChooseMateScreen(Screens):
                 self.tab_buttons["mates"].enable()
             self.tab_buttons["offspring"].enable()
             self.tab_buttons["potential"].disable()
+            self.tab_buttons["potential_qpp"].enable()
 
     def update_selected_cat(self):
         """Updates all elements of the selected cat"""
@@ -1011,6 +1072,7 @@ class ChooseMateScreen(Screens):
         if not isinstance(self.selected_cat, Cat):
             self.selected_cat = None
             self.toggle_mate.disable()
+            self.toggle_qpr.disable()
             return
 
         self.draw_compatible_line_affection()
@@ -1054,6 +1116,10 @@ class ChooseMateScreen(Screens):
             info += f"\n{len(self.selected_cat.mate)} " + i18n.t(
                 "general.mate", count=len(self.selected_cat.mate)
             )
+        if self.selected_cat and self.selected_cat.qpp:
+            info += f"\n{len(self.selected_cat.qpp)} " + i18n.t(
+                "general.qpp", count=len(self.selected_cat.qpp)
+            )
 
         self.selected_cat_elements["info"] = pygame_gui.elements.UITextBox(
             info,
@@ -1066,21 +1132,53 @@ class ChooseMateScreen(Screens):
             self.update_offspring_container()
 
         self.toggle_mate.kill()
+        self.toggle_qpr.kill()
 
         if self.selected_cat.ID in self.the_cat.mate:
             self.toggle_mate = UISurfaceImageButton(
-                ui_scale(pygame.Rect((323, 310), (153, 30))),
+                ui_scale(pygame.Rect((240, 310), (140, 30))),
                 "screens.choose_mate.unset_mate",
-                get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
+                get_button_dict(ButtonStyles.SQUOVAL_PINK, (140, 30)),
                 object_id="@buttonstyles_squoval",
+                tool_tip_text="Remove as a mate.",
             )
         else:
             self.toggle_mate = UISurfaceImageButton(
-                ui_scale(pygame.Rect((323, 310), (153, 30))),
+                ui_scale(pygame.Rect((240, 310), (140, 30))),
                 "screens.choose_mate.set_mate",
-                get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
+                get_button_dict(ButtonStyles.SQUOVAL_PINK, (140, 30)),
                 object_id="@buttonstyles_squoval",
+                tool_tip_text="Set as a mate.",
             )
+        # PG
+        if self.selected_cat.ID in self.the_cat.qpp:
+            self.toggle_qpr = UISurfaceImageButton(
+                ui_scale(pygame.Rect((423, 310), (140, 30))),
+                "screens.choose_mate.unset_qpp",
+                get_button_dict(ButtonStyles.SQUOVAL_BLUE, (140, 30)),
+                object_id="@buttonstyles_squoval",
+                tool_tip_text="Remove as a queerplatonic partner.",
+            )
+        else:
+            self.toggle_qpr = UISurfaceImageButton(
+                ui_scale(pygame.Rect((423, 310), (140, 30))),
+                "screens.choose_mate.set_qpp",
+                get_button_dict(ButtonStyles.SQUOVAL_BLUE, (140, 30)),
+                object_id="@buttonstyles_squoval",
+                tool_tip_text="Set as a queerplatonic partner.",
+            )
+
+        if not self.selected_cat.is_potential_mate(
+            self.the_cat, for_love_interest=False, age_restriction=False, ignore_no_mates=True, demiromantic_functionality=False
+        ) and self.the_cat.ID not in self.selected_cat.mate:
+            self.toggle_mate.disable()
+        else:
+            self.toggle_mate.enable()
+
+        if not self.selected_cat.is_potential_qpp(self.the_cat) and self.selected_cat.ID not in self.the_cat.qpp:
+            self.toggle_qpr.disable()
+        else:
+            self.toggle_qpr.enable()
 
         if (
             not get_clan_setting("same sex birth")
@@ -1216,4 +1314,15 @@ class ChooseMateScreen(Screens):
             )
         ]
 
+        valid_qpps = [
+            i for i in Cat.all_cats_list if
+            not i.faded
+            and i.status.is_outsider == self.the_cat.status.is_outsider
+            and i.status.group_ID == self.the_cat.status.group_ID
+            and i.ID not in self.the_cat.qpp
+            and self.the_cat.is_potential_qpp(i)
+        ]
+
+        if self.open_tab == "potential_qpp":
+            return valid_qpps
         return valid_mates
