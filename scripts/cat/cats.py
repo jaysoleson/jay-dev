@@ -635,7 +635,12 @@ class Cat:
     def history(self, val: History):
         self._history = val
 
-    def get_genderalign_string(self):
+    @property
+    def genderalign_string(self):
+        """
+        Returns the localized genderalign string, if one exists, or the original text if not
+        :return: string for display
+        """
         # translate it if it's default
         if self.genderalign in (
             "female",
@@ -648,7 +653,8 @@ class Cat:
         # otherwise, it's custom - just return it directly
         return self.genderalign
 
-    def get_gender_string(self):
+    @property
+    def gender_string(self):
         return i18n.t(f"general.{self.gender}")
 
     def is_alive(self):
@@ -1880,14 +1886,6 @@ class Cat:
         if duration == 0:
             duration = 1
 
-        if game.clan and game.clan.game_mode == "cruel season" and mortality != 0:
-            mortality = int(mortality * 0.5)
-            med_mortality = int(med_mortality * 0.5)
-
-            # to prevent an illness gets no mortality, check and set it to 1 if needed
-            if mortality == 0 or med_mortality == 0:
-                mortality = 1
-                med_mortality = 1
         if lethal is False:
             mortality = 0
 
@@ -1961,12 +1959,6 @@ class Cat:
             duration += randrange(-1, 1)
         if duration == 0:
             duration = 1
-
-        if mortality != 0 and (game.clan and game.clan.game_mode == "cruel season"):
-            mortality = int(mortality * 0.5)
-
-            if mortality == 0:
-                mortality = 1
         if lethal is False:
             mortality = 0
 
@@ -2090,8 +2082,6 @@ class Cat:
         condition = PERMANENT[name]
         new_condition = False
         mortality = condition["mortality"][self.age.value]
-        if mortality != 0 and (game.clan and game.clan.game_mode == "cruel season"):
-            mortality = int(mortality * 0.65)
 
         if condition["congenital"] == "always":
             born_with = True
@@ -2898,10 +2888,10 @@ class Cat:
         if not int(random() * chance):
             apply_bonus = False
             if sabotage:
-                output += "Sabotage Failed!\n"
+                output += i18n.t("screens.mediation.sabotage_failed")
                 sabotage = False
             else:
-                output += "Mediate Failed!\n"
+                output += i18n.t("screens.mediation.mediate_failed")
                 sabotage = True
         else:
             apply_bonus = True
@@ -2912,8 +2902,6 @@ class Cat:
                 gm_modifier = 1
                 if game.clan and game.clan.game_mode == "expanded":
                     gm_modifier = 3
-                elif game.clan and game.clan.game_mode == "cruel season":
-                    gm_modifier = 6
 
                 if mediator.experience_level == "proficient":
                     lvl_modifier = 1.25
@@ -3227,6 +3215,10 @@ class Cat:
                 break
 
     @property
+    def experience_level_string(self):
+        return i18n.t(f"cat.skills.{self.experience_level}")
+
+    @property
     def moons(self):
         return self._moons
 
@@ -3286,7 +3278,7 @@ class Cat:
         if make_clan:
             return "\n".join(
                 [
-                    self.get_genderalign_string(),
+                    self.genderalign_string,
                     i18n.t(
                         (
                             f"general.{self.age}"
@@ -3317,7 +3309,7 @@ class Cat:
             return " - ".join(
                 [
                     i18n.t("general.moons_age", count=self.moons),
-                    self.genderalign,
+                    self.genderalign_string,
                     i18n.t(f"cat.personality.{self.personality.trait}"),
                 ]
             )
@@ -3326,7 +3318,7 @@ class Cat:
             [
                 i18n.t("general.moons_age", count=self.moons),
                 i18n.t(f"general.{self.status.rank.lower()}", count=1),
-                self.genderalign,
+                self.genderalign_string,
                 i18n.t(f"cat.personality.{self.personality.trait}"),
                 self.skills.skill_string(short=True),
             ]
