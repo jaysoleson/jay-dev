@@ -931,6 +931,7 @@ class MakeClanScreen(Screens):
             # select cat will always show bc all kittens are valid :3
             if self.selected_cat:
                 self.elements["select_cat"].show()
+        
             if self.social == CatSocial.CLANCAT:
                 self.elements["clancat"].disable()
                 self.elements["kittypet"].enable()
@@ -954,6 +955,12 @@ class MakeClanScreen(Screens):
                 self.elements["kittypet"].enable()
                 self.elements["loner"].enable()
                 self.elements["rogue"].disable()
+
+            # TEMP LIFEGEN: hide group buttons for now
+            self.elements["clancat"].hide()
+            self.elements["kittypet"].hide()
+            self.elements["loner"].hide()
+            self.elements["rogue"].hide()
         # Refresh the choose-members background to match number of cat's chosen.
         elif self.sub_screen == "choose members":
             if len(self.members) == 0:
