@@ -103,10 +103,15 @@ class BirthType(Enum):
     ONE_OUTSIDER_PARENT = "birth_one_parent_outsider"
     TWO_OUTSIDER_PARENTS = "birth_two_parent_outsiders"
     ALONE = "birth_alone"
+    # LG: outsider-pair birth types for MCs who start as kittypet / loner / rogue
+    TWO_KITTYPET_PARENTS = "birth_two_kittypet_parents"
+    TWO_LONER_PARENTS = "birth_two_loner_parents"
+    TWO_ROGUE_PARENTS = "birth_two_rogue_parents"
+    MIXED_OUTSIDER_PARENTS = "birth_mixed_outsider_parents"
 
-    def birth_type_weights(self):
-
-        return {
+    def birth_type_weights(self, mc_group=None):
+        # Base weights, used as-is for clan MCs
+        weights = {
             BirthType.NO_PARENTS: 2,
             BirthType.ONE_PARENT: 2,
             BirthType.TWO_PARENTS: 3,
@@ -115,6 +120,26 @@ class BirthType(Enum):
             BirthType.ONE_OUTSIDER_PARENT: 2,
             BirthType.TWO_OUTSIDER_PARENTS: 1
         }
+
+        # For outsider MCs: replace the generic outsider-parent types with group-specific ones, biased towards parents matching the player cat's group.
+        outsider_match = {
+            CatGroup.HOUSEHOLD_ID: BirthType.TWO_KITTYPET_PARENTS,
+            CatGroup.LONER_GROUP_ID: BirthType.TWO_LONER_PARENTS,
+            CatGroup.ROGUE_GROUP_ID: BirthType.TWO_ROGUE_PARENTS,
+        }
+        if mc_group in outsider_match:
+            del weights[BirthType.ONE_OUTSIDER_PARENT]
+            del weights[BirthType.TWO_OUTSIDER_PARENTS]
+            matching = outsider_match[mc_group]
+            for bt in (
+                BirthType.TWO_KITTYPET_PARENTS,
+                BirthType.TWO_LONER_PARENTS,
+                BirthType.TWO_ROGUE_PARENTS,
+            ):
+                weights[bt] = 6 if bt == matching else 1
+            weights[BirthType.MIXED_OUTSIDER_PARENTS] = 2
+
+        return weights
 
 all_events = {}
 new_cat_invited = False
@@ -997,7 +1022,8 @@ def generate_birth_event():
     if get_your_cat_group_count(Cat) == 1:
         birth_type = BirthType.ALONE
     else:
-        for birthtype, weight in BirthType.birth_type_weights(BirthType).items():
+        mc_group = game.clan.your_cat.status.group_ID
+        for birthtype, weight in BirthType.birth_type_weights(BirthType, mc_group=mc_group).items():
             if not get_clan_setting("single parentage"):
                 if birthtype in [BirthType.ONE_PARENT, BirthType.ONE_OUTSIDER_PARENT]:
                     continue
@@ -1235,6 +1261,31 @@ def generate_birth_event():
             parent1.init_all_relationships()
             parent2.init_all_relationships()
 
+        elif birth_type in (
+            BirthType.TWO_KITTYPET_PARENTS,
+            BirthType.TWO_LONER_PARENTS,
+            BirthType.TWO_ROGUE_PARENTS,
+            BirthType.MIXED_OUTSIDER_PARENTS,
+        ):
+            same_group_map = {
+                BirthType.TWO_KITTYPET_PARENTS: CatGroup.HOUSEHOLD_ID,
+                BirthType.TWO_LONER_PARENTS: CatGroup.LONER_GROUP_ID,
+                BirthType.TWO_ROGUE_PARENTS: CatGroup.ROGUE_GROUP_ID,
+            }
+            if birth_type == BirthType.MIXED_OUTSIDER_PARENTS:
+                group1, group2 = random.sample(
+                    [CatGroup.HOUSEHOLD_ID, CatGroup.LONER_GROUP_ID, CatGroup.ROGUE_GROUP_ID],
+                    2,
+                )
+            else:
+                group1 = group2 = same_group_map[birth_type]
+
+            parent1 = generate_outsider_parent(group=group1, dead=False)
+            parent2 = generate_outsider_parent(group=group2, mate=parent1, dead=False)
+            parent1.set_mate(parent2)
+            parent1.init_all_relationships()
+            parent2.init_all_relationships()
+
         return birth_type, parent1, parent2, adoptive_parents
 
     def handle_backstory(siblings):
@@ -1248,6 +1299,14 @@ def generate_birth_event():
             backstory = "clanborn"
         elif birth_type == BirthType.ONE_OUTSIDER_PARENT:
             backstory = "outsider1"
+        elif birth_type == BirthType.TWO_KITTYPET_PARENTS:
+            backstory = random.choice(["kittypet1", "kittypet2", "kittypet3", "kittypet4", "kittypet5"])
+        elif birth_type == BirthType.TWO_LONER_PARENTS:
+            backstory = random.choice(["loner1", "loner2", "outsider1", "outsider4"])
+        elif birth_type == BirthType.TWO_ROGUE_PARENTS:
+            backstory = random.choice(["rogue1", "rogue2", "rogue3", "rogue4", "rogue5"])
+        elif birth_type == BirthType.MIXED_OUTSIDER_PARENTS:
+            backstory = random.choice(["outsider1", "outsider2", "outsider3", "outsider4", "outsider5", "outsider6"])
         else:
             backstory = "outsider1"
         
@@ -1301,6 +1360,10 @@ def generate_birth_event():
                 ] if adoptive_parents and len(adoptive_parents) > 1 else [None, None],
             BirthType.ONE_OUTSIDER_PARENT: [parent1, None],
             BirthType.TWO_OUTSIDER_PARENTS: [parent1, parent2],
+            BirthType.TWO_KITTYPET_PARENTS: [parent1, parent2],
+            BirthType.TWO_LONER_PARENTS: [parent1, parent2],
+            BirthType.TWO_ROGUE_PARENTS: [parent1, parent2],
+            BirthType.MIXED_OUTSIDER_PARENTS: [parent1, parent2],
             BirthType.ALONE: [parent1, None]
         }
         # this sucks
