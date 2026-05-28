@@ -1,427 +1,56 @@
-<strong>v0.7.6: </strong>
+<strong>v0.13.2</strong>
+- Prevented starting and trailing spaces from being used for Clan names (this could cause crashes)
+- Newborns who are exiled and then return to the Clan are no longer perpetually stuck at the newborn rank for their entire life.
+- Other Clans no longer have a chance to generate with an already-used name
+- Fixed the filtering for romance in short events
+- Prevented kittens from "assigned task" thoughts
+- Fixed other_clan group ID bloat that would occur when loading old saves. Can't be retroactively fixed for affected saves, but shouldn't be particularly detrimental to normal play.
+- Apprentice wrangling rel events are now properly age filtered. No more kittens planning lessons for apprentices.
+- Fixed other clan cats who do not join the player clan still receiving "welcome" events as though they had
+- Various inverted relationship effects fixed.
+- Fixed unwanted capitalization of pelt pattern for kits listed under queens in allegiances
+- Allowed un-parented kits to use the longer version of their description in allegiances
+- Fixed issue where Clan ID was showing up in the leader's den screen and switch Clan screen
+- Added further protection to save conversion for sprite poses, just in case any cats had been assigned mismatched pose indexes prior to save conversion.
+- Mild typo fixes, added missing pronoun/verb tags, and slightly reworded some things to avoid text display errors.
 
-Changes/Additions:
-- Dialogue formatting change: writers now have creative freedom in what dialogue affects/gives
-- Refreshed Menu art
+- Moved "unspoken apology" rel event from comfort decrease to comfort increase (and now requires "avoids" tier)
+- Lowered frequencies of the "grim job" med cat patrol and the plains "far border" patrol
+- Adjusted the wording of a couple poly mate events
 
-New Features:
-- Elder Stories: Your elders can tell stories to your Clanmates to affect their faith.
-- Faith Events: See how the faith of your Clanmates' is affected each moon.
-- Dead LifeGen Patrols: Explore your afterlife after death.
-- Multi-Cat Dialogue: Cats will now butt into your conversations!
-- Dark Forest Graduation: Cats who are experienced enough may graduate the DF and have their own apprentices
+<strong>v0.13.1</strong>
+- Fixed patrol results not displaying all received conditions when the outcome applies multiple conditions.
+- Fixed the Warrior Den screen crashing the game when all focus settings are false.
+- Fixed an event that would cause a crash when assigning an adoptive parent.
+- Fixed freshkill log not resetting on timeskip.
+- Fixed freshkill supply change events not appearing in the log.
+- Fixed freshkill consumption display to prevent weird decimals.
+- Fixed cats not dying on a patrol despite text implying they do.
+- Fixed a patrol where a cat would join the Clan when they weren't meant to.
+- Fixed constraints on the "go on patrol" relationship event so that kits wouldn't receive it.
+- Fixed a patrol that could result in a cat receiving a nonsensical permanent condition.
+- Fixed version number not appearing in the bottom right corner.
+- Fixed medicine cats receiving some ill-fitting thoughts.
+- Fixed a crash related to how we retrieve default risk chances.
+- Fixed apprentices kit-sitting their own littermates.
+- Fixed a self-interaction in a training patrol.
+- Fixed a variety of typos.
 
-New Writing:
-- New exclusive minor condition dialogue
-- New dialogue for kit-specific traits
+- Changed relationship constraints of "maim" events
+- Added new events regarding other Clan relationships to help balance out the "new leader breaks alliances" event.
+- Allowed more outsider events to pull from existing outsiders instead of generating new ones
+- Adjusted frequency of a variety of events
 
-New Art:
-- New accessory: Moonhat
-- New patrol art
+<strong>v0.13.0</strong>
 
-Bugfixes:
-- Meowbugs & Typos
-- Affairs are now usable! :tada:
-- "Indexerror: list index out of range" crashes
-- Customizer fixes
-- Clan abbrevs appearing in events
-- Reduced long loading times when continuing with a new MC via "start a new life"
-- Renaming cats no longer risks duplicate names (ex: Moonmoon) on Clan creation 
-- LADYBUG tooltip is no longer bugged
-- Game will no longer risk generating starclan guide as main character when converting saves
-- Customiser given accessories should no longer vanish into the void after being taken off
-- Starclan cats won't be dragged down to the dark forest for the sake of patrols
-- Newborns shouldn't Theodore Pembroke III when speaking to their littermates
-- More
+After seasons of silence, StarClan has finally spoken!
+Camp has been reinforced with fresh materials and a sparkling new look. The forest feels more lively than ever, with the gentle breeze and soft birdsong uplifting cats' spirits. Clanmates are gathering to discuss the day's activities, but some can't shake the feeling they're being watched...
 
+ClanGen's 0.13.0 update includes...
+- A redesigned UI to make navigation easier!
+- A new and improved relationship system! Cats' feelings towards each other will be a lot more varied and complicated.
+- Music and ambience designed to make the gameplay as immersive as possible!
+- New poses for newborns and long-furred apprentices!
+- Much, much more!
 
-<strong>v0.7.5: </strong>
-
-New Features:
-New and Improved MC customizer
-Stricter limitation on medicine cats, mediators and queens when generating a new clan
-Silly overhaul! Sam has gone through and retagged some dialogues and removed the silly tags from dialogues xe did not see fit for the cluster.
-Fixed grieving cats mentioning random dead cats instead of the one they're grieving
-Relationship events are now included in "all events" tab when a filter is applied
-Improved murder chances
-
-New Writing:
-Additional Writing for the Moonplace: disasters, prophecies, and more!
-New LifeGen Patrols
-New dialogue for shunned cats!
-More silly dialogue to make up for the overhaul
-Injury events for Queens!
-Relationship Events for Queens!
-No lead/dep/med ceremonies
-Skill constrained thoughts for the Dark Forest
-
-New Art:
-New menu art! View their creators in #credits!
-New Accessories: Improved Raincoat & Australia Accs
-New Camps: Stained Glass, Bushland, Farm
-A whole lot of patrol art!
-
-Bugfixes:
-Abbreviation fixes (rsh_c)
-Date patrols don't affect patrol status for other cats
-MC doesn't lose relationships after death
-Typos, Tag, and Pronoun mishaps
-Moved Dialogue to correct JSONs
-Faith Texts now use correct pronouns
-Dialogue Meow Errors
-
-
-<strong>v0.7.4: </strong>
-New Features:
-When your mc dies and you click to be reborn, have the option to create a new cat to be your mc
-Wrong placement into SC/DF
-Auto placement into SC/DF based on high faith
-New Clan age features
-Choose MC faith at beginning 
-
-New Writing:
-Halloween patrols
-Halloween dialogue
-New backstories
-New patrols
-New dialogue
-
-New Art:
-Some new patrol art
-New City Camp
-Accessories
-
-New menu art! View their creators in #credits!
-
-Bugfixes:
-More meow error patches
-Fixed a multitude of accessory issues
-Pronoun/abbrev/typo/grammar errors
-Lots more
-
-
-<strong>v0.7.3: </strong>
-- New murder screen, murder mechanic, and events!
-- New activity button layout
-- New gift accessory feature
-- Pronouns
-- More differences between old and new clan ages
-- Additional "there was an error loading the clan.json" errors
-- Updated queen activity chances
-- Deaf dialogue additions
-- Revamped warrior app patrols
-- New events and thoughts
-- New talk focuses 
-- Much more dialogue
-- More moipa accessories
-- Reign accessories
-- Patrol art
-- Fixed inconsistent buttons 
-- New menu art
-
-<strong>v0.7.2: </strong>
-- Dialogue Focus: Dialogue may now focus on certain events happening within the Clan
-- Cats' faith to StarClan or the Dark Forest is now displayed
-- Toggle for faithless cats
-- Customize skill
-- Adjust some clusters
-- Affair success now takes into account relationships
-- New moon events
-- New Dark Forest background for dialogue
-- Connecting dialogue
-- New accessories
-- New menu art
-- Shunned and Forgiven rates in game_config
-- New patrol arts
-- New patrols
-- New favoriting assortment system
-- New Moonstone
-
-<strong>v0.7.1: </strong>
-- You can now talk to UR (Unknown Residence) cats when dead, or with the GHOST skill
-- Switch MCs to a dead cat
-- You can now have a Dark Forest mentor and trainees
-- Medicine cats from other clans will greet you when visiting the Moonplace
-- There are now specific names for the Moonplace depending on biome
-- More descriptive Meow! errors
-- You can now move any cat to the Unknown Residence
-- Moved "mellow" trait out of neurotic cluster
-- Successful date patrols now increase trust and comfort
-- New development config options for affairs
-- Readable version text on darker screens
-- Forgive cats when a shunned cat is welcomed back into Clan
-- Mediator Search
-- Auto-updater! Thank you Arch! After downloading this version, your game should automatically update
-- Lots of new dialogue/events
-- New traits
-- New patrol art
-- New menu art
-
-<strong>v0.7.0: StarClan's Guidance</strong>
-- Visit the Moonplace as a medicine cat
-- Learn prophecies and omens
-- Continue as a StarClan or Dark Forest cat
-- Talk to dead cats when you are dead
-- Talk to dead cats when you are alive with certain skills
-- Encounter random DF cats on DF patrols
-- Disasters and consequences
-- You can now gain a new "shunned" status when discovered for murder
-- New menu art! Old menu art will be rotated out of the pool as updates are released for the sake of space
-- New dialogue and patrols
-- Updated folder and application names
-- New camps: Desert and Tropical Island
-- New accessories
-- Updated "Your name is...?" screen
-- Search accessories
-- New thoughts and reactions
-- Return home when exiled
-- Additional birth events (and you can now have up to 5 siblings)
-
-
-<strong>v0.6.8: </strong>
-- New dialogue and writing
-- New accessories
-- Updated patrols
-- Improved customization and other screens
-- New patrol art 
-- New forest camp: Birch
-- New achievements
-
-<strong>v0.6.7: </strong>
-- New dialogue and writing
-- New revival text
-- Accessory screen
-- New accessories
-- Menu art
-- Queen gameplay
-- Lots of new art - patrols/camps/accessories etc
-- Fix bugs
-
-<strong>v0.6.6: </strong>
-- New dialogue
-- Adjusted customization screen
-- Randomize cat appearance
-- Preview other ages
-- Auto freshkill setting
-- Fix bugs
-
-<strong>v0.6.5: </strong>
-- Lots of new dialogue!
-- Double click to move cats in patrol screens 
-- Do not delete relationship after reviving
-- Add patrol type text 
-- Fix bugs
-
-<strong>v0.6.4: </strong>
-- Choose Clan age
-- Customize your cat
-- Warriors are now able to choose to become a medicine cat/queen
-- Affairs result in pregnancy
-- Add some new text
-- Fix bugs
-
-<strong>v0.6.3: </strong>
-- Many new dialogue options!
-- Dialogue does not repeat as often
-- Choose clan size
-- Randomize backstory
-- Added new traits
-- Added new moon events
-
-<strong>v0.6.2: </strong>
-- Many new dialogue options!
-- Added murder text
-- Added insults
-- "Name kits" prompt
-- Relationship event filtering
-- Ability to patrol in the DF with other cats
-- Affair system
-- New achievements
-
-<strong>v0.6.1: </strong>
-- Many new dialogues!
-- Added murder text
-- Choose deputy prompt when you become leader
-- Move on to another MC without dying first
-- Bug fixes
-- New menus
-
-<strong>v0.6.0: </strong>
-- Overhauled dialogue system!
-- Revive if you die early
-- Bug fixes
-- New menus
-
-<strong>v0.5.5: </strong>
-- Affair expansion 
-- Expanded Info on selection page 
-- Randomise names in 'Choose a kit' Menu 
-- Leave the darkforest 
-- Restructured LifeGen Patrol Screen
-- New skills 
-- Bugfixes
-- New menus
-
-<strong>v0.5.4: </strong>
-- Your outsider birth parent may join the Clan with you
-- Many new events for young elders -- thanks writers!
-- Cats who you have murdered may not be happy to give you a life when you are becoming leader
-- Queens lower chance of kits dying
-- Bugfixes
-- New menus
-
-<strong>v0.5.3: </strong>
-- Cats may now get a heartbroken condition after breakup
-- More patrols per moon
-- Choose to retire
-- More queen/queen's apprentice content
-- Clicking "have kits" automatically turns off "Disable kits"
-- Permaqueens are now located by kits
-- Able to flirt with apprentices when you are an apprentice
-- New menus
-
-<strong>v0.5.2: </strong>
-- Added new role: queen
-- Added new role: queen's apprentice
-- Added new thoughts/patrols/events etc
-- Reactions to flirting will be based on personality
-- New menus
-- New patrol art
-- Fix various bugs
-
-<strong>v0.5.1: </strong>
-- Option to disable new accessories
-- Add dates
-- Lots of bug fixes
-
-<strong>v0.5.0: </strong>
-- Flirt with clanmates 
-- Choose your mate 
-- Choose to have kits  
-- Request an apprentice 
-- Collect new accessories 
-- Change accessories 
-- More than one accessory 
-- Add new accessories from ohdan-mod 
-- Add new moon events
-- Bug fixes
-
-<strong>v0.4.6: </strong>
-- Added Dark Forest moon events
-- You can now meet clanmates in the Dark Forest
-- Added new punishments for murder
-- Hidden feature
-- Bug fixes
-
-<strong>v0.4.5: </strong>
-- New moon events after a murder is discovered
-- Other cats may now be punished for being an accomplice
-- Accomplice and murder discovery chance overhaul
-- Bug fixes
-
-<strong>v0.4.4: </strong>
-- Button to choose to only show relations for your cat
-- Add history text for accomplices
-- Chance to be born with permanent condition
-- You will now start out as unborn
-- New text for other roles gaining an apprentice
-- Bug fixes
-
-<strong>v0.4.3: </strong>
-- Basics of accomplices added
-- Added new dialogue
-- Option to turn off red background
-- Bug fixes
-
-<strong>v0.4.2: </strong>
-- Display for murder chance
-- Edited murder events
-- Many bug/crash fixes
-
-<strong>v0.4.1: </strong>
-- Added additional events
-- You can now be discovered and punished for murder
-- Edited and added murder events
-- Added new flavor text
-- Hidden feature
-
-<strong>v0.4.0: Dark Forest's Grasp</strong>
-- Attempt to murder a clanmate each moon
-- Join the Dark Forest
-- Go on Dark Forest patrols
-- Insult clanmates
-- New dialogue
-- You can now only talk to/insult clanmates once per moon
-- Updated warning message
-
-<strong>v0.3.4: </strong>
-- Added new events/dialogue
-- Improve readability
-- Fixed several bugs
-
-<strong>v0.3.3: </strong>
-- Added new events/dialogue
-- Fixed relationships
-- Fixed several bugs
-
-<strong>v0.3.2: </strong>
-- Added new events/dialogue
-- You can now change to regular clangen patrols
-- Improve readability 
-- Fixed several bugs
-
-<strong>v0.3.1: </strong>
-- Added new events/dialogue
-- Added new sibling numbers
-- Lots of crash fixes
-
-<strong>v0.3.0: Social Circles</strong>
-- Added "talking" feature
-- Added many new events and patrols
-- Fixed several bugs/typos
-
-<strong>v0.2.1: Death is not the end!</strong>
-- Added the ability to continue as another cat after you die
-- Added random path button
-- UI changes
-- Fixed several bugs/typos
-
-<strong>v0.2.0: Choose your Path</strong>
-- Added medicine cat, mediator, deputy, and leader paths
-- New apprentice icons by jesmar!
-- Many new events and patrols
-- New menus
-- Fixed several bugs
-
-<strong>v0.1.4</strong>
-- Fixed several bugs
-- Added additional flavor text
-- Changed default game mode to expanded mode
-- Fixed some events to make them make more sense
-- Added new patrols (Thanks Silverstar!)
-
-<strong>v0.1.3</strong>
-- Fixed several bugs
-- Added additional flavor text
-- Added siblings! You now have a chance to have siblings upon birth
-- Added more patrols
-- Elders can now 'patrol'
-- New menus
-- Clan events are now shown in the Misc tab
-
-<strong>v0.1.2</strong>
-- Fixed several bugs
-- Added additional flavor text
-
-<strong>v0.1.1</strong>
-- Fixed several bugs
-- Added support for saving
-- Added additional flavor text
-- Added elder ceremonies 
-
-<strong>v0.1.0</strong>
-- Welcome to LifeGen - a ClanGen mod
-- Experience ClanGen from the perspective of a single cat that you control!
-- Choose your cat, and live their life from kithood to warrior and beyond
-- Expect bugs -- please report them to Coffee on discord!
-
+<a href=https://clangen.io/docs/blog/2026/05/08/v0.13.0/>Read the FULL changelog online</a>
