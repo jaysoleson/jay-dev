@@ -669,7 +669,7 @@ class ChooseMentorScreen(Screens):
             cat
             for cat in Cat.all_cats_list
             if cat.status.alive_in_player_clan and cat.status.rank == CatRank.MEDIATOR
-            and and cat.moons > 0
+            and cat.moons > 0
         ]
         valid_mediator_mentors = []
         invalid_mediator_mentors = []
