@@ -21,12 +21,19 @@ from scripts.cat.names import names
 from scripts.cat.save_load import (
     save_cats,
     get_faded_ids,
-    load_faded_cat_ids,
 )
 from scripts.clan_package.settings import save_clan_settings, load_clan_settings
 from scripts.clan_package.settings.clan_settings import reset_loaded_clan_settings
 from scripts.clan_resources.freshkill import FreshkillPile, Nutrition
 from scripts.clan_resources.herb.herb_supply import HerbSupply
+from scripts.clan_resources.point_of_interest import (
+    load_pois,
+    get_poi_save_dict,
+    generate_and_add_new_poi,
+    PoiType,
+    get_poi_names_set,
+    clear_pois,
+)
 from scripts.events_module.future.future_event import FutureEvent
 from scripts.events_module.generate_events import OngoingEvent
 from scripts.game_structure import constants
@@ -136,7 +143,7 @@ class Clan:
         self.other_clan_IDs = []
 
         self.starting_members = starting_members
-        if game_mode in ("expanded", "cruel season"):
+        if game_mode in ("expanded", "cruel_season"):
             self.freshkill_pile = FreshkillPile()
         else:
             self.freshkill_pile = None
@@ -270,19 +277,16 @@ class Clan:
         save_cats(game.clan.name, Cat, game)
         number_other_clans = randint(3, 5)
         for _ in range(number_other_clans):
-            other_clan_names = [str(i.name) for i in self.all_other_clans] + [
-                game.clan.displayname
-            ]
-            other_clan_name = choice(
-                names.names_dict["normal_prefixes"] + names.names_dict["clan_prefixes"]
-            )
-            while other_clan_name in other_clan_names:
-                other_clan_name = choice(
-                    names.names_dict["normal_prefixes"]
-                    + names.names_dict["clan_prefixes"]
-                )
-            other_clan = OtherClan(name=other_clan_name)
+            other_clan = OtherClan()
             self.all_other_clans.append(other_clan)
+
+        # remove any already loaded points of interest
+        clear_pois()
+
+        generate_and_add_new_poi(game.clan.biome, PoiType.GATHERING)
+        generate_and_add_new_poi(game.clan.biome, PoiType.MOONPLACE)
+        for i in range(3):
+            generate_and_add_new_poi(game.clan.biome, PoiType.TERRAIN)
 
         # create leader's ceremony
         self.leader.generate_lead_ceremony()
@@ -480,18 +484,22 @@ class Clan:
 
         clan_data["war"] = self.war
 
+        clan_data["poi"] = get_poi_save_dict()
+
         self.save_herb_supply(game.clan)
         self.save_disaster(game.clan)
         self.save_future_events(game.clan)
         self.save_pregnancy(game.clan)
 
         save_clan_settings()
-        if game.clan.game_mode in ("expanded", "cruel season"):
+        if game.clan.game_mode in ("expanded", "cruel_season"):
             self.save_freshkill_pile(game.clan)
 
-        safe_save(f"{get_save_dir()}/{self.name}clan.json", clan_data)
+        safe_save(f"{get_save_dir()}/{self.name}/clan.json", clan_data)
 
-        if os.path.exists(get_save_dir() + f"/{self.name}clan.txt") & (
+        if os.path.exists(f"{get_save_dir()}/{self.name}clan.json"):
+            os.remove(f"{get_save_dir()}/{self.name}clan.json")
+        elif os.path.exists(get_save_dir() + f"/{self.name}clan.txt") & (
             self.name != "current"
         ):
             os.remove(get_save_dir() + f"/{self.name}clan.txt")
@@ -502,8 +510,11 @@ class Clan:
         """
 
         version_info = None
+        game.reset_used_group_IDs()
         if os.path.exists(
             get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "clan.json"
+        ) or os.path.exists(
+            get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/clan.json"
         ):
             version_info = self.load_clan_json()
         elif os.path.exists(
@@ -723,8 +734,19 @@ class Clan:
         switch_set_value(
             Switch.error_message, "There was an error loading the clan.json"
         )
+        filename = (
+            get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/clan.json"
+        )
+        if not os.path.exists(filename):
+            # legacy
+            filename = (
+                get_save_dir()
+                + "/"
+                + switch_get_value(Switch.clan_list)[0]
+                + "clan.json"
+            )
         with open(
-            get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "clan.json",
+            filename,
             "r",
             encoding="utf-8",
         ) as read_file:  # pylint: disable=redefined-outer-name
@@ -751,6 +773,8 @@ class Clan:
             displayname = clan_data["displayname"]
         else:
             displayname = clan_data["clanname"]
+
+        load_pois(clan_data.get("poi", {"empty": []}))
 
         game.clan = Clan(
             name=clan_data["clanname"],
@@ -858,8 +882,6 @@ class Clan:
                 print("WARNING: Cat not found:", cat)
         if "war" in clan_data:
             game.clan.war = clan_data["war"]
-
-        load_faded_cat_ids(clan_data["clanname"])
 
         game.clan.last_focus_change = clan_data.get("last_focus_change")
         game.clan.clans_in_focus = clan_data.get("clans_in_focus", [])
@@ -1343,9 +1365,17 @@ class OtherClan:
             self.group_ID = game.get_free_group_ID(CatGroup.OTHER_CLAN)
         game.clan.other_clan_IDs.append(self.group_ID)
 
-        clan_names = names.names_dict["normal_prefixes"]
-        clan_names.extend(names.names_dict["clan_prefixes"])
-        self.name = name or choice(clan_names)
+        self.name = name
+        if not self.name:  # find name if clan has no name yet
+            used_names = [str(i.name) for i in game.clan.all_other_clans] + [
+                game.clan.displayname
+            ]
+            clan_names = names.names_dict["normal_prefixes"]
+            clan_names.extend(names.names_dict["clan_prefixes"])
+            self.name = choice(clan_names)
+            while self.name in used_names:  # making sure we don't repeat a name
+                self.name = choice(clan_names)
+
         self.relations = relations or randint(8, 12)
 
         self.temperament: tuple[str, str]

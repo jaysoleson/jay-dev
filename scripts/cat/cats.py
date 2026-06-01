@@ -9,7 +9,7 @@ import itertools
 import os.path
 import sys
 from random import choice, randint, sample, random, randrange
-from typing import Dict, List, Any, Union, Callable, Optional, TYPE_CHECKING
+from typing import Dict, List, Any, Union, Callable, Optional, TYPE_CHECKING, Literal
 
 import i18n
 import ujson  # type: ignore
@@ -36,6 +36,7 @@ from scripts.events_module.thoughts.generate_thoughts import (
     get_other_cat_for_thought,
 )
 from scripts.cat_relations.inheritance import Inheritance
+from scripts.cat_relations.inheritance2 import inheritance_db
 from scripts.cat_relations.relationship import Relationship
 from scripts.cat_relations.enums import RelType, RelTier, rel_type_tiers
 from scripts.clan_package.settings import get_clan_setting
@@ -185,7 +186,7 @@ class Cat:
         self._moons = None
 
         # Public attributes
-        self.gender = gender
+        self.gender: Literal["male", "female"] = gender
         self.status: Status = Status(**status_dict) if status_dict else Status()
         self.backstory = backstory
         self.age: Optional[CatAge] = None
@@ -193,22 +194,24 @@ class Cat:
         self.personality = Personality(
             trait="troublesome", lawful=0, aggress=0, stable=0, social=0
         )
-        self.parent1 = parent1
-        self.parent2 = parent2
-        self.adoptive_parents = adoptive_parents if adoptive_parents else []
+        self.parent1: str = parent1
+        self.parent2: str = parent2
+        self.adoptive_parents: List[str] = adoptive_parents if adoptive_parents else []
         self.pelt = pelt if pelt else Pelt()
-        self.former_mentor = []
+        self.former_mentor: List[str] = []
         self.patrol_with_mentor = 0
-        self.apprentice = []
-        self.former_apprentices = []
+        self.apprentice: List[str] = []
+        self.former_apprentices: List[str] = []
         self.relationships: Dict[str, Relationship] = {}
-        self.mate = []
-        self.previous_mates = []
+        self.mate: List[str] = []
+        self.previous_mates: List[str] = []
         self._pronouns: Dict[str, List[Dict[str, Union[str, int]]]] = {}
         self.placement = None
         self.example = example
         self.thought = ""
-        self.genderalign = None
+        self.genderalign: Union[
+            Literal["trans male", "trans female", "male", "female", "nonbinary"], str
+        ] = None
         self.birth_cooldown = 0
         self.illnesses = {}
         self.injuries = {}
@@ -227,9 +230,9 @@ class Cat:
 
         self.prevent_fading = False  # Prevents a cat from fading
 
-        self.faded_offspring = (
-            []
-        )  # Stores of a list of faded offspring, for relation tracking purposes
+        self.faded_offspring: List[
+            str
+        ] = []  # Stores of a list of faded offspring, for relation tracking purposes
 
         self.faded = faded  # This is only used to flag cats that are faded, but won't be added to the faded list until
         # the next save.
@@ -237,7 +240,7 @@ class Cat:
         self.favourite = False
 
         self.specsuffix_hidden = specsuffix_hidden
-        self.inheritance = None
+        self.inheritance: Inheritance = None
 
         # setting ID
         if ID is None:
@@ -924,7 +927,7 @@ class Cat:
         for x in self.apprentice:
             Cat.fetch_cat(x).update_mentor()
 
-    def add_to_clan(self) -> list:
+    def add_to_clan(self) -> List[str]:
         """Makes an "outside cat" a Clan cat. Returns a list of IDs for any additional cats that
         are coming with them."""
 
@@ -1776,79 +1779,55 @@ class Cat:
     #                                   relative                                   #
     # ---------------------------------------------------------------------------- #
     def get_parents(self):
-        """Returns list containing parents of cat(id)."""
-        if not self.inheritance:
-            self.inheritance = Inheritance(self)
-        return self.inheritance.parents.keys()
+        """Returns list containing parent IDs of this cat.
+
+        The order matters! The first cat will be considered the one who gave birth
+        to this cat for queen calculations.
+        """
+        bio_parents = [parent for parent in (self.parent1, self.parent2) if parent]
+        return bio_parents + self.adoptive_parents
 
     def get_siblings(self):
         """Returns list of the siblings(id)."""
-        if not self.inheritance:
-            self.inheritance = Inheritance(self)
-        return self.inheritance.siblings.keys()
+        return inheritance_db.get_siblings(self.ID)
 
     def get_children(self):
         """Returns list of the children (ids)."""
-        if not self.inheritance:
-            self.inheritance = Inheritance(self)
-        return self.inheritance.kits.keys()
+        return inheritance_db.get_children(self.ID)
 
     def is_grandparent(self, other_cat: Cat):
         """Check if the cat is the grandparent of the other cat."""
-        if not self.inheritance:
-            self.inheritance = Inheritance(self)
-        return other_cat.ID in self.inheritance.grand_kits.keys()
+        return inheritance_db.is_grandparent(self.ID, other_cat.ID)
 
     def is_parent(self, other_cat: Cat):
         """Check if the cat is the parent of the other cat."""
-        if not self.inheritance:
-            self.inheritance = Inheritance(self)
-        return other_cat.ID in self.inheritance.kits.keys()
+        return inheritance_db.is_parent(self.ID, other_cat.ID)
 
     def is_sibling(self, other_cat: Cat):
         """Check if the cats are siblings."""
-        if not self.inheritance:
-            self.inheritance = Inheritance(self)
-        return other_cat.ID in self.inheritance.siblings.keys()
+        return inheritance_db.is_sibling(self.ID, other_cat.ID)
 
     def is_littermate(self, other_cat: Cat):
         """Check if the cats are littermates."""
-        if other_cat.ID not in self.inheritance.siblings.keys():
+        if not self.is_sibling(other_cat):
             return False
-        litter_mates = [
-            key
-            for key, value in self.inheritance.siblings.items()
-            if "litter mates" in value["additional"]
-        ]
-        return other_cat.ID in litter_mates
+        return inheritance_db.is_littermate(self.ID, other_cat.ID)
 
     def is_uncle_aunt(self, other_cat: Cat):
         """Check if the cats are related as uncle/aunt and niece/nephew."""
-        if not self.inheritance:
-            self.inheritance = Inheritance(self)
-        return other_cat.ID in self.inheritance.siblings_kits.keys()
+        return inheritance_db.is_uncle_aunt(self.ID, other_cat.ID)
 
     def is_cousin(self, other_cat: Cat):
         """Check if this cat and other_cat are cousins."""
-        if not self.inheritance:
-            self.inheritance = Inheritance(self)
-        return other_cat.ID in self.inheritance.cousins.keys()
+        return inheritance_db.is_cousin(self.ID, other_cat.ID)
 
-    def is_related(self, other_cat, cousin_allowed):
+    def is_related(self, other_cat, exclude_cousins):
         """Checks if the given cat is related to the current cat, according to the inheritance."""
-        if not self.inheritance:
-            self.inheritance = Inheritance(self)
-        if cousin_allowed:
-            return other_cat.ID in self.inheritance.all_but_cousins
-        return other_cat.ID in self.inheritance.all_involved
+        return inheritance_db.is_related(self.ID, other_cat.ID, exclude_cousins)
 
-    def get_relatives(self, cousin_allowed=True) -> list:
+    def get_relatives(self, exclude_cousins=True) -> list:
         """Returns a list of ids of all nearly related ancestors."""
-        if not self.inheritance:
-            self.inheritance = Inheritance(self)
-        if cousin_allowed:
-            return self.inheritance.all_involved
-        return self.inheritance.all_but_cousins
+        return inheritance_db.get_relatives(self.ID, exclude_cousins)
 
     # ---------------------------------------------------------------------------- #
     #                                  conditions                                  #
@@ -2526,10 +2505,7 @@ class Cat:
         if self.ID not in other_cat.previous_mates:
             other_cat.previous_mates.append(self.ID)
 
-        if other_cat.inheritance:
-            other_cat.inheritance.update_all_mates()
-        if self.inheritance:
-            self.inheritance.update_all_mates()
+        inheritance_db.load_inheritances(Cat)
 
     def set_mate(self, other_cat: Cat):
         """Sets up a mate relationship between self and other_cat."""
@@ -2544,10 +2520,7 @@ class Cat:
         if self.ID in other_cat.previous_mates:
             other_cat.previous_mates.remove(self.ID)
 
-        if other_cat.inheritance:
-            other_cat.inheritance.update_all_mates()
-        if self.inheritance:
-            self.inheritance.update_all_mates()
+        inheritance_db.load_inheritances(Cat)
 
         # Set starting relationship values
         if not self.dead:
@@ -2573,8 +2546,7 @@ class Cat:
     def unset_adoptive_parent(self, other_cat: Cat):
         """Unset the adoptive parent from self"""
         self.adoptive_parents.remove(other_cat.ID)
-        self.create_inheritance_new_cat()
-        other_cat.create_inheritance_new_cat()
+        inheritance_db.load_inheritances(Cat)
         if not self.dead:
             if other_cat.ID not in self.relationships:
                 self.create_one_relationship(other_cat)
@@ -2594,7 +2566,7 @@ class Cat:
     def set_adoptive_parent(self, other_cat: Cat):
         """Sets up a parent-child relationship between self and other_cat."""
         self.adoptive_parents.append(other_cat.ID)
-        self.create_inheritance_new_cat()
+        inheritance_db.load_inheritances(Cat)
 
         # Set starting relationship values
         if not self.dead:
@@ -3497,12 +3469,13 @@ def create_cat(rank, moons=None, biome=None):
 
 
 # Twelve example cats
-def create_example_cats():
+def create_example_cats() -> list[Cat]:
     warrior_indices = sample(range(12), 3)
 
+    chosen_cats = []
     for cat_index in range(12):
         if cat_index in warrior_indices:
-            game.choose_cats[cat_index] = create_cat(rank=CatRank.WARRIOR)
+            chosen_cats.append(create_cat(rank=CatRank.WARRIOR))
         else:
             random_rank = choice(
                 [
@@ -3513,7 +3486,9 @@ def create_example_cats():
                     CatRank.ELDER,
                 ]
             )
-            game.choose_cats[cat_index] = create_cat(rank=random_rank)
+            chosen_cats.append(create_cat(rank=random_rank))
+
+    return chosen_cats
 
 
 def create_option_preview_cat(scar: str = None, acc: str = None):
