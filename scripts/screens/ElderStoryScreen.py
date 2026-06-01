@@ -191,6 +191,7 @@ class ElderStoryScreen(Screens):
         for cat in Cat.all_cats_list:
             if cat.status.rank == CatRank.ELDER and (
                 cat.status.alive_in_player_clan
+                and cat.moons > 0
             ):
                 self.elders.append(cat)
 
@@ -477,6 +478,7 @@ class ElderStoryScreen(Screens):
                     i not in self.selected_cats and
                     i.status.alive_in_player_clan and
                     (i.ID != self.elders[self.selected_elder].ID)
+                    and i.moons > 0
                 )
             ]
 
