@@ -956,11 +956,6 @@ class MakeClanScreen(Screens):
                 self.elements["loner"].enable()
                 self.elements["rogue"].disable()
 
-            # TEMP LIFEGEN: hide group buttons for now
-            self.elements["clancat"].hide()
-            self.elements["kittypet"].hide()
-            self.elements["loner"].hide()
-            self.elements["rogue"].hide()
         # Refresh the choose-members background to match number of cat's chosen.
         elif self.sub_screen == "choose members":
             if len(self.members) == 0:
@@ -1541,23 +1536,27 @@ class MakeClanScreen(Screens):
         )
         self.elements["name_entry"].set_forbidden_characters("forbidden_file_path")
         self.elements["name_entry"].set_text_length_limit(11)
-        self.elements["clan"] = pygame_gui.elements.UITextBox("-Clan",
-                                                              ui_scale(pygame.Rect((750, 1200), (200, 50))),
-                                                              object_id="#text_box_30_horizcenter_light",
-                                                              manager=MANAGER)
-        self.elements["reset_name"] = UIImageButton(ui_scale(pygame.Rect((910, 1190), (268, 60))), "",
-                                                    object_id="#reset_name_button", manager=MANAGER)
 
-        if game_setting_get("dark mode"):
-            self.elements["clan_size"] = pygame_gui.elements.UITextBox("This Clan will be... ",
-                                                              ui_scale(pygame.Rect((200, 100), (405, 25))),
-                                                              object_id="#text_box_30_horizcenter_light",
-                                                              manager=MANAGER)
-        else:
-            self.elements["clan_size"] = pygame_gui.elements.UITextBox("This Clan will be... ",
-                                                              ui_scale(pygame.Rect((200, 100), (405, 25))),
-                                                              object_id="#text_box_30_horizcenter",
-                                                              manager=MANAGER)
+        self.elements["clan"] = pygame_gui.elements.UITextBox(
+            "-Clan",
+            ui_scale(pygame.Rect((375, 600), (100, 25))),
+            object_id="#text_box_30_horizcenter_light",
+            manager=MANAGER,
+        )
+        self.elements["reset_name"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((455, 595), (134, 30))),
+            "screens.make_clan.reset_name",
+            get_button_dict(ButtonStyles.SQUOVAL, (134, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+        )
+
+        self.elements["clan_size"] = pygame_gui.elements.UITextBox(
+            "This Clan will be... ",
+            ui_scale(pygame.Rect((200, 100), (405, 25))),
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            manager=MANAGER
+            )
 
         self.elements["small"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((220, 160), (100, 30))),
@@ -1760,16 +1759,12 @@ class MakeClanScreen(Screens):
             tool_tip_text = "Customize your own cat"
         )
 
-        if game_setting_get("dark mode"):
-            self.elements["start_as"] = pygame_gui.elements.UITextBox("Start as a... ",
-                                                              ui_scale(pygame.Rect((550, 150), (405, 25))),
-                                                              object_id="#text_box_30_horizcenter_light",
-                                                              manager=MANAGER)
-        else:
-            self.elements["start_as"] = pygame_gui.elements.UITextBox("Start as a... ",
-                                                              ui_scale(pygame.Rect((550, 150), (405, 25))),
-                                                              object_id="#text_box_30_horizcenter",
-                                                              manager=MANAGER)
+        self.elements["start_as"] = pygame_gui.elements.UITextBox(
+            "Start as a... ",
+            ui_scale(pygame.Rect((550, 150), (405, 25))),
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            manager=MANAGER
+            )
 
         self.elements["clancat"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((700, 200), (118, 30))),
@@ -1808,6 +1803,13 @@ class MakeClanScreen(Screens):
             starting_height=2,
             tool_tip_text="Survive by your claws, owing loyalty to no one"
         )
+        
+        # TEMP LIFEGEN: hide group buttons for now
+        self.elements["start_as"].hide()
+        self.elements["clancat"].hide()
+        self.elements["kittypet"].hide()
+        self.elements["loner"].hide()
+        self.elements["rogue"].hide()
 
         # draw cats to choose from
         self.refresh_cat_images_and_info()
