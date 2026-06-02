@@ -4387,10 +4387,10 @@
         ],
         "intro": [
             "y_c, good morning. It's nice to see you.",
-            "It seems Leafbare has finally left us, I can feel the chill in the air starting to dissipate. It's nice.",
+            "It seems that leaf-bare has finally left us, I can feel the chill in the air starting to dissipate. It's nice.",
             "I'm looking forward to seeing the birds again, and the nice flowers that appear that smell wonderful.",
             "Just... seeing live plants again will be utterly wonderful, a great change of pace.",
-            "I love the snow of leafbare, but newleaf's flowers make the territory a lovely place to be."
+            "I love the snow of leaf-bare, but newleaf's flowers make the territory a lovely place to be."
         ]
     },
     "introspective_newleaf_2": {
@@ -19389,7 +19389,7 @@
         },
         "intro": [
             "Hm? You want to know why sometimes I dismember my prey before eating it?",
-            "Yeah, and I wanna know why sometimes you don't mind your own business ."
+            "Yeah, and I wanna know why sometimes you don't mind your own business."
         ]
     },
     "bloodthirsty_pos1_Rr_2": {
@@ -39458,7 +39458,7 @@
         ]
     },
     "unlawful_towarriorGuy1": {
-        "frequency": 2,
+        "frequency": 4,
         "cats": {
             "y_c": {
                 "rank": [
@@ -39487,7 +39487,7 @@
         ],
         "intro": [
             "Hey y_c. Have you seen r_c:0?",
-            "Why would I not know where {PRONOUN/r_c:0/subject} went? Oh, I just sent 'em off to sort something out...",
+            "Why would I not know where {PRONOUN/r_c:0/subject} went? Oh, I just sent {PRONOUN/r_c:0/object} off to sort something out...",
             "Don't worry about it."
         ]
     },
@@ -52656,14 +52656,12 @@
             "Fluffbutt! Hey!",
             "[r_c:0 chokes back a laugh, you whip around to be faced with your {PRONOUN/t_c/sibling}, t_c waltzing up to you bearing a charming grin. As {PRONOUN/t_c/subject} stand before you, it's very clear {PRONOUN/t_c/subject} has no idea that r_c:0 is behind you.]",
             "Hello! Hey so, I found that place I was telling you about! The twoleg den has this large wired boundary filled with feathered prey. They're a type of bird but I have no idea what exactly they are.",
-            "['t_c-']",
-            "But we can check it out and see how they taste! How does that soun- OH! STARCLAN!",
-            "['I was trying to tell you...']",
-            "OH... Oh hey there r_c:0, I had no idea that you were here! Haha...",
+            "But we can check it out and see how they taste! How does that soun- Oh! StarClan!",
+            "... Hey there, r_c:0, I had no idea that you were here! Haha...",
             "[r_c:0 looks at you in confusion, this side of your {PRONOUN/t_c/sibling} clearly something {PRONOUN/r_c:0/subject} hasn't seen before. In all fairness, t_c was normally very formal- at least for every other cat in the Clan besides you.]",
             "I'm sorry... It-...",
             "r_c:0, let's make a deal, you don't say a word of today and y_c and I can bring you back some of that prey if you would like?",
-            "[You glare at your {PRONOUN/t_c/sibling} only to hold it back as r_c:0 accepts, under the condition that {PRONOUN/r_c:0/subject} gets the fattest one.]",
+            "[You glare at your {PRONOUN/t_c/sibling}, only to hold it back as r_c:0 accepts, under the condition that {PRONOUN/r_c:0/subject} gets the fattest one.]",
             "Deal! Great! Now, not a word, ahem. Well, then, y_c, I suggest we get going."
         ]
     },
@@ -52872,7 +52870,7 @@
         "intro": [
             "[You and r_c:0 giggle softly in the clearing, and you listen intently as {PRONOUN/r_c:0/subject} talks about {PRONOUN/r_c:0/poss} day. In the corner of your vision, your gaze meets t_c, who's smiling at the two of you.]",
             "[t_c mouths a few words that make your heart swell with love and joy.]",
-            "<i>I'm so proud of you.</i>"
+            "I'm so proud of you."
         ]
     },
     "TinyTeddy_stable_theyparent_theyany_youadult_02": {
@@ -53235,7 +53233,6 @@
             "Since you were a kit I wanted to take you here. I always knew that you would love it. I used to come out here a very long time ago, but I have since stopped... Now that you're a warrior, I thought I'd share it with you.",
             "Who knows, maybe you will bring your kits here one day too. Being a warrior gives you a lot more freedom to explore, even places out of our territory.",
             "As you explore more in life, as you find more beautiful places, can you promise me something?",
-            "['Of course.']",
             "Promise me that you will share those places and memories with the cats you love. This life of ours is far too short to not appreciate all its wonderful gifts. Even if you don't fully understand that now, you will one day."
         ]
     },
@@ -53605,7 +53602,7 @@
         ],
         "intro": [
             "Do you really miss the nursery that much?",
-            "['No, but I miss being here with you.']",
+            "[You reply that, no, you don't really miss the cramped nursery. You just miss being here with t_c.]",
             "I feel the same way, I miss when you were the size of my paw. Life seems so much simpler back then. But sweetie, just because you're an adult don't think I won't ever make time for you.",
             "I'm here as long as you need me."
         ]
@@ -53857,7 +53854,7 @@
         ],
         "intro": [
             "[You're trying to give orders to the warriors, all while the kits are screaming, queens are bickering and the medicine cats are gossiping... There's just so much noise all going on at once.]",
-            "Everycat, ENOUGH!!!",
+            "Everycat, enough!!",
             "[t_c's voice cuts through the air and all the cats snap their jaws shut. You smile at your parent who looks to you with confidence.]",
             "As you were saying, sweetie. Please, don't let me stop you."
         ]
@@ -53893,9 +53890,10 @@
             }
         ],
         "intro": [
-            "You might be the leader, but I'm still your parent, which means, you won't be able to boss me around as easily as our clanmates.",
-            "['As long as you show respect and don't haggle me, I would never in a million moons try to boss you around. Can you imagine what would happen?']",
-            "I'd kick your flank, that's what! Pft- Don't worry too much, I'm just joking. I respect you as my kit first and foremost. You being the leader, that's just a position to me. Nothing more or nothing less.",
+            "You might be the leader, but I'm still your parent, which means, you won't be able to boss me around as easily as our Clanmates.",
+            "[You laugh and ask t_c what might happen if you ever tried bossing {PRONOUN/t_c/object} around.]",
+            "I'd kick your flank, that's what!",
+            "Pft- Don't worry too much, I'm just joking. I respect you as my kit first and foremost. You being the leader, that's just a position to me. Nothing more or nothing less.",
             "I love you for who you are, not what you are."
         ]
     },

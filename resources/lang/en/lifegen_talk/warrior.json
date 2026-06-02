@@ -8648,7 +8648,8 @@
             "y_c": {
                 "age": [
                     "adolescent"
-                ]
+                ],
+                "condition": ["deaf:any:false"]
             },
             "t_c": {
                 "cluster": [
@@ -8656,12 +8657,14 @@
                 ],
                 "rank": [
                     "warrior"
-                ]
+                ],
+                "condition": ["blind:any:false", "deaf:any:false"]
             },
             "r_c:0": {
                 "rank": [
                     "warrior"
-                ]
+                ],
+                "condition": ["blind:any:false", "deaf:any:false"]
             }
         },
         "intro": [
@@ -8675,7 +8678,8 @@
             "y_c": {
                 "age": [
                     "adolescent"
-                ]
+                ],
+                "condition": ["blind:any:false"]
             },
             "t_c": {
                 "cluster": [
@@ -8683,9 +8687,14 @@
                 ],
                 "rank": [
                     "warrior"
-                ]
+                ],
+                "condition": ["blind:any:false"]
             },
-            "r_c:0": {}
+            "r_c:0": {
+                "condition": [
+                    "blind:any:false"
+                ]
+            }
         },
         "relationships": [
             {
@@ -8712,6 +8721,9 @@
             "y_c": {
                 "rank": [
                     "apprentice"
+                ],
+                "condition": [
+                    "blind:any:false"
                 ]
             },
             "t_c": {
@@ -8720,6 +8732,9 @@
                 ],
                 "rank": [
                     "warrior"
+                ],
+                "condition": [
+                    "blind:any:false"
                 ]
             }
         },
@@ -8732,7 +8747,7 @@
         "cats": {
             "y_c": {
                 "condition": [
-                    "injury:any"
+                    "injury:any", "blind:any:false"
                 ],
                 "rank": [
                     "apprentice"
@@ -8970,7 +8985,7 @@
         },
         "intro": [
             "Is it our turn to go on a hunting patrol?",
-            "It is? MOUSE-DOUNGE!",
+            "It is? Mouse-dung!",
             "[You reel your head back in shock, t_c takes a deep breath before {PRONOUN/t_c/poss} gaze locks back onto you. {PRONOUN/t_c/poss/CAP} eyes widen in shock as {PRONOUN/t_c/subject} shakes {PRONOUN/t_c/poss} head.]",
             "Sorry! I didn't mean to yell, that wasn't directed at you! I'm just tired, it seems like everyday I get picked for the same thing. Well, no use in complaining like a troublesome kit. C'mon, let's get going."
         ]
@@ -9016,13 +9031,12 @@
         },
         "intro": [
             "[You and t_c are currently on border patrol, you can hear {PRONOUN/t_c/object} mumbling under {PRONOUN/t_c/poss} breath. You tilt your head, your ears perk.]",
-            "Five, oh- nevermind ten- that makes sixteen- y_c I can feel your stare from the back of my head, if you're curious you can just ask.",
-            "['What are you mumbling about?']",
-            "I'm counting how many different kinds of beetles I can see, there's a plethora lurking in our territory but no one has ever paid attention- Some of them are so beautiful so I wanted to try and keep a record.",
+            "Five, oh- nevermind ten- that makes sixteen- y_c, I can feel your stare from the back of my head. If you're curious you can just ask.",
+            "I'm counting how many different kinds of beetles I can see. There's a plethora lurking in our territory but no one has ever paid attention. Some of them are so beautiful, so I wanted to try and keep a record.",
             "I'll need to grab some berries though if I'm going to paint them somewhere-",
             "I probably sound so... unorganised... I apologise for wasting your time.",
-            "['No! Not at all, tell me all about them.']",
-            "You- you really want to know? Sure! It's just I- normally other cats don't like my rambles, we should be on patrol more often!"
+            "[You give t_c a nudge and tell {PRONOUN/t_c/object} you'd like to know more.]",
+            "You- you really want to know? Sure! It's just, normally other cats don't like my rambles. We should be on patrol together more often!"
         ]
     },
     "TinyTeddy_stable_theywarrior_youwarrior_04": {
@@ -9105,9 +9119,9 @@
             }
         },
         "intro": [
-            "GRAHHHHHHH!!!!!",
-            "JUST WHO DO THEY THINK THEY ARE?! r_c:0 thinks they know everything, and what's worse, r_c:1 always backs them up! Seriously?! I'M SOOOOOOOO OVER THIS!!!!",
-            "y_c can we talk, I'm not looking for answers or anything like that, I just need someone to vent my frustrations too... It's either you, a cat I trust very much or the tree far away from camp so no one can hear me scream.",
+            "GRAHHHHHHH!!",
+            "Just who {VERB/r_c:0/do/does} {PRONOUN/r_c:0/subject} think {PRONOUN/r_c:0/subject} {VERB/r_c:0/are/is}?! r_c:0 thinks {PRONOUN/r_c:0/subject} {VERB/r_c:0/know/knows} everything, and what's worse, r_c:1 always backs {PRONOUN/r_c:0/object} up! Seriously?! I'm SO over this!",
+            "y_c, can we talk? I'm not looking for answers or anything like that, I just need someone to vent my frustrations too... It's either you, a cat I trust very much or the tree far away from camp so no one can hear me scream.",
             "You'll listen? Thank you, fair warning, you may want to grab some moss to stuff in your ears- I'm probably going to yell.",
             "Loudly.",
             "Very loudly.",
