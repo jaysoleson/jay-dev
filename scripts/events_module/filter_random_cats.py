@@ -293,6 +293,7 @@ def __filter_sexuality(abbrev_block, cat):
         "not:likes_she_cats",
         "likes_toms",
         "not:likes_toms",
+        "likes_any",
         Acespec.ALLO,
         Acespec.DEMI,
         Acespec.GREY,
@@ -320,6 +321,9 @@ def __filter_sexuality(abbrev_block, cat):
     if "likes_toms" in sexuality_block and not cat.sexuality.likes_toms:
         return False
     if "not:likes_toms" in sexuality_block and cat.sexuality.likes_toms:
+        return False
+    
+    if "likes_any" in sexuality_block and not (cat.sexuality.likes_toms or cat.sexuality.likes_she_cats):
         return False
     
     if any(tag in sexuality_block for tag in [

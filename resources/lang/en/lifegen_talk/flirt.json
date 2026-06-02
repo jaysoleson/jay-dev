@@ -12534,5 +12534,57 @@
         "intro": [
             "Is my mind playing tricks on me?"
         ]
+    },
+    "flirt_pg_01": {
+        "cats": {
+            "y_c": {
+                "gender": ["male"],
+                "condition": ["blind:any:false"]
+            },
+            "t_c": {
+                "sexuality": [
+                    "not:likes_toms",
+                    "likes_she_cats"
+                ],
+                "cluster": ["brooding", "assertive", "unabashed"],
+                "condition": ["blind:any:false"]
+            }
+        },
+        "tags": ["reject"],
+        "intro": [
+            "Ew. No, I'm not into toms. At all. Do I not make it obvious enough?"
+        ]
+    },
+    "flirt_pg_02": {
+        "cats": {
+            "y_c": {
+                "gender": ["male"]
+            },
+            "t_c": {
+                "cluster": ["brooding", "assertive", "cool", "unlawful"],
+                "condition": ["blind:any:false"],
+                "gender": ["not:male"]
+            }
+        },
+        "intro": [
+            "... I know better than to let a tom fluster me.",
+            "[t_c turns and hides {PRONOUN/t_c/poss} face with a paw.]"
+        ]
+    },
+    "flirt_pg_03": {
+        "cats": {
+            "y_c": {
+                "sexuality": ["not:likes_toms", "not:likes_she_cats"],
+                "condition": ["blind:any:false"]
+            },
+            "t_c": {
+                "condition": ["blind:any:false"]
+            }
+        },
+        "intro": [
+            "... What?",
+            "No, no, I'm flattered. I just... didn't think you liked anyone like that.",
+            "I'm honoured!"
+        ]
     }
 }

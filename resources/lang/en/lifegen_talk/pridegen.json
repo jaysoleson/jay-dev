@@ -1,5 +1,5 @@
 {
-    "pridegen_01": {
+    "gen_pg_01": {
         "cats": {
             "y_c": {
                 "gender": [
@@ -30,6 +30,417 @@
         "intro": [
             "Ugh. r_c:0 is getting on my nerves today. Toms are so silly sometimes.",
             "... Present company excluded. Sorry, hehe."
+        ]
+    },
+    "qpp_01": {
+        "cats": {
+            "y_c": {
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            },
+            "r_c:0": {
+                "condition": ["blind:any:false", "deaf:any:false"],
+                "age": ["not_kitten"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["qpps"]
+            },
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["child/parent", "min_like_20", "max_romance_10"]
+            }
+        ],
+        "intro": [
+            "r_c:0 was asking me earlier when {PRONOUN/r_c:0/subject} should expect the two of us to have kits. Isn't that funny?",
+            "I mean, maybe we could adopt and co-parent, or something, someday, but... I don't think {PRONOUN/r_c:0/subject} really {VERB/r_c:0/understand/understands} our relationship. *Snrk*"
+        ]
+    },
+    "qpp_02": {
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "age": ["not_kitten"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["qpps", "min_like_30", "min_romance_20"]
+            }
+        ],
+        "intro": [
+            "[You catch t_c looking at you weirdly.]",
+            "Hm? Oh, nothing. You just... look cute today."
+        ]
+    },
+    "qpp_03": {
+        "cats": {
+            "y_c": {
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            },
+            "r_c:0": {
+                "condition": ["blind:any:false", "deaf:any:false"],
+                "age": ["not_kitten"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["qpps", "min_romance_5"]
+            }
+        ],
+        "intro": [
+            "y_c! Help! I think I might have a crush on r_c:0!",
+            "[You admit that you don't understand the panic. Aren't those two already... together?]",
+            "No, we're just platonic partners. Not romantic. I'm not supposed to like {PRONOUN/r_c:0/object} like that!",
+            "Ugh, I'm gonna go take a nap... maybe I can sleep it off."
+        ]
+    },
+    "qpp_04": {
+        "cats": {
+            "y_c": {
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "condition": ["blind:any:false"],
+                "cluster": [
+                    "silly", "sweet", "unabashed", "cool", "assertive"
+                ],
+                "age": ["not_kitten"]
+            },
+            "r_c:0": {}
+        },
+        "relationships": [
+            {
+                "cats_from": ["y_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["qpps"]
+            }
+        ],
+        "intro": [
+            "So... You and r_c:0... What's up with that?",
+            "... You're already together? I didn't even notice!"
+        ]
+    },
+    "qpp_05": {
+        "cats": {
+            "y_c": {
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "cluster": ["sweet", "silly", "unabashed", "introspective"],
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            },
+            "r_c:0": {
+                "condition": ["blind:any:false", "deaf:any:false"],
+                "age": ["not_kitten"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["mates"]
+            },
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["qpps"]
+            }
+        ],
+        "intro": [
+            "y_c~!",
+            "t_m and I are heading out for a walk. Wanna come?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "walk_no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "walk_yes"
+            }
+        },
+        "walk_no": [
+            "No? Aw, okay.",
+            "I'll bring you back something pretty!"
+        ],
+        "walk_yes": [
+            "Yay! Okay, let's go. t_m's waiting at the entrance."
+        ]
+    },
+    "gen_pg_02": {
+        "season": ["newleaf"],
+        "cats": {
+            "y_c": {
+                "sexuality": [
+                    "not:likes_toms",
+                    "not:likes_she_cats"
+                ],
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            },
+            "t_c": {},
+            "r_c:0": {
+                "condition": ["blind:any:false", "deaf:any:false"],
+                "age": ["not_kitten"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["parent/child"]
+            },
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["parent/child"]
+            },
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["littermates"]
+            }
+        ],
+        "intro": [
+            "Hey, y_c! The weather's looking pretty nice lately.",
+            "Pretty good weather for finding a mate and having kits, in my opinion... Do you agree?",
+            "[You've told your {PRONOUN/t_c/parent} a million times that you're not really into that sort of thing, but {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} pretty attached to the idea of grandkits.]",
+            "Sorry, sorry, I know. How 'bout I go bug r_c:0 about it instead? Hehe."
+        ]
+    },
+    "gen_pg_03": {
+        "cats": {
+            "y_c": {
+                "gender": ["transgender"],
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "gender": ["cisgender"],
+                "age": ["not_kitten"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["parent/child"]
+            }
+        ],
+        "intro": [
+            "Oh, you look beautiful today, sweetheart! I can't believe you're the same cat as the little kit I was raising all those moons ago...",
+            "I'm glad you've discovered yourself. You look much happier now."
+        ]
+    },
+    "gen_pg_04": {
+        "cats": {
+            "y_c": {
+                "gender": ["transgender"],
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "gender": ["cisgender"],
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["littermates"]
+            }
+        ],
+        "intro": [
+            "How did you figure out your gender was different?",
+            "Sorry if it's weird to ask. I'm just wondering why yours has changed but mine hasn't, you know?",
+            "[You tell t_c that you don't really know. No one does.]",
+            "Oh. So you're just as lost as me? That's funny.",
+            "Well, I'm glad you're happy."
+        ]
+    },
+    "gen_pg_05": {
+        "cats": {
+            "y_c": {
+                "sexuality": [
+                    "not:likes_toms",
+                    "not_likes_she_cats"
+                ],
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "condition": ["blind:any:false"],
+                "sexuality": ["likes_any"],
+                "age": ["not_kitten"]
+            },
+            "r_c:0": {
+                "condition": ["blind:any:false", "deaf:any:false"],
+                "age": ["not_kitten"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["not_mates", "min_romance_10"]
+            }
+        ],
+        "intro": [
+            "[t_c, during a chat across camp with {PRONOUN/t_c/poss} crush, r_c:0, fumbles awkwardly and leaves the conversation with a red face.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/trot/trots} back in your direction and, ensuring {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} out of r_c:0's sight, {VERB/t_c/collapse/collapses} at your paws.]",
+            "Uuuuggghh!! That was so embarrassing! Did you see that?!",
+            "[You're thankful that you don't have to deal with this sort of thing, but it's pretty funny to watch.]"
+        ]
+    },
+    "gen_pg_06": {
+        "cats": {
+            "y_c": {
+                "condition": ["blind:any:false"],
+                "sexuality": ["likes_any"],
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "sexuality": [
+                    "demiromantic", "greyaromantic", "likes_any"
+                ],
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            },
+            "r_c:0": {
+                "condition": ["blind:any:false", "deaf:any:false"],
+                "age": ["not_kitten"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["not_mates", "min_romance_10"]
+            },
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_30"]
+            }
+        ],
+        "intro": [
+            "y_c! What do I do about r_c:0?! Do I get {PRONOUN/r_c:0/object} a gift? Do I tell {PRONOUN/r_c:0/object} {PRONOUN/r_c:0/subject} {VERB/r_c:0/look/looks} pretty today?",
+            "I don't know, you're better at romance than me! I get crushes so rarely... I don't want to mess it up."
+        ]
+    },
+    "gen_pg_07": {
+        "cats": {
+            "y_c": {
+                "gender": ["transgender", "female"],
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "gender": ["female"],
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            }
+        },
+        "intro": [
+            "Hi, y_c! StarClan, you look beautiful today! Coming out as a she-cat was the right choice for you, hehe."
+        ]
+    },
+    "gen_pg_08": {
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "gender": ["transgender"],
+                "cluster": ["sweet", "neurotic", "stable", "introspective"],
+                "age": ["not_kitten"]
+            }
+        },
+        "intro": [
+            "[t_c catches {PRONOUN/t_c/poss} reflection in a puddle and stares at it for a moment, a smile slowly creeping onto {PRONOUN/t_c/poss} face.]",
+            "Oh, sorry. Was that weird? I just... like how I look today."
+        ]
+    },
+    "gen_pg_09": {
+        "cats": {
+            "y_c": {
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "sexuality": [
+                    "demiromantic", "greyaromantic"
+                ],
+                "condition": ["blind:any:false"],
+                "age": ["not_kitten"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["mates", "min_romance_50", "min_like_30"]
+            }
+        ],
+        "intro": [
+            "You know, I never thought I'd find a mate as perfect as you.",
+            "I never got crushes as often as other kits when I was younger. I thought that, maybe, it just wasn't for me.",
+            "Turns out I just had to wait for my soulmate to show up!"
+        ]
+    },
+    "gen_pg_10": {
+        "cats": {
+            "y_c": {
+                "rank": ["medicine cat"],
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "rank": [
+                    "deputy", "leader", "warrior"
+                ],
+                "cluster": ["unabashed", "unlawful", "silly"],
+                "age": ["not_kitten"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["qpps"]
+            }
+        ],
+        "intro": [
+            "[t_c pokes {PRONOUN/t_c/poss} head into the medicine den.]",
+            "y_c. You're the cat I trust most in this world. My beloved partner. Don't be mad.",
+            "[Your mind starts to race. What happened?! Is someone hurt? You promise not to be mad, and...]",
+            "[t_c hobbles into the den, a bramble vine firmly tangled around {PRONOUN/t_c/poss} haunches. Right after you told {PRONOUN/t_c/object} to be careful on {PRONOUN/t_c/poss} patrol.]",
+            "Hey! Don't be mad! You promised!",
+            "There was a chickadee under the bush! I was trying to get it for you. I know you like them.",
+            "N- no... it got away. But it's the thought that counts, right? Love you!"
         ]
     }
 }
