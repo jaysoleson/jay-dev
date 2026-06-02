@@ -550,8 +550,8 @@ class Cat:
         # PRIDEGEN-- Sexuality
         if not self.sexuality:
             self.sexuality = Sexuality()
-            if disable_random:
-                self.sexuality.init_random_sexuality(self.genderalign, disable_random=disable_random)
+            if self.disable_random:
+                self.sexuality.init_random_sexuality(self.genderalign, disable_random=self.disable_random)
             else:
                 self.sexuality.init_random_sexuality(self.genderalign)
                 self.sexuality.give_bandanas(self)

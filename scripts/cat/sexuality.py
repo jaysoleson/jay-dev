@@ -396,7 +396,6 @@ class Sexuality():
             self.acespec == Acespec.ACE
         ):
             valid_flags.append("AROACE")
-            valid_flags.append("AROACEFLUX")
 
         if self.arospec == Arospec.DEMI and self.acespec == Acespec.DEMI:
             valid_flags.append("DEMIAROACE")

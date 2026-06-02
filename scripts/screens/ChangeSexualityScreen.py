@@ -106,7 +106,8 @@ class ChangeSexualityScreen(Screens):
             get_button_dict(ButtonStyles.ICON, (30, 30)),
             object_id="@buttonstyles_icon",
             manager=MANAGER,
-            anchors={"left_target":self.save_button}
+            anchors={"left_target":self.save_button},
+            tool_tip_text="Edit Gender"
         )
 
         self.elements["cat_frame"] = pygame_gui.elements.UIImage(

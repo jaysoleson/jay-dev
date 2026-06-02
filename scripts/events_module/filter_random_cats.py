@@ -1,10 +1,13 @@
 import random
 
 from scripts.game_structure import game
-from scripts.cat.enums import CatGroup, CatRank
+from scripts.cat.enums import CatGroup, CatRank, CatAge
 from scripts.cat.cats import Cat, BACKSTORIES
 from scripts.lifegen_utility import get_cluster
 from scripts.clan_package.settings import get_clan_setting
+from scripts.cat.sexuality import Sexuality, Arospec, Acespec
+from scripts.game_structure import game, constants
+
 
 # pylint: disable=consider-using-dict-items
 
@@ -12,6 +15,8 @@ from scripts.clan_package.settings import get_clan_setting
 # this script deals with filtering the "cats" blocks used in dialogue, lg events, and lg patrols.
 
 possible_cats_dict = {}
+
+debug_key = constants.CONFIG["lifegen"]["debug"]["debug_ensure_dialogue"]
 
 def choose_random_cats(
         cats_block: dict={},
@@ -47,7 +52,8 @@ def choose_random_cats(
                 cats_block,
                 possible_cats,
                 your_cat,
-                the_cat
+                the_cat,
+                key=key
                 )
             if not possible_cats_dict[abbrev]:
                 return {}
@@ -71,7 +77,7 @@ def choose_random_cats(
     #     print(e)
     return chosen_cat_dict
 
-def _validate_cat(abbrev, cat_block, possible_cats, your_cat, the_cat):
+def _validate_cat(abbrev, cat_block, possible_cats, your_cat, the_cat, key=""):
     """
     Validates each cat block.
     Helper functions will narrow down the possible cat options.
@@ -88,6 +94,10 @@ def _validate_cat(abbrev, cat_block, possible_cats, your_cat, the_cat):
         if not __filter_age(cat_block[abbrev], cat):
             continue
         if not __filter_rank(cat_block[abbrev], cat):
+            continue
+
+        # PG
+        if not __filter_sexuality(cat_block[abbrev], cat):
             continue
 
         if not __filter_group(cat_block[abbrev], cat, your_cat):
@@ -188,6 +198,9 @@ def __filter_group(abbrev_block, cat, your_cat):
             )
         ):
             return False
+    else:
+        if cat.status.group != your_cat.status.group:
+            return False
     return True
 
 def __filter_standing(abbrev_block, cat, your_cat):
@@ -222,10 +235,16 @@ def __filter_age(abbrev_block, cat):
 
     if f"not_{cat.age}" in abbrev_block["age"]:
         return False
-    elif f"-{cat.age}" in abbrev_block["age"]:
+    if "not_kitten" in abbrev_block["age"] and cat.age == CatAge.NEWBORN:
         return False
-    elif cat.age not in abbrev_block["age"]:
+    if f"-{cat.age}" in abbrev_block["age"]:
         return False
+    if any(age in abbrev_block for age in (
+        CatAge.NEWBORN, CatAge.KITTEN, CatAge.ADOLESCENT,
+        CatAge.YOUNG_ADULT, CatAge.ADULT, CatAge.SENIOR_ADULT, CatAge.SENIOR
+    )):
+        if cat.age not in abbrev_block["age"]:
+            return False
 
     return True
 
@@ -258,6 +277,94 @@ def __filter_rank(abbrev_block, cat):
             cat.status.rank not in abbrev_block["rank"] and
             cat.status.rank.replace(' ', '_') not in abbrev_block["rank"]
             ):
+            return False
+    return True
+
+# PG
+def __filter_sexuality(abbrev_block, cat):
+    gender_block = abbrev_block["gender"] if "gender" in abbrev_block else []
+    sexuality_block = abbrev_block["sexuality"] if "sexuality" in abbrev_block else []
+
+    if not sexuality_block and not gender_block:
+        return True
+    
+    vanilla_tags = [
+        "likes_she_cats",
+        "not:likes_she_cats",
+        "likes_toms",
+        "not:likes_toms",
+        Acespec.ALLO,
+        Acespec.DEMI,
+        Acespec.GREY,
+        Acespec.ACE,
+        Arospec.ALLO,
+        Arospec.DEMI,
+        Arospec.GREY,
+        Arospec.ARO,
+        "cisgender",
+        "transgender",
+        "nonbinary",
+        "binary",
+        "male",
+        "female",
+        "not:male",
+        "not:female"
+    ]
+    
+    # sexuality
+    if "likes_she_cats" in sexuality_block and not cat.sexuality.likes_she_cats:
+        return False
+    if "not:likes_she_cats" in sexuality_block and cat.sexuality.likes_she_cats:
+        return False
+    
+    if "likes_toms" in sexuality_block and not cat.sexuality.likes_toms:
+        return False
+    if "not:likes_toms" in sexuality_block and cat.sexuality.likes_toms:
+        return False
+    
+    if any(tag in sexuality_block for tag in [
+        Acespec.ALLO,
+        Acespec.DEMI,
+        Acespec.GREY,
+        Acespec.ACE
+    ]):
+        if cat.sexuality.acespec not in sexuality_block:
+            return False
+    if any(tag in sexuality_block for tag in [
+        Arospec.ALLO,
+        Arospec.DEMI,
+        Arospec.GREY,
+        Arospec.ARO
+    ]):
+        if cat.sexuality.arospec not in sexuality_block:
+            return False
+    
+    # gender
+    if "cisgender" in gender_block and cat.gender != cat.genderalign:
+        return False
+    if "transgender" in gender_block and cat.gender == cat.genderalign:
+        return False
+    if "nonbinary" in gender_block and cat.genderalign in (Sexuality.male_genders + Sexuality.female_genders):
+        return False
+    if "binary" in gender_block and cat.genderalign not in (Sexuality.male_genders + Sexuality.female_genders):
+        return False
+    if "female" in gender_block and cat.genderalign not in Sexuality.female_genders:
+        return False
+    if "male" in gender_block and cat.genderalign not in Sexuality.male_genders:
+        return False
+    if "not:female" in gender_block and cat.genderalign in Sexuality.female_genders:
+        return False
+    if "not:male" in gender_block and cat.genderalign in Sexuality.male_genders:
+        return False
+    
+    # other tags
+    if not any(tag in sexuality_block + gender_block for tag in vanilla_tags):
+        if not (
+            cat.sexuality.sexuality_label or
+            cat.sexuality.acespec_label or
+            cat.sexuality.arospec_label or
+            cat.genderalign
+        ) in sexuality_block + gender_block:
             return False
     return True
 
@@ -542,6 +649,12 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                             if valid:
                                 if rel_tag == "mates":
                                     rel_valid = to_cat.ID in from_cat.mate
+                                # PG
+                                elif rel_tag == "qpps":
+                                    rel_valid = to_cat.ID in from_cat.qpp
+                                elif rel_tag == "non-qpps":
+                                    rel_valid = to_cat.ID not in from_cat.qpp
+                                # ---
                                 elif rel_tag == "non-mates":
                                     rel_valid = to_cat.ID not in from_cat.mate
                                 elif rel_tag == "ex-mates":

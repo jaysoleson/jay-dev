@@ -1,0 +1,35 @@
+{
+    "pridegen_01": {
+        "cats": {
+            "y_c": {
+                "gender": [
+                    "male"
+                ],
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "gender": [
+                    "not:male"
+                ],
+                "age": ["not_kitten"]
+            },
+            "r_c:0": {
+                "gender": [
+                    "male"
+                ],
+                "age": ["not_kitten"]
+            },
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "relationship": ["min_like_10"]
+                }
+            ]
+        },
+        "intro": [
+            "Ugh. r_c:0 is getting on my nerves today. Toms are so silly sometimes.",
+            "... Present company excluded. Sorry, hehe."
+        ]
+    }
+}

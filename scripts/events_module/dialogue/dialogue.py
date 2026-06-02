@@ -54,6 +54,14 @@ class Dialogue():
                 if self.cat.status.rank != CatRank.NEWBORN:
                     # newborns will no longer participate in nuanced discussion
 
+                    # PG
+                    possible_texts.update(
+                        load_lang_resource(
+                            f"{resource_dir}/pridegen.json"
+                            )
+                        )
+                    # ---
+
                     if not self.cat.status.rank.is_baby() and not self.you.status.rank.is_baby():
                         possible_texts.update(
                             load_lang_resource(
@@ -211,7 +219,8 @@ class Dialogue():
                     rel_block=[],
                     your_cat=self.you,
                     the_cat=self.cat,
-                    cat_dict=self.cat_dict
+                    cat_dict=self.cat_dict,
+                    key=chosen_key
                 )
                 debug_valid = True
             elif self.debug in possible_dialogue_keys:
@@ -227,7 +236,8 @@ class Dialogue():
                         ),
                     your_cat=self.you,
                     the_cat=self.cat,
-                    cat_dict=self.cat_dict
+                    cat_dict=self.cat_dict,
+                    key=chosen_key
                 )
                 if chosen_cat_dict:
                     debug_valid = True
@@ -252,7 +262,8 @@ class Dialogue():
                     rel_block=dialogue_block['relationships'] if "relationships" in dialogue_block else [],
                     your_cat=self.you,
                     the_cat=self.cat,
-                    cat_dict=self.cat_dict
+                    cat_dict=self.cat_dict,
+                    key=key
                 )
                 if not chosen_cat_dict:
                     continue

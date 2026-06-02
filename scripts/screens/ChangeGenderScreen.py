@@ -281,7 +281,9 @@ class ChangeGenderScreen(Screens):
             get_button_dict(ButtonStyles.ICON, (30, 30)),
             object_id="@buttonstyles_icon",
             manager=MANAGER,
-            anchors={"left_target":self.buttons["add_pronouns"]}
+            anchors={"left_target":self.buttons["add_pronouns"]},
+            tool_tip_text="Edit Sexuality"
+            
         )
         # ---
         self.selected_cat_elements["gender"] = pygame_gui.elements.UITextEntryLine(
