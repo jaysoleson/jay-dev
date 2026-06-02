@@ -22,7 +22,6 @@
         special_dates = true
         "random relation" = true
         "they them default" = false
-        "all accessories" = true
         lifegen_sprite_changes = true
         red_bg = true
 
@@ -63,6 +62,7 @@
         save_faded_copy = false
         backgrounds = true
         freshkill = true
+        "all accessories" = false
     
     [clan.role]
         deputy = false
