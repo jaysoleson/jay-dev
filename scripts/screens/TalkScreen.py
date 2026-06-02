@@ -2,7 +2,8 @@ import pygame
 import re
 from random import choice
 from .Screens import Screens
-from scripts.game_structure.audio import sound_manager
+from scripts.game_structure.audio.audio_manager import AudioManager
+from scripts.game_structure.audio.sound import Sound
 
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
@@ -434,6 +435,8 @@ class TalkScreen(Screens):
         super().on_use()
         now = pygame.time.get_ticks()
 
+        action_line = False
+
         if self.texts:
             self.texts[self.text_index], speaking_cat = self.get_speaking_cat(self.current_line)
 
@@ -470,29 +473,41 @@ class TalkScreen(Screens):
 
             # action lines
             if self.texts[self.text_index][0] == "[" and self.texts[self.text_index][-1] == "]":
+                action_line = True
                 self.speaking_cat_elements["cat_name"].hide()
                 self.speaking_cat_elements["cat_image"].hide()
             else:
+                action_line = False
                 self.speaking_cat_elements["cat_name"].show()
                 self.speaking_cat_elements["cat_image"].show()
 
         self.text_frames = [[text[:i+1] for i in range(len(text))] for text in self.texts]
+    
         if self.text_index < len(self.text_frames):
             if now >= self.next_frame_time and self.frame_index < len(self.text_frames[self.text_index]) - 1:
                 self.frame_index += 1
                 self.next_frame_time = now + self.typing_delay
-                # sound_manager.play("button_press")
+                if (
+                    (
+                        self.frame_index == 1 or
+                        self.frame_index % 4 == 0
+                    ) and
+                    not action_line and
+                    game_setting_get("dialogue_typing_sound")
+                    ):
+
+                    game.audio.sound.play("dialogue_type_classic_high")
         # the end of the line
         if self.text_index == len(self.text_frames) - 1:
             if self.frame_index == len(self.text_frames[self.text_index]) - 1:
                 if not self.created_choice_buttons:
                     self.create_choice_buttons()
                 if not self.meow:
-                    if "[" not in self.texts[self.text_index]:
-                        sound_manager.play("meow")
+                    # if not action_line:
+                    #     game.audio.sound.play("meow")
                     # this plays One meow sound effect at the end of dialogue
                     self.meow = True
-                    self.paw.visible = True
+                self.paw.visible = True
 
         # Always render the current frame
         if self.text_frames:

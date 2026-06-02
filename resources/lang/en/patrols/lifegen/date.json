@@ -39,7 +39,7 @@
                         ],
                         "amount": 10,
                         "log": {
-                            "cats_from": "from_cat and to_cat had a snowball fight."
+                            "cats_from": "cat_from and cat_to had a snowball fight."
                         }
                     }
                 ]
@@ -74,7 +74,7 @@
         "decline_text": "Your nerves get to you, and you find yourself unable to speak.",
         "chance_of_success": 50,
         "relationship_constraint": [
-            "not_mates"
+            "-mates"
         ],
         "success_outcomes": [
             {
@@ -96,7 +96,7 @@
                         ],
                         "amount": 13,
                         "log": {
-                            "cats_from": "from_cat and to_cat went on a date."
+                            "cats_from": "cat_from and cat_to went on a date."
                         }
                     }
                 ]
@@ -121,7 +121,7 @@
                         ],
                         "amount": -5,
                         "log": {
-                            "cats_from": "to_cat thought {PRONOUN/to_cat/subject} {VERB/to_cat/were/was} on a date with from_cat, but from_cat disagreed."
+                            "cats_from": "cat_to thought {PRONOUN/cat_to/subject} {VERB/cat_to/were/was} on a date with cat_from, but cat_from disagreed."
                         }
                     }
                 ]
@@ -167,7 +167,7 @@
                         ],
                         "amount": 8,
                         "log": {
-                            "cats_from": "from_cat and to_cat watched a meteor shower together."
+                            "cats_from": "cat_from and cat_to watched a meteor shower together."
                         }
                     }
                 ]
@@ -192,7 +192,7 @@
                         ],
                         "amount": -5,
                         "log": {
-                            "cats_from": "from_cat asked to_cat to watch the meteor shower with {PRONOUN/from_cat/object}, but to_cat was already watching it with another cat."
+                            "cats_from": "cat_from asked cat_to to watch the meteor shower with {PRONOUN/cat_from/object}, but cat_to was already watching it with another cat."
                         }
                     }
                 ]
@@ -237,7 +237,10 @@
                             "comfort",
                             "like"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {
+                            "cats_from": "cat_from and cat_to watched a thunderstorm together."
+                        }
                     }
                 ]
             }
@@ -288,7 +291,8 @@
                             "romance",
                             "comfort"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log":{}
                     }
                 ]
             }
@@ -310,7 +314,8 @@
                         "values": [
                             "comfort"
                         ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {}
                     }
                 ]
             }
@@ -354,7 +359,8 @@
                             "romance",
                             "like"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -429,7 +435,8 @@
                             "romance",
                             "like"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -463,7 +470,7 @@
         "decline_text": "You decide not to. The thought of rejection is too overwhelming.",
         "chance_of_success": 50,
         "relationship_constraint": [
-            "not_mates"
+            "-mates"
         ],
         "success_outcomes": [
             {
@@ -482,7 +489,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 13
+                        "amount": 13,
+                        "log": {}
                     }
                 ]
             }
@@ -533,7 +541,8 @@
                             "romance",
                             "comfort"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {}
                     }
                 ]
             }
@@ -555,7 +564,8 @@
                         "values": [
                             "comfort"
                         ],
-                        "amount": -8
+                        "amount": -8,
+                        "log": {}
                     }
                 ]
             }
@@ -599,7 +609,8 @@
                             "romance",
                             "comfort"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -652,7 +663,7 @@
                         ],
                         "amount": 10,
                         "log": {
-                            "cats_from": "from_cat invited to_cat to watch a nest of hawk eggs hatch."
+                            "cats_from": "cat_from invited cat_to to watch a nest of hawk eggs hatch."
                         }
                     }
                 ]
@@ -704,7 +715,8 @@
                             "comfort",
                             "like"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {}
                     }
                 ]
             }
@@ -760,7 +772,8 @@
                             "romance",
                             "like"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {}
                     }
                 ]
             }
@@ -794,7 +807,7 @@
         "decline_text": "No! No way in StarClan! You're too awkward for that! So you just sit in silence with {PRONOUN/r_c/object}.",
         "chance_of_success": 50,
         "relationship_constraint": [
-            "not_mates"
+            "-mates"
         ],
         "success_outcomes": [
             {
@@ -813,7 +826,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 12
+                        "amount": 12,
+                        "log": {}
                     }
                 ]
             }
@@ -863,7 +877,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -926,7 +941,7 @@
                         ],
                         "amount": 8,
                         "log": {
-                            "cats_from": "to_cat and from_cat frolicked through a flower field together."
+                            "cats_from": "cat_to and cat_from frolicked through a flower field together."
                         }
                     }
                 ]
@@ -979,7 +994,7 @@
                         ],
                         "amount": 8,
                         "log": {
-                            "cats_from": "to_cat and from_cat frolicked through an enchanting swarm of fireflies together."
+                            "cats_from": "cat_to and cat_from frolicked through an enchanting swarm of fireflies together."
                         }
                     }
                 ]
@@ -1033,7 +1048,7 @@
                         ],
                         "amount": 8,
                         "log": {
-                            "cats_from": "to_cat and from_cat played in the ocean together."
+                            "cats_from": "cat_to and cat_from played in the ocean together."
                         }
                     }
                 ]
@@ -1086,7 +1101,7 @@
                         ],
                         "amount": 8,
                         "log": {
-                            "cats_from": "During a quiet moment, from_cat brushed a leaf from to_cat's shoulder."
+                            "cats_from": "During a quiet moment, cat_from brushed a leaf from cat_to's shoulder."
                         }
                     }
                 ]
@@ -1147,7 +1162,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {}
                     }
                 ]
             }
@@ -1198,7 +1214,8 @@
                             "romance",
                             "like"
                         ],
-                        "amount": 6
+                        "amount": 6,
+                        "log": {}
                     }
                 ]
             }
@@ -1254,7 +1271,8 @@
                             "romance",
                             "like"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {}
                     }
                 ]
             }
@@ -1309,7 +1327,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {}
                     }
                 ]
             }
@@ -1365,7 +1384,8 @@
                             "romance",
                             "like"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             }
@@ -1399,7 +1419,7 @@
         "decline_text": "You shake off the feeling. There are more important things to do than to swoon at a stupid crush.",
         "chance_of_success": 50,
         "relationship_constraint": [
-            "not_mates"
+            "-mates"
         ],
         "success_outcomes": [
             {
@@ -1418,7 +1438,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {}
                     }
                 ]
             }
@@ -1469,7 +1490,8 @@
                             "romance",
                             "like"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {}
                     }
                 ]
             }
@@ -1520,7 +1542,8 @@
                             "romance",
                             "like"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {}
                     }
                 ]
             }
@@ -1554,7 +1577,7 @@
         "decline_text": "You decide to focus on your task instead.",
         "chance_of_success": 45,
         "relationship_constraint": [
-            "not_mates"
+            "-mates"
         ],
         "success_outcomes": [
             {
@@ -1573,7 +1596,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 15
+                        "amount": 15,
+                        "log": {}
                     }
                 ]
             }
@@ -1639,7 +1663,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -1691,7 +1716,8 @@
                             "like",
                             "comfort"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -1743,7 +1769,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -1811,7 +1838,8 @@
                             "romance",
                             "trust"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {}
                     }
                 ]
             }
@@ -1863,7 +1891,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -1917,7 +1946,8 @@
                             "trust",
                             "comfort"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {}
                     }
                 ]
             }
@@ -1953,7 +1983,7 @@
         "decline_text": "You look away. Now isn't the time.",
         "chance_of_success": 60,
         "relationship_constraint": [
-            "not_mates"
+            "-mates"
         ],
         "success_outcomes": [
             {
@@ -1972,7 +2002,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -2069,7 +2100,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -2123,7 +2155,8 @@
                             "trust",
                             "comfort"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {}
                     }
                 ]
             }
@@ -2179,7 +2212,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             },
@@ -2199,7 +2233,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ],
                 "accessory": [
@@ -2235,7 +2270,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {}
                     }
                 ]
             },
@@ -2255,7 +2291,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ],
                 "injury": [
@@ -2285,7 +2322,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ],
                 "injury": [
@@ -2346,7 +2384,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             },
@@ -2369,7 +2408,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 7
+                        "amount": 7,
+                        "log": {}
                     }
                 ]
             },
@@ -2404,7 +2444,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -2464,7 +2505,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             },
@@ -2484,7 +2526,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 8
+                        "amount": 8,
+                        "log": {}
                     }
                 ]
             }
@@ -2539,7 +2582,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             },
@@ -2559,7 +2603,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             }
@@ -2581,7 +2626,8 @@
                         "values": [
                             "romance"
                         ],
-                        "amount": 3
+                        "amount": 3,
+                        "log": {}
                     }
                 ]
             },
@@ -2635,7 +2681,8 @@
                             "romance",
                             "like"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             },
@@ -2656,7 +2703,8 @@
                             "romance",
                             "like"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             },
@@ -2690,7 +2738,8 @@
                             "romance",
                             "like"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             },
@@ -2723,7 +2772,8 @@
                             "romance",
                             "like"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             }
@@ -2745,7 +2795,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": 3
+                        "amount": 3,
+                        "log": {}
                     }
                 ]
             },
@@ -2765,7 +2816,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": 3
+                        "amount": 3,
+                        "log": {}
                     }
                 ]
             }

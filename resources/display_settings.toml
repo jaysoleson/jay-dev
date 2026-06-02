@@ -22,7 +22,6 @@
         special_dates = true
         "random relation" = true
         "they them default" = false
-        "all accessories" = true
         lifegen_sprite_changes = true
         red_bg = true
         auto_equip_bandanas = true
@@ -39,13 +38,19 @@
             false, true
         ]
         music_volume = [
-            100
+            50
+        ]
+        ambiance_volume = [
+            50
         ]
         sound_volume = [
-            100
+            50
         ]
         audio_mute = [
             false, true
+        ]
+        dialogue_typing_sound = [
+            true, false
         ]
 
 [clan]
@@ -58,6 +63,7 @@
         save_faded_copy = false
         backgrounds = true
         freshkill = true
+        "all accessories" = false
     
     [clan.role]
         deputy = false
@@ -69,6 +75,7 @@
     
     [clan.relation]
         affair = false
+        "unmated parentage" = false
         "same sex birth" = false
         "same sex adoption" = false
         "single parentage" = false

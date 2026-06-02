@@ -6,6 +6,7 @@ from scripts.game_structure.game.switches import switch_get_value, Switch
 from scripts.game_structure.localization import load_lang_resource
 from scripts.cat.enums import CatRank, CatAge
 from scripts.cat.cats import Cat
+from scripts.cat.pelts import Pelt
 from scripts.events_module.consequences import unpack_rel_block
 
 
@@ -120,7 +121,6 @@ class Dialogue():
         for key, block in possible_texts.items():
             if "season" in block:
                 if (
-                    block["season"] and
                     game.clan.current_season not in block["season"] and
                     game.clan.current_season.lower() not in block["season"]
                     ):
@@ -157,7 +157,6 @@ class Dialogue():
                     if not flirt_success:
                         continue
 
-
         return possible_dialogue_keys
 
     def get_cat_dict(self):
@@ -172,7 +171,6 @@ class Dialogue():
         Returns the key and the dict object.
         """
         possible_dialogue_keys = self.filter_dialogue(possible_dialogue, flirt)
-
     
         if not possible_dialogue:
             possible_dialogue = load_lang_resource("lifegen_talk/general.json")
@@ -181,7 +179,7 @@ class Dialogue():
         debug_dict = {}
         for key in possible_dialogue_keys.copy():
             if len(possible_dialogue_keys) > 2:
-                if key in game.clan.talks:
+                if key in game.clan.talks and key != self.debug:
                     possible_dialogue_keys.remove(key)
             if key not in debug_dict:
                 debug_dict[key] = 1
@@ -193,6 +191,7 @@ class Dialogue():
         # print("DIALOGUE WEIGHTS")
         # for key, value in debug_dict.items():
         #     print(f"{key}: {value}")
+
         debug_valid = False
         chosen_key = None
         chosen_cat_dict = {}
@@ -215,7 +214,7 @@ class Dialogue():
                     cat_dict=self.cat_dict
                 )
                 debug_valid = True
-            elif self.debug in possible_dialogue:
+            elif self.debug in possible_dialogue_keys:
                 print(f"Debug: Dialogue set to {self.debug}")
                 chosen_key = self.debug
 
@@ -319,10 +318,16 @@ class Dialogue():
                     return
                 if inventory_block["addition"] == "choice":
                     chosen_accessory = random.choice(inventory_block["accessory"])
-                    cat_to_object.pelt.inventory.append(chosen_accessory)
+                    if chosen_accessory in Pelt.lifegen_acc_categories:
+                        cat_to_object.pelt.inventory.append(random.choice(Pelt.lifegen_acc_categories[chosen_accessory]))
+                    else:
+                        cat_to_object.pelt.inventory.append(random.choice(chosen_accessory))
                 elif inventory_block["addition"] == "all":
                     for acc in inventory_block["accessory"]:
-                        cat_to_object.pelt.inventory.append(acc)
+                        if acc in Pelt.lifegen_acc_categories:
+                            cat_to_object.pelt.inventory.append(random.choice(Pelt.lifegen_acc_categories[acc]))
+                        else:
+                            cat_to_object.pelt.inventory.append(acc)
 
         if relationship_block:
             unpack_rel_block(Cat, relationship_block, self, dialogue_dict=cat_dict)

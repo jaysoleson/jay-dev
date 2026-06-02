@@ -106,8 +106,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a Dark Forest warrior.",
-                    "reg_death": "m_c was killed by a Dark Forest warrior.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a Dark Forest warrior"
+                    "death": "m_c was killed by a Dark Forest warrior."
                 }
             },
             {
@@ -147,8 +146,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a Dark Forest warrior.",
-                    "reg_death": "m_c was killed by a Dark Forest warrior.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a Dark Forest warrior"
+                    "death": "m_c was killed by a Dark Forest warrior."
                 }
             },
             {
@@ -283,8 +281,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a Dark Forest warrior.",
-                    "reg_death": "m_c was killed by a Dark Forest warrior.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a Dark Forest warrior"
+                    "death": "m_c was killed by a Dark Forest warrior."
                 }
             }
         ]
@@ -566,8 +563,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c died after ingesting too much Dark Forest water.",
-                    "lead_death": "ingested too much Dark Forest water"
+                    "death": "m_c died after ingesting too much Dark Forest water."
                 }
             },
             {
@@ -585,8 +581,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c died after ingesting too much Dark Forest water.",
-                    "lead_death": "ingested too much Dark Forest water"
+                    "death": "m_c died after ingesting too much Dark Forest water."
                 }
             }
         ],
@@ -607,8 +602,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c died after ingesting too much Dark Forest water.",
-                    "lead_death": "ingested too much Dark Forest water"
+                    "death": "m_c died after ingesting too much Dark Forest water."
                 }
             },
             {
@@ -619,8 +613,7 @@
                     "p_l"
                 ],
                 "history_text": {
-                    "reg_death": "m_c died after ingesting too much Dark Forest water.",
-                    "lead_death": "ingested too much Dark Forest water"
+                    "death": "m_c died after ingesting too much Dark Forest water."
                 }
             }
         ]
@@ -700,7 +693,8 @@
                             "respect",
                             "trust"
                         ],
-                        "amount": 2
+                        "amount": 2,
+                        "log": {}
                     }
                 ]
             },
@@ -744,7 +738,8 @@
                             "respect",
                             "trust"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             },
@@ -765,7 +760,8 @@
                             "respect",
                             "trust"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             }
@@ -809,7 +805,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {}
                     }
                 ]
             },
@@ -830,7 +827,8 @@
                             "like",
                             "respect"
                         ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {}
                     }
                 ]
             }
@@ -874,7 +872,8 @@
                             "comfort",
                             "trust"
                         ],
-                        "amount": 2
+                        "amount": 2,
+                        "log": {}
                     }
                 ],
                 "convert": [
@@ -922,7 +921,8 @@
                             "comfort",
                             "trust"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ],
                 "convert": [
@@ -953,7 +953,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {}
                     }
                 ]
             }
@@ -975,7 +976,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": -2
+                        "amount": -2,
+                        "log": {}
                     }
                 ]
             },
@@ -995,7 +997,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {}
                     }
                 ],
                 "injury": [
@@ -1033,8 +1036,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c was murdered by r_c in the Dark Forest.",
-                    "lead_death": "murdered by r_c in the Dark Forest"
+                    "death": "m_c was murdered by r_c in the Dark Forest."
                 }
             }
         ]
@@ -1080,7 +1082,8 @@
                             "trust",
                             "like"
                         ],
-                        "amount": 2
+                        "amount": 2,
+                        "log": {}
                     }
                 ]
             },
@@ -1100,7 +1103,8 @@
                         "values": [
                             "respect"
                         ],
-                        "amount": 2
+                        "amount": 2,
+                        "log": {}
                     }
                 ]
             }
@@ -1122,7 +1126,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {}
                     }
                 ]
             }
@@ -1167,7 +1172,8 @@
                         "values": [
                             "trust"
                         ],
-                        "amount": 2
+                        "amount": 2,
+                        "log": {}
                     }
                 ]
             },
@@ -1190,7 +1196,8 @@
                             "comfort",
                             "like"
                         ],
-                        "amount": 2
+                        "amount": 2,
+                        "log": {}
                     }
                 ]
             },
@@ -1212,7 +1219,8 @@
                             "respect",
                             "comfort"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ],
                 "injury": [
@@ -1226,8 +1234,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c died after ingesting Dark Forest mud.",
-                    "lead_death": "ingested Dark Forest mud"
+                    "death": "m_c died after ingesting Dark Forest mud."
                 }
             }
         ],
@@ -1263,7 +1270,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {}
                     }
                 ],
                 "injury": [
@@ -1277,8 +1285,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c died after ingesting Dark Forest mud.",
-                    "lead_death": "ingested Dark Forest mud"
+                    "death": "m_c died after ingesting Dark Forest mud."
                 }
             },
             {
@@ -1299,8 +1306,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c died after being left for dead in the Dark Forest.",
-                    "lead_death": "{VERB/m_c/were/was} left for dead in the Dark Forest "
+                    "death": "m_c died after being left for dead in the Dark Forest."
                 }
             }
         ]
@@ -1374,8 +1380,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a Dark Forest warrior.",
-                    "reg_death": "m_c was killed by a Dark Forest warrior.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a Dark Forest warrior"
+                    "death": "m_c was killed by a Dark Forest warrior."
                 }
             },
             {
@@ -1396,8 +1401,7 @@
                     "p_l"
                 ],
                 "history_text": {
-                    "reg_death": "{VERB/m_c/were/was} murdered in the Dark Forest.",
-                    "lead_death": "{VERB/m_c/were/was} murdered in the Dark Forest."
+                    "death": "{VERB/m_c/were/was} murdered in the Dark Forest."
                 }
             }
         ]
@@ -1489,8 +1493,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a Dark Forest warrior.",
-                    "reg_death": "m_c was killed by a Dark Forest warrior.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a Dark Forest warrior"
+                    "death": "m_c was killed by a Dark Forest warrior."
                 }
             },
             {
@@ -1572,8 +1575,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a Dark Forest warrior.",
-                    "reg_death": "m_c was killed by a Dark Forest warrior.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a Dark Forest warrior"
+                    "death": "m_c was killed by a Dark Forest warrior."
                 }
             },
             {
@@ -1597,8 +1599,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a Dark Forest warrior.",
-                    "reg_death": "m_c was killed by a Dark Forest warrior.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a Dark Forest warrior"
+                    "death": "m_c was killed by a Dark Forest warrior."
                 }
             },
             {
@@ -1657,7 +1658,8 @@
                             "trust",
                             "comfort"
                         ],
-                        "amount": 15
+                        "amount": 15,
+                        "log": {}
                     }
                 ]
             }
@@ -1682,8 +1684,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a Clanmate in the Dark Forest.",
-                    "reg_death": "m_c was killed by a Clanmate in the Dark Forest.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a Clanmate in the Dark Forest."
+                    "death": "m_c was killed by a Clanmate in the Dark Forest."
                 }
             },
             {
@@ -1702,7 +1703,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": -10
+                        "amount": -10,
+                        "log": {}
                     }
                 ]
             }
@@ -1740,7 +1742,8 @@
                             "trust",
                             "like"
                         ],
-                        "amount": -20
+                        "amount": -20,
+                        "log": {}
                     }
                 ],
                 "injury": [
@@ -1754,8 +1757,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c died after ingesting too much Dark Forest water",
-                    "lead_death": "ingested too much Dark Forest water"
+                    "death": "m_c died after ingesting too much Dark Forest water"
                 }
             }
         ],
@@ -1779,8 +1781,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a Dark Forest warrior.",
-                    "reg_death": "m_c was killed by a Dark Forest warrior.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a Dark Forest warrior."
+                    "death": "m_c was killed by a Dark Forest warrior."
                 }
             },
             {
@@ -1801,8 +1802,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c was killed in a fight with a Clanmate in the Dark Forest.",
-                    "lead_death": "died in a fight with a Clanmate in the Dark Forest."
+                    "death": "m_c was killed in a fight with a Clanmate in the Dark Forest."
                 }
             }
         ]
@@ -1870,8 +1870,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c died after ingesting too much Dark Forest water",
-                    "lead_death": "ingested too much Dark Forest water"
+                    "death": "m_c died after ingesting too much Dark Forest water"
                 }
             },
             {
@@ -1882,8 +1881,7 @@
                     "r_c"
                 ],
                 "history_text": {
-                    "reg_death": "m_c drowned in the Dark Forest",
-                    "lead_death": "drowned in the Dark Forest"
+                    "death": "m_c drowned in the Dark Forest"
                 }
             }
         ]
@@ -1931,7 +1929,8 @@
                             "trust",
                             "comfort"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             },
@@ -1986,7 +1985,8 @@
                             "trust",
                             "comfort"
                         ],
-                        "amount": -15
+                        "amount": -15,
+                        "log": {}
                     }
                 ]
             },
@@ -2006,7 +2006,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": -10
+                        "amount": -10,
+                        "log": {}
                     }
                 ]
             }
@@ -2029,7 +2030,8 @@
                             "trust",
                             "comfort"
                         ],
-                        "amount": -15
+                        "amount": -15,
+                        "log": {}
                     }
                 ]
             },
@@ -2279,7 +2281,8 @@
                         "values": [
                             "respect"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             },
@@ -2299,7 +2302,8 @@
                         "values": [
                             "respect"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             },
@@ -2319,7 +2323,8 @@
                         "values": [
                             "trust"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -2341,8 +2346,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a Dark Forest warrior.",
-                    "reg_death": "m_c was killed by a Dark Forest warrior.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a Dark Forest warrior"
+                    "death": "m_c was killed by a Dark Forest warrior."
                 }
             },
             {
@@ -2361,7 +2365,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {}
                     }
                 ]
             },
@@ -2382,8 +2387,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a fellow Dark Forest warrior.",
-                    "reg_death": "m_c was killed by a fellow Dark Forest warrior.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a fellow Dark Forest warrior"
+                    "death": "m_c was killed by a fellow Dark Forest warrior."
                 }
             }
         ]
@@ -2428,7 +2432,8 @@
                             "respect",
                             "comfort"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             },
@@ -2451,7 +2456,8 @@
                             "trust",
                             "like"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             }
@@ -2473,7 +2479,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {}
                     }
                 ]
             },
@@ -2493,7 +2500,8 @@
                         "values": [
                             "trust"
                         ],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ],
                 "injury": [
@@ -2508,8 +2516,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a Dark Forest warrior.",
-                    "reg_death": "m_c was killed by a Dark Forest warrior.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a Dark Forest warrior"
+                    "death": "m_c was killed by a Dark Forest warrior."
                 }
             }
         ],
@@ -2530,7 +2537,8 @@
                         "values": [
                             "respect"
                         ],
-                        "amount": -5
+                        "amount": -5,
+                        "log": {}
                     }
                 ]
             },
@@ -2551,7 +2559,8 @@
                             "respect",
                             "trust"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     }
                 ]
             }
@@ -2573,7 +2582,8 @@
                         "values": [
                             "like"
                         ],
-                        "amount": -10
+                        "amount": -10,
+                        "log": {}
                     }
                 ],
                 "injury": [
@@ -2589,15 +2599,14 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a fellow Dark Forest warrior.",
-                    "reg_death": "m_c was killed by a fellow Dark Forest warrior.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a fellow Dark Forest warrior"
+                    "death": "m_c was killed by a fellow Dark Forest warrior."
                 }
             },
             {
                 "text": "Your claws unsheathe as you prepare. It's too late - you hear the whistle of wind above you and try to move from your position. You're too slow. Your attacker lands upon you as your yowl is cut off. Your gaze manages to catch on your assailant. r_c's eyes gleam in the low light before {PRONOUN/r_c/poss} fangs meet your throat. In the morning, the Clan is horrified to find your cold body in your nest...",
                 "exp": 0,
                 "frequency": 4,
-                "dead cats": [
+                "dead_cats": [
                     "p_l"
                 ],
                 "murder": [
@@ -2611,8 +2620,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c was killed by a fellow Dark Forest warrior.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a fellow Dark Forest warrior"
+                    "death": "m_c was killed by a fellow Dark Forest warrior."
                 }
             }
         ]
@@ -2927,8 +2935,7 @@
                     "p_l"
                 ],
                 "history_text": {
-                    "reg_death": "m_c died trying to attack a StarClan cat.",
-                    "lead_death": "failed to win in a battle against a StarClan cat"
+                    "death": "m_c died trying to attack a StarClan cat."
                 }
             }
         ]
@@ -2995,8 +3002,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred looking for prey in the Dark Forest.",
-                    "reg_death": "m_c died after getting injured looking for prey in the Dark Forest.",
-                    "lead_death": "lost a life getting injured looking for prey in the Dark Forest."
+                    "death": "m_c died after getting injured looking for prey in the Dark Forest."
                 }
             }
         ]
@@ -3073,8 +3079,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was burned in the Dark Forest.",
-                    "reg_death": "m_c was killed by a burn gained in the Dark Forest.",
-                    "lead_death": "{VERB/m_c/were/was} killed by a burn gained in the Dark Forest."
+                    "death": "m_c was killed by a burn gained in the Dark Forest."
                 }
             },
             {
@@ -3142,8 +3147,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c was killed after breathing in strange mist in the Dark Forest.",
-                    "lead_death": "{VERB/m_c/were/was} killed by breathing in strange mist in the Dark Forest."
+                    "death": "m_c was killed after breathing in strange mist in the Dark Forest."
                 }
             },
             {
@@ -3310,7 +3314,8 @@
                             "cats_from": ["p_l"],
                             "mutual": true,
                             "values": ["like"],
-                            "amount": 8
+                            "amount": 8,
+                            "log": {}
                         }
                     ]
                 }

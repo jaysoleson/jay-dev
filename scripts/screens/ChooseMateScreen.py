@@ -1300,6 +1300,7 @@ class ChooseMateScreen(Screens):
             i
             for i in Cat.all_cats_list
             if not i.faded
+            and i.moons >= 12
             and self.the_cat.is_potential_mate(
                 i, for_love_interest=False, age_restriction=False, ignore_no_mates=True, demiromantic_functionality=False
             )

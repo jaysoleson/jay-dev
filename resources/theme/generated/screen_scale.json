@@ -16,9 +16,9 @@
             "hovered_text": "#000000",
             "selected_text": "#000000",
             "disabled_text": "#000000",
-            "link_text": "#B68727",
-            "link_hover": "#EFE5CE",
-            "link_selected": "#3A91A6",
+            "link_text": "#223A25",
+            "link_hover": "#2F4C2F",
+            "link_selected": "#2F4C2F",
             "text_shadow": "#777777",
             "normal_border": "#776045",
             "hovered_border": "#291B0F",
@@ -114,7 +114,7 @@
     },
     "#rel_log_cat_sprite.tool_tip": {
         "misc": {
-            "rect_width": "300",
+            "rect_width": "500",
             "text_horiz_alignment": "center"
         }
     },
@@ -487,9 +487,9 @@
             "dark_bg": "#FFFF0000",
             "selected_bg": "#776045",
             "selected_text": "#AC9D72",
-            "link_text": "#2E8B57",
-            "link_hover": "#556B2F",
-            "link_selected": "#556B2F"
+            "link_text": "#223A25",
+            "link_hover": "#2F4C2F",
+            "link_selected": "#2F4C2F"
         },
         "misc": {
             "border_width": "0",
@@ -580,7 +580,7 @@
         }
     },
     "#text_box_24_horizcenter": {
-        "prototype": "#text_box",
+        "prototype": "text_box",
         "font": {
             "size": "12",
             "name": "notosans"
@@ -2510,7 +2510,7 @@
     },
     "event_panel": {
         "colours": {
-            "dark_bg": "rgb(206, 194, 168)"
+            "dark_bg": "#CEC2A8"
         },
         "misc": {
             "border_width": "0",

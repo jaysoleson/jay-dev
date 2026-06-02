@@ -28,9 +28,11 @@ from scripts.game_structure import image_cache, constants
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
 
 from scripts.game_structure import game
+from .screens_core.screens_core import rebuild_top_menu_buttons
 from ..ui.elements.sprite_button import UISpriteButton
 from ..ui.elements.image_button import UIImageButton
 from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.elements.text_box_tweaked import UITextBoxTweaked
 from ..ui.theme import get_text_box_theme
 from ..ui.scale import ui_scale, ui_scale_dimensions, ui_scale_offset, ui_scale_blit
 from .Screens import Screens
@@ -421,7 +423,7 @@ class MakeClanScreen(Screens):
         elif event.ui_element == self.elements["reset_name"]:
             self.elements["name_entry"].set_text("")
         elif event.ui_element == self.elements["next_step"]:
-            self.clan_name = self.elements["name_entry"].get_text()
+            self.clan_name = self.elements["name_entry"].get_text().strip()
             self.open_choose_leader()
         elif event.ui_element == self.elements["previous_step"]:
             self.clan_name = ""
@@ -703,6 +705,9 @@ class MakeClanScreen(Screens):
         elif event.ui_element == self.tabs["tab9"]:
             self.selected_camp_tab = 9
             self.refresh_selected_camp()
+        elif event.ui_element == self.tabs["tab10"]:
+            self.selected_camp_tab = 10
+            self.refresh_selected_camp()
         elif event.ui_element == self.tabs["newleaf_tab"]:
             self.selected_season = "Newleaf"
             self.refresh_text_and_buttons()
@@ -717,12 +722,9 @@ class MakeClanScreen(Screens):
             self.refresh_text_and_buttons()
         elif event.ui_element == self.elements["random_background"]:
             # Select a random biome and background
-            old_biome = self.biome_selected
-            possible_biomes = ['Forest', 'Mountainous', 'Plains', 'Beach']
-            # ensuring that the new random camp will not be the same one
-            if old_biome is not None:
-                possible_biomes.remove(old_biome)
-            self.biome_selected = choice(possible_biomes)
+
+            self.biome_selected = self.random_biome_selection()
+
             if self.biome_selected == 'Forest':
                 self.selected_camp_tab = 1
                 if self.social == CatSocial.CLANCAT:
@@ -734,7 +736,7 @@ class MakeClanScreen(Screens):
             elif self.biome_selected == "Plains":
                 self.selected_camp_tab = 1
                 if self.social == CatSocial.CLANCAT:
-                    self.selected_camp_tab = randrange(1, 9)
+                    self.selected_camp_tab = randrange(1, 10)
             else:
                 self.selected_camp_tab = 1
                 if self.social == CatSocial.CLANCAT:
@@ -929,6 +931,7 @@ class MakeClanScreen(Screens):
             # select cat will always show bc all kittens are valid :3
             if self.selected_cat:
                 self.elements["select_cat"].show()
+        
             if self.social == CatSocial.CLANCAT:
                 self.elements["clancat"].disable()
                 self.elements["kittypet"].enable()
@@ -952,6 +955,7 @@ class MakeClanScreen(Screens):
                 self.elements["kittypet"].enable()
                 self.elements["loner"].enable()
                 self.elements["rogue"].disable()
+
         # Refresh the choose-members background to match number of cat's chosen.
         elif self.sub_screen == "choose members":
             if len(self.members) == 0:
@@ -1105,6 +1109,7 @@ class MakeClanScreen(Screens):
         self.tabs["tab7"].kill()
         self.tabs["tab8"].kill()
         self.tabs["tab9"].kill()
+        self.tabs["tab10"].kill()
 
         # this is all edited for lg
         camp_dict = self.get_possible_camps()
@@ -1137,7 +1142,7 @@ class MakeClanScreen(Screens):
                 )
             )
 
-        tab_num = 9
+        tab_num = 10
         # how many camp tabs u need
 
         for num in range(tab_num + 1):
@@ -1201,14 +1206,16 @@ class MakeClanScreen(Screens):
                     "6": {"camp_name": "camp_city", "button_width": 85},
                     "7": {"camp_name": "camp_farm", "button_width": 85},
                     "8": {"camp_name": "camp_bushland", "button_width": 105},
-                    "9": {"camp_name": "camp_castle", "button_width": 95}
+                    "9": {"camp_name": "camp_castle", "button_width": 95},
+                    "10": {"camp_name": "camp_bridge", "button_width": 85}
                 },
                 "Beach": {
                     "1": {"camp_name": "camp_tidepools", "button_width": 110},
                     "2": {"camp_name": "camp_tidal_cave", "button_width": 110},
                     "3": {"camp_name": "camp_shipwreck", "button_width": 110},
                     "4": {"camp_name": "camp_fjord", "button_width": 80},
-                    "5": {"camp_name": "camp_tropical_island", "button_width": 140}
+                    "5": {"camp_name": "camp_tropical_island", "button_width": 140},
+                    "6": {"camp_name": "camp_quay", "button_width": 75},
                 }
             }
         elif self.social == CatSocial.ROGUE:
@@ -1407,7 +1414,7 @@ class MakeClanScreen(Screens):
     def _get_cat_tooltip_string(self, cat: Cat):
         """Get tooltip for cat. Tooltip displays name, sex, age group, and trait."""
 
-        return f"<b>{cat.name}</b><br>{cat.get_genderalign_string()}<br>{i18n.t('general.' + cat.age, count=1)}<br>{i18n.t('cat.personality.' + cat.personality.trait)}<br>{cat.skills.skill_string(short=True)}"
+        return f"<b>{cat.name}</b><br>{cat.genderalign_string}<br>{i18n.t('general.' + cat.age, count=1)}<br>{i18n.t('cat.personality.' + cat.personality.trait)}<br>{cat.skills.skill_string(short=True)}"
 
     def open_name_cat(self):
         # Clear previous screen
@@ -1529,23 +1536,27 @@ class MakeClanScreen(Screens):
         )
         self.elements["name_entry"].set_forbidden_characters("forbidden_file_path")
         self.elements["name_entry"].set_text_length_limit(11)
-        self.elements["clan"] = pygame_gui.elements.UITextBox("-Clan",
-                                                              ui_scale(pygame.Rect((750, 1200), (200, 50))),
-                                                              object_id="#text_box_30_horizcenter_light",
-                                                              manager=MANAGER)
-        self.elements["reset_name"] = UIImageButton(ui_scale(pygame.Rect((910, 1190), (268, 60))), "",
-                                                    object_id="#reset_name_button", manager=MANAGER)
-        
-        if game_setting_get("dark mode"):
-            self.elements["clan_size"] = pygame_gui.elements.UITextBox("This Clan will be... ",
-                                                              ui_scale(pygame.Rect((200, 100), (405, 25))),
-                                                              object_id="#text_box_30_horizcenter_light",
-                                                              manager=MANAGER)
-        else:
-            self.elements["clan_size"] = pygame_gui.elements.UITextBox("This Clan will be... ",
-                                                              ui_scale(pygame.Rect((200, 100), (405, 25))),
-                                                              object_id="#text_box_30_horizcenter",
-                                                              manager=MANAGER)
+
+        self.elements["clan"] = pygame_gui.elements.UITextBox(
+            "-Clan",
+            ui_scale(pygame.Rect((375, 600), (100, 25))),
+            object_id="#text_box_30_horizcenter_light",
+            manager=MANAGER,
+        )
+        self.elements["reset_name"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((455, 595), (134, 30))),
+            "screens.make_clan.reset_name",
+            get_button_dict(ButtonStyles.SQUOVAL, (134, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+        )
+
+        self.elements["clan_size"] = pygame_gui.elements.UITextBox(
+            "This Clan will be... ",
+            ui_scale(pygame.Rect((200, 100), (405, 25))),
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            manager=MANAGER
+            )
 
         self.elements["small"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((220, 160), (100, 30))),
@@ -1610,9 +1621,10 @@ class MakeClanScreen(Screens):
             manager=MANAGER,
         )
         self.elements["clan_name"] = pygame_gui.elements.UITextBox(
-            self.clan_name + "Clan",
+            "general.clan",
             ui_scale(pygame.Rect((292, 100), (216, 50))),
             object_id=ObjectID("#text_box_30_horizcenter_vertcenter", "#dark"),
+            text_kwargs={"name": self.clan_name},
             manager=MANAGER,
         )
 
@@ -1747,16 +1759,12 @@ class MakeClanScreen(Screens):
             tool_tip_text = "Customize your own cat"
         )
 
-        if game_setting_get("dark mode"):
-            self.elements["start_as"] = pygame_gui.elements.UITextBox("Start as a... ",
-                                                              ui_scale(pygame.Rect((550, 150), (405, 25))),
-                                                              object_id="#text_box_30_horizcenter_light",
-                                                              manager=MANAGER)
-        else:
-            self.elements["start_as"] = pygame_gui.elements.UITextBox("Start as a... ",
-                                                              ui_scale(pygame.Rect((550, 150), (405, 25))),
-                                                              object_id="#text_box_30_horizcenter",
-                                                              manager=MANAGER)
+        self.elements["start_as"] = pygame_gui.elements.UITextBox(
+            "Start as a... ",
+            ui_scale(pygame.Rect((550, 150), (405, 25))),
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            manager=MANAGER
+            )
 
         self.elements["clancat"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((700, 200), (118, 30))),
@@ -1795,6 +1803,13 @@ class MakeClanScreen(Screens):
             starting_height=2,
             tool_tip_text="Survive by your claws, owing loyalty to no one"
         )
+        
+        # TEMP LIFEGEN: hide group buttons for now
+        self.elements["start_as"].hide()
+        self.elements["clancat"].hide()
+        self.elements["kittypet"].hide()
+        self.elements["loner"].hide()
+        self.elements["rogue"].hide()
 
         # draw cats to choose from
         self.refresh_cat_images_and_info()
@@ -1920,18 +1935,18 @@ class MakeClanScreen(Screens):
         # scars for conditions
         self.custom_cat.pelt.paralyzed = True if self.permanent_condition == "paralyzed" else False
         if self.permanent_condition == "born without a tail":
-            self.custom_cat.pelt.scars = ["NOTAIL"]
+            self.custom_cat.pelt.scars = ("NOTAIL",)
         elif self.permanent_condition == "born without a leg":
-            self.custom_cat.pelt.scars = ["NOPAW"]
+            self.custom_cat.pelt.scars = ("NOPAW",)
         elif self.permanent_condition == "blind":
             if random.randint(0,10) == 1:
                 self.custom_cat.pelt.scars = ["BOTHBLIND"]
         elif self.permanent_condition == "one bad eye":
             if random.randint(0,10) == 1:
-                self.custom_cat.pelt.scars = [random.choice(["LEFTBLIND", "RIGHTBLIND", "BRIGHTHEART"])]
+                self.custom_cat.pelt.scars = (random.choice(["LEFTBLIND", "RIGHTBLIND", "BRIGHTHEART"]),)
         elif self.permanent_condition in ["deaf", "partial hearing loss"]:
             if random.randint(0,10):
-                self.custom_cat.pelt.scars = [random.choice(["LEFTEAR", "RIGHTEAR", "NOEAR"])]
+                self.custom_cat.pelt.scars = (random.choice(["LEFTEAR", "RIGHTEAR", "NOEAR"]),)
 
         self.faith = random.choice(["flexible", "starclan", "dark forest", "neutral"])
 
@@ -3215,23 +3230,23 @@ class MakeClanScreen(Screens):
                             self.custom_cat.pelt.paralyzed = True
 
                         if self.permanent_condition == "born without a leg":
-                            self.custom_cat.pelt.scars = ["NOPAW"]
+                            self.custom_cat.pelt.scars = ("NOPAW",)
                         else:
                             if "NOPAW" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("NOPAW")
+                                self.custom_cat.pelt.scars = tuple()
 
                         if self.permanent_condition == "born without a tail":
-                            self.custom_cat.pelt.scars = ["NOTAIL"]
+                            self.custom_cat.pelt.scars = ("NOTAIL",)
                         else:
                             if "NOTAIL" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("NOTAIL")
+                                self.custom_cat.pelt.scars = tuple()
                         
                         if self.permanent_condition != "blind":
                             if "BOTHBLIND" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("BOTHBLIND")
+                                self.custom_cat.pelt.scars = tuple()
                         if self.permanent_condition != "one bad eye":
                             if any(scar in ["LEFTBLIND", "RIGHTBLIND", "BRIGHTHEART"] for scar in self.custom_cat.pelt.scars):
-                                self.custom_cat.pelt.scars = []
+                                self.custom_cat.pelt.scars = tuple()
                     elif self.current_selection == "trait":
                         traits = ['unruly','shy','impulsive','bullying','attention-seeker','daydreamer','charming','fearless','skittish','quiet','self-conscious','know-it-all','sweet','polite','bossy','noisy','smug','secretive','grumpy','manipulative','leader-like','passionate','disciplined','patient','rebellious','honest']
                         current_index = traits.index(self.personality)
@@ -3290,7 +3305,7 @@ class MakeClanScreen(Screens):
                     elif self.current_selection == "skin":
                         self.custom_cat.pelt.skin = random.choice(Pelt.skin_sprites)
                     elif self.current_selection == "scar":
-                        self.custom_cat.pelt.scars = [random.choice(Pelt.all_scars)]
+                        self.custom_cat.pelt.scars = (random.choice(Pelt.all_scars),)
                     elif self.current_selection == "accessory":
 
                         acc_list = (self.all_accs)
@@ -3323,15 +3338,15 @@ class MakeClanScreen(Screens):
 
                         self.permanent_condition = random.choice(permanent_conditions)
                         if self.permanent_condition == "born without a leg":
-                            self.custom_cat.pelt.scars = ["NOPAW"]
+                            self.custom_cat.pelt.scars = ("NOPAW",)
                         else:
                             if "NOPAW" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("NOPAW")
+                                self.custom_cat.pelt.scars = tuple()
                         if self.permanent_condition == "born without a tail":
-                            self.custom_cat.pelt.scars = ["NOTAIL"]
+                            self.custom_cat.pelt.scars = ("NOTAIL",)
                         else:
                             if "NOTAIL" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("NOTAIL")
+                                self.custom_cat.pelt.scars = tuple()
                         if self.permanent_condition == "paralyzed":
                             self.custom_cat.pelt.paralyzed = True
                         else:
@@ -3535,9 +3550,9 @@ class MakeClanScreen(Screens):
                 for i in self.scar_buttons.items():
                     if event.ui_element == self.scar_buttons[i[0]]:
                         if i[0] == "None":
-                            self.custom_cat.pelt.scars = []
+                            self.custom_cat.pelt.scars = tuple()
                         else:
-                            self.custom_cat.pelt.scars = [i[0].upper()]
+                            self.custom_cat.pelt.scars = (i[0].upper(),)
                             if i[0] == "NOPAW":
                                 self.permanent_condition = "born without a leg"
                                 self.custom_cat.pelt.paralyzed = False
@@ -3573,17 +3588,17 @@ class MakeClanScreen(Screens):
                         if i[0] == "None":
                             self.permanent_condition = None
                             if "NOTAIL" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("NOTAIL")
+                                self.custom_cat.pelt.scars = tuple()
                             if "NOPAW" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("NOPAW")
+                                self.custom_cat.pelt.scars = tuple()
                             if "BRIGHTHEART" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("BRIGHTHEART")
+                                self.custom_cat.pelt.scars = tuple()
                             if "BOTHBLIND" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("BOTHBLIND")
+                                self.custom_cat.pelt.scars = tuple()
                             if "LEFTBLIND" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("LEFTBLIND")
+                                self.custom_cat.pelt.scars = tuple()
                             if "RIGHTBLIND" in self.custom_cat.pelt.scars:
-                                self.custom_cat.pelt.scars.remove("RIGHTBLIND")
+                                self.custom_cat.pelt.scars = tuple()
                             self.custom_cat.pelt.paralyzed = False
                         else:
                             if i[0] != "paralyzed":
@@ -3592,23 +3607,23 @@ class MakeClanScreen(Screens):
                                 self.custom_cat.pelt.paralyzed = True
 
                             if i[0] == "born without a leg":
-                                self.custom_cat.pelt.scars = ["NOPAW"]
+                                self.custom_cat.pelt.scars = ("NOPAW",)
                             else:
                                 if "NOPAW" in self.custom_cat.pelt.scars:
-                                    self.custom_cat.pelt.scars.remove("NOPAW")
+                                    self.custom_cat.pelt.scars = tuple()
 
                             if i[0] == "born without a tail":
-                                self.custom_cat.pelt.scars = ["NOTAIL"]
+                                self.custom_cat.pelt.scars = ("NOTAIL",)
                             else:
                                 if "NOTAIL" in self.custom_cat.pelt.scars:
-                                    self.custom_cat.pelt.scars.remove("NOTAIL")
+                                    self.custom_cat.pelt.scars = tuple()
                             
                             if i[0] != "blind":
                                 if "BOTHBLIND" in self.custom_cat.pelt.scars:
-                                    self.custom_cat.pelt.scars.remove("BOTHBLIND")
+                                    self.custom_cat.pelt.scars = tuple()
                             if i[0] != "one bad eye":
                                 if any(scar in ["LEFTBLIND", "RIGHTBLIND", "BRIGHTHEART"] for scar in self.custom_cat.pelt.scars):
-                                    self.custom_cat.pelt.scars = []
+                                    self.custom_cat.pelt.scars = tuple()
 
                             self.permanent_condition = i[0]
                         self.update_sprite()
@@ -3718,12 +3733,12 @@ class MakeClanScreen(Screens):
                     self.your_cat.permanent_condition['paralyzed']["moons_with"] = -1
                     self.your_cat.permanent_condition['paralyzed']['born_with'] = True
                 if self.permanent_condition is not None and self.permanent_condition == "born without a tail" and "NOTAIL" not in self.your_cat.pelt.scars:
-                    self.your_cat.pelt.scars.append('NOTAIL')
+                    self.your_cat.pelt.scars = ('NOTAIL',)
                     self.your_cat.permanent_condition['born without a tail']["moons_until"] = 1
                     self.your_cat.permanent_condition['born without a tail']["moons_with"] = -1
                     self.your_cat.permanent_condition['born without a tail']['born_with'] = True
                 elif self.permanent_condition is not None and self.permanent_condition == "born without a leg" and "NOPAW" not in self.your_cat.pelt.scars:
-                    self.your_cat.pelt.scars.append('NOPAW')
+                    self.your_cat.pelt.scars = ('NOPAW',)
                     self.your_cat.permanent_condition['born without a leg']["moons_until"] = 1
                     self.your_cat.permanent_condition['born without a leg']["moons_with"] = -1
                     self.your_cat.permanent_condition['born without a leg']['born_with'] = True
@@ -4080,6 +4095,7 @@ class MakeClanScreen(Screens):
                 else 
                 ("adult_long" + str(self.adult_pose))),
             senior_sprite="senior" + str(self.elder_pose),
+            para_adult_sprite= "para_adult_long0" if initial_pelt.length == "long" else "para_adult_short0",
             reverse=initial_pelt.reverse
         )
 
@@ -4180,6 +4196,9 @@ class MakeClanScreen(Screens):
         self.tabs["tab9"] = UIImageButton(
             ui_scale(pygame.Rect((0, 0), (0, 0))), "", visible=False, manager=MANAGER
         )
+        self.tabs["tab10"] = UIImageButton(
+            ui_scale(pygame.Rect((0, 0), (0, 0))), "", visible=False, manager=MANAGER
+        )
 
         self.tabs["newleaf_tab"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((625, 275), (39, 34))),
@@ -4188,7 +4207,7 @@ class MakeClanScreen(Screens):
             object_id="@buttonstyles_icon_tab_left",
             manager=MANAGER,
             tool_tip_text="screens.make_clan.season_tooltip",
-            tool_tip_text_kwargs={"season": i18n.t("general.newleaf").capitalize()},
+            tool_tip_text_kwargs={"season": i18n.t("general.Newleaf")},
         )
         self.tabs["greenleaf_tab"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((625, 25), (39, 34))),
@@ -4197,7 +4216,7 @@ class MakeClanScreen(Screens):
             object_id="@buttonstyles_icon_tab_left",
             manager=MANAGER,
             tool_tip_text="screens.make_clan.season_tooltip",
-            tool_tip_text_kwargs={"season": i18n.t("general.greenleaf").capitalize()},
+            tool_tip_text_kwargs={"season": i18n.t("general.Greenleaf")},
             anchors={"top_target": self.tabs["newleaf_tab"]},
         )
         self.tabs["leaffall_tab"] = UISurfaceImageButton(
@@ -4207,7 +4226,7 @@ class MakeClanScreen(Screens):
             object_id="@buttonstyles_icon_tab_left",
             manager=MANAGER,
             tool_tip_text="screens.make_clan.season_tooltip",
-            tool_tip_text_kwargs={"season": i18n.t("general.leaf-fall").capitalize()},
+            tool_tip_text_kwargs={"season": i18n.t("general.Leaf-fall")},
             anchors={"top_target": self.tabs["greenleaf_tab"]},
         )
         self.tabs["leafbare_tab"] = UISurfaceImageButton(
@@ -4217,7 +4236,7 @@ class MakeClanScreen(Screens):
             object_id="@buttonstyles_icon_tab_left",
             manager=MANAGER,
             tool_tip_text="screens.make_clan.season_tooltip",
-            tool_tip_text_kwargs={"season": i18n.t("general.leafbare").capitalize()},
+            tool_tip_text_kwargs={"season": i18n.t("general.Leaf-bare")},
             anchors={"top_target": self.tabs["leaffall_tab"]},
         )
         # Random background
@@ -4267,7 +4286,8 @@ class MakeClanScreen(Screens):
         )
         self.text["clan_name"] = pygame_gui.elements.UILabel(
             ui_scale(pygame.Rect((0, 0), (-1, -1))),
-            text=f"{self.clan_name}Clan",
+            text="general.clan",
+            text_kwargs={"name": self.clan_name},
             container=self.elements["text_container"],
             object_id=get_text_box_theme("#text_box_40"),
             manager=MANAGER,
@@ -4565,7 +4585,8 @@ class MakeClanScreen(Screens):
         game.told_story.clear()
         game.patrolled.clear()
         game.dated_cats.clear()
-        # game.cat_to_fade.clear()
+        game.just_died.clear()
+        game.dead_cats_to_grieve.clear()
         save_load.faded_ids.clear()
         Cat.outside_cats.clear()
         Patrol.used_patrols.clear()
@@ -4625,6 +4646,7 @@ class MakeClanScreen(Screens):
         game.clan.save_herb_supply(game.clan)
         game.clan.grief_strings.clear()
         Cat.sort_cats()
+        rebuild_top_menu_buttons()
 
         if not game.clan.your_cat.status.group.is_any_clan_group():
             game.clan.your_cat.specsuffix_hidden = True

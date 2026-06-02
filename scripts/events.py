@@ -5,11 +5,12 @@ TODO: Docs
 
 
 """
-
+import logging
 import random
 
 # pylint: enable=line-too-long
 import traceback
+from math import floor
 
 import i18n
 import ujson
@@ -34,6 +35,7 @@ from scripts.cat.enums import (
 )
 from scripts.cat.names import Name
 from scripts.cat.save_load import save_cats, add_cat_to_fade_id
+from scripts.cat.skills import SkillPath
 from scripts.clan_package.settings import get_clan_setting, set_clan_setting
 from scripts.game_structure.game.settings import game_setting_get
 from scripts.clan_resources.freshkill import FRESHKILL_EVENT_ACTIVE
@@ -92,6 +94,8 @@ from scripts.lifegen_utility import get_cluster, check_achievements, get_your_ca
 
 from scripts.cat.sexuality import Sexuality, Arospec, Acespec
 
+logger = logging.getLogger(__name__)
+
 class BirthType(Enum):
     NO_PARENTS = "birth_no_parents"
     ONE_PARENT = "birth_one_parent"
@@ -101,10 +105,15 @@ class BirthType(Enum):
     ONE_OUTSIDER_PARENT = "birth_one_parent_outsider"
     TWO_OUTSIDER_PARENTS = "birth_two_parent_outsiders"
     ALONE = "birth_alone"
+    # LG: outsider-pair birth types for MCs who start as kittypet / loner / rogue
+    TWO_KITTYPET_PARENTS = "birth_two_kittypet_parents"
+    TWO_LONER_PARENTS = "birth_two_loner_parents"
+    TWO_ROGUE_PARENTS = "birth_two_rogue_parents"
+    MIXED_OUTSIDER_PARENTS = "birth_mixed_outsider_parents"
 
-    def birth_type_weights(self):
-
-        return {
+    def birth_type_weights(self, mc_group=None):
+        # Base weights, used as-is for clan MCs
+        weights = {
             BirthType.NO_PARENTS: 2,
             BirthType.ONE_PARENT: 2,
             BirthType.TWO_PARENTS: 3,
@@ -113,6 +122,26 @@ class BirthType(Enum):
             BirthType.ONE_OUTSIDER_PARENT: 2,
             BirthType.TWO_OUTSIDER_PARENTS: 1
         }
+
+        # For outsider MCs: replace the generic outsider-parent types with group-specific ones, biased towards parents matching the player cat's group.
+        outsider_match = {
+            CatGroup.HOUSEHOLD_ID: BirthType.TWO_KITTYPET_PARENTS,
+            CatGroup.LONER_GROUP_ID: BirthType.TWO_LONER_PARENTS,
+            CatGroup.ROGUE_GROUP_ID: BirthType.TWO_ROGUE_PARENTS,
+        }
+        if mc_group in outsider_match:
+            del weights[BirthType.ONE_OUTSIDER_PARENT]
+            del weights[BirthType.TWO_OUTSIDER_PARENTS]
+            matching = outsider_match[mc_group]
+            for bt in (
+                BirthType.TWO_KITTYPET_PARENTS,
+                BirthType.TWO_LONER_PARENTS,
+                BirthType.TWO_ROGUE_PARENTS,
+            ):
+                weights[bt] = 6 if bt == matching else 1
+            weights[BirthType.MIXED_OUTSIDER_PARENTS] = 2
+
+        return weights
 
 all_events = {}
 new_cat_invited = False
@@ -142,7 +171,7 @@ def one_moon():
     
     game.cur_events_list = []
     game.herb_events_list = []
-    game.freshkill_events_list = []
+    game.freshkill_event_list = []
     game.mediated = []
     switch_set_value(Switch.saved_clan, False)
     new_cat_invited = False
@@ -162,6 +191,7 @@ def one_moon():
 
     # age up the clan, set current season
     game.clan.age += 1
+
     update_afterlife_temper()
     Pregnancy_Events.handle_pregnancy_age(game.clan)
     check_war()
@@ -994,7 +1024,8 @@ def generate_birth_event():
     if get_your_cat_group_count(Cat) == 1:
         birth_type = BirthType.ALONE
     else:
-        for birthtype, weight in BirthType.birth_type_weights(BirthType).items():
+        mc_group = game.clan.your_cat.status.group_ID
+        for birthtype, weight in BirthType.birth_type_weights(BirthType, mc_group=mc_group).items():
             if not get_clan_setting("single parentage"):
                 if birthtype in [BirthType.ONE_PARENT, BirthType.ONE_OUTSIDER_PARENT]:
                     continue
@@ -1232,6 +1263,31 @@ def generate_birth_event():
             parent1.init_all_relationships()
             parent2.init_all_relationships()
 
+        elif birth_type in (
+            BirthType.TWO_KITTYPET_PARENTS,
+            BirthType.TWO_LONER_PARENTS,
+            BirthType.TWO_ROGUE_PARENTS,
+            BirthType.MIXED_OUTSIDER_PARENTS,
+        ):
+            same_group_map = {
+                BirthType.TWO_KITTYPET_PARENTS: CatGroup.HOUSEHOLD_ID,
+                BirthType.TWO_LONER_PARENTS: CatGroup.LONER_GROUP_ID,
+                BirthType.TWO_ROGUE_PARENTS: CatGroup.ROGUE_GROUP_ID,
+            }
+            if birth_type == BirthType.MIXED_OUTSIDER_PARENTS:
+                group1, group2 = random.sample(
+                    [CatGroup.HOUSEHOLD_ID, CatGroup.LONER_GROUP_ID, CatGroup.ROGUE_GROUP_ID],
+                    2,
+                )
+            else:
+                group1 = group2 = same_group_map[birth_type]
+
+            parent1 = generate_outsider_parent(group=group1, dead=False)
+            parent2 = generate_outsider_parent(group=group2, mate=parent1, dead=False)
+            parent1.set_mate(parent2)
+            parent1.init_all_relationships()
+            parent2.init_all_relationships()
+
         return birth_type, parent1, parent2, adoptive_parents
 
     def handle_backstory(siblings):
@@ -1245,6 +1301,14 @@ def generate_birth_event():
             backstory = "clanborn"
         elif birth_type == BirthType.ONE_OUTSIDER_PARENT:
             backstory = "outsider1"
+        elif birth_type == BirthType.TWO_KITTYPET_PARENTS:
+            backstory = random.choice(["kittypet1", "kittypet2", "kittypet3", "kittypet4", "kittypet5"])
+        elif birth_type == BirthType.TWO_LONER_PARENTS:
+            backstory = random.choice(["loner1", "loner2", "outsider1", "outsider4"])
+        elif birth_type == BirthType.TWO_ROGUE_PARENTS:
+            backstory = random.choice(["rogue1", "rogue2", "rogue3", "rogue4", "rogue5"])
+        elif birth_type == BirthType.MIXED_OUTSIDER_PARENTS:
+            backstory = random.choice(["outsider1", "outsider2", "outsider3", "outsider4", "outsider5", "outsider6"])
         else:
             backstory = "outsider1"
         
@@ -1298,6 +1362,10 @@ def generate_birth_event():
                 ] if adoptive_parents and len(adoptive_parents) > 1 else [None, None],
             BirthType.ONE_OUTSIDER_PARENT: [parent1, None],
             BirthType.TWO_OUTSIDER_PARENTS: [parent1, parent2],
+            BirthType.TWO_KITTYPET_PARENTS: [parent1, parent2],
+            BirthType.TWO_LONER_PARENTS: [parent1, parent2],
+            BirthType.TWO_ROGUE_PARENTS: [parent1, parent2],
+            BirthType.MIXED_OUTSIDER_PARENTS: [parent1, parent2],
             BirthType.ALONE: [parent1, None]
         }
         # this sucks
@@ -1508,7 +1576,9 @@ def generate_lifegen_events():
         if not events_for_type:
             continue
         chosen_event = random.choice(events_for_type)
-        game.cur_events_list.insert(0, Single_Event(chosen_event[0], "alert", chosen_event[2]))
+
+        if chosen_event[0] not in [event.text for event in game.cur_events_list]:
+            game.cur_events_list.insert(0, Single_Event(chosen_event[0], "alert", chosen_event[2]))
 
         
 def generate_kit_events():
@@ -1902,7 +1972,7 @@ def handle_focus():
         - raid other clans
         - hoarding
     Focus which are not able to be handled here:
-        rest and recover - handled in:
+        rest_and_recover - handled in:
             - 'handle_outbreaks'
             - 'condition_events.handle_injuries'
             - 'condition_events.handle_illnesses'
@@ -2220,6 +2290,7 @@ def one_moon_outside_cat(cat, other_clan_cats: list = None):
 
     handle_outside_EX(cat)
 
+    # LG
     if (
         cat.status.is_exiled(CatGroup.PLAYER_CLAN_ID) and
         cat.ID != game.clan.your_cat.ID and
@@ -2227,7 +2298,33 @@ def one_moon_outside_cat(cat, other_clan_cats: list = None):
         ):
         if cat.return_home():
             return
+    # ---
 
+    # handling the rank changes for Other Clan cats
+    # this is SUPER rudimentary rn, really just a temp patch to handle our current little edge-cases
+    if cat.status.is_other_clancat:
+        # kitten to apprentice - for now it's going to be limited to warrior apprentices
+        if cat.moons == cat_class.age_moons[CatAge.ADOLESCENT][0]:
+            cat.status._change_rank(CatRank.APPRENTICE)
+            # we aren't going to worry about sourcing a mentor, we're gonna pretend it's "hidden" from the player
+        # apprentice to full
+        if cat.moons >= cat_class.age_moons[CatAge.YOUNG_ADULT][0]:
+            # warrior
+            if cat.status.rank == CatRank.APPRENTICE:
+                cat.status._change_rank(CatRank.WARRIOR)
+            # med cat
+            if cat.status.rank == CatRank.MEDICINE_APPRENTICE:
+                cat.status._change_rank(CatRank.MEDICINE_CAT)
+            # mediator (just in case)
+            if cat.status.rank == CatRank.MEDIATOR_APPRENTICE:
+                cat.status._change_rank(CatRank.MEDIATOR)
+        # cat to elder
+        if cat.moons >= cat_class.age_moons[CatAge.SENIOR][0]:
+            # exclude the roles that don't really retire
+            if cat.status.rank not in (CatRank.LEADER, CatRank.MEDICINE_CAT):
+                cat.status._change_rank(CatRank.ELDER)
+
+    # skill progression needs to be after rank progression
     cat.skills.progress_skill(cat)
     Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
 
@@ -2353,7 +2450,6 @@ def one_moon_cat(cat):
 
     # newborns don't do much
     if cat.status.rank == CatRank.NEWBORN:
-        cat.relationship_interaction()
         return
     
     if cat.status.alive_in_player_clan:
@@ -2382,10 +2478,9 @@ def one_moon_cat(cat):
     if cat.dead:
         return
 
-    cat.relationship_interaction()
-
     # relationships have to be handled separately, because of the ceremony name change
     if cat.status.alive_in_player_clan:
+        cat.relationship_interaction()
         Relation_Events.handle_relationships(cat)
     
     # now we make sure ill and injured cats don't get interactions they shouldn't
@@ -2457,9 +2552,9 @@ def check_war():
                 break
 
         threshold = 10
-        if enemy_clan.temperament == "bloodthirsty":
+        if "bloodthirsty" in enemy_clan.temperament:
             threshold = 12
-        if enemy_clan.temperament in ["mellow", "amiable", "gracious"]:
+        if set(enemy_clan.temperament).intersection({"mellow", "amiable", "gracious"}):
             threshold = 7
 
         threshold -= int(game.clan.war["duration"])
@@ -2488,9 +2583,11 @@ def check_war():
     else:  # try to start a war if no war in progress
         for other_clan in game.clan.all_other_clans:
             threshold = 5
-            if other_clan.temperament == "bloodthirsty":
+            if "bloodthirsty" in other_clan.temperament:
                 threshold = 10
-            if other_clan.temperament in ["mellow", "amiable", "gracious"]:
+            if set(other_clan.temperament).intersection(
+                {"mellow", "amiable", "gracious"}
+            ):
                 threshold = 3
 
             if int(other_clan.relations) <= threshold and not int(
@@ -2522,7 +2619,10 @@ def check_war():
     # grab our war "notice" for this moon
     event = random.choice(war_events)
     event = ongoing_event_text_adjust(
-        Cat, event, other_clan_name=f"{enemy_clan.name}Clan", clan=game.clan
+        Cat,
+        event,
+        other_clan_name=i18n.t("general.clan", name=enemy_clan.name),
+        clan=game.clan,
     )
     game.cur_events_list.append(Single_Event(event, "other_clans"))
 
@@ -2556,7 +2656,11 @@ def perform_ceremonies(cat):
             game.clan.leader_lives = 9
             text = ""
             if game.clan.deputy.personality.trait == "bloodthirsty":
-                text = i18n.t("hardcoded.ceremony_leader_bloodthirsty")
+                text = i18n.t(
+                    "hardcoded.ceremony_leader_bloodthirsty",
+                    oldname=game.clan.deputy.name,
+                    newname=cat.name,
+                )
             else:
                 c = random.randint(1, 3)
                 text = i18n.t(
@@ -2813,6 +2917,177 @@ def perform_ceremonies(cat):
                         ceremony_accessory = True
                         gain_accessories(cat)
 
+def _is_suitable_medcat_app(cat) -> bool:
+    """
+    Determines whether this cat will become a medicine cat
+    :param cat: A kitten preparing for apprenticeship ceremony
+    :return: True if the kitten should be a medcat, False otherwise
+    """
+    # assign chance to become med app depending on current med cat and traits
+    chance = constants.CONFIG["roles"]["base_medicine_app_chance"]  # 41
+    logger.info("Medcat app %s starting chance: %d", str(cat.name), chance)
+
+    med_cat_list = [
+        i
+        for i in Cat.all_cats_list
+        if i.status.rank.is_any_medicine_rank() and i.status.alive_in_player_clan
+    ]
+
+    num_medcats = len(med_cat_list)
+
+    # get number of medcat apps
+    num_med_apps = len(
+        [cat.status.rank == CatRank.MEDICINE_APPRENTICE for cat in med_cat_list]
+    )
+    logger.debug("Current number of medcats: %d", num_medcats - num_med_apps)
+    logger.debug("Current number of medcat apps: %d", num_med_apps)
+
+    # check if the Clan has sufficient med cats
+    enough_working_meds = medicine_cats_can_cover_clan(
+        Cat.all_cats.values(),
+        amount_per_med=get_amount_cat_for_one_medic(game.clan),
+    )
+
+    if (
+        floor(num_med_apps / max(1, (len(med_cat_list) - num_med_apps)))
+        > constants.CONFIG["roles"]["medicine cat apprentice"]["max_medcats_to_apps"]
+    ):
+        if enough_working_meds:
+            # early return if the ratio of apps would be too high
+            logger.info("Too many apprentices for medcat population. Aborting.")
+            return False
+        logger.debug(
+            "Too many apprentices for medcat population, but not enough medicine cats for Clan! Continuing."
+        )
+
+    # check if the medicine cats are old
+    senior_meds = [
+        c
+        for c in med_cat_list
+        if c.age == "senior" and c.status.rank == CatRank.MEDICINE_CAT
+    ]
+
+    ancient_meds = [
+        c
+        for c in senior_meds
+        if c.moons
+        >= constants.CONFIG["roles"]["medicine cat apprentice"][
+            "threshold_moons_ancient"
+        ]
+    ]
+
+    senior_med_ratio = (len(senior_meds) / num_medcats) if num_medcats != 0 else 0
+
+    ancient_med_ratio = (len(ancient_meds) / num_medcats) if num_medcats != 0 else 0
+
+    if (
+        ancient_med_ratio
+        > constants.CONFIG["roles"]["medicine cat apprentice"][
+            "threshold_percentage_ancient"
+        ]
+        / 100
+    ):
+        # These chances apply if enough medicine cats are very old.
+        if enough_working_meds:
+            chance = chance / 3
+        else:
+            logger.info("Not enough healthy medicine cats")
+            chance = chance / 14
+
+        logger.info("Ancient medicine cats, chance updated to %d", round(chance))
+    elif (
+        senior_med_ratio
+        > constants.CONFIG["roles"]["medicine cat apprentice"][
+            "threshold_percentage_seniors"
+        ]
+        / 100
+    ):
+        # These chances apply if enough medicine cats are elders.
+        if enough_working_meds:
+            chance = chance / 2.22
+        else:
+            logger.info("Not enough healthy medicine cats")
+            chance = chance / 14
+
+        logger.info("Senior medicine cats, chance updated to %d", round(chance))
+    else:
+        # These chances will only be reached if the
+        # Clan has at least one non-elder medicine cat.
+        if not enough_working_meds:
+            chance = chance / 7.125
+            logger.info(
+                "Not enough healthy medicine cats, chance updated to %d", chance
+            )
+        else:
+            chance = chance * 2.22
+            logger.info(
+                "Enough healthy young medicine cats, chance updated to %d", chance
+            )
+
+    if cat.personality.trait in [
+        "careful",
+        "compassionate",
+        "loving",
+        "wise",
+        "faithful",
+    ]:
+        chance = chance / 1.3
+        logger.info("Suitable trait, chance updated to %d", round(chance))
+
+    elif cat.personality.trait in [
+        "adventurous",
+        "arrogant",
+        "bold",
+        "bloodthirsty",
+        "cold",
+        "fierce",
+        "rebellious",
+        "troublesome",
+        "sneaky",
+        "vengeful",
+    ]:
+        chance = chance * 2
+        logger.info("Unsuitable trait, chance updated to %d", round(chance))
+
+    beneficial_skills = [
+        SkillPath.OMEN,
+        SkillPath.PROPHET,
+        SkillPath.HEALER,
+        SkillPath.STAR,
+        SkillPath.DREAM,
+        SkillPath.CLAIRVOYANT,
+        SkillPath.GHOST,
+        SkillPath.CAMP,
+    ]
+
+    if cat.skills.primary.path in beneficial_skills:
+        chance = chance / 2
+        logger.info("beneficial primary skill, chance updated to %d", round(chance))
+
+    if cat.skills.secondary and cat.skills.secondary.path in beneficial_skills:
+        chance = chance / 4
+        logger.info("beneficial secondary skill, chance updated to %d", round(chance))
+
+    if cat.is_disabled():
+        chance = chance / 2
+
+    if num_med_apps == 0:
+        # if there are no apprentices at all, make it slightly easier to get one
+        logger.info("No apprentices at all")
+        chance = chance / 1.8
+        logger.info("No medcat apprentices at all, chance updated to %d", chance)
+    if num_med_apps > 1:
+        # if there's already at least one medcat app, make it harder to get another
+        chance = chance * (1 + (0.2 * (num_med_apps - 1)))
+        logger.info("%d medcat apps, chance updated to %d", num_med_apps, chance)
+
+    chance = max(1, int(chance))
+
+    success = not int(random.random() * chance)
+    logger.info("%s final chance: %d | SUCCESS: %s", cat.name, chance, success)
+    return success
+
+
 def load_ceremonies():
     """
     TODO: DOCS
@@ -3011,14 +3286,14 @@ def ceremony(cat, promoted_to, preparedness="prepared"):
 
         # Gather for backstories.json ----------------------------------------------------
         tags = []
-        if cat.backstory == ["abandoned1", "abandoned2", "abandoned3"]:
+        if (
+            cat.backstory
+            in BACKSTORIES["backstory_categories"]["abandoned_backstories"]
+        ):
             tags.append("abandoned")
         elif cat.backstory == "clanborn":
             tags.append("clanborn")
-
-        temp = possible_ceremonies.intersection(
-            ceremony_id_by_tag["general_backstory"]
-        )
+        temp = possible_ceremonies.intersection(ceremony_id_by_tag["general_backstory"])
 
         for t in tags:
             temp.update(
@@ -3179,7 +3454,6 @@ def gain_accessories(cat):
         "daring",
         "playful",
         "attention-seeker",
-        "bouncy",
         "sweet",
         "troublesome",
         "impulsive",
@@ -3873,8 +4147,8 @@ def handle_outbreaks(cat):
             ):
                 continue
 
-            if get_clan_setting("rest and recover"):
-                stopping_chance = constants.CONFIG["focus"]["rest and recover"][
+            if get_clan_setting("rest_and_recover"):
+                stopping_chance = constants.CONFIG["focus"]["rest_and_recover"][
                     "outbreak_prevention"
                 ]
                 if not int(random.random() * stopping_chance):
@@ -4221,12 +4495,12 @@ def find_sexuality_change_event(cat):
 def coming_out(cat):
     """turnin' the kitties trans..."""
 
-    if cat.age.is_baby() or cat.gender != cat.genderalign:
+    if cat.moons < 3 or cat.gender != cat.genderalign:
         return
 
     transing_chance = constants.CONFIG["transition_related"]
     chance = transing_chance["base_trans_chance"]
-    if cat.age in [CatAge.ADOLESCENT]:
+    if cat.age in [CatAge.ADOLESCENT, CatAge.KITTEN]:
         chance += transing_chance["adolescent_modifier"]
     elif cat.age in [CatAge.ADULT, CatAge.SENIOR_ADULT, CatAge.SENIOR]:
         chance += transing_chance["older_modifier"]

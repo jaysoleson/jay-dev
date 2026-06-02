@@ -79,7 +79,7 @@
             "Once lost and alone, {insert}, are now found and surrounded by the love of the Clan. The soft rustle of moss beneath you, the sweet scent of milk, and the comforting murmurs of your new family fill the nursery. Your past may be a mystery, but the promise of a future in the Clan brings you comfort.",
             "{cap_insert}, were discovered on the territory, left alone to the mercy of the wild. Now, you are tucked safe in the warmth of the Clan's nursery, surrounded by the scent of milk.",
             "Found on the Clan's territory, {insert}, face a wary reception. The Clanmates murmur about extra resources needed to raise you, their glances sharp and questioning. Still, you harbor a determination within your small form. You will prove yourself to be more than they believe you to be.",
-"c_n finds {insert}, abandoned at their borders. While there is an attempt to find your biological parents, there is no luck. So, they bring you to the place you'll call home. Some cats might question your origins, but many are excited to welcome new kits into the nursery. One kind cat curls around you and lends you their warmth, allowing you to dream peacefully."
+            "c_n finds {insert}, abandoned at their borders. While there is an attempt to find your biological parents, there is no luck. So, they bring you to the place you'll call home. Some cats might question your origins, but many are excited to welcome new kits into the nursery. One kind cat curls around you and lends you their warmth, allowing you to dream peacefully."
         ],
         "rogue_group": [
             "{cap_insert}, were discovered on the territory, left alone to the mercy of the wild. Now, you are tucked safe in a warm nest, surrounded by the scent of milk.",
@@ -87,7 +87,7 @@
             "{cap_insert}, were found abandoned in the shell of a Twoleg monster. While some members of your new group are openly skeptical that you could ever belong here, others scraped together a soft nest for you to rest. You drift to sleep surrounded by overlapping, unfamiliar voices.",
             "{cap_insert}, were found alone by a hunting patrol of rogues. Not wanting to leave kits to fend alone, they took you in, though not without suspicion about your origin. In time, you'll prove yourself worthy of their favor. And y_c, you have all the time you need.",
             "Uncertainty whispers about {insert}, as you are unceremoniously dropped in the group's clearing. Rogues scarcely have resources and pity to spare, but your flailing paws and powerful mews convince the group you are worth the trouble. In time, you'll prove them right. For tonight, you curl up beside a kind stranger's belly.",
-"Rough and tough is a rogue's way of life. {cap_insert}, certainly aren't tough, but you are roughing it in the elements until the group finds you. Impressed by your tenacity, they decide to keep you as one of their own and tuck you into a haphazardly built nest."
+            "Rough and tough is a rogue's way of life. {cap_insert}, certainly aren't tough, but you are roughing it in the elements until the group finds you. Impressed by your tenacity, they decide to keep you as one of their own and tuck you into a haphazardly built nest."
         ],
         "loner_group": [
             "{cap_insert}, were discovered on the territory, left alone to the mercy of the wild. Now, you are tucked safe in a warm nest, surrounded by the scent of milk.",
@@ -99,7 +99,8 @@
         ],
         "kittypet": [
             "{cap_insert}, were discovered by your housefolk, left alone to the mercy of the Twolegplace. Now, you are wrapped safe in a warm blanket, surrounded by the scent of milk.",
-            "{cap_insert} were brought into this world in an environment all too bright. Silvery webbing, sheer white walls, strange faces looming at all angles. Until your housefolk came, that is, and brought you to where you were really meant to be. The memories of that awful place fade quickly with the fireplace's crackle in your ears, nestled warmly in the lap of your loving housefolk.","With no parents to care for you, {insert} are left under the safekeeping of some gentle housefolk. Soft yellow lights illuminate the den of blankets and pillows that has been constructed for you. Purring, you're grateful to be able to rest with a full belly and tired eyes.",
+            "{cap_insert} were brought into this world in an environment all too bright. Silvery webbing, sheer white walls, strange faces looming at all angles. Until your housefolk came, that is, and brought you to where you were really meant to be. The memories of that awful place fade quickly with the fireplace's crackle in your ears, nestled warmly in the lap of your loving housefolk.",
+            "With no parents to care for you, {insert} are left under the safekeeping of some gentle housefolk. Soft yellow lights illuminate the den of blankets and pillows that has been constructed for you. Purring, you're grateful to be able to rest with a full belly and tired eyes.",
             "With a heavy storm underway, {insert} are glad to have somewhere safe to spend the night. You're met with odd and unfamiliar scents after being wrapped in an insulating towel. As you begin to drift off to sleep, you feel your new housefolks stroke your back comfortingly.",
             "Separated from family, {insert} wind up alone and cold in an empty park. Luckily for you, a Twoleg happens to pass by that brisk morning, and brings you home to a place where all you know is safety, love, and the promise of a warm nest to sleep in every night.",
             "{cap_insert} are discovered by an alarmed Twoleg, nestled amongst their herbs. They set out on a lengthy search to find your family, yet come up short. Seeing your situation, they take you in, and you find yourself in a warm, comfortable new home.",
@@ -410,6 +411,86 @@
             "Learning how to fend for yourself is the first lesson the world teaches {insert}. No parents or kindhearted souls cradle you as you awaken, but your first cry brims with determination. Survival will be tough for you, y_c, but the greatest legends are the ones who overcome adversity.",
             "No legacy heralds your birth. {cap_insert}, awaken as the light fades from your surroundings. Soon, not even shadows remain, and the darkness looms over you. However, you are not afraid. The sun will rise again, and with its ascent, you, too, will soar.",
             "The world is desolate. No one is around for hundreds of tail-lengths, save for {insert}. Some might deem your circumstances as unfortunate, but you won't. Everything the light touches is yours to claim and sculpt! Who wouldn't be excited by a journey of your own making?"
+        ]
+    },
+    "birth_two_kittypet_parents": {
+        "gen": [
+            "Two pampered kittypets, m_c and r_c, beam down at {insert}. Whatever path your life takes, you'll always know what it means to be loved by parents who chose comfort and chose you."
+        ],
+        "clan": [
+            "Before the Clan was ever a thought, m_c and r_c were kittypets together, and {insert} are the proof of that quieter life. Whatever you become here in c_n, your beginnings are softer than most."
+        ],
+        "rogue_group": [
+            "m_c and r_c, both former housecats, huddle close around {insert} in a borrowed corner of the rogue group's territory. Their old kittypet softness hasn't fully faded, but their love for you is fierce all the same."
+        ],
+        "loner_group": [
+            "{cap_insert} are born in a hollow far from any Twolegplace, to m_c and r_c — kittypets who chose the open sky over a warm and comfortable life. They have everything they need now: each other, and you."
+        ],
+        "kittypet": [
+            "Soft blankets cradle {insert} as m_c and r_c purr proudly. Both kittypets themselves, your parents know exactly what kind of life to give you: warm, safe, and full of housefolk who already adore the newest little ones in their home."
+        ],
+        "none": [
+            "Far from any Twolegplace, m_c and r_c — both kittypets in another life — welcome {insert} into a quiet, sheltered hollow. They've left their housefolk behind, but they brought every ounce of softness with them for you."
+        ]
+    },
+    "birth_two_loner_parents": {
+        "gen": [
+            "Two solitary souls, m_c and r_c, share the first quiet moments of {insert}'s life. They never expected to share a den, let alone kits, but here you are, and here they are with you."
+        ],
+        "clan": [
+            "Before the Clan, there were only m_c and r_c — two loners walking the same paths. {cap_insert} are the proof that those quiet wanderings led somewhere worth staying. Welcome to c_n, y_c."
+        ],
+        "rogue_group": [
+            "m_c and r_c, two loners taken in by a rogue group, curl protectively around {insert}. Used to quiet and few companions, your parents are still adjusting to all the eyes watching their new family."
+        ],
+        "loner_group": [
+            "m_c and r_c, two loners who chose each other after seasons alone, beam down at {insert}. Their den is small, their nest is soft, and their love for you is enormous."
+        ],
+        "kittypet": [
+            "{cap_insert} are an unusual sight inside a Twoleg den: kits of m_c and r_c, two loners who sheltered here just in time. Your parents will likely move on once you're strong enough, but for now, the warmth of housefolk floors will do."
+        ],
+        "none": [
+            "Out where no group claims the land, m_c and r_c — both loners — welcome {insert} into the world. The quiet is enormous, but so is their love."
+        ]
+    },
+    "birth_two_rogue_parents": {
+        "gen": [
+            "m_c and r_c, both hardened rogues, surprise themselves with the tenderness of their first purrs over {insert}. Whatever the world throws your way, you were born to two cats who know how to survive it."
+        ],
+        "clan": [
+            "Long before c_n, m_c and r_c were rogues who fought for every scrap. {cap_insert} are born here now, in the safety of the Clan, but the steel of your parents runs in your blood."
+        ],
+        "rogue_group": [
+            "{cap_insert} arrive to the proud purrs of m_c and r_c, two rogues who chose this life and now choose you. Welcome to the world, y_c — it isn't gentle, but it is yours."
+        ],
+        "loner_group": [
+            "Two rogues, m_c and r_c, left to wander not long before {insert} arrived. Your parents keep their nest well hidden, still a little wary, but their love for you is undivided."
+        ],
+        "kittypet": [
+            "{cap_insert} are born in the strangest of places: a Twoleg den, where m_c and r_c — two rogues — took shelter against their better judgment. Your parents won't stay long, but they'll stay long enough to make sure you're strong."
+        ],
+        "none": [
+            "{cap_insert} are born into a den scraped out of unclaimed earth by m_c and r_c, two rogues who answer to no one but each other. And, from today onward, to you."
+        ]
+    },
+    "birth_mixed_outsider_parents": {
+        "gen": [
+            "Two cats from two different worlds, m_c and r_c, somehow built a life together — and now they have {insert}, the proof of it. Welcome to the world, y_c."
+        ],
+        "clan": [
+            "Before c_n, m_c and r_c had nothing in common but the open sky. Now they have {insert}, too. The Clan looks on with quiet wonder at the strange little family they've built."
+        ],
+        "rogue_group": [
+            "{cap_insert} are born into the rogue group to m_c and r_c — two outsiders whose lives never should have crossed, but did. The other rogues offer wary congratulations; mixed pairs are rare, but you are clearly loved."
+        ],
+        "loner_group": [
+            "m_c and r_c, an unlikely pair from different lives, welcome {insert} into their quiet den."
+        ],
+        "kittypet": [
+            "{cap_insert} are born surrounded by the unfamiliar smells of housefolk. m_c and r_c settled here together just in time to welcome you. Whatever paths your parents walked before, they walk this one as one."
+        ],
+        "none": [
+            "{cap_insert} are born to m_c and r_c, two outsiders whose paths shouldn't have crossed. They built a little den far from any group of cats, and they built it for you."
         ]
     }
 }

@@ -146,6 +146,7 @@ class ClanScreen(Screens):
                         blend_layer, self.layout["cat_shading"]["blur"]
                     )
                 except ValueError:
+                    print("LG PRINT: ValueError:", x.placement, "is out of bounds.")
                     x_diff = ui_scale_value(
                         50 + (x.placement[0] if x.placement[0] < 0 else 0)
                     )

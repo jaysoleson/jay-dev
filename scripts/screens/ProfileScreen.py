@@ -1011,6 +1011,7 @@ class ProfileScreen(Screens):
                 "right": "right",
                 "right_target": self.profile_elements["cat_name"],
             },
+            sound_id="fav_cat",
         )
         self.profile_elements["favourite_button"].rebuild()
         del favorite_button_rect
@@ -1299,9 +1300,9 @@ class ProfileScreen(Screens):
         output = ""
         # SEX/GENDER
         if the_cat.genderalign is None or the_cat.genderalign == the_cat.gender:
-            output += the_cat.get_gender_string()
+            output += the_cat.gender_string
         else:
-            output += the_cat.get_genderalign_string()
+            output += the_cat.genderalign_string
         # NEWLINE ----------
         output += "\n"
 
@@ -1650,7 +1651,7 @@ class ProfileScreen(Screens):
 
         # EXPERIENCE
         output += i18n.t(
-            "screens.profile.experience_label", exp=the_cat.experience_level
+            "screens.profile.experience_label", exp=the_cat.experience_level_string
         )
         if get_clan_setting("showxp"):
             output += " (" + str(the_cat.experience) + ")"
@@ -3222,9 +3223,10 @@ class ProfileScreen(Screens):
             self.have_kits_button.disable()
             if (
                 Pregnancy_Events.check_if_can_have_kits(
-                    self.the_cat,
-                    get_clan_setting("single parentage"),
-                    get_clan_setting("affair")
+                    cat=self.the_cat,
+                    single_parentage=get_clan_setting("single parentage"),
+                    allow_unmated=True,
+                    allow_affair=get_clan_setting("affair")
                     ) and 
                     self.the_cat.status.alive_in_player_clan and
                     not switch_get_value(Switch.have_kits)

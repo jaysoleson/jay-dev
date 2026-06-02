@@ -331,7 +331,7 @@ class Status:
         """
         Returns True if the cat is currently part of the same group as your cat
         """
-        if not game.clan.your_cat or not game.clan or (game.clan.your_cat and game.clan.your_cat.dead):
+        if not game.clan or not game.clan.your_cat or (game.clan.your_cat and game.clan.your_cat.dead):
             return self.alive_in_player_clan
         # this fails tests bc it checks this before Clan exists
         # so... nonecheck failsafe
@@ -617,6 +617,8 @@ class Status:
         # ---
         elif self.is_former_clancat and not self.group.is_afterlife():
             new_rank = self.find_prior_clan_rank()
+            if new_rank == CatRank.NEWBORN and not age == CatAge.NEWBORN:
+                new_rank = CatRank.KITTEN
             # we don't need to change leaders and deps if they're going to an afterlife
             if (
                 new_rank in (CatRank.LEADER, CatRank.DEPUTY)
@@ -712,11 +714,11 @@ class Status:
                 return entry["standing"]
         return []
 
-    def find_prior_clan_rank(self, clan_ID: str = None) -> CatRank:
+    def find_prior_clan_rank(self, clan_ID: str = None) -> Optional[CatRank]:
         """
         Finds the last held clan rank of a current outsider
-        :param clan_ID: pass the ID of a clan to only return the cat's prior rank within that clan. Default is None, if
-        None then the last rank within any Clan will be returned.
+        :param clan_ID: pass the ID of a clan to only return the cat's prior rank within that Clan. Default is None, if
+        None then the last rank within any Clan will be returned. If the cat has never been in a Clan, None is returned.
         """
         if clan_ID:
             past_ranks = [
@@ -730,6 +732,8 @@ class Status:
                 for rank in self.all_ranks.keys()
                 if rank not in [CatRank.LONER, CatRank.KITTYPET, CatRank.ROGUE]
             ]
+        if not past_ranks:
+            return None
 
         return past_ranks[-1]
 
@@ -835,7 +839,7 @@ class Status:
         # if no group given
         if not group_ID:
             for entry in self.standing_history:
-                if CatStanding.EXILED in entry["standing"]:
+                if CatStanding.EXILED == entry["standing"][-1]:
                     return True
             return False
 

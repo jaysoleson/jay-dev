@@ -1737,7 +1737,8 @@
                         "cats_from": ["y_c"],
                         "mutual": true,
                         "values": ["like"],
-                        "amount": -10
+                        "amount": -10,
+                        "log": {}
                     }
                 ]
             },
@@ -1753,14 +1754,16 @@
                         "cats_from": ["r_c:0"],
                         "mutual": false,
                         "values": ["comfort", "like"],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {}
                     },
                     {
                         "cats_to": ["p_l"],
                         "cats_from": ["r_c:0"],
                         "mutual": false,
                         "values": ["like"],
-                        "amount": 5
+                        "amount": 5,
+                        "log": {}
                     }
                 ]
             },

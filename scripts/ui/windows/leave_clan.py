@@ -26,7 +26,7 @@ class LeaveClanWindow(GameWindow):
     def __init__(self, cat: Cat):
         # LG
         # adjusting height based on additional clans
-        height = 330
+        height = 370
         for clan in game.clan.all_other_clans:
             height += 31
         # ---
@@ -38,6 +38,7 @@ class LeaveClanWindow(GameWindow):
         self.chosen_social = None
         # LG
         self.new_group_ID = None
+        self.error = None
 
         self.heading = pygame_gui.elements.UITextBox(
             "windows.leave_clan",
@@ -79,6 +80,7 @@ class LeaveClanWindow(GameWindow):
                 object_id="#text_box_30_horizleft_spacing_95",
                 manager=MANAGER,
                 container=self,
+                text_kwargs={"count": 1},
                 anchors={
                     "top_target": prev_element,
                     "left_target": self.checkboxes[social],
@@ -95,10 +97,24 @@ class LeaveClanWindow(GameWindow):
             container=self,
             anchors={"centerx": "centerx"},
         )
+        self.error = pygame_gui.elements.UITextBox(
+            "You can't join new groups yet!",
+            ui_scale(pygame.Rect((0, height - 90), (400, -1))),
+            object_id="#text_box_30_horizcenter",
+            manager=MANAGER,
+            container=self,
+            anchors={
+                "centerx": "centerx"
+            },
+        )
+        if cat == game.clan.your_cat:
+            self.done_button.disable()
+            self.error.show()
+        else:
+            self.done_button.enable()
+            self.error.hide()
 
     def process_event(self, event):
-        super().process_event(event)
-
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.done_button:
                 # LG edits
@@ -132,3 +148,4 @@ class LeaveClanWindow(GameWindow):
                         button.check()
                         self.chosen_social = CatSocial(name[0])
                         self.new_group_ID = name[1]
+        return super().process_event(event)

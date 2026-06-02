@@ -139,7 +139,7 @@ class AllegiancesScreen(Screens):
         """Determine Text. Ouputs list of tuples."""
 
         living_cats = [
-            i for i in Cat.all_cats.values() if i.status.alive_in_player_clan
+            i for i in Cat.all_cats.values() if i.status.alive_in_player_clan and i.moons > 0
         ]
         living_meds = []
         living_mediators = []
@@ -280,7 +280,7 @@ class AllegiancesScreen(Screens):
                 all_entries.append(
                     event_text_adjust(
                         Cat,
-                        f"{str(k.name).upper()} - {k.describe_cat(short=True)}",
+                        f"{str(k.name).upper()} - {k.describe_cat()}",
                         main_cat=k,
                     )
                 )

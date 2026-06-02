@@ -526,6 +526,11 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                                 continue
                             if match_found:
                                 continue
+                            if not to_cat:
+                                print("to_cat in list is None! Report to Jay!")
+                                print(to_cat_list)
+                                print(rel_block)
+                                continue
                             rel_valid = False
                             # this will check is the abbrev and cat are valid.
                             # ensures r_c's are never your_cat or the_cat and similar checks.

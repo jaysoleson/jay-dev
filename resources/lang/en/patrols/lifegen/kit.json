@@ -1167,7 +1167,7 @@
             "patrol_art": "lg_default_df",
             "min_cats": 1,
             "max_cats": 1,
-            "min_max_cat_status": {},
+            "min_max_status": {},
             "frequency": 4,
             "intro_text": "You're picking your way through the decaying underbrush of the Dark Forest when a distant, starry glow catches your eye. You begin to make your way towards it, recalling the stories you had heard about StarClan's territory.",
             "decline_text": "Maybe this is an adventure for another day. You turn away as your eyes begin to burn from the dazzling light, and stumble back into the shadows you have grown accustomed to.",

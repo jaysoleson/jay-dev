@@ -232,7 +232,7 @@ class ShortEvent:
         self.dead_cat_objects.clear()
 
         if other_clan:
-            self.other_clan_name = f"{other_clan.name}Clan"
+            self.other_clan_name = i18n.t("general.clan", name=other_clan.name)
 
         self.all_involved_cat_ids.append(self.main_cat.ID)
 
@@ -251,7 +251,7 @@ class ShortEvent:
                 return
 
         # create new cats (must happen here so that new cats can be included in further changes)
-        self.handle_new_cats()
+        self.handle_new_cats(other_clan)
 
         # remove cats from involved_cats if they're supposed to be
         if self.r_c and "r_c" in self.exclude_involved:
@@ -403,9 +403,10 @@ class ShortEvent:
             possible_cats=possible_cats,
         )
 
-    def handle_new_cats(self):
+    def handle_new_cats(self, other_clan=None):
         """
         handles adding new cats to the clan
+        :param other_clan: the object for the other clan involved in event
         """
 
         if not self.new_cat_attributes:
@@ -423,7 +424,13 @@ class ShortEvent:
         for i, attribute_list in enumerate(self.new_cat_attributes):
             self.new_cats.append(
                 create_new_cat_block(
-                    Cat, Relationship, self, in_event_cats, i, attribute_list
+                    Cat,
+                    Relationship,
+                    self,
+                    in_event_cats,
+                    i,
+                    attribute_list,
+                    other_clan,
                 )
             )
             in_event_cats[f"n_c:{i}"] = self.new_cats[i][0]
@@ -439,7 +446,7 @@ class ShortEvent:
                     i18n.t("defaults.event_dead_outsider"),
                     main_cat=first_cat,
                 )
-            elif first_cat.status.is_outsider:
+            elif not first_cat.status.alive_in_player_clan:
                 n_c_index = self.new_cats.index(cat_list)
                 if (
                     f"n_c:{n_c_index}" in self.exclude_involved
@@ -458,6 +465,7 @@ class ShortEvent:
 
             if extra_text:
                 self.text = self.text + " " + extra_text
+                extra_text = None
 
         # Check to see if any young litters joined with alive parents.
         # If so, see if recovering from birth condition is needed and give the condition
@@ -580,10 +588,10 @@ class ShortEvent:
         else:
             body = True
 
-        if self.m_c["dies"] and self.main_cat not in dead_list:
+        if self.m_c.get("dies") and self.main_cat not in dead_list:
             dead_list.append(self.main_cat)
         if self.r_c:
-            if self.r_c["dies"] and self.random_cat not in dead_list:
+            if self.r_c.get("dies") and self.random_cat not in dead_list:
                 dead_list.append(self.random_cat)
 
         if not dead_list:
@@ -893,6 +901,8 @@ class ShortEvent:
             game.clan.freshkill_pile.remove_freshkill(reduce_amount, take_random=True)
         if increase_amount != 0:
             game.clan.freshkill_pile.add_freshkill(increase_amount)
+
+        game.freshkill_event_list.append(self.text)
 
     def handle_herb_supply(self, block):
         """

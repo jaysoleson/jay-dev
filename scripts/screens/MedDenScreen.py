@@ -146,6 +146,7 @@ class MedDenScreen(Screens):
             get_button_dict(ButtonStyles.ICON, (34, 34)),
             object_id="@buttonstyles_icon",
             manager=MANAGER,
+            starting_height=2,
         )
         self.last_med = UISurfaceImageButton(
             ui_scale(pygame.Rect((600, 278), (34, 34))),
@@ -153,6 +154,7 @@ class MedDenScreen(Screens):
             get_button_dict(ButtonStyles.ICON, (34, 34)),
             object_id="@buttonstyles_icon",
             manager=MANAGER,
+            starting_height=2,
         )
 
         if game.clan.game_mode != "classic":
@@ -259,7 +261,7 @@ class MedDenScreen(Screens):
             self.minor_cats = []
             self.injured_and_sick_cats = []
             for the_cat in Cat.all_cats_list:
-                if the_cat.status.alive_in_player_clan and (
+                if (the_cat.status.alive_in_player_clan and the_cat.moons > 0) and (
                     the_cat.injuries or the_cat.illnesses
                 ):
                     self.injured_and_sick_cats.append(the_cat)
@@ -477,13 +479,13 @@ class MedDenScreen(Screens):
             )
             self.med_info = UITextBoxTweaked(
                 "",
-                ui_scale(pygame.Rect((580, 185), (120, 80))),
+                ui_scale(pygame.Rect((580, 185), (120, 90))),
                 object_id=get_text_box_theme("#text_box_22_horizcenter"),
                 line_spacing=1,
                 manager=MANAGER,
             )
             med_skill = cat.skills.skill_string(short=True)
-            med_exp = i18n.t("general.exp_label", exp=cat.experience_level)
+            med_exp = i18n.t("general.exp_label", exp=cat.experience_level_string)
             med_working = True
             if cat.not_working():
                 med_working = False
