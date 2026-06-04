@@ -22,6 +22,7 @@ from ..ui.icon import Icon
 from ..game_structure.game.switches import switch_get_value, Switch
 from scripts.screens.enums import GameScreen
 from scripts.clan_package.settings import get_clan_setting
+from scripts.game_structure.localization import load_lang_resource
 
 
 class QueenScreen(Screens):
@@ -226,9 +227,9 @@ class QueenScreen(Screens):
 
 
     def change_cat(self):
-        RESOURCE_DIR = "resources/dicts/events/lifegen_events/"
-        with open(f"{RESOURCE_DIR}nursery_activities.json", 'r') as read_file:
-            display_events = ujson.loads(read_file.read())[self.activity]
+
+        display_events = load_lang_resource("events/lifegen_events/nursery_activities.json")
+        display_events = display_events[self.activity]
 
         success = self.get_success()
         stat_change = choice(display_events["stat_change"])
