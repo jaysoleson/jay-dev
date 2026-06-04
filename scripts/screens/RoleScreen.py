@@ -602,6 +602,8 @@ class RoleScreen(Screens):
             output = "screens.role.blurb_medcat_app"
         elif self.the_cat.status.rank == CatRank.MEDIATOR_APPRENTICE:
             output = "screens.role.blurb_mediator_app"
+        elif self.the_cat.status.rank == CatRank.QUEENS_APPRENTICE:
+            output = "screens.role.blurb_queen_app"
         elif self.the_cat.status.rank == CatRank.QUEEN:
             output = "screens.role.blurb_queens_app"
         elif self.the_cat.status.rank == CatRank.KITTEN:
