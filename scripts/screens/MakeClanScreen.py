@@ -23,6 +23,7 @@ from scripts.cat.personality import Personality
 from scripts.cat.sprites.display_sprites import generate_sprite
 from scripts.cat.names import names
 from scripts.clan import Clan
+from scripts.clan_package.settings import set_clan_setting
 from scripts.events_module.patrol.patrol import Patrol
 from scripts.game_structure import image_cache, constants
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
@@ -4649,6 +4650,8 @@ class MakeClanScreen(Screens):
         if not game.clan.your_cat.status.group.is_any_clan_group():
             game.clan.your_cat.specsuffix_hidden = True
             game.clan.your_cat.change_name(new_prefix=game.clan.your_cat.name.prefix, new_suffix="")
+            # outsider games have no clan hunting patrols, so auto freshkill is on by default to keep the groups from starving
+            set_clan_setting("freshkill", True)
 
     def get_camp_art_path(self, campnum) -> Optional[str]:
         if not campnum:

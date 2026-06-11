@@ -531,7 +531,9 @@ class Cat:
             self.experience = 0
 
         if not skill_dict:
-            self.skills = CatSkills.generate_new_catskills(self.status.rank, self.age)
+            self.skills = CatSkills.generate_new_catskills(
+                self.status.rank, self.age, cat_group=self.status.group
+            )
 
     def __repr__(self):
         return "CAT OBJECT:" + self.ID

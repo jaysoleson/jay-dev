@@ -184,6 +184,30 @@
         "newscguide1": "m_c was originally from an ancient group of cats but decided to watch and protect the newly formed c_n.",
         "newscguide2": "Known for {PRONOUN/m_c/poss} unwavering fairness in life, m_c now guides others to StarClan, ensuring each spirit finds its rightful place.",
         "newscguide3": "Having sacrificed {PRONOUN/m_c/poss} life to save {PRONOUN/m_c/poss} family, m_c now guides worthy cats to StarClan.",
-        "newscguide4": "A peacemaker in life, m_c now unites spirits from the new Clans in StarClan."
+        "newscguide4": "A peacemaker in life, m_c now unites spirits from the new Clans in StarClan.",
+
+        "current_kittypet_backstories": "kittypet",
+        "current_loner_backstories": "loner",
+        "current_rogue_backstories": "rogue",
+
+        "current_kittypet1": "m_c lives a comfortable life with {PRONOUN/m_c/poss} housefolk, never wanting for warmth or food.",
+        "current_kittypet2": "m_c is a beloved housecat, spending {PRONOUN/m_c/poss} days lounging in the sun and {PRONOUN/m_c/poss} nights curled at {PRONOUN/m_c/poss} housefolk's side.",
+        "current_kittypet3": "m_c lives in a small Twoleg den with {PRONOUN/m_c/poss} housefolk.",
+        "current_kittypet4": "m_c spends most days inside, watching the world through a window and dreaming of what lies beyond {PRONOUN/m_c/poss} fence.",
+        "current_kittypet5": "m_c is a kittypet, but {PRONOUN/m_c/subject} {VERB/m_c/have/has} a habit of slipping out to explore when {PRONOUN/m_c/poss} housefolk aren't watching.",
+
+        "current_loner1": "m_c lives alone in {PRONOUN/m_c/poss} own quiet corner of the world, answering to no one.",
+        "current_loner2": "m_c wanders from territory to territory, never staying in one place long enough to call it home.",
+        "current_loner3": "m_c keeps to {PRONOUN/m_c/self}, watching the world from a careful distance.",
+        "current_loner4": "m_c has made a den inside an abandoned Twoleg structure, content with the quiet.",
+        "current_loner5": "m_c lives near the edge of Clan territory, close enough to know their ways but far enough to remain {PRONOUN/m_c/self}.",
+        "current_loner6": "m_c found a small, sheltered spot to call {PRONOUN/m_c/poss} own, and {PRONOUN/m_c/subject} {VERB/m_c/have/has} defended it fiercely ever since.",
+
+        "current_rogue1": "m_c lives by {PRONOUN/m_c/poss} own rules, taking what {PRONOUN/m_c/subject} {VERB/m_c/need/needs} and answering to no cat.",
+        "current_rogue2": "m_c prowls the outskirts of Twolegplace, scrapping with other cats for territory and prey.",
+        "current_rogue3": "m_c is part of a small rogue group that holds their own corner of the territory through tooth and claw.",
+        "current_rogue4": "m_c learned early that the world wouldn't give {PRONOUN/m_c/object} anything, and {PRONOUN/m_c/subject} {VERB/m_c/have/has} been taking it for {PRONOUN/m_c/self} ever since.",
+        "current_rogue5": "m_c is a rogue with a reputation that precedes {PRONOUN/m_c/object} — other cats know to stay out of {PRONOUN/m_c/poss} way.",
+        "current_rogue6": "m_c was driven out of {PRONOUN/m_c/poss} old home, and now {PRONOUN/m_c/subject} {VERB/m_c/wander/wanders}, using {PRONOUN/m_c/poss} claws against any who get too close."
     }
 }

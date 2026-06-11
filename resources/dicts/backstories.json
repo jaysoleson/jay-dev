@@ -92,6 +92,18 @@
         "baby_kittypet_backstories": [
             "abandoned4"
         ],
+        "current_kittypet_backstories": [
+            "current_kittypet1", "current_kittypet2", "current_kittypet3",
+            "current_kittypet4", "current_kittypet5"
+        ],
+        "current_loner_backstories": [
+            "current_loner1", "current_loner2", "current_loner3",
+            "current_loner4", "current_loner5", "current_loner6"
+        ],
+        "current_rogue_backstories": [
+            "current_rogue1", "current_rogue2", "current_rogue3",
+            "current_rogue4", "current_rogue5", "current_rogue6"
+        ],
 
 
         "dark_forest_kits": [

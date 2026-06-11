@@ -283,6 +283,18 @@ def create_new_cat_block(
         new_name = False
         if age is not None and age <= 6 and not bs_override:
             chosen_backstory = "outsider1"
+        elif not bs_override:
+            current_bs_category = {
+                CatSocial.KITTYPET: "current_kittypet_backstories",
+                CatSocial.LONER: "current_loner_backstories",
+                CatSocial.ROGUE: "current_rogue_backstories",
+            }.get(cat_social)
+            if current_bs_category:
+                chosen_backstory = choice(
+                    BACKSTORIES["backstory_categories"].get(
+                        current_bs_category, [chosen_backstory]
+                    )
+                )
 
     # IS THE CAT DEAD?
     alive = True
