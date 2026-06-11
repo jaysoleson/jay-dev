@@ -129,6 +129,7 @@ class MediationScreen(Screens):
             if (
                 cat.status.rank.is_any_mediator_rank()
                 and cat.status.alive_in_player_clan
+                and cat.moons > 0
             ):
                 self.mediators.append(cat)
 
@@ -376,6 +377,7 @@ class MediationScreen(Screens):
             for i in Cat.all_cats_list
             if (i.ID != self.mediators[self.selected_mediator].ID)
             and i.status.alive_in_player_clan
+            and i.moons > 0
         ]
         self.all_cats = self.chunks(self.all_cats_list, 24)
         self.current_listed_cats = self.all_cats_list

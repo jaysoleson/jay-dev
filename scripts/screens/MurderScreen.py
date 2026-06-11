@@ -3036,7 +3036,7 @@ class MurderScreen(Screens):
         valid_mentors = []
 
         for cat in Cat.all_cats_list:
-            if cat.status.alive_in_player_clan and not cat.ID == game.clan.your_cat.ID and not cat.moons == 0:
+            if cat.status.alive_in_player_clan and not cat.ID == game.clan.your_cat.ID and cat.moons > 0:
                 valid_mentors.append(cat)
         
         return valid_mentors
@@ -3044,7 +3044,7 @@ class MurderScreen(Screens):
     def get_valid_cats2(self):
         valid_mentors = []
         for cat in Cat.all_cats_list:
-            if cat.status.alive_in_player_clan and cat.ID != game.clan.your_cat.ID and cat.ID != self.cat_to_murder.ID and not cat.moons == 0:
+            if cat.status.alive_in_player_clan and cat.ID != game.clan.your_cat.ID and cat.ID != self.cat_to_murder.ID and cat.moons > 0:
                 valid_mentors.append(cat)
         
         return valid_mentors

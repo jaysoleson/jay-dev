@@ -1,7 +1,7 @@
 import random
 
 from scripts.game_structure import game
-from scripts.cat.enums import CatGroup, CatRank
+from scripts.cat.enums import CatGroup, CatRank, CatAge
 from scripts.cat.cats import Cat, BACKSTORIES
 from scripts.lifegen_utility import get_cluster
 from scripts.clan_package.settings import get_clan_setting
@@ -188,6 +188,9 @@ def __filter_group(abbrev_block, cat, your_cat):
             )
         ):
             return False
+    else:
+        if cat.status.group != your_cat.status.group:
+            return False
     return True
 
 def __filter_standing(abbrev_block, cat, your_cat):
@@ -222,10 +225,16 @@ def __filter_age(abbrev_block, cat):
 
     if f"not_{cat.age}" in abbrev_block["age"]:
         return False
-    elif f"-{cat.age}" in abbrev_block["age"]:
+    if "not_kitten" in abbrev_block["age"] and cat.age == CatAge.NEWBORN:
         return False
-    elif cat.age not in abbrev_block["age"]:
+    if f"-{cat.age}" in abbrev_block["age"]:
         return False
+    if any(age in abbrev_block for age in (
+        CatAge.NEWBORN, CatAge.KITTEN, CatAge.ADOLESCENT,
+        CatAge.YOUNG_ADULT, CatAge.ADULT, CatAge.SENIOR_ADULT, CatAge.SENIOR
+    )):
+        if cat.age not in abbrev_block["age"]:
+            return False
 
     return True
 
@@ -525,6 +534,11 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                             if valid_rels == rels_to_check:
                                 continue
                             if match_found:
+                                continue
+                            if not to_cat:
+                                print("to_cat in list is None! Report to Jay!")
+                                print(to_cat_list)
+                                print(rel_block)
                                 continue
                             rel_valid = False
                             # this will check is the abbrev and cat are valid.
