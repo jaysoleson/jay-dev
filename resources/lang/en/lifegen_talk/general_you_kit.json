@@ -15431,5 +15431,122 @@
             "[t_c is trying to teach you to hunt.]",
             "[Despite your size, you're doing pretty well!]"
         ]
+    },
+    "beachcamps_avix1": {
+        "frequency": 2,
+        "season": ["leaf-bare"],
+        "biome": ["beach"],
+        "camp": ["camp1", "camp2"],
+        "cats": {
+            "y_c": {
+                "age": ["kitten"]
+            },
+            "t_c": {
+                "age": ["kitten"]
+            },
+            "r_c:0": {
+              "rank": ["queen"]
+            }
+        },
+        "intro": [
+            "[t_c is staring into the water, lost in thought.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Pounce!]",
+                "next_scene": "bath"
+            },
+            "choice2": {
+                "text": "[Leave {PRONOUN/t_c/object} alone.]",
+                "next_scene": "life"
+            }
+        },
+        "bath": [
+          "[You leap, playfully knocking the unsuspecting t_c into the chilly water.]",
+          "Eep!!! No!! r_c:0, y_c pushed me in the water!!",
+          "[r_c:0 snaps {PRONOUN/r_c:0/poss} head up, eyes locked onto you. You've got to run!]"
+        ],
+        "life": [
+          "[t_c looks up at you as you walk past, purring.]",
+          "Wanna join me, y_c? The water is super pretty!"
+        ]
+    },
+    "campgrieving_avix4": {
+        "frequency": 2,
+        "biome": ["mountainous"],
+        "camp": ["camp3"],
+        "cats": {
+            "y_c": {
+                "age": ["kitten"],
+                "condition": ["grief stricken"]
+            },
+            "t_c": {
+              "age": ["not_kitten"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_20"]
+            }
+        ],
+        "intro": [
+            "Hey, y_c. I found these cool gems earlier, they kinda look like stars, right?",
+            "I figured you might want to keep one. It might help ease your heart."
+        ]
+    },
+    "city_kitten_ashe1": {
+        "frequency": 2,
+        "biome": ["plains"],
+        "camp": ["camp6"],
+        "cats": {
+            "y_c": {
+                "age": ["kitten"],
+                "condition": ["blind:any:false", "headache"]
+            },
+            "t_c": {
+                "rank": ["medicine cat"],
+                "condition": ["blind:any:false"]
+            },
+            "r_c:0": {
+                "rank": ["queen"]
+            }
+        },
+        "intro": [
+            "The strange Twolegs lights are hurting your head more? I see. A lot of cats suffer similarly. It's hard to understand why the Twolegs flock to them.",
+            "[t_c passes you a few icky herbs to take. Between listening to nagging and getting a worse headache or making your tastebuds suffer, you choose the lesser of two evils.]",
+            "Tell r_c:0 to tuck you into a dark corner until your headache subsides. It won't be fun, but you'll feel better sooner."
+        ]
+    },
+    "shipwreck_ghost_kitten_ashe1": {
+        "frequency": 3,
+        "biome": ["beach"],
+        "camp": ["camp3"],
+        "cats": {
+            "y_c": {
+                "age": ["kitten"],
+                "condition": ["blind:any:false"],
+                "skill": ["GHOST,0", "DARK,0", "STAR,0"]
+            },
+            "t_c": {
+                "age": ["adolescent"],
+                "condition": ["blind:any:false"],
+                "skill": ["-GHOST,0", "-DARK,0", "-STAR,0"]
+            },
+            "r_c:0": {
+                "age": ["adolescent"],
+                "condition": ["blind:any:false"],
+                "skill": ["-GHOST,0", "-DARK,0", "-STAR,0"]
+            }
+        },
+        "intro": [
+            "[You swear that you see something lurking between the jagged boards of the dead water-monster. It drags slimy kelp behind it and wears storm clouds as a mane. Terrified, you tell t_c and r_c:0 about what you saw.]",
+            "Relax, y_c. I'm sure it was just a weird seagull. They get themselves into everything.",
+            "|r_c:0|Or it could've been t_c's ancestor.",
+            "Hey!",
+            "[A weird seagull...]",
+            "[You glance at the creaking boards, and it looks back.]"
+        ]
     }
 }

@@ -4024,5 +4024,29 @@
                 }
             ]
         }
+    },
+    "crystalcavecamp_avix2": {
+        "frequency": 2,
+        "biome": ["mountainous"],
+        "camp": ["camp3"],
+        "cats": {
+            "y_c": {
+                "age": ["mediator", "mediator_apprentice"]
+            },
+            "t_c": {
+              "rank": ["mediator", "mediator_apprentice"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_5"]
+            }
+        ],
+        "intro": [
+            "I've been thinking, what if we use some of these crystals in mediation sessions?",
+            "Looking at something pretty can help calm cats down, after all!"
+        ]
     }
 }

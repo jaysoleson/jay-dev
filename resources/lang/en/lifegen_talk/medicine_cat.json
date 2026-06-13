@@ -8097,5 +8097,38 @@
             "Then you'll go until you find the stream. Follow it until you find the brook. Then hop over and head straight again. After that, it's about, say, fifty pawsteps away? You should smell it by then.",
             "... What?"
         ]
+    },
+    "quay_H3": {
+        "frequency": 3,
+        "biome": ["plains"],
+        "camp":["camp2"],
+        "cats": {
+            "y_c": {
+                "rank": ["medicine cat apprentice"],
+                "age": ["adolescent"]
+            },
+            "t_c": {
+                "rank": ["medicine cat"]
+            },
+            "r_c:0": {
+                "rank": ["medicine cat"],
+                "age": ["senior adult", "senior"],
+                "cluster": ["assertive", "unabashed"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["mentor/app"]
+            }
+        ],
+        "intro": [
+            "Just so you know, staying still doesn't help with the rocking.",
+            "I won't know why they decided to put the medicine den in the water-monster, but no cat is too fond of it. Trust me.",
+            "|r_c:0|Oh, the former leader's found it hilarious, I'm sure.",
+            "|r_c:0|I bet they didn't find it too hilarious when the boat rocking made them puke their guts out. HAHAH.",
+            "[r_c:0 seems far too happy about that imagery.]"
+        ]
     }
 }

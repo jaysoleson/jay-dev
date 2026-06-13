@@ -5514,5 +5514,58 @@
             "I feel like I never know the right thing to do or say with the kits, so I thought I'd learn by shadowing you.",
             "I hope that's okay..."
         ]
+    },
+    "seasonbiomecamp_J4": {
+        "frequency": 3,
+        "biome": ["mountainous"],
+        "camp": ["camp1"],
+        "cats": {
+            "y_c": {
+                "age": ["kitten"]
+            },
+            "t_c": {
+                "rank": ["queen", "queen's apprentice"],
+                "condition": ["blind:any:false"]
+            },
+            "r_c:0": {
+                "age": ["kitten"],
+                "condition": ["blind:any:false"]
+            }
+        },
+        "intro": [
+            "[t_c is giving a lesson about staying safe near the cliffside.]",
+            "I know you guys love running and playing, but when you're within two adult tail-lengths of the edge of camp, you have to use your slow paws. Especially during leaf-bare, when it might be slippery.",
+            "Now, what should you do if you lose a toy or a piece of prey over the edge?",
+            "|r_c:0|Tell a queen!",
+            "That's right, r_c:0. Tell a queen, and don't try to get it yourself. You might get hurt.",
+            "y_c, can you tell us what to do when you see another kit playing too close to the edge of the cliff?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Go save them!",
+                "next_scene": "savethem"
+            },
+            "choice2": {
+                "text": "Tell a warrior.",
+                "next_scene": "warrior"
+            },
+            "choice3": {
+                "text": "Tell them to move.",
+                "next_scene": "move"
+            }
+        },
+        "savethem": [
+            "Not quite. If you get too close to the edge, you both might get hurt.",
+            "It's okay, y_c! You're learning.",
+            "If your denmate is in danger, you should always tell a queen or a warrior."
+        ],
+        "warrior": [
+            "Great idea, y_c! If there's a warrior nearby, tell them and they can handle it.",
+            "Good listening ears, everyone. Now let's go back to the nursery for a snack."
+        ],
+        "move": [
+            "That's a good idea, y_c. Use your voice to nicely tell them they should move. If they don't want to, then you should tell a queen or a warrior.",
+            "You've all done well listening today. Now let's go get a snack, and you can tell the others what you've learned."
+        ]
     }
 }

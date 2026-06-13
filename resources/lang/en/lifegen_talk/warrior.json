@@ -14712,5 +14712,49 @@
                 }
             ]
         }
+    },
+    "tunnelscamp_avix1": {
+        "frequency": 2,
+        "season": [
+            "leaf-bare"
+        ],
+        "biome": [
+            "plains"
+        ],
+        "camp": [
+            "camp2"
+        ],
+        "cats": {
+            "y_c": {
+                "age": [
+                    "warrior",
+                    "deputy"
+                ]
+            },
+            "t_c": {
+                "age": [
+                    "warrior",
+                    "deputy",
+                    "leader"
+                ]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": [
+                    "t_c"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_respect_5"
+                ]
+            }
+        ],
+        "intro": [
+            "Ugh, this snow is such a nightmare. y_c, can you help me make sure all the exits are clear?",
+            "We need to be sure we can leave our tunnels in case of an emergency."
+        ]
     }
 }

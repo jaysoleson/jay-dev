@@ -8938,5 +8938,89 @@
         "nothing": [
             "[You look t_c in the eyes. {PRONOUN/t_c/subject/CAP} {VERB/t_c/hold/holds} your gaze for a half-second before looking away.]"
         ]
+    },
+        "quay_H2": {
+        "frequency": 2,
+        "biome": ["beach"],
+        "camp":["camp6"],
+        "cats": {
+            "y_c": {
+                "rank": ["leader"]
+            },
+            "t_c": {
+                "rank": ["deputy"],
+                "cluster": ["upstanding"]
+            }
+        },
+        "intro": [
+            "[You and t_c are planning out the next patrolling cycle on the water-monster. You find the rocking relaxing, t_c... not so much.]",
+            "New outsiders have been seen at the border, so we should stay.... hughhh... vigilant, and send more cats a patrol...",
+            "[You give t_c a questioning look.]",
+            "I'm - hugh! - fine! This is of upmost importance.",
+            "A little motion sickness doesn't hurt any cat!",
+            "[You'd call over a medicine cat, but something tells you {PRONOUN/t_c/subject} would be extra stubborn if you do.]"
+        ]
+    },
+    "tunnel_H1": {
+        "frequency": 3,
+        "biome": ["plains"],
+        "camp":["camp2"],
+        "cats": {
+            "y_c": {
+                "rank": ["warrior"],
+                "skill": ["TUNNELER,1"]
+            },
+            "t_c": {
+                "rank": ["deputy", "leader"]
+            },
+            "r_c:0": {
+                "rank": ["medicine cat"],
+                "age": ["senior adult", "senior"]
+            }
+        },
+        "intro": [
+            "Hey, y_c! I need you to dig the medicine den's tunnel and make it a little bigger.",
+            "r_c:0 has been complaining about the 'lack of space' for {PRONOUN/r_c:0/poss} patients, as if {PRONOUN/r_c:0/subject} {VERB/r_c:0/don't/doesn't} have the largest tunnel in c_n. Greedy cat.",
+            "... Just make sure it's done so I don't have to hear more of {PRONOUN/r_c:0/poss} whining."
+        ]
+    },
+    "tunnel_H2": {
+        "frequency": 3,
+        "biome": ["plains"],
+        "season": ["greenleaf"],
+        "camp":["camp2"],
+        "cats": {
+            "y_c": {
+                "rank": ["warrior"],
+                "skill": ["TUNNELER,1"],
+                "cluster": ["sweet", "upstanding", "introspective"]
+            },
+            "t_c": {
+                "rank": ["deputy", "leader"]
+            }
+        },
+        "intro": [
+            "[You've been hard at work digging a trench before the Clan's tunnel entrance, ensuring the tunnels have a lower chance of flooding when it rains.]",
+            "[You don't notice t_c behind you until {PRONOUN/t_c/subject} {VERB/t_c/clear/clears} {PRONOUN/t_c/poss} throat.]",
+            "Why don't you take a break to eat something? The trench has been perfect for hours, y_c.",
+            "Let it go. We'll be fine. Take care of yourself, yeah?"
+        ],
+        "intro_scene_effects": {
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "respect",
+                        "trust"
+                    ],
+                    "amount": 3,
+                    "log": {
+                        "cats_from": "from_cat is impressed with to_cat's determination to ensure the Clan's well-being after watching to_cat build a trench for hours."
+                    },
+                    "mutual": false
+                }
+            ]
+        }
     }
 }

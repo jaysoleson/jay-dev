@@ -79563,5 +79563,646 @@
             "That weird, grey place full of monsters and Twolegs? There's no way that's safer than camp.",
             "You're a weird one, y_c."
         ]
+    },
+    "seasonbiomecamp_J1": {
+        "frequency": 3,
+        "season": ["leaf-bare"],
+        "biome": ["plains"],
+        "camp": ["camp7"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "rank": ["not_kitten"],
+                "cluster": ["silly", "assertive", "unlawful", "unabashed"],
+                "condition": ["blind:any:false"]
+            }
+        },
+        "intro": [
+            "Augh!",
+            "[t_c wails in despair as {PRONOUN/t_c/subject} {VERB/t_c/attempt/attempts} to trudge through some chin-high snow to get across camp.]",
+            "This place is the worst! I bet o_c_n's camp has more tree coverage. I'm defecting!",
+            "[t_c finds a way to be dramatic in any season.]"
+        ]
+    },
+    "seasonbiomecamp_J2": {
+        "frequency": 3,
+        "biome": ["beach"],
+        "camp": ["camp3"],
+        "cats": {
+            "y_c": {},
+            "t_c": {},
+            "r_c:0": {
+                "age": ["not_kitten"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_to": ["r_c:0"],
+                "cats_from": ["t_c"],
+                "relationship": ["min_like_20"]
+            }
+        ],
+        "intro": [
+            "[t_c gazes up at the big, destroyed Twoleg structure in camp.]",
+            "What do you think it's supposed to be?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "We'll never know.",
+                "next_scene": "neverknow"
+            },
+            "choice2": {
+                "text": "A type of monster.",
+                "next_scene": "monster"
+            },
+            "choice3": {
+                "text": "A Twoleg den.",
+                "next_scene": "den"
+            }
+        },
+        "neverknow": [
+            "I suppose you're right... StarClan, those Twolegs sure are mysterious."
+        ],
+        "monster": [
+            "Really? But it doesn't have those... weird, round paws that the rest of them have.",
+            "Maybe there's different breeds of monsters, like how dogs always look different. Has anyone thought of this before?!",
+            "I'm gonna go ask r_c:0 what {PRONOUN/r_c:0/subject} {VERB/r_c:0/think/thinks}!"
+        ],
+        "den": [
+            "Really? Wait, do you think a Twoleg could still be inside?!",
+            "No! No, I don't really think that. I'm... joking. Yeah.",
+            "Ahem..."
+        ]
+    },
+"cityleaffall1May": {
+       "season": ["leaf-fall"],
+       "biome": ["plains"],
+       "camp": ["camp6"],
+       "cats": {
+            "y_c": {
+                "status": ["not_kitten"]
+            },
+            "t_c": {
+                "status": ["not_kitten"]
+            }
+        },
+        "relationship": ["min_like_5"],
+        "intro": [
+            "y_c.",
+            "[t_c is crouched underneath a sleeping Twoleg monster, sheltered from the rain.]",
+            "Come join me. It's too cold and wet to get anything done right now.",
+            "Don't worry about the monster waking up. See the moss growing under it? This one's been asleep for a while. I don't think its Twolegs are coming back for it."
+        ]
+    },
+    "lakesidecamp_avix1": {
+        "frequency": 3,
+        "season": ["leaf-fall"],
+        "biome": ["forest"],
+        "camp": ["camp4"],
+        "cats": {
+            "y_c": {
+                "condition": ["blind:any:false", "hearing"]
+            },
+            "t_c": {
+                "cluster": ["upstanding", "cool", "stable"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_20"]
+            }
+        ],
+        "intro": [
+            "Awfully foggy today, isn't it?",
+            "Be sure to keep an ear out, y_c. Wouldn't want anything sneaking up on you when visibility is low."
+        ]
+    },
+   "quay_sickboat_H1": {
+        "frequency": 2,
+        "biome": ["beach"],
+        "camp":["camp6"],
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "condition": ["illness:any"]
+            }
+        },
+        "intro": [
+            "[It is quite windy today, and t_c doesn't seem to be enjoying it as the medicine cats water-monster rocks back and forth.]",
+            "[t_c gags as if {PRONOUN/t_c/subject}{VERB/t_c/'re's} going to hurl.]",
+            "Urrrghh, I'm going to murder whoever's bright idea was to put the medicine den in an abandoned water-monster! I'm going to kill them!",
+            "[Yikes...]"
+        ]
+    },
+    "swimmerlakegreenleaf1_JOL": {
+        "frequency": 2,
+        "season": ["greenleaf"],
+        "biome": ["forest"],
+        "camp": ["camp4"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"],
+                "condition": ["hearing"]
+            },
+            "t_c": {
+                "age": ["not_kitten"],
+                "condition": ["hearing"],
+                "skill": ["SWIMMER,1"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_1"]
+            }
+        ],
+        "intro": [
+            "[t_c hauls {PRONOUN/t_c/poss} way out of the lake, eyes bright and fur streaming.]",
+            "You should go for a swim at some point today y_c, the water is great!"
+        ]
+    },
+    "fisherlake1_JOL": {
+        "frequency": 2,
+        "season": ["newleaf", "greenleaf", "leaf-fall"],
+        "biome": ["forest"],
+        "camp": ["camp4"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"],
+                "condition": ["hearing"]
+            },
+            "t_c": {
+                "age": ["not_kitten"],
+                "condition": ["hearing"],
+                "skill": ["FISHER,1"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_5"]
+            }
+        ],
+        "intro": [
+            "[t_c sits by the lakeside, paw poised over the water. Noticing your approach, {PRONOUN/t_c/subject} {VERB/t_c/flick/flicks} {PRONOUN/t_c/poss} ear in greeting.]",
+            "Do you want to do some fishing together, y_c?",
+            "Have our own little in-camp hunting patrol?"
+        ]
+    },
+    "littermatelakegreenleaf1_JOL": {
+        "frequency": 2,
+        "season": ["greenleaf"],
+        "biome": ["forest"],
+        "camp": ["camp4"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten", "not_senior"],
+                "condition": ["hearing", "blind:any:false"]
+            },
+            "t_c": {
+                "age": ["not_kitten", "not_senior"],
+                "condition": ["hearing", "blind:any:false"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["littermates", "min_like_25"]
+            }
+        ],
+        "intro": [
+            "[You're grooming your fur when t_c charges you, sending you both into the lake with a splash.]",
+            "[When you surface coughing and sputtering {PRONOUN/t_c/subject} {VERB/t_c/laugh/laughs}, pulling you close in the shallows and licking your forehead.]",
+            "You seemed like you could use some help."
+        ]
+    },
+    "genleafbaretunnels_JOL1": {
+        "frequency": 2,
+        "season": ["leaf-bare"],
+        "biome": ["plains"],
+        "camp": ["camp2"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"],
+                "condition": ["hearing"]
+            },
+            "t_c": {
+                "age": ["not_kitten"],
+                "condition": ["hearing"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_-10"]
+            }
+        ],
+        "intro": [
+            "Morning, y_c. Have you felt the wind at the entryway tunnel yet?",
+            "Watch your ears when you do. I doubt that anyone will be looking forward to going out in that today."
+        ]
+    },
+    "campgrieving_avix1": {
+        "frequency": 3,
+        "season": ["leaf-bare"],
+        "biome": ["mountainous"],
+        "camp": ["camp6"],
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "condition": ["grief stricken"]
+            },
+            "r_c:0": {
+                "condition": ["deaf:any:false"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["grieving/dead"]
+            }
+        ],
+        "intro": [
+            "r_c:0 used to love the way those little waterfalls freeze..."
+        ]
+    },
+    "campgrieving_avix2": {
+        "frequency": 3,
+        "biome": ["plains"],
+        "camp": ["camp6"],
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "condition": ["grief stricken"]
+            },
+            "r_c:0": {
+                "condition": ["deaf:any:false"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["grieving/dead"]
+            }
+        ],
+        "intro": [
+            "Me and r_c:0 once sat up all night together, doing nothing but watching the gentle flickering of those lights.",
+            "I wish I could do it again. Even if it's just once more."
+        ]
+    },
+    "campgrieving_avix3": {
+        "frequency": 3,
+        "season": ["leaf-bare"],
+        "biome": ["plains"],
+        "camp": ["camp6"],
+        "cats": {
+            "y_c": {},
+            "t_c": {
+                "condition": ["grief stricken"]
+            },
+            "r_c:0": {
+                "condition": ["deaf:any:false"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["grieving/dead"]
+            }
+        ],
+        "intro": [
+            "y_c... Do you remember how the lights looked on r_c:0's pelt? In {PRONOUN/r_c:0/poss} eyes?",
+            "I do. I'd do anything to see it all again. To tell {PRONOUN/r_c:0/object} how wonderful {PRONOUN/r_c:0/subject} {VERB/r_c:0/were/was}."
+        ]
+    },
+    "tidalcavecamp_avix1": {
+        "frequency": 3,
+        "season": ["leaf-bare"],
+        "biome": ["beach"],
+        "camp": ["camp2"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "age": ["not_kitten"],
+                "cluster": ["upstanding", "brooding"]
+            }
+        },
+        "intro": [
+            "Careful with your freshkill, y_c. Don't let it fall in the water."
+        ]
+    },
+    "crystalcavecamp_avix3": {
+        "frequency": 2,
+        "season": ["leaf-bare"],
+        "biome": ["mountainous"],
+        "camp": ["camp3"],
+        "cats": {
+            "y_c": {
+              "condition": ["blind:any:false"]
+            },
+            "t_c": {
+              "condition": ["blind:any:false"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_5"]
+            }
+        ],
+        "intro": [
+            "Brrr...",
+            "Do these crystals reflect the cold or something? It's always so, so chilly during leaf-bare..."
+        ]
+    },
+    "desertcamp_avix2": {
+        "frequency": 3,
+        "season": ["newleaf"],
+        "biome": ["plains"],
+        "camp": ["camp5"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"],
+                "condition": ["deaf:any:false"]
+            },
+            "t_c": {
+              "age": ["not_kitten"],
+              "condition": ["deaf:any:false", "blind:any:false"]
+            }
+        },
+        "intro": [
+            "[t_c is sprawled out across the sand, soaking in the cool rain.]"
+        ]
+    },
+    "crystalcavecamp_avix4": {
+        "frequency": 2,
+        "biome": ["mountainous"],
+        "camp": ["camp3"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"],
+                "condition": ["deaf:any:false"]
+            },
+            "t_c": {
+              "age": ["not_kitten"],
+              "condition": ["deaf:any:false"],
+              "skill": ["ARTISTAN,1"]
+            }
+        },
+        "intro": [
+            "[t_c has spent the entire day sorting crystals by size, shape, and color off to the side of camp.]",
+            "[At first, it didn't seem to be much more than a pile of gems. Now, however, {PRONOUN/t_c/subject} {VERB/t_c/have/has} created a stunning arrange resembling the clan.]"
+        ]
+    },
+    "desertcamp_avix3": {
+        "frequency": 2,
+        "season": ["greenleaf"],
+        "biome": ["plains"],
+        "camp": ["camp5"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+              "age": ["not_kitten"],
+              "skill": ["CLAIRVOYANT,1"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_10"]
+            }
+        ],
+        "intro": [
+            "Try to keep cool today, y_c. It's looking like it's going to be overly hot today."
+        ]
+    },
+    "campsgrieving_avix6": {
+        "frequency": 2,
+        "biome": ["mountainous"],
+        "camp": ["camp5"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+              "age": ["not_kitten"],
+              "condition": ["grief stricken"]
+            },
+            "r_c:0": {}
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["grieving/dead"]
+            }
+        ],
+        "intro": [
+            "I hope r_c:0's bones last as long as that skeleton's. They- They need to last forever. I can't lose all that's left of {PRONOUN/r_c:0/subject}, not now and not ever."
+        ]
+    },
+    "campsgrieving_avix8": {
+        "frequency": 2,
+        "biome": ["beach"],
+        "camp": ["camp3"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"],
+                "condition": ["deaf:any:false"]
+            },
+            "t_c": {
+              "age": ["not_kitten"],
+              "condition": ["grief stricken"]
+            }
+        },
+        "intro": [
+            "[t_c is perched high up on the larger water-monster, staring out thoughtlessly into the sea. You get the feeling you should leave {PRONOUN/t_c/object} alone.]"
+        ]
+    },
+    "birchcamp_avix1": {
+        "frequency": 2,
+        "biome": ["forest"],
+        "camp": ["camp6"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "age": ["not_kitten"],
+                "min_max_faith": [2,9]
+            },
+            "r_c:0": {
+                "age": ["not_kitten"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_10"]
+            },
+            {
+                "cats_from": ["r_c:0"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_10"]
+            }
+
+        ],
+        "intro": [
+            "So... What do you think knocked all these huge trees down so perfectly? Personally, I think it was the work of Starclan.",
+            "|r_c:0|Or a really big disaster! Maybe a massive earthquake hit and knocked them all down.",
+            "Could've been, yeah. y_c? Do you have any ideas?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Really big bird",
+                "next_scene": "harpyja"
+            },
+            "choice2": {
+                "text": "Giant flood",
+                "next_scene": "tsunami"
+            },
+            "choice3": {
+              "text": "Secret Third Option",
+              "next_scene": "mystery"
+            }
+        },
+        "harpyja": [
+          "|r_c:0|Ooh, maybe it used the trees as perches? And they couldn't support its weight?",
+          "That... sounds terrifying. I wouldn't want to meet a bird of that size!"
+        ],
+        "tsunami": [
+          "It'd have to be a really, really big flood. These are some big trees, after all.",
+          "|r_c:0|Maybe it was multiple disasters at once, like my earthquake and your flood. That could probably take down even bigger trees than these!"
+        ],
+        "mystery": [
+          "A secret, huh? You really think it's a mystery, or are you just out of ideas?",
+          "|r_c:0|What about cats who live on the moon? What if they came and took down the trees? That'd be pretty secret!"
+        ]
+    },
+    "grottocamp_leaffall_ashe1": {
+        "frequency": 2,
+        "season": ["leaf-fall"],
+        "biome": ["forest"],
+        "camp": ["camp3"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"],
+                "condition": ["blind:any:false", "hearing"]
+            },
+            "t_c": {
+                "age": ["not_kitten"],
+                "condition": ["blind:any:false", "hearing"],
+                "cluster": ["introspective", "stable"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_comfort_10"]
+            }
+        ],
+        "intro": [
+            "[t_c sits at the edge of the camp, sheltered by the shadows of old stone and moss. You sit beside {PRONOUN/t_c/object} and follow {PRONOUN/t_c/poss} gaze to the crisp, falling leaves.]",
+            "I wonder how many cats have watched the seasons change from this exact spot.",
+            "Were they excited? Scared, maybe? Nervous about leaf-bare's approach?",
+            "Or...",
+            "[t_c's expression hardens, and silence consumes the conversation. Regardless, you continue to sit beside {PRONOUN/t_c/object} and wonder about the things you, too, cannot say aloud.]"
+        ],
+        "relationships": [
+                {
+                    "cats_from": ["y_c"],
+                    "cats_to": ["t_c"],
+                    "values": [
+                        "comfort"
+                    ],
+                    "mutual": true,
+                    "amount": 5,
+                    "log": {
+                        "cats_from": "cat_from had a quiet moment with cat_to.",
+                        "cats_to": "cat_to had a quiet moment with cat_from."
+                    }
+                }
+            ]
+    },
+    "grottocamp_newleaf_introspective_ashe1": {
+        "frequency": 2,
+        "season": ["newleaf"],
+        "biome": ["forest"],
+        "camp": ["camp3"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"],
+                "condition": ["blind:any:false"]
+            },
+            "t_c": {
+                "age": ["not_kitten"],
+                "condition": ["blind:any:false"],
+                "cluster": ["introspective"]
+            }
+        },
+        "intro": [
+            "[At the top of the mossy stone pile, you notice t_c admiring the pinkish flowers.]",
+            "It's a shame we only get to see them during newleaf."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "That makes them special.",
+                "next_scene": "special"
+            },
+            "choice2": {
+                "text": "It'll be back <i>next year.</i>",
+                "next_scene": "nextyear"
+            }
+        },
+        "special": [
+            "[t_c crouches down and tilts {PRONOUN/t_c/poss} head at the small flowers. A smile perks up on {PRONOUN/t_c/poss} maw.]",
+            "You're right. Like a cool breeze in greenleaf, we should savor them while they're here."
+        ],
+        "nextyear": [
+            "I know that. It's just...",
+            "Never mind."
+        ]
+    },
+    "tidalcave_ashe1": {
+        "frequency": 2,
+        "biome": ["beach"],
+        "camp": ["camp2"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+                "age": ["not_kitten"],
+                "condition": ["hearing"],
+                "cluster": ["unabashed", "unlawful"]
+            },
+            "r_c:0": {
+                "age": ["newborn", "kitten"]
+            }
+        },
+        "intro": [
+            "If they let me into StarClan, I want to know which of my ancestors decided a cave butted up to the sea was a great living space.",
+            "The waves are constantly crashing, the nursery's wails reverberate, and peace isn't an option. Sometimes, the entrance to camp is <i>underwater!</i>",
+            "Why are we still here, y_c? Just to suffer?"
+        ]
     }
 }
