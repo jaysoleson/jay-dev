@@ -252,6 +252,8 @@ class ListScreen(Screens):
         # LG
         if not game.clan.your_cat.status.alive_in_player_clan and not game.clan.your_cat.dead:
             self.living_group_names = ("general.your_clan", "general.your_group", "general.cotc")
+            if not game.last_list_forProfile:
+                self.current_group = "your_group"
         else:
             self.living_group_names = ("general.your_clan", "general.cotc")
 
@@ -783,6 +785,11 @@ class ListScreen(Screens):
                 self.get_your_group_cats()
             else:
                 self.get_your_clan_cats()
+        elif (
+            not game.clan.your_cat.status.alive_in_player_clan
+            and not game.clan.your_cat.dead
+        ):
+            self.get_your_group_cats()
         else:
             self.get_your_clan_cats()
 
