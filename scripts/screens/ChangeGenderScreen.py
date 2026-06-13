@@ -23,8 +23,11 @@ from .enums import GameScreen
 from ..game_structure.game.switches import switch_get_value, switch_set_value, Switch
 from ..game_structure.screen_settings import MANAGER
 from ..ui.windows.pronoun_creation import PronounCreationWindow
+from ..ui.windows.xenogender import XenogenderWindow
 from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
+
+from scripts.cat.pelts import Pelt
 
 
 class ChangeGenderScreen(Screens):
@@ -61,6 +64,8 @@ class ChangeGenderScreen(Screens):
         self.current_container = None
         self.saved_container = None
 
+        self.xenogender_event_data = load_lang_resource("events/xenogender_events.json")
+
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
@@ -77,6 +82,10 @@ class ChangeGenderScreen(Screens):
                 if self.are_boxes_full():
                     gender_identity = self.get_new_identity()
                     self.the_cat.genderalign = gender_identity
+                    # PG
+                    if gender_identity.lower() in self.xenogender_event_data:
+                        XenogenderWindow(self.the_cat)
+
                     self.selected_cat_elements["identity_changed"].show()
                     self.selected_cat_elements["cat_gender"].kill()
                     self.selected_cat_elements[

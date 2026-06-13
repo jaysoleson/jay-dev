@@ -24,6 +24,7 @@ class Sexuality():
     female_genders = [
         "female", "trans female", "demigirl", "girl", "woman", "molly", "genderdoe"
     ]
+
     def __init__(
             self,
 

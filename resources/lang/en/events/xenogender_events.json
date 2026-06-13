@@ -1,0 +1,19 @@
+{
+    "mossgender": "m_c identifies with the moss growing around camp.",
+    "moongender": "m_c's gender feels aligned with the moon, cool and comforting.",
+    "sungender": "m_c's gender feels aligned with the sun, warm and bright.",
+    "stargender": "m_c's gender feels aligned with the stars up in Silverpelt.",
+    "apagender": "m_c doesn't really care much about gender at all.",
+    "arkhaigender": "m_c's gender feels like a grand adventure!",
+    "archeogender": "m_c's gender feels like something constantly being discovered.",
+    "catgender": "m_c's gender reflects every one of {PRONOUN/m_c/poss} Clanmates around {PRONOUN/m_c/object}.",
+    "genderdoe": "m_c knows {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not a tom, but identifies with many levels of she-cat-ness.",
+    "mothgender": "m_c identifies with the moths that flutter through camp at night.",
+    "snowleopardgender": "m_c identifies with the large, spotted cats in the mountains.",
+    "tigergender": "m_c identifies with the the large, striped cats of the savanna.",
+    "buggender": "m_c identifies with the many insects that also call c_n camp their home.",
+    "genderfaun": "m_c knows {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not a she-cat, but identifies with many levels of tom-ness",
+    "xenogender": "m_c's gender feels brand new!",
+    "genderflux": "m_c's gender seems to flucuate in intensity over time.",
+    "demifluid": "m_c's gender feels partially fluid."
+}
