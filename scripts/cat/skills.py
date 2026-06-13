@@ -232,7 +232,7 @@ class SkillPath(Enum):
         "green nose"
     )
 
-    # LG: outsider-unique skill paths
+    # LG: outsider-unique skill paths feel free to change the descriptions
 
     # Kittypet-unique
     TWOLEGCARE = (
@@ -243,13 +243,13 @@ class SkillPath(Enum):
     )
     CHARMER = (
         "easy to like",
-        "charming",
+        "magnetic",
         "irresistibly charming",
         "purrs hearts open"
     )
     SHOWCAT = (
         "preens for attention",
-        "polished presenter",
+        "polished",
         "ribbon-winner",
         "show-perfect"
     )
@@ -259,7 +259,7 @@ class SkillPath(Enum):
         "restless paws",
         "well-traveled",
         "seasoned wanderer",
-        "knower of distant lands"
+        "knower of lands"
     )
     SCAVENGER = (
         "picks at scraps",
@@ -268,9 +268,9 @@ class SkillPath(Enum):
         "finder of forgotten things"
     )
     SURVIVOR = (
-        "tough little soul",
-        "hardy survivor",
-        "endurance-hardened",
+        "tough soul",
+        "survivor",
+        "strong endurance",
         "unbreakable"
     )
 
@@ -290,8 +290,8 @@ class SkillPath(Enum):
     AMBUSHER = (
         "hides well",
         "patient ambusher",
-        "shadow striker",
-        "vanish-and-striker"
+        "clever ambusher",
+        "invisible ambusher"
     )
 
     @staticmethod
