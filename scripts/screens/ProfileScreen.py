@@ -58,7 +58,7 @@ from scripts.lifegen_utility import get_cluster
 #               assigns backstory blurbs to the backstory                      #
 # ---------------------------------------------------------------------------- #
 def bs_blurb_text(cat):
-    if not cat.backstory and not cat.status.alive_in_player_clan:
+    if not cat.backstory:
         return event_text_adjust(
             Cat,
             i18n.t(
@@ -1955,6 +1955,12 @@ class ProfileScreen(Screens):
         if self.the_cat.backstory:
             bs_blurb = i18n.t(f"cat.backstories.{self.the_cat.backstory}")
 
+        current_outsider_bs = set(
+            BACKSTORIES["backstory_categories"].get("current_kittypet_backstories", [])
+            + BACKSTORIES["backstory_categories"].get("current_loner_backstories", [])
+            + BACKSTORIES["backstory_categories"].get("current_rogue_backstories", [])
+        )
+
         # if cat is in the unknown residence
         if self.the_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
             bs_blurb = i18n.t(
@@ -1966,11 +1972,26 @@ class ProfileScreen(Screens):
             self.the_cat.status.is_outsider
             and not self.the_cat.status.is_lost()
             and not self.the_cat.status.is_exiled()
+            and self.the_cat.backstory not in current_outsider_bs
         ):
-            bs_blurb = i18n.t(
-                "cat.backstories.cats_outside_the_clan",
-                status=i18n.t(f"general.{self.the_cat.status.rank}", count=1),
+            group_bs_map = {
+                CatGroup.HOUSEHOLD: "current_kittypet_backstories",
+                CatGroup.LONER_GROUP: "current_loner_backstories",
+                CatGroup.ROGUE_GROUP: "current_rogue_backstories",
+            }
+            bs_category = group_bs_map.get(self.the_cat.status.group)
+            substitute_pool = (
+                BACKSTORIES["backstory_categories"].get(bs_category, [])
+                if bs_category else []
             )
+            if substitute_pool:
+                import random
+                bs_blurb = i18n.t(f"cat.backstories.{random.choice(substitute_pool)}")
+            else:
+                bs_blurb = i18n.t(
+                    "cat.backstories.cats_outside_the_clan",
+                    status=i18n.t(f"general.{self.the_cat.status.rank}", count=1),
+                )
         elif (
             self.the_cat.status.is_other_clancat
             and self.the_cat != game.clan.instructor
@@ -3871,7 +3892,19 @@ class ProfileScreen(Screens):
         else:
             if cat_from.status.alive_in_player_clan and not cat_to.status.alive_in_player_clan:
                 return False
-            
+            # LG: outsider players (kittypet/loner/rogue) can only talk to
+            # cats in their own group
+            outsider_groups = (
+                CatGroup.HOUSEHOLD,
+                CatGroup.LONER_GROUP,
+                CatGroup.ROGUE_GROUP,
+            )
+            if (
+                cat_from.status.group in outsider_groups
+                and cat_to.status.group != cat_from.status.group
+            ):
+                return False
+
         return True
         
 

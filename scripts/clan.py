@@ -1790,8 +1790,7 @@ class Clan:
             elif os.path.exists(current_file_path):
                 with open(current_file_path, "r", encoding="utf-8") as save_file:
                     herbs = ujson.load(save_file)
-                    clan.herb_supply = HerbSupply(herb_supply=herbs["storage"])
-                    clan.herb_supply.collected = herbs["collected"]
+                    clan.herb_supply = HerbSupply(herb_supply=herbs)
 
             # else just start us with an empty herb supply
             else:
@@ -1810,14 +1809,17 @@ class Clan:
 
         combined_supply_dict = clan.herb_supply.combined_supply_dict
         combined_supply_dict = {
-            "storage": {
-                herb: [int(i) for i in amounts]
-                for herb, amounts in combined_supply_dict["storage"].items()
-            },
-            "collected": {
-                herb: int(amount)
-                for herb, amount in combined_supply_dict["collected"].items()
-            },
+            group_key: {
+                "storage": {
+                    herb: [int(i) for i in amounts]
+                    for herb, amounts in group_data["storage"].items()
+                },
+                "collected": {
+                    herb: int(amount)
+                    for herb, amount in group_data["collected"].items()
+                },
+            }
+            for group_key, group_data in combined_supply_dict.items()
         }
 
         safe_save(

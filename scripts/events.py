@@ -204,6 +204,14 @@ def one_moon():
         # otherwise, switching from a rogue group to a clan would starve them all
         auto_freshkill()
 
+        # auto freshkill is set when the player is an outsider
+        if not game.clan.your_cat.status.group.is_any_clan_group():
+            set_clan_setting("freshkill", True)
+        else:
+            # player rejoined the clan the outsider pile gets discarded so a future trip back outside starts fresh.
+            if game.clan.freshkill_pile:
+                game.clan.freshkill_pile.discard_outside_pile()
+
         switch_set_value(Switch.change_group, None)
 
     if checks == [-1,-1,-1] and game.clan.your_cat and game.clan.your_cat.inheritance:
@@ -474,15 +482,31 @@ def one_moon():
     handle_focus()
 
     # handle the herb supply for the moon
-    game.clan.herb_supply.handle_moon(
-        clan_size=get_living_clan_cat_count(Cat),
-        clan_cats=[c for c in Cat.all_cats_list if c.status.alive_in_player_clan],
-        med_cats=find_alive_cats_with_rank(
-            Cat,
-            ranks=[CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE],
-            working=True,
-        ),
-    )
+    mc = game.clan.your_cat
+    mc_group = mc.status.group if mc else CatGroup.NONE
+    if mc and not mc_group.is_any_clan_group():
+        # the herb supply follows the player group when they're an
+        # outsider, same as the freshkill pile. Kittypets are cared for by
+        # Twolegs and don't need herbs, can change possibly
+        if mc_group != CatGroup.HOUSEHOLD:
+            group_cats = [
+                c for c in Cat.all_cats_list if c.status.alive_in_your_cat_group
+            ]
+            game.clan.herb_supply.handle_moon(
+                clan_size=len(group_cats),
+                clan_cats=group_cats,
+                med_cats=[mc] if mc.status.alive_in_your_cat_group else [],
+            )
+    else:
+        game.clan.herb_supply.handle_moon(
+            clan_size=get_living_clan_cat_count(Cat),
+            clan_cats=[c for c in Cat.all_cats_list if c.status.alive_in_player_clan],
+            med_cats=find_alive_cats_with_rank(
+                Cat,
+                ranks=[CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE],
+                working=True,
+            ),
+        )
 
     if game.clan.game_mode in ("expanded", "cruel season"):
         amount_per_med = get_amount_cat_for_one_medic(game.clan)
@@ -530,7 +554,14 @@ def one_moon():
         if game.clan.your_cat.moons == 0:
             generate_birth_event()
         elif game.clan.your_cat.moons < 6:
-            generate_kit_events() 
+            generate_kit_events()
+        elif game.clan.your_cat.status.is_outsider:
+            # Outsiders (kittypet/loner/rogue) don't get Clan ceremonies
+            # show a short message when they reach a new age
+            if game.clan.your_cat.moons in (6, 12, 120):
+                generate_outsider_age_ceremony()
+            else:
+                generate_lifegen_events()
         elif game.clan.your_cat.moons == 6:
             generate_app_ceremony()
         elif game.clan.your_cat.status.rank.is_any_apprentice_rank():
@@ -1093,31 +1124,32 @@ def generate_birth_event():
                 "possible_ranks": [CatRank.ROGUE],
                 "cat_social": CatSocial.ROGUE,
                 "outside": True,
-                "possible_backstories": BACKSTORIES["backstory_categories"]["rogue_backstories"]
+                "possible_backstories": BACKSTORIES["backstory_categories"]["current_rogue_backstories"]
             },
             CatGroup.LONER_GROUP_ID: {
                 "possible_ranks": [CatRank.LONER],
                 "cat_social": CatSocial.LONER,
                 "outside": True,
-                "possible_backstories": BACKSTORIES["backstory_categories"]["loner_backstories"]
+                "possible_backstories": BACKSTORIES["backstory_categories"]["current_loner_backstories"]
             },
             CatGroup.HOUSEHOLD_ID: {
                 "possible_ranks": [CatRank.KITTYPET],
                 "cat_social": CatSocial.KITTYPET,
                 "outside": True,
-                "possible_backstories": BACKSTORIES["backstory_categories"]["kittypet_backstories"]
+                "possible_backstories": BACKSTORIES["backstory_categories"]["current_kittypet_backstories"]
             },
             None: {
                 "possible_ranks": [CatRank.LONER],
                 "cat_social": CatSocial.LONER,
                 "outside": True,
-                "possible_backstories": BACKSTORIES["backstory_categories"]["loner_backstories"]
+                "possible_backstories": BACKSTORIES["backstory_categories"]["current_loner_backstories"]
             }
         }
 
         parent1_rank = random.choice(attribute_dict[parent_group]["possible_ranks"])
         parent1_outside = attribute_dict[parent_group]["outside"]
         parent1_social = attribute_dict[parent_group]["cat_social"]
+        parent1_backstory = random.choice(attribute_dict[parent_group]["possible_backstories"])
 
         parent1_gender = None
         if mate and not get_clan_setting("same sex birth"):
@@ -1135,7 +1167,7 @@ def generate_birth_event():
             rank=parent1_rank,
             gender=parent1_gender,
             original_group=parent_group,
-            backstory=random.choice(["refugee2", "refugee3", "refugee4"]),
+            backstory=parent1_backstory,
             outside=parent1_outside
             )[0]
         parent1.thought = event_text_adjust(
@@ -1291,7 +1323,19 @@ def generate_birth_event():
     def handle_backstory(siblings):
         '''Handles creating backstories for your cat'''
         backstory = ""
-        if birth_type in [BirthType.NO_PARENTS, BirthType.ONE_ADOPTIVE_PARENT, BirthType.TWO_ADOPTIVE_PARENTS]:
+
+        # LG: outsider MCs (kittypet/loner/rogue) get a "current" backstory
+        mc_group = game.clan.your_cat.status.group_ID
+        outsider_bs_categories = {
+            CatGroup.HOUSEHOLD_ID: "current_kittypet_backstories",
+            CatGroup.LONER_GROUP_ID: "current_loner_backstories",
+            CatGroup.ROGUE_GROUP_ID: "current_rogue_backstories",
+        }
+        if mc_group in outsider_bs_categories:
+            backstory = random.choice(
+                BACKSTORIES["backstory_categories"][outsider_bs_categories[mc_group]]
+            )
+        elif birth_type in [BirthType.NO_PARENTS, BirthType.ONE_ADOPTIVE_PARENT, BirthType.TWO_ADOPTIVE_PARENTS]:
             backstory = random.choice(["abandoned1", "abandoned2", "abandoned4", "loner3", "orphaned1", "orphaned2", "orphaned3", "orphaned4", "orphaned5", "orphaned6", "orphaned7", "outsider1"])
         elif birth_type == BirthType.ONE_PARENT:
             backstory = random.choice(["halfclan1", "halfclan4", "halfclan4", "halfclan5", "halfclan6", "halfclan7", "halfclan8", "halfclan9", "halfclan10", "outsider_roots1", "outsider_roots3", "outsider_roots4", "outsider_roots5", "outsider_roots6", "outsider_roots7", "outsider_roots8", "clanborn"])
@@ -1309,7 +1353,7 @@ def generate_birth_event():
             backstory = random.choice(["outsider1", "outsider2", "outsider3", "outsider4", "outsider5", "outsider6"])
         else:
             backstory = "outsider1"
-        
+
         game.clan.your_cat.backstory = backstory
         if siblings:
             for sibling in siblings:
@@ -1742,6 +1786,26 @@ def generate_elder_ceremony():
         process_text_dict[abbrev] = (abbrev_cat, random.choice(abbrev_cat.pronouns))
     ceremony_txt = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), ceremony_txt)
     game.cur_events_list.insert(0, Single_Event(ceremony_txt, ["alert", "ceremony"], game.clan.your_cat.ID))
+
+def generate_outsider_age_ceremony():
+    """lg: shows a short milestone message when the player cat reaches a new
+    age while living as a kittypet, loner, or rogue, instead of a Clan ceremony."""
+    your_cat = game.clan.your_cat
+
+    stage_by_moons = {6: "adol", 12: "adult", 120: "senior"}
+    stage = stage_by_moons.get(your_cat.moons)
+    social = str(your_cat.status.social)
+    if stage is None or social not in ("kittypet", "loner", "rogue"):
+        return
+
+    load_ceremonies()
+
+    key = f"{social}_{stage}"
+    if key not in CEREMONY_TXT:
+        return
+
+    ceremony_txt = event_text_adjust(Cat, CEREMONY_TXT[key][1], main_cat=your_cat)
+    game.cur_events_list.insert(0, Single_Event(ceremony_txt, ["alert", "ceremony"], your_cat.ID))
 
 def check_gain_app(checks):
     if game.clan.your_cat.dead or game.clan.your_cat.status.is_outsider:
