@@ -79693,7 +79693,7 @@
         },
         "intro": [
             "[It is quite windy today, and t_c doesn't seem to be enjoying it as the medicine cats water-monster rocks back and forth.]",
-            "[t_c gags as if {PRONOUN/t_c/subject}{VERB/t_c/'re's} going to hurl.]",
+            "[t_c gags as if {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} going to hurl.]",
             "Urrrghh, I'm going to murder whoever's bright idea was to put the medicine den in an abandoned water-monster! I'm going to kill them!",
             "[Yikes...]"
         ]
