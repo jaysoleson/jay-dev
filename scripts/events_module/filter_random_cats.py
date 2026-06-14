@@ -229,12 +229,8 @@ def __filter_age(abbrev_block, cat):
         return False
     if f"-{cat.age}" in abbrev_block["age"]:
         return False
-    if any(age in abbrev_block for age in (
-        CatAge.NEWBORN, CatAge.KITTEN, CatAge.ADOLESCENT,
-        CatAge.YOUNG_ADULT, CatAge.ADULT, CatAge.SENIOR_ADULT, CatAge.SENIOR
-    )):
-        if cat.age not in abbrev_block["age"]:
-            return False
+    if cat.age not in abbrev_block["age"]:
+        return False
 
     return True
 

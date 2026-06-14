@@ -8571,5 +8571,319 @@
             "[You assure t_c that the hawk is probably not coming back.]",
             "Just... Just keep an eye out, okay, y_c?"
         ]
+    },
+    "pinecamp_avix1": {
+        "frequency": 3,
+        "season": ["newleaf"],
+        "biome": ["forest"],
+        "camp": ["camp5"],
+        "cats": {
+            "y_c": {},
+            "t_c": {}
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_10"]
+            }
+        ],
+        "intro": [
+            "You don't think the bees are going to come back for their hive, do you?",
+            "N-no reason, I'm just wondering!"
+        ]
+    },
+    "frogslakepine_JOL": {
+        "frequency": 2,
+        "season": ["greenleaf"],
+        "biome": ["forest"],
+        "camp": ["camp4", "camp5"],
+        "cats": {
+            "y_c": {
+                "age": ["not_newborn"],
+                "condition": ["hearing"]
+            },
+            "t_c": {
+                "age": ["not_newborn"],
+                "condition": ["hearing"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_0"]
+            }
+        ],
+        "intro": [
+            "The frogs are loud tonight.",
+            "[t_c falls silent and the two of you listen together. The fireflies seem to dance in time with the chorus of crickets and frogs.]",
+            "[It's mesmerizing. You reflect on how many cats must live too far from the water to enjoy nights like these, and feel a warm current of affection for your home.]"
+        ]
+    },
+   "quarry_kitten_H1": {
+        "frequency": 4,
+        "biome": ["mountainous"],
+        "camp":["camp5"],
+        "cats": {
+            "y_c": {
+                "rank": ["warrior", "deputy"]
+            },
+            "t_c": {
+                "age": ["kitten", "adolescent"],
+                "cluster": ["unlawful"]
+            }
+        },
+        "intro": [
+            "[Lately, the elders have been whispering about a loud roaring at dawn.]",
+            "[While patrolling around the camp just before dawn, you hear the distant sound of roaring. It sounds like nothing you've heard before.]",
+            "[Just as your approach the animal skeleton in the middle of c_n, the roaring becomes distinctly louder.]",
+            "ROOOARRRR.",
+            "ROOAARRR - Oh!",
+            "[t_c's face pokes through the bones. You've caught {PRONOUN/t_c/object} causing some trouble, as always.]",
+            "Uhh... There's a beast behind you! Runnn!!",
+            "[t_c flees the moment your head turns to look. Ah, t_c.]"
+        ]
+    },
+    "fjordcamp_avix1": {
+        "frequency": 2,
+        "season": ["greenleaf"],
+        "biome": ["beach"],
+        "camp": ["camp4"],
+        "cats": {
+            "y_c": {
+                "age": ["not_newborn"]
+            },
+            "t_c": {
+                "age": ["not_kitten"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_10"]
+            }
+        ],
+        "intro": [
+            "It's so nice that the tide pulls back so far during Greenleaf.",
+            "Just look at all the hidden treasures we wouldn't have seen otherwise!"
+        ]
+    },
+    "forestcamps_avix1": {
+        "frequency": 2,
+        "season": ["leaf-bare"],
+        "biome": ["forest"],
+        "camp": ["camp5", "camp6"],
+        "cats": {
+            "y_c": {
+                "age": ["not_newborn"],
+                "condition": ["deaf:any:false"]
+            },
+            "t_c": {
+                "age": ["not_newborn"],
+                "condition": ["deaf:any:false"]
+            }
+        },
+        "intro": [
+            "[t_c is watching a bird up in the branches above {PRONOUN/t_c/poss} head.]",
+            "[Suddenly, {PRONOUN/t_c/subject} {VERB/t_c/sneeze/sneezes}, causing the bird to fly off. A cloud of snow falls from the trees in the process..]",
+            "[t_c happens to be standing just below, getting covered head-to-toe. The face {PRONOUN/t_c/subject} makes is very funny!]"
+        ]
+    },
+    "crystalcavecamp_avix1": {
+        "frequency": 2,
+        "biome": ["mountain"],
+        "camp": ["camp3"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+              "age": ["kitten", "apprentice"]
+            },
+            "r_c:0": {
+              "age": ["kitten", "apprentice"]
+            }
+        },
+        "intro": [
+            "[t_c and r_c:0 are competing to see who can find the coolest crystal. Somehow, you have become their judge.]",
+            "[In front of you are two crystals, one seafoam green, and the other fully translucent. Both cats are eagerly awaiting your decision on which is superior.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Pick the seafoam crystal.]",
+                "next_scene": "seafoam"
+            },
+            "choice2": {
+                "text": "[Pick the translucent crystal.]",
+                "next_scene": "transluscent"
+            }
+        },
+        "seafoam": [
+          "Hooray!! I win! See, r_c:0, told you seafoam was cool!",
+          "|r_c:0|Congrats! I'll win next time, though. I'll find one way better than seafoam!",
+          "No way!",
+          "[They both wander off, laughing, leaving you with the two crystals.]"
+        ],
+        "transluscent": [
+          "|r_c:0|Yes!! Look, t_c, I win! Translucent was the way to go!",
+          "Hooray! I'll find one way better next time, though!",
+          "|r_c:0|Nuh uh!",
+          "[They both wander off, laughing, leaving you with the two crystals.]"
+        ],
+        "seafoam_scene_effects": {
+            "relationships": [
+                {
+                    "cats_from": ["t_c"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like"
+                    ],
+                    "amount": 5,
+                    "log": {
+                        "cats_from": "to_cat picked a crystal from_cat found."
+                    }
+                }
+            ]
+        },
+        "transluscent_scene_effects": {
+            "relationships": [
+                {
+                    "cats_from": ["r_c:0"],
+                    "cats_to": ["y_c"],
+                    "values": [
+                        "like"
+                    ],
+                    "amount": 5,
+                    "log": {
+                        "cats_from": "to_cat picked a crystal from_cat found."
+                    }
+                }
+            ]
+        }
+    },
+    "campgrieving_avix3": {
+        "frequency": 2,
+        "biome": ["mountainous"],
+        "camp": ["camp3"],
+        "cats": {
+            "y_c": {
+              "condition": ["deaf:any:false"]
+            },
+            "t_c": {
+                "condition": ["grief stricken", "deaf:any:false", "blind:any:false"]
+            }
+        },
+        "intro": [
+            "[t_c's eyes are as clouded as the crystals from crying so much.]"
+        ]
+    },
+    "desertcamp_avix1": {
+        "frequency": 2,
+        "biome": ["plains"],
+        "camp": ["camp4"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+              "age": ["not_kitten"]
+            },
+            "r_c:0": {
+              "age": ["kitten"],
+              "condition": ["deaf:any:false"]
+            }
+        },
+        "intro": [
+            "...Oh. Hey, y_c.",
+            "[t_c is buried under the dunes, with nothing but {PRONOUN/t_c/poss} head visible.]",
+            "r_c:0 wanted me to be a plant for {PRONOUN/r_c:0/poss} game. I did not realize this included burying my roots, and now here I am...",
+            "If anycat asks for me, tell them I'm too busy being r_c:0's plant, okay?"
+        ]
+    },
+    "campgrieving_avix4": {
+        "frequency": 2,
+        "biome": ["mountainous"],
+        "camp": ["camp1"],
+        "cats": {
+            "y_c": {
+                "age": ["not_newborn"],
+                "condition": ["grief stricken"]
+            },
+            "t_c": {
+              "age": ["not_kitten"]
+            },
+            "r_c:0": {
+              "condition": ["blind:any:false", "deaf:any:false"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_10"]
+            },
+            {
+                "cats_from": ["y_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["grieving/dead"]
+            }
+        ],
+        "intro": [
+            "[t_c is sitting beside you, the two of you pointing out landmarks far below the cliffs. It was t_c's idea, in the hopes of taking your mind off of r_c:0.]"
+        ]
+    },
+    "campsgrieving_avix5": {
+        "frequency": 3,
+        "season": [],
+        "biome": [],
+        "camp": [],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+              "age": ["not_newborn"],
+              "condition": ["grief stricken"]
+            }
+        },
+        "intro": [
+            "[t_c is pawing listlessly at the sand. It doesn't seem {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to talk right now.]"
+        ]
+    },
+    "campsgrieving_avix6": {
+        "frequency": 3,
+        "biome": ["beach"],
+        "camp": ["camp1", "camp2", "camp3", "camp4", "camp5"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+              "age": ["not_newborn"],
+              "condition": ["grief stricken"]
+            }
+        },
+        "intro": [
+            "[t_c is pawing listlessly at the sand. It doesn't seem {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to talk right now.]"
+        ]
+    },
+    "campsgrieving_avix7": {
+        "frequency": 2,
+        "biome": ["plains"],
+        "camp": ["camp2"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+              "age": ["not_newborn"],
+              "condition": ["grief stricken"]
+            }
+        },
+        "intro": [
+            "[t_c has found the darkest corner of the tunnels to curl up in. {PRONOUN/t_c/poss/CAP} sobs, though quiet, echo off the empty walls.]"
+        ]
     }
 }

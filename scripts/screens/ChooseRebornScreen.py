@@ -442,7 +442,7 @@ class ChooseRebornScreen(Screens):
 
         for cat in Cat.all_cats_list:
             if self.current_list == "alive":
-                if not cat.dead and not cat.status.is_outsider and not cat.ID == game.clan.your_cat.ID:
+                if cat.status.alive_in_your_cat_group and not cat.ID == game.clan.your_cat.ID:
                     valid_mentors.append(cat)
             else:
                 if self.current_sublist == "darkforest":

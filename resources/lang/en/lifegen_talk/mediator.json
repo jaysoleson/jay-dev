@@ -2728,8 +2728,8 @@
         ],
         "intro": [
             "Hey, just between mentor and apprentice, can I just say- that my patience with r_c:0 and r_c:1 is running so thin...",
-            "['I couldn't agree more, it was just a mouse and very soon they'll turn it into a full on war...']",
-            "Wait- THEY'RE TALKING TO YOU AS WELL?!?!?!"
+            "[You tell t_c that you agree-- the minor disagreement they had earlier today may soon turn into a Clanwide war.]",
+            "Wait- they told you about it too?!"
         ]
     },
     "TinyTeddy_stable_theyqueen_mentor_youmediatorapp_02": {
@@ -4024,5 +4024,29 @@
                 }
             ]
         }
+    },
+    "crystalcavecamp_avix2": {
+        "frequency": 2,
+        "biome": ["mountainous"],
+        "camp": ["camp3"],
+        "cats": {
+            "y_c": {
+                "age": ["mediator", "mediator_apprentice"]
+            },
+            "t_c": {
+              "rank": ["mediator", "mediator_apprentice"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_5"]
+            }
+        ],
+        "intro": [
+            "I've been thinking, what if we use some of these crystals in mediation sessions?",
+            "Looking at something pretty can help calm cats down, after all!"
+        ]
     }
 }
