@@ -39,7 +39,14 @@ def get_new_pronouns(genderalign: str) -> List[Dict[str, Union[str, int]]]:
         )
     locale = i18n.config.get("locale")
     try:
-        return [default_pronouns[locale][pronouns]]
+        # PG
+        if isinstance(pronouns, list):
+            prn_list = []
+            for set in pronouns:
+                prn_list.append(default_pronouns[locale][set])
+        else:
+        # ---
+            return [default_pronouns[locale][pronouns]]
     except KeyError:
         temp = load_lang_resource("pronouns.{lang}.json")
         try:

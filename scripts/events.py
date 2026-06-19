@@ -4374,8 +4374,20 @@ def sexuality_change(cat):
             ]
             options.remove(cat.sexuality.arospec)
             new_arospec = random.choice(options)
+
+            microlabel = None
+            if game_setting_get("microlabels"):
+                microlabel_dict = {
+                    Arospec.DEMI : ["nebularomantic"],
+                    Arospec.GREY : ["lithromantic", "aroaceflux"],
+                    Arospec.ARO : ["cupioromantic"]
+                }
+                if new_arospec in microlabel_dict:
+                    microlabel = random.choice(microlabel_dict[new_arospec])
+                    print("AROSPEC MICROLABEL CHOSEN:", cat.name, "is going to be", microlabel)
             cat.sexuality.create_upcoming_sexuality_dict(
-                arospec=new_arospec
+                arospec=new_arospec,
+                arospec_label=microlabel
             )
         elif item_to_change == "acespec":
             options = [
@@ -4386,6 +4398,14 @@ def sexuality_change(cat):
             ]
             options.remove(cat.sexuality.acespec)
             new_acespec = random.choice(options)
+
+            microlabel = None
+            # none yet
+            if game_setting_get("microlabels"):
+                microlabel_dict = {}
+                if new_arospec in microlabel_dict:
+                    microlabel = random.choice(microlabel_dict[new_arospec])
+
             cat.sexuality.create_upcoming_sexuality_dict(
                 acespec=new_acespec
             )

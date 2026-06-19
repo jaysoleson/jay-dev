@@ -564,6 +564,10 @@ class ShortEvent:
         possible_genders = getattr(self, "new_gender", [])
 
         if possible_genders:
+            if not game_setting_get("microlabels"):
+                for gender in possible_genders:
+                    if gender not in ["trans male", "trans female", "nonbinary", "genderfluid", "demiboy", "demigirl"]:
+                        possible_genders.remove(gender)
             new_gender = choice(possible_genders)
             self.main_cat.genderalign = new_gender
 

@@ -8441,7 +8441,7 @@
       "age": ["young adult"],
       "gender": ["female"]
     },
-    "new_gender": ["trans male", "nonbinary"]
+    "new_gender": ["trans male", "nonbinary", "genderfluid", "demiboy", "agender"]
   },
   {
     "event_id": "gen_misc_transition_from_male1",
@@ -8453,7 +8453,7 @@
     "m_c": {
       "gender": ["male"]
     },
-    "new_gender": ["trans female", "nonbinary"]
+    "new_gender": ["trans female", "nonbinary", "genderfluid", "demigirl", "agender"]
   },
       {
         "event_id": "lifegen_war_queen_H1",
@@ -8732,5 +8732,219 @@
                 "queen's apprentice"
             ]
         }
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_01",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c's gender feels similar to the moss growing around camp.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["mossgender"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_02",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c's gender feels aligned with the moon, cool and comforting.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["moongender"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_03",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c's gender feels aligned with the sun, warm and bright.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["sungender"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_04",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c's gender feels aligned with the stars up in Silverpelt.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["stargender"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_05",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c doesn't really care much about gender at all.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["apagender"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_06",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c's gender feels like a grand adventure!",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["arkhaigender"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_07",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c's gender feels like something constantly being discovered.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["archeogender"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_08",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c's gender reflects every one of {PRONOUN/m_c/poss} Clanmates around {PRONOUN/m_c/object}.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["catgender"]
     }
+    {
+      "event_id": "PRIDEGEN_xenogender_09",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c knows {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not a tom, but identifies with many levels of she-cat-ness.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["genderdoe"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_10",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c identifies with the moths that flutter through camp at night.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["mothgender"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_11",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c identifies with the large, spotted cats in the mountains.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["snowleopardgender"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_12",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c identifies with the the large, striped cats of the savanna.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["tigergender"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_13",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c identifies with the many insects that also call c_n camp their home.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["buggender"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_14",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c knows {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not a she-cat, but identifies with many levels of tom-ness.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["genderfaun"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_15",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c's gender feels brand new!",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["xenogender"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_16",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c's gender seems to flucuate in intensity over time.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["genderflux"]
+    },
+    {
+      "event_id": "PRIDEGEN_xenogender_17",
+      "location": ["any"],
+      "season": ["any"],
+      "sub_type": ["transition", "xenogender"],
+      "weight": 10,
+      "event_text": "m_c's gender feels partially fluid.",
+      "m_c": {
+        "gender": ["any"]
+      },
+      "new_gender": ["demifluid"]
+    },
+    {
+    "event_id": "PRIDEGEN_newgender_01",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["transition"],
+    "weight": 10,
+    "event_text": "m_c has realised that {PRONOUN/m_c/poss} gender is always changing.",
+    "m_c": {},
+    "new_gender": ["genderfluid"]
+  },
 ]

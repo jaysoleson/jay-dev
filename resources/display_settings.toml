@@ -64,6 +64,7 @@
         backgrounds = true
         freshkill = true
         "all accessories" = false
+        microlabels = false
     
     [clan.role]
         deputy = false

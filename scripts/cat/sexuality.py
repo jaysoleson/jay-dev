@@ -135,8 +135,11 @@ class Sexuality():
             self,
             likes_toms=None,
             likes_she_cats=None,
+            custom_label=None,
             arospec=None,
             acespec=None,
+            arospec_label=None,
+            acespec_label=None,
             t4t=None
     ):
         """
@@ -163,6 +166,13 @@ class Sexuality():
             fix_orientation = True
         if t4t is not None:
             upcoming_dict["t4t"] = t4t
+        
+        if custom_label:
+            upcoming_dict["sexuality_label"] = custom_label
+        if arospec_label:
+            upcoming_dict["arospec_label"] = arospec_label
+        if acespec_label:
+            upcoming_dict["acespec_label"] = acespec_label
         
         # now various corrections
         if fix_aroace:
