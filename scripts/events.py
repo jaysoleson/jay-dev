@@ -1507,6 +1507,8 @@ def lifegen_process_text(text):
     text = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), text)
 
     text = text.replace("c_n", str(game.clan.displayname) + "Clan")
+    if game.clan.leader:
+        text = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), text)
     if "w_c" in text:
         if game.clan.war.get("at_war", True):
             text = text.replace("w_c", str(game.clan.war["enemy"]))
