@@ -3702,7 +3702,11 @@ class MakeClanScreen(Screens):
                     white_patches_tint=initial_pelt.white_patches_tint,
                     newborn_sprite="newborn" + str(self.newborn_pose),
                     kitten_sprite="kitten" + str(self.kitten_sprite),
-                    adol_sprite="adolescent" + str(self.adolescent_pose),
+                    adol_sprite=(
+                        ("adolescent_short" + str(self.adolescent_pose))
+                        if initial_pelt.length != "long"
+                        else
+                        ("adolescent_long" + str(self.adolescent_pose))),
                     adult_sprite=(
                         ("adult_short" + str(self.adult_pose))
                         if initial_pelt.length != "long"

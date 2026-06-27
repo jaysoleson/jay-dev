@@ -391,8 +391,8 @@ class ProfileScreen(Screens):
                 ):
                 self.change_screen(GameScreen.QUEEN)
             elif (
-                "halfmoon" in self.profile_elements and
-                event.ui_element == self.profile_elements["halfmoon"]
+                "half_moon" in self.profile_elements and
+                event.ui_element == self.profile_elements["half_moon"]
                 ):
                 self.change_screen(GameScreen.MOONPLACE)
             elif (
@@ -1645,12 +1645,13 @@ class ProfileScreen(Screens):
                 )
             if (
                 self.the_cat.status.rank.is_any_apprentice_rank() and
-                self.the_cat.status.rank != CatRank.MEDICINE_APPRENTICE
+                self.the_cat.status.rank != CatRank.MEDICINE_APPRENTICE and
+                self.the_cat == game.clan.your_cat
             ):
                 work_button_dict.update(
                     {("half_moon", "#half_moon_button"): "You may visit the Moonplace once during your apprenticeship."}
                 )
-            elif self.the_cat.status.rank.is_any_medicine_rank():
+            elif self.the_cat.status.rank.is_any_medicine_rank() and self.the_cat == game.clan.your_cat:
                 work_button_dict.update(
                     {("half_moon", "#half_moon_button"): "You may attend the half-moon gathering every six moons"}
                 )
