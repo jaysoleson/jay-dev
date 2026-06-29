@@ -84,7 +84,10 @@ def backstory_text(cat):
     for category, values in BACKSTORIES["backstory_categories"].items():
         if backstory in values:
             return i18n.t(f"cat.backstories.{category}")
-    raise Exception(f"No matching short backstory for {backstory}")
+    # LG edit bc this is happening a lot
+    print(backstory, "is not in any backstory category! Report as LifeGen bug!")
+    return "prrp! lifegen bug! please report"
+    # raise Exception(f"No matching short backstory for {backstory}")
 
 
 # ---------------------------------------------------------------------------- #
