@@ -1,7 +1,9 @@
 <strong>v0.7.7.0</strong>
 
 Changes/Additions:
-- Updated to ClanGen's latest version
+- Updated to ClanGen's latest version!
 - Refreshed menu art
+- New accessories
+- New camp
 - New dialogue
 - Many bugfixes
