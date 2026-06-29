@@ -3894,6 +3894,9 @@ class ProfileScreen(Screens):
             return False
         if cat_to.dead:
             if not cat_from.dead:
+                # newborns are too young to hold a conversation with the dead
+                if cat_from.age == CatAge.NEWBORN:
+                    return False
                 if (
                     cat_to.status.group == CatGroup.STARCLAN and
                     not cat_from.skills.meets_skill_requirement(SkillPath.STAR)

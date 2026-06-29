@@ -189,7 +189,7 @@ def __filter_group(abbrev_block, cat, your_cat):
         ):
             return False
     else:
-        if cat.status.group != your_cat.status.group:
+        if "residence" not in abbrev_block and cat.status.group != your_cat.status.group:
             return False
     return True
 
