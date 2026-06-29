@@ -464,14 +464,22 @@ class MoonplaceScreen(Screens):
             """Generates cats for specified clan (mostly full names, some apprentices)."""
             for _ in range(num):
                 is_apprentice = randint(1, 4) == 1
+                # give an age that fits the role
+                moons = randint(6, 11) if is_apprentice else randint(20, 120)
                 cat = Cat(
-                    name=Name()
-                )                
+                    name=Name(),
+                    moons=moons,
+                )
                 if is_apprentice:
                     cat.rank_change(CatRank.MEDICINE_APPRENTICE)
                 else:
                     cat.rank_change(CatRank.MEDICINE_CAT)
                 cat.status.add_to_group(clan.group_ID)
+                if cat.mentor:
+                    mentor = Cat.fetch_cat(cat.mentor)
+                    if mentor and cat.ID in mentor.apprentice:
+                        mentor.apprentice.remove(cat.ID)
+                    cat.mentor = None
                 switch_append_list_value(Switch.other_meds, cat.ID)
 
         def simulate_death_other_meds(clan):

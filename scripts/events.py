@@ -2500,7 +2500,7 @@ def one_moon_cat(cat):
         if cat.dead:
             return
         handle_outbreaks(cat)
-    elif cat.ID != game.clan.your_cat.ID and cat.status not in ['kitten', 'elder', 'newborn'] and not cat.status.is_outsider and not cat.dead:
+    elif cat.ID != game.clan.your_cat.ID and cat.status.rank not in (CatRank.KITTEN, CatRank.ELDER, CatRank.NEWBORN) and not cat.status.is_outsider and not cat.dead:
         cat.experience += random.randint(0,5)
 
     # newborns don't do much
