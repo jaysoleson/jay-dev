@@ -404,13 +404,12 @@ class Patrol:
                     self.random_cat = choice(
                         [i for i in patrol_cats if i != self.patrol_leader]
                     )
+            else:
+                self.random_cat = choice(patrol_cats)
 
             
         print("Patrol Leader:", str(self.patrol_leader.name))
-        # LG
-        if self.random_cat:
-        # ---
-            print("Random Cat:", str(self.random_cat.name))
+        print("Random Cat:", str(self.random_cat.name))
 
     def get_possible_patrols(
         self,
