@@ -946,9 +946,10 @@ def auto_freshkill():
 
     current_amount = game.clan.freshkill_pile.total_amount
     needed_amount = game.clan.freshkill_pile.amount_food_needed()
+    target_amount = needed_amount * 1.5
     amount_to_add = 0
-    if current_amount < (needed_amount):
-        amount_to_add = (needed_amount - current_amount) * 2
+    if current_amount < target_amount:
+        amount_to_add = target_amount - current_amount
     return amount_to_add
 
 def generate_dialogue_focus():
