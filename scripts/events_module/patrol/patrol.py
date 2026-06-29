@@ -405,7 +405,9 @@ class Patrol:
                         [i for i in patrol_cats if i != self.patrol_leader]
                     )
 
-            
+        if self.random_cat is None and len(self.patrol_cats) == 1:
+            self.random_cat = self.patrol_cats[0]
+
         print("Patrol Leader:", str(self.patrol_leader.name))
         # LG
         if self.random_cat:
