@@ -1101,16 +1101,11 @@ class Condition_Events:
                             cat_dict=cat_dict,
                         )
                     )
-                    if cat.ID != game.clan.your_cat.ID:
-                        
-                        cat.retire_cat()
-                        # Don't add this to the condition event list: instead make it it's own event, a ceremony. 
-                        game.cur_events_list.append(
-                                Single_Event(event, "ceremony", retire_involved))
-                    elif not switch_get_value(Switch.window_open):
-                        RetireWindow('events screen')
-                    elif switch_get_value(Switch.window_open) and 'retire' not in switch_get_value(Switch.windows_dict):
-                        switch_append_list_value(Switch.windows_dict, 'retire')
+                    if cat.ID == game.clan.your_cat.ID:
+                        if not switch_get_value(Switch.window_open):
+                            RetireWindow('events screen')
+                        elif switch_get_value(Switch.window_open) and 'retire' not in switch_get_value(Switch.windows_dict):
+                            switch_append_list_value(Switch.windows_dict, 'retire')
 
                             
     @staticmethod
