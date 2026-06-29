@@ -574,6 +574,9 @@ class Clan:
             df_cat.history.beginning = None
             df_cat.dead_for = randint(20, 200)
             df_cat.status.add_to_group(CatGroup.DARK_FOREST_ID)
+            df_cat.history.add_afterlife_acceptance(
+                CatGroup.DARK_FOREST, is_kit=df_cat.age.is_baby()
+            )
             self.add_cat(df_cat)
 
 
