@@ -1898,7 +1898,8 @@ class MakeClanScreen(Screens):
                 if random_pelt_length != "long"
                 else 
                 ("adult_long" + str(self.adult_pose))),
-            senior_sprite="senior" + str(self.elder_pose)
+            senior_sprite="senior" + str(self.elder_pose),
+            para_adult_sprite= "para_adult_long0" if random_pelt_length == "long" else "para_adult_short0",
         )
 
         self.custom_cat.pelt = random_cat_pelt
@@ -1994,6 +1995,7 @@ class MakeClanScreen(Screens):
                 adol_sprite=self.adolescent_pose,
                 adult_sprite=self.adult_pose,
                 senior_sprite=self.elder_pose,
+                para_adult_sprite= "para_adult_short0",
                 reverse=False,
             )
             # CHECKCUSTOM make it an empty pelt
@@ -3713,6 +3715,7 @@ class MakeClanScreen(Screens):
                         else 
                         ("adult_long" + str(self.adult_pose))),
                     senior_sprite="senior" + str(self.elder_pose),
+                    para_adult_sprite= "para_adult_long0" if initial_pelt.length == "long" else "para_adult_short0",
                     reverse=initial_pelt.reverse
                 )
                 self.your_cat.pelt = new_pelt

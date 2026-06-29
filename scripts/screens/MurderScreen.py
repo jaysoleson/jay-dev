@@ -1879,7 +1879,7 @@ class MurderScreen(Screens):
         if punishment_chance == 1:
             if accomplice and not accompliced:
                 a_s = randint(1,2)
-                if a_s == 1 and accomplice.rank != CatRank.LEADER and game.clan.leader:
+                if a_s == 1 and accomplice.status.rank != CatRank.LEADER and game.clan.leader:
                     game.cur_events_list.insert(2, Single_Event(
                         f"Shocked at your request to be an accomplice to murder, {accomplice.name} reports your actions to the Clan leader.",
                         ["alert", "birth_death"],
