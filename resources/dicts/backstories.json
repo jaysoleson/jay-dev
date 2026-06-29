@@ -27,7 +27,8 @@
             "clanborn"
         ],
         "outsider_roots_backstories": [
-            "outsider_roots1", "outsider_roots2"
+            "outsider_roots1", "outsider_roots2", "outsider_roots3", "outsider_roots4",
+            "outsider_roots5", "outsider_roots6", "outsider_roots7", "outsider_roots8"
         ],
         "half_clan_backstories": [
             "halfclan1", "halfclan2", "halfclan3", "halfclan4", "halfclan5", "halfclan6", "halfclan7", "halfclan8",
@@ -40,6 +41,7 @@
             "loner4",
             "loner5",
             "loner6",
+            "loner7",
             "refugee2",
             "tragedy_survivor4",
             "guided3",
@@ -77,6 +79,7 @@
             "tragedy_survivor1",
             "medicine_cat",
             "guided4",
+            "guided6",
             "refugee5",
             "stolenkit1",
             "stolenkit2",
@@ -92,7 +95,8 @@
             "abandoned1", "abandoned2", "abandoned3", "abandoned4"
         ],
         "outsider_backstories": [
-            "outsider1", "outsider2", "outsider3", "outsider4", "outsider5", "outsider6"
+            "outsider1", "outsider2", "outsider3", "outsider4", "outsider5", "outsider6",
+            "guided5", "refugee7", "tragedy_survivor5", "tragedy_survivor6", "wandering_healer3"
         ],
         "baby_clancat_backstories": [
             "halfclan1", "halfclan2", "outsider_roots1", "abandoned3"
