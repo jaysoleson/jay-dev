@@ -397,58 +397,6 @@ def one_moon():
                     insert=insert,
                 )
 
-                if len(ghost_names) > 2:
-                    alive_cats = [
-                        kitty
-                        for kitty in Cat.all_cats.values()
-                        if kitty.status.alive_in_your_cat_group
-                    ]
-
-                    # finds a percentage of the living Clan to become shaken
-
-                    if len(alive_cats) == 0:
-                        return
-                    else:
-                        shaken_cats = random.sample(
-                            alive_cats,
-                            k=max(
-                                int((len(alive_cats) * random.randint(4, 6)) / 100),
-                                1,
-                            ),
-                        )
-
-                    shaken_cat_names = []
-                    for cat in shaken_cats:
-                        shaken_cat_names.append(str(cat.name))
-                        cat.get_injured(
-                            "shock",
-                            event_triggered=False,
-                            lethal=False,
-                            severity="minor",
-                        )
-
-                    insert = adjust_list_text(shaken_cat_names)
-
-                    extra_event = i18n.t(
-                        "hardcoded.event_shaken_grief",
-                        count=len(shaken_cat_names),
-                        insert=insert,
-                    )
-
-            else:
-                event = i18n.t("hardcoded.event_deaths", count=1)
-
-            game.cur_events_list.append(
-                Single_Event(
-                    event,
-                    ["birth_death"],
-                    [i.ID for i in game.dead_cats_to_grieve],
-                    cat_dict=(
-                        {"m_c": game.dead_cats_to_grieve[0]} if len(game.dead_cats_to_grieve) == 1 else None
-                    ),
-                )
-            )
-
         else:
             event = i18n.t("hardcoded.event_deaths", count=1)
 
