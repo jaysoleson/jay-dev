@@ -493,7 +493,7 @@ class Pelt:
                 "adult": adult_sprite if adult_sprite is not None else 6,
                 "senior adult": adult_sprite if adult_sprite is not None else 6,
                 "senior": senior_sprite if senior_sprite is not None else 12,
-                "para_adult": para_adult_sprite,
+                "para_adult": para_adult_sprite if para_adult_sprite is not None else 0,
                 "newborn": newborn_sprite if newborn_sprite is not None else 0
             }
             for age, pose in self.cat_sprites.items():
