@@ -1815,10 +1815,7 @@ def check_gain_app(checks):
         return
     if len(game.clan.your_cat.apprentice) == checks[0] + 1:
         switch_set_value(Switch.request_apprentice, False)
-        resource_dir = "resources/dicts/events/lifegen_events/"
-        with open(f"{resource_dir}ceremonies.json",
-                encoding="ascii") as read_file:
-            d_txt = ujson.loads(read_file.read())
+        d_txt = lifegen_ceremonies
         ceremony_txt = random.choice(d_txt['gain_app ' + game.clan.your_cat.status.rank])
         if game.clan.leader and game.clan.leader.status.alive_in_player_clan:
             ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), ceremony_txt)
@@ -1840,10 +1837,7 @@ def check_gain_mate(checks):
     
     if len(game.clan.your_cat.mate) == checks[1] + 1:
         try:
-            resource_dir = "resources/dicts/events/lifegen_events/"
-            with open(f"{resource_dir}ceremonies.json",
-                    encoding="ascii") as read_file:
-                d_txt = ujson.loads(read_file.read())
+            d_txt = lifegen_ceremonies
             try:
                 ceremony_txt = random.choice(d_txt["gain_mate " + game.clan.your_cat.status.replace(" ", "") + " " + Cat.all_cats[game.clan.your_cat.mate[-1]].status.replace(" ", "")])
             except:
@@ -1861,10 +1855,7 @@ def check_gain_mate(checks):
             print("You gained a new mate but an event could not be shown1")
     elif switch_get_value(Switch.accept):
         try:
-            resource_dir = "resources/dicts/events/lifegen_events/"
-            with open(f"{resource_dir}ceremonies.json",
-                    encoding="ascii") as read_file:
-                d_txt = ujson.loads(read_file.read())
+            d_txt = lifegen_ceremonies
             try:
                 ceremony_txt = random.choice(d_txt["gain_mate " + game.clan.your_cat.status.replace(" ", "") + " " + Cat.all_cats[game.clan.your_cat.mate[-1]].status.replace(" ", "")])
             except:
@@ -1886,10 +1877,7 @@ def check_gain_mate(checks):
     elif switch_get_value('reject'):
         try:
             new_mate = switch_get_value(Switch.new_mate)
-            resource_dir = "resources/dicts/events/lifegen_events/"
-            with open(f"{resource_dir}mate_lifegen.json",
-                    encoding="ascii") as read_file:
-                f_txt = ujson.loads(read_file.read())
+            f_txt = load_lang_resource("events/lifegen_events/mate_lifegen.json")
             r = random.randint(1,3)
             if r == 1:
                 new_mate.relationships[game.clan.your_cat.ID].romance -= 8
