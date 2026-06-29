@@ -3246,12 +3246,12 @@ def ceremony(cat, promoted_to, preparedness="prepared"):
         tags = []
 
         # CURRENT MENTOR TAG CHECK
-        if cat.mentor:
-            if Cat.fetch_cat(cat.mentor).status.is_leader:
+        mentor = Cat.fetch_cat(cat.mentor) if cat.mentor else None
+        if mentor:
+            if mentor.status.is_leader:
                 tags.append("yes_leader_mentor")
             else:
                 tags.append("yes_mentor")
-            mentor = Cat.fetch_cat(cat.mentor)
         else:
             tags.append("no_mentor")
 
