@@ -171,6 +171,7 @@ def one_moon():
     game.herb_events_list = []
     game.freshkill_event_list = []
     game.mediated = []
+    game.told_story = []
     switch_set_value(Switch.saved_clan, False)
     new_cat_invited = False
     Relation_Events.clear_trigger_dict()
@@ -2368,7 +2369,8 @@ def one_moon_outside_cat(cat, other_clan_cats: list = None):
     # this is SUPER rudimentary rn, really just a temp patch to handle our current little edge-cases
     if cat.status.is_other_clancat:
         # kitten to apprentice - for now it's going to be limited to warrior apprentices
-        if cat.moons == cat_class.age_moons[CatAge.ADOLESCENT][0]:
+        # use >= (with a kitten guard) so kittens past 6 moons still get promoted
+        if cat.moons >= cat_class.age_moons[CatAge.ADOLESCENT][0] and cat.status.rank == CatRank.KITTEN:
             cat.status._change_rank(CatRank.APPRENTICE)
             # we aren't going to worry about sourcing a mentor, we're gonna pretend it's "hidden" from the player
         # apprentice to full
@@ -2808,7 +2810,7 @@ def perform_ceremonies(cat):
                     ceremony(cat, CatRank.ELDER)
 
             # apprentice a kitten to either med or warrior
-            if cat.moons == cat_class.age_moons[CatAge.ADOLESCENT][0]:
+            if cat.moons >= cat_class.age_moons[CatAge.ADOLESCENT][0]:
                 if cat.status.rank == CatRank.KITTEN:
                     med_cat_list = [
                         i

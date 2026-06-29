@@ -351,7 +351,7 @@ class Clan:
         for cat_id in Cat.all_cats:
             the_cat = Cat.all_cats.get(cat_id)
             the_cat.init_all_relationships()
-            if the_cat not in (self.instructor, self.demon):
+            if self.clan_age == "new" and the_cat not in (self.instructor, self.demon):
                 the_cat.backstory = "clan_founder"
             if the_cat.status.rank == CatRank.APPRENTICE:
                 the_cat.rank_change(CatRank.APPRENTICE)

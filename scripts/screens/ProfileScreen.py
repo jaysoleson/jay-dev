@@ -1690,11 +1690,13 @@ class ProfileScreen(Screens):
             ):
                 self.profile_elements[IDs[0]].disable()
             
-            if IDs[0] == "half_moon" and (
-                (game.clan.age % 6 != 0) or
-                switch_get_value(Switch.attended_half_moon)
-            ):
-                self.profile_elements[IDs[0]].disable()
+            if IDs[0] == "half_moon":
+                # medicine cats attend the half-moon gathering every six moons;
+                # apprentices may visit the Moonplace once during their apprenticeship
+                if self.the_cat.status.rank.is_any_medicine_rank() and game.clan.age % 6 != 0:
+                    self.profile_elements[IDs[0]].disable()
+                elif switch_get_value(Switch.attended_half_moon):
+                    self.profile_elements[IDs[0]].disable()
             
             count += 1
 
