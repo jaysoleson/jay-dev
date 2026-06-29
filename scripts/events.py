@@ -1839,7 +1839,7 @@ def check_gain_mate(checks):
         try:
             d_txt = lifegen_ceremonies
             try:
-                ceremony_txt = random.choice(d_txt["gain_mate " + game.clan.your_cat.status.replace(" ", "") + " " + Cat.all_cats[game.clan.your_cat.mate[-1]].status.replace(" ", "")])
+                ceremony_txt = random.choice(d_txt["gain_mate " + str(game.clan.your_cat.status.rank).replace(" ", "") + " " + str(Cat.all_cats[game.clan.your_cat.mate[-1]].status.rank).replace(" ", "")])
             except:
                 ceremony_txt = random.choice(d_txt["gain_mate general"])
             mate = Cat.all_cats[game.clan.your_cat.mate[-1]]
@@ -1857,7 +1857,7 @@ def check_gain_mate(checks):
         try:
             d_txt = lifegen_ceremonies
             try:
-                ceremony_txt = random.choice(d_txt["gain_mate " + game.clan.your_cat.status.replace(" ", "") + " " + Cat.all_cats[game.clan.your_cat.mate[-1]].status.replace(" ", "")])
+                ceremony_txt = random.choice(d_txt["gain_mate " + str(game.clan.your_cat.status.rank).replace(" ", "") + " " + str(Cat.all_cats[game.clan.your_cat.mate[-1]].status.rank).replace(" ", "")])
             except:
                 ceremony_txt = random.choice(d_txt["gain_mate general"])
             mate = Cat.all_cats[game.clan.your_cat.mate[-1]]

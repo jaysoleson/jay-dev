@@ -877,11 +877,11 @@ def gather_cat_objects(
                     found_cat_list.difference_update(set(event.patrol_cats))
         
         # LG
-        elif re.match(r"r_c:[0-9]+", abbr):  # new_cats
+        elif re.match(r"r_c:[0-9]+", abbr):  # lifegen chosen cats
             index = re.match(r"r_c:([0-9]+)", abbr).group(1)
             index = int(index)
             if index < len(event.chosen_lifegen_cats):
-                found_cat_list.update(event.chosen_lifegen_cats[index])
+                found_cat_list.add(event.chosen_lifegen_cats[index])
         # ---
 
         # add/remove cats if found and then continue for loop

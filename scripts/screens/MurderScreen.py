@@ -1158,8 +1158,6 @@ class MurderScreen(Screens):
         self.cat_to_murder = None
 
         self.change_screen(GameScreen.EVENTS)
-    
-    RESOURCE_DIR = "resources/dicts/events/lifegen_events/"
 
     def get_death_chance(self, cat_to_murder, accomplice, accompliced):
         """ chance for mc to bite the dust """

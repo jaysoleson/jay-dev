@@ -407,8 +407,13 @@ class Patrol:
             else:
                 self.random_cat = choice(patrol_cats)
 
-        if self.random_cat is None and len(self.patrol_cats) == 1:
-            self.random_cat = self.patrol_cats[0]
+
+        if self.random_cat is None and self.patrol_cats:
+            self.random_cat = (
+                self.patrol_leader
+                if self.patrol_leader in self.patrol_cats
+                else self.patrol_cats[0]
+            )
 
         print("Patrol Leader:", str(self.patrol_leader.name))
         print("Random Cat:", str(self.random_cat.name))
@@ -1105,6 +1110,14 @@ class Patrol:
         if self.patrol_event is None:
             raise Exception("No patrol event supplied")
 
+        if self.random_cat is None and self.patrol_cats:
+            self.random_cat = (
+                self.patrol_leader
+                if self.patrol_leader in self.patrol_cats
+                else self.patrol_cats[0]
+            )
+
+
         # First Step - Filter outcomes and pick a fail and success outcome
         success_outcomes = (
             self.patrol_event.antag_success_outcomes
@@ -1189,6 +1202,7 @@ class Patrol:
         print(f"PATROL ID: {self.patrol_event.patrol_id} | SUCCESS: {success}")
         
         # Run the chosen outcome
+        self.chosen_lifegen_cats = chosen_lifegen_cats
         return final_event.execute_outcome(self, chosen_lifegen_cats=chosen_lifegen_cats)
 
     def calculate_success(
