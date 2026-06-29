@@ -24,9 +24,9 @@ BIOME_TYPES = ["Forest", "Plains", "Mountainous", "Beach", "Wetlands", "Desert"]
 
 CAMPS: dict = {
     "Forest": ["Classic", "Gully", "Grotto", "Lakeside", "Pine", "Birch"],
-    "Mountainous": ["Cliff", "Cavern", "Crystal River", "Quarry", "Ruins"],
+    "Mountainous": ["Cliff", "Cavern", "Crystal River", "Rocky Slope", "Quarry", "Ruins"],
     "Plains": ["Grasslands", "Tunnels", "Wastelands", "Taiga", "Desert", "City", "Farm", "Bushland", "Castle", "Bridge"],
-    "Beach": ["Tidepools", "Tidal Cave", "Shipwreck", "Fjord", "Tropical_Island"],
+    "Beach": ["Tidepools", "Tidal Cave", "Shipwreck", "Fjord", "Tropical_Island", "Quay"],
 }
 
 SEASONS = ["Newleaf", "Greenleaf", "Leaf-fall", "Leaf-bare"]
