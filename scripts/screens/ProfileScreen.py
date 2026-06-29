@@ -3381,6 +3381,21 @@ class ProfileScreen(Screens):
                     self.exile_cat_button.disable()
                     self.leave_clan_button.disable()
 
+                if self.the_cat.ID != game.clan.your_cat.ID:
+                    self.murder_cat_button.hide()
+                    if self.join_df_button:
+                        self.join_df_button.hide()
+                    if self.exit_df_button:
+                        self.exit_df_button.hide()
+                    self.affair_button.hide()
+                else:
+                    self.murder_cat_button.show()
+                    if self.join_df_button:
+                        self.join_df_button.show()
+                    if self.exit_df_button:
+                        self.exit_df_button.show()
+                    self.affair_button.show()
+
             # SET EXILE BUTTON TEXT
             self.exile_cat_button.set_text(text)
 
