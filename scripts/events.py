@@ -3213,8 +3213,7 @@ def ceremony(cat, promoted_to, preparedness="prepared"):
         CatRank.QUEENS_APPRENTICE: [CatRank.QUEEN]
     }
     if switch_get_value(Switch.request_apprentice):
-        if game.clan.your_cat.status.rank in mentor_dict[promoted_to]:
-            mentor = game.clan.your_cat
+        if game.clan.your_cat.status.rank in mentor_dict.get(promoted_to, []):
             switch_set_value(Switch.request_apprentice, False)
     # ---
 
