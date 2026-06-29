@@ -504,6 +504,12 @@ class Clan:
                             app.inheritance.update_inheritance()
                             Cat.all_cats.get(app.parent2).inheritance.update_inheritance()
 
+        for cat in Cat.all_cats.values():
+            if not cat.inheritance:
+                cat.inheritance = Inheritance(cat)
+            else:
+                cat.inheritance.update_inheritance()
+
     def populate_sc(self):
         for i in range(randint(2,5)):
             random_backstory = choice(["dead1",

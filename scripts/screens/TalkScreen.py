@@ -56,7 +56,10 @@ class TalkScreen(Screens):
         self.text_index = 0
         self.frame_index = 0
         self.text_frames = [[text[:i+1] for i in range(len(text))] for text in self.texts]
-    
+
+        self._last_adjusted = None
+        self.action_line = False
+
         self.chosen_text_key = ""
         self.chosen_text_value = {}
         self.chosen_text_object = {}
@@ -129,6 +132,7 @@ class TalkScreen(Screens):
         self.texts = self.chosen_text_value["intro"]
         self.current_scene = "intro"
         self.current_line = self.texts[0]
+        self._last_adjusted = None
 
         self.text_frames = [[text[:i+1] for i in range(len(text))] for text in self.texts]
 
@@ -435,9 +439,11 @@ class TalkScreen(Screens):
         super().on_use()
         now = pygame.time.get_ticks()
 
-        action_line = False
+        marker = (self.current_scene, self.text_index)
+        if self.texts and self._last_adjusted != marker:
+            self._last_adjusted = marker
+            self.action_line = False
 
-        if self.texts:
             self.texts[self.text_index], speaking_cat = self.get_speaking_cat(self.current_line)
 
             # text isnt adjusted for names and pronouns until the very end
@@ -472,17 +478,19 @@ class TalkScreen(Screens):
                 self.texts[self.text_index] = self.texts[self.text_index].split("|")[-1]
 
             # action lines
-            if self.texts[self.text_index][0] == "[" and self.texts[self.text_index][-1] == "]":
-                action_line = True
+            if self.texts[self.text_index] and self.texts[self.text_index][0] == "[" and self.texts[self.text_index][-1] == "]":
+                self.action_line = True
                 self.speaking_cat_elements["cat_name"].hide()
                 self.speaking_cat_elements["cat_image"].hide()
             else:
-                action_line = False
                 self.speaking_cat_elements["cat_name"].show()
                 self.speaking_cat_elements["cat_image"].show()
 
-        self.text_frames = [[text[:i+1] for i in range(len(text))] for text in self.texts]
-    
+            # rebuild the typing frames from the now-final text for this line
+            self.text_frames = [[text[:i+1] for i in range(len(text))] for text in self.texts]
+
+        action_line = self.action_line
+
         if self.text_index < len(self.text_frames):
             if now >= self.next_frame_time and self.frame_index < len(self.text_frames[self.text_index]) - 1:
                 self.frame_index += 1
@@ -510,8 +518,11 @@ class TalkScreen(Screens):
                 self.paw.visible = True
 
         # Always render the current frame
-        if self.text_frames:
-            self.dialogue_box.html_text = self.text_frames[self.text_index][self.frame_index]
+        if self.text_frames and self.text_index < len(self.text_frames):
+            current_frames = self.text_frames[self.text_index]
+            if current_frames:
+                frame = min(self.frame_index, len(current_frames) - 1)
+                self.dialogue_box.html_text = current_frames[frame]
 
         self.dialogue_box.rebuild()
         self.clock.tick(60)

@@ -387,7 +387,6 @@ class MoonplaceScreen(Screens):
                     main_cat=you
                 )
             # new_line = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), line)
-            print("new line", new_line)
             newer_line = self.replace_moonplace_name(new_line)
             if newer_line == "":
                 return ""

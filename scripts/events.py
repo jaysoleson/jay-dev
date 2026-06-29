@@ -299,7 +299,7 @@ def one_moon():
     other_clan_cats = [c for c in Cat.all_cats_list if c.status.is_other_clancat]
     for cat in Cat.all_cats_list.copy():
         # if cat.status.alive_in_player_clan or cat.status.group.is_afterlife():
-        if cat.status.alive_in_your_cat_group or cat.status.group.is_afterlife():
+        if cat.status.alive_in_your_cat_group or cat.status.alive_in_player_clan or cat.status.group.is_afterlife():
             one_moon_cat(cat)
         elif not cat.status.group or cat.status.is_other_clancat:
             one_moon_outside_cat(cat, other_clan_cats)
@@ -1916,50 +1916,54 @@ def check_retire():
 def generate_death_event():
     global lifegen_ceremonies
 
-    if game.clan.your_cat.status.rank == CatRank.KITTEN:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_kit'])
+    def death_pool(key):
+        return lifegen_ceremonies.get(key, []) + lifegen_ceremonies['death']
+
+    rank = game.clan.your_cat.status.rank
+    if rank == CatRank.KITTEN:
+        ceremony_txt = random.choice(lifegen_ceremonies.get('death_kit') or lifegen_ceremonies['death'])
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-    elif game.clan.your_cat.status.rank == CatRank.MEDICINE_APPRENTICE:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_medapp'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.MEDICINE_APPRENTICE:
+        ceremony_txt = random.choice(death_pool('death_medapp'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-    elif game.clan.your_cat.status.rank == CatRank.APPRENTICE:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_app'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.APPRENTICE:
+        ceremony_txt = random.choice(death_pool('death_app'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-    elif game.clan.your_cat.status.rank == CatRank.MEDIATOR_APPRENTICE:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_mediapp'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.MEDIATOR_APPRENTICE:
+        ceremony_txt = random.choice(death_pool('death_mediapp'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-    elif game.clan.your_cat.status.rank == CatRank.QUEENS_APPRENTICE:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_queenapp'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.QUEENS_APPRENTICE:
+        ceremony_txt = random.choice(death_pool('death_queenapp'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-    elif game.clan.your_cat.status.rank == CatRank.WARRIOR:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_warrior'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.WARRIOR:
+        ceremony_txt = random.choice(death_pool('death_warrior'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-    elif game.clan.your_cat.status.rank == CatRank.MEDICINE_CAT:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_medcat'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.MEDICINE_CAT:
+        ceremony_txt = random.choice(death_pool('death_medcat'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-    elif game.clan.your_cat.status.rank == CatRank.MEDIATOR:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_mediator'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.MEDIATOR:
+        ceremony_txt = random.choice(death_pool('death_mediator'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-    elif game.clan.your_cat.status.rank == CatRank.QUEEN:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_queen'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.QUEEN:
+        ceremony_txt = random.choice(death_pool('death_queen'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-    elif game.clan.your_cat.status.rank == CatRank.ELDER:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_elder'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.ELDER:
+        ceremony_txt = random.choice(death_pool('death_elder'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, "alert", game.clan.your_cat.ID))
-    elif game.clan.your_cat.status.rank == CatRank.LEADER:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_leader'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.LEADER:
+        ceremony_txt = random.choice(death_pool('death_leader'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-    elif game.clan.your_cat.status.rank == CatRank.DEPUTY:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_deputy'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.DEPUTY:
+        ceremony_txt = random.choice(death_pool('death_deputy'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-    elif game.clan.your_cat.status == CatRank.ROGUE:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_rogue'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.ROGUE:
+        ceremony_txt = random.choice(death_pool('death_rogue'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-    elif game.clan.your_cat.status == CatRank.KITTYPET:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_kittypet'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.KITTYPET:
+        ceremony_txt = random.choice(death_pool('death_kittypet'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
-    elif game.clan.your_cat.status == CatRank.LONER:
-        ceremony_txt = random.choice(lifegen_ceremonies['death_loner'] + lifegen_ceremonies['death'])
+    elif rank == CatRank.LONER:
+        ceremony_txt = random.choice(death_pool('death_loner'))
         game.cur_events_list.insert(1, Single_Event(ceremony_txt, game.clan.your_cat.ID))
     else:
         ceremony_txt = random.choice(lifegen_ceremonies['death'])
@@ -2507,7 +2511,7 @@ def one_moon_cat(cat):
     if cat.status.rank == CatRank.NEWBORN:
         return
     
-    if cat.status.alive_in_player_clan:
+    if (cat.status.alive_in_your_cat_group or cat.status.alive_in_player_clan) and not cat.status.is_outsider:
         if not cat.status.is_shunned():
             handle_apprentice_EX(cat)  # This must be before perform_ceremonies!
         # this HAS TO be before the cat.is_disabled() so that disabled kits can choose a med cat or mediator position
