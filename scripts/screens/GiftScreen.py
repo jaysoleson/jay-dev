@@ -630,9 +630,9 @@ class GiftScreen(Screens):
         if reaction != "already_have":
             game.clan.your_cat.pelt.inventory.remove(acc)
             if acc in game.clan.your_cat.pelt.accessory:
-                game.clan.your_cat.pelt.accessory.remove(acc)
-            if acc == game.clan.your_cat.pelt.accessory:
-                game.clan.your_cat.pelt.accessory = None
+                game.clan.your_cat.pelt.accessory = tuple(
+                    a for a in game.clan.your_cat.pelt.accessory if a != acc
+                )
             self.selected_cat.pelt.inventory.append(acc)
             if (acc in ACC_REACTION[cluster1]["like"] or (cluster2 and acc in ACC_REACTION[cluster2]["like"])) or reaction == "accept_favourite":
                 if len(self.selected_cat.pelt.accessory) <= 4:
