@@ -58,7 +58,7 @@ from scripts.lifegen_utility import get_cluster
 #               assigns backstory blurbs to the backstory                      #
 # ---------------------------------------------------------------------------- #
 def bs_blurb_text(cat):
-    if not cat.backstory and not cat.status.alive_in_player_clan:
+    if not cat.backstory:
         return event_text_adjust(
             Cat,
             i18n.t(
@@ -84,7 +84,10 @@ def backstory_text(cat):
     for category, values in BACKSTORIES["backstory_categories"].items():
         if backstory in values:
             return i18n.t(f"cat.backstories.{category}")
-    raise Exception(f"No matching short backstory for {backstory}")
+    # LG edit bc this is happening a lot
+    print(backstory, "is not in any backstory category! Report as LifeGen bug!")
+    return "prrp! lifegen bug! please report"
+    # raise Exception(f"No matching short backstory for {backstory}")
 
 
 # ---------------------------------------------------------------------------- #
@@ -391,8 +394,8 @@ class ProfileScreen(Screens):
                 ):
                 self.change_screen(GameScreen.QUEEN)
             elif (
-                "halfmoon" in self.profile_elements and
-                event.ui_element == self.profile_elements["halfmoon"]
+                "half_moon" in self.profile_elements and
+                event.ui_element == self.profile_elements["half_moon"]
                 ):
                 self.change_screen(GameScreen.MOONPLACE)
             elif (
@@ -1156,112 +1159,9 @@ class ProfileScreen(Screens):
             else:
                 self.profile_elements["flirt"].enable()
 
-        # WORK BUTTONS
-        # leader, mediator, elder, queen, moonplace
+        # LG
+        self.place_work_buttons()
 
-        if self.the_cat.ID == game.clan.your_cat.ID:
-            y_pos = 105
-        else:
-            y_pos = 65
-
-        if (
-                (
-                    self.the_cat.status.is_former_clancat or
-                    self.the_cat.status.is_exiled(CatGroup.PLAYER_CLAN_ID)
-                ) and self.the_cat.ID == game.clan.your_cat.ID
-            ):
-            self.profile_elements["exile_return"] = UIImageButton(ui_scale(pygame.Rect(
-                (383, y_pos), (34, 34))),
-                "",
-                object_id="#exile_return_button",
-                tool_tip_text="Attempt to return to the Clan",
-                manager=MANAGER,
-            )
-            self.profile_elements["exile_return"].hide()
-        else:
-            if self.the_cat.status.rank == CatRank.LEADER and not self.the_cat.dead:
-                self.profile_elements["leader_ceremony"] = UIImageButton(ui_scale(pygame.Rect(
-                    (383, y_pos), (34, 34))),
-                    "",
-                    object_id="#leader_ceremony_button",
-                    tool_tip_text="screens.profile.leader_ceremony",
-                    manager=MANAGER,
-                )
-            elif (
-                self.the_cat.status.rank in (CatRank.QUEEN, CatRank.QUEENS_APPRENTICE) and
-                self.the_cat.status.alive_in_player_clan and
-                self.the_cat.moons >= 6
-                ):
-                self.profile_elements["queen"] = UIImageButton(ui_scale(pygame.Rect(
-                    (383, y_pos), (34, 34))),
-                    "",
-                    object_id="#queen_activity_button", manager=MANAGER
-                )
-                if not self.the_cat.status.alive_in_player_clan or self.the_cat.status.is_shunned() or self.the_cat.not_working():
-                    # check for not working because the queen screen doesnt have the "this cat is unable to work" thing
-                    # like the mediator screen does
-                    self.profile_elements["queen"].disable()
-            if (
-                self.the_cat.status.alive_in_player_clan and
-                self.the_cat.status.rank in (CatRank.MEDICINE_APPRENTICE, CatRank.MEDICINE_CAT) and
-                self.the_cat.ID == game.clan.your_cat.ID and
-                self.the_cat.moons >= 6
-                ):
-                self.profile_elements["halfmoon"] = UIImageButton(ui_scale(pygame.Rect(
-                    (383, y_pos), (34, 34))),
-                    "",
-                    object_id="#half_moon_button", 
-                    tool_tip_text= "You may attend the half-moon gathering every six moons",
-                    manager=MANAGER
-                )
-                if self.the_cat.dead or self.the_cat.status.is_outsider or (game.clan.age % 6 != 0) or self.the_cat.status.is_shunned():
-                    self.profile_elements["halfmoon"].disable()
-                elif switch_get_value(Switch.attended_half_moon):
-                    self.profile_elements["halfmoon"].disable()
-            elif (
-                self.the_cat.status.rank in [
-                    CatRank.QUEENS_APPRENTICE,
-                    CatRank.MEDIATOR_APPRENTICE,
-                    CatRank.APPRENTICE
-                    ] and
-                    self.the_cat.ID == game.clan.your_cat.ID and
-                    self.the_cat.moons >= 6 and
-                    self.the_cat.status.alive_in_player_clan
-                    ):
-                if self.the_cat.status.rank == CatRank.APPRENTICE:
-                    self.profile_elements["halfmoon"] = UIImageButton(ui_scale(pygame.Rect(
-                        (383, y_pos), (34, 34))),
-                        "",
-                        object_id="#half_moon_button", 
-                        tool_tip_text= "You may visit the Moonplace once during your apprenticeship.",
-                        manager=MANAGER
-                    )
-                else:
-                    self.profile_elements["halfmoon"] = UIImageButton(ui_scale(pygame.Rect(
-                    (323, y_pos), (34, 34))),
-                    "",
-                    object_id="#half_moon_button", 
-                    tool_tip_text= "You may visit the Moonplace once during your apprenticeship.",
-                    manager=MANAGER
-                )
-                if not self.the_cat.status.alive_in_player_clan or self.the_cat.status.is_shunned():
-                    self.profile_elements["halfmoon"].disable()
-                elif switch_get_value(Switch.attended_half_moon):
-                    self.profile_elements["halfmoon"].disable()
-            elif self.the_cat.status.rank == CatRank.ELDER and self.the_cat.status.alive_in_player_clan:
-                self.profile_elements["story"] = UISurfaceImageButton(
-                    ui_scale(pygame.Rect((383, y_pos), (34, 34))),
-                    Icon.NOTEPAD,
-                    get_button_dict(ButtonStyles.ICON, (34, 34)),
-                    manager=MANAGER,
-                    tool_tip_text="Tell a story",
-                    object_id="@buttonstyles_icon",
-                    starting_height=2,
-                )
-            
-                if not self.the_cat.status.alive_in_player_clan or self.the_cat.status.is_shunned():
-                    self.profile_elements["story"].disable()
-            
         if self.the_cat.ID == game.clan.your_cat.ID and not game.clan.your_cat.dead:
             if self.open_tab == "faith":
                 self.close_current_tab()
@@ -1732,6 +1632,87 @@ class ProfileScreen(Screens):
 
         return output
 
+    def place_work_buttons(self):
+        """
+        Places work buttons
+        Leader ceremony, queen, elder, moonplace, exile return
+        """
+
+        # if the cat isnt you, the button needs to go above the dialogue options
+        if self.the_cat.ID == game.clan.your_cat.ID:
+            y_pos = 105
+        else:
+            y_pos = 65
+        
+        work_button_dict = {}
+        if self.the_cat.status.alive_in_player_clan:
+            if self.the_cat.status.rank == CatRank.LEADER:
+                work_button_dict.update(
+                    {("leader_ceremony", "#leader_ceremony_button"): "screens.profile.leader_ceremony"}
+                )
+                # (button id, object id): tooltip
+            if self.the_cat.status.rank in (CatRank.QUEEN, CatRank.QUEENS_APPRENTICE):
+                work_button_dict.update(
+                    {("queen", "#queen_activity_button"): None}
+                )
+            if self.the_cat.status.rank == CatRank.ELDER:
+                work_button_dict.update(
+                    {("story", "#elder_story_button"): "Tell a story"}
+                )
+            if (
+                self.the_cat.status.rank.is_any_apprentice_rank() and
+                self.the_cat.status.rank != CatRank.MEDICINE_APPRENTICE and
+                self.the_cat == game.clan.your_cat
+            ):
+                work_button_dict.update(
+                    {("half_moon", "#half_moon_button"): "You may visit the Moonplace once during your apprenticeship."}
+                )
+            elif self.the_cat.status.rank.is_any_medicine_rank() and self.the_cat == game.clan.your_cat:
+                work_button_dict.update(
+                    {("half_moon", "#half_moon_button"): "You may attend the half-moon gathering every six moons"}
+                )
+        elif self.the_cat.status.is_exiled(CatGroup.PLAYER_CLAN_ID):
+            work_button_dict.update(
+                    {("exile_return", "#exile_return_button"): "Attempt to return to the Clan"}
+                )
+        
+        if not work_button_dict:
+            return
+  
+        work_button_position_dict = {
+            1: [383],
+            2: [360, 405],
+            3: [343, 383, 423]
+        }
+
+        positions = work_button_position_dict[len(list(work_button_dict.keys()))]
+
+        count = 0
+        for IDs, tooltip_text in work_button_dict.items():
+            self.profile_elements[IDs[0]] = UIImageButton(
+                ui_scale(pygame.Rect((positions[count], y_pos), (34, 34))),
+                "",
+                object_id=IDs[1],
+                tool_tip_text=tooltip_text,
+                manager=MANAGER,
+            )
+            # disable
+            if IDs[0] in ("half_moon", "queen") and (
+                self.the_cat.not_working() or
+                self.the_cat.status.is_shunned()
+            ):
+                self.profile_elements[IDs[0]].disable()
+            
+            if IDs[0] == "half_moon":
+                # medicine cats attend the half-moon gathering every six moons;
+                # apprentices may visit the Moonplace once during their apprenticeship
+                if self.the_cat.status.rank.is_any_medicine_rank() and game.clan.age % 6 != 0:
+                    self.profile_elements[IDs[0]].disable()
+                elif switch_get_value(Switch.attended_half_moon):
+                    self.profile_elements[IDs[0]].disable()
+            
+            count += 1
+
     def toggle_history_tab(self, sub_tab_switch=False):
         """Opens the history tab
         param sub_tab_switch should be set to True if switching between sub tabs within the History tab
@@ -1993,6 +1974,12 @@ class ProfileScreen(Screens):
         if self.the_cat.backstory:
             bs_blurb = i18n.t(f"cat.backstories.{self.the_cat.backstory}")
 
+        current_outsider_bs = set(
+            BACKSTORIES["backstory_categories"].get("current_kittypet_backstories", [])
+            + BACKSTORIES["backstory_categories"].get("current_loner_backstories", [])
+            + BACKSTORIES["backstory_categories"].get("current_rogue_backstories", [])
+        )
+
         # if cat is in the unknown residence
         if self.the_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
             bs_blurb = i18n.t(
@@ -2004,11 +1991,26 @@ class ProfileScreen(Screens):
             self.the_cat.status.is_outsider
             and not self.the_cat.status.is_lost()
             and not self.the_cat.status.is_exiled()
+            and self.the_cat.backstory not in current_outsider_bs
         ):
-            bs_blurb = i18n.t(
-                "cat.backstories.cats_outside_the_clan",
-                status=i18n.t(f"general.{self.the_cat.status.rank}", count=1),
+            group_bs_map = {
+                CatGroup.HOUSEHOLD: "current_kittypet_backstories",
+                CatGroup.LONER_GROUP: "current_loner_backstories",
+                CatGroup.ROGUE_GROUP: "current_rogue_backstories",
+            }
+            bs_category = group_bs_map.get(self.the_cat.status.group)
+            substitute_pool = (
+                BACKSTORIES["backstory_categories"].get(bs_category, [])
+                if bs_category else []
             )
+            if substitute_pool:
+                import random
+                bs_blurb = i18n.t(f"cat.backstories.{random.choice(substitute_pool)}")
+            else:
+                bs_blurb = i18n.t(
+                    "cat.backstories.cats_outside_the_clan",
+                    status=i18n.t(f"general.{self.the_cat.status.rank}", count=1),
+                )
         elif (
             self.the_cat.status.is_other_clancat
             and self.the_cat != game.clan.instructor
@@ -3252,6 +3254,7 @@ class ProfileScreen(Screens):
                     CatRank.DEPUTY,
                     CatRank.WARRIOR,
                     CatRank.MEDIATOR,
+                    CatRank.MEDICINE_CAT,
                     CatRank.QUEEN
                 ) and self.the_cat.status.alive_in_player_clan
             ):
@@ -3404,6 +3407,21 @@ class ProfileScreen(Screens):
                 if self.the_cat.moons < 1:
                     self.exile_cat_button.disable()
                     self.leave_clan_button.disable()
+
+                if self.the_cat.ID != game.clan.your_cat.ID:
+                    self.murder_cat_button.hide()
+                    if self.join_df_button:
+                        self.join_df_button.hide()
+                    if self.exit_df_button:
+                        self.exit_df_button.hide()
+                    self.affair_button.hide()
+                else:
+                    self.murder_cat_button.show()
+                    if self.join_df_button:
+                        self.join_df_button.show()
+                    if self.exit_df_button:
+                        self.exit_df_button.show()
+                    self.affair_button.show()
 
             # SET EXILE BUTTON TEXT
             self.exile_cat_button.set_text(text)
@@ -3912,6 +3930,9 @@ class ProfileScreen(Screens):
             return False
         if cat_to.dead:
             if not cat_from.dead:
+                # newborns are too young to hold a conversation with the dead
+                if cat_from.age == CatAge.NEWBORN:
+                    return False
                 if (
                     cat_to.status.group == CatGroup.STARCLAN and
                     not cat_from.skills.meets_skill_requirement(SkillPath.STAR)
@@ -3931,7 +3952,19 @@ class ProfileScreen(Screens):
         else:
             if cat_from.status.alive_in_player_clan and not cat_to.status.alive_in_player_clan:
                 return False
-            
+            # LG: outsider players (kittypet/loner/rogue) can only talk to
+            # cats in their own group
+            outsider_groups = (
+                CatGroup.HOUSEHOLD,
+                CatGroup.LONER_GROUP,
+                CatGroup.ROGUE_GROUP,
+            )
+            if (
+                cat_from.status.group in outsider_groups
+                and cat_to.status.group != cat_from.status.group
+            ):
+                return False
+
         return True
         
 

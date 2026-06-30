@@ -4647,9 +4647,7 @@
             "Thank goodness you're here, r_c:0, some help please? Than- r_c:1 hey it's okay, just breathe! Did you eat something bad sweety? A beetle?! What did it look like?",
             "Mhm, alright... Okay...",
             "y_c!",
-            "Get sketching!!! If this kind of bug causes this, then we need to know so we can avoid it! The roots and berries are near my nest! Go! Go! Go!",
-            "['Gotta love this job, eh, t_c?']",
-            "Haha! Yup! Everyday, y_c! No regrets over here! Hahaha! Now, get moving!!!"
+            "Get sketching! If this kind of bug causes this, then we need to know so we can avoid it! The roots and berries are near my nest! Go! Go! Go!"
         ]
     },
     "TinyTeddy_stable_theyqueen_youadult_01": {
@@ -4688,7 +4686,7 @@
         "intro": [
             "[t_c smiles warmly at you as you both cross paths, {PRONOUN/t_c/poss} fur a tangled mess of curls and fluff. A silly flower crown rests atop {PRONOUN/t_c/poss} head and feathers are woven through {PRONOUN/t_c/poss} tail. You snicker slightly, t_c shoulder nudges you with a little force.]",
             "Don't laugh, wait until the end of today when the kits throw their little show. They're having a competition of who's better decorated, it's me, r_c:1, r_c:0 and r_c:2... They're just warming up...",
-            "['I think you look beautiful!']",
+            "[You tell t_c that {PRONOUN/t_c/subject} {VERB/t_c/look/looks} beautiful.]",
             "Then please vote for me later today~"
         ]
     },
@@ -4729,35 +4727,6 @@
             "['No, go, I'm not busy, it's okay! You've been working really hard recently and you deserve that break. Go on, I'll watch the nursery.']",
             "Thank you so much, y_c. I'll make it up to you, I promise!",
             "[{PRONOUN/t_c/subject/CAP} smile to themselves, {PRONOUN/t_c/poss} eyes full of love and gratitude. They bid you farewell with a purr. You can't help but laugh at the sight of t_c and r_c:0 joyfully gossiping as they catch up after being separated for so long.]"
-        ]
-    },
-    "TinyTeddy_stable_theyqueen_youadult_03": {
-        "frequency": 2,
-        "cats": {
-            "y_c": {
-                "age": [
-                    "adult"
-                ]
-            },
-            "t_c": {
-                "cluster": [
-                    "stable"
-                ],
-                "rank": [
-                    "queen"
-                ]
-            }
-        },
-        "intro": [
-            "Woah, never in my life have I seen a kit so big!",
-            "[You both laugh as you pass by the nursery.]",
-            "Where are you going? The nursery is over here!!!",
-            "['You can't tell me what to do!']",
-            "Watch your tone, y_c! Or else it's time out for you!",
-            "['OH NOOOO!!! NOT THE TIME OUT~']",
-            "PFT- HAHAHA!!! Seeya, y_c, stay safe out there!",
-            "['See you soon, t_c! Have a good day!']",
-            "You as well."
         ]
     },
     "neurotic_skillhealer_SQ2_7": {
@@ -5544,6 +5513,59 @@
             "Sorry y_c! I just... you're so good with them, and it looks like it comes so naturally to you, I wish I could be more like you!",
             "I feel like I never know the right thing to do or say with the kits, so I thought I'd learn by shadowing you.",
             "I hope that's okay..."
+        ]
+    },
+    "seasonbiomecamp_J4": {
+        "frequency": 3,
+        "biome": ["mountainous"],
+        "camp": ["camp1"],
+        "cats": {
+            "y_c": {
+                "age": ["kitten"]
+            },
+            "t_c": {
+                "rank": ["queen", "queen's apprentice"],
+                "condition": ["blind:any:false"]
+            },
+            "r_c:0": {
+                "age": ["kitten"],
+                "condition": ["blind:any:false"]
+            }
+        },
+        "intro": [
+            "[t_c is giving a lesson about staying safe near the cliffside.]",
+            "I know you guys love running and playing, but when you're within two adult tail-lengths of the edge of camp, you have to use your slow paws. Especially during leaf-bare, when it might be slippery.",
+            "Now, what should you do if you lose a toy or a piece of prey over the edge?",
+            "|r_c:0|Tell a queen!",
+            "That's right, r_c:0. Tell a queen, and don't try to get it yourself. You might get hurt.",
+            "y_c, can you tell us what to do when you see another kit playing too close to the edge of the cliff?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Go save them!",
+                "next_scene": "savethem"
+            },
+            "choice2": {
+                "text": "Tell a warrior.",
+                "next_scene": "warrior"
+            },
+            "choice3": {
+                "text": "Tell them to move.",
+                "next_scene": "move"
+            }
+        },
+        "savethem": [
+            "Not quite. If you get too close to the edge, you both might get hurt.",
+            "It's okay, y_c! You're learning.",
+            "If your denmate is in danger, you should always tell a queen or a warrior."
+        ],
+        "warrior": [
+            "Great idea, y_c! If there's a warrior nearby, tell them and they can handle it.",
+            "Good listening ears, everyone. Now let's go back to the nursery for a snack."
+        ],
+        "move": [
+            "That's a good idea, y_c. Use your voice to nicely tell them they should move. If they don't want to, then you should tell a queen or a warrior.",
+            "You've all done well listening today. Now let's go get a snack, and you can tell the others what you've learned."
         ]
     }
 }

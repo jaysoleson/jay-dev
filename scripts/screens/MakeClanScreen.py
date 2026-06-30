@@ -23,6 +23,7 @@ from scripts.cat.personality import Personality
 from scripts.cat.sprites.display_sprites import generate_sprite
 from scripts.cat.names import names
 from scripts.clan import Clan
+from scripts.clan_package.settings import set_clan_setting
 from scripts.events_module.patrol.patrol import Patrol
 from scripts.game_structure import image_cache, constants
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
@@ -582,10 +583,17 @@ class MakeClanScreen(Screens):
                     'NOLEFTEAR', 'NORIGHTEAR', 'MANLEG']
         c_size = 15
         backstories = ["clan_founder"]
-        for i in range(1, 17):
+        for i in range(1, 18):
             backstories.append(f"clan_founder{i}")
         if self.clan_age == "established":
             backstories = ['halfclan1', 'halfclan2', 'outsider_roots1', 'outsider_roots2', 'loner1', 'loner2', 'kittypet1', 'kittypet2', 'kittypet3', 'kittypet4', 'rogue1', 'rogue2', 'rogue3', 'rogue4', 'rogue5', 'rogue6', 'rogue7', 'rogue8', 'abandoned1', 'abandoned2', 'abandoned3', 'abandoned4', 'otherclan1', 'otherclan2', 'otherclan3', 'otherclan4', 'otherclan5', 'otherclan6', 'otherclan7', 'otherclan8', 'otherclan9', 'otherclan10', 'disgraced1', 'disgraced2', 'disgraced3', 'refugee1', 'refugee2', 'refugee3', 'refugee4', 'refugee5', 'tragedy_survivor1', 'tragedy_survivor2', 'tragedy_survivor3', 'tragedy_survivor4', 'tragedy_survivor5', 'tragedy_survivor6', 'guided1', 'guided2', 'guided3', 'guided4', 'orphaned1', 'orphaned2', 'orphaned3', 'orphaned4', 'orphaned5', 'orphaned6', 'outsider1', 'outsider2', 'outsider3', 'kittypet5', 'kittypet6', 'kittypet7', 'guided5', 'guided6', 'outsider4', 'outsider5', 'outsider6', 'orphaned7', 'halfclan4', 'halfclan5', 'halfclan6', 'halfclan7', 'halfclan8', 'halfclan9', 'halfclan10', 'outsider_roots3', 'outsider_roots4', 'outsider_roots5', 'outsider_roots6', 'outsider_roots7', 'outsider_roots8']
+        elif self.clan_age == "new":
+            unique_backstories = ["clan_founder4", "clan_founder13", "clan_founder14", "clan_founder15"]
+            chosen_unique = choice(unique_backstories)
+            backstories = [
+                story for story in backstories
+                if story not in unique_backstories or story == chosen_unique
+            ]
 
         if self.clan_size == "small":
             c_size = 10
@@ -646,15 +654,12 @@ class MakeClanScreen(Screens):
             # game.choose_cats[a].pelt.inventory = []
 
             if self.clan_age == "new":
-                if game.choose_cats[a].status not in ['newborn', 'kitten']:
-                    unique_backstories = ["clan_founder4", "clan_founder13", "clan_founder14", "clan_founder15"]
-                    unique = choice(unique_backstories)
-                    backstories = [story for story in backstories if story not in unique_backstories or story == unique]
+                if game.choose_cats[a].status.rank not in ['newborn', 'kitten']:
                     game.choose_cats[a].backstory = choice(backstories)
                 else:
                     game.choose_cats[a].backstory = 'clanborn'
             else:
-                if random.randint(1,5) == 1 and game.choose_cats[a].status not in ['newborn', 'kitten']:
+                if random.randint(1,5) == 1 and game.choose_cats[a].status.rank not in ['newborn', 'kitten']:
                     game.choose_cats[a].backstory = choice(backstories)
                 else:
                     game.choose_cats[a].backstory = 'clanborn'
@@ -1897,7 +1902,8 @@ class MakeClanScreen(Screens):
                 if random_pelt_length != "long"
                 else 
                 ("adult_long" + str(self.adult_pose))),
-            senior_sprite="senior" + str(self.elder_pose)
+            senior_sprite="senior" + str(self.elder_pose),
+            para_adult_sprite= "para_adult_long0" if random_pelt_length == "long" else "para_adult_short0",
         )
 
         self.custom_cat.pelt = random_cat_pelt
@@ -1993,6 +1999,7 @@ class MakeClanScreen(Screens):
                 adol_sprite=self.adolescent_pose,
                 adult_sprite=self.adult_pose,
                 senior_sprite=self.elder_pose,
+                para_adult_sprite= "para_adult_short0",
                 reverse=False,
             )
             # CHECKCUSTOM make it an empty pelt
@@ -3701,13 +3708,18 @@ class MakeClanScreen(Screens):
                     white_patches_tint=initial_pelt.white_patches_tint,
                     newborn_sprite="newborn" + str(self.newborn_pose),
                     kitten_sprite="kitten" + str(self.kitten_sprite),
-                    adol_sprite="adolescent" + str(self.adolescent_pose),
+                    adol_sprite=(
+                        ("adolescent_short" + str(self.adolescent_pose))
+                        if initial_pelt.length != "long"
+                        else
+                        ("adolescent_long" + str(self.adolescent_pose))),
                     adult_sprite=(
                         ("adult_short" + str(self.adult_pose))
                         if initial_pelt.length != "long"
                         else 
                         ("adult_long" + str(self.adult_pose))),
                     senior_sprite="senior" + str(self.elder_pose),
+                    para_adult_sprite= "para_adult_long0" if initial_pelt.length == "long" else "para_adult_short0",
                     reverse=initial_pelt.reverse
                 )
                 self.your_cat.pelt = new_pelt
@@ -4651,6 +4663,8 @@ class MakeClanScreen(Screens):
         if not game.clan.your_cat.status.group.is_any_clan_group():
             game.clan.your_cat.specsuffix_hidden = True
             game.clan.your_cat.change_name(new_prefix=game.clan.your_cat.name.prefix, new_suffix="")
+            # outsider games have no clan hunting patrols, so auto freshkill is on by default to keep the groups from starving
+            set_clan_setting("freshkill", True)
 
     def get_camp_art_path(self, campnum) -> Optional[str]:
         if not campnum:

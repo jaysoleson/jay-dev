@@ -404,13 +404,19 @@ class Patrol:
                     self.random_cat = choice(
                         [i for i in patrol_cats if i != self.patrol_leader]
                     )
+            else:
+                self.random_cat = choice(patrol_cats)
 
-            
+
+        if self.random_cat is None and self.patrol_cats:
+            self.random_cat = (
+                self.patrol_leader
+                if self.patrol_leader in self.patrol_cats
+                else self.patrol_cats[0]
+            )
+
         print("Patrol Leader:", str(self.patrol_leader.name))
-        # LG
-        if self.random_cat:
-        # ---
-            print("Random Cat:", str(self.random_cat.name))
+        print("Random Cat:", str(self.random_cat.name))
 
     def get_possible_patrols(
         self,
@@ -587,9 +593,9 @@ class Patrol:
                     possible_patrols.extend(self.generate_patrol_events(self.MEDIATORAPP_LIFEGEN))
                 elif status == CatRank.QUEENS_APPRENTICE:
                     possible_patrols.extend(self.generate_patrol_events(self.QUEENAPP_LIFEGEN))
-                elif status == CatRank.QUEENS_APPRENTICE:
+                elif status == CatRank.QUEEN:
                     possible_patrols.extend(self.generate_patrol_events(self.QUEEN_LIFEGEN))
-                elif status == CatRank.MEDICINE_APPRENTICE:
+                elif status == CatRank.MEDICINE_CAT:
                     possible_patrols.extend(self.generate_patrol_events(self.MED_LIFEGEN))
                 elif status == CatRank.MEDIATOR:
                     possible_patrols.extend(self.generate_patrol_events(self.MEDIATOR_LIFEGEN))
@@ -735,6 +741,9 @@ class Patrol:
         else:
             love1 = patrol_leader
             love2 = random_cat
+
+        love1.inheritance = None
+        love2.inheritance = None
 
         if (
             not love1.is_potential_mate(love2, for_love_interest=True)
@@ -1104,6 +1113,14 @@ class Patrol:
         if self.patrol_event is None:
             raise Exception("No patrol event supplied")
 
+        if self.random_cat is None and self.patrol_cats:
+            self.random_cat = (
+                self.patrol_leader
+                if self.patrol_leader in self.patrol_cats
+                else self.patrol_cats[0]
+            )
+
+
         # First Step - Filter outcomes and pick a fail and success outcome
         success_outcomes = (
             self.patrol_event.antag_success_outcomes
@@ -1188,6 +1205,7 @@ class Patrol:
         print(f"PATROL ID: {self.patrol_event.patrol_id} | SUCCESS: {success}")
         
         # Run the chosen outcome
+        self.chosen_lifegen_cats = chosen_lifegen_cats
         return final_event.execute_outcome(self, chosen_lifegen_cats=chosen_lifegen_cats)
 
     def calculate_success(

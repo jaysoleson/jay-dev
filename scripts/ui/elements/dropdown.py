@@ -70,6 +70,10 @@ class UIDropDown(UIDropDownContainer):
         self.parent_text = parent_text
         self.parent_reflect_selection = parent_reflect_selection
 
+        # LG
+        self.your_cat = your_cat
+        self.clan_name = clan_name
+
         super().__init__(
             relative_rect=ui_scale(relative_rect.copy()),
             container=container,
@@ -180,11 +184,21 @@ class UIDropDown(UIDropDownContainer):
 
         prev_element = None
         for child in item_list:
+            # LG
+            # display text change for your_cat's group
+            display_text = i18n.t(
+                child,
+                your_group=self.your_cat.status.get_group_heading_text()
+                if self.your_cat
+                else "",
+                name=self.clan_name,
+            )
+
             y_pos = -2 if prev_element else 0
 
             self.child_button_dicts[child] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((0, y_pos), self.child_dimensions)),
-                child,
+                display_text,
                 get_button_dict(self.child_style, self.child_dimensions),
                 manager=self.manager,
                 object_id=f"@buttonstyles_{self.child_style.value}",

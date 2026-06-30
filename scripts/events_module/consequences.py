@@ -283,6 +283,18 @@ def create_new_cat_block(
         new_name = False
         if age is not None and age <= 6 and not bs_override:
             chosen_backstory = "outsider1"
+        elif not bs_override:
+            current_bs_category = {
+                CatSocial.KITTYPET: "current_kittypet_backstories",
+                CatSocial.LONER: "current_loner_backstories",
+                CatSocial.ROGUE: "current_rogue_backstories",
+            }.get(cat_social)
+            if current_bs_category:
+                chosen_backstory = choice(
+                    BACKSTORIES["backstory_categories"].get(
+                        current_bs_category, [chosen_backstory]
+                    )
+                )
 
     # IS THE CAT DEAD?
     alive = True
@@ -865,11 +877,11 @@ def gather_cat_objects(
                     found_cat_list.difference_update(set(event.patrol_cats))
         
         # LG
-        elif re.match(r"r_c:[0-9]+", abbr):  # new_cats
+        elif re.match(r"r_c:[0-9]+", abbr):  # lifegen chosen cats
             index = re.match(r"r_c:([0-9]+)", abbr).group(1)
             index = int(index)
             if index < len(event.chosen_lifegen_cats):
-                found_cat_list.update(event.chosen_lifegen_cats[index])
+                found_cat_list.add(event.chosen_lifegen_cats[index])
         # ---
 
         # add/remove cats if found and then continue for loop

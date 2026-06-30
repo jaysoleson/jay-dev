@@ -545,7 +545,9 @@ class Cat:
             self.experience = 0
 
         if not skill_dict:
-            self.skills = CatSkills.generate_new_catskills(self.status.rank, self.age)
+            self.skills = CatSkills.generate_new_catskills(
+                self.status.rank, self.age, cat_group=self.status.group
+            )
 
         # PRIDEGEN-- Sexuality
         if not self.sexuality:
@@ -584,10 +586,15 @@ class Cat:
             if cat_default_afterlife_id == CatGroup.UNKNOWN_RESIDENCE_ID:
                 pass
 
-            # kits are auto-accepted
+            # kits are auto-accepted, into whichever afterlife they're actually sent to
             elif self.age in (CatAge.KITTEN, CatAge.NEWBORN):
+                kit_afterlife = (
+                    CatGroup.STARCLAN
+                    if cat_default_afterlife_id == CatGroup.STARCLAN_ID
+                    else CatGroup.DARK_FOREST
+                )
                 self.history.add_afterlife_acceptance(
-                    game.clan.instructor.status.group,
+                    kit_afterlife,
                     is_kit=True,
                 )
             else:
@@ -3934,11 +3941,12 @@ class Cat:
             elif sort_type == "death":
                 bisect.insort(Cat.all_cats_list, c, key=lambda x: -1 * int(x.dead_for))
             elif sort_type == "name":
-                bisect.insort(Cat.all_cats_list, c, key=lambda x: int(x.name.prefix))
-            elif sort_type == "reverse_name":
                 bisect.insort(
-                    Cat.all_cats_list, c, key=lambda x: -1 * int(x.name.prefix)
+                    Cat.all_cats_list, c, key=lambda x: x.name.prefix.lower()
                 )
+            elif sort_type == "reverse_name":
+                Cat.all_cats_list.append(c)
+                Cat.sort_cats()
         except (TypeError, NameError):
             # If you are using python 3.8, key is not a supported parameter into insort. Therefore, we'll need to
             # do the slower option of adding the cat, then resorting

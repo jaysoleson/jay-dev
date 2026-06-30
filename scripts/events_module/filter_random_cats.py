@@ -199,7 +199,7 @@ def __filter_group(abbrev_block, cat, your_cat):
         ):
             return False
     else:
-        if cat.status.group != your_cat.status.group:
+        if "residence" not in abbrev_block and cat.status.group != your_cat.status.group:
             return False
     return True
 
@@ -238,6 +238,8 @@ def __filter_age(abbrev_block, cat):
     if "not_kitten" in abbrev_block["age"] and cat.age == CatAge.NEWBORN:
         return False
     if f"-{cat.age}" in abbrev_block["age"]:
+        return False
+    if cat.age not in abbrev_block["age"]:
         return False
     if any(age in abbrev_block for age in (
         CatAge.NEWBORN, CatAge.KITTEN, CatAge.ADOLESCENT,

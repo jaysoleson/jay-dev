@@ -25633,5 +25633,182 @@
         "intro": [
             "Your Clanmates suck, y_c. You can always play with me, though!"
         ]
+    },
+       "castle_leadernkitten_H1": {
+        "frequency": 2,
+        "biome": ["plains"],
+        "camp":["camp9"],
+        "cats": {
+            "y_c": {
+                "rank": ["leader"],
+                "condition": ["deaf:any:false"]
+            },
+            "t_c": {
+                "age": ["kitten"],
+                "cluster": [],
+                "condition": ["deaf:any:true", "blind:any:false"]
+            }
+        },
+        "intro": [
+            "[t_c sits on top of the camp's stone platform, a smug smile on {PRONOUN/t_c/poss} face.]",
+            "[As you approach, t_c puffs out {PRONOUN/t_c/poss} chest, putting on {PRONOUN/t_c/poss} best leader face.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Playfully bow before t_c.]",
+                "next_scene": "scene1"
+            },
+            "choice2": {
+                "text": "[Ask what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing.]",
+                "next_scene": "scene2"
+            }
+        },
+        "scene1": [
+            "[As you playfully bow before the stone platform, t_c's smug look amplifies.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/jump/jumps} off the platform a moment later, seemingly satisfied with the outcome of {PRONOUN/t_c/poss} performance.]"
+        ],
+        "scene2": [
+            "[t_c rolls {PRONOUN/t_c/poss} eyes as if it's obvious, and puffs out {PRONOUN/t_c/poss} chest even more.]",
+            "[When it still seems like you still aren't getting the memo, t_c taps a paw on top of {PRONOUN/t_c/poss} head, signalling that {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} acting like you - a leader.]",
+            "[... Do you really act like that?]"
+        ]
+    },
+    "castle_leadernkitten_H2": {
+        "frequency": 2,
+        "biome": ["plains"],
+        "camp":["camp9"],
+        "cats": {
+            "y_c": {
+                "rank": ["leader"],
+                "condition": []
+            },
+            "t_c": {
+                "age": ["kitten"],
+                "cluster": [],
+                "condition": []
+            },
+            "r_c:0": {
+                "age": ["kitten"],
+                "condition": ["deaf:any:false"]
+            }
+        },
+        "intro": [
+            "I am Leader of the Stone! No cat can stop me now!",
+            "[The kittens, as expected, have made a new game: Leader of the Stone. They fight each other to climb to the top of the camps stone platform, then the cat sitting on the stone must protect their spot.]",
+            "[Such as what t_c is doing right now.]",
+            "[r_c:0 attempts to overthrow {PRONOUN/t_c/object}, but t_c succeeds in pushing {PRONOUN/r_c:0/object} off with a triumph huff.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Become Leader of the Stone.]",
+                "next_scene": "scene1"
+            },
+            "choice2": {
+                "text": "[Stop them before they get hurt.]",
+                "next_scene": "scene2"
+            }
+        },
+        "scene1": [
+            "[You stalk behind the stone platform. r_c:0 sees you, but doesn't say anything. A moment of understanding falls between the two of you.]",
+            "Leader of the Stone, Leader of the Stone! That's me!",
+            "[t_c boasts, thinking {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} already won the game.]",
+            "[You let t_c have {PRONOUN/t_c/poss} moment before you pounce, jumping onto the stone platform and pushing t_c off. {PRONOUN/t_c/subject/CAP} {VERB/t_c/roll/rolls} with a yelp, and turns back to find you sitting on the platform.]",
+            "Hey, wait! That's not fair!"
+        ],
+        "scene2": [
+            "[Knowing that if they get too rowdy and competitive, they'll get hurt, you approach the kittens to convince them to stop playing.]",
+            "Awww, but I just got to be Leader of the Stone though!",
+            "[Despite t_c's protests, {PRONOUN/t_c/subject} {VERB/t_c/jump/jumps} off the stone platform and {VERB/t_c/signal/signals} r_c:0 to follow {PRONOUN/t_c/object}.]"
+        ]
+    },
+"beachcamps_avix2": {
+        "frequency": 2,
+        "biome": ["beach"],
+        "camp": ["camp1", "camp2", "camp3", "camp4", "camp5"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+              "age": ["kitten"]
+            },
+            "r_c:0": {
+              "age": ["not_newborn"],
+              "condition": ["blind:any:false", "deaf:any:false"]
+            }
+        },
+        "intro": [
+            "[On your way to the fresh-kill pile, you nearly trip on a strange bump in the sand. Suddenly, the mound shifts, and t_c jumps out!]",
+            "Boo!! Did I scare ya? Did I? I'm a crab! I'mma very scary crab, right?",
+            "[In the middle of t_c's excited crab-related chattering, {PRONOUN/t_c/poss} eyes are suddenly caught by r_c:0, heading your way.]",
+            "y_c, help me hide!! I've gotta scare r_c:0 with my awesome crab powers!"
+        ]
+    },
+    "rockyslopecamp_avix1": {
+        "frequency": 3,
+        "season": ["leaf-fall", "leaf-bare"],
+        "biome": ["mountainous"],
+        "camp": ["camp4"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+              "age": ["kitten"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_5"]
+            }
+        ],
+        "intro": [
+            "y_c!! When's the green gonna come back? I'm tired of so much grey!"
+        ]
+    },
+    "quarrycamp_avix1": {
+        "frequency": 2,
+        "season": ["leaf-bare"],
+        "biome": ["mountainous"],
+        "camp": ["camp5"],
+        "cats": {
+            "y_c": {
+                "age": ["not_kitten"]
+            },
+            "t_c": {
+              "age": ["kitten"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["min_like_20"]
+            }
+        ],
+        "intro": [
+            "[t_c has been brushing snow off the giant skeleton all day.]",
+            "Hi!! I'm keeping them from being cold!! Wanna help?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Sure",
+                "next_scene": "warm"
+            },
+            "choice2": {
+                "text": "No thanks",
+                "next_scene": "cold"
+            }
+        },
+        "warm": [
+          "Yay!! You can get that side while I finish this side!",
+          "[Before too long, you and t_c have cleared off all the snow. The kit is clearly proud of your shared efforts!]"
+        ],
+        "cold": [
+          "Aw, okay...",
+          "[{PRONOUN/t_c/subject} {VERB/t_c/go/goes} back to wiping off snow, silently.]"
+        ]
     }
 }

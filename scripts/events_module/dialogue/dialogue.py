@@ -125,7 +125,7 @@ class Dialogue():
 
         flirt_success = self.get_flirt_success()
 
-        possible_dialogue_keys = []
+        possible_dialogue = {}
         for key, block in possible_texts.items():
             if "season" in block:
                 if (
@@ -150,10 +150,10 @@ class Dialogue():
                     if other_block in ["season", "biome", "camp", "relationships"]:
                         count += 1
                 for i in range(count):
-                    possible_dialogue_keys.append(key)
+                    possible_dialogue.update({key: block})
             else:
                 print("Warning: Dialogue", key, "has no frequency.")
-                possible_dialogue_keys.append(key)
+                possible_dialogue.update({key: block})
             
             if flirt:
                 if "tags" in block:
@@ -165,7 +165,7 @@ class Dialogue():
                     if not flirt_success:
                         continue
 
-        return possible_dialogue_keys
+        return possible_dialogue
 
     def get_cat_dict(self):
         """
@@ -178,11 +178,12 @@ class Dialogue():
         Makes a final selection.
         Returns the key and the dict object.
         """
-        possible_dialogue_keys = self.filter_dialogue(possible_dialogue, flirt)
-    
+        possible_dialogue = self.filter_dialogue(possible_dialogue, flirt)
+
         if not possible_dialogue:
             possible_dialogue = load_lang_resource("lifegen_talk/general.json")
-            possible_dialogue_keys = ["general"]
+
+        possible_dialogue_keys = list(possible_dialogue.keys())
 
         debug_dict = {}
         for key in possible_dialogue_keys.copy():

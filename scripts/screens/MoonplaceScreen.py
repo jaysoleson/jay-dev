@@ -25,7 +25,7 @@ from scripts.game_structure.screen_settings import MANAGER
 from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.generate_button import ButtonStyles, get_button_dict
 from scripts.events_module.text_adjust import (
-    pronoun_repl
+    pronoun_repl, event_text_adjust
 )
 
 
@@ -338,10 +338,8 @@ class MoonplaceScreen(Screens):
             # No message
             return self.get_adjusted_txt(choice(possible_texts["intros"][med_type]) + other_med_greeting + choice(possible_texts["moonplace"]["starclan_no_message"]), cat)
 
-        resource_dir = "resources/dicts/events/lifegen_events/moonplace/prophecies.json"
-        possible_texts2 = {}
-        with open(f"{resource_dir}", 'r') as read_file:
-            possible_texts2 = ujson.loads(read_file.read())
+        possible_texts2 = load_lang_resource("events/lifegen_events/moonplace/prophecies.json")
+
         switch_set_value(Switch.next_possible_disaster, choice(list(possible_texts2.keys())))
 
         prophecy = choice(possible_texts2[switch_get_value(Switch.next_possible_disaster)]["text"])
@@ -375,21 +373,26 @@ class MoonplaceScreen(Screens):
                 return ""
             process_text_dict["mentor_name"] = Cat.fetch_cat(you.mentor)
 
-        for abbrev in process_text_dict.keys():
-            abbrev_cat = process_text_dict[abbrev]
+        for abbrev, abbrev_cat in process_text_dict.items():
             process_text_dict[abbrev] = (abbrev_cat, choice(abbrev_cat.pronouns))
-        
-        for i in range(len(text)):
-            text[i] = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), text[i])
 
         text = [t1.replace("c_n", game.clan.name + "Clan") for t1 in text]
 
-        for i in range(len(text)):
-            text[i] = self.replace_moonplace_name(text[i])
-            if text[i] == "":
+        new_text_list = []
+        for line in text:
+            line = line.replace("y_c", "m_c")
+            new_line = event_text_adjust(
+                    Cat,
+                    line,
+                    main_cat=you
+                )
+            # new_line = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), line)
+            newer_line = self.replace_moonplace_name(new_line)
+            if newer_line == "":
                 return ""
-        
-        return text
+            new_text_list.append(newer_line)
+
+        return new_text_list
 
     def get_living_cats(self):
         living_cats = []
@@ -460,14 +463,22 @@ class MoonplaceScreen(Screens):
             """Generates cats for specified clan (mostly full names, some apprentices)."""
             for _ in range(num):
                 is_apprentice = randint(1, 4) == 1
+                # give an age that fits the role
+                moons = randint(6, 11) if is_apprentice else randint(20, 120)
                 cat = Cat(
-                    name=Name()
-                )                
+                    name=Name(),
+                    moons=moons,
+                )
                 if is_apprentice:
                     cat.rank_change(CatRank.MEDICINE_APPRENTICE)
                 else:
                     cat.rank_change(CatRank.MEDICINE_CAT)
                 cat.status.add_to_group(clan.group_ID)
+                if cat.mentor:
+                    mentor = Cat.fetch_cat(cat.mentor)
+                    if mentor and cat.ID in mentor.apprentice:
+                        mentor.apprentice.remove(cat.ID)
+                    cat.mentor = None
                 switch_append_list_value(Switch.other_meds, cat.ID)
 
         def simulate_death_other_meds(clan):

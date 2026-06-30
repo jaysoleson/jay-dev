@@ -5119,5 +5119,30 @@
             "I've never needed the medicine cat's help for a bad dream. I've had plenty of nightmares in my lifetime - I can handle a few more.",
             "[You'd be more convinced if t_c didn't look nearly so exhausted.]"
         ]
+    },
+    "cliffcamp_avix1": {
+        "frequency": 2,
+        "season": ["leaf-bare"],
+        "biome": ["mountainous"],
+        "camp": ["camp1"],
+        "cats": {
+            "y_c": {
+                "age": ["not_newborn", "not_senior", "not_senior adult"]
+            },
+            "t_c": {
+                "age": ["senior"]
+            }
+        },
+        "relationship": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["r_c:0"],
+                "relationship": ["min_like_10"]
+            }
+        ],
+        "intro": [
+            "Be sure to watch your steps, y_c. Wouldn't want you to slip and fall off one of these edges.",
+            "I've seen my fair share of ice-related injuries."
+        ]
     }
 }

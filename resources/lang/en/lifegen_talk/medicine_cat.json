@@ -1016,7 +1016,7 @@
             }
         },
         "intro": [
-            "AHHH!!! WHO DID THIS?",
+            "AHHH! Who did this?!",
             "[You rush into the medicine den, bracing yourself for something horrible, only to discover t_c stooping over {PRONOUN/t_c/poss} perfectly organized herb pile.]",
             "My herbs ... My beautiful herbs have been ... <i>alphabetized!</i>",
             "How am I supposed to find anything now?!"
@@ -5251,17 +5251,15 @@
             }
         },
         "intro": [
-            "Oh for the love- WHAT IN STARCLAN'S NAME DID YOU GET INTO THIS TIME?!",
-            "['I just wanted to say hi!']",
-            "My mistake then...",
+            "Oh for the love of- What in StarClan's name have you gotten into this time?",
+            "Oh, nothing? My mistake then...",
             "Hello...?",
             "[...]",
-            "['... Sooooooo, how's your day been?...']",
-            "Good, good... Been very good. You?",
-            "['It's been good...']",
+            "Um, yeah, my day has been good... very good. You?",
             "That's good... yeah...",
-            "['So anyways, I found funky looking rock, you wanna see?']",
-            "YES PLEASE! I was wondering when you'd find something interesting to share with me!"
+            "[... ... ...]",
+            "[You ask t_c if {PRONOUN/t_c/subject}'d like to see a cool rock you found earlier.]",
+            "Yes, please! I was wondering when you'd find something interesting to share with me!"
         ]
     },
     "TinyTeddy_stable_theymedicine_youapp_02": {
@@ -5472,7 +5470,7 @@
             }
         },
         "intro": [
-            "StarClan needs to watch our clanmates better, this should have never happened... Not to a cat like you...",
+            "StarClan needs to watch our Clanmates better, this should have never happened... Not to a cat like you...",
             "Would you like anything to eat?",
             "Okay, I can arrange that, you stay here. I'll be back in a moment."
         ]
@@ -5498,14 +5496,14 @@
             }
         },
         "intro": [
-            "Ah, ah, ah, ah! Sit back down, y_c! StarClan, don't you go pushing yourself. If you need something, you tell me, it's my job- NO!",
+            "Ah, ah, ah, ah! Sit back down, y_c! StarClan, don't you go pushing yourself. If you need something, you tell me, it's my job- No!",
             "No, you are not bothering me by telling me what you need, why would you think that? So what is it that you're after?",
             "Some water? Pft, that can easily be arranged, I'll go get that for you now- AND DON'T YOU MOVE FROM THAT SPOT!",
             "[t_c bolts out of the den, you smirk to yourself as you lay back down, you decide to stretch out your paw to where it just rests outside of your nest. t_c shuffles back inside, clutching a scrap of wood that curves inwards, water ripples inside.]",
             "[{PRONOUN/t_c/subject/CAP} step forwards and rest it down before you, {PRONOUN/t_c/poss} eyes abruptly narrow, {PRONOUN/t_c/poss} tail flicks in annoyance.]",
             "...",
-            "...",
-            "...",
+            "... ...",
+            "... ... ...",
             "Oh you think you're funny, don't you?"
         ]
     },
@@ -8098,6 +8096,39 @@
             "Head straight out the camp exit, turn right at that cluster of pine saplings, keep going until you see a boulder shaped like r_c:0's nose, then turn left until you're facing the sunset.",
             "Then you'll go until you find the stream. Follow it until you find the brook. Then hop over and head straight again. After that, it's about, say, fifty pawsteps away? You should smell it by then.",
             "... What?"
+        ]
+    },
+    "quay_H3": {
+        "frequency": 3,
+        "biome": ["plains"],
+        "camp":["camp2"],
+        "cats": {
+            "y_c": {
+                "rank": ["medicine cat apprentice"],
+                "age": ["adolescent"]
+            },
+            "t_c": {
+                "rank": ["medicine cat"]
+            },
+            "r_c:0": {
+                "rank": ["medicine cat"],
+                "age": ["senior adult", "senior"],
+                "cluster": ["assertive", "unabashed"]
+            }
+        },
+        "relationships": [
+            {
+                "cats_from": ["t_c"],
+                "cats_to": ["y_c"],
+                "relationship": ["mentor/app"]
+            }
+        ],
+        "intro": [
+            "Just so you know, staying still doesn't help with the rocking.",
+            "I won't know why they decided to put the medicine den in the water-monster, but no cat is too fond of it. Trust me.",
+            "|r_c:0|Oh, the former leader's found it hilarious, I'm sure.",
+            "|r_c:0|I bet they didn't find it too hilarious when the boat rocking made them puke their guts out. HAHAH.",
+            "[r_c:0 seems far too happy about that imagery.]"
         ]
     }
 }

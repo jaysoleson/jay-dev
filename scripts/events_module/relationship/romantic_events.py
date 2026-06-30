@@ -414,19 +414,13 @@ class RomanticEvents:
 
         if become_mates and mate_string:
             if cat_from.ID == game.clan.your_cat.ID or cat_to.ID == game.clan.your_cat.ID:
-                if not switch_get_value(Switch.window_open):
+                if 'mate' not in switch_get_value(Switch.windows_dict):
                     if cat_from.ID == game.clan.your_cat.ID:
                         switch_set_value(Switch.new_mate, cat_to)
                     else:
                         switch_set_value(Switch.new_mate, cat_from)
-                    MateWindow("events screen")
-                else:
-                    if 'mate' not in switch_get_value(Switch.windows_dict):
-                        if cat_from.ID == game.clan.your_cat.ID:
-                            switch_set_value(Switch.new_mate, cat_to)
-                        else:
-                            switch_set_value(Switch.new_mate, cat_from)
-                        switch_append_list_value(Switch.windows_dict, 'mate')
+                    switch_append_list_value(Switch.windows_dict, 'mate')
+                return True
             else:
                 cat_from.set_mate(cat_to)
                 game.cur_events_list.append(Single_Event(mate_string, ["relation", "misc"], [cat_from.ID, cat_to.ID]))
@@ -558,6 +552,9 @@ class RomanticEvents:
         if cat_to.status.is_outsider != cat_from.status.is_outsider:
             return False
 
+        cat_from.inheritance = None
+        cat_to.inheritance = None
+
         if not cat_to.is_potential_mate(cat_from) or not cat_from.is_potential_mate(
             cat_to
         ):
@@ -637,30 +634,22 @@ class RomanticEvents:
         mate_string = RomanticEvents.prepare_relationship_string(
             mate_string, cat_from, cat_to
         )
-        game.cur_events_list.append(
-            Single_Event(
-                mate_string,
-                ["relation", "misc"],
-                cat_dict={"m_c": cat_from, "r_c": cat_to},
-            )
-        )
-
-        if become_mates:
-            if (game.clan.your_cat in (cat_to, cat_from)):
-                if not switch_get_value(Switch.window_open):
-                    if cat_from.ID == game.clan.your_cat.ID:
-                        switch_set_value(Switch.new_mate, cat_to)
-                    else:
-                        switch_set_value(Switch.new_mate, cat_from)
-                    MateWindow("events screen")
+        if become_mates and game.clan.your_cat in (cat_to, cat_from):
+            if 'mate' not in switch_get_value(Switch.windows_dict):
+                if cat_from.ID == game.clan.your_cat.ID:
+                    switch_set_value(Switch.new_mate, cat_to)
                 else:
-                    if 'mate' not in switch_get_value(Switch.windows_dict):
-                        if cat_from.ID == game.clan.your_cat.ID:
-                            switch_set_value(Switch.new_mate, cat_to)
-                        else:
-                            switch_set_value(Switch.new_mate, cat_from)
-                        switch_append_list_value(Switch.windows_dict, 'mate')
-            else:
+                    switch_set_value(Switch.new_mate, cat_from)
+                switch_append_list_value(Switch.windows_dict, 'mate')
+        else:
+            game.cur_events_list.append(
+                Single_Event(
+                    mate_string,
+                    ["relation", "misc"],
+                    cat_dict={"m_c": cat_from, "r_c": cat_to},
+                )
+            )
+            if become_mates:
                 cat_from.set_mate(cat_to)
 
         return True
@@ -700,6 +689,9 @@ class RomanticEvents:
         become_mates = False
         if cat_to.status.is_outsider != cat_from.status.is_outsider:
             return False, None
+
+        cat_from.inheritance = None
+        cat_to.inheritance = None
 
         if not cat_from.is_potential_mate(cat_to):
             return False, None

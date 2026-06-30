@@ -10,6 +10,7 @@ from scripts.game_structure import image_cache
 from scripts.game_structure import game
 from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
 from scripts.game_structure.screen_settings import MANAGER
+from scripts.game_structure.localization import load_lang_resource
 from ..ui.elements.image_button import UIImageButton
 from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.elements.sprite_button import UISpriteButton
@@ -175,13 +176,9 @@ class AffairScreen(Screens):
             self.list_frame.kill()
             del self.list_frame
 
-    RESOURCE_DIR = "resources/dicts/events/lifegen_events/"
-
     def change_cat(self, affair_cat=None):
         game.clan.affair = True
-        with open(f"{self.RESOURCE_DIR}affair.json",
-                encoding="ascii") as read_file:
-            self.mu_txt = ujson.loads(read_file.read())
+        self.mu_txt = load_lang_resource("events/lifegen_events/affair.json")
         success = self.is_success(affair_cat)
         affair_relationship_chance_lb = constants.CONFIG["lifegen"]["gen"]["affair_relationship_change_lb"]
         affair_relationship_chance_ub = constants.CONFIG["lifegen"]["gen"]["affair_relationship_change_ub"]

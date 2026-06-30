@@ -351,8 +351,12 @@ class Clan:
         for cat_id in Cat.all_cats:
             the_cat = Cat.all_cats.get(cat_id)
             the_cat.init_all_relationships()
-            if the_cat not in (self.instructor, self.demon):
-                the_cat.backstory = "clan_founder"
+            if self.clan_age == "new" and the_cat not in (self.instructor, self.demon):
+                if the_cat.backstory == "clanborn" and the_cat.status.rank not in (
+                    CatRank.KITTEN,
+                    CatRank.NEWBORN,
+                ):
+                    the_cat.backstory = "clan_founder"
             if the_cat.status.rank == CatRank.APPRENTICE:
                 the_cat.rank_change(CatRank.APPRENTICE)
             the_cat.get_new_thought()
@@ -509,6 +513,12 @@ class Clan:
                             app.inheritance.update_inheritance()
                             Cat.all_cats.get(app.parent2).inheritance.update_inheritance()
 
+        for cat in Cat.all_cats.values():
+            if not cat.inheritance:
+                cat.inheritance = Inheritance(cat)
+            else:
+                cat.inheritance.update_inheritance()
+
     def populate_sc(self):
         for i in range(randint(2,5)):
             random_backstory = choice(["dead1",
@@ -579,6 +589,9 @@ class Clan:
             df_cat.history.beginning = None
             df_cat.dead_for = randint(20, 200)
             df_cat.status.add_to_group(CatGroup.DARK_FOREST_ID)
+            df_cat.history.add_afterlife_acceptance(
+                CatGroup.DARK_FOREST, is_kit=df_cat.age.is_baby()
+            )
             self.add_cat(df_cat)
 
 
@@ -1794,8 +1807,7 @@ class Clan:
             elif os.path.exists(current_file_path):
                 with open(current_file_path, "r", encoding="utf-8") as save_file:
                     herbs = ujson.load(save_file)
-                    clan.herb_supply = HerbSupply(herb_supply=herbs["storage"])
-                    clan.herb_supply.collected = herbs["collected"]
+                    clan.herb_supply = HerbSupply(herb_supply=herbs)
 
             # else just start us with an empty herb supply
             else:
@@ -1814,14 +1826,17 @@ class Clan:
 
         combined_supply_dict = clan.herb_supply.combined_supply_dict
         combined_supply_dict = {
-            "storage": {
-                herb: [int(i) for i in amounts]
-                for herb, amounts in combined_supply_dict["storage"].items()
-            },
-            "collected": {
-                herb: int(amount)
-                for herb, amount in combined_supply_dict["collected"].items()
-            },
+            group_key: {
+                "storage": {
+                    herb: [int(i) for i in amounts]
+                    for herb, amounts in group_data["storage"].items()
+                },
+                "collected": {
+                    herb: int(amount)
+                    for herb, amount in group_data["collected"].items()
+                },
+            }
+            for group_key, group_data in combined_supply_dict.items()
         }
 
         safe_save(
@@ -2078,7 +2093,7 @@ class OtherClan:
 
     def __repr__(self):
         # has indicators that this is unlocalized, just in case
-        return f"!!{self.name}Clan!!"
+        return f"{self.name}Clan"
 
     def get_standing(self) -> Literal["ally", "neutral", "hostile"]:
         """

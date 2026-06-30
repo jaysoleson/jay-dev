@@ -1158,8 +1158,6 @@ class MurderScreen(Screens):
         self.cat_to_murder = None
 
         self.change_screen(GameScreen.EVENTS)
-    
-    RESOURCE_DIR = "resources/dicts/events/lifegen_events/"
 
     def get_death_chance(self, cat_to_murder, accomplice, accompliced):
         """ chance for mc to bite the dust """
@@ -1735,7 +1733,9 @@ class MurderScreen(Screens):
             murderer_id=game.clan.your_cat.ID,
             clan_reveal=discovered,
             aware_individuals=[accomplice] if accomplice else [],
-            shunned_cat=game.clan.your_cat
+            # shunning is applied in choose_discover_punishment so it matches
+            # who the Clan actually blames (you, the accomplice, or both)
+            shunned_cat=None
         )
             
         if discovered:
@@ -1859,15 +1859,25 @@ class MurderScreen(Screens):
                 punishment_chance = randint(1,3)
         else:
             if game.clan.your_cat.dead:
+                # solo murderer who died is still shunned by the Clan
+                you.status.shun_from_group()
                 return
             punishment_chance = 1
 
         if not accomplice or not accompliced:
             punishment_chance = 1
+
+        # shun whoever the Clan blames, matching the punishment outcome
+        # (1 = you, 2 = accomplice, 3 = both)
+        if punishment_chance in (1, 3):
+            you.status.shun_from_group()
+        if punishment_chance in (2, 3) and accomplice:
+            accomplice.status.shun_from_group()
+
         if punishment_chance == 1:
             if accomplice and not accompliced:
                 a_s = randint(1,2)
-                if a_s == 1 and accomplice.rank != CatRank.LEADER and game.clan.leader:
+                if a_s == 1 and accomplice.status.rank != CatRank.LEADER and game.clan.leader:
                     game.cur_events_list.insert(2, Single_Event(
                         f"Shocked at your request to be an accomplice to murder, {accomplice.name} reports your actions to the Clan leader.",
                         ["alert", "birth_death"],

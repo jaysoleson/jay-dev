@@ -59,6 +59,29 @@ class Nutrition:
 class FreshkillPile:
     """Handle everything related to the freshkill pile of the clan."""
 
+    PLAYER_CLAN_KEY = "player_clan"
+    OUTSIDE_GROUP_KEY = "mc_outside_group"
+    OUTSIDER_YIELD_DIVISOR = 10
+
+    @staticmethod
+    def _empty_sub_pile() -> dict:
+        return {
+            "expires_in_4": 0,
+            "expires_in_3": 0,
+            "expires_in_2": 0,
+            "expires_in_1": 0,
+        }
+
+    @staticmethod
+    def _is_mc_outside() -> bool:
+        """True if the player cat exists and is currently in a non-clan group."""
+        if not game.clan or not getattr(game.clan, "your_cat", None):
+            return False
+        try:
+            return not game.clan.your_cat.status.group.is_any_clan_group()
+        except AttributeError:
+            return False
+
     def __init__(self, pile: dict = None) -> None:
         """
         Initialize the class.
@@ -77,32 +100,43 @@ class FreshkillPile:
         self.needed_prey = 0
         # ---
         if pile:
-            self.pile = pile
-            total = 0
-            for k, v in pile.items():
-                total += v
-            self.total_amount = total
+            if self.PLAYER_CLAN_KEY in pile or self.OUTSIDE_GROUP_KEY in pile:
+                self.pile = pile
+            else:
+                self.pile = {self.PLAYER_CLAN_KEY: pile}
+            if self.PLAYER_CLAN_KEY not in self.pile:
+                self.pile[self.PLAYER_CLAN_KEY] = self._empty_sub_pile()
         else:
-            # edited for LG
-            # non-clans wont start with the base 100,
-            # as a rogue group with three cats doesnt need all that
-            total_num = constants.PREY_CONFIG["start_amount"]
-            if game.clan:
-                if game.clan.your_cat:
-                    if not game.clan.your_cat.status.group.is_any_clan_group():
-                        total_num = (self.amount_food_needed() * 2)
-            # ---
-            self.pile = {
-                "expires_in_4": total_num,
-                "expires_in_3": 0,
-                "expires_in_2": 0,
-                "expires_in_1": 0
-            }
-            self.total_amount = total_num
+            self.pile = {self.PLAYER_CLAN_KEY: self._empty_sub_pile()}
+            self.pile[self.PLAYER_CLAN_KEY]["expires_in_4"] = constants.PREY_CONFIG["start_amount"]
+            if self._is_mc_outside():
+                self._init_outside_pile()
+
+        self.total_amount = sum(self.active_pile.values())
 
         self.fed_kits = []
         self.queens = []
         self.is_manual_feeding = False
+
+    @property
+    def active_pile_key(self) -> str:
+        return self.OUTSIDE_GROUP_KEY if self._is_mc_outside() else self.PLAYER_CLAN_KEY
+
+    @property
+    def active_pile(self) -> dict:
+        key = self.active_pile_key
+        if key == self.OUTSIDE_GROUP_KEY and key not in self.pile:
+            self._init_outside_pile()
+        return self.pile[key]
+
+    def _init_outside_pile(self) -> None:
+        starting = max(1, int(self.amount_food_needed() * 2))
+        sub_pile = self._empty_sub_pile()
+        sub_pile["expires_in_4"] = starting
+        self.pile[self.OUTSIDE_GROUP_KEY] = sub_pile
+
+    def discard_outside_pile(self) -> None:
+        self.pile.pop(self.OUTSIDE_GROUP_KEY, None)
 
     def add_freshkill(self, amount) -> None:
         """
@@ -113,7 +147,9 @@ class FreshkillPile:
             amount : int|float
                 the amount which should be added to the pile
         """
-        self.pile["expires_in_4"] += amount
+        if self._is_mc_outside():
+            amount = amount / self.OUTSIDER_YIELD_DIVISOR
+        self.active_pile["expires_in_4"] += amount
         self.total_amount += amount
         self.total_amount = round(self.total_amount, 2)
 
@@ -140,7 +176,7 @@ class FreshkillPile:
         """
         Update the total amount of the prey pile
         """
-        self.total_amount = sum(self.pile.values())
+        self.total_amount = sum(self.active_pile.values())
 
     def _update_needed_food(self, living_cats: List[Cat]) -> None:
         queen_dict, living_kits = get_alive_clan_queens(self.living_cats)
@@ -201,19 +237,20 @@ class FreshkillPile:
         self.living_cats = living_cats
         previous_amount = 0
         # update the freshkill pile
-        for key, value in self.pile.items():
-            self.pile[key] = previous_amount
+        active = self.active_pile
+        for key, value in active.items():
+            active[key] = previous_amount
             previous_amount = value
             if key == "expires_in_1" and FRESHKILL_ACTIVE and value > 0:
                 amount = round(value, 2)
                 event_list.append(i18n.t("hardcoded.expired_prey", count=amount))
-        self.total_amount = sum(self.pile.values())
+        self.total_amount = sum(active.values())
         value_diff = self.total_amount
         self.timeskip_feed = True
         self.already_fed = []
         self.feed_cats(living_cats)
         self.timeskip_feed = False
-        value_diff -= sum(self.pile.values())
+        value_diff -= sum(active.values())
         event_list.append(i18n.t("hardcoded.consumed_prey", count=round(value_diff, 2)))
         self._update_needed_food(living_cats)
         self.update_total_amount()
@@ -562,15 +599,16 @@ class FreshkillPile:
         if given_amount == 0:
             return given_amount
 
+        active = self.active_pile
         remaining_amount = given_amount
-        if self.pile[pile_group] >= given_amount:
-            self.pile[pile_group] -= given_amount
+        if active[pile_group] >= given_amount:
+            active[pile_group] -= given_amount
             self.total_amount -= given_amount
             remaining_amount = 0
-        elif self.pile[pile_group] > 0:
-            remaining_amount = given_amount - self.pile[pile_group]
-            self.total_amount -= self.pile[pile_group]
-            self.pile[pile_group] = 0
+        elif active[pile_group] > 0:
+            remaining_amount = given_amount - active[pile_group]
+            self.total_amount -= active[pile_group]
+            active[pile_group] = 0
         self.total_amount = round(self.total_amount, 2)
 
         return remaining_amount
@@ -594,7 +632,8 @@ class FreshkillPile:
         # removing unnecessary cats
         remove = []
         for cat_id in self.nutrition_info:
-            if not Cat.fetch_cat(cat_id).status.alive_in_player_clan:
+            cat = Cat.fetch_cat(cat_id)
+            if not cat or not cat.status.alive_in_player_clan:
                 remove.append(cat_id)
 
         for cat_id in remove:
