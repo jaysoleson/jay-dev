@@ -583,10 +583,17 @@ class MakeClanScreen(Screens):
                     'NOLEFTEAR', 'NORIGHTEAR', 'MANLEG']
         c_size = 15
         backstories = ["clan_founder"]
-        for i in range(1, 17):
+        for i in range(1, 18):
             backstories.append(f"clan_founder{i}")
         if self.clan_age == "established":
             backstories = ['halfclan1', 'halfclan2', 'outsider_roots1', 'outsider_roots2', 'loner1', 'loner2', 'kittypet1', 'kittypet2', 'kittypet3', 'kittypet4', 'rogue1', 'rogue2', 'rogue3', 'rogue4', 'rogue5', 'rogue6', 'rogue7', 'rogue8', 'abandoned1', 'abandoned2', 'abandoned3', 'abandoned4', 'otherclan1', 'otherclan2', 'otherclan3', 'otherclan4', 'otherclan5', 'otherclan6', 'otherclan7', 'otherclan8', 'otherclan9', 'otherclan10', 'disgraced1', 'disgraced2', 'disgraced3', 'refugee1', 'refugee2', 'refugee3', 'refugee4', 'refugee5', 'tragedy_survivor1', 'tragedy_survivor2', 'tragedy_survivor3', 'tragedy_survivor4', 'tragedy_survivor5', 'tragedy_survivor6', 'guided1', 'guided2', 'guided3', 'guided4', 'orphaned1', 'orphaned2', 'orphaned3', 'orphaned4', 'orphaned5', 'orphaned6', 'outsider1', 'outsider2', 'outsider3', 'kittypet5', 'kittypet6', 'kittypet7', 'guided5', 'guided6', 'outsider4', 'outsider5', 'outsider6', 'orphaned7', 'halfclan4', 'halfclan5', 'halfclan6', 'halfclan7', 'halfclan8', 'halfclan9', 'halfclan10', 'outsider_roots3', 'outsider_roots4', 'outsider_roots5', 'outsider_roots6', 'outsider_roots7', 'outsider_roots8']
+        elif self.clan_age == "new":)
+            unique_backstories = ["clan_founder4", "clan_founder13", "clan_founder14", "clan_founder15"]
+            chosen_unique = choice(unique_backstories)
+            backstories = [
+                story for story in backstories
+                if story not in unique_backstories or story == chosen_unique
+            ]
 
         if self.clan_size == "small":
             c_size = 10
@@ -647,15 +654,12 @@ class MakeClanScreen(Screens):
             game.choose_cats[a].pelt.inventory = []
 
             if self.clan_age == "new":
-                if game.choose_cats[a].status not in ['newborn', 'kitten']:
-                    unique_backstories = ["clan_founder4", "clan_founder13", "clan_founder14", "clan_founder15"]
-                    unique = choice(unique_backstories)
-                    backstories = [story for story in backstories if story not in unique_backstories or story == unique]
+                if game.choose_cats[a].status.rank not in ['newborn', 'kitten']:
                     game.choose_cats[a].backstory = choice(backstories)
                 else:
                     game.choose_cats[a].backstory = 'clanborn'
             else:
-                if random.randint(1,5) == 1 and game.choose_cats[a].status not in ['newborn', 'kitten']:
+                if random.randint(1,5) == 1 and game.choose_cats[a].status.rank not in ['newborn', 'kitten']:
                     game.choose_cats[a].backstory = choice(backstories)
                 else:
                     game.choose_cats[a].backstory = 'clanborn'

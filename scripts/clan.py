@@ -352,7 +352,11 @@ class Clan:
             the_cat = Cat.all_cats.get(cat_id)
             the_cat.init_all_relationships()
             if self.clan_age == "new" and the_cat not in (self.instructor, self.demon):
-                the_cat.backstory = "clan_founder"
+                if the_cat.backstory == "clanborn" and the_cat.status.rank not in (
+                    CatRank.KITTEN,
+                    CatRank.NEWBORN,
+                ):
+                    the_cat.backstory = "clan_founder"
             if the_cat.status.rank == CatRank.APPRENTICE:
                 the_cat.rank_change(CatRank.APPRENTICE)
             the_cat.get_new_thought()
