@@ -1164,6 +1164,27 @@ class EventsScreen(Screens):
         elif game.clan.your_cat.moons == 1:
             self.clan_info["age"].set_text(f'Your age: {game.clan.your_cat.moons} moon')
 
+        category_map = {
+            "all events": self.all_events,
+            "ceremonies": self.ceremony_events,
+            "births & deaths": self.birth_death_events,
+            "relationships": self.relation_events,
+            "health": self.health_events,
+            "other clans": self.other_clans_events,
+            "miscellaneous": self.misc_events,
+        }
+        if self.current_display in category_map:
+            self.display_events = category_map[self.current_display]
+        if self.current_display == "relationships":
+            if self.faith_toggle is True:
+                self.display_events = [
+                    x for x in game.cur_events_list if "faith" in x.types
+                ]
+            else:
+                self.display_events = [
+                    x for x in game.cur_events_list if "interaction" in x.types
+                ]
+
         # SET UP PAGES
         if not is_page_update:
             self.current_page_amount = (
@@ -1215,19 +1236,6 @@ class EventsScreen(Screens):
         
         if not self.display_events:
             return
-
-        # LIFEGEN: this updates events for filters + faith toggle
-        if self.current_display == "all events":
-            self.display_events = self.all_events
-        if self.current_display == "relationships":
-            if self.faith_toggle is True:
-                self.display_events = [
-                    x for x in game.cur_events_list if "faith" in x.types
-                ]
-            else:
-                self.display_events = [
-                    x for x in game.cur_events_list if "interaction" in x.types
-                ]
 
         # and faith toggle button
         if self.faith_toggle is True:
