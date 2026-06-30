@@ -4271,7 +4271,7 @@ def exile_or_forgive(cat):
         fate = int(constants.CONFIG["lifegen"]["shunned_cat"]["exile_chance"][cat.age.replace(' ', '_')])
 
     if not int(random.random() * fate):
-        cat.status.exile_from_group(cat.status.group_ID)
+        cat.status.exile_from_group()
         text = event_text_adjust(
             Cat,
             text=(

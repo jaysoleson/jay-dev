@@ -3230,6 +3230,7 @@ class ProfileScreen(Screens):
                     CatRank.DEPUTY,
                     CatRank.WARRIOR,
                     CatRank.MEDIATOR,
+                    CatRank.MEDICINE_CAT,
                     CatRank.QUEEN
                 ) and self.the_cat.status.alive_in_player_clan
             ):

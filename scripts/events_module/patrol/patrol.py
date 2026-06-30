@@ -593,9 +593,9 @@ class Patrol:
                     possible_patrols.extend(self.generate_patrol_events(self.MEDIATORAPP_LIFEGEN))
                 elif status == CatRank.QUEENS_APPRENTICE:
                     possible_patrols.extend(self.generate_patrol_events(self.QUEENAPP_LIFEGEN))
-                elif status == CatRank.QUEENS_APPRENTICE:
+                elif status == CatRank.QUEEN:
                     possible_patrols.extend(self.generate_patrol_events(self.QUEEN_LIFEGEN))
-                elif status == CatRank.MEDICINE_APPRENTICE:
+                elif status == CatRank.MEDICINE_CAT:
                     possible_patrols.extend(self.generate_patrol_events(self.MED_LIFEGEN))
                 elif status == CatRank.MEDIATOR:
                     possible_patrols.extend(self.generate_patrol_events(self.MEDIATOR_LIFEGEN))
@@ -741,6 +741,9 @@ class Patrol:
         else:
             love1 = patrol_leader
             love2 = random_cat
+
+        love1.inheritance = None
+        love2.inheritance = None
 
         if (
             not love1.is_potential_mate(love2, for_love_interest=True)
