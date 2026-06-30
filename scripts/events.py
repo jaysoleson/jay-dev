@@ -2334,6 +2334,9 @@ def one_moon_outside_cat(cat, other_clan_cats: list = None):
             if cat.status.rank not in (CatRank.LEADER, CatRank.MEDICINE_CAT):
                 cat.status._change_rank(CatRank.ELDER)
 
+        if cat.mentor and not cat.status.rank.is_any_apprentice_rank():
+            cat.update_mentor()
+
     # skill progression needs to be after rank progression
     cat.skills.progress_skill(cat)
     Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
