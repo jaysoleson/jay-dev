@@ -39753,7 +39753,7 @@
             }
         ],
         "intro": [
-            "[t_c's eyes widen when {PRONOUN/t_c/subject} {VERB/t_c/spot/spots} you, and {PRONOUN/t_c/subject} cover something with {PRONOUN/t_c/poss} body.]",
+            "[t_c's eyes widen when {PRONOUN/t_c/subject} {VERB/t_c/spot/spots} you, and {PRONOUN/t_c/subject} {VERB/t_c/cover/covers} something with {PRONOUN/t_c/poss} body.]",
             "Oh y_c don't look! I know you're a terrible liar and I really don't want you to get in trouble for this one!"
         ]
     },
