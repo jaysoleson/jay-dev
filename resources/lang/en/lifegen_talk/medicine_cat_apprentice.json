@@ -5765,5 +5765,24 @@
                 }
             ]
         }
+    },
+    "medapp_deaf_1_c": {
+        "frequency": 2,
+        "cats": {
+            "y_c": {
+                "condition": [
+                    "blind:any:false",
+                    "deaf:any:false"
+                ]
+            },
+            "t_c": {
+                "condition": [
+                    "deaf:any:true"
+                ]
+            }
+        },
+        "intro": [
+            "[t_c notices you approach and turns to face you fully, head tilted in question.]"
+        ]
     }
 }

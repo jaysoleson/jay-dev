@@ -207,6 +207,17 @@ class ProfileScreen(Screens):
                 game.clan.your_cat.relationships[self.the_cat.ID].like -= randint(1,5)
                 game.clan.your_cat.relationships[self.the_cat.ID].comfort -= randint(1,5)
                 game.clan.your_cat.relationships[self.the_cat.ID].trust -= randint(1,5)
+        if talk_type == "flirt":
+            if (
+                not self.the_cat.dead and
+                not game.clan.your_cat.dead and
+                not game.clan.your_cat.status.is_shunned() and
+                game.clan.your_cat.is_potential_mate(self.the_cat, for_love_interest=True)
+            ):
+                self.the_cat.relationships[game.clan.your_cat.ID].romance += randint(1, 5)
+                self.the_cat.relationships[game.clan.your_cat.ID].like += randint(0, 3)
+                game.clan.your_cat.relationships[self.the_cat.ID].romance += randint(1, 5)
+                game.clan.your_cat.relationships[self.the_cat.ID].like += randint(0, 3)
             
 
     def handle_event(self, event):
@@ -381,6 +392,7 @@ class ProfileScreen(Screens):
                 event.ui_element == self.profile_elements["flirt"]
                 ):
                 self.the_cat.flirted = True
+                self.affect_relationship("flirt")
                 switch_set_value(Switch.talk_category, 'flirt')
                 self.change_screen(GameScreen.TALK)
             elif (
@@ -1945,7 +1957,7 @@ class ProfileScreen(Screens):
         Returns adjusted afterlife acceptance blurb.
         """
         cat_dict = {"m_c": (str(self.the_cat.name), choice(self.the_cat.pronouns))}
-        if self.the_cat.history.afterlife_acceptance:
+        if self.the_cat.dead and self.the_cat.history.afterlife_acceptance:
             text = i18n.t(f"cat.afterlife.{self.the_cat.history.afterlife_acceptance}")
             adjusted_text = process_text(text, cat_dict=cat_dict)
             return adjusted_text
@@ -2284,6 +2296,13 @@ class ProfileScreen(Screens):
         death_history = self.the_cat.history.get_death_or_scars(death=True)
         murder_history = self.the_cat.history.murder
         moons = switch_get_value(Switch.show_history_moons)
+
+        if (
+            death_history
+            and not self.the_cat.dead
+            and CatRank.LEADER not in self.the_cat.status.all_ranks.keys()
+        ):
+            return ""
 
         if death_history:
             all_deaths = []
@@ -3832,6 +3851,8 @@ class ProfileScreen(Screens):
         
         # Preparing buttons
         n = value
+        if n >= len(self.accessories_list):
+            return
         if self.accessories_list[n] in self.the_cat.pelt.accessory:
             self.the_cat.pelt.accessory = tuple(
                 accessory for accessory in self.the_cat.pelt.accessory if
@@ -3844,6 +3865,9 @@ class ProfileScreen(Screens):
             self.accessory_buttons[acc].kill()
         for acc in self.cat_list_buttons:
             self.cat_list_buttons[acc].kill()
+        self.accessory_buttons = {}
+        self.cat_list_buttons = {}
+        self.accessories_list = []
         start_index = self.page * 18
         end_index = start_index + 18
         inventory_len = 0
@@ -3867,11 +3891,12 @@ class ProfileScreen(Screens):
             for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len + start_index)], start = start_index):
                 if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
                     self.inventory_display(self.the_cat, accessory, pos_x, pos_y)
+                    self.accessories_list.append(accessory)
                     pos_x += 68
                     if pos_x >= 550:
                         pos_x = 2
                         pos_y += 73
-    
+
     def validate_insult(self, cat_to, cat_from):
         if not self.validate_talk(cat_to, cat_from):
             return False

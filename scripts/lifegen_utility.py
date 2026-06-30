@@ -95,6 +95,9 @@ def check_achievements(Cat, eventspage=False):
     if len(you.former_apprentices) >= 5:
         achievements.add("9")
     
+    if not you.inheritance:
+        from scripts.cat_relations.inheritance import Inheritance
+        you.inheritance = Inheritance(you)
     if you.inheritance.get_children():
         achievements.add("10")
     for i in you.relationships.keys():

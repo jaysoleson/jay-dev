@@ -245,17 +245,27 @@ class PronounCreationWindow(GameWindow):
                 game.all_screens[GameScreen.CHANGE_GENDER].screen_switches()
                 [item.kill() for item in self.dropdowns.values()]
             elif event.ui_element in self.dropdowns["conju"].child_buttons:
-                self.pronoun_template["conju"] = int(
-                    event.ui_element.text.replace("windows.conju", "")
+                dropdown = self.dropdowns["conju"]
+                key = next(
+                    (k for k, btn in dropdown.child_button_dicts.items()
+                     if btn == event.ui_element),
+                    None,
                 )
-                self.dropdowns["conju"].parent_button.set_text(event.ui_element.text)
-                self.update_display()
+                if key is not None:
+                    self.pronoun_template["conju"] = int(key.replace("windows.conju", ""))
+                    dropdown.parent_button.set_text(event.ui_element.text)
+                    self.update_display()
             elif event.ui_element in self.dropdowns["gender"].child_buttons:
-                self.pronoun_template["gender"] = int(
-                    event.ui_element.text.replace("windows.gender", "")
+                dropdown = self.dropdowns["gender"]
+                key = next(
+                    (k for k, btn in dropdown.child_button_dicts.items()
+                     if btn == event.ui_element),
+                    None,
                 )
-                self.dropdowns["gender"].parent_button.set_text(event.ui_element.text)
-                self.update_display()
+                if key is not None:
+                    self.pronoun_template["gender"] = int(key.replace("windows.gender", ""))
+                    dropdown.parent_button.set_text(event.ui_element.text)
+                    self.update_display()
             elif event.ui_element == self.buttons["save_pronouns"]:
                 add_custom_pronouns(self.pronoun_template)
                 self.pronoun_added.show()

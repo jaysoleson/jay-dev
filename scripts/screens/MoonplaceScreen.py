@@ -25,7 +25,7 @@ from scripts.game_structure.screen_settings import MANAGER
 from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.generate_button import ButtonStyles, get_button_dict
 from scripts.events_module.text_adjust import (
-    pronoun_repl, event_text_adjust
+    pronoun_repl, event_text_adjust, process_text
 )
 
 
@@ -363,30 +363,24 @@ class MoonplaceScreen(Screens):
             ranks=[CatRank.MEDICINE_CAT],
             working=True,
         )
-        if "med_name" in text:
+        if any("med_name" in line for line in text):
             if not healthy_meds:
                 return ""
             process_text_dict["med_name"] = random.choice(healthy_meds)
 
-        if "mentor_name" in text:
+        if any("mentor_name" in line for line in text):
             if not you.mentor:
                 return ""
             process_text_dict["mentor_name"] = Cat.fetch_cat(you.mentor)
 
         for abbrev, abbrev_cat in process_text_dict.items():
-            process_text_dict[abbrev] = (abbrev_cat, choice(abbrev_cat.pronouns))
+            process_text_dict[abbrev] = (str(abbrev_cat.name), choice(abbrev_cat.pronouns))
 
         text = [t1.replace("c_n", game.clan.name + "Clan") for t1 in text]
 
         new_text_list = []
         for line in text:
-            line = line.replace("y_c", "m_c")
-            new_line = event_text_adjust(
-                    Cat,
-                    line,
-                    main_cat=you
-                )
-            # new_line = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), line)
+            new_line = process_text(line, process_text_dict)
             newer_line = self.replace_moonplace_name(new_line)
             if newer_line == "":
                 return ""

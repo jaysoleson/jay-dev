@@ -27,6 +27,9 @@ class OutsiderEvents:
             if cat.ID == info_dict["cat_ID"]:
                 return
 
+        if cat.status.alive_in_player_clan:
+            return
+
         deaths = load_lang_resource("events/death/outsider_deaths/outsider_deaths.json")
 
         # killing outside cats

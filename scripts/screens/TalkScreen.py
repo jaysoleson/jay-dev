@@ -215,29 +215,29 @@ class TalkScreen(Screens):
         return final_text
 
     def exit_screen(self):
-        self.dialogue_box.kill()
-        del self.dialogue_box
-        self.scroll_container.kill()
-        del self.scroll_container
-        self.back_button.kill()
-        del self.back_button
-        self.speaking_cat_elements["cat_image"].kill()
-        self.speaking_cat_elements["cat_name"].kill()
-        del self.speaking_cat_elements
-        self.clan_name_bg.kill()
-        del self.clan_name_bg
-        self.talk_box.kill()
-        del self.talk_box
-        self.textbox_graphic.kill()
-        del self.textbox_graphic
-        self.paw.kill()
-        del self.paw
-        for button in self.choice_buttons:
-            self.choice_buttons[button].kill()
+        for button in self.choice_buttons.values():
+            button.kill()
         self.choice_buttons = {}
-        for option in self.choice_display:
-            self.choice_display[option].kill()
+        for option in self.choice_display.values():
+            option.kill()
         self.choice_display = {}
+
+        for element in (
+            getattr(self, "dialogue_box", None),
+            getattr(self, "scroll_container", None),
+            getattr(self, "back_button", None),
+            getattr(self, "clan_name_bg", None),
+            getattr(self, "talk_box", None),
+            getattr(self, "textbox_graphic", None),
+            getattr(self, "paw", None),
+        ):
+            if element is not None:
+                element.kill()
+
+        for element in getattr(self, "speaking_cat_elements", {}).values():
+            if element is not None:
+                element.kill()
+        self.speaking_cat_elements = {}
 
     def update_camp_bg(self):
         light_dark = "dark" if game_setting_get("dark mode") else "light"

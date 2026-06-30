@@ -1445,12 +1445,9 @@ class Cat:
         for rel in relationships:
             kitty = self.fetch_cat(rel.cat_to)
             if kitty and kitty.dead and kitty.status.rank != CatRank.NEWBORN:
-                # check where they reside
                 # guides aren't allowed here
                 if kitty == game.clan.instructor or kitty == game.clan.demon:
                     continue
-                else:
-                    dead_relations.append(rel)
 
                 if starclan:
                     if kitty.status.group != CatGroup.STARCLAN:
@@ -1458,7 +1455,9 @@ class Cat:
                 else:
                     if kitty.status.group != CatGroup.DARK_FOREST:
                         continue
-                
+
+                dead_relations.append(rel)
+
 
         # sort relations by the strength of their relationship
         dead_relations.sort(
@@ -1734,7 +1733,7 @@ class Cat:
         """Handles a moon skip for an alive cat."""
         old_age = self.age
         self.moons += 1
-        if self.moons == 1 and self.status.rank == CatRank.NEWBORN:
+        if self.moons >= 1 and self.status.rank == CatRank.NEWBORN:
             self.status._change_rank(CatRank.KITTEN)
         self.in_camp = 1
 
@@ -2011,6 +2010,8 @@ class Cat:
 
     def is_littermate(self, other_cat: Cat):
         """Check if the cats are littermates."""
+        if not self.inheritance:
+            self.inheritance = Inheritance(self)
         if other_cat.ID not in self.inheritance.siblings.keys():
             return False
         litter_mates = [
@@ -2732,6 +2733,9 @@ class Cat:
 
         # No Mates Check
         if not ignore_no_mates and (self.no_mates or other_cat.no_mates):
+            return False
+
+        if self.age.is_baby() or other_cat.age.is_baby():
             return False
 
         # Inheritance check

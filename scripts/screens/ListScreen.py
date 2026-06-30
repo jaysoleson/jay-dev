@@ -846,7 +846,7 @@ class ListScreen(Screens):
         self.full_cat_list = []
         for the_cat in Cat.all_cats_list:
             if (
-                the_cat.ID != game.clan.instructor.ID
+                the_cat.ID not in (game.clan.instructor.ID, game.clan.demon.ID)
                 and the_cat.status.group == CatGroup.STARCLAN
                 and not the_cat.faded
                 and the_cat.moons >= 0
@@ -863,7 +863,7 @@ class ListScreen(Screens):
 
         for the_cat in Cat.all_cats_list:
             if (
-                the_cat.ID != game.clan.instructor.ID
+                the_cat.ID not in (game.clan.instructor.ID, game.clan.demon.ID)
                 and the_cat.status.group == CatGroup.DARK_FOREST
                 and not the_cat.faded
                 and the_cat.moons >= 0
@@ -879,7 +879,7 @@ class ListScreen(Screens):
         self.full_cat_list = []
         for the_cat in Cat.all_cats_list:
             if (
-                the_cat.ID != game.clan.instructor.ID
+                the_cat.ID not in (game.clan.instructor.ID, game.clan.demon.ID)
                 and the_cat.status.group == CatGroup.UNKNOWN_RESIDENCE
                 and not the_cat.faded
                 and the_cat.status.is_near(CatGroup.PLAYER_CLAN_ID)

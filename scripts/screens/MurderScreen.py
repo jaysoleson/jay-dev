@@ -1547,7 +1547,7 @@ class MurderScreen(Screens):
             if "biome" in murder_dict and murder_dict["biome"]:
                 if biome and biome not in murder_dict["biome"]:
                     continue
-                if any(i in tags for i in camps) and camp not in murder_dict["biome"]:
+                if any(i in murder_dict["biome"] for i in camps) and camp not in murder_dict["biome"]:
                     continue
 
             if "strategy" in murder_dict and murder_dict["strategy"]:
