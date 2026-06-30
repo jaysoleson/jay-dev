@@ -7,6 +7,7 @@ TODO: Docs
 """
 import logging
 import random
+from copy import deepcopy
 
 # pylint: enable=line-too-long
 import traceback
@@ -1025,8 +1026,10 @@ def generate_birth_event():
         num_siblings = random.randint(1,4)
         kits = Pregnancy_Events.get_kits(kits_amount=num_siblings, cat=parent1, other_cat=parent2, adoptive_parents=adoptive_parents, clan=game.clan)
         for kit in kits:
-            kit.status.add_to_group(game.clan.your_cat.status.group_ID)
-            kit.status = game.clan.your_cat.status
+            kit.status = deepcopy(game.clan.your_cat.status)
+            if kit.status.is_clancat and kit.status.rank != CatRank.NEWBORN:
+                kit.status._change_rank(CatRank.NEWBORN)
+            kit.age = CatAge.NEWBORN
             kit.backstory = game.clan.your_cat.backstory
             if not game.clan.your_cat.status.group.is_any_clan_group():
                 kit.specsuffix_hidden = True
