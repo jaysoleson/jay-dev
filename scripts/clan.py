@@ -1174,7 +1174,11 @@ class Clan:
                 game.clan.add_cat(game.clan.demon)
         else:
             game.clan.demon = Cat(
-                status=choice(["warrior", "warrior", "elder"]))
+                status_dict={
+                    "rank": choice((CatRank.WARRIOR, CatRank.WARRIOR, CatRank.ELDER)),
+                    "group_ID": CatGroup.DARK_FOREST_ID,
+                }
+            )
             # update_sprite(game.clan.demon)
             game.clan.demon.dead = True
             game.clan.add_cat(game.clan.demon)
@@ -1333,7 +1337,11 @@ class Clan:
             game.clan.demon.df = True
         else:
             game.clan.demon = Cat(
-                status=choice(["warrior", "warrior", "elder"]))
+                status_dict={
+                    "rank": choice((CatRank.WARRIOR, CatRank.WARRIOR, CatRank.ELDER)),
+                    "group_ID": CatGroup.DARK_FOREST_ID,
+                }
+            )
             game.clan.demon.dead = True
             game.clan.add_cat(game.clan.demon)
             game.clan.demon.df = True

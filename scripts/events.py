@@ -3742,11 +3742,11 @@ def handle_injuries_or_general_death(cat):
             return True
     chance_death = game.get_config_value("death_related", f"{game.clan.game_mode}_death_chance")
     try:
-        if cat.status == "kitten" or cat.status == "newborn":
+        if cat.status.rank.is_baby():
             num_queens = 0
             for c in game.clan.clan_cats:
                 if not Cat.all_cats.get(c).outside and not Cat.all_cats.get(c).dead:
-                    if Cat.all_cats.get(c).status == "queen" or Cat.all_cats.get(c).status == "queen's apprentice":
+                    if Cat.all_cats.get(c).status.rank.is_any_queen_rank():
                         num_queens+=1
             chance_death+=(num_queens*5)
     except:
@@ -4058,7 +4058,7 @@ def handle_disaster_impacts(current_disaster):
                     cat.get_injured(random.choice(current_disaster["collateral_damage"]["injuries"]))
             else:
                 if "deaths" in current_disaster["collateral_damage"]:
-                    if cat.status == "leader":
+                    if cat.status.rank == CatRank.LEADER:
                         cat.history.add_death(death_text=current_disaster["collateral_damage"]["deaths"]["history_text"]["lead_death"])
                     else:
                         cat.history.add_death(death_text=current_disaster["collateral_damage"]["deaths"]["history_text"]["reg_death"])

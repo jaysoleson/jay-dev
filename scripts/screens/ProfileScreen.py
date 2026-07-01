@@ -199,7 +199,7 @@ class ProfileScreen(Screens):
             if (
                 not self.the_cat.dead and
                 not game.clan.your_cat.dead and
-                game.clan.your_cat.status != "kitten"
+                game.clan.your_cat.status.rank != CatRank.KITTEN
             ):
                 self.the_cat.relationships[game.clan.your_cat.ID].like -= randint(1,5)
                 self.the_cat.relationships[game.clan.your_cat.ID].comfort -= randint(1,5)
@@ -2150,9 +2150,9 @@ class ProfileScreen(Screens):
         influence_history = ""
 
         #First, just list the mentors:
-        if self.the_cat.status in ['kitten', 'newborn']:
+        if self.the_cat.status.rank.is_baby():
                 influence_history = 'This cat has not begun training.'
-        elif self.the_cat.status in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', "queen's apprentice"]:
+        elif self.the_cat.status.rank.is_any_apprentice_rank():
             influence_history = 'This cat has not finished training.'
         else:
             valid_former_mentors = [

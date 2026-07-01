@@ -1352,36 +1352,36 @@ class Cat:
         """ lifegen function for shunned cats being demoted"""
 
         text = ""
-        if self.status == "leader":
+        if self.status.rank == CatRank.LEADER:
             self.rank_change(CatRank.WARRIOR)
             text = f"{self.name} can no longer be trusted to lead the Clan and has forfeit the role of leader."
 
-        elif self.status == "deputy":
+        elif self.status.rank == CatRank.DEPUTY:
             self.rank_change(CatRank.WARRIOR)
             text = f"{self.name} can no longer be trusted and has forfeit the role of deputy."
 
-        elif self.status == "queen's apprentice":
+        elif self.status.rank == CatRank.QUEENS_APPRENTICE:
             self.rank_change(CatRank.APPRENTICE)
             text = f"{self.name} can no longer be trusted with the kits and has forfeit the role of a queen's apprentice."
 
-        elif self.status == "mediator apprentice":
+        elif self.status.rank == CatRank.MEDIATOR_APPRENTICE:
             self.rank_change(CatRank.APPRENTICE)
             text = f"{self.name} can no longer be trusted with cross-Clan relations and has forfeit the role of a mediator apprentice."
 
-        elif self.status == "medicine cat apprentice":
+        elif self.status.rank == CatRank.MEDICINE_APPRENTICE:
             self.rank_change(CatRank.MEDICINE_APPRENTICE)
             text = f"{self.name} can no longer be trusted around dangerous herbs and has forfeit the role of a medicine cat apprentice."
 
-        elif self.status == "queen":
+        elif self.status.rank == CatRank.QUEEN:
             self.rank_change(CatRank.WARRIOR)
             text = f"{self.name} can no longer be trusted with the kits and has forfeit the role of a queen."
 
-        
-        elif self.status == "mediator":
+
+        elif self.status.rank == CatRank.MEDIATOR:
             self.rank_change(CatRank.WARRIOR)
             text = f"{self.name} can no longer be trusted with cross-Clan relations and has forfeit the role of a mediator."
-        
-        elif self.status == "medicine cat":
+
+        elif self.status.rank == CatRank.MEDICINE_CAT:
             self.rank_change(CatRank.WARRIOR)
             text = f"{self.name} can no longer be trusted around dangerous herbs and has forfeit the role of a medicine cat."
         

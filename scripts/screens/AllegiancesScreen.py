@@ -155,7 +155,7 @@ class AllegiancesScreen(Screens):
                 living_warriors.append(cat)
             elif cat.status.rank == CatRank.MEDIATOR:
                 living_mediators.append(cat)
-            elif cat.status == 'queen':
+            elif cat.status.rank == CatRank.QUEEN:
                 living_queens.append(cat)
             elif cat.status.rank.is_any_apprentice_rank():
                 living_apprentices.append(cat)
