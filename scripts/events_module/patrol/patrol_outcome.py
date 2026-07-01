@@ -241,6 +241,7 @@ class PatrolOutcome:
                     # ---
                     can_have_stat=_d.get("can_have_stat"),
                     dead_cats=_d.get("dead_cats"),
+                    lost_cats=_d.get("lost_cats"),
                     injury=_d.get("injury"),
                     history_death=_d.get("history_text", {}).get("death"),
                     history_scar=_d.get("history_text", {}).get("scar"),
