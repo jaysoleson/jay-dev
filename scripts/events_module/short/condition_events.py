@@ -8,7 +8,6 @@ import logging
 
 from scripts.cat.cats import Cat
 from scripts.cat.enums import CatAge, CatRank
-from scripts.ui.windows.retire_prompt import RetireWindow
 
 from scripts.clan_package.settings import get_clan_setting
 from scripts.clan_resources.freshkill import (
@@ -1102,9 +1101,7 @@ class Condition_Events:
                         )
                     )
                     if cat.ID == game.clan.your_cat.ID:
-                        if not switch_get_value(Switch.window_open):
-                            RetireWindow('events screen')
-                        elif switch_get_value(Switch.window_open) and 'retire' not in switch_get_value(Switch.windows_dict):
+                        if 'retire' not in switch_get_value(Switch.windows_dict):
                             switch_append_list_value(Switch.windows_dict, 'retire')
 
                             

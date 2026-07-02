@@ -89,8 +89,6 @@ from scripts.clan_package.get_clan_cats import (
 
 from scripts.events_module.filter_random_cats import choose_random_cats
 
-from scripts.ui.windows.retire_prompt import RetireWindow
-from scripts.ui.windows.name_kits import NameKitsWindow
 from scripts.lifegen_utility import get_cluster, check_achievements, get_your_cat_group_count
 
 logger = logging.getLogger(__name__)
@@ -534,9 +532,7 @@ def one_moon():
             game.clan.your_cat.status.alive_in_player_clan and
             not game.clan.your_cat.status.is_shunned()
             ):
-            if not switch_get_value(Switch.window_open):
-                RetireWindow('events screen')
-            else:
+            if 'retire' not in switch_get_value(Switch.windows_dict):
                 switch_append_list_value(Switch.windows_dict, 'retire')
         elif (
             game.clan.your_cat.moons == 120 and
@@ -1863,10 +1859,9 @@ def check_gain_kits(checks):
     if not game.clan.your_cat.inheritance:
         from scripts.cat_relations.inheritance import Inheritance
         game.clan.your_cat.inheritance = Inheritance(game.clan.your_cat)
-    if len(game.clan.your_cat.inheritance.get_blood_kits()) > checks[2] and not switch_get_value(Switch.window_open):
-        NameKitsWindow('events screen')
-    elif len(game.clan.your_cat.inheritance.get_blood_kits()) > checks[2]:
-        switch_append_list_value(Switch.windows_dict, 'name kits')
+    if len(game.clan.your_cat.inheritance.get_blood_kits()) > checks[2]:
+        if 'name kits' not in switch_get_value(Switch.windows_dict):
+            switch_append_list_value(Switch.windows_dict, 'name kits')
             
 def check_retire():
     if switch_get_value(Switch.retire):
@@ -3596,6 +3591,9 @@ def invite_new_cats(cat):
     """
 
     global new_cat_invited
+
+    if game.clan is None:
+        return
 
     if constants.CONFIG["event_generation"]["debug_type_override"] == "new_cat":
         create_short_event(

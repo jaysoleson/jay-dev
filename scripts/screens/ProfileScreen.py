@@ -1484,6 +1484,7 @@ class ProfileScreen(Screens):
                 str(Cat.fetch_cat(i).name)
                 for i in the_cat.apprentice
                 if Cat.fetch_cat(i)
+                and Cat.fetch_cat(i).status.rank.is_any_apprentice_rank()
             ]
             if len(apps) > 0:
                 output += i18n.t(
