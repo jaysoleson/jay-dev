@@ -2774,8 +2774,12 @@ class Cat:
 
         # check for mentor
 
-        # Current mentor
-        if other_cat.ID in self.apprentice or self.ID in other_cat.apprentice:
+        if (
+            other_cat.ID in self.apprentice
+            or self.ID in other_cat.apprentice
+            or self.mentor == other_cat.ID
+            or other_cat.mentor == self.ID
+        ):
             return False
 
         # Former mentor
