@@ -3739,17 +3739,15 @@ def handle_injuries_or_general_death(cat):
             )
             return True
     chance_death = game.get_config_value("death_related", f"{game.clan.game_mode}_death_chance")
-    try:
-        if cat.status.rank.is_baby():
-            num_queens = 0
-            for c in game.clan.clan_cats:
-                if not Cat.all_cats.get(c).outside and not Cat.all_cats.get(c).dead:
-                    if Cat.all_cats.get(c).status.rank.is_any_queen_rank():
-                        num_queens+=1
-            chance_death+=(num_queens*5)
-    except:
-        print("couldn't handle queen mortality")
-        
+    if cat.status.rank.is_baby():
+        num_queens = 0
+        for c in game.clan.clan_cats:
+            c_ob = Cat.all_cats.get(c)
+            if c_ob and c_ob.status.alive_in_player_clan:
+                if c_ob.status.rank.is_any_queen_rank():
+                    num_queens += 1
+        chance_death += (num_queens * 5)
+
     # final death chance and then, if not triggered, head to injuries
     if (
         not int(
