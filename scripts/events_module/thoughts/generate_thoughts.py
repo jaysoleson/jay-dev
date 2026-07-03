@@ -205,6 +205,10 @@ def _load_exiled_and_former(main_cat: "Cat", path) -> list:
     Checks if cat needs exiled or former clancat thoughts and returns loaded resources
     """
     thoughts = []
+
+    if main_cat.age == CatAge.NEWBORN:
+        return thoughts
+
     # make sure exiled thoughts are included
     if main_cat.status.is_exiled(CatGroup.PLAYER_CLAN):
         thoughts.extend(load_lang_resource(f"{path}/exiled.json"))

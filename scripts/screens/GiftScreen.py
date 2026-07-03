@@ -575,22 +575,24 @@ class GiftScreen(Screens):
         pos = False
         neg = False
 
-        if game.clan.your_cat.ID not in self.selected_cat.relationships:
-            cat.ID.create_one_relationship(you.ID)
-            if reaction == "already_have":
-                cat.relationships(you.ID).like += randint(0,5)
-                neutral = True
-            elif reaction == "accept_like":
-                cat.relationships(you.ID).like += randint(3,10)
-                pos = True
-            elif reaction == "accept_dislike":
-                cat.relationships(you.ID).lik -= randint(3,8)
-                neg = True
-            elif reaction == "accept_neutral":
-                neutral = True
-            elif reaction == "accept_favourite":
-                pos = True
-                cat.relationships(you.ID).like += randint(10,30)
+        # make sure the relationship exists, then apply the reaction to it
+        if you.ID not in cat.relationships:
+            cat.create_one_relationship(you)
+
+        if reaction == "already_have":
+            cat.relationships[you.ID].like += randint(0,5)
+            neutral = True
+        elif reaction == "accept_like":
+            cat.relationships[you.ID].like += randint(3,10)
+            pos = True
+        elif reaction == "accept_dislike":
+            cat.relationships[you.ID].like -= randint(3,8)
+            neg = True
+        elif reaction == "accept_neutral":
+            neutral = True
+        elif reaction == "accept_favourite":
+            pos = True
+            cat.relationships[you.ID].like += randint(10,30)
 
     def get_reaction_display(self, pos, neutral, neg):
         """ Display text for relationship changes """
