@@ -179,14 +179,6 @@ def one_moon():
     game.just_died.clear()
     game.dated_cats.clear()
 
-    if any(
-        cat.status.rank.is_active_clan_rank() and cat.status.alive_in_player_clan
-        for cat in Cat.all_cats.values()
-    ):
-        # todo: this links nowhere, can it be removed?
-        switch_set_value(Switch.no_able_left, False)
-
-
     # age up the clan, set current season
     game.clan.age += 1
 
@@ -214,18 +206,16 @@ def one_moon():
 
         switch_set_value(Switch.change_group, None)
 
-    if checks == [-1,-1,-1] and game.clan.your_cat and game.clan.your_cat.inheritance:
-        checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
-        if game.clan.leader:
-            checks[3] = game.clan.leader.ID
-    elif game.clan.your_cat.inheritance:
-        checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
-        if game.clan.leader:
-            checks[3] = game.clan.leader.ID
-    else:
-        checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), 0, None]
-        if game.clan.leader:
-            checks[3] = game.clan.leader.ID
+    your_cat = game.clan.your_cat
+    blood_kits = (
+        len(your_cat.inheritance.get_blood_kits()) if your_cat.inheritance else 0
+    )
+    checks = [
+        len(your_cat.apprentice),
+        len(your_cat.mate),
+        blood_kits,
+        game.clan.leader.ID if game.clan.leader else None,
+    ]
 
     # 1 = reg patrol 2 = lifegen patrol 3 = df patrol 4 = date
     switch_set_value(Switch.patrolled, [])

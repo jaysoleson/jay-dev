@@ -5819,7 +5819,9 @@
                     "newborn"
                 ],
                 "rank": [
-                    "newborn",
+                    "newborn"
+                ],
+                "condition": [
                     "blind:any:false",
                     "deaf:any:false"
                 ]

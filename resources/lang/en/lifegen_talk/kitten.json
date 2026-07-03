@@ -18155,7 +18155,7 @@
                 "condition": [
                     "blind:any:false"
                 ],
-                "age": [
+                "rank": [
                     "kitten",
                     "queen",
                     "queen's apprentice"
@@ -22183,7 +22183,7 @@
             },
             "t_c": {
                 "cluster": [
-                    "sweet_trait"
+                    "sweet"
                 ],
                 "age": [
                     "kitten"
@@ -22231,7 +22231,7 @@
             },
             "t_c": {
                 "cluster": [
-                    "sweet_trait"
+                    "sweet"
                 ],
                 "age": [
                     "kitten"
@@ -22970,7 +22970,7 @@
             },
             "t_c": {
                 "cluster": [
-                    "sweet_trait"
+                    "sweet"
                 ],
                 "age": [
                     "kitten"
@@ -23003,7 +23003,7 @@
             },
             "t_c": {
                 "cluster": [
-                    "sweet_trait"
+                    "sweet"
                 ],
                 "condition": [
                     "blind:any:false"
@@ -23054,7 +23054,7 @@
             },
             "t_c": {
                 "cluster": [
-                    "sweet_trait"
+                    "sweet"
                 ],
                 "age": [
                     "kitten"
@@ -23104,7 +23104,7 @@
             },
             "t_c": {
                 "cluster": [
-                    "sweet_trait"
+                    "sweet"
                 ],
                 "age": [
                     "kitten"
@@ -25287,8 +25287,8 @@
                     "unlawful"
                 ],
                 "skill": [
-                    "FIGHTER",
-                    "DARK"
+                    "FIGHTER,1",
+                    "DARK,1"
                 ],
                 "rank": [
                     "warrior",
@@ -25568,7 +25568,7 @@
                 ]
             },
             "t_c": {
-                "rank": [
+                "condition": [
                     "blind:any:false"
                 ],
                 "residence": [
@@ -25595,7 +25595,7 @@
                 ]
             },
             "t_c": {
-                "rank": [
+                "condition": [
                     "blind:any:false"
                 ],
                 "residence": [
@@ -25622,7 +25622,7 @@
                 ]
             },
             "t_c": {
-                "rank": [
+                "condition": [
                     "blind:any:false"
                 ],
                 "residence": [

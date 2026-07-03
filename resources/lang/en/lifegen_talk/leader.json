@@ -4316,7 +4316,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],

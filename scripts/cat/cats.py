@@ -785,10 +785,12 @@ class Cat:
                 game.clan.leader_lives = 1
 
         return_to = self.status.get_last_living_group()
-        
+        if return_to is None:
+            return_to = CatGroup.PLAYER_CLAN_ID
+
         if self.ID in game.dead_cats_to_grieve:
             game.dead_cats_to_grieve.remove(self.ID)
-        
+
         self.thought = "Is surprised to be back home"
 
         self.status.add_to_group(return_to)
@@ -2026,13 +2028,12 @@ class Cat:
         """ Checks if the cats are half-siblings. These cats share one birth parent, but not two."""
         if not self.inheritance:
             self.inheritance = Inheritance(self)
-        all_parents = []
-        all_parents.append(self.parent1)
-        all_parents.append(self.parent2)
+        all_parents = [p for p in (self.parent1, self.parent2) if p is not None]
+        other_parents = [other_cat.parent1, other_cat.parent2]
 
         parents_found = 0
         for parent in all_parents:
-            if parent in [other_cat.parent1, other_cat.parent2]:
+            if parent in other_parents:
                 parents_found += 1
 
         if parents_found == 1:

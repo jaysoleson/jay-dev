@@ -85,7 +85,7 @@ def _validate_cat(abbrev, cat_block, possible_cats, your_cat, the_cat):
     for cat in possible_cats:
         if not __filter_dead(cat_block[abbrev], cat):
             continue
-        if not __filter_age(cat_block[abbrev], cat):
+        if not __filter_age(cat_block[abbrev], cat, the_cat if abbrev == "y_c" else your_cat):
             continue
         if not __filter_rank(cat_block[abbrev], cat):
             continue
@@ -202,6 +202,7 @@ def __filter_standing(abbrev_block, cat, your_cat):
 
     standing_found = False
     standing_dict = {
+        "member": cat.status.is_member(your_cat.status.group_ID),
         "lost": cat.status.is_lost(your_cat.status.group_ID),
         "exiled": cat.status.is_exiled(your_cat.status.group_ID),
         "shunned": cat.status.is_shunned(your_cat.status.group_ID),
@@ -219,20 +220,43 @@ def __filter_standing(abbrev_block, cat, your_cat):
 
     return True
 
-def __filter_age(abbrev_block, cat):
+def __filter_age(abbrev_block, cat, anchor=None):
     if "age" not in abbrev_block:
         return True
 
-    if f"not_{cat.age}" in abbrev_block["age"]:
+    age_block = abbrev_block["age"]
+
+    if f"not_{cat.age}" in age_block:
         return False
-    if "not_kitten" in abbrev_block["age"] and cat.age == CatAge.NEWBORN:
+    if "not_kitten" in age_block and cat.age == CatAge.NEWBORN:
         return False
-    if f"-{cat.age}" in abbrev_block["age"]:
-        return False
-    if cat.age not in abbrev_block["age"]:
+    if f"-{cat.age}" in age_block:
         return False
 
-    return True
+    # exact age-stage match
+    if cat.age in age_block:
+        return True
+
+    # relative-age keywords, compared by life stage against the other cat in the
+    # dialogue (the "anchor"): in a t_c/r_c block the anchor is y_c, in a y_c block
+    # it's t_c. Requires an anchor, so these only work in dialogue.
+    if anchor is not None and (
+        "older" in age_block or "younger" in age_block or "sameage" in age_block
+    ):
+        age_order = list(CatAge)
+        try:
+            cat_idx = age_order.index(cat.age)
+            anchor_idx = age_order.index(anchor.age)
+        except ValueError:
+            return False
+        if "older" in age_block and cat_idx > anchor_idx:
+            return True
+        if "younger" in age_block and cat_idx < anchor_idx:
+            return True
+        if "sameage" in age_block and cat_idx == anchor_idx:
+            return True
+
+    return False
 
 def __filter_rank(abbrev_block, cat):
     if "rank" not in abbrev_block:
@@ -240,7 +264,8 @@ def __filter_rank(abbrev_block, cat):
     if (
         f"not_{cat.status.rank}" in abbrev_block["rank"] or
         f"not_{cat.status.rank.replace(' ', '_')}" in abbrev_block["rank"] or
-        f"-{cat.status.rank.replace}" in abbrev_block["rank"]
+        f"-{cat.status.rank}" in abbrev_block["rank"] or
+        f"-{cat.status.rank.replace(' ', '_')}" in abbrev_block["rank"]
         ):
         return False
     elif (
@@ -258,7 +283,8 @@ def __filter_rank(abbrev_block, cat):
         ):
         if cat not in (game.clan.instructor, game.clan.demon):
             return False
-    elif abbrev_block['rank']:
+    elif abbrev_block['rank'] and "any" not in abbrev_block["rank"]:
+        # "any" means no rank restriction (still subject to the not_/- exclusions above)
         if (
             cat.status.rank not in abbrev_block["rank"] and
             cat.status.rank.replace(' ', '_') not in abbrev_block["rank"]
@@ -270,26 +296,49 @@ def __filter_skill(abbrev_block, cat):
     if "skill" not in abbrev_block:
         return True
     skill_met = False
-    # if the skill tag is negative (tier is -1), the cat cant have Any of the negative skills.
-    # they'll only need one of the positive skills to get the dialogue
-    # negative and positive skill tags can be combined!
-    # so like ["LORE,1", "OMEN,-1"] is possible, for example.
-    neg_skills_met = 0
+    # A skill requirement is NEGATIVE (the cat must NOT have the skill) if it uses
+    # tier -1 (e.g. "OMEN,-1") or a leading "-" on the path (e.g. "-OMEN,0").
+    # Positive requirements need one match; every negative requirement must be met.
+    # Negative and positive tags can be combined, e.g. ["LORE,1", "OMEN,-1"].
+    pos_skills = 0
     neg_skills = 0
+    neg_skills_met = 0
     for tag in abbrev_block["skill"]:
-        tier = int(tag.split(",")[1])
+        parts = tag.split(",")
+        path = parts[0]
+        negative = False
+        if path.startswith("-"):
+            path = path[1:]
+            negative = True
+        try:
+            tier = int(parts[1]) if len(parts) > 1 else 0
+        except ValueError:
+            print(f"WARNING: Invalid skill tag ({tag})")
+            continue
         if tier == -1:
+            negative = True
+
+        # negatives are checked against meets_skill_requirement(path, -1),
+        # which returns True when the cat lacks the skill
+        try:
+            meets = cat.skills.meets_skill_requirement(path, -1 if negative else tier)
+        except KeyError:
+            print(f"WARNING: Invalid skill path in tag ({tag})")
+            continue
+
+        if negative:
             neg_skills += 1
-        if cat.skills.meets_skill_requirement(tag.split(",")[0], tier):
-            if tier == -1:
+            if meets:
                 neg_skills_met += 1
-            else:
+        else:
+            pos_skills += 1
+            if meets:
                 skill_met = True
 
-    if (
-        not skill_met or
-        (neg_skills > 0 and neg_skills != neg_skills_met)
-        ):
+    # only require a positive match if positive skills were actually requested
+    if pos_skills > 0 and not skill_met:
+        return False
+    if neg_skills > 0 and neg_skills != neg_skills_met:
         return False
     return True
 
@@ -320,13 +369,15 @@ def __filter_backstory(abbrev_block, cat):
         "clanfounder": "clan_founder_backstories",
         "guide": "clan_guide_backstories",
         "formerlyanoutsider": "outsider_backstories",
+        "outsiderroots": "outsider_roots_backstories",
         "fromanotherclan": "former_clancat_backstories",
         "orphaned": "orphaned_backstories",
         "abandoned": "abandoned_backstories",
         "dead": "dead_cat_backstories",
         "starclan": "starclan_backstories",
         "df": "df_backstories",
-        "fromstarclan": "oldstarclan_backstories"
+        "fromstarclan": "oldstarclan_backstories",
+        "ancientspirit": "oldstarclan_backstories"
     }
 
     backstory_found = False
@@ -576,7 +627,7 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                                     rel_valid = from_cat.ID in to_cat.inheritance.get_siblings_mates()
                                 elif rel_tag == "cousins":
                                     rel_valid = from_cat.is_cousin(to_cat)
-                                elif rel_tag == "adopted siblings":
+                                elif rel_tag == "adoptive siblings":
                                     rel_valid = from_cat.ID in to_cat.inheritance.get_no_blood_siblings()
                                 elif rel_tag == "parent's sibling/sibling's kit":
                                     rel_valid = from_cat.is_uncle_aunt(to_cat)
@@ -651,16 +702,17 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                                 elif rel_tag == "df mentor/df app":
                                     rel_valid = to_cat.ID in from_cat.df_apprentices
                                 else:
-                                    # now check rel value tags
-                                    rel_valid = True
-                                    try:
-                                        attributes = rel_tag.split("_")
-                                    except:
+                                    # now check rel value tags, e.g. "min_like_20" / "max_romance_10"
+                                    attributes = rel_tag.split("_")
+                                    if "min" not in rel_tag and "max" not in rel_tag:
+                                        # not a recognised relationship or rel-value tag:
+                                        # warn instead of silently passing
                                         print(f"WARNING: Invalid relationship tag ({rel_tag})")
                                         rel_valid = False
-                                    if to_cat.ID not in from_cat.relationships:
+                                    elif to_cat.ID not in from_cat.relationships:
                                         rel_valid = False
                                     else:
+                                        rel_valid = True
                                         if "min" in rel_tag:
                                             if attributes[1] == "like":
                                                 if (

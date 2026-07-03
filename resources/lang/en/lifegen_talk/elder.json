@@ -1482,7 +1482,7 @@
         "frequency": 2,
         "cats": {
             "y_c": {
-                "age": [
+                "rank": [
                     "kitten",
                     "apprentice"
                 ],
@@ -3614,7 +3614,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -3664,7 +3664,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -3714,7 +3714,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
