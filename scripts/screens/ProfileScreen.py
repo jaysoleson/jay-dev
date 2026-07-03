@@ -566,27 +566,27 @@ class ProfileScreen(Screens):
                     self.update_disabled_buttons_and_text()
                 # if the cat is dead, moves them to the opposite afterlife
                 if self.the_cat.dead:
-                    game.updated_afterlife_cats.add(self.the_cat)
-
                     if self.the_cat in (game.clan.instructor, game.clan.demon):
-                        # DF -> SC
-                        if self.the_cat.status.group == CatGroup.DARK_FOREST:
-                            self.the_cat.status.add_to_group(
-                                new_group_ID=CatGroup.STARCLAN_ID
-                            )
+                        if self.the_cat.ID == game.clan.demon.ID and game.clan.followingsc:
+                            game.clan.followingsc = False
+                            for i in game.clan.clan_cats:
+                                clan_cat = Cat.fetch_cat(i)
+                                if clan_cat:
+                                    clan_cat.faith -= 1
+                        elif self.the_cat.ID == game.clan.instructor.ID and not game.clan.followingsc:
+                            game.clan.followingsc = True
+                            for i in game.clan.clan_cats:
+                                clan_cat = Cat.fetch_cat(i)
+                                if clan_cat:
+                                    clan_cat.faith += 1
 
-                        # SC -> DF
-                        else:
-                            self.the_cat.status.add_to_group(
-                                new_group_ID=CatGroup.DARK_FOREST_ID
-                            )
+                        # refresh the guide's thought to reflect the new allegiance
                         if self.the_cat == game.clan.instructor:
                             self.the_cat.get_new_thought(CatThought.IS_GUIDE)
                         else:
                             self.the_cat.get_new_thought(CatThought.IS_DF_GUIDE)
-
-                        self.the_cat.pelt.rebuild_sprite = True
                     else:
+                        game.updated_afterlife_cats.add(self.the_cat)
                         # DF -> UR
                         if self.the_cat.status.group == CatGroup.DARK_FOREST:
                             self.the_cat.status.add_to_group(
@@ -604,21 +604,6 @@ class ProfileScreen(Screens):
                             )
                         self.the_cat.get_new_thought(CatThought.ON_AFTERLIFE_CHANGE)
                         self.the_cat.pelt.rebuild_sprite = True
-
-                    # LG faith
-                    if self.the_cat.ID == game.clan.demon.ID and game.clan.followingsc == True:
-                        game.clan.followingsc = False
-                        for i in game.clan.clan_cats:
-                            clan_cat = Cat.fetch_cat(i)
-                            if clan_cat:
-                                clan_cat.faith-=1
-
-                    elif self.the_cat.ID == game.clan.instructor.ID and not game.clan.followingsc:
-                        game.clan.followingsc = True
-                        for i in game.clan.clan_cats:
-                            clan_cat = Cat.fetch_cat(i)
-                            if clan_cat:
-                                clan_cat.faith+=1
 
                 self.clear_profile()
                 self.build_profile()
@@ -3356,6 +3341,14 @@ class ProfileScreen(Screens):
             if self.the_cat.dead:
                 self.exile_cat_button.enable()
                 self.exile_cat_button.join_focus_sets(self.exile_layer)
+                if (
+                    self.the_cat.ID == game.clan.instructor.ID
+                    and game.clan.followingsc
+                ) or (
+                    self.the_cat.ID == game.clan.demon.ID
+                    and not game.clan.followingsc
+                ):
+                    self.exile_cat_button.disable()
 
                 # OTHER BUTTON STATES
                 self.leave_clan_button.hide()

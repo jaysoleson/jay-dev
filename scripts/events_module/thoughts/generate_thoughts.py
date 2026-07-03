@@ -111,15 +111,18 @@ def _load_group(thought_type: CatThought, main_cat: "Cat", other_cat: "Cat"):
             thoughts = load_lang_resource(f"{start_path}/dark_forest.json")
     if thought_type == CatThought.IS_DF_GUIDE:
         if game.clan.followingsc:
-            thoughts = load_lang_resource(f"{start_path}/dark_forest.json")
-        else:
             thoughts = load_lang_resource(f"{start_path}/starclan.json")
+        else:
+            thoughts = load_lang_resource(f"{start_path}/dark_forest.json")
     # ---
 
     # DEAD CATS
     elif thought_type == CatThought.WHILE_DEAD:
         new_path = f"{start_path}/{main_cat.status.group}"
-        thoughts = load_lang_resource(f"{new_path}/{rank}.json")
+        if main_cat.age == CatAge.NEWBORN:
+            thoughts = load_lang_resource(f"{new_path}/newborn.json")
+        else:
+            thoughts = load_lang_resource(f"{new_path}/{rank}.json")
         thoughts.extend(_load_exiled_and_former(main_cat, new_path))
         thoughts.extend(_load_general(main_cat, new_path))
 

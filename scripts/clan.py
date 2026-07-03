@@ -534,6 +534,9 @@ class Clan:
             sc_cat.history.beginning = None
             sc_cat.dead_for = randint(20, 200)
             sc_cat.status.add_to_group(CatGroup.STARCLAN_ID)
+            sc_cat.history.add_afterlife_acceptance(
+                CatGroup.STARCLAN, is_kit=sc_cat.age.is_baby()
+            )
             self.add_cat(sc_cat)
 
     def populate_ur(self):
