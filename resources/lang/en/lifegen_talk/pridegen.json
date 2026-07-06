@@ -188,7 +188,7 @@
             "I'll bring you back something pretty!"
         ],
         "walk_yes": [
-            "Yay! Okay, let's go. t_m's waiting at the entrance."
+            "Yay! Okay, let's go. r_c:0's waiting at the entrance."
         ]
     },
     "gen_pg_02": {
