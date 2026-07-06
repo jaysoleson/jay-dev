@@ -71,7 +71,7 @@ class ShortEvent:
             outsider: dict = None,
             other_clan: dict = None,
             supplies: list = None,
-            new_gender: List[str] = None,
+            new_gender: List[str] = [],
             future_event: dict = None,
 
     ):
@@ -562,7 +562,6 @@ class ShortEvent:
         handles updating gender_align and pronouns
         """
         possible_genders = getattr(self, "new_gender", [])
-        print("TYPE", type(possible_genders))
 
         if possible_genders:
             if not game_setting_get("microlabels"):
