@@ -202,6 +202,18 @@ def json_load():
             if "eye_colour2" in cat:
                 if cat["eye_colour2"] == "BLUE2":
                     cat["eye_colour2"] = "COBALT"
+            
+            # PG
+            if cat["eye_colour"] == "PRISM":
+                cat["eye_colour"] = "ORANGE"
+            if "eye_colour2" in cat:
+                if cat["eye_colour2"] == "PRISM":
+                    cat["eye_colour2"] = "ORANGE"
+            if cat["eye_colour"] == "COTTONCANDY":
+                cat["eye_colour"] = "HEATHERBLUE"
+            if "eye_colour2" in cat:
+                if cat["eye_colour2"] == "COTTONCANDY":
+                    cat["eye_colour2"] = "HEATHERBLUE"
 
             if "tint" in cat:
                 if cat["tint"] == "none":
