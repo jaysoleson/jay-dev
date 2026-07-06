@@ -13805,5 +13805,311 @@
             ],
             "changed": 15
         }
+    },
+    {
+        "event_id": "pg_xenogender_mossgender_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c identifies with the moss growing around camp. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as mossgender.",
+        "m_c": {},
+        "new_gender": [
+            "mossgender"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender_moongender_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c's gender feels aligned with the moon, cool and comforting. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as moongender.",
+        "m_c": {},
+        "new_gender": [
+            "moongender"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender_sungender_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c's gender feels aligned with the sun, warm and bright. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as sungender.",
+        "m_c": {},
+        "new_gender": [
+            "sungender"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-stargender-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c's gender feels aligned with the stars up in Silverpelt. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as stargender.",
+        "m_c": {},
+        "new_gender": [
+            "stargender"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-apagender-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c doesn't really care much about gender at all. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as apagender.",
+        "m_c": {},
+        "new_gender": [
+            "apagender"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-arkhaigender-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c's gender feels like a grand adventure! {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as arkhaigender.",
+        "m_c": {},
+        "new_gender": [
+            "arkhaigender"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-archeogender-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c's gender feels like something constantly being discovered. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as archeogender.",
+        "m_c": {},
+        "new_gender": [
+            "archeogender"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-catgender-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c's gender reflects every one of {PRONOUN/m_c/poss} Clanmates around {PRONOUN/m_c/object}. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as catgender.",
+        "m_c": {},
+        "new_gender": [
+            "catgender"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-genderdoe-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c knows {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not a tom, but identifies with many levels of she-cat-ness. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as genderdoe.",
+        "m_c": {},
+        "new_gender": [
+            "genderdoe"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-mothgender-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c identifies with the moths that flutter through camp at night. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as mothgender.",
+        "m_c": {},
+        "new_gender": [
+            "mothgender"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-snowleopardgender-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c identifies with the large, spotted cats in the mountains. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as snowleopardgender.",
+        "m_c": {},
+        "new_gender": [
+            "snowleopardgender"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-tigergender-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c identifies with the the large, striped cats of the savanna. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as tigergender.",
+        "m_c": {},
+        "new_gender": [
+            "tigergender"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-buggender-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c identifies with the many insects that also call c_n camp their home. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as buggender.",
+        "m_c": {},
+        "new_gender": [
+            "buggender"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-genderfaun-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c knows {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not a she-cat, but identifies with many levels of tom-ness. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as genderfaun.",
+        "m_c": {},
+        "new_gender": [
+            "genderfaun"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-xenogender-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c's gender feels brand new! {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as xenogender.",
+        "m_c": {},
+        "new_gender": [
+            "xenogender"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-genderflux-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c's gender seems to flucuate in intensity over time. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as genderflux.",
+        "m_c": {},
+        "new_gender": [
+            "genderflux"
+        ]
+    },
+    {
+        "event_id": "pg_xenogender-demifluid-01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition", "xenogender"
+        ],
+        "frequency": 4,
+        "event_text": "m_c's gender feels partially fluid. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} out as demifluid.",
+        "m_c": {},
+        "new_gender": [
+            "demifluid"
+        ]
     }
 ]

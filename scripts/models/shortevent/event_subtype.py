@@ -15,3 +15,4 @@ class EventSubtype(Enum):
     ceremony = "ceremony"
     transition = "transition"
     mediator = "mediator"
+    xenogender = "xenogender"

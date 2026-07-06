@@ -99,7 +99,8 @@
         "accessory",
         "ceremony",
         "transition",
-        "mediator"
+        "mediator",
+        "xenogender"
       ],
       "title": "EventSubtype",
       "type": "string"

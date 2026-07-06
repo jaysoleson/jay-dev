@@ -285,7 +285,8 @@
         "accessory",
         "ceremony",
         "transition",
-        "mediator"
+        "mediator",
+        "xenogender"
       ],
       "title": "EventSubtype",
       "type": "string"
@@ -980,7 +981,24 @@
       "enum": [
         "nonbinary",
         "trans male",
-        "trans female"
+        "trans female",
+        "mossgender",
+        "moongender",
+        "sungender",
+        "stargender",
+        "apagender",
+        "arkhaigender",
+        "archeogender",
+        "catgender",
+        "genderdoe",
+        "mothgender",
+        "snowleopardgender",
+        "tigergender",
+        "buggender",
+        "genderfaun",
+        "xenogender",
+        "genderflux",
+        "demifluid"
       ],
       "title": "NewGenderEnum",
       "type": "string"
