@@ -152,8 +152,9 @@ class Dialogue():
                 for i in range(count):
                     possible_dialogue.update({key: block})
             else:
-                print("Warning: Dialogue", key, "has no frequency.")
-                possible_dialogue.update({key: block})
+                # print("Warning: Dialogue", key, "has no frequency.")
+                for i in range(3):
+                    possible_dialogue.update({key: block})
             
             if flirt:
                 if "tags" in block:

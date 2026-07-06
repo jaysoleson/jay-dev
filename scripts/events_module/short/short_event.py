@@ -546,15 +546,20 @@ class ShortEvent:
 
         if not acc_list:
             return False
+        
+        # pg
+        chosen_acc = choice(acc_list)
 
         if self.main_cat.pelt.accessory:
             self.main_cat.pelt.accessory = (
                 *self.main_cat.pelt.accessory,
-                choice(acc_list),
+                chosen_acc,
             )
+            self.main_cat.pelt.inventory.append(chosen_acc)
             return None
         else:
-            self.main_cat.pelt.accessory = (choice(acc_list),)
+            self.main_cat.pelt.accessory = (chosen_acc,)
+            self.main_cat.pelt.inventory.append(chosen_acc)
             return None
 
     def handle_transition(self):
