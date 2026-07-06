@@ -221,6 +221,9 @@ def json_load():
             if "white_patches_tint" in cat:
                 if cat["white_patches_tint"] == "none":
                     cat["white_patches_tint"] = None
+            
+            if cat["white_patches"] == "APPLECLAW":
+                cat["white_patches"] = "FADESPOTS"
 
             if "pattern" in cat:
                 cat["tortie_marking"] = cat["pattern"]
