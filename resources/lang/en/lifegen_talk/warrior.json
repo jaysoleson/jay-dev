@@ -4619,12 +4619,12 @@
                 ],
                 "backstory": [
                     "outsiderroots",
-                    "half-clan",
+                    "half-Clan",
                     "formerlyaloner",
                     "formerlyarogue",
                     "formerlyakittypet",
-                    "formerlyaoutsider",
-                    "originallyfromanotherclan"
+                    "formerlyanoutsider",
+                    "fromanotherclan"
                 ]
             },
             "r_c:0": {
@@ -7577,7 +7577,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -14726,13 +14726,13 @@
         ],
         "cats": {
             "y_c": {
-                "age": [
+                "rank": [
                     "warrior",
                     "deputy"
                 ]
             },
             "t_c": {
-                "age": [
+                "rank": [
                     "warrior",
                     "deputy",
                     "leader"

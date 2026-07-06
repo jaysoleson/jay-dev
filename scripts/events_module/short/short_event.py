@@ -632,18 +632,20 @@ class ShortEvent:
 
         # make sure all cats in the pool fit the event requirements
         requirements = self.m_c
+        eligible_cats = []
         for kitty in alive_cats:
             if (
                 kitty.status.rank not in requirements["status"]
                 and "any" not in requirements["status"]
             ):
-                alive_cats.remove(kitty)
                 continue
             if (
                 kitty.age not in requirements["age"]
                 and "any" not in requirements["age"]
             ):
-                alive_cats.remove(kitty)
+                continue
+            eligible_cats.append(kitty)
+        alive_cats = eligible_cats
         alive_count = len(alive_cats)
 
         # if there's enough eligible cats, then we KILL

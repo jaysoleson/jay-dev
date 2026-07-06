@@ -285,18 +285,20 @@ class RoleScreen(Screens):
                 )
             )
 
-        if self.the_cat.apprentice:
+        current_apprentices = [
+            Cat.fetch_cat(x)
+            for x in self.the_cat.apprentice
+            if Cat.fetch_cat(x)
+            and Cat.fetch_cat(x).status.rank.is_any_apprentice_rank()
+        ]
+        if current_apprentices:
             apprentices = adjust_list_text(
-                [
-                    str(Cat.fetch_cat(x).name)
-                    for x in self.the_cat.apprentice
-                    if Cat.fetch_cat(x)
-                ]
+                [str(app.name) for app in current_apprentices]
             )
             text.append(
                 i18n.t(
                     "general.apprentice_label",
-                    count=len(self.the_cat.apprentice),
+                    count=len(current_apprentices),
                     apprentices=apprentices,
                 )
             )

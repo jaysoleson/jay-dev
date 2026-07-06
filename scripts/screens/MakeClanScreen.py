@@ -881,6 +881,7 @@ class MakeClanScreen(Screens):
             self.tabs[tab].kill()
         for button in self.symbol_buttons:
             self.symbol_buttons[button].kill()
+        self.symbol_buttons = {}
         self.elements = {}
 
         for item in self.customiser_button_dicts:
@@ -4269,6 +4270,9 @@ class MakeClanScreen(Screens):
 
         # set basics
         self.sub_screen = "choose symbol"
+        
+        switch_set_value(Switch.disallowed_symbol_tags, [])
+        self.tag_list_len = 0
 
         self.elements["previous_step"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((253, 645), (147, 30))),

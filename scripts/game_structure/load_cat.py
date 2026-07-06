@@ -727,7 +727,7 @@ def csv_load(all_cats):
             for app_id in inter_cat.apprentice:
                 app = Cat.all_cats.get(app_id)
                 # Make sure if cat isn't an apprentice, they're a former apprentice
-                if app.status.rank == CatRank.APPRENTICE:
+                if app.status.rank.is_any_apprentice_rank():
                     apps.append(app)
                 else:
                     former_apps.append(app)

@@ -2164,7 +2164,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -4418,7 +4418,7 @@
                 ],
                 "backstory": [
                     "outsiderroots",
-                    "half-clan",
+                    "half-Clan",
                     "orphaned",
                     "abandoned"
                 ],

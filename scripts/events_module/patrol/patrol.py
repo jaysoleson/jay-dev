@@ -1201,7 +1201,15 @@ class Patrol:
 
         if success and switch_get_value(Switch.patrol_category) == "df":
             game.clan.your_cat.df_patrols += 1
-            
+            # graduate from the Dark Forest after 5 successful DF patrols. Once
+            # graduated, the cat can act as a mentor to other DF trainees.
+            if (
+                game.clan.your_cat.df_patrols >= 5
+                and not game.clan.your_cat.graduated_df
+            ):
+                game.clan.your_cat.graduated_df = True
+
+
         print(f"PATROL ID: {self.patrol_event.patrol_id} | SUCCESS: {success}")
         
         # Run the chosen outcome

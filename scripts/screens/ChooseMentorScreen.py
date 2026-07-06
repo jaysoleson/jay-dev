@@ -673,7 +673,7 @@ class ChooseMentorScreen(Screens):
         ]
         valid_mediator_mentors = []
         invalid_mediator_mentors = []
-        potential_queen_mentors = [cat for cat in Cat.all_cats_list if not (cat.dead or cat.status.is_outsider) and cat.status == 'queen']
+        potential_queen_mentors = [cat for cat in Cat.all_cats_list if not (cat.dead or cat.status.is_outsider) and cat.status.rank == CatRank.QUEEN]
         valid_queen_mentors = []
         invalid_queen_mentors = []
 
@@ -736,7 +736,7 @@ class ChooseMentorScreen(Screens):
 
             return valid_mediator_mentors
         
-        elif self.the_cat.status == "queen's apprentice":
+        elif self.the_cat.status.rank == CatRank.QUEENS_APPRENTICE:
             for cat in potential_queen_mentors:
                 # Assume cat is valid initially
                 is_valid = True

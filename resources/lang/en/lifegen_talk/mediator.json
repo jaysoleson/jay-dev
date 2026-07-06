@@ -517,7 +517,7 @@
                 "backstory": [
                     "clanfounder",
                     "outsiderroots",
-                    "half-clan",
+                    "half-Clan",
                     "orphaned",
                     "abandoned",
                     "clanborn"
@@ -4031,7 +4031,7 @@
         "camp": ["camp3"],
         "cats": {
             "y_c": {
-                "age": ["mediator", "mediator_apprentice"]
+                "rank": ["mediator", "mediator_apprentice"]
             },
             "t_c": {
               "rank": ["mediator", "mediator_apprentice"]

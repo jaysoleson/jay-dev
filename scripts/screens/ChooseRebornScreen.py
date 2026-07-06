@@ -418,7 +418,7 @@ class ChooseRebornScreen(Screens):
 
 
     def update_tabs(self):
-        if self.selected_cat and self.selected_cat.status in ["kittypet", "rogue", "loner", "former Clancat"]:
+        if self.selected_cat and self.selected_cat.status.is_outsider:
             self.confirm_cat.disable()
             self.cant_switch_warning.show()
         elif self.selected_cat is None:

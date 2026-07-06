@@ -1471,7 +1471,7 @@
                 "backstory": [
                     "clanfounder",
                     "clanborn",
-                    "originallyfromanotherclan"
+                    "fromanotherclan"
                 ]
             },
             "t_c": {
@@ -1940,7 +1940,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -8700,10 +8700,10 @@
                 "age": ["not_kitten"]
             },
             "t_c": {
-              "age": ["kitten", "apprentice"]
+              "rank": ["kitten", "apprentice"]
             },
             "r_c:0": {
-              "age": ["kitten", "apprentice"]
+              "rank": ["kitten", "apprentice"]
             }
         },
         "intro": [

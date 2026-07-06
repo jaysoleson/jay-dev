@@ -11160,7 +11160,7 @@
                     "fleas"
                 ],
                 "rank": [
-                    "app"
+                    "apprentice"
                 ]
             },
             "t_c": {
@@ -11172,7 +11172,7 @@
                     "fleas"
                 ],
                 "rank": [
-                    "app"
+                    "apprentice"
                 ]
             },
             "r_c:0": {
@@ -11338,7 +11338,7 @@
                 "condition": [
                     "blind:any:false"
                 ],
-                "rank": [
+                "age": [
                     "not_kitten",
                     "not_adolescent"
                 ]

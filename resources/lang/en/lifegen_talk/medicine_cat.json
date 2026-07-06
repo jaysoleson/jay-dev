@@ -7713,7 +7713,7 @@
                     "stable"
                 ],
                 "rank": [
-                    "medicine_cat, medicine_cat_apprentice"
+                    "medicine_cat", "medicine_cat_apprentice"
                 ]
             }
         },
@@ -7746,7 +7746,7 @@
                     "small cut"
                 ],
                 "rank": [
-                    "not_medicine_cat, not_medicine_cat_apprentice"
+                    "not_medicine_cat", "not_medicine_cat_apprentice"
                 ]
             },
             "t_c": {
@@ -7760,7 +7760,7 @@
                     "small cut"
                 ],
                 "rank": [
-                    "medicine_cat, medicine_cat_apprentice"
+                    "medicine_cat", "medicine_cat_apprentice"
                 ]
             }
         },

@@ -199,7 +199,7 @@ class ProfileScreen(Screens):
             if (
                 not self.the_cat.dead and
                 not game.clan.your_cat.dead and
-                game.clan.your_cat.status != "kitten"
+                game.clan.your_cat.status.rank != CatRank.KITTEN
             ):
                 self.the_cat.relationships[game.clan.your_cat.ID].like -= randint(1,5)
                 self.the_cat.relationships[game.clan.your_cat.ID].comfort -= randint(1,5)
@@ -207,6 +207,17 @@ class ProfileScreen(Screens):
                 game.clan.your_cat.relationships[self.the_cat.ID].like -= randint(1,5)
                 game.clan.your_cat.relationships[self.the_cat.ID].comfort -= randint(1,5)
                 game.clan.your_cat.relationships[self.the_cat.ID].trust -= randint(1,5)
+        if talk_type == "flirt":
+            if (
+                not self.the_cat.dead and
+                not game.clan.your_cat.dead and
+                not game.clan.your_cat.status.is_shunned() and
+                game.clan.your_cat.is_potential_mate(self.the_cat, for_love_interest=True)
+            ):
+                self.the_cat.relationships[game.clan.your_cat.ID].romance += randint(1, 5)
+                self.the_cat.relationships[game.clan.your_cat.ID].like += randint(0, 3)
+                game.clan.your_cat.relationships[self.the_cat.ID].romance += randint(1, 5)
+                game.clan.your_cat.relationships[self.the_cat.ID].like += randint(0, 3)
             
 
     def handle_event(self, event):
@@ -381,6 +392,7 @@ class ProfileScreen(Screens):
                 event.ui_element == self.profile_elements["flirt"]
                 ):
                 self.the_cat.flirted = True
+                self.affect_relationship("flirt")
                 switch_set_value(Switch.talk_category, 'flirt')
                 self.change_screen(GameScreen.TALK)
             elif (
@@ -556,27 +568,27 @@ class ProfileScreen(Screens):
                     self.update_disabled_buttons_and_text()
                 # if the cat is dead, moves them to the opposite afterlife
                 if self.the_cat.dead:
-                    game.updated_afterlife_cats.add(self.the_cat)
-
                     if self.the_cat in (game.clan.instructor, game.clan.demon):
-                        # DF -> SC
-                        if self.the_cat.status.group == CatGroup.DARK_FOREST:
-                            self.the_cat.status.add_to_group(
-                                new_group_ID=CatGroup.STARCLAN_ID
-                            )
+                        if self.the_cat.ID == game.clan.demon.ID and game.clan.followingsc:
+                            game.clan.followingsc = False
+                            for i in game.clan.clan_cats:
+                                clan_cat = Cat.fetch_cat(i)
+                                if clan_cat:
+                                    clan_cat.faith -= 1
+                        elif self.the_cat.ID == game.clan.instructor.ID and not game.clan.followingsc:
+                            game.clan.followingsc = True
+                            for i in game.clan.clan_cats:
+                                clan_cat = Cat.fetch_cat(i)
+                                if clan_cat:
+                                    clan_cat.faith += 1
 
-                        # SC -> DF
-                        else:
-                            self.the_cat.status.add_to_group(
-                                new_group_ID=CatGroup.DARK_FOREST_ID
-                            )
+                        # refresh the guide's thought to reflect the new allegiance
                         if self.the_cat == game.clan.instructor:
                             self.the_cat.get_new_thought(CatThought.IS_GUIDE)
                         else:
                             self.the_cat.get_new_thought(CatThought.IS_DF_GUIDE)
-
-                        self.the_cat.pelt.rebuild_sprite = True
                     else:
+                        game.updated_afterlife_cats.add(self.the_cat)
                         # DF -> UR
                         if self.the_cat.status.group == CatGroup.DARK_FOREST:
                             self.the_cat.status.add_to_group(
@@ -594,21 +606,6 @@ class ProfileScreen(Screens):
                             )
                         self.the_cat.get_new_thought(CatThought.ON_AFTERLIFE_CHANGE)
                         self.the_cat.pelt.rebuild_sprite = True
-
-                    # LG faith
-                    if self.the_cat.ID == game.clan.demon.ID and game.clan.followingsc == True:
-                        game.clan.followingsc = False
-                        for i in game.clan.clan_cats:
-                            clan_cat = Cat.fetch_cat(i)
-                            if clan_cat:
-                                clan_cat.faith-=1
-
-                    elif self.the_cat.ID == game.clan.instructor.ID and not game.clan.followingsc:
-                        game.clan.followingsc = True
-                        for i in game.clan.clan_cats:
-                            clan_cat = Cat.fetch_cat(i)
-                            if clan_cat:
-                                clan_cat.faith+=1
 
                 self.clear_profile()
                 self.build_profile()
@@ -1485,6 +1482,7 @@ class ProfileScreen(Screens):
                 str(Cat.fetch_cat(i).name)
                 for i in the_cat.apprentice
                 if Cat.fetch_cat(i)
+                and Cat.fetch_cat(i).status.rank.is_any_apprentice_rank()
             ]
             if len(apps) > 0:
                 output += i18n.t(
@@ -1958,7 +1956,7 @@ class ProfileScreen(Screens):
         Returns adjusted afterlife acceptance blurb.
         """
         cat_dict = {"m_c": (str(self.the_cat.name), choice(self.the_cat.pronouns))}
-        if self.the_cat.history.afterlife_acceptance:
+        if self.the_cat.dead and self.the_cat.history.afterlife_acceptance:
             text = i18n.t(f"cat.afterlife.{self.the_cat.history.afterlife_acceptance}")
             adjusted_text = process_text(text, cat_dict=cat_dict)
             return adjusted_text
@@ -2151,9 +2149,9 @@ class ProfileScreen(Screens):
         influence_history = ""
 
         #First, just list the mentors:
-        if self.the_cat.status in ['kitten', 'newborn']:
+        if self.the_cat.status.rank.is_baby():
                 influence_history = 'This cat has not begun training.'
-        elif self.the_cat.status in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', "queen's apprentice"]:
+        elif self.the_cat.status.rank.is_any_apprentice_rank():
             influence_history = 'This cat has not finished training.'
         else:
             valid_former_mentors = [
@@ -2297,6 +2295,13 @@ class ProfileScreen(Screens):
         death_history = self.the_cat.history.get_death_or_scars(death=True)
         murder_history = self.the_cat.history.murder
         moons = switch_get_value(Switch.show_history_moons)
+
+        if (
+            death_history
+            and not self.the_cat.dead
+            and CatRank.LEADER not in self.the_cat.status.all_ranks.keys()
+        ):
+            return ""
 
         if death_history:
             all_deaths = []
@@ -3360,6 +3365,14 @@ class ProfileScreen(Screens):
             if self.the_cat.dead:
                 self.exile_cat_button.enable()
                 self.exile_cat_button.join_focus_sets(self.exile_layer)
+                if (
+                    self.the_cat.ID == game.clan.instructor.ID
+                    and game.clan.followingsc
+                ) or (
+                    self.the_cat.ID == game.clan.demon.ID
+                    and not game.clan.followingsc
+                ):
+                    self.exile_cat_button.disable()
 
                 # OTHER BUTTON STATES
                 self.leave_clan_button.hide()
@@ -3857,6 +3870,8 @@ class ProfileScreen(Screens):
         
         # Preparing buttons
         n = value
+        if n >= len(self.accessories_list):
+            return
         if self.accessories_list[n] in self.the_cat.pelt.accessory:
             self.the_cat.pelt.accessory = tuple(
                 accessory for accessory in self.the_cat.pelt.accessory if
@@ -3879,6 +3894,9 @@ class ProfileScreen(Screens):
             self.accessory_buttons[acc].kill()
         for acc in self.cat_list_buttons:
             self.cat_list_buttons[acc].kill()
+        self.accessory_buttons = {}
+        self.cat_list_buttons = {}
+        self.accessories_list = []
         start_index = self.page * 18
         end_index = start_index + 18
         inventory_len = 0
@@ -3902,11 +3920,12 @@ class ProfileScreen(Screens):
             for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len + start_index)], start = start_index):
                 if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
                     self.inventory_display(self.the_cat, accessory, pos_x, pos_y)
+                    self.accessories_list.append(accessory)
                     pos_x += 68
                     if pos_x >= 550:
                         pos_x = 2
                         pos_y += 73
-    
+
     def validate_insult(self, cat_to, cat_from):
         if not self.validate_talk(cat_to, cat_from):
             return False

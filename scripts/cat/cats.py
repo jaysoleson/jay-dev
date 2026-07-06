@@ -808,10 +808,12 @@ class Cat:
                 game.clan.leader_lives = 1
 
         return_to = self.status.get_last_living_group()
-        
+        if return_to is None:
+            return_to = CatGroup.PLAYER_CLAN_ID
+
         if self.ID in game.dead_cats_to_grieve:
             game.dead_cats_to_grieve.remove(self.ID)
-        
+
         self.thought = "Is surprised to be back home"
 
         self.status.add_to_group(return_to)
@@ -1375,36 +1377,36 @@ class Cat:
         """ lifegen function for shunned cats being demoted"""
 
         text = ""
-        if self.status == "leader":
+        if self.status.rank == CatRank.LEADER:
             self.rank_change(CatRank.WARRIOR)
             text = f"{self.name} can no longer be trusted to lead the Clan and has forfeit the role of leader."
 
-        elif self.status == "deputy":
+        elif self.status.rank == CatRank.DEPUTY:
             self.rank_change(CatRank.WARRIOR)
             text = f"{self.name} can no longer be trusted and has forfeit the role of deputy."
 
-        elif self.status == "queen's apprentice":
+        elif self.status.rank == CatRank.QUEENS_APPRENTICE:
             self.rank_change(CatRank.APPRENTICE)
             text = f"{self.name} can no longer be trusted with the kits and has forfeit the role of a queen's apprentice."
 
-        elif self.status == "mediator apprentice":
+        elif self.status.rank == CatRank.MEDIATOR_APPRENTICE:
             self.rank_change(CatRank.APPRENTICE)
             text = f"{self.name} can no longer be trusted with cross-Clan relations and has forfeit the role of a mediator apprentice."
 
-        elif self.status == "medicine cat apprentice":
+        elif self.status.rank == CatRank.MEDICINE_APPRENTICE:
             self.rank_change(CatRank.MEDICINE_APPRENTICE)
             text = f"{self.name} can no longer be trusted around dangerous herbs and has forfeit the role of a medicine cat apprentice."
 
-        elif self.status == "queen":
+        elif self.status.rank == CatRank.QUEEN:
             self.rank_change(CatRank.WARRIOR)
             text = f"{self.name} can no longer be trusted with the kits and has forfeit the role of a queen."
 
-        
-        elif self.status == "mediator":
+
+        elif self.status.rank == CatRank.MEDIATOR:
             self.rank_change(CatRank.WARRIOR)
             text = f"{self.name} can no longer be trusted with cross-Clan relations and has forfeit the role of a mediator."
-        
-        elif self.status == "medicine cat":
+
+        elif self.status.rank == CatRank.MEDICINE_CAT:
             self.rank_change(CatRank.WARRIOR)
             text = f"{self.name} can no longer be trusted around dangerous herbs and has forfeit the role of a medicine cat."
         
@@ -1468,12 +1470,9 @@ class Cat:
         for rel in relationships:
             kitty = self.fetch_cat(rel.cat_to)
             if kitty and kitty.dead and kitty.status.rank != CatRank.NEWBORN:
-                # check where they reside
                 # guides aren't allowed here
                 if kitty == game.clan.instructor or kitty == game.clan.demon:
                     continue
-                else:
-                    dead_relations.append(rel)
 
                 if starclan:
                     if kitty.status.group != CatGroup.STARCLAN:
@@ -1481,7 +1480,9 @@ class Cat:
                 else:
                     if kitty.status.group != CatGroup.DARK_FOREST:
                         continue
-                
+
+                dead_relations.append(rel)
+
 
         # sort relations by the strength of their relationship
         dead_relations.sort(
@@ -1757,7 +1758,7 @@ class Cat:
         """Handles a moon skip for an alive cat."""
         old_age = self.age
         self.moons += 1
-        if self.moons == 1 and self.status.rank == CatRank.NEWBORN:
+        if self.moons >= 1 and self.status.rank == CatRank.NEWBORN:
             self.status._change_rank(CatRank.KITTEN)
         self.in_camp = 1
 
@@ -2081,6 +2082,8 @@ class Cat:
 
     def is_littermate(self, other_cat: Cat):
         """Check if the cats are littermates."""
+        if not self.inheritance:
+            self.inheritance = Inheritance(self)
         if other_cat.ID not in self.inheritance.siblings.keys():
             return False
         litter_mates = [
@@ -2095,13 +2098,12 @@ class Cat:
         """ Checks if the cats are half-siblings. These cats share one birth parent, but not two."""
         if not self.inheritance:
             self.inheritance = Inheritance(self)
-        all_parents = []
-        all_parents.append(self.parent1)
-        all_parents.append(self.parent2)
+        all_parents = [p for p in (self.parent1, self.parent2) if p is not None]
+        other_parents = [other_cat.parent1, other_cat.parent2]
 
         parents_found = 0
         for parent in all_parents:
-            if parent in [other_cat.parent1, other_cat.parent2]:
+            if parent in other_parents:
                 parents_found += 1
 
         if parents_found == 1:
@@ -2900,6 +2902,9 @@ class Cat:
         if not ignore_no_mates and (self.no_mates or other_cat.no_mates):
             return False
 
+        if self.age.is_baby() or other_cat.age.is_baby():
+            return False
+
         # Inheritance check
         if self.is_related(other_cat, first_cousin_mates):
             return False
@@ -2936,8 +2941,12 @@ class Cat:
 
         # check for mentor
 
-        # Current mentor
-        if other_cat.ID in self.apprentice or self.ID in other_cat.apprentice:
+        if (
+            other_cat.ID in self.apprentice
+            or self.ID in other_cat.apprentice
+            or self.mentor == other_cat.ID
+            or other_cat.mentor == self.ID
+        ):
             return False
 
         if not self.is_pridegen_compatible(other_cat, demiromantic_functionality=demiromantic_functionality):

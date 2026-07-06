@@ -371,7 +371,7 @@
                 "backstory": [
                     "clanfounder",
                     "outsiderroots",
-                    "half-clan",
+                    "half-Clan",
                     "orphaned",
                     "abandoned",
                     "clanborn"
@@ -4764,8 +4764,8 @@
                 ],
                 "backstory": [
                     "clanfounder",
-                    "half-clan",
-                    "originallyfromanotherclan",
+                    "half-Clan",
+                    "fromanotherclan",
                     "orphaned",
                     "abandoned",
                     "clanborn"
@@ -6751,7 +6751,7 @@
                 ],
                 "rank": [
                     "mediator",
-                    "mediator's apprentice"
+                    "mediator apprentice"
                 ]
             },
             "t_c": {
@@ -6795,7 +6795,7 @@
                     "apprentice",
                     "queen's apprentice",
                     "medicine cat apprentice",
-                    "mediator's apprentice"
+                    "mediator apprentice"
                 ]
             },
             "t_c": {
@@ -35285,7 +35285,7 @@
                 "backstory": [
                     "formerlyaloner",
                     "formerlyarogue",
-                    "formerlyaoutsider"
+                    "formerlyanoutsider"
                 ],
                 "residence": [
                     "ur"
@@ -35312,7 +35312,7 @@
                 "backstory": [
                     "formerlyaloner",
                     "formerlyarogue",
-                    "formerlyaoutsider"
+                    "formerlyanoutsider"
                 ],
                 "age": [
                     "not_kitten"
@@ -39753,7 +39753,7 @@
             }
         ],
         "intro": [
-            "[t_c's eyes widen when {PRONOUN/t_c/subject} {VERB/t_c/spot/spots} you, and {PRONOUN/t_c/subject} cover something with {PRONOUN/t_c/poss} body.]",
+            "[t_c's eyes widen when {PRONOUN/t_c/subject} {VERB/t_c/spot/spots} you, and {PRONOUN/t_c/subject} {VERB/t_c/cover/covers} something with {PRONOUN/t_c/poss} body.]",
             "Oh y_c don't look! I know you're a terrible liar and I really don't want you to get in trouble for this one!"
         ]
     },
@@ -46191,7 +46191,7 @@
                     "blind:any:false"
                 ],
                 "backstory": [
-                    "originallyfromanotherclan"
+                    "fromanotherclan"
                 ],
                 "age": [
                     "not_kitten"
@@ -46236,7 +46236,7 @@
                     "blind:any:false"
                 ],
                 "backstory": [
-                    "originallyfromanotherclan"
+                    "fromanotherclan"
                 ],
                 "age": [
                     "not_kitten"
@@ -46784,11 +46784,10 @@
                 ],
                 "min_max_dead_moons": [
                     10,
-                    -1
+                    30
                 ],
                 "residence": [
-                    "sc",
-                    "max_they_deadfor_30"
+                    "sc"
                 ]
             }
         },
@@ -55024,8 +55023,8 @@
                     "formerlyaloner",
                     "formerlyarogue",
                     "formerlyakittypet",
-                    "formerlyaoutsider",
-                    "originallyfromanotherclan"
+                    "formerlyanoutsider",
+                    "fromanotherclan"
                 ],
                 "age": [
                     "not_kitten"
@@ -55128,7 +55127,7 @@
                     "adult"
                 ],
                 "backstory": [
-                    "originallyfromanotherclan"
+                    "fromanotherclan"
                 ]
             },
             "r_c:0": {
@@ -56286,7 +56285,7 @@
                     "formerlyaloner",
                     "formerlyarogue",
                     "formerlyakittypet",
-                    "originallyfromanotherclan"
+                    "fromanotherclan"
                 ],
                 "age": [
                     "not_kitten"
@@ -63447,7 +63446,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -63500,7 +63499,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -63552,7 +63551,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -63606,7 +63605,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -71894,7 +71893,7 @@
                     "t_c"
                 ],
                 "relationship": [
-                    "child/parent", "neutral"
+                    "child/parent"
                 ]
             }
         ],
@@ -75863,7 +75862,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             },
             {
@@ -75875,7 +75874,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             },
             {
@@ -75887,7 +75886,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             },
             {
@@ -75899,7 +75898,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -76429,7 +76428,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -76486,7 +76485,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -76529,7 +76528,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -76582,7 +76581,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -76630,7 +76629,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -76677,7 +76676,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -76729,7 +76728,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -76773,7 +76772,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -76824,7 +76823,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -76890,7 +76889,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -76940,7 +76939,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -76981,7 +76980,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77029,7 +77028,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77085,7 +77084,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77130,7 +77129,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77171,7 +77170,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77209,7 +77208,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77250,7 +77249,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77300,7 +77299,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77355,7 +77354,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77401,7 +77400,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77455,7 +77454,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77502,7 +77501,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77551,7 +77550,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             },
             {
@@ -77563,7 +77562,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77606,7 +77605,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77654,7 +77653,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77686,7 +77685,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77727,7 +77726,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77775,7 +77774,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77821,7 +77820,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77864,7 +77863,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77901,7 +77900,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -77951,7 +77950,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -78000,7 +77999,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -78053,7 +78052,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -78114,7 +78113,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -78166,7 +78165,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -78218,7 +78217,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -78269,7 +78268,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -78318,7 +78317,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -78375,7 +78374,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -78427,7 +78426,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -78477,7 +78476,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -78526,7 +78525,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -78826,7 +78825,7 @@
                 ],
                 "relationship": [
                     "min_romance_20",
-                    "not_mates"
+                    "non-mates"
                 ]
             }
         ],
@@ -79530,7 +79529,7 @@
             {
                 "cats_from": ["t_c"],
                 "cats_to": ["y_c"],
-                "relationship": ["neutral"]
+                "relationship": []
             }
         ],
         "intro": [

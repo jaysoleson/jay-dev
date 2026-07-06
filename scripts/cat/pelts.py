@@ -554,7 +554,7 @@ class Pelt:
         self.length = length
         self.points = points
         self.rebuild_sprite = True
-        self._accessory = accessory
+        self.accessory = accessory  # route through setter to coerce to a tuple
         self._inventory = inventory
         self._paralyzed = paralyzed
         self.opacity = opacity
@@ -722,6 +722,12 @@ class Pelt:
     @accessory.setter
     def accessory(self, val):
         self.rebuild_sprite = True
+        if val is None:
+            val = tuple()
+        elif isinstance(val, str):
+            val = (val,)
+        elif not isinstance(val, tuple):
+            val = tuple(val)
         self._accessory = val
 
     @property

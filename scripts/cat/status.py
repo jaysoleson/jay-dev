@@ -780,6 +780,21 @@ class Status:
 
         return False
     
+    def is_member(self, group_ID: str = CatGroup.PLAYER_CLAN_ID) -> bool:
+        """
+        Returns True if the cat's current standing with a group is MEMBER (a
+        regular member, i.e. not lost/exiled/shunned/etc.).
+        :param group_ID: use this to specify a certain group to check against
+        """
+
+        for entry in self.standing_history:
+            if group_ID and entry["group"] != group_ID:
+                continue
+            if CatStanding.MEMBER == entry["standing"][-1]:
+                return True
+
+        return False
+
     def is_shunned(self, group_ID: str = None) -> bool:
         """
         Returns True if a cat is shunned within a group
