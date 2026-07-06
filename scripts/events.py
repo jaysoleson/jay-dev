@@ -4325,10 +4325,16 @@ def sexuality_change(cat):
                     continue
                 if item == "acespec":
                     cat.sexuality.acespec = value
-                    change_list.append(value)
+                    if cat.sexuality.arospec == Arospec.ARO:
+                        new_label = True
+                    else:
+                        change_list.append(value)
                 elif item == "arospec":
                     cat.sexuality.arospec = value
-                    change_list.append(value)
+                    if cat.sexuality.acespec == Acespec.ACE:
+                        new_label = True
+                    else:
+                        change_list.append(value)
                 else:
                     if item == "likes_toms":
                         cat.sexuality.likes_toms = value
@@ -4447,11 +4453,16 @@ def correct_mates_for_sexuality(cat):
         return
     
     for cat_id in cat.mate:
-        if not Cat.fetch_cat(cat_id).is_pridegen_compatible(cat):
-            print("PG DEBUG: Mates are not compatible! Unsetting.")
-            print(Cat.fetch_cat(cat_id).name, Cat.fetch_cat(cat_id).sexuality.sexuality_label)
-            print(cat.name, cat.sexuality.sexuality_label)
-            Cat.fetch_cat(cat_id).unset_mate(cat)
+        other_cat = Cat.fetch_cat(cat_id)
+        if not other_cat.is_pridegen_compatible(cat):
+            cat.unset_mate(other_cat)
+            event = event_text_adjust(
+                Cat,
+                "m_c and r_c have amicably broken up.",
+                main_cat=cat,
+                random_cat=other_cat
+            )
+            game.cur_events_list.append(Single_Event(event, "misc", cats_involved=[cat.ID, other_cat.ID]))
 
 def find_sexuality_change_event(cat):
     upcoming = cat.sexuality.upcoming_sexuality

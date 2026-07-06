@@ -76,7 +76,7 @@
         "events": [
             "After some thinking, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/are/is} greyaromantic.",
             "m_c comes out as greyaromantic.",
-            "m_c figures out that {PRONOUN/m_c/subject} {VERB/m_c/experience/experiences} romantic attraction to other cats much more rarely than others. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as greyaromantic!"
+            "m_c figures out that {PRONOUN/m_c/subject} {VERB/m_c/experience/experiences} romantic attraction to other cats much more rarely than {PRONOUN/m_c/poss} Clanmates. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as greyaromantic!"
         ]
     },
     "aro_1": {
@@ -111,7 +111,7 @@
         "events": [
             "After some thinking, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/are/is} greyasexual.",
             "m_c comes out as greyasexual.",
-            "m_c figures out that {PRONOUN/m_c/subject} {VERB/m_c/experience/experiences} attraction to other cats much more rarely than others. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as greyasexual!"
+            "m_c figures out that {PRONOUN/m_c/subject} {VERB/m_c/experience/experiences} attraction to other cats much more rarely than {PRONOUN/m_c/poss} Clanmates. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as greyasexual!"
         ]
     },
     "ace_1": {

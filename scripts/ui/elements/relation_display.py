@@ -15,6 +15,7 @@ class UIRelationDisplay(pygame_gui.elements.UIAutoResizingContainer):
         position: tuple,
         relationship,
         romance: bool = False,
+        pridegen_compatible: bool = True,
         container=None,
         manager=None,
         anchors=None,
@@ -65,8 +66,20 @@ class UIRelationDisplay(pygame_gui.elements.UIAutoResizingContainer):
 
             # ROMANCE
         if romance:
+            # PG
+            display_amount = relationship.romance
+            if not pridegen_compatible:
+                if relationship.romance > 10:
+                    display_amount = 10
+            
+            display_reltier = f"relationships.{relationship.romance_tier if relationship.romance_tier else 'neutral'}"
+            if not pridegen_compatible:
+                if relationship.romance > 10:
+                    display_reltier = "relationships.uninterested"
+                    print("hiding incompat romance")
+            # ---
             self.rel_elements[f"romance_text"] = UITextBoxTweaked(
-                f"relationships.{relationship.romance_tier if relationship.romance_tier else 'neutral'}",
+                display_reltier,
                 ui_scale(
                     pygame.Rect(
                         (0, 1),
@@ -91,7 +104,7 @@ class UIRelationDisplay(pygame_gui.elements.UIAutoResizingContainer):
                         bar_size,
                     )
                 ),
-                relationship.romance,
+                display_amount,
                 container=self,
                 anchors={"top_target": self.rel_elements[f"romance_text"]},
             )

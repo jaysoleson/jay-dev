@@ -891,6 +891,8 @@ class RelationshipScreen(Screens):
         )
         check_age = both_adult or same_age
 
+        pridegen_compatible = the_relationship.cat_to.is_pridegen_compatible(the_relationship.cat_from)
+
         # If they are not both adults, or the same age, OR they are related, don't display any romantic affection,
         # even if they somehow have some. They should not be able to get any, but it never hurts to check.
         if not check_age or related:
@@ -907,6 +909,7 @@ class RelationshipScreen(Screens):
             position=(pos_x + 3, 0),
             relationship=the_relationship,
             romance=allow_romance,
+            pridegen_compatible=pridegen_compatible,
             manager=MANAGER,
             anchors={"top_target": self.sprite_buttons["image" + str(i)]},
         )

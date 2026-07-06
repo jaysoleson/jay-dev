@@ -2792,6 +2792,7 @@ class Cat:
         if other_cat.genderalign in Sexuality.female_genders:
             if not self.sexuality.attracted_to_shecats():
                 return False
+
         if not other_cat.sexuality.attracted_to_toms():
             if self.genderalign in Sexuality.male_genders:
                 return False
@@ -2837,6 +2838,7 @@ class Cat:
             self.gender == self.genderalign
         ):
             return False
+
         return True
         # ---
     
