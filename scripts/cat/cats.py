@@ -2907,9 +2907,6 @@ class Cat:
         if not ignore_no_mates and (self.no_mates or other_cat.no_mates):
             return False
 
-        if self.age.is_baby() or other_cat.age.is_baby():
-            return False
-
         # Inheritance check
         if self.is_related(other_cat, first_cousin_mates):
             return False
