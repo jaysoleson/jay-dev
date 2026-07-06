@@ -562,9 +562,7 @@ class ShortEvent:
         handles updating gender_align and pronouns
         """
         possible_genders = getattr(self, "new_gender", [])
-        if not isinstance(possible_genders, list):
-            print("PG ERROR: Chosen transition event", self.event_id, "new_gender is malformed. Aborting.")
-            return
+        print("TYPE", type(possible_genders))
 
         if possible_genders:
             if not game_setting_get("microlabels"):
