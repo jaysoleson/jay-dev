@@ -261,6 +261,11 @@ class Cat:
         self.no_mates = False
         self.no_retire = False
         self.no_faith = False
+
+        # PG
+        self.no_sexuality_changes = False
+        self.no_gender_changes = False
+
         self.backstory_str = ""
         self.courage = 0
         self.compassion = 0
@@ -4184,6 +4189,10 @@ class Cat:
                 "no_kits": self.no_kits,
                 "no_retire": self.no_retire,
                 "no_mates": self.no_mates,
+                # PG
+                "no_sexuality_changes": self.no_sexuality_changes,
+                "no_gender_changes": self.no_gender_changes,
+
                 "pelt_name": self.pelt.name,
                 "pelt_color": self.pelt.colour,
                 "pelt_length": self.pelt.length,

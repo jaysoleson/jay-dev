@@ -319,6 +319,10 @@ def json_load():
             new_cat.no_kits = cat["no_kits"] if "no_kits" in cat else False
             new_cat.no_mates = cat["no_mates"] if "no_mates" in cat else False
             new_cat.no_retire = cat["no_retire"] if "no_retire" in cat else False
+            # PG
+            new_cat.no_sexuality_changes = cat["no_sexuality_changes"] if "no_sexuality_changes" in cat else False
+            new_cat.no_gender_changes = cat["no_gender_changes"] if "no_gender_changes" in cat else False
+
             new_cat.no_faith = cat["no_faith"] if "no_faith" in cat else False
             new_cat.lock_faith = cat["lock_faith"] if "lock_faith" in cat else "flexible"
             new_cat.driven_out = cat["driven_out"] if "driven_out" in cat else False

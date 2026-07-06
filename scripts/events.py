@@ -2498,6 +2498,9 @@ def one_moon_cat(cat):
     other_interactions(cat)
     gain_accessories(cat)
 
+    # PG
+    correct_mates_for_sexuality(cat)
+
     # switches between the two death handles
     if random.getrandbits(1):
         triggered_death = handle_injuries_or_general_death(cat)
@@ -4305,6 +4308,9 @@ def sexuality_change(cat):
 
     if cat.age.is_baby():
         return
+
+    if cat.no_sexuality_changes:
+        return
     
     if cat.sexuality.upcoming_sexuality:
         cat.sexuality.upcoming_sexuality["moons_until"] -= 1
@@ -4347,6 +4353,7 @@ def sexuality_change(cat):
                 )
             cat.sexuality.clear_upcoming_sexuality()
             cat.sexuality.total_changes += 1
+            print(cat.name, "total sexuality changes:", cat.sexuality.total_changes)
         return
     
     # if they dont have a change upcoming, try to give them one!
@@ -4383,7 +4390,7 @@ def sexuality_change(cat):
             new_arospec = random.choice(options)
 
             microlabel = None
-            if game_setting_get("microlabels"):
+            if game_setting_get("microlabels") and not int(random.random() * 2):
                 microlabel_dict = {
                     Arospec.DEMI : ["nebularomantic"],
                     Arospec.GREY : ["lithromantic", "aroaceflux"],
@@ -4434,6 +4441,17 @@ def sexuality_change(cat):
                 cat.sexuality.create_upcoming_sexuality_dict(
                     likes_she_cats=True
                 )
+
+def correct_mates_for_sexuality(cat):
+    if not cat.mate:
+        return
+    
+    for cat_id in cat.mate:
+        if not Cat.fetch_cat(cat_id).is_pridegen_compatible(cat):
+            print("PG DEBUG: Mates are not compatible! Unsetting.")
+            print(Cat.fetch_cat(cat_id).name, Cat.fetch_cat(cat_id).sexuality.sexuality_label)
+            print(cat.name, cat.sexuality.sexuality_label)
+            Cat.fetch_cat(cat_id).unset_mate(cat)
 
 def find_sexuality_change_event(cat):
     upcoming = cat.sexuality.upcoming_sexuality
@@ -4523,6 +4541,9 @@ def coming_out(cat):
     """turnin' the kitties trans..."""
 
     if cat.moons < 3 or cat.gender != cat.genderalign:
+        return
+    
+    if cat.no_gender_changes:
         return
 
     transing_chance = constants.CONFIG["transition_related"]

@@ -13,7 +13,7 @@ class CatToggleWindow(GameWindow):
 
     def __init__(self, cat):
         super().__init__(
-            ui_scale(pygame.Rect((300, 215), (400, 185))),
+            ui_scale(pygame.Rect((300, 215), (400, 210))),
         )
         self.the_cat = cat
 
@@ -45,6 +45,20 @@ class CatToggleWindow(GameWindow):
         self.text_4 = pygame_gui.elements.UITextBox(
             "windows.prevent_romance",
             ui_scale(pygame.Rect(55, 100, -1, 32)),
+            object_id="#text_box_30_horizleft_pad_0_8",
+            container=self,
+        )
+
+        self.text_5 = pygame_gui.elements.UITextBox(
+            "windows.prevent_sexuality_changes",
+            ui_scale(pygame.Rect(55, 125, -1, 32)),
+            object_id="#text_box_30_horizleft_pad_0_8",
+            container=self,
+        )
+
+        self.text_6 = pygame_gui.elements.UITextBox(
+            "windows.prevent_gender_changes",
+            ui_scale(pygame.Rect(55, 150, -1, 32)),
             object_id="#text_box_30_horizleft_pad_0_8",
             container=self,
         )
@@ -114,6 +128,32 @@ class CatToggleWindow(GameWindow):
             tool_tip_text="windows.prevent_romance_tooltip",
         )
 
+        # PG: No sexuality changes
+        self.checkboxes["prevent_sexuality_changes"] = UIImageButton(
+            ui_scale(pygame.Rect((22, 125), (34, 34))),
+            "",
+            container=self,
+            object_id=(
+                "@checked_checkbox" if self.the_cat.no_sexuality_changes else "@unchecked_checkbox"
+            ),
+            tool_tip_text="windows.prevent_sexuality_changes_tooltip",
+        )
+        if self.the_cat.moons < 6:
+            self.checkboxes["prevent_sexuality_changes"].disable()
+
+        # PG: No sexuality changes
+        self.checkboxes["prevent_gender_changes"] = UIImageButton(
+            ui_scale(pygame.Rect((22, 150), (34, 34))),
+            "",
+            container=self,
+            object_id=(
+                "@checked_checkbox" if self.the_cat.no_gender_changes else "@unchecked_checkbox"
+            ),
+            tool_tip_text="windows.prevent_gender_changes_tooltip",
+        )
+        if self.the_cat.moons < 6:
+            self.checkboxes["prevent_gender_changes"].disable()
+
     def process_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
@@ -130,6 +170,13 @@ class CatToggleWindow(GameWindow):
                 self.refresh_checkboxes()
             elif event.ui_element == self.checkboxes["prevent_mates"]:
                 self.the_cat.no_mates = not self.the_cat.no_mates
+                self.refresh_checkboxes()
+            # PG
+            elif event.ui_element == self.checkboxes["prevent_sexuality_changes"]:
+                self.the_cat.no_sexuality_changes = not self.the_cat.no_sexuality_changes
+                self.refresh_checkboxes()
+            elif event.ui_element == self.checkboxes["prevent_gender_changes"]:
+                self.the_cat.no_gender_changes = not self.the_cat.no_gender_changes
                 self.refresh_checkboxes()
 
         return super().process_event(event)

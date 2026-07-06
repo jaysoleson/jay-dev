@@ -240,7 +240,6 @@ class Sexuality():
             upcoming_dict["likes_she_cats"] = False
         
         return upcoming_dict
-
     
     def clear_upcoming_sexuality(self):
         self.upcoming_sexuality = {}
@@ -248,7 +247,7 @@ class Sexuality():
     def init_random_sexuality(self, gender, disable_random=False):
         """
         Randomises a new cat's sexuality.
-        disable_random gets passes as true for test cats
+        disable_random gets passed as true for test cats
         """
         if disable_random:
             self.likes_toms = True
@@ -430,7 +429,7 @@ class Sexuality():
                 valid_flags.append("SAPPHIC")
                 valid_flags.append("RAINBOW_BANDANA")
                 valid_flags.append("URANIC")
-                if not self.likes_she_cats:
+                if not self.likes_toms:
                     valid_flags.append("LESBIAN")
                     valid_flags.append("BUTCH")
             elif self.likes_toms:

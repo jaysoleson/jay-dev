@@ -571,6 +571,13 @@ class ShortEvent:
             new_gender = choice(possible_genders)
             self.main_cat.genderalign = new_gender
 
+            # PG
+            if not self.main_cat.sexuality.likes_toms == self.main_cat.sexuality.likes_she_cats:
+                # if the cat is already bi, pan, or aroace, this wont need to be corrected.
+                print("PG DEBUG:", self.main_cat.name, self.main_cat.sexuality.sexuality_label, new_gender)
+                self.main_cat.sexuality.sexuality_label = self.main_cat.sexuality.generate_sexuality_label(new_gender)
+                print("NEW:", self.main_cat.sexuality.sexuality_label)
+
             self.main_cat.pronouns = pronouns.get_new_pronouns(
                 self.main_cat.genderalign
             )
