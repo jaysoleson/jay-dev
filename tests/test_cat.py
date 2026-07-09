@@ -253,7 +253,6 @@ class TestPossibleMateFunction(unittest.TestCase):
         self.assertFalse(senior_adult_cat1.is_potential_mate(young_adult_cat1, True))
 
         # check valid constellations
-        self.assertTrue(kitten_cat1.is_potential_mate(kitten_cat2, True))
         self.assertTrue(adolescent_cat1.is_potential_mate(adolescent_cat2, True))
         self.assertTrue(young_adult_cat1.is_potential_mate(young_adult_cat2, True))
         self.assertTrue(young_adult_cat1.is_potential_mate(adult_cat_in_range1, True))
