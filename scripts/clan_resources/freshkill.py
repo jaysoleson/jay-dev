@@ -46,7 +46,9 @@ class Nutrition:
         if value < 0:
             value = 0
         self._current_score = value
-        self.percentage = self._current_score / self.max_score * 100
+        self.percentage = (
+            self._current_score / self.max_score * 100 if self.max_score else 0
+        )
         text_config = constants.PREY_CONFIG["text_nutrition"]
         self.nutrition_text = text_config["text"][0]
         for index in range(len(text_config["lower_range"])):
@@ -138,7 +140,7 @@ class FreshkillPile:
     def discard_outside_pile(self) -> None:
         self.pile.pop(self.OUTSIDE_GROUP_KEY, None)
 
-    def add_freshkill(self, amount) -> None:
+    def add_freshkill(self, amount, apply_outsider_yield: bool = True) -> None:
         """
         Add new fresh kill to the pile.
 
@@ -146,8 +148,12 @@ class FreshkillPile:
             ----------
             amount : int|float
                 the amount which should be added to the pile
+            apply_outsider_yield : bool
+                if True, an outsider player's gains are reduced by
+                OUTSIDER_YIELD_DIVISOR to model a lone cat hunting less than a
+                Clan.
         """
-        if self._is_mc_outside():
+        if apply_outsider_yield and self._is_mc_outside():
             amount = amount / self.OUTSIDER_YIELD_DIVISOR
         self.active_pile["expires_in_4"] += amount
         self.total_amount += amount
@@ -662,6 +668,8 @@ class FreshkillPile:
                     self.nutrition_info[cat.ID].max_score = required_max
                     self.nutrition_info[cat.ID].current_score = (
                         current_score / previous_max * required_max
+                        if previous_max
+                        else required_max
                     )
             else:
                 self.add_cat_to_nutrition(cat)

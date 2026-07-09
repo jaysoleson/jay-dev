@@ -347,8 +347,10 @@ class Patrol:
             self.patrol_leader = self.patrol_cats[index]
         else:
             # Get the oldest cat
-            possible_leader = [i for i in self.patrol_cats if i.status not in 
-                            ["medicine cat apprentice", "apprentice"]]
+            possible_leader = [
+                i for i in self.patrol_cats
+                if not i.status.rank.is_any_apprentice_rank()
+            ]
             if possible_leader:
                 # Flip a coin to pick the most experience, or oldest. 
                 if randint(0, 1):
@@ -517,7 +519,7 @@ class Patrol:
         clan_size = int(len(game.clan.clan_cats))
         chance = 0
         # assigning other_clan relations
-        other_clan_standing = other_clan.get_standing()
+        other_clan_standing = other_clan.get_standing() if other_clan else None
         if other_clan_standing == "ally":
             clan_allies = True
         elif other_clan_standing == "hostile":
@@ -979,7 +981,8 @@ class Patrol:
                                     continue
 
                     if "bloodthirsty_only" in patrol.tags:
-                        if Cat.all_cats.get(game.clan.your_cat.mentor).personality.trait != "bloodthirsty":
+                        mentor = Cat.all_cats.get(game.clan.your_cat.mentor)
+                        if mentor is None or mentor.personality.trait != "bloodthirsty":
                             continue
 
                 # cruel season tag check
@@ -1021,9 +1024,7 @@ class Patrol:
             herb_filtered_patrols = []
             herb_romance_patrols = []
 
-            i = 0
-            while not herb_filtered_patrols and i <= len(target_herbs):
-                i += 1
+            for i in range(len(target_herbs)):
                 herb_filtered_patrols = [
                     patrol
                     for patrol in filtered_patrols
@@ -1036,6 +1037,8 @@ class Patrol:
                     if target_herbs[i] in patrol.herbs_given
                     or "random_herbs" in patrol.herbs_given
                 ]
+                if herb_filtered_patrols:
+                    break
 
             if herb_filtered_patrols:
                 filtered_patrols = herb_filtered_patrols

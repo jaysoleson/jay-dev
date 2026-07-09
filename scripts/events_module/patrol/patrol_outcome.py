@@ -747,7 +747,6 @@ class PatrolOutcome:
             # Gather acual cat objects:
             faith_cat_ob = gather_cat_objects(Cat, faith_cat, patrol, self.stat_cat)
             
-            # Remove any "None" that might have snuck in
             if None in faith_cat_ob:
                 faith_cat_ob.remove(None)
 
@@ -782,14 +781,15 @@ class PatrolOutcome:
             murderer_ob = gather_cat_objects(Cat, murderer, patrol, self.stat_cat)
             victim_ob = gather_cat_objects(Cat, victim, patrol, self.stat_cat)
             
-            # Remove any "None" that might have snuck in
-            if None in murderer_ob:
-                murderer_ob.remove(None)
-            if None in victim_ob:
-                victim_ob.remove(None)
+            murderer_ob = [c for c in murderer_ob if c is not None]
+            victim_ob = [c for c in victim_ob if c is not None]
+
+            # skip if we don't have both a murderer and a victim to work with
+            if not murderer_ob or not victim_ob:
+                continue
 
             results.append(f"{murderer_ob[-1].name} has murdered {victim_ob[-1].name}.")
-            
+
             self.__handle_death_history(cat=victim_ob[-1], patrol=patrol, murderer=murderer_ob[-1])
             victim_ob[-1].die()
 
@@ -1319,20 +1319,22 @@ class PatrolOutcome:
         else:
             acc_categories = Pelt.clangen_acc_categories
 
+        resolved = []
         for item in acc_list:
             if item not in acc_categories and item not in Pelt.all_lifegen_accessories:
                 print("WARNING: Invalid accessory present in patrol outcome:", item)
                 continue
             if item in acc_categories:
-                acc_list.remove(item)
-                acc_list.extend(acc_categories[item])
-            if item in cat.pelt.inventory:
-                acc_list.remove(item)
+                resolved.extend(acc_categories[item])
+            else:
+                resolved.append(item)
 
-        if not acc_list:
+        resolved = [acc for acc in resolved if acc not in cat.pelt.inventory]
+
+        if not resolved:
             return None
 
-        chosen_acc = choice(acc_list)
+        chosen_acc = choice(resolved)
         cat.pelt.inventory.append(chosen_acc)
         cat.pelt.accessory = cat.pelt.accessory + (chosen_acc,)
 

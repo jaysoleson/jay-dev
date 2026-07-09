@@ -209,9 +209,10 @@ class History:
         if not self.mentor_influence["trait"]:
             return
 
-        if (
-            "Benevolent" or "Abrasive" or "Reserved" or "Outgoing"
-        ) in self.mentor_influence["trait"]:
+        if any(
+            t in self.mentor_influence["trait"]
+            for t in ("Benevolent", "Abrasive", "Reserved", "Outgoing")
+        ):
             self.mentor_influence["trait"] = None
             return
 
@@ -335,7 +336,20 @@ class History:
                 SkillPath.FISHER: ["fishing"],
                 SkillPath.LANGUAGE: ["using their words"],
                 SkillPath.SLEEPER: ["self-care"],
-                SkillPath.GARDENER: ["taking care of plants"]
+                SkillPath.GARDENER: ["taking care of plants"],
+                SkillPath.DARK: ["connecting to the Dark Forest"],
+                # Kittypet-unique
+                SkillPath.TWOLEGCARE: ["getting along with Twolegs"],
+                SkillPath.CHARMER: ["charming others"],
+                SkillPath.SHOWCAT: ["looking their best"],
+                # Loner-unique
+                SkillPath.WANDERER: ["traveling long distances"],
+                SkillPath.SCAVENGER: ["scavenging for resources"],
+                SkillPath.SURVIVOR: ["surviving hardship"],
+                # Rogue-unique
+                SkillPath.BRAWLER: ["brawling"],
+                SkillPath.INTIMIDATOR: ["intimidating others"],
+                SkillPath.AMBUSHER: ["laying ambushes"]
             }
         
         for _ment in self.mentor_influence["skill"]:

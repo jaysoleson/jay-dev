@@ -8,6 +8,7 @@ TODO: Docs
 # testt
 # pylint: enable=line-too-long
 
+import logging
 import os
 import statistics
 from random import choice, randint
@@ -55,6 +56,8 @@ from scripts.events_module.consequences import (
 from scripts.clan_package.get_clan_cats import (
     get_possible_mates
 )
+
+logger = logging.getLogger(__name__)
 
 
 class Clan:
@@ -950,7 +953,8 @@ class Clan:
         if self.your_cat:
             clan_data["your_cat"] = self.your_cat.ID
         else:
-            clan_data["your_cat"] = (choice([x for x in Cat.all_cats_list if x.status.alive_in_player_clan]).ID)
+            alive_clan_cats = [x for x in Cat.all_cats_list if x.status.alive_in_player_clan]
+            clan_data["your_cat"] = choice(alive_clan_cats).ID if alive_clan_cats else None
 
         if self.focus_cat:
             clan_data["focus_cat"] = self.focus_cat.ID
@@ -1238,13 +1242,17 @@ class Clan:
             clan_data = ujson.loads(read_file.read())
 
         # LG
-        if "your_cat" in clan_data:
-            your_cat = Cat.all_cats[clan_data["your_cat"]]
-        else:
+        your_cat = None
+        if clan_data.get("your_cat"):
+            your_cat = Cat.all_cats.get(clan_data["your_cat"])
+        if your_cat is None:
             print("You don't have a cat! Choosing one for you...")
-            chosen_id = choice([x for x in Cat.all_cats_list if x.status.alive_in_your_cat_group]).ID
-            your_cat = Cat.all_cats[chosen_id]
-            print(f"Hello, {your_cat.name}!")
+            candidates = [x for x in Cat.all_cats_list if x.status.alive_in_your_cat_group]
+            if candidates:
+                your_cat = choice(candidates)
+                print(f"Hello, {your_cat.name}!")
+            else:
+                print("No eligible cat found to assign as your_cat.")
 
         if clan_data["leader"]:
             leader = Cat.all_cats[clan_data["leader"]]
@@ -1656,9 +1664,9 @@ class Clan:
                             duration=disaster["duration"],
                             current_duration=(
                                 disaster["current_duration"]
-                                if "current_duration"
+                                if "current_duration" in disaster
                                 else disaster["duration"]
-                            ),  # pylint: disable=using-constant-test
+                            ),
                             trigger_events=disaster["trigger_events"],
                             progress_events=disaster["progress_events"],
                             conclusion_events=disaster["conclusion_events"],
@@ -1673,7 +1681,8 @@ class Clan:
                 with open(file_path, "w", encoding="utf-8") as rel_file:
                     json_string = ujson.dumps(clan.primary_disaster, indent=4)
                     rel_file.write(json_string)
-        except:
+        except Exception:
+            logger.exception("Failed to load primary disaster; clearing it.")
             clan.primary_disaster = None
 
         file_path = get_save_dir() + f"/{game.clan.name}/disasters/secondary.json"
@@ -1688,9 +1697,9 @@ class Clan:
                             duration=disaster["duration"],
                             current_duration=(
                                 disaster["current_duration"]
-                                if "current_duration"
+                                if "current_duration" in disaster
                                 else disaster["duration"]
-                            ),  # pylint: disable=using-constant-test
+                            ),
                             progress_events=disaster["progress_events"],
                             conclusion_events=disaster["conclusion_events"],
                             collateral_damage=disaster["collateral_damage"],
@@ -1704,7 +1713,8 @@ class Clan:
                     json_string = ujson.dumps(clan.secondary_disaster, indent=4)
                     rel_file.write(json_string)
 
-        except:
+        except Exception:
+            logger.exception("Failed to load secondary disaster; clearing it.")
             clan.secondary_disaster = None
 
     def save_disaster(self, clan=game.clan):
@@ -1821,7 +1831,8 @@ class Clan:
                 clan.herb_supply = HerbSupply()
 
             clan.herb_supply.set_required_herb_count(get_living_clan_cat_count(Cat))
-        except:
+        except Exception:
+            logger.exception("Failed to load herb supply; starting with an empty supply.")
             clan.herb_supply = HerbSupply()
 
     def save_herb_supply(self, clan):
@@ -1885,7 +1896,8 @@ class Clan:
                                 clan.freshkill_pile.add_cat_to_nutrition(cat)
             else:
                 clan.freshkill_pile = FreshkillPile()
-        except:
+        except Exception:
+            logger.exception("Failed to load freshkill pile; starting with an empty pile.")
             clan.freshkill_pile = FreshkillPile()
 
     def save_freshkill_pile(self, clan):

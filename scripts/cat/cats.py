@@ -966,6 +966,9 @@ class Cat:
                         )
                     )
 
+                if not possible_strings:
+                    continue
+
                 text = event_text_adjust(
                     Cat, choice(possible_strings), main_cat=self, random_cat=cat
                 )
@@ -1548,6 +1551,7 @@ class Cat:
             trait = giver_cat.personality.trait
 
             life_list = []
+            fallback_life_list = []
             if game.clan.your_cat.ID == self.ID:
                 victim_in_lifegiver = False
                 if game.clan.your_cat.history:
@@ -1603,6 +1607,7 @@ class Cat:
                     and giver_cat.ID not in self.former_apprentices
                 ):
                     continue
+                fallback_life_list.extend(list(possible_lives[life]["life_giving"]))
                 if (
                     possible_lives[life]["rank"]
                     and rank not in possible_lives[life]["rank"]
@@ -1621,20 +1626,17 @@ class Cat:
                     continue
                 life_list.extend(list(possible_lives[life]["life_giving"]))
 
+            pool = life_list if life_list else fallback_life_list
+
             i = 0
             chosen_life = {}
             while i < 10:
-                attempted = []
-                if life_list:
-                    chosen_life = choice(life_list)
-                    if chosen_life not in used_lives and chosen_life not in attempted:
+                if pool:
+                    chosen_life = choice(pool)
+                    if chosen_life not in used_lives:
                         break
-                    attempted.append(chosen_life)
                     i += 1
                 else:
-                    print(
-                        f"WARNING: life list had no items for giver #{giver_cat.ID}. Using default life."
-                    )
                     chosen_life = ceremony_dict["default_life"]
                     break
 
@@ -2678,7 +2680,9 @@ class Cat:
             return
 
         if not self.joined_df:
-            Cat.fetch_cat(self.df_mentor).df_apprentices.remove(self.ID)
+            mentor = Cat.fetch_cat(self.df_mentor)
+            if mentor and self.ID in mentor.df_apprentices:
+                mentor.df_apprentices.remove(self.ID)
             self.df_mentor = None
             return
         
@@ -3396,7 +3400,7 @@ class Cat:
                     if random_cat.status not in story["random_cat"]["status"]:
                         continue
                 if "age" in story["random_cat"]:
-                    if random_cat.age not in story["random_cat"]["status"]:
+                    if random_cat.age not in story["random_cat"]["age"]:
                         continue
 
             filtered_stories.append(story)

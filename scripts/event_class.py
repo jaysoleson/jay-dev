@@ -71,7 +71,11 @@ class Single_Event:
         cat_dict = dict.get("cat_dict", None)
         if cat_dict:
             for abbr, kitty in cat_dict.copy().items():
-                cat_dict[abbr] = Cat.fetch_cat(kitty)
+                kitty_exists = Cat.fetch_cat(kitty)
+                if kitty_exists:
+                    cat_dict[abbr] = kitty_exists
+                else:
+                    del cat_dict[abbr]
 
         return Single_Event(
             text=dict["text"],

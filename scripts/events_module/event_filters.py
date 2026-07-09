@@ -787,7 +787,8 @@ def _get_cats_with_skill(cat_list: list, skills: tuple) -> list:
     if is_exclusionary:
         skills = [x.replace("-", "") for x in skills]
 
-    for kitty in cat_list.copy():
+    result = []
+    for kitty in cat_list:
         has_skill = False
         for _skill in skills:
             split_skill = _skill.split(",")
@@ -801,13 +802,10 @@ def _get_cats_with_skill(cat_list: list, skills: tuple) -> list:
             ):
                 has_skill = True
 
-        if has_skill and is_exclusionary:
-            cat_list.remove(kitty)
+        if has_skill != is_exclusionary:
+            result.append(kitty)
 
-        if not has_skill and not is_exclusionary:
-            cat_list.remove(kitty)
-
-    return cat_list
+    return result
 
 
 def _get_cats_with_trait(cat_list: list, traits: tuple) -> list:
@@ -1050,12 +1048,14 @@ def filter_relationship_type(group: list, filter_types: List[str], patrol_leader
             return False
         if not group[0].ID in group[1].df_apprentices:
             return False
-        
+        filter_types.remove("df_app/df_mentor")
+
     if "df_mentor/df_app" in filter_types:
         if len(group) != 2:
             return False
         if not group[1].ID in group[0].df_apprentices:
             return False
+        filter_types.remove("df_mentor/df_app")
 
     if "strangers" in filter_types and len(group) == 2:
         relationship = group[0].relationships[group[1].ID]

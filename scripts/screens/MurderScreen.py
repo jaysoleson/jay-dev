@@ -314,7 +314,7 @@ class MurderScreen(Screens):
                 else:
                     self.update_cat_list2()
             elif event.ui_element == self.previous_page_button:
-                self.current_page -= 1
+                self.current_page = max(1, self.current_page - 1)
                 if self.stage == "choose murder cat":
                     self.update_cat_list()
                 else:
@@ -1621,6 +1621,10 @@ class MurderScreen(Screens):
         options = []
         for i in murder_events.items():
             options.append(i)
+
+        if not options:
+            print("No valid murder event found for the current filters.")
+            return
 
         chosen_event = choice(options)
 
@@ -2960,7 +2964,7 @@ class MurderScreen(Screens):
         # If the number of pages becomes smaller than the number of our current page, set
         #   the current page to the last page
         if self.current_page > len(valid_mentors):
-            self.list_page = len(valid_mentors)
+            self.current_page = max(1, len(valid_mentors))
 
         # Handle which next buttons are clickable.
         if len(valid_mentors) <= 1:
@@ -2976,7 +2980,7 @@ class MurderScreen(Screens):
             self.previous_page_button.enable()
             self.next_page_button.enable()
         display_cats = []
-        if valid_mentors:
+        if valid_mentors and len(valid_mentors) > self.current_page - 1:
             display_cats = valid_mentors[self.current_page - 1]
 
         # Kill all the currently displayed cats.
@@ -3004,7 +3008,7 @@ class MurderScreen(Screens):
         # If the number of pages becomes smaller than the number of our current page, set
         #   the current page to the last page
         if self.current_page > len(valid_mentors):
-            self.list_page = len(valid_mentors)
+            self.current_page = max(1, len(valid_mentors))
 
         # Handle which next buttons are clickable.
         if len(valid_mentors) <= 1:

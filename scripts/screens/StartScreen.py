@@ -380,7 +380,7 @@ class StartScreen(Screens):
                             "r",
                             encoding="utf-8",
                         ) as read_file:
-                            if read_file.readline() == get_latest_version_number():
+                            if read_file.readline().strip() == get_latest_version_number().strip():
                                 show_popup = False
 
                     # LG

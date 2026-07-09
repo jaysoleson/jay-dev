@@ -881,7 +881,7 @@ def auto_freshkill():
 
     current_amount = game.clan.freshkill_pile.total_amount
     needed_amount = game.clan.freshkill_pile.amount_food_needed()
-    target_amount = needed_amount * 1.5
+    target_amount = needed_amount * 2
     amount_to_add = 0
     if current_amount < target_amount:
         amount_to_add = target_amount - current_amount
@@ -1955,10 +1955,14 @@ def get_moon_freshkill():
     game.freshkill_event_list.append(
         i18n.t("hardcoded.prey_catch_count", count=prey_amount)
     )
+    used_auto = False
     if get_clan_setting("freshkill"):
         if game.clan.your_cat.status.group != CatGroup.HOUSEHOLD:
             prey_amount = auto_freshkill()
-    game.clan.freshkill_pile.add_freshkill(prey_amount)
+            used_auto = True
+    game.clan.freshkill_pile.add_freshkill(
+        prey_amount, apply_outsider_yield=not used_auto
+    )
 
 def handle_focus():
     """
@@ -2488,46 +2492,26 @@ def one_moon_cat(cat):
     
     invite_new_cats(cat)
     other_interactions(cat)
-    # gain_accessories(cat)
-
-    coming_out(cat)
-    Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
-    # Stop the timeskip if the cat died in childbirth
-    if cat.dead:
-        return
-
-    cat.relationship_interaction()
+    gain_accessories(cat)
     cat.get_new_thought()
 
-    # relationships have to be handled separately, because of the ceremony name change
-    if cat.status.alive_in_player_clan:
-        Relation_Events.handle_relationships(cat)
-
-    # now we make sure ill and injured cats don't get interactions they shouldn't
-    if cat.is_ill() or cat.is_injured():
-        return
-
-    invite_new_cats(cat)
-    other_interactions(cat)
-    gain_accessories(cat)
-
-    # switches between the two death handles
     if random.getrandbits(1):
         triggered_death = handle_injuries_or_general_death(cat)
         if not triggered_death:
-            handle_illnesses_or_illness_deaths(cat)
-        else:
             triggered_death = handle_illnesses_or_illness_deaths(cat)
-            if not triggered_death:
-                handle_injuries_or_general_death(cat)
-            else:
-                switch_set_value(Switch.skip_conditions, [])
-                return
+    else:
+        triggered_death = handle_illnesses_or_illness_deaths(cat)
+        if not triggered_death:
+            triggered_death = handle_injuries_or_general_death(cat)
 
-        handle_murder(cat)
-        cat.faith += round(random.uniform(-0.2,0.2), 2)
-
+    if triggered_death:
         switch_set_value(Switch.skip_conditions, [])
+        return
+
+    handle_murder(cat)
+    cat.faith += round(random.uniform(-0.2, 0.2), 2)
+
+    switch_set_value(Switch.skip_conditions, [])
 
 def load_war_resources():
     global WAR_TXT, war_lang
@@ -2625,19 +2609,19 @@ def check_war():
 
     available_med = find_alive_cats_with_rank(Cat, [CatRank.MEDICINE_CAT], working=True)
 
-    for event in war_events.copy():
-        if not game.clan.leader and "lead_name" in event:
-            war_events.remove(event)
-            continue
-        if not game.clan.deputy and "dep_name" in event:
-            war_events.remove(event)
-            continue
-        if not available_med and "med_name" in event:
-            war_events.remove(event)
-            continue
+    filtered_events = [
+        event
+        for event in war_events
+        if not (not game.clan.leader and "lead_name" in event)
+        and not (not game.clan.deputy and "dep_name" in event)
+        and not (not available_med and "med_name" in event)
+    ]
+
+    if not filtered_events:
+        return
 
     # grab our war "notice" for this moon
-    event = random.choice(war_events)
+    event = random.choice(filtered_events)
     event = ongoing_event_text_adjust(
         Cat,
         event,
@@ -3981,14 +3965,13 @@ def handle_disaster(current_disaster, resource=[]):
         
         possible_events = current_disaster["progress_events"]["moon" + str(current_moon)]
 
-        if not game.clan.leader or not game.clan.deputy or not game.clan.medicine_cat:
-            for event in possible_events:
-                if not game.clan.leader and "lead_name" in event:
-                    possible_events.remove(event)
-                if not game.clan.deputy and "dep_name" in event:
-                    possible_events.remove(event)
-                if not game.clan.medicine_cat and "med_name" in event:
-                    possible_events.remove(event)
+        possible_events = [
+            event
+            for event in possible_events
+            if not (not game.clan.leader and "lead_name" in event)
+            and not (not game.clan.deputy and "dep_name" in event)
+            and not (not game.clan.medicine_cat and "med_name" in event)
+        ]
 
         event_string = random.choice(possible_events)
 
@@ -4063,14 +4046,13 @@ def handle_second_disaster(resource=None):
 
         possible_events = current_disaster["progress_events"]["moon" + str(current_moon)]
 
-        if not game.clan.leader or not game.clan.deputy or not game.clan.medicine_cat:
-            for event in possible_events:
-                if not game.clan.leader and "lead_name" in event:
-                    possible_events.remove(event)
-                if not game.clan.deputy and "dep_name" in event:
-                    possible_events.remove(event)
-                if not game.clan.medicine_cat and "med_name" in event:
-                    possible_events.remove(event)
+        possible_events = [
+            event
+            for event in possible_events
+            if not (not game.clan.leader and "lead_name" in event)
+            and not (not game.clan.deputy and "dep_name" in event)
+            and not (not game.clan.medicine_cat and "med_name" in event)
+        ]
 
         event_string = random.choice(possible_events)
         event_string = ongoing_event_text_adjust(Cat, event_string)
@@ -4081,14 +4063,13 @@ def handle_second_disaster(resource=None):
 
         possible_events = current_disaster["conclusion_events"]
 
-        if not game.clan.leader or not game.clan.deputy or not game.clan.medicine_cat:
-            for event in possible_events:
-                if not game.clan.leader and "lead_name" in event:
-                    possible_events.remove(event)
-                if not game.clan.deputy and "dep_name" in event:
-                    possible_events.remove(event)
-                if not game.clan.medicine_cat and "med_name" in event:
-                    possible_events.remove(event)
+        possible_events = [
+            event
+            for event in possible_events
+            if not (not game.clan.leader and "lead_name" in event)
+            and not (not game.clan.deputy and "dep_name" in event)
+            and not (not game.clan.medicine_cat and "med_name" in event)
+        ]
 
         event_string = random.choice(possible_events)
 

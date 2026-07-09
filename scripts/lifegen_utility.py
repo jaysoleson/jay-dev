@@ -53,7 +53,7 @@ def check_achievements(Cat, eventspage=False):
             achievements.add("29")
         if (cat.name.prefix == "Coffee" and cat.name.suffix == "dot") or (cat.name.prefix == "Chibi" and cat.name.suffix == "Galaxies"):
             achievements.add("30")
-        if cat.status.rank == CatRank.APPRENTICE and cat.name.prefix == "Pea" and cat.pelt.white_colours:
+        if cat.status.rank == CatRank.APPRENTICE and cat.name.prefix == "Pea" and cat.pelt.colour in cat.pelt.white_colours:
             achievements.add("33")
         if cat.status.rank == CatRank.KITTEN and cat.moons > 6:
             achievements.add("34")

@@ -233,6 +233,13 @@ def __filter_age(abbrev_block, cat, anchor=None):
     if f"-{cat.age}" in age_block:
         return False
 
+    positive_tags = [
+        tag for tag in age_block
+        if not (isinstance(tag, str) and (tag.startswith("not_") or tag.startswith("-")))
+    ]
+    if not positive_tags:
+        return True
+
     # exact age-stage match
     if cat.age in age_block:
         return True
@@ -632,8 +639,7 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                                 elif rel_tag == "parent's sibling/sibling's kit":
                                     rel_valid = from_cat.is_uncle_aunt(to_cat)
                                 elif rel_tag == "strangers":
-                                    if from_cat.ID in to_cat.relationships:
-                                        rel_valid = False
+                                    rel_valid = from_cat.ID not in to_cat.relationships
                                 elif rel_tag == "siblings":
                                     rel_valid = from_cat.is_sibling(to_cat)
                                 elif rel_tag == "littermates":

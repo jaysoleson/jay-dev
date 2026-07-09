@@ -204,31 +204,35 @@ class AffairScreen(Screens):
             if self.get_fail_consequence() == 0:
                 ceremony_txt = self.adjust_txt(
                     choice(self.mu_txt['fail breakup']), affair_cat)
-                for i in game.clan.your_cat.mate:
-                    Cat.fetch_cat(i).get_ill("heartbroken")
-                    Cat.fetch_cat(i).unset_mate(game.clan.your_cat)
-                    Cat.fetch_cat(i).relationships.get(
-                        game.clan.your_cat.ID).like -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
-                    Cat.fetch_cat(i).relationships.get(
-                        game.clan.your_cat.ID).comfort -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
-                    Cat.fetch_cat(i).relationships.get(
-                        game.clan.your_cat.ID).trust -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
-                    Cat.fetch_cat(i).relationships.get(
-                        game.clan.your_cat.ID).romance -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
+                for i in list(game.clan.your_cat.mate):
+                    mate = Cat.fetch_cat(i)
+                    if mate is None:
+                        continue
+                    mate.get_ill("heartbroken")
+                    mate.unset_mate(game.clan.your_cat)
+                    rel = mate.relationships.get(game.clan.your_cat.ID)
+                    if rel is None:
+                        continue
+                    rel.like -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
+                    rel.comfort -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
+                    rel.trust -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
+                    rel.romance -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
                 game.cur_events_list.insert(1, Single_Event(ceremony_txt))
             else:
                 ceremony_txt = self.adjust_txt(
                     choice(self.mu_txt['fail none']), affair_cat)
                 game.cur_events_list.insert(1, Single_Event(ceremony_txt))
                 for i in game.clan.your_cat.mate:
-                    Cat.fetch_cat(i).relationships.get(
-                        game.clan.your_cat.ID).like -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
-                    Cat.fetch_cat(i).relationships.get(
-                        game.clan.your_cat.ID).comfort -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
-                    Cat.fetch_cat(i).relationships.get(
-                        game.clan.your_cat.ID).trust -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
-                    Cat.fetch_cat(i).relationships.get(
-                        game.clan.your_cat.ID).romance -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
+                    mate = Cat.fetch_cat(i)
+                    if mate is None:
+                        continue
+                    rel = mate.relationships.get(game.clan.your_cat.ID)
+                    if rel is None:
+                        continue
+                    rel.like -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
+                    rel.comfort -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
+                    rel.trust -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
+                    rel.romance -= randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
 
         self.change_screen(GameScreen.EVENTS)
 
@@ -236,32 +240,40 @@ class AffairScreen(Screens):
         """Calculates affair success rate based on relationships"""
         chance = constants.CONFIG["lifegen"]["gen"]["affair_success_chance"]
         for i in game.clan.your_cat.mate:
-            if Cat.fetch_cat(i).relationships.get(game.clan.your_cat.ID).romance > 50:
-                chance -=5
-            elif Cat.fetch_cat(i).relationships.get(game.clan.your_cat.ID).romance < 10:
-                chance +=5
-            if Cat.fetch_cat(i).relationships.get(game.clan.your_cat.ID).comfort > 50:
-                chance -=5
-            elif Cat.fetch_cat(i).relationships.get(game.clan.your_cat.ID).comfort < 10:
-                chance +=5
-            if Cat.fetch_cat(i).relationships.get(game.clan.your_cat.ID).trust > 50:
-                chance -=5
-            elif Cat.fetch_cat(i).relationships.get(game.clan.your_cat.ID).trust < 10:
-                chance +=5
-        if affair_cat.relationships.get(game.clan.your_cat.ID).like < -10:
-            chance += 10
-        if affair_cat.relationships.get(game.clan.your_cat.ID).romance > 20:
-            chance -= 10
-        elif affair_cat.relationships.get(game.clan.your_cat.ID).romance < 10:
-            chance += 10
-        if affair_cat.relationships.get(game.clan.your_cat.ID).comfort > 20:
-            chance -= 10
-        elif affair_cat.relationships.get(game.clan.your_cat.ID).comfort < 10:
-            chance += 10
-        if affair_cat.relationships.get(game.clan.your_cat.ID).trust > 20:
-            chance -= 10
-        elif affair_cat.relationships.get(game.clan.your_cat.ID).trust < 10:
-            chance += 10
+            mate = Cat.fetch_cat(i)
+            if mate is None or not mate.status.alive_in_player_clan:
+                continue
+            rel = mate.relationships.get(game.clan.your_cat.ID)
+            if rel is None:
+                continue
+            if rel.romance > 50:
+                chance -= 5
+            elif rel.romance < 10:
+                chance += 5
+            if rel.comfort > 50:
+                chance -= 5
+            elif rel.comfort < 10:
+                chance += 5
+            if rel.trust > 50:
+                chance -= 5
+            elif rel.trust < 10:
+                chance += 5
+        affair_rel = affair_cat.relationships.get(game.clan.your_cat.ID)
+        if affair_rel is not None:
+            if affair_rel.like < -10:
+                chance += 10
+            if affair_rel.romance > 20:
+                chance -= 10
+            elif affair_rel.romance < 10:
+                chance += 10
+            if affair_rel.comfort > 20:
+                chance -= 10
+            elif affair_rel.comfort < 10:
+                chance += 10
+            if affair_rel.trust > 20:
+                chance -= 10
+            elif affair_rel.trust < 10:
+                chance += 10
         if chance < 1:
             chance = 1
         if randint(1,100) < randint(0, max(0, chance + randint(-10,10))):
@@ -273,31 +285,40 @@ class AffairScreen(Screens):
 
     def adjust_txt(self, txt, affair_cat):
 
-        mate_options = [mate for mate in game.clan.your_cat.mate if Cat.fetch_cat(mate).status.alive_in_player_clan]
-        random_mate = Cat.fetch_cat(choice(mate_options))
+        mate_options = [
+            mate for mate in game.clan.your_cat.mate
+            if Cat.fetch_cat(mate) and Cat.fetch_cat(mate).status.alive_in_player_clan
+        ]
+        if not mate_options:
+            # fall back to any mate that can still be fetched
+            mate_options = [mate for mate in game.clan.your_cat.mate if Cat.fetch_cat(mate)]
+        random_mate = Cat.fetch_cat(choice(mate_options)) if mate_options else affair_cat
 
         warriors = find_alive_cats_with_rank(Cat, [CatRank.WARRIOR])
-        random_warrior = Cat.fetch_cat(choice(warriors))
+        if warriors:
+            random_warrior = Cat.fetch_cat(choice(warriors))
 
-        counter = 0
-        while not random_warrior.status.alive_in_player_clan or random_warrior.ID == affair_cat.ID or random_warrior.ID in game.clan.your_cat.mate or random_warrior.ID == game.clan.your_cat.ID:
-            random_warrior = Cat.fetch_cat(choice(game.clan.clan_cats))
-            counter += 1
-            if counter > 30:
-                break
+            counter = 0
+            while not random_warrior.status.alive_in_player_clan or random_warrior.ID == affair_cat.ID or random_warrior.ID in game.clan.your_cat.mate or random_warrior.ID == game.clan.your_cat.ID:
+                random_warrior = Cat.fetch_cat(choice(game.clan.clan_cats))
+                counter += 1
+                if counter > 30:
+                    break
 
         process_text_dict = {}
         
         process_text_dict["y_c"] = (game.clan.your_cat, choice(game.clan.your_cat.pronouns))
         process_text_dict["a_n"] = (affair_cat, choice(affair_cat.pronouns))
         process_text_dict["m_n"] = (random_mate, choice(random_mate.pronouns))
-        process_text_dict["r_w"] = (random_warrior, choice(random_warrior.pronouns))
+        if random_warrior:
+            process_text_dict["r_w"] = (random_warrior, choice(random_warrior.pronouns))
 
         txt = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), txt)
 
         txt = txt.replace("a_n", str(affair_cat.name))
         txt = txt.replace("m_n", str(random_mate.name))
-        txt = txt.replace("r_w", str(random_warrior.name))
+        if random_warrior:
+            txt = txt.replace("r_w", str(random_warrior.name))
         return txt
 
     def update_selected_cat(self):
@@ -339,7 +360,7 @@ class AffairScreen(Screens):
         # If the number of pages becomes smaller than the number of our current page, set
         #   the current page to the last page
         if self.current_page > len(valid_mentors):
-            self.list_page = len(valid_mentors)
+            self.current_page = max(1, len(valid_mentors))
 
         # Handle which next buttons are clickable.
         if len(valid_mentors) <= 1:

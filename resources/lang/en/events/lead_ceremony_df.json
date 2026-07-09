@@ -49,6 +49,101 @@
     ]
   },
   "lives": {
+    "default_outsider": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": [],
+      "rank": ["loner", "rogue", "kittypet"],
+      "life_giving": [
+        {
+          "text": "r_c slinks out of the shadows, eyes gleaming, and forces a life for [virtue] upon m_c, snarling that it's inevitable that the Clans will cast cats like {PRONOUN/r_c/object} aside.",
+          "virtue": ["ruthlessness", "cunning", "self-reliance", "spite", "ambition", "survival", "cold resolve", "defiance", "wariness", "independence"]
+        },
+        {
+          "text": "r_c swipes a claw against m_c's shoulder. Pain lances through m_c as {PRONOUN/m_c/subject} {VERB/m_c/receive/receives} a life for [virtue].",
+          "virtue": ["ruthlessness", "cunning", "self-reliance", "spite", "ambition", "survival", "cold resolve", "defiance", "wariness", "independence"]
+        }
+      ]
+    },
+
+    "aloof_gloomy_stoic_reserved": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": ["aloof", "gloomy", "stoic", "reserved"],
+      "rank": [],
+      "life_giving": [
+        {
+          "text": "r_c lingers at the edge of the shadows, silent, before forcing a life for [virtue] into m_c. {PRONOUN/r_c/poss/CAP} cold silence unsettles m_c more than any snarl.",
+          "virtue": ["cold resolve", "detachment", "intimidation", "control", "hardness", "silence"]
+        }
+      ]
+    },
+
+    "cowardly_meek_emotional_humble": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": ["cowardly", "meek", "emotional", "humble"],
+      "rank": [],
+      "life_giving": [
+        {
+          "text": "r_c flinches at every shifting shadow, yet still hurries to press a life for [virtue] upon m_c.",
+          "virtue": ["wariness", "caution", "self-preservation", "vigilance", "distrust", "survival"]
+        }
+      ]
+    },
+
+    "bouncy_energetic": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": ["bouncy", "energetic", "spontaneous"],
+      "rank": [],
+      "life_giving": [
+        {
+          "text": "r_c circles m_c with restless, frantic energy before slamming a life for [virtue] into {PRONOUN/m_c/object}.",
+          "virtue": ["relentless energy", "recklessness", "aggression", "momentum", "ferocity", "drive"]
+        }
+      ]
+    },
+
+    "cunning": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": ["cunning", "witty", "flexible", "mellow"],
+      "rank": [],
+      "life_giving": [
+        {
+          "text": "r_c pads up with a sharp smile and forces a life for [virtue] upon m_c.",
+          "virtue": ["cunning", "manipulation", "deceit", "guile", "opportunism", "wit"]
+        }
+      ]
+    },
+
+    "justified": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": ["justified", "methodical", "disciplined", "patient", "obsessive"],
+      "rank": [],
+      "life_giving": [
+        {
+          "text": "r_c slinks forward, smooth admist the muck, to bestow a life for [virtue] upon m_c.",
+          "virtue": ["cold patience", "obsession", "control", "calculation", "relentlessness", "discipline"]
+        }
+      ]
+    },
+
+    "trusting": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": ["trusting", "sincere", "oblivious"],
+      "rank": [],
+      "life_giving": [
+        {
+          "text": "r_c fixes m_c with an unblinking stare and bestows a life for [virtue] upon {PRONOUN/m_c/object}.",
+          "virtue": ["hard-won wariness", "conviction", "single-mindedness", "certainty", "resolve", "zeal"]
+        }
+      ]
+    },
+
     "only_guide": {
       "tags": [
         "new_clan",

@@ -541,9 +541,10 @@ class Pregnancy_Events:
             )
             mate_is_med = [mate_id for mate_id in cat.mate if mate_id in meds]
             if not meds or cat in meds or len(mate_is_med) > 0:
-                for event in possible_events:
-                    if CatRank.MEDICINE_CAT in event:
-                        possible_events.remove(event)
+                possible_events = [
+                    event for event in possible_events
+                    if CatRank.MEDICINE_CAT not in event
+                ]
 
             if cat.status.is_outsider:
                 possible_events = events["birth"]["outside_death"]
@@ -582,9 +583,10 @@ class Pregnancy_Events:
                 )
                 mate_is_med = [mate_id for mate_id in cat.mate if mate_id in meds]
                 if not meds or cat in meds or len(mate_is_med) > 0:
-                    for event in possible_events:
-                        if CatRank.MEDICINE_CAT in event:
-                            possible_events.remove(event)
+                    possible_events = [
+                        event for event in possible_events
+                        if CatRank.MEDICINE_CAT not in event
+                    ]
 
                 event_list.append(choice(possible_events))
         if not cat.dead:
@@ -645,7 +647,7 @@ class Pregnancy_Events:
 
         # check for mate
         if len(cat.mate) > 0:
-            for mate_id in cat.mate:
+            for mate_id in list(cat.mate):
                 if mate_id not in cat.all_cats:
                     print(
                         f"WARNING: {cat.name}  has an invalid mate # {mate_id}. This has been unset."
@@ -973,9 +975,9 @@ class Pregnancy_Events:
                 kit.congenital_condition(kit)
                 for condition in kit.permanent_condition:
                     if kit.permanent_condition[condition] == "born without a leg":
-                        cat.pelt.scars = (*cat.pelt.scars, "NOPAW")
+                        kit.pelt.scars = (*kit.pelt.scars, "NOPAW")
                     elif kit.permanent_condition[condition] == "born without a tail":
-                        cat.pelt.scars = (*cat.pelt.scars, "NOTAIL")
+                        kit.pelt.scars = (*kit.pelt.scars, "NOTAIL")
                 Condition_Events.handle_already_disabled(kit)
 
             # create and update relationships

@@ -1346,11 +1346,12 @@ class ProfileScreen(Screens):
                         name = game.clan.displayname
                     # if they had an old clan that wasn't the player's, find it!
                     elif old_clan_ID:
-                        name = [
+                        matches = [
                             c
                             for c in game.clan.all_other_clans
                             if c.group_ID == the_cat.status.get_last_living_group()
-                        ][0].name
+                        ]
+                        name = matches[0].name if matches else None
                     # otherwise they had no clan
                     else:
                         name = None
@@ -1361,11 +1362,12 @@ class ProfileScreen(Screens):
 
         # if cat is alive and in another clan, find that clan's name
         elif the_cat.status.is_other_clancat:
-            name = [
+            matches = [
                 c
                 for c in game.clan.all_other_clans
                 if c.group_ID == the_cat.status.group_ID
-            ][0].name
+            ]
+            name = matches[0].name if matches else game.clan.displayname
         # otherwise, assume the cat takes the player clan's name
         # it's okay if this is an outsider, if they don't actually have a group to refer to then they won't use this variable
         else:
@@ -3093,7 +3095,7 @@ class ProfileScreen(Screens):
             if game.clan.your_cat.mate:
                 alive_mate = False
                 for m in game.clan.your_cat.mate:
-                    if Cat.all_cats.get(m).dead == False:
+                    if Cat.all_cats.get(m).status.alive_in_player_clan:
                         alive_mate = True
                 if not alive_mate:
                     self.affair_button.disable()

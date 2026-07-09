@@ -952,7 +952,7 @@ def unpack_rel_block(
     for block in relationship_effects:
         cats_from = block.get("cats_from", [])
         cats_to = block.get("cats_to", [])
-        amount = block.get("amount")
+        amount = block.get("amount", 0) or 0
         values = [x for x in block.get("values", ()) if x in possible_values]
 
         # if this is a reaction from the entire clan, we need to know for later
@@ -964,11 +964,9 @@ def unpack_rel_block(
         cats_from_ob = gather_cat_objects(Cat, cats_from, event, stat_cat, extra_cat, dialogue_dict)
         cats_to_ob = gather_cat_objects(Cat, cats_to, event, stat_cat, extra_cat, dialogue_dict)
 
-        # Remove any "None" that might have snuck in
-        if None in cats_from_ob:
-            cats_from_ob.remove(None)
-        if None in cats_to_ob:
-            cats_to_ob.remove(None)
+        # get rid of any Nones that might have snuck in 
+        cats_from_ob = [c for c in cats_from_ob if c is not None]
+        cats_to_ob = [c for c in cats_to_ob if c is not None]
 
         positive = False
 

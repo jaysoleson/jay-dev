@@ -444,7 +444,7 @@ class ChooseAdoptiveParentScreen(Screens):
             self.adoptive_next_page.enable()
         else:
             self.adoptive_last_page.enable()
-            self.adoptive_last_page.enable()
+            self.adoptive_next_page.enable()
 
         text = f"{self.adoptive_page + 1} / {max(1, total_pages)}"
         if not self.adoptive_page_display:
