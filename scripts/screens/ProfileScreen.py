@@ -602,6 +602,7 @@ class ProfileScreen(Screens):
                             self.the_cat.status.add_to_group(
                                 new_group_ID=CatGroup.DARK_FOREST_ID
                             )
+                        self.the_cat.history.reconcile_afterlife_acceptance()
                         self.the_cat.get_new_thought(CatThought.ON_AFTERLIFE_CHANGE)
                         self.the_cat.pelt.rebuild_sprite = True
 
@@ -1946,6 +1947,7 @@ class ProfileScreen(Screens):
         """
         cat_dict = {"m_c": (str(self.the_cat.name), choice(self.the_cat.pronouns))}
         if self.the_cat.dead and self.the_cat.history.afterlife_acceptance:
+            self.the_cat.history.reconcile_afterlife_acceptance()
             text = i18n.t(f"cat.afterlife.{self.the_cat.history.afterlife_acceptance}")
             adjusted_text = process_text(text, cat_dict=cat_dict)
             return adjusted_text

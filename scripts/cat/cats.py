@@ -611,7 +611,9 @@ class Cat:
                         if afterlife_group == CatGroup.STARCLAN
                         else CatGroup.STARCLAN
                     )
-                    self.history.add_afterlife_acceptance(opposite_group)
+                    self.history.add_afterlife_acceptance(
+                        opposite_group, misplaced=True
+                    )
                     self.status.send_to_afterlife(rejected_ID)
                     return
 
