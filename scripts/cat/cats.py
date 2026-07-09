@@ -547,6 +547,19 @@ class Cat:
     def __hash__(self):
         return hash(self.ID)
 
+    faith_lock_ranges = {
+        "flexible": (-9, 9),
+        "starclan": (1, 9),
+        "dark forest": (-9, -1),
+        "neutral": (-3, 3),
+    }
+
+    def get_effective_faith(self) -> float:
+        if self.no_faith:
+            return 0
+        low, high = Cat.faith_lock_ranges.get(self.lock_faith, (-9, 9))
+        return max(low, min(high, self.faith))
+
     @property
     def dead(self) -> bool:
         return bool(self.status.group.is_afterlife())
@@ -578,14 +591,29 @@ class Cat:
                     is_kit=True,
                 )
             else:
+                self.faith = self.get_effective_faith()
+                faith_pull = self.faith * 5
+
                 if cat_default_afterlife_id == CatGroup.STARCLAN_ID:
-                    affinity = self.starclan_affinity
+                    affinity = self.starclan_affinity + faith_pull
                     afterlife_group = CatGroup.STARCLAN
                     rejected_ID = CatGroup.DARK_FOREST_ID
                 else:
-                    affinity = self.dark_forest_affinity
+                    affinity = self.dark_forest_affinity - faith_pull
                     afterlife_group = CatGroup.DARK_FOREST
                     rejected_ID = CatGroup.STARCLAN_ID
+
+                # rare wrong placement
+                if random() < 0.01:
+                    self.history.wrong_placement = True
+                    opposite_group = (
+                        CatGroup.DARK_FOREST
+                        if afterlife_group == CatGroup.STARCLAN
+                        else CatGroup.STARCLAN
+                    )
+                    self.history.add_afterlife_acceptance(opposite_group)
+                    self.status.send_to_afterlife(rejected_ID)
+                    return
 
                 # afterlife does not like this cat
                 if affinity < 0:
@@ -774,8 +802,6 @@ class Cat:
             game.dead_cats_to_grieve.append(self)
 
 
-        # CHECKMERGE
-        # faith effects, df for murderers + wrong placement. look at old lg code
         # mark the sprite as outdated
         self.pelt.rebuild_sprite = True
 

@@ -561,6 +561,10 @@ class History:
             }
         )
 
+        if self.cat:
+            self.cat.starclan_affinity -= 100
+            self.cat.dark_forest_affinity += 100
+
     def reveal_murder(
         self,
         victim,

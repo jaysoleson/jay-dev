@@ -2698,29 +2698,7 @@ class ProfileScreen(Screens):
         if self.faith_bar and self.faith_text:
             self.faith_bar.kill()
             self.faith_text.kill()
-        if self.the_cat.no_faith:
-            self.the_cat.faith = 0
-        cat_faith = round(self.the_cat.faith)
-        if self.the_cat.lock_faith == "flexible":
-            if cat_faith > 9:
-                cat_faith = 9
-            elif cat_faith < -9:
-                cat_faith = -9
-        elif self.the_cat.lock_faith == "starclan":
-            if cat_faith > 9:
-                cat_faith = 9
-            elif cat_faith < 1:
-                cat_faith = 1
-        elif self.the_cat.lock_faith == "dark forest":
-            if cat_faith > -1:
-                cat_faith = -1
-            elif cat_faith < -9:
-                cat_faith = 9
-        elif self.the_cat.lock_faith == "neutral":
-            if cat_faith > 3:
-                cat_faith = 3
-            elif cat_faith < -3:
-                cat_faith = -3
+        cat_faith = round(self.the_cat.get_effective_faith())
         self.faith_bar = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((175, 500), (421, 39))),
                                                                 image_cache.load_image(f"resources/images/faith{cat_faith}.png").convert_alpha())
         self.faith_bar.disable()
