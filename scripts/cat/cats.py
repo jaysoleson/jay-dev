@@ -134,6 +134,9 @@ class Cat:
     all_cats_list: List[Cat] = []
     ordered_cat_list: List[Cat] = []
 
+    _living_clan_cache = None  # Optional[List[Cat]]
+    _living_clan_cache_len = -1
+
     # DEBUG SETTINGS
     disable_random = False
 
@@ -1783,9 +1786,15 @@ class Cat:
             )
 
         if self.status.is_other_clancat and not self.dead:
-            cat_list = other_clan_cats.copy() if other_clan_cats else []
+            cat_list = other_clan_cats if other_clan_cats else []
+        elif self.status.group.is_afterlife():
+            cat_list = self.all_cats_list
         else:
-            cat_list = self.all_cats_list.copy()
+            cat_list = [
+                self.all_cats[cid]
+                for cid in self.relationships
+                if cid in self.all_cats
+            ]
 
         if not other_cat:
             other_cat = get_other_cat_for_thought(
@@ -1818,7 +1827,7 @@ class Cat:
         """Randomly choose a cat of the Clan and have an interaction with them."""
         cats_to_choose = [
             iter_cat
-            for iter_cat in Cat.all_cats.values()
+            for iter_cat in Cat.living_clan_cats()
             if iter_cat.ID != self.ID
             and iter_cat.status.alive_in_player_clan
             and iter_cat.age != CatAge.NEWBORN
@@ -2743,8 +2752,9 @@ class Cat:
         if self.age.is_baby() or other_cat.age.is_baby():
             return False
 
-        # Inheritance check
-        if self.is_related(other_cat, first_cousin_mates):
+        if self.is_related(other_cat, first_cousin_mates) or other_cat.is_related(
+            self, first_cousin_mates
+        ):
             return False
 
         # check dead cats
@@ -3614,6 +3624,34 @@ class Cat:
         self.sprite = image_cache.load_image(
             f"sprites/faded/{file_name}"
         ).convert_alpha()
+
+    @staticmethod
+    def _rebuild_living_clan_cache():
+        Cat._living_clan_cache = [
+            c for c in Cat.all_cats.values() if c.status.alive_in_player_clan
+        ]
+        Cat._living_clan_cache_len = len(Cat.all_cats)
+
+    @staticmethod
+    def begin_moon_cache():
+        """Activate the living-clan-cat cache for the duration of a moon skip."""
+        Cat._rebuild_living_clan_cache()
+
+    @staticmethod
+    def end_moon_cache():
+        """Deactivate the living-clan-cat cache once a moon skip is finished."""
+        Cat._living_clan_cache = None
+        Cat._living_clan_cache_len = -1
+
+    @staticmethod
+    def living_clan_cats():
+        """Returns cats currently alive in the player clan.
+        """
+        if Cat._living_clan_cache is not None:
+            if Cat._living_clan_cache_len != len(Cat.all_cats):
+                Cat._rebuild_living_clan_cache()
+            return Cat._living_clan_cache
+        return [c for c in Cat.all_cats.values() if c.status.alive_in_player_clan]
 
     @staticmethod
     def fetch_cat(ID: str):

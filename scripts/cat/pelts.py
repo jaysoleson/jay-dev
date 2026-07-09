@@ -1602,7 +1602,7 @@ def _describe_pattern(cat, short=False):
     if cat.pelt.name in Pelt.torties:
         pelt_name, color_name = _describe_torties(cat, color_name, short)
 
-    color_name = [i18n.t(piece, count=1) for piece in color_name]
+    color_name = [i18n.t(piece, count=1 if short else 2) for piece in color_name]
     color_name = "".join(color_name)
 
     if cat.pelt.white_patches:

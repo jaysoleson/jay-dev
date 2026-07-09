@@ -552,9 +552,6 @@ class RomanticEvents:
         if cat_to.status.is_outsider != cat_from.status.is_outsider:
             return False
 
-        cat_from.inheritance = None
-        cat_to.inheritance = None
-
         if not cat_to.is_potential_mate(cat_from) or not cat_from.is_potential_mate(
             cat_to
         ):
@@ -689,9 +686,6 @@ class RomanticEvents:
         become_mates = False
         if cat_to.status.is_outsider != cat_from.status.is_outsider:
             return False, None
-
-        cat_from.inheritance = None
-        cat_to.inheritance = None
 
         if not cat_from.is_potential_mate(cat_to):
             return False, None

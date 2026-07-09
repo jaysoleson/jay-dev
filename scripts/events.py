@@ -161,7 +161,13 @@ def one_moon():
     """
     Handles the moon skipping of the whole Clan.
     """
+    try:
+        _one_moon_impl()
+    finally:
+        Cat.end_moon_cache()
 
+
+def _one_moon_impl():
     global new_cat_invited
     global checks
     # i have no idea what checks does. coffee help
@@ -284,6 +290,8 @@ def one_moon():
     #             clan_cat_cat.faith -= round(random.uniform(-0.1,0), 2)
     #     handle_disaster(disaster_text[game.clan.disaster], resource=disaster_text)
     # ---
+
+    Cat.begin_moon_cache()
 
     other_clan_cats = [c for c in Cat.all_cats_list if c.status.is_other_clancat]
     for cat in Cat.all_cats_list.copy():

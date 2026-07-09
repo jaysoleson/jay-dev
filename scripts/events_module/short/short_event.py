@@ -325,11 +325,13 @@ class ShortEvent:
 
         # handle murder reveals
         if "murder_reveal" in self.sub_type or "hidden_murder_reveal" in self.sub_type:
+            clan_reveal = "clan_wide" in self.tags
             self.main_cat.history.reveal_murder(
                 victim=self.victim_cat,
                 murderer_id=self.main_cat.ID,
-                clan_reveal="clan_wide" in self.tags,
+                clan_reveal=clan_reveal,
                 aware_individuals=[self.random_cat.ID],
+                shunned_cat=self.main_cat if clan_reveal else None,
             )
 
         # change outsider rep

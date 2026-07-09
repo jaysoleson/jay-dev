@@ -17,6 +17,7 @@ from scripts.ui.scale import ui_scale, ui_scale_dimensions
 from ..events_module.text_adjust import pronoun_repl
 
 from scripts.cat.cats import Cat
+from scripts.cat.sprites.load_sprites import sprites
 from scripts.game_structure import image_cache
 from scripts.game_structure import game
 
@@ -648,6 +649,23 @@ class GiftScreen(Screens):
 
         return reaction_txt, reaction, acc
 
+    def get_acc_name(self, acc, count=1):
+        acc_name = str(i18n.t(f"cat.accessories.{acc}", count=count))
+        if acc in Pelt.collar_accessories:
+            for style_type in sprites.COLLAR_DATA["style_data"]:
+                for style, color_list in style_type.items():
+                    for colour in color_list:
+                        if f"{style}_{colour}" == acc:
+                            if "colorful" in acc:
+                                acc_name = str(i18n.t(f"cat.accessories.{style}", count=count))
+                            else:
+                                acc_name = str(
+                                    colour.replace("_", " ") + " "
+                                    + i18n.t(f"cat.accessories.{style}", count=count)
+                                )
+                            return acc_name
+        return acc_name
+
     def adjust_txt(self, txt):
         process_text_dict = {}
 
@@ -658,7 +676,7 @@ class GiftScreen(Screens):
 
         txt = txt.replace("y_c", str(game.clan.your_cat.name))
         txt = txt.replace("t_c", str(self.selected_cat.name))
-        txt = txt.replace("y_g", str(i18n.t(f"cat.accessories.{self.selected_accessory.tool_tip_text}", count=0)))
+        txt = txt.replace("y_g", str(self.get_acc_name(self.selected_accessory.tool_tip_text, count=0)))
         return txt
 
     def update_selected_cat(self):
@@ -740,7 +758,7 @@ class GiftScreen(Screens):
                 manager=MANAGER
             )
 
-            accname = i18n.t(f"cat.accessories.{self.selected_accessory.tool_tip_text}", count=1)
+            accname = self.get_acc_name(self.selected_accessory.tool_tip_text, count=1)
             if 13 <= len(accname):  # check name length
                 short_name = str(accname)[0:9]
                 accname = short_name + '...'

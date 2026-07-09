@@ -744,9 +744,6 @@ class Patrol:
             love1 = patrol_leader
             love2 = random_cat
 
-        love1.inheritance = None
-        love2.inheritance = None
-
         if (
             not love1.is_potential_mate(love2, for_love_interest=True)
             and love1.ID not in love2.mate
@@ -990,7 +987,7 @@ class Patrol:
                     if game.clan and game.clan.game_mode != "cruel_season":
                         continue
 
-                if "romantic" in patrol.tags:
+                if "romance" in patrol.tags:
                     romantic_patrols.append(patrol)
                 else:
                     filtered_patrols.append(patrol)

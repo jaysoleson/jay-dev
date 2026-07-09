@@ -34,49 +34,32 @@ def get_other_cat_for_thought(
     """
     Returns a cat object selected from the given cat_list. This will be a cat acceptable as the subject of main_cat's thought.
     """
-    if main_cat in cat_list:
-        cat_list.remove(main_cat)
-
     if not cat_list:
         return None
-
-    other_cat = choice(cat_list)
 
     # sometimes cats can think about a dead cat
     thinking_of_dead_cat = getrandbits(4) == 1
 
     # dead cats think of anyone
     if main_cat.status.group.is_afterlife():
-        return other_cat
-
-    else:
-        # count and give up if we don't find a suitable cat within 100 checks
-        i = 0
-        while cat_list and (
-            (
-                other_cat.dead and not thinking_of_dead_cat
-            )  # dead and thought isn't about dead cat
-            or not main_cat.relationships.get(
-                other_cat.ID
-            )  # no existing relationship at all
-            or (
-                main_cat.relationships.get(other_cat.ID)
-                and main_cat.relationships[other_cat.ID].total_relationship_value == 0
-            )  # the main_cat has an empty relationship toward other_cat
-            or other_cat.status.is_lost()  # other cat is lost
-            or other_cat.status.group_ID
-            != main_cat.status.group_ID  # must have matching group
-        ):
-            cat_list.remove(other_cat)
-
-            i += 1
-            if i > 100 or not cat_list:
-                other_cat = None
-                break
-
+        for _ in range(10):
             other_cat = choice(cat_list)
+            if other_cat.ID != main_cat.ID:
+                return other_cat
+        return None
 
-    return other_cat
+    valid = [
+        other_cat
+        for other_cat in cat_list
+        if other_cat.ID != main_cat.ID
+        and (not other_cat.dead or thinking_of_dead_cat)
+        and main_cat.relationships.get(other_cat.ID)
+        and main_cat.relationships[other_cat.ID].total_relationship_value != 0
+        and not other_cat.status.is_lost()
+        and other_cat.status.group_ID == main_cat.status.group_ID
+    ]
+
+    return choice(valid) if valid else None
 
 
 def _filter_list(inter_list: list, main_cat: "Cat", other_cat: "Cat") -> list:
