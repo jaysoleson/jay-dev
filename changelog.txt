@@ -1,9 +1,14 @@
-<strong>v0.7.7.0</strong>
+<strong>Pridegen: Remastered!</strong>
+Pridegen has received a complete makeover. The code has been rebuilt from scratch with modern Clangen as a base.
+Here's a rundown of the most noticeable changes to players.
 
-Changes/Additions:
-- Updated to ClanGen's latest version!
-- Refreshed menu art
-- New accessories
-- New camp
-- New dialogue
-- Many bugfixes
+<strong>Changes</strong>
+-   <strong>UI</strong>: A brand new "Change Sexuality" screen has replaced the old spiderweb of buttons and windows in the profile screen. It provides a new, convenient place to change every cat's acespec, arospec, and gender attraction, along with custom labels.
+-   <strong>Profile Display</strong>: Identities listed in a cat's profile are now more concise and readable. Rather than labels being stacked on different lines, they're combined into one sentence.
+-   <strong>New Settings</strong>: The new "xenogenders and microlabels" toggle, which is off by default, will allow microlabels and xenogenders to be randomly attainable by cats in game.
+-   <strong>Relationships</strong>: Cats' relationships will begin to reflect their sexuality before they realise it! For example, a male cat may begin to lose romantic interest in she-cats a few moons before coming out as gay.
+-   <strong>Content</strong>: More coming out events, pride-related dialogue, and pride flag accessories.
+
+On top of this, a lot of invisible changes have been made to the code. It's a lot better now, which means I'll have an easier time adding onto it in the future.
+
+Since this version of Pridegen was rebuilt from scratch, it's possible some stuff may have been forgotten. If you notice an old feature is missing, let me know and I may be able to add it back in!
