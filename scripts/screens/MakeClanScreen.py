@@ -50,6 +50,7 @@ from ..ui.generate_button import ButtonStyles, get_button_dict
 from ..ui.icon import Icon
 from scripts.cat.skills import SkillPath, Skill
 from scripts.events_module.patrol.patrol import Patrol
+from ..ui.windows.save_as_image import SaveAsImageWindow
 
 
 
@@ -2091,6 +2092,17 @@ class MakeClanScreen(Screens):
             sound_id="dice_roll",
         )
 
+        self.elements["save_image"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 45), (110, 30))),
+            "save sprite",
+            get_button_dict(ButtonStyles.SQUOVAL, (110, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+            starting_height=2,
+            sound_id="dice_roll",
+            anchors={"centerx":"centerx"}
+        )
+
 
         # Sprite Background
         if game_setting_get("dark mode"):
@@ -3684,6 +3696,8 @@ class MakeClanScreen(Screens):
                 self.update_custom_cat_pages()
                 self.update_sprite()
                 self.update_disabled_buttons()
+            elif event.ui_element == self.elements['save_image']:
+                SaveAsImageWindow(self.custom_cat.sprite, "custom_cat")
             elif event.ui_element == self.elements['next_step']:
                 self.your_cat = Cat(moons = -1)
                 initial_pelt = self.custom_cat.pelt
