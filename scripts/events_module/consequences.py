@@ -20,6 +20,8 @@ from scripts.game_structure import game, constants
 from scripts.cat.constants import BACKSTORIES, PERMANENT
 from scripts.events_module.text_adjust import process_text, adjust_list_text
 
+from scripts.game_structure.game.settings import game_setting_get
+from scripts.cat.sexuality import Sexuality, Arospec, Acespec
 
 def create_new_cat_block(
     Cat: Optional["Cat"],
@@ -414,10 +416,25 @@ def create_new_cat_block(
             for inter_cat in give_mates:
                 if n_c == inter_cat or n_c.ID in inter_cat.mate:
                     continue
+                
+                # PG Mates
+                # manually setting likes_xx values to match the mate they need to have
+                
+                # correct gender
+                # hacky
+                if not inter_cat.sexuality.likes_toms and n_c.genderalign in Sexuality.male_genders:
+                    n_c.genderalign = "female"
+                    n_c.gender = "female"
+                if not inter_cat.sexuality.likes_she_cats and n_c.genderalign in Sexuality.female_genders:
+                    n_c.genderalign = "male"
+                    n_c.gender = "male"
 
-                # this is some duplicate work, since this triggers inheritance re-calcs
-                # TODO: optimize
-                n_c.set_mate(inter_cat)
+                if not inter_cat.sexuality.is_aroace():
+                    n_c.sexuality.init_random_sexuality(n_c.genderalign, required_mate=inter_cat)
+                    n_c.set_mate(inter_cat)
+                else:
+                    n_c.set_qpp(inter_cat)
+                n_c.sexuality.give_bandanas(n_c)
 
             # LITTERMATES
             for inter_cat in new_cats:
@@ -478,7 +495,6 @@ def create_new_cat_block(
 
             # UPDATE INHERITANCE
             n_c.create_inheritance_new_cat()
-
     return new_cats
 
 
@@ -658,10 +674,13 @@ def create_new_cat(
                 weights = constants.CONFIG["cat_name_controls"]["kittypet"]
                 # check if the kittypets come with a pretty acc
                 if bool(getrandbits(1)):
-                    new_cat.pelt.accessory = (
-                        *new_cat.pelt.accessory,
-                        choice(new_cat.pelt.collar_accessories),
-                    )
+                    chosen_collar = choice(new_cat.pelt.collar_accessories)
+                    if not game_setting_get("auto_equip_bandanas"):
+                        new_cat.pelt.accessory = (
+                            *new_cat.pelt.accessory,
+                            chosen_collar,
+                        )
+                        new_cat.pelt.inventory.append(chosen_collar)
             if original_social == CatSocial.LONER:
                 weights = constants.CONFIG["cat_name_controls"]["loner"]
 

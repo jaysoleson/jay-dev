@@ -244,7 +244,7 @@ class Sexuality():
     def clear_upcoming_sexuality(self):
         self.upcoming_sexuality = {}
 
-    def init_random_sexuality(self, gender, disable_random=False):
+    def init_random_sexuality(self, gender, disable_random=False, required_mate=None):
         """
         Randomises a new cat's sexuality.
         disable_random gets passed as true for test cats
@@ -259,15 +259,24 @@ class Sexuality():
             return
 
         self.sexuality_label = "TEMP"
-        if gender in self.male_genders:
-            self.likes_toms = random.choice([True, False])
-            self.likes_she_cats = random.choice([True, False, True])
-        elif gender in self.female_genders:
-            self.likes_toms = random.choice([True, False, True])
-            self.likes_she_cats = random.choice([True, False])
+
+        if required_mate:
+            if required_mate.genderalign in self.male_genders:
+                self.likes_toms = True
+                self.likes_she_cats = random.choice([True, False])
+            else:
+                self.likes_toms = random.choice([True, False])
+                self.likes_she_cats = True
         else:
-            self.likes_toms = random.choice([True, False])
-            self.likes_she_cats = random.choice([True, False])
+            if gender in self.male_genders:
+                self.likes_toms = random.choice([True, False])
+                self.likes_she_cats = random.choice([True, False, True])
+            elif gender in self.female_genders:
+                self.likes_toms = random.choice([True, False, True])
+                self.likes_she_cats = random.choice([True, False])
+            else:
+                self.likes_toms = random.choice([True, False])
+                self.likes_she_cats = random.choice([True, False])
 
         acespec_chance = 20
         arospec_chance = 20
@@ -285,7 +294,12 @@ class Sexuality():
         else:
             self.acespec = Acespec.ALLO
 
-        if not int(random.random() * arospec_chance):
+        if required_mate:
+            allow_aro = self.acespec != Acespec.ACE
+        else:
+            allow_aro = True
+
+        if not int(random.random() * arospec_chance) and allow_aro:
             self.arospec = random.choice(
                 [
                     Arospec.DEMI,
@@ -454,11 +468,8 @@ class Sexuality():
         """
         Updates bandana inventories.
         """
-        # TODO: clan setting for disabling bandanas
         if cat.age.is_baby():
             return
-
-        correct_flags = self.find_valid_flags(cat)
 
         for flag in Pelt.all_pridegen_accessories:
             if flag in cat.pelt.inventory:
@@ -468,6 +479,7 @@ class Sexuality():
                 #     accessory != flag
                 # )
 
+        correct_flags = self.find_valid_flags(cat)
         sorted_flags = list(set(correct_flags))
 
         for acc in sorted_flags:
@@ -491,7 +503,6 @@ class Sexuality():
                 cat.pelt.inventory.append(sorted_flags[0])
 
         cat.pelt.rebuild_sprite = True
-
 
     # attraction helpers
     def is_aroace(self):

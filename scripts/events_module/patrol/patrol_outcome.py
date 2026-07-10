@@ -1157,7 +1157,7 @@ class PatrolOutcome:
                     )
             del type_list, string
 
-            cat.pelt.inventory = []
+            # cat.pelt.inventory = []
             
         # Check to see if any young litters joined with alive parents.
         # If so, see if recovering from birth condition is needed

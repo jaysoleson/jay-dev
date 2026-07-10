@@ -416,6 +416,15 @@ class Cat:
                 cat=self,
             )
 
+        # PRIDEGEN-- Sexuality
+        if not self.sexuality:
+            self.sexuality = Sexuality()
+            if self.disable_random:
+                self.sexuality.init_random_sexuality(self.genderalign, disable_random=self.disable_random)
+            else:
+                self.sexuality.init_random_sexuality(self.genderalign)
+                self.sexuality.give_bandanas(self)
+
         # Private Sprite
         self._sprite: Optional["pygame.Surface"] = None
         self._sprite_mask: Optional["pygame.Mask"] = None
@@ -553,15 +562,6 @@ class Cat:
             self.skills = CatSkills.generate_new_catskills(
                 self.status.rank, self.age, cat_group=self.status.group
             )
-
-        # PRIDEGEN-- Sexuality
-        if not self.sexuality:
-            self.sexuality = Sexuality()
-            if self.disable_random:
-                self.sexuality.init_random_sexuality(self.genderalign, disable_random=self.disable_random)
-            else:
-                self.sexuality.init_random_sexuality(self.genderalign)
-                self.sexuality.give_bandanas(self)
 
     def __repr__(self):
         return "CAT OBJECT:" + self.ID
