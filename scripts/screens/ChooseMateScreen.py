@@ -445,6 +445,10 @@ class ChooseMateScreen(Screens):
             self.mates_cat_buttons[ele].kill()
         self.mates_cat_buttons = {}
 
+        for marker in self.fav:
+            self.fav[marker].kill()
+        self.fav = {}
+
         # Different layout for a single mate - they are just big in the center
         if len(self.all_mates) == 1 and len(self.all_mates[0]) == 1:
             # TODO disable both next and previous page buttons
@@ -497,10 +501,6 @@ class ChooseMateScreen(Screens):
             display_cats = self.all_mates[self.mates_page]
         else:
             display_cats = []
-
-        for marker in self.fav:
-            self.fav[marker].kill()
-        self.fav = {}
 
         pos_x = 15
         pos_y = 0

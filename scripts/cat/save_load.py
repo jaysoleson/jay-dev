@@ -85,7 +85,7 @@ def save_faded_cats(clanname, cat_class: Type["Cat"], game: "Game"):
                 else:
                     parent_faded = add_faded_offspring_to_faded_cat(clanname, x, cat)
                     if not parent_faded:
-                        print(f"WARNING: Can't find parent {x} of {cat.name}")
+                        print(f"WARNING: Can't find parent {x} of {cat}")
 
             # Get a copy of info
             if game_setting_get("save_faded_copy"):

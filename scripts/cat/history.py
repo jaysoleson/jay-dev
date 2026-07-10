@@ -209,9 +209,10 @@ class History:
         if not self.mentor_influence["trait"]:
             return
 
-        if (
-            "Benevolent" or "Abrasive" or "Reserved" or "Outgoing"
-        ) in self.mentor_influence["trait"]:
+        if any(
+            t in self.mentor_influence["trait"]
+            for t in ("Benevolent", "Abrasive", "Reserved", "Outgoing")
+        ):
             self.mentor_influence["trait"] = None
             return
 
@@ -335,7 +336,20 @@ class History:
                 SkillPath.FISHER: ["fishing"],
                 SkillPath.LANGUAGE: ["using their words"],
                 SkillPath.SLEEPER: ["self-care"],
-                SkillPath.GARDENER: ["taking care of plants"]
+                SkillPath.GARDENER: ["taking care of plants"],
+                SkillPath.DARK: ["connecting to the Dark Forest"],
+                # Kittypet-unique
+                SkillPath.TWOLEGCARE: ["getting along with Twolegs"],
+                SkillPath.CHARMER: ["charming others"],
+                SkillPath.SHOWCAT: ["looking their best"],
+                # Loner-unique
+                SkillPath.WANDERER: ["traveling long distances"],
+                SkillPath.SCAVENGER: ["scavenging for resources"],
+                SkillPath.SURVIVOR: ["surviving hardship"],
+                # Rogue-unique
+                SkillPath.BRAWLER: ["brawling"],
+                SkillPath.INTIMIDATOR: ["intimidating others"],
+                SkillPath.AMBUSHER: ["laying ambushes"]
             }
         
         for _ment in self.mentor_influence["skill"]:
@@ -458,16 +472,22 @@ class History:
         )
 
     def add_afterlife_acceptance(
-        self, guide_afterlife: CatGroup, is_kit=False, contentious=False, rejected=False
+        self,
+        guide_afterlife: CatGroup,
+        is_kit=False,
+        contentious=False,
+        rejected=False,
+        misplaced=False,
     ):
         """
         Adds afterlife acceptance text to the cat's history. If using an optional parameter, should set only one out of
-        `is_kit`, `contentious`, and `rejected` to `True`, since the rest will be ignored.
+        `is_kit`, `contentious`, `rejected`, and `misplaced` to `True`, since the rest will be ignored.
 
-        :param guide_afterlife: The afterlife of the guide. Do NOT set to the opposite afterlife if rejected is `True`.
+        :param guide_afterlife: The afterlife the cat is residing in. Do NOT set to the opposite afterlife if rejected is `True`.
         :param is_kit: `True` if the cat is a kit. Gives kinder acceptance text referring to kits.
         :param contentious: `True` if the acceptance is supposed to be contentious. Afterlife will seem iffy about the cat.
         :param rejected: `True` if cat is rejected from `guide_afterlife`. They will go to the opposite one instead.
+        :param misplaced: `True` if the cat was sent to `guide_afterlife` by mistake and doesn't belong there.
         """
 
         afterlife = None
@@ -492,10 +512,40 @@ class History:
                 self.afterlife_acceptance = random.choice(
                     afterlife_acceptance_options[f"{afterlife}_rejected"]
                 )
+            elif misplaced:
+                self.afterlife_acceptance = random.choice(
+                    afterlife_acceptance_options[f"{afterlife}_misplaced"]
+                )
             else:
                 self.afterlife_acceptance = random.choice(
                     afterlife_acceptance_options[f"{afterlife}_default"]
                 )
+
+    @staticmethod
+    def _acceptance_afterlife(acceptance):
+        if not acceptance:
+            return None
+        if acceptance.startswith("starclan"):
+            base, opposite = CatGroup.STARCLAN, CatGroup.DARK_FOREST
+        elif acceptance.startswith("dark_forest"):
+            base, opposite = CatGroup.DARK_FOREST, CatGroup.STARCLAN
+        else:
+            return None
+        return opposite if "rejected" in acceptance else base
+
+    def reconcile_afterlife_acceptance(self):
+        cat = self.cat
+        if not cat or not self.afterlife_acceptance:
+            return
+        group = cat.status.group
+        implied = History._acceptance_afterlife(self.afterlife_acceptance)
+        if implied is None or implied == group:
+            return
+        if group in (CatGroup.STARCLAN, CatGroup.DARK_FOREST):
+            self.add_afterlife_acceptance(group, is_kit=cat.age.is_baby())
+        else:
+            # e.g. the unknown residence - no StarClan/Dark Forest blurb applies
+            self.afterlife_acceptance = None
 
     def add_scar(self, scar_text, condition=None, other_cat=None):
         if not game.clan:
@@ -546,6 +596,10 @@ class History:
                 "moon": game.clan.age,
             }
         )
+
+        if self.cat:
+            self.cat.starclan_affinity -= 100
+            self.cat.dark_forest_affinity += 100
 
     def reveal_murder(
         self,

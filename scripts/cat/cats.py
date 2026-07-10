@@ -137,6 +137,9 @@ class Cat:
     all_cats_list: List[Cat] = []
     ordered_cat_list: List[Cat] = []
 
+    _living_clan_cache = None  # Optional[List[Cat]]
+    _living_clan_cache_len = -1
+
     # DEBUG SETTINGS
     disable_random = False
 
@@ -572,6 +575,19 @@ class Cat:
     def __hash__(self):
         return hash(self.ID)
 
+    faith_lock_ranges = {
+        "flexible": (-9, 9),
+        "starclan": (1, 9),
+        "dark forest": (-9, -1),
+        "neutral": (-3, 3),
+    }
+
+    def get_effective_faith(self) -> float:
+        if self.no_faith:
+            return 0
+        low, high = Cat.faith_lock_ranges.get(self.lock_faith, (-9, 9))
+        return max(low, min(high, self.faith))
+
     @property
     def dead(self) -> bool:
         return bool(self.status.group.is_afterlife())
@@ -603,14 +619,31 @@ class Cat:
                     is_kit=True,
                 )
             else:
+                self.faith = self.get_effective_faith()
+                faith_pull = self.faith * 5
+
                 if cat_default_afterlife_id == CatGroup.STARCLAN_ID:
-                    affinity = self.starclan_affinity
+                    affinity = self.starclan_affinity + faith_pull
                     afterlife_group = CatGroup.STARCLAN
                     rejected_ID = CatGroup.DARK_FOREST_ID
                 else:
-                    affinity = self.dark_forest_affinity
+                    affinity = self.dark_forest_affinity - faith_pull
                     afterlife_group = CatGroup.DARK_FOREST
                     rejected_ID = CatGroup.STARCLAN_ID
+
+                # rare wrong placement
+                if random() < 0.01:
+                    self.history.wrong_placement = True
+                    opposite_group = (
+                        CatGroup.DARK_FOREST
+                        if afterlife_group == CatGroup.STARCLAN
+                        else CatGroup.STARCLAN
+                    )
+                    self.history.add_afterlife_acceptance(
+                        opposite_group, misplaced=True
+                    )
+                    self.status.send_to_afterlife(rejected_ID)
+                    return
 
                 # afterlife does not like this cat
                 if affinity < 0:
@@ -799,8 +832,6 @@ class Cat:
             game.dead_cats_to_grieve.append(self)
 
 
-        # CHECKMERGE
-        # faith effects, df for murderers + wrong placement. look at old lg code
         # mark the sprite as outdated
         self.pelt.rebuild_sprite = True
 
@@ -993,6 +1024,9 @@ class Cat:
                             family_relation, value, cat.personality.trait, body_status
                         )
                     )
+
+                if not possible_strings:
+                    continue
 
                 text = event_text_adjust(
                     Cat, choice(possible_strings), main_cat=self, random_cat=cat
@@ -1576,6 +1610,7 @@ class Cat:
             trait = giver_cat.personality.trait
 
             life_list = []
+            fallback_life_list = []
             if game.clan.your_cat.ID == self.ID:
                 victim_in_lifegiver = False
                 if game.clan.your_cat.history:
@@ -1631,6 +1666,7 @@ class Cat:
                     and giver_cat.ID not in self.former_apprentices
                 ):
                     continue
+                fallback_life_list.extend(list(possible_lives[life]["life_giving"]))
                 if (
                     possible_lives[life]["rank"]
                     and rank not in possible_lives[life]["rank"]
@@ -1649,20 +1685,17 @@ class Cat:
                     continue
                 life_list.extend(list(possible_lives[life]["life_giving"]))
 
+            pool = life_list if life_list else fallback_life_list
+
             i = 0
             chosen_life = {}
             while i < 10:
-                attempted = []
-                if life_list:
-                    chosen_life = choice(life_list)
-                    if chosen_life not in used_lives and chosen_life not in attempted:
+                if pool:
+                    chosen_life = choice(pool)
+                    if chosen_life not in used_lives:
                         break
-                    attempted.append(chosen_life)
                     i += 1
                 else:
-                    print(
-                        f"WARNING: life list had no items for giver #{giver_cat.ID}. Using default life."
-                    )
                     chosen_life = ceremony_dict["default_life"]
                     break
 
@@ -1811,9 +1844,15 @@ class Cat:
             )
 
         if self.status.is_other_clancat and not self.dead:
-            cat_list = other_clan_cats.copy() if other_clan_cats else []
+            cat_list = other_clan_cats if other_clan_cats else []
+        elif self.status.group.is_afterlife():
+            cat_list = self.all_cats_list
         else:
-            cat_list = self.all_cats_list.copy()
+            cat_list = [
+                self.all_cats[cid]
+                for cid in self.relationships
+                if cid in self.all_cats
+            ]
 
         if not other_cat:
             other_cat = get_other_cat_for_thought(
@@ -1846,7 +1885,7 @@ class Cat:
         """Randomly choose a cat of the Clan and have an interaction with them."""
         cats_to_choose = [
             iter_cat
-            for iter_cat in Cat.all_cats.values()
+            for iter_cat in Cat.living_clan_cats()
             if iter_cat.ID != self.ID
             and iter_cat.status.alive_in_player_clan
             and iter_cat.age != CatAge.NEWBORN
@@ -2753,7 +2792,9 @@ class Cat:
             return
 
         if not self.joined_df:
-            Cat.fetch_cat(self.df_mentor).df_apprentices.remove(self.ID)
+            mentor = Cat.fetch_cat(self.df_mentor)
+            if mentor and self.ID in mentor.df_apprentices:
+                mentor.df_apprentices.remove(self.ID)
             self.df_mentor = None
             return
         
@@ -2909,8 +2950,12 @@ class Cat:
         if not ignore_no_mates and (self.no_mates or other_cat.no_mates):
             return False
 
-        # Inheritance check
-        if self.is_related(other_cat, first_cousin_mates):
+        # if self.age.is_baby() or other_cat.age.is_baby():
+        #     return False
+
+        if self.is_related(other_cat, first_cousin_mates) or other_cat.is_related(
+            self, first_cousin_mates
+        ):
             return False
 
         # check dead cats
@@ -3586,7 +3631,7 @@ class Cat:
                     if random_cat.status not in story["random_cat"]["status"]:
                         continue
                 if "age" in story["random_cat"]:
-                    if random_cat.age not in story["random_cat"]["status"]:
+                    if random_cat.age not in story["random_cat"]["age"]:
                         continue
 
             filtered_stories.append(story)
@@ -3800,6 +3845,34 @@ class Cat:
         self.sprite = image_cache.load_image(
             f"sprites/faded/{file_name}"
         ).convert_alpha()
+
+    @staticmethod
+    def _rebuild_living_clan_cache():
+        Cat._living_clan_cache = [
+            c for c in Cat.all_cats.values() if c.status.alive_in_player_clan
+        ]
+        Cat._living_clan_cache_len = len(Cat.all_cats)
+
+    @staticmethod
+    def begin_moon_cache():
+        """Activate the living-clan-cat cache for the duration of a moon skip."""
+        Cat._rebuild_living_clan_cache()
+
+    @staticmethod
+    def end_moon_cache():
+        """Deactivate the living-clan-cat cache once a moon skip is finished."""
+        Cat._living_clan_cache = None
+        Cat._living_clan_cache_len = -1
+
+    @staticmethod
+    def living_clan_cats():
+        """Returns cats currently alive in the player clan.
+        """
+        if Cat._living_clan_cache is not None:
+            if Cat._living_clan_cache_len != len(Cat.all_cats):
+                Cat._rebuild_living_clan_cache()
+            return Cat._living_clan_cache
+        return [c for c in Cat.all_cats.values() if c.status.alive_in_player_clan]
 
     @staticmethod
     def fetch_cat(ID: str):

@@ -56,7 +56,7 @@ class Name:
 
         if os.path.exists(get_save_dir() + "/specialsuffixes.txt"):
             with open(
-                str(get_save_dir() + "/specialsuffixes.txt", "r"), encoding="utf-8"
+                str(get_save_dir() + "/specialsuffixes.txt"), "r", encoding="utf-8"
             ) as read_file:
                 name_list = read_file.read()
                 if_names = len(name_list)

@@ -204,9 +204,12 @@ class EventsScreen(Screens):
                         (
                             game.clan.deputy and not game.clan.deputy.status.alive_in_player_clan
                         )
+                    ) and
+                    any(
+                        c.status.alive_in_player_clan and c.status.rank == CatRank.WARRIOR
+                        for c in Cat.all_cats_list
                     )
                     ):
-                    print(game.clan.deputy)
                     ChooseDeputyWindow('events screen')
                 else:
                     self.timeskip_button.disable()

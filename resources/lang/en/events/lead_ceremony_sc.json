@@ -41,6 +41,118 @@
         },
 
   "lives": {
+    "default_queen": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": [],
+      "rank": ["queen", "queen's apprentice"],
+      "life_giving": [
+        {
+          "text": "r_c pads forward with a warm, knowing gaze and presses {PRONOUN/r_c/poss} nose to m_c's head, giving a life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/murmur/murmurs} that m_c must care for the whole Clan as tenderly as the nursery cares for its kits.",
+          "virtue": ["nurturing", "patience", "compassion", "gentleness", "protection", "unconditional love", "devotion", "empathy", "warmth", "selflessness"]
+        },
+        {
+          "text": "r_c steps close and rests {PRONOUN/r_c/poss} tail across m_c's shoulders. Warmth floods through m_c as {PRONOUN/m_c/subject} {VERB/m_c/receive/receives} a life for [virtue].",
+          "virtue": ["nurturing", "patience", "compassion", "gentleness", "protection", "unconditional love", "devotion", "empathy", "warmth", "selflessness"]
+        }
+      ]
+    },
+
+    "default_outsider": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": [],
+      "rank": ["loner", "rogue", "kittypet"],
+      "life_giving": [
+        {
+          "text": "r_c approaches, {PRONOUN/r_c/poss} pawsteps carrying the memory of distant places. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} m_c a life for [virtue], telling m_c that though {PRONOUN/r_c/subject} never called the Clan home, {PRONOUN/r_c/subject} watched over it all the same.",
+          "virtue": ["resilience", "independence", "adaptability", "resourcefulness", "open-mindedness", "curiosity", "perseverance", "self-reliance", "freedom", "survival"]
+        },
+        {
+          "text": "r_c dips {PRONOUN/r_c/poss} head to m_c. Energy surges through m_c's pelt as {PRONOUN/m_c/subject} {VERB/m_c/receive/receives} a life for [virtue] from a cat who once walked {PRONOUN/r_c/poss} own path.",
+          "virtue": ["resilience", "independence", "adaptability", "resourcefulness", "open-mindedness", "curiosity", "perseverance", "self-reliance", "freedom", "survival"]
+        }
+      ]
+    },
+
+    "aloof": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": ["aloof", "gloomy", "stoic", "reserved"],
+      "rank": [],
+      "life_giving": [
+        {
+          "text": "r_c approaches quietly, saying little, and touches {PRONOUN/r_c/poss} nose to m_c's head to give a life for [virtue].",
+          "virtue": ["quiet strength", "composure", "steadiness", "inner calm", "resolve", "patience"]
+        }
+      ]
+    },
+
+    "cowardly": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": ["cowardly", "meek", "emotional", "humble"],
+      "rank": [],
+      "life_giving": [
+        {
+          "text": "r_c steps forward hesitantly, then presses close to give m_c a life for [virtue].",
+          "virtue": ["humility", "gentleness", "empathy", "courage", "modesty", "tenderness"]
+        }
+      ]
+    },
+
+    "bouncy": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": ["bouncy", "energetic", "spontaneous"],
+      "rank": [],
+      "life_giving": [
+        {
+          "text": "r_c bounds up to m_c, tail held high, and gives a life for [virtue] in a joyful rush of energy.",
+          "virtue": ["energy", "joy", "spontaneity", "liveliness", "enthusiasm", "spirit"]
+        }
+      ]
+    },
+
+    "cunning": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": ["cunning", "witty", "flexible", "mellow"],
+      "rank": [],
+      "life_giving": [
+        {
+          "text": "r_c pads up with a sharp, knowing look and gives m_c a life for [virtue].",
+          "virtue": ["wit", "adaptability", "cleverness", "quick thinking", "flexibility", "insight"]
+        }
+      ]
+    },
+
+    "justified": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": ["justified", "methodical", "disciplined", "patient", "obsessive"],
+      "rank": [],
+      "life_giving": [
+        {
+          "text": "r_c approaches with measured, deliberate steps and gives m_c a life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/urge/urges} m_c to lead with patience and unwavering focus.",
+          "virtue": ["discipline", "patience", "focus", "diligence", "order", "perseverance"]
+        }
+      ]
+    },
+
+    "trusting": {
+      "tags": [],
+      "lead_trait": [],
+      "star_trait": ["trusting", "sincere", "oblivious"],
+      "rank": [],
+      "life_giving": [
+        {
+          "text": "r_c greets m_c with open warmth and gives a life for [virtue].",
+          "virtue": ["sincerity", "trust", "honesty", "faith", "openness", "good faith"]
+        }
+      ]
+    },
+
     "only_guide": {
       "tags": ["new_clan", "guide"],
       "lead_trait": [],

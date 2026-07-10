@@ -139,7 +139,7 @@ class AllegiancesScreen(Screens):
         """Determine Text. Ouputs list of tuples."""
 
         living_cats = [
-            i for i in Cat.all_cats.values() if i.status.alive_in_player_clan and i.moons > 0
+            i for i in Cat.all_cats.values() if i.status.alive_in_player_clan and i.moons >= 0
         ]
         living_meds = []
         living_mediators = []

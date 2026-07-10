@@ -1952,7 +1952,7 @@ class MakeClanScreen(Screens):
             if random.randint(0,10) == 1:
                 self.custom_cat.pelt.scars = (random.choice(["LEFTBLIND", "RIGHTBLIND", "BRIGHTHEART"]),)
         elif self.permanent_condition in ["deaf", "partial hearing loss"]:
-            if random.randint(0,10):
+            if random.randint(0,10) == 1:
                 self.custom_cat.pelt.scars = (random.choice(["LEFTEAR", "RIGHTEAR", "NOEAR"]),)
 
         self.faith = random.choice(["flexible", "starclan", "dark forest", "neutral"])

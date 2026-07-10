@@ -194,7 +194,7 @@ class Relation_Events:
                 lambda cat: (
                     cat.status.alive_in_player_clan and not cat.age == CatAge.NEWBORN
                 ),
-                Cat.all_cats.values(),
+                Cat.living_clan_cats(),
             )
         )
         if cat in possible_interaction_cats:

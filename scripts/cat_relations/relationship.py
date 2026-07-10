@@ -156,8 +156,8 @@ class Relationship:
             chosen_interaction = choice(possible_interactions)
 
         # if the chosen_interaction is still in the TRIGGERED_SINGLE_INTERACTIONS, clean the list
-        if chosen_interaction in self.used_interaction_ids:
-            self.used_interaction_ids = []
+        if chosen_interaction.id in self.used_interaction_ids:
+            Relationship.used_interaction_ids.clear()
 
         # add the chosen interaction id to the TRIGGERED_SINGLE_INTERACTIONS
         self.chosen_interaction = chosen_interaction
@@ -240,8 +240,8 @@ class Relationship:
         game.cur_events_list.append(
             Single_Event(
                 interaction_str,
-                ["relation", "interaction"],
-                cat_dict={"m_c": self.cat_to, "r_c": self.cat_from},
+                relevant_event_tabs,
+                cat_dict={"m_c": self.cat_from, "r_c": self.cat_to},
             )
         )
 
@@ -429,8 +429,8 @@ class Relationship:
             else:
                 if rel_type == RelType.ROMANCE:
                     continue
-                if attr > 0:
-                    value_weights[rel_type] += int(abs(attr / 10))
+                if attr < 0: 
+                    value_weights[rel_type] += int(abs(attr) / 10)
 
         # increase the chance of a romance interaction if they are already mates
         if self.mate:

@@ -204,7 +204,7 @@ def add_faded_offspring_to_faded_cat(parent, offspring):
         print("ERROR: loading faded cat")
         return False
 
-    cat_info["faded_offspring"].append(offspring)
+    cat_info.setdefault("faded_offspring", []).append(offspring)
 
     safe_save(path, cat_info)
 

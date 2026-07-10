@@ -847,6 +847,11 @@ class Condition_Events:
                     else:
                         accepted_events = possible_string_list
 
+                    if not accepted_events:
+                        accepted_events = possible_string_list
+                    if not accepted_events:
+                        continue
+
                     random_index = random.randrange(0, len(accepted_events))
                     event = accepted_events[random_index]
 

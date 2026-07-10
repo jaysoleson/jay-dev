@@ -604,6 +604,7 @@ class ProfileScreen(Screens):
                             self.the_cat.status.add_to_group(
                                 new_group_ID=CatGroup.DARK_FOREST_ID
                             )
+                        self.the_cat.history.reconcile_afterlife_acceptance()
                         self.the_cat.get_new_thought(CatThought.ON_AFTERLIFE_CHANGE)
                         self.the_cat.pelt.rebuild_sprite = True
 
@@ -1359,11 +1360,12 @@ class ProfileScreen(Screens):
                         name = game.clan.displayname
                     # if they had an old clan that wasn't the player's, find it!
                     elif old_clan_ID:
-                        name = [
+                        matches = [
                             c
                             for c in game.clan.all_other_clans
                             if c.group_ID == the_cat.status.get_last_living_group()
-                        ][0].name
+                        ]
+                        name = matches[0].name if matches else None
                     # otherwise they had no clan
                     else:
                         name = None
@@ -1374,11 +1376,12 @@ class ProfileScreen(Screens):
 
         # if cat is alive and in another clan, find that clan's name
         elif the_cat.status.is_other_clancat:
-            name = [
+            matches = [
                 c
                 for c in game.clan.all_other_clans
                 if c.group_ID == the_cat.status.group_ID
-            ][0].name
+            ]
+            name = matches[0].name if matches else game.clan.displayname
         # otherwise, assume the cat takes the player clan's name
         # it's okay if this is an outsider, if they don't actually have a group to refer to then they won't use this variable
         else:
@@ -1957,6 +1960,7 @@ class ProfileScreen(Screens):
         """
         cat_dict = {"m_c": (str(self.the_cat.name), choice(self.the_cat.pronouns))}
         if self.the_cat.dead and self.the_cat.history.afterlife_acceptance:
+            self.the_cat.history.reconcile_afterlife_acceptance()
             text = i18n.t(f"cat.afterlife.{self.the_cat.history.afterlife_acceptance}")
             adjusted_text = process_text(text, cat_dict=cat_dict)
             return adjusted_text
@@ -2709,29 +2713,7 @@ class ProfileScreen(Screens):
         if self.faith_bar and self.faith_text:
             self.faith_bar.kill()
             self.faith_text.kill()
-        if self.the_cat.no_faith:
-            self.the_cat.faith = 0
-        cat_faith = round(self.the_cat.faith)
-        if self.the_cat.lock_faith == "flexible":
-            if cat_faith > 9:
-                cat_faith = 9
-            elif cat_faith < -9:
-                cat_faith = -9
-        elif self.the_cat.lock_faith == "starclan":
-            if cat_faith > 9:
-                cat_faith = 9
-            elif cat_faith < 1:
-                cat_faith = 1
-        elif self.the_cat.lock_faith == "dark forest":
-            if cat_faith > -1:
-                cat_faith = -1
-            elif cat_faith < -9:
-                cat_faith = 9
-        elif self.the_cat.lock_faith == "neutral":
-            if cat_faith > 3:
-                cat_faith = 3
-            elif cat_faith < -3:
-                cat_faith = -3
+        cat_faith = round(self.the_cat.get_effective_faith())
         self.faith_bar = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((175, 500), (421, 39))),
                                                                 image_cache.load_image(f"resources/images/faith{cat_faith}.png").convert_alpha())
         self.faith_bar.disable()
@@ -3117,7 +3099,7 @@ class ProfileScreen(Screens):
             if game.clan.your_cat.mate:
                 alive_mate = False
                 for m in game.clan.your_cat.mate:
-                    if Cat.all_cats.get(m).dead == False:
+                    if Cat.all_cats.get(m).status.alive_in_player_clan:
                         alive_mate = True
                 if not alive_mate:
                     self.affair_button.disable()
