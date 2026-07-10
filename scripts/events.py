@@ -91,6 +91,7 @@ from scripts.events_module.filter_random_cats import choose_random_cats
 
 from scripts.lifegen_utility import get_cluster, check_achievements, get_your_cat_group_count
 
+from scripts.clan_package.settings import get_clan_setting
 from scripts.cat.sexuality import Sexuality, Arospec, Acespec
 
 logger = logging.getLogger(__name__)
@@ -1561,7 +1562,7 @@ def generate_lifegen_events():
     #     print("ERROR Generating LifeGen Events:", e)
 
     if not possible_events:
-        print("No possible events.")
+        print("No possible LifeGen events.")
         return
 
     for i in range(random.randint(0,5)):
@@ -4349,6 +4350,14 @@ def sexuality_change(cat):
                         cat.sexuality.likes_she_cats = value
                     new_label = True
             cat.sexuality.sexuality_label = cat.sexuality.generate_sexuality_label(cat.genderalign)
+
+            if "arospec_label" in cat.sexuality.upcoming_sexuality:
+                cat.sexuality.arospec_label = cat.sexuality.upcoming_sexuality["arospec_label"]
+                change_list.append(cat.sexuality.arospec_label)
+            if "acespec_label" in cat.sexuality.upcoming_sexuality:
+                cat.sexuality.acespec_label = cat.sexuality.upcoming_sexuality["acespec_label"]
+                change_list.append(cat.sexuality.acespec_label)
+
             if new_label:
                 change_list.append(cat.sexuality.sexuality_label)
 
@@ -4366,7 +4375,6 @@ def sexuality_change(cat):
                 )
             cat.sexuality.clear_upcoming_sexuality()
             cat.sexuality.total_changes += 1
-            print(cat.name, "total sexuality changes:", cat.sexuality.total_changes)
         return
     
     # if they dont have a change upcoming, try to give them one!
@@ -4403,7 +4411,7 @@ def sexuality_change(cat):
             new_arospec = random.choice(options)
 
             microlabel = None
-            if game_setting_get("microlabels") and not int(random.random() * 2):
+            if get_clan_setting("microlabels") and not int(random.random() * 2):
                 microlabel_dict = {
                     Arospec.DEMI : ["nebularomantic"],
                     Arospec.GREY : ["lithromantic", "aroaceflux"],
@@ -4411,7 +4419,6 @@ def sexuality_change(cat):
                 }
                 if new_arospec in microlabel_dict:
                     microlabel = random.choice(microlabel_dict[new_arospec])
-                    print("AROSPEC MICROLABEL CHOSEN:", cat.name, "is going to be", microlabel)
             cat.sexuality.create_upcoming_sexuality_dict(
                 arospec=new_arospec,
                 arospec_label=microlabel
@@ -4428,10 +4435,10 @@ def sexuality_change(cat):
 
             microlabel = None
             # none yet
-            if game_setting_get("microlabels"):
+            if get_clan_setting("microlabels"):
                 microlabel_dict = {}
-                if new_arospec in microlabel_dict:
-                    microlabel = random.choice(microlabel_dict[new_arospec])
+                if new_acespec in microlabel_dict:
+                    microlabel = random.choice(microlabel_dict[new_acespec])
 
             cat.sexuality.create_upcoming_sexuality_dict(
                 acespec=new_acespec
@@ -4461,7 +4468,7 @@ def correct_mates_for_sexuality(cat):
     
     for cat_id in cat.mate:
         other_cat = Cat.fetch_cat(cat_id)
-        if not other_cat.is_pridegen_compatible(cat):
+        if not other_cat.is_pridegen_compatible(cat, moonskip_check=True):
             cat.unset_mate(other_cat)
             event = event_text_adjust(
                 Cat,
@@ -4476,6 +4483,7 @@ def find_sexuality_change_event(cat):
 
     all_change_events = load_lang_resource("events/sexuality_change.json")
     possible_events = []
+    possible_keys = []
 
     for key, event in all_change_events.items():
         if "gender" in event:
@@ -4515,17 +4523,24 @@ def find_sexuality_change_event(cat):
         if "arospec" in event["new"]:
             if "arospec" not in upcoming:
                 continue
-            if (
-                upcoming["arospec"] not in event["new"]["arospec"]
-            ):
-                continue
+
+            if "arospec_label" in upcoming:
+                if upcoming["arospec_label"] not in event["new"]["arospec"]:
+                    continue
+            else:
+                if upcoming["arospec"] not in event["new"]["arospec"]:
+                    continue
+
         if "acespec" in event["new"]:
             if "acespec" not in upcoming:
                 continue
-            if (
-                upcoming["acespec"] not in event["new"]["acespec"]
-            ):
-                continue
+            if "acespec_label" in upcoming:
+                if upcoming["acespec_label"] not in event["new"]["acespec"]:
+                    continue
+            else:
+                if upcoming["acespec"] not in event["new"]["acespec"]:
+                    continue
+
         if "likes_toms" in event["new"]:
             if "likes_toms" not in upcoming:
                 continue
@@ -4549,6 +4564,7 @@ def find_sexuality_change_event(cat):
                 continue
 
         possible_events.extend(event["events"])
+        possible_keys.append(key)
     
     if possible_events:
         return random.choice(possible_events)
@@ -4572,7 +4588,10 @@ def coming_out(cat):
         chance += transing_chance["older_modifier"]
 
     if not int(random.random() * chance):
-        sub_type = ["transition"]
+        if not int(random.random() * transing_chance["xenogender_chance"]):
+            sub_type = ["transition", "xenogender"]
+        else:
+            sub_type = ["transition"]
         create_short_event(
             event_type="misc",
             main_cat=cat,

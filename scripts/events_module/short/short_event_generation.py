@@ -33,7 +33,7 @@ from scripts.clan_package.get_clan_cats import (
     find_alive_cats_with_rank,
 )
 
-from scripts.game_structure.game.settings import game_setting_get
+from scripts.clan_package.settings import get_clan_setting
 
 loaded_events = {}
 used_events = set()
@@ -441,7 +441,7 @@ def filter_events(
         if "transition" in event.sub_type and main_cat.gender != main_cat.genderalign:
             continue
 
-        if "xenogender" in event.sub_type and not game_setting_get("microlabels"):
+        if "xenogender" in event.sub_type and not get_clan_setting("microlabels"):
             continue
 
         m_c_injuries = []

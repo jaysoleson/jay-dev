@@ -2825,33 +2825,49 @@ class Cat:
     # ---------------------------------------------------------------------------- #
     #                                 relationships                                #
     # ---------------------------------------------------------------------------- #
-    def is_pridegen_compatible(self, other_cat, demiromantic_functionality=False):
+    def is_pridegen_compatible(self, other_cat, demiromantic_functionality=False, moonskip_check=False):
         # PRIDEGEN
         if other_cat.genderalign in Sexuality.male_genders:
             if not self.sexuality.attracted_to_toms():
+                if moonskip_check:
+                    print("Breakup returned HERE: #01")
                 return False
         if other_cat.genderalign in Sexuality.female_genders:
             if not self.sexuality.attracted_to_shecats():
+                if moonskip_check:
+                    print("Breakup returned HERE: #02")
                 return False
 
         if not other_cat.sexuality.attracted_to_toms():
             if self.genderalign in Sexuality.male_genders:
+                if moonskip_check:
+                    print("Breakup returned HERE: #03")
                 return False
         if not other_cat.sexuality.attracted_to_shecats():
             if self.genderalign in Sexuality.female_genders:
+                if moonskip_check:
+                    print("Breakup returned HERE: #04")
                 return False
 
         if self.genderalign in Sexuality.male_genders:
             if not other_cat.sexuality.attracted_to_toms():
+                if moonskip_check:
+                    print("Breakup returned HERE: #05")
                 return False
         if self.genderalign in Sexuality.female_genders:
             if not other_cat.sexuality.attracted_to_shecats():
+                if moonskip_check:
+                    print("Breakup returned HERE: #06")
                 return False
         if not self.sexuality.attracted_to_toms():
             if other_cat.genderalign in Sexuality.male_genders:
+                if moonskip_check:
+                    print("Breakup returned HERE: #07")
                 return False
         if not self.sexuality.attracted_to_shecats():
             if other_cat.genderalign in Sexuality.female_genders:
+                if moonskip_check:
+                    print("Breakup returned HERE: #08")
                 return False
 
         if demiromantic_functionality:
@@ -2869,15 +2885,21 @@ class Cat:
                     if self.relationships[other_cat.ID].like < 50:
                         demi_false = True
             if demi_false:
+                if moonskip_check:
+                    print("Breakup returned HERE: #09")
                 return False
         
         if self.sexuality.t4t and (
             other_cat.gender == other_cat.genderalign
         ):
+            if moonskip_check:
+                print("Breakup returned HERE: #10")
             return False
         if other_cat.sexuality.t4t and (
             self.gender == self.genderalign
         ):
+            if moonskip_check:
+                print("Breakup returned HERE: #11")
             return False
 
         return True

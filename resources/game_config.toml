@@ -379,8 +379,11 @@ dev_tools = false
   # modifies transition chance based on if cat is an adult or older
   older_modifier = 256
 
+  # the chance that, once a cat has hit the trans chance, their new gender will be a xenogender.
+  xenogender_chance = 30
+
 [sexuality_change_related]
-  base_chance = 64
+  base_chance = 75
   adolescent_modifier = -32
   older_modifier = 128
   mate_modifier = 3

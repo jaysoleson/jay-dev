@@ -10089,6 +10089,76 @@
         ]
     },
     {
+        "event_id": "gen_misc_transition_from_female2",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition"
+        ],
+        "frequency": 4,
+        "event_text": "m_c looks at {PRONOUN/m_c/poss} reflection in a puddle one day and finally recognises the tom staring back at {PRONOUN/m_c/object}.",
+        "m_c": {
+            "gender": [
+                "female"
+            ]
+        },
+        "new_gender": [
+            "trans male"
+        ]
+    },
+    {
+        "event_id": "gen_misc_transition_from_female3",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition"
+        ],
+        "frequency": 4,
+        "event_text": "When m_c anxiously tells r_c that {PRONOUN/m_c/subject} {VERB/m_c/think/thinks} {PRONOUN/m_c/subject}'d be happier as a tom, r_c just prods {PRONOUN/m_c/object} with a teasing paw and asks what took m_c so long to notice.",
+        "m_c": {
+            "gender": [
+                "female"
+            ],
+            "age": ["-kitten"],
+            "relationship_status": ["likes"]
+        },
+        "r_c": {
+            "age": [
+                "-kitten"
+            ]
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "m_c"
+                ],
+                "cats_to": [
+                    "r_c"
+                ],
+                "mutual": true,
+                "values": [
+                    "comfort",
+                    "trust"
+                ],
+                "amount": 10,
+                "log": {
+                    "cats_from": "cat_to reacted warmly when cat_from came out as transgender."
+                }
+            }
+        ],
+        "new_gender": [
+            "trans male"
+        ]
+    },
+    {
         "event_id": "gen_misc_transition_from_male1",
         "location": [
             "any"
@@ -10109,6 +10179,100 @@
         "new_gender": [
             "trans female",
             "nonbinary"
+        ]
+    },
+    {
+        "event_id": "gen_misc_transition_from_male2",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition"
+        ],
+        "frequency": 4,
+        "event_text": "m_c looks at {PRONOUN/m_c/poss} reflection in a puddle one day and finally recognises the she-cat staring back at {PRONOUN/m_c/object}.",
+        "m_c": {
+            "gender": [
+                "male"
+            ]
+        },
+        "new_gender": [
+            "trans female"
+        ]
+    },
+    {
+        "event_id": "gen_misc_transition_from_male3",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition"
+        ],
+        "frequency": 4,
+        "event_text": "When m_c anxiously tells r_c that {PRONOUN/m_c/subject} {VERB/m_c/think/thinks} {PRONOUN/m_c/subject}'d be happier as a she-cat, r_c just prods {PRONOUN/m_c/object} with a teasing paw and asks what took m_c so long to notice.",
+        "m_c": {
+            "gender": [
+                "male"
+            ],
+            "age": ["-kitten"],
+            "relationship_status": [
+                "likes"
+            ]
+        },
+        "r_c": {
+            "age": [
+                "-kitten"
+            ]
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "m_c"
+                ],
+                "cats_to": [
+                    "r_c"
+                ],
+                "mutual": true,
+                "values": [
+                    "comfort",
+                    "trust"
+                ],
+                "amount": 10,
+                "log": {
+                    "cats_from": "cat_to reacted warmly when cat_from came out as transgender."
+                }
+            }
+        ],
+        "new_gender": [
+            "trans female"
+        ]
+    },
+    {
+        "event_id": "gen_misc_transition_genderfluid1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "transition"
+        ],
+        "frequency": 4,
+        "event_text": "m_c has realised that {PRONOUN/m_c/poss} gender is constantly changing.",
+        "m_c": {
+            "gender": [
+                "male", "female"
+            ]
+        },
+        "new_gender": [
+            "genderfluid"
         ]
     },
     {

@@ -24,6 +24,7 @@ class NewGenderEnum(Enum):
     xenogender = "xenogender"
     genderflux = "genderflux"
     demifluid = "demifluid"
+    genderfluid = "genderfluid"
 
 
 class GenderEnum(Enum):

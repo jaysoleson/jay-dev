@@ -998,7 +998,8 @@
         "genderfaun",
         "xenogender",
         "genderflux",
-        "demifluid"
+        "demifluid",
+        "genderfluid"
       ],
       "title": "NewGenderEnum",
       "type": "string"

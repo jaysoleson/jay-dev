@@ -44,6 +44,7 @@ def get_new_pronouns(genderalign: str) -> List[Dict[str, Union[str, int]]]:
             prn_list = []
             for set in pronouns:
                 prn_list.append(default_pronouns[locale][set])
+            return prn_list
         else:
         # ---
             return [default_pronouns[locale][pronouns]]
@@ -53,7 +54,14 @@ def get_new_pronouns(genderalign: str) -> List[Dict[str, Union[str, int]]]:
             default_pronouns[locale] = temp[locale]
         except KeyError:
             default_pronouns[locale] = temp[i18n.config.get("fallback")]
-    return [default_pronouns[locale][pronouns]]
+    # PG
+    if isinstance(pronouns, list):
+        prn_list = []
+        for set in pronouns:
+            prn_list.append(default_pronouns[locale][set])
+        return prn_list
+    else:
+        return [default_pronouns[locale][pronouns]]
 
 
 def determine_plural_pronouns(cat_list: List[Dict[str, Union[str, int]]]):

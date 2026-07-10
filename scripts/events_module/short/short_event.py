@@ -33,6 +33,7 @@ from scripts.cat.personality import Personality
 from scripts.cat.skills import SkillPath
 from scripts.game_structure import constants
 
+from scripts.clan_package.settings import get_clan_setting
 
 class ShortEvent:
     """
@@ -569,11 +570,17 @@ class ShortEvent:
         handles updating gender_align and pronouns
         """
         possible_genders = getattr(self, "new_gender", [])
-
         if possible_genders:
-            if not game_setting_get("microlabels"):
+            if not get_clan_setting("microlabels"):
                 for gender in possible_genders:
-                    if gender not in ["trans male", "trans female", "nonbinary", "genderfluid", "demiboy", "demigirl"]:
+                    if gender not in [
+                        "trans male",
+                        "trans female",
+                        "nonbinary",
+                        "genderfluid",
+                        "demiboy",
+                        "demigirl"
+                        ]:
                         possible_genders.remove(gender)
             new_gender = choice(possible_genders)
             self.main_cat.genderalign = new_gender
@@ -581,9 +588,7 @@ class ShortEvent:
             # PG
             if not self.main_cat.sexuality.likes_toms == self.main_cat.sexuality.likes_she_cats:
                 # if the cat is already bi, pan, or aroace, this wont need to be corrected.
-                print("PG DEBUG:", self.main_cat.name, self.main_cat.sexuality.sexuality_label, new_gender)
                 self.main_cat.sexuality.sexuality_label = self.main_cat.sexuality.generate_sexuality_label(new_gender)
-                print("NEW:", self.main_cat.sexuality.sexuality_label)
 
             self.main_cat.pronouns = pronouns.get_new_pronouns(
                 self.main_cat.genderalign

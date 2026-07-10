@@ -8,6 +8,8 @@
             "trans male": "1",
             "female": "2",
             "trans female": "2",
+            "genderdoe": "2",
+            "genderfaun": "1",
             "genderfluid": ["0", "1", "2"],
             "demifluid": ["0", "1", "2"],
             "demigirl": "0",

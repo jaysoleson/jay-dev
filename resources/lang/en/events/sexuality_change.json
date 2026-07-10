@@ -92,6 +92,20 @@
             "m_c has come to terms with the fact that romance just isn't {PRONOUN/m_c/poss} thing."
         ]
     },
+    "aroace_1": {
+        "new": {
+            "arospec": [
+                "aromantic"
+            ],
+            "acespec": [
+                "asexual"
+            ]
+        },
+        "old": {},
+        "events": [
+            "m_c comes out as aroace."
+        ]
+    },
     "demis_1": {
         "new": {
             "acespec": ["demisexual"]
@@ -181,6 +195,80 @@
             "m_c has realised that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} just like she-cats-- {PRONOUN/m_c/subject} {VERB/m_c/like/likes} toms, too!",
             "m_c discovers that {PRONOUN/m_c/poss} admiration of toms goes beyond just aesthetic appreciation.",
             "m_c newly feels attracted to both she-cats and toms."
+        ]
+    },
+    "nebula_1": {
+        "new": {
+            "arospec": [
+                "nebularomantic"
+            ]
+        },
+        "old": {},
+        "events": [
+            "After some thinking, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/are/is} nebularomantic.",
+            "m_c comes out as nebularomantic.",
+            "m_c has trouble distinguishing the difference between platonic and romantic attraction. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as nebularomantic."
+        ]
+    },
+    "lith_1": {
+        "new": {
+            "arospec": [
+                "lithromantic"
+            ]
+        },
+        "old": {},
+        "events": [
+            "After some thinking, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/are/is} lithromantic.",
+            "m_c comes out as lithromantic.",
+            "m_c experiences romantic attraction, but has realised that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} want it reciprocated. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as lithromantic."
+        ]
+    },
+    "cupio_1": {
+        "new": {
+            "arospec": [
+                "cupioromantic"
+            ]
+        },
+        "old": {},
+        "events": [
+            "After some thinking, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/are/is} cupioromantic.",
+            "m_c comes out as cupioromantic.",
+            "m_c desires romantic connection, but doesn't actually experience romantic attraction. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as cupioromantic."
+        ]
+    },
+    "aroaceflux_1": {
+        "new": {
+            "arospec": [
+                "aroaceflux"
+            ]
+        },
+        "old": {},
+        "events": [
+            "After some thinking, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/are/is} aroaceflux.",
+            "m_c comes out as aroaceflux.",
+            "m_c's feelings seem to flucuate along the aromantic and asexual spectrums. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} come out as aroaceflux."
+        ]
+    },
+    "allosexual_1": {
+        "new": {
+            "acespec": [
+                "allosexual"
+            ]
+        },
+        "old": {},
+        "events": [
+            "After some questioning, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/experience/experiences} standard attraction to other cats."
+        ]
+    },
+    "alloromantic_1": {
+        "new": {
+            "acespec": [
+                "allosexual"
+            ]
+        },
+        "old": {},
+        "events": [
+            "After some questioning, m_c realises that {PRONOUN/m_c/subject} {VERB/m_c/experience/experiences} standard romantic attraction to other cats."
         ]
     }
 }
