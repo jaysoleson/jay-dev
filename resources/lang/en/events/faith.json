@@ -1021,7 +1021,7 @@
         "event_text": [
             "To m_c, it feels like StarClan has turned their backs on {PRONOUN/m_c/object}, just like {PRONOUN/m_c/poss} Clanmates have.",
             "m_c desperately pleads StarClan to show that they understand {PRONOUN/m_c/poss} actions, but the stars remain silent.",
-            "One clear night, m_c asks StarClan if they forgive {PRONOUN/m_c/object}. {PRONOUN/m_c/subject/CAP}{VERB/m_c/swear/swears} {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} never seen the clouds come in so quickly."
+            "One clear night, m_c asks StarClan if they forgive {PRONOUN/m_c/object}. {PRONOUN/m_c/subject/CAP} {VERB/m_c/swear/swears} {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} never seen the clouds come in so quickly."
         ],
         "m_c": {
             "min_max_faith": [-2, 6],
