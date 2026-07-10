@@ -533,10 +533,15 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
     Chooses final cats based on relationship constraints.
     Not a 'filter' in the same way the other filter functions are. More of a selection tool.
     """
-    new_dict = {
-        "y_c": your_cat,
-        "t_c": the_cat
-    }
+    if the_cat:
+        new_dict = {
+            "y_c": your_cat,
+            "t_c": the_cat
+        }
+    else:
+        new_dict = {
+            "y_c": your_cat
+        }
     for relationship in rel_block:
         for rel_tag in relationship["relationship"]:
 
@@ -588,11 +593,6 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                             if valid_rels == rels_to_check:
                                 continue
                             if match_found:
-                                continue
-                            if not to_cat:
-                                print("to_cat in list is None! Report to Jay!")
-                                print(to_cat_list)
-                                print(rel_block)
                                 continue
                             rel_valid = False
                             # this will check is the abbrev and cat are valid.
