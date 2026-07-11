@@ -51,14 +51,14 @@ On source versions of LifeGen, the commit number is in the bottom-right of every
 If the game immediately crashes, you can get to the default log location manually.
 
 === "Source"
-If you are running a source code version of LifeGen, the log files are stored in a folder called `logs` within the folder the source files are located in.
+If you are running a source code version of Pridegen, the log files are stored in a folder called `logs` within the folder the source files are located in.
 
 === "Stable (standalone executable)"
 | Operating System | Default Location |
 |------------------|--------------------------------------------------------------|
-| Windows | `C:\Users\[your user name]\AppData\Local\LifeGen\LifeGen/logs` |
-| Mac | `/Users/[your user name]/Library/Application Support/LifeGen/logs` |
-| Linux | `/home/[your user name]/.local/share/LifeGen/logs` |
+| Windows | `C:\Users\[your user name]\AppData\Local\Pridegen\Pridegen/logs` |
+| Mac | `/Users/[your user name]/Library/Application Support/Pridegen/logs` |
+| Linux | `/home/[your user name]/.local/share/Pridegen/logs` |
 
 ### How do I find the error log?
 
