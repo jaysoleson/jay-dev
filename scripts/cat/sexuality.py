@@ -433,7 +433,7 @@ class Sexuality():
             if self.likes_toms:
                 valid_flags.append("ACHILLEAN")
                 valid_flags.append("RAINBOW_BANDANA")
-                valid_flags.append("NEPTUNIC")
+                valid_flags.append("URANIC")
                 if not self.likes_she_cats:
                     valid_flags.append("GAY")
             elif self.likes_she_cats:
@@ -442,7 +442,7 @@ class Sexuality():
             if self.likes_she_cats:
                 valid_flags.append("SAPPHIC")
                 valid_flags.append("RAINBOW_BANDANA")
-                valid_flags.append("URANIC")
+                valid_flags.append("NEPTUNIC")
                 if not self.likes_toms:
                     valid_flags.append("LESBIAN")
                     valid_flags.append("BUTCH")
