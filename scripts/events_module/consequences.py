@@ -62,10 +62,14 @@ def create_new_cat_block(
             if index >= i:
                 continue
 
+            candidate_parent = event.new_cats[index][0]
+            if not candidate_parent.age.can_have_mate():
+                continue
+
             if parent1 is None:
-                parent1 = event.new_cats[index][0]
+                parent1 = candidate_parent
             else:
-                parent2 = event.new_cats[index][0]
+                parent2 = candidate_parent
 
         adoptive_indexes = [
             int(index) if index.isdigit() else index for index in adoptive_indexes

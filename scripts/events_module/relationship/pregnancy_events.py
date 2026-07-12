@@ -115,6 +115,11 @@ class Pregnancy_Events:
         if cat.status.is_outsider:
             return
 
+        if not (
+            cat.status.alive_in_player_clan or cat.status.alive_in_your_cat_group
+        ):
+            return
+
         # Handle birth cooldown outside of the check_if_can_have_kits function, so it only happens once
         # for each cat.
         if cat.birth_cooldown > 0:
@@ -159,6 +164,12 @@ class Pregnancy_Events:
                 Pregnancy_Events.handle_adoption(cat, second_parent, clan)
             else:
                 Pregnancy_Events.handle_zero_moon_pregnant(cat, second_parent, clan)
+            if (
+                switch_get_value(Switch.have_kits)
+                and game.clan.your_cat
+                and game.clan.your_cat in (cat, second_parent)
+            ):
+                switch_set_value(Switch.have_kits, False)
 
     # ---------------------------------------------------------------------------- #
     #                                 handle events                                #
