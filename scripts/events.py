@@ -4263,7 +4263,9 @@ def exile_or_forgive(cat):
     involved_cats = []
     involved_cats.append(cat.ID)
 
-    if game.clan.your_cat.ID == cat.ID:
+    is_your_cat = game.clan.your_cat is not None and game.clan.your_cat.ID == cat.ID
+
+    if is_your_cat:
         fate = int((constants.CONFIG["lifegen"]["shunned_cat"]["exile_chance"][cat.age.replace(' ', '_')]) * 1.75)
     else:
         fate = int(constants.CONFIG["lifegen"]["shunned_cat"]["exile_chance"][cat.age.replace(' ', '_')])
@@ -4273,9 +4275,9 @@ def exile_or_forgive(cat):
         text = event_text_adjust(
             Cat,
             text=(
-                "m_c has been exiled from c_n."
-                if cat.ID != game.clan.your_cat.ID
-                else "You have been exiled from c_n."
+                "You have been exiled from c_n."
+                if is_your_cat
+                else "m_c has been exiled from c_n."
                 ),
             main_cat=cat,
             clan=game.clan
@@ -4285,9 +4287,9 @@ def exile_or_forgive(cat):
         text = event_text_adjust(
             Cat,
             text=(
-                "m_c has been unshunned and welcomed back into c_n."
-                if cat.ID != game.clan.your_cat.ID
-                else "You have been unshunned and welcomed back into c_n."
+                "You have been unshunned and welcomed back into c_n."
+                if is_your_cat
+                else "m_c has been unshunned and welcomed back into c_n."
                 ),
             main_cat=cat,
             clan=game.clan
