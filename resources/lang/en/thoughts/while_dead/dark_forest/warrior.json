@@ -1,7 +1,7 @@
 [
 	{
 		"id": "warrior_dark_forest_thoughts",
-		"thoughts": [
+		"strings": [
 			"Misses patrolling with {PRONOUN/m_c/poss} Clanmates",
 			"Feels the days start to blur",
 			"Cleans a wound after an argument turned into bloodshed",

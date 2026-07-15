@@ -87,9 +87,7 @@ class UIDropDown(UIDropDownContainer):
             open_on_hover=open_on_hover,
         )
 
-        rect = pygame.Rect(
-            (relative_rect.x, 0), (relative_rect.width, relative_rect.height)
-        )
+        rect = pygame.Rect((0, 0), (relative_rect.width, relative_rect.height))
 
         # create parent button
         if not parent_override:
@@ -107,9 +105,9 @@ class UIDropDown(UIDropDownContainer):
             self.parent_button.set_container(self)
 
         if center_children:
-            x_pos = -int(child_dimensions[0] / 2 - relative_rect.width / 2)
+            x_pos = -int(child_dimensions[0] / 2 - rect.width / 2)
         else:
-            x_pos = relative_rect.x
+            x_pos = rect.x
         dropdown_rect = ((x_pos, 0), (0, 0))
 
         self.child_button_container = UIAutoResizingContainer(

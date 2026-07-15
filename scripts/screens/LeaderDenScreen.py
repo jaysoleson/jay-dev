@@ -445,7 +445,7 @@ class LeaderDenScreen(Screens):
             manager=MANAGER,
         )
         for i, other_clan in enumerate(game.clan.all_other_clans):
-            if other_clan.name == game.clan.displayname:
+            if other_clan.name == game.clan.name:
                 continue
             x_pos = 128
             self.other_clan_selection_elements[f"container{i}"] = UIContainer(
@@ -480,11 +480,10 @@ class LeaderDenScreen(Screens):
                 f"clan_name{i}"
             ] = pygame_gui.elements.UILabel(
                 ui_scale(pygame.Rect((0, 10), (133, -1))),
-                text="general.clan",
+                text=other_clan.name,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"),
                 container=self.other_clan_selection_elements[f"container{i}"],
                 manager=MANAGER,
-                text_kwargs={"name": other_clan.name},
                 anchors={
                     "centerx": "centerx",
                     "top_target": self.other_clan_selection_elements[f"clan_symbol{i}"],
@@ -639,11 +638,10 @@ class LeaderDenScreen(Screens):
 
         self.focus_clan_elements["clan_name"] = pygame_gui.elements.UILabel(
             ui_scale(pygame.Rect((0, 15), (215, -1))),
-            text="general.clan",
+            text=self.focus_clan.name,
             object_id="#text_box_30_horizcenter",
             container=self.focus_clan_container,
             manager=MANAGER,
-            text_kwargs={"name": self.focus_clan.name},
             anchors={
                 "centerx": "centerx",
                 "top_target": self.focus_clan_elements["clan_symbol"],
@@ -1077,7 +1075,7 @@ class LeaderDenScreen(Screens):
         ]
 
         # separate them into chunks for the pages
-        outsider_chunks = self.chunks(outsiders, 20)
+        outsider_chunks = self.get_list_chunks(outsiders, 20)
 
         # clamp current page to a valid page number
         self.current_page = max(1, min(self.current_page, len(outsider_chunks)))

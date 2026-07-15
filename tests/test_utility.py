@@ -8,6 +8,7 @@ os.environ["SDL_VIDEODRIVER"] = "dummy"
 os.environ["SDL_AUDIODRIVER"] = "dummy"
 
 from scripts.cat.cats import Cat
+from scripts.cat_relations.inheritance2 import inheritance_db
 from scripts.cat_relations.relationship import Relationship
 from scripts.events_module.event_filters import (
     get_highest_romantic_relation,
@@ -119,7 +120,7 @@ class TestHighestRomance(unittest.TestCase):
         # when
         cat1.mate.append(cat2.ID)
         cat2.mate.append(cat1.ID)
-        relation_1_2 = Relationship(cat_from=cat1, cat_to=cat2, mates=True)
+        relation_1_2 = Relationship(cat_from=cat1, cat_to=cat2)
         relation_1_3 = Relationship(cat_from=cat1, cat_to=cat3)
         relation_1_4 = Relationship(cat_from=cat1, cat_to=cat4)
         relation_1_2.romance = 60
@@ -149,7 +150,7 @@ class TestHighestRomance(unittest.TestCase):
         # when
         cat1.mate.append(cat2.ID)
         cat2.mate.append(cat1.ID)
-        relation_1_2 = Relationship(cat_from=cat1, cat_to=cat2, mates=True)
+        relation_1_2 = Relationship(cat_from=cat1, cat_to=cat2)
         relation_1_3 = Relationship(cat_from=cat1, cat_to=cat3)
         relation_1_4 = Relationship(cat_from=cat1, cat_to=cat4)
         relation_1_2.romance = 60
@@ -201,6 +202,8 @@ class TestGetQueens(unittest.TestCase):
         self.test_cat4.status._change_rank(CatRank.APPRENTICE)
         self.test_cat4.parent1 = self.test_cat3.ID
 
+        inheritance_db.load_inheritances(Cat)
+
         # then
         living_cats = [self.test_cat1, self.test_cat2, self.test_cat3, self.test_cat4]
         self.assertEqual(
@@ -220,6 +223,8 @@ class TestGetQueens(unittest.TestCase):
 
         self.test_cat4.status._change_rank(CatRank.APPRENTICE)
         self.test_cat4.parent1 = self.test_cat3.ID
+
+        inheritance_db.load_inheritances(Cat)
 
         # then
         living_cats = [self.test_cat1, self.test_cat2, self.test_cat3, self.test_cat4]
@@ -246,6 +251,8 @@ class TestGetQueens(unittest.TestCase):
         self.test_cat6.status._change_rank(CatRank.APPRENTICE)
         self.test_cat6.parent1 = self.test_cat5.ID
         self.test_cat6.parent2 = self.test_cat4.ID
+
+        inheritance_db.load_inheritances(Cat)
 
         # then
         living_cats = [
@@ -279,6 +286,8 @@ class TestGetQueens(unittest.TestCase):
         self.test_cat6.status._change_rank(CatRank.APPRENTICE)
         self.test_cat6.parent1 = self.test_cat5.ID
         self.test_cat6.parent2 = self.test_cat4.ID
+
+        inheritance_db.load_inheritances(Cat)
 
         # then
         living_cats = [
@@ -314,6 +323,8 @@ class TestGetQueens(unittest.TestCase):
         self.test_cat6.parent1 = self.test_cat5.ID
         self.test_cat6.parent2 = self.test_cat4.ID
 
+        inheritance_db.load_inheritances(Cat)
+
         # then
         living_cats = [
             self.test_cat1,
@@ -341,6 +352,8 @@ class TestGetQueens(unittest.TestCase):
         self.test_cat4.parent1 = self.test_cat2.ID
         self.test_cat4.parent2 = self.test_cat1.ID
         self.test_cat4.adoptive_parents.append(self.test_cat3.ID)
+
+        inheritance_db.load_inheritances(Cat)
 
         # then
         living_cats = [

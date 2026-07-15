@@ -18,6 +18,7 @@ from scripts.game_structure.game.switches import (
 )
 from scripts.game_structure import game
 from scripts.game_structure.screen_settings import MANAGER
+from scripts.ui.elements.image_button import UIImageButton
 from scripts.ui.elements.modified_scrolling_container import (
     UIModifiedScrollingContainer,
 )
@@ -53,6 +54,7 @@ from scripts.ui.windows.pick_path import PickPath
 from scripts.ui.windows.choose_deputy import ChooseDeputyWindow
 
 from scripts.clan_package.get_clan_cats import get_living_clan_cat_count
+from scripts.ui.windows.view_cards import ViewCardsWindow
 
 
 class EventsScreen(Screens):
@@ -319,6 +321,8 @@ class EventsScreen(Screens):
                 
             elif event.ui_element == self.save_button.unsaved_state:
                 self.save_button.save_game(current_screen=self)
+            elif event.ui_element == self.clan_info["view_cards"]:
+                ViewCardsWindow()
             elif element in self.page_control.values():
                 if element == self.page_control["first"]:
                     self.current_page = 1
@@ -341,24 +345,23 @@ class EventsScreen(Screens):
                 self.menu_button_pressed(event)
 
         # KEYBIND CONTROLS
-        elif game_setting_get("keybinds"):
-            # ON PRESSING A KEY
-            if event.type == pygame.KEYDOWN:
-                # LEFT ARROW
-                if event.key == pygame.K_LEFT:
-                    self.change_screen(GameScreen.PATROL)
-                # RIGHT ARROW
-                elif event.key == pygame.K_RIGHT:
-                    self.change_screen(GameScreen.CAMP)
-                # DOWN AND UP ARROW
-                elif event.key == pygame.K_DOWN or event.key == pygame.K_UP:
-                    self.handle_tab_select(event.key)
-                # RETURN
-                elif event.key == pygame.K_RETURN:
-                    self.handle_tab_switch(self.selected_display)
-                # SPACE
-                elif event.key == pygame.K_SPACE:
-                    self.save_button.save_game(current_screen=self)
+        # ON PRESSING A KEY
+        if event.type == pygame.KEYDOWN:
+            # LEFT ARROW
+            if event.key == pygame.K_LEFT:
+                self.change_screen(GameScreen.PATROL)
+            # RIGHT ARROW
+            elif event.key == pygame.K_RIGHT:
+                self.change_screen(GameScreen.CAMP)
+            # DOWN AND UP ARROW
+            elif event.key == pygame.K_DOWN or event.key == pygame.K_UP:
+                self.handle_tab_select(event.key)
+            # RETURN
+            elif event.key == pygame.K_RETURN:
+                self.handle_tab_switch(self.selected_display)
+            # SPACE
+            elif event.key == pygame.K_SPACE:
+                self.save_button.save_game(current_screen=self)
 
     def save_scroll_and_page_position(self):
         """
@@ -465,6 +468,14 @@ class EventsScreen(Screens):
         if game.clan.your_cat.moons < 0:
             self.you.hide()
 
+        self.clan_info["container"] = pygame_gui.elements.UIAutoResizingContainer(
+            ui_scale(pygame.Rect((0, 105), (350, 100))),
+            manager=MANAGER,
+            container=self.event_screen_container,
+            anchors={"centerx": "centerx"},
+            resize_left=True,
+        )
+
         self.clan_info["symbol"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((117, 120), (100, 100))),
             pygame.transform.scale(
@@ -472,7 +483,7 @@ class EventsScreen(Screens):
             ),
             object_id="clan_symbol",
             starting_height=1,
-            container=self.event_screen_container,
+            container=self.clan_info["container"],
             manager=MANAGER,
         )
 
@@ -486,24 +497,51 @@ class EventsScreen(Screens):
         )
 
         self.clan_info["season"] = pygame_gui.elements.UITextBox(
-            "",
-            ui_scale(pygame.Rect((252, 172), (290, -1))),
-            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            "screens.events.season",
+            ui_scale(pygame.Rect((10, 0), (250, -1))),
+            object_id=get_text_box_theme("#text_box_30"),
             starting_height=1,
-            container=self.event_screen_container,
+            container=self.clan_info["container"],
             manager=MANAGER,
+            anchors={"left_target": self.clan_info["symbol"]},
             text_kwargs={"season": i18n.t(f"general.{game.clan.current_season}")},
         )
         self.clan_info["age"] = pygame_gui.elements.UITextBox(
-            "",
+            "screens.events.age",
             ui_scale(pygame.Rect((252, 142), (290, -1))),
-            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            object_id=get_text_box_theme("#text_box_30"),
             starting_height=1,
-            container=self.event_screen_container,
+            container=self.clan_info["container"],
             manager=MANAGER,
+            anchors={
+                "left_target": self.clan_info["symbol"],
+                "top_target": self.clan_info["season"],
+            },
             text_kwargs={"count": game.clan.age},
         )
-
+        self.clan_info["heading"] = pygame_gui.elements.UITextBox(
+            "screens.events.heading",
+            ui_scale(pygame.Rect((10, -10), (250, -1))),
+            object_id=get_text_box_theme("#text_box_30_horizleft_spacing_95"),
+            starting_height=1,
+            container=self.clan_info["container"],
+            anchors={
+                "left_target": self.clan_info["symbol"],
+                "top_target": self.clan_info["age"],
+            },
+            manager=MANAGER,
+        )
+        self.clan_info["view_cards"] = UIImageButton(
+            ui_scale(pygame.Rect((0, 0), (38, 50))),
+            "",
+            manager=MANAGER,
+            object_id="#view_cards_button",
+            container=self.clan_info["container"],
+            anchors={
+                "centery": "centery",
+                "left_target": self.clan_info["season"],
+            },
+        )
         self.timeskip_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((248, 223), (180, 30))),
             "screens.events.timeskip_button",
