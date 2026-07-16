@@ -67,6 +67,8 @@ class FreshkillPileTest(unittest.TestCase):
         self.elder = create_cat(CatRank.ELDER, moons=126)
         self.kitten = create_cat(CatRank.KITTEN, moons=3)
 
+        your_cat=create_cat(CatRank.KITTEN),
+
         members = [self.elder, self.kitten]
         members.extend(self.warriors)
         members.extend(self.apprentices)
@@ -78,6 +80,7 @@ class FreshkillPileTest(unittest.TestCase):
             display_name="Test",
             leader=self.leader,
             deputy=self.deputy,
+            your_cat=your_cat,
             medicine_cat=self.medicine_cat,
             biome="Forest",
             camp_bg="camp1",

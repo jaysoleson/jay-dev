@@ -120,7 +120,7 @@ class UISaveButton:
             game.clan.save_clan()
             game.clan.save_pregnancy(game.clan)
             game.save_events()
-            game_settings_save(current_screen),
+            game_settings_save(current_screen)
             switch_set_value(Switch.saved_clan, True)
             self.update_state()
         except RuntimeError:

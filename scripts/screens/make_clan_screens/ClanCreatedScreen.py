@@ -3,6 +3,8 @@ import pygame_gui
 
 from scripts.cat.sprites.load_sprites import sprites
 from scripts.game_structure import game
+from scripts.cat.sprites.display_sprites import generate_sprite
+
 from scripts.game_structure.game import Switch
 from scripts.game_structure.game.switches import switch_set_value
 from scripts.game_structure.screen_settings import MANAGER
@@ -36,18 +38,11 @@ class ClanCreatedScreen(MakeClanScreenBase):
             manager=MANAGER,
         )
 
-        if self.clan_info.leader:
-            cat_to_show = self.clan_info.leader
-        elif self.clan_info.deputy:
-            cat_to_show = self.clan_info.deputy
-        elif self.clan_info.medicine_cat:
-            cat_to_show = self.clan_info.medicine_cat
-        else:
-            cat_to_show = self.clan_info.starting_members[0]
+        cat_to_show = self.clan_info.your_cat
 
-        self.elements["leader_image"] = pygame_gui.elements.UIImage(
+        self.elements["your_cat_image"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((350, 125), (100, 100))),
-            pygame.transform.scale(cat_to_show.sprite, ui_scale_dimensions((100, 100))),
+            pygame.transform.scale(generate_sprite(cat_to_show, always_living=True, life_state="newborn"), ui_scale_dimensions((100, 100))),
             starting_height=1,
             manager=MANAGER,
         )
@@ -63,6 +58,7 @@ class ClanCreatedScreen(MakeClanScreenBase):
             ui_scale(pygame.Rect((100, 70), (600, 30))),
             object_id=get_text_box_theme("#text_box_30_horizcenter"),
             manager=MANAGER,
+            text_kwargs={"prefix": cat_to_show.name.prefix},
         )
 
         self.get_camp_bg()
@@ -80,3 +76,7 @@ class ClanCreatedScreen(MakeClanScreenBase):
 
         self.clan_info.clear()
         switch_set_value(Switch.clan_creation_info, self.clan_info.get_dict())
+        # LG
+        switch_set_value(Switch.future_clan_cats, [])
+        switch_set_value(Switch.cat, self.clan_info.your_cat)
+        

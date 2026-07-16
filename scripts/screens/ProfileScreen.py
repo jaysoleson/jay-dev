@@ -1355,7 +1355,7 @@ class ProfileScreen(Screens):
                 # ---
                 if old_clan.is_any_clan_group():
                     if old_clan_ID == CatGroup.PLAYER_CLAN_ID:
-                        name = game.clan.displayname
+                        name = game.clan.name
                     # if they had an old clan that wasn't the player's, find it!
                     elif old_clan_ID:
                         matches = [
@@ -1379,7 +1379,7 @@ class ProfileScreen(Screens):
                 for c in game.clan.all_other_clans
                 if c.group_ID == the_cat.status.group_ID
             ]
-            name = matches[0].name if matches else game.clan.displayname
+            name = matches[0].name if matches else game.clan.name
         # otherwise, assume the cat takes the player clan's name
         # it's okay if this is an outsider, if they don't actually have a group to refer to then they won't use this variable
         else:
@@ -2070,7 +2070,7 @@ class ProfileScreen(Screens):
                 self.the_cat.backstory_str = other_clan
                 text = text.replace("o_c_n", other_clan)
         if "c_n" in text:
-            text = text.replace("c_n", str(game.clan.displayname) + "Clan")
+            text = text.replace("c_n", str(game.clan.name) + "Clan")
         if "r_c" in text:
             if self.the_cat.backstory_str:
                 text = text.replace("r_c", self.the_cat.backstory_str)

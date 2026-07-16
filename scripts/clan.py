@@ -26,7 +26,8 @@ from scripts.cat.save_load import (
     get_faded_ids,
 )
 from scripts.clan_package.clan_names import get_possible_clan_names
-from scripts.clan_package.settings import save_clan_settings, load_clan_settings
+from scripts.clan_package.settings import save_clan_settings, load_clan_settings, get_clan_setting
+from scripts.game_structure.game.settings import game_setting_get
 from scripts.clan_package.settings.clan_settings import (
     reset_loaded_clan_settings,
     set_clan_setting,
@@ -108,6 +109,7 @@ class Clan:
         your_cat=None,
         focus_cat=None,
         clan_age=None,
+        starting_size="small",
         self_run_init_functions=True,
     ):
         """
@@ -287,12 +289,13 @@ class Clan:
             "clan.settings has been deprecated, use get_clan_setting() and set_clan_setting() instead. Unrecoverable."
         )
 
-    def create_clan(self):
+    def create_clan(self, your_cat=None, clan_age="new"):
         """
         This function is only called once a new clan is
         created in the 'clan created' screen, not every time
         the program starts
         """
+        self.clan_age = clan_age
         game.reset_used_group_IDs()
         switch_set_value(Switch.clan_save_id, self.save_id)
         reset_loaded_clan_settings()
@@ -339,6 +342,15 @@ class Clan:
         self.add_cat(self.demon)
         self.all_other_clans = []
 
+        self.your_cat = your_cat
+        self.your_cat.moons = -1
+        self.your_cat.parent1 = None
+        self.your_cat.parent2 = None
+        self.your_cat.adoptive_parents = []
+
+        self.add_cat(self.your_cat)
+        switch_set_value(Switch.cat, None)
+
         key_copy = tuple(Cat.all_cats.keys())
         for i in key_copy:  # Going through all currently existing cats
             # cat_class is a Cat-object
@@ -353,13 +365,12 @@ class Clan:
                 and Cat.all_cats[i] != self.deputy
                 and Cat.all_cats[i] != self.instructor
                 and Cat.all_cats[i] != self.demon
+                and Cat.all_cats[i] != self.your_cat
                 and not_found
             ):
                 Cat.all_cats[i].example = True
                 self.remove_cat(Cat.all_cats[i].ID)
 
-
-        # save_cats(game.clan.name, Cat, game)
         number_other_clans = randint(3, 5)
         for _ in range(number_other_clans):
             other_clan = OtherClan()
@@ -408,7 +419,7 @@ class Clan:
         # self.leader.generate_lead_ceremony()
         # lifegen commented out
 
-        save_cats(game.clan.name, Cat, game)
+        save_cats(game.clan.save_id, Cat, game)
         self.save_clan()
         save_clanlist(self.save_id)
         switch_set_value(Switch.clan_list, read_clans())
@@ -1000,6 +1011,18 @@ class Clan:
         clan_data["med_cat_number"] = self.med_cat_number
         clan_data["med_cat_predecessors"] = self.med_cat_predecessors
 
+        # YOUR CAT DATA
+        if self.your_cat:
+            clan_data["your_cat"] = self.your_cat.ID
+        else:
+            alive_clan_cats = [x for x in Cat.all_cats_list if x.status.alive_in_player_clan]
+            clan_data["your_cat"] = choice(alive_clan_cats).ID if alive_clan_cats else None
+
+        if self.focus_cat:
+            clan_data["focus_cat"] = self.focus_cat.ID
+        else:
+            clan_data["focus_cat"] = None
+
         # LIST OF CLAN CATS
         clan_data["clan_cats"] = ",".join([str(i) for i in self.clan_cats])
 
@@ -1018,27 +1041,6 @@ class Clan:
         clan_data["disaster_moon"] = self.disaster_moon
         clan_data["focus"] = self.focus
         clan_data["focus_moons"] = self.focus_moons
-
-        # YOUR CAT DATA
-        if self.your_cat:
-            clan_data["your_cat"] = self.your_cat.ID
-        else:
-            alive_clan_cats = [x for x in Cat.all_cats_list if x.status.alive_in_player_clan]
-            clan_data["your_cat"] = choice(alive_clan_cats).ID if alive_clan_cats else None
-
-        if self.focus_cat:
-            clan_data["focus_cat"] = self.focus_cat.ID
-        else:
-            clan_data["focus_cat"] = None
-
-        # if "other_med" in game.switches:
-        #     other_med = []
-        #     for other_clan in game.switches["other_med"]:
-        #         cats = []
-        #         for c in other_clan:
-        #             cats.append(c.prefix + "," + c.suffix + ",medicine cat")
-        #         other_med.append(cats)
-        #     clan_data["other_med"] = other_med
 
         clan_data["poi"] = get_poi_save_dict()
 
@@ -1330,7 +1332,7 @@ class Clan:
 
         # LG
         your_cat = None
-        if clan_data.get("your_cat"):
+        if clan_data["your_cat"]:
             your_cat = Cat.all_cats.get(clan_data["your_cat"])
         if your_cat is None:
             print("You don't have a cat! Choosing one for you...")

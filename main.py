@@ -225,6 +225,8 @@ while 1:
                     GameScreen.MAKE_CLAN_CHOOSE_CATS,
                     GameScreen.MAKE_CLAN_CHOOSE_SYMBOL,
                     GameScreen.MAKE_CLAN_CLAN_CREATED,
+                    GameScreen.MAKE_CLAN_CUSTOM_CAT,
+                    GameScreen.MAKE_CLAN_YOUR_NAME,
                 )
                 or not game.clan
             ):

@@ -567,25 +567,7 @@ class Patrol:
             possible_patrols.extend(self.generate_patrol_events(self.TRAINING_GEN))
             possible_patrols.extend(self.generate_patrol_events(self.MEDCAT_GEN))
         elif switch_get_value(Switch.patrol_category) == 'lifegen':
-
-            if game.clan.your_cat.status.is_shunned():
-                murder_history = game.clan.your_cat.history.murder
-                history = None
-                status = game.clan.your_cat.status.rank
-                if "is_murderer" in murder_history:
-                    history = murder_history["is_murderer"]
-                else:
-                    status = game.clan.your_cat.status.rank
-                if history:
-                    if "demoted_from" in history[-1] and history[-1]["demoted_from"]:
-                        status = history[-1]["demoted_from"]
-                    else:
-                        status = game.clan.your_cat.status.rank
-                else:
-                    status = game.clan.your_cat.status.rank
-            else:
-                status = game.clan.your_cat.status.rank
-
+            status = game.clan.your_cat.status.rank
             if status == CatRank.KITTEN:
                 possible_patrols.extend(self.generate_patrol_events(self.KIT_LIFEGEN))
             else:
@@ -819,7 +801,14 @@ class Patrol:
         has_mentor = {"general": general_mentor_checks, **app_number_mentor_checks}
 
         # makes sure that it grabs patrols in the correct biomes, season, with the correct number of cats
+        # LG
+        MAX_CHECKS = len(possible_patrols)
+        checks = 0
+        # --
         while not filtered_patrols:
+            # LG: this is here to stop an endless load should any patrol issues occur
+            if checks >= MAX_CHECKS:
+                break
             for patrol in possible_patrols:
                 # LG
                 if switch_get_value(Switch.patrol_category) == "clangen":
@@ -831,8 +820,8 @@ class Patrol:
                         != constants.CONFIG["patrol_generation"]["debug_ensure_patrol_id"]
                     ):
                         continue
-                if not self._check_constraints(patrol):
-                    continue
+                # if not self._check_constraints(patrol):
+                #     continue
 
                 # LG
                 patrol.chosen_lifegen_cats = []
@@ -911,31 +900,6 @@ class Patrol:
                 if not event_for_poi(patrol.poi):
                     if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
                         print("DEBUG: requested patrol does not meet constraints (PoI)")
-                    continue
-
-                if "hunting" not in patrol.types and patrol_type == "hunting":
-                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                        print(
-                            "DEBUG: requested patrol does not meet constraints (patrol type)"
-                        )
-                    continue
-                elif "border" not in patrol.types and patrol_type == "border":
-                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                        print(
-                            "DEBUG: requested patrol does not meet constraints (patrol type)"
-                        )
-                    continue
-                elif "training" not in patrol.types and patrol_type == "training":
-                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                        print(
-                            "DEBUG: requested patrol does not meet constraints (patrol type)"
-                        )
-                    continue
-                elif "herb_gathering" not in patrol.types and patrol_type == "med":
-                    if self.debug_patrol and self.debug_patrol == patrol.patrol_id:
-                        print(
-                            "DEBUG: requested patrol does not meet constraints (patrol type)"
-                        )
                     continue
 
                 if switch_get_value(Switch.patrol_category) == "clangen":
@@ -1024,6 +988,8 @@ class Patrol:
                     romantic_patrols.append(patrol)
                 else:
                     filtered_patrols.append(patrol)
+                
+                checks += 1
                 
 
             if not filtered_patrols:

@@ -366,7 +366,7 @@ class ListScreen(Screens):
 
             # LG
             your_cat=game.clan.your_cat,
-            clan_name=game.clan.displayname
+            clan_name=game.clan.name
         )
 
         # SORT BY

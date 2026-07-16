@@ -10,6 +10,7 @@ from scripts.ui.elements.surface_image_button import UISurfaceImageButton
 from scripts.ui.generate_button import ButtonStyles, get_button_dict
 from scripts.ui.icon import Icon
 from scripts.ui.scale import ui_scale, ui_scale_dimensions
+from scripts.ui.theme import get_text_box_theme
 
 from scripts.screens.make_clan_screens.MakeClanScreenBase import MakeClanScreenBase
 
@@ -30,6 +31,58 @@ class ChooseNameScreen(MakeClanScreenBase):
             manager=MANAGER,
         )
         self.elements["game_mode_background"].disable()
+
+        # LG
+        self.elements["clan_size"] = pygame_gui.elements.UITextBox(
+            "This Clan will be... ",
+            ui_scale(pygame.Rect((200, 100), (405, 25))),
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            manager=MANAGER
+            )
+        self.elements["small"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((220, 160), (100, 30))),
+            "Small",
+            get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER
+        )
+
+        self.elements["medium"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((350, 160), (100, 30))),
+            "Medium",
+            get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER
+        )
+
+        self.elements["large"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((480, 160), (100, 30))),
+            "Large",
+            get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER
+        )
+
+        self.elements["medium"].disable()
+
+        self.elements["established"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((295, 200), (80, 30))),
+            "Old",
+            get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
+            object_id="@buttonstyles_squoval",
+            tool_tip_text="The Clan has existed for many moons and cats' backstories will reflect this.",
+            manager=MANAGER
+        )
+        self.elements["new"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((425, 200), (80, 30))),
+            "New",
+            get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
+            object_id="@buttonstyles_squoval",
+            tool_tip_text="The Clan is newly established and cats' backstories will reflect this.",
+            manager=MANAGER
+        )
+        self.elements["established"].disable()
+        # ---
 
         self.elements["title"] = pygame_gui.elements.UITextBox(
             "screens.make_clan.name_clan_title",
@@ -100,6 +153,30 @@ class ChooseNameScreen(MakeClanScreenBase):
                     self.change_screen(GameScreen.MAKE_CLAN_CHOOSE_CARDS)
                 else:
                     self.change_screen(GameScreen.MAKE_CLAN_CHOOSE_MODE)
+            # LG
+            elif event.ui_element == self.elements["small"]:
+                self.clan_info.starting_size = "small"
+                self.elements["small"].disable()
+                self.elements["medium"].enable()
+                self.elements["large"].enable()
+            elif event.ui_element == self.elements["medium"]:
+                self.clan_info.starting_size = "medium"
+                self.elements["small"].enable()
+                self.elements["medium"].disable()
+                self.elements["large"].enable()
+            elif event.ui_element == self.elements["large"]:
+                self.clan_info.starting_size = "large"
+                self.elements["small"].enable()
+                self.elements["medium"].enable()
+                self.elements["large"].disable()
+            elif event.ui_element == self.elements["new"]:
+                self.clan_info.clan_age = "new"
+                self.elements["new"].disable()
+                self.elements["established"].enable()
+            elif event.ui_element == self.elements["established"]:
+                self.clan_info.clan_age = "established"
+                self.elements["new"].enable()
+                self.elements["established"].disable()
 
         return super().handle_event(event)
 

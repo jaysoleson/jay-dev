@@ -257,14 +257,6 @@ class StartScreen(Screens):
                 anchors={"top_target": self.elements["quit"]},
             )
 
-        self.elements["bug_report"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((610, 25), (160, 30))),
-            "buttons.bug_report",
-            image_dict=get_button_dict(ButtonStyles.MAINMENU, (160, 30)),
-            object_id="@buttonstyles_mainmenu",
-            manager=MANAGER,
-        )
-
         interactive_elements = list(self.elements.values())
 
         self.social_buttons["twitter_button"] = UIImageButton(

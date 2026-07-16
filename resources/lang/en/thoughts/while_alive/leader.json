@@ -1,7 +1,7 @@
 [
     {
         "id": "leader_alive_kits",
-        "thoughts": [
+        "strings": [
             "Has recently picked up the scent of mischievous kits in {PRONOUN/m_c/poss} den...",
             "Is pondering the next mentors for the kits of the Clan",
             "Thinks about who should mentor new apprentices",
@@ -12,12 +12,16 @@
             "With imaginary wounds, was dramatically defeated by a swarm of powerful kittens",
             "Noticing sneaky kits in {PRONOUN/m_c/poss} den"
         ],
-        "random_status_constraint": [
-            "kitten"
-        ],
-        "random_living_status": [
-            "living"
-        ]
+        "involved_cats": {
+            "r_c": {
+                "status": [
+                    "kitten"
+                ],
+                "group": [
+                    "-afterlife"
+                ]
+            }
+        }
     },
     {
         "id": "gen_leader",
@@ -140,7 +144,7 @@
     },
     {
         "id": "leader_DF",
-        "thoughts": [
+        "strings": [
             "Thinks {PRONOUN/m_c/subject} {VERB/m_c/have/has} been hearing the voices of Dark Forest cats...",
             "Is pondering recent dreams {PRONOUN/m_c/subject} {VERB/m_c/have/has} had... perhaps from the Dark Forest?",
             "Can hear the venomous voice of Dark Forest cats in {PRONOUN/m_c/poss} ears, whispering concerning events yet to come",
@@ -149,13 +153,17 @@
             "Wonders if Dark Forest cats are tempering with {PRONOUN/m_c/poss} thoughts",
             "Blames a recent mistake on the Dark Forest cats"
         ],
-        "random_living_status": [
-            "darkforest"
-        ]
+        "involved_cats": {
+            "r_c": {
+                "group": [
+                    "dark_forest"
+                ]
+            }
+        }
     },
     {
         "id": "adventurous_leader",
-        "thoughts": [
+        "strings": [
             "Gives a particularly rousing speech in a Clan meeting with a puffed chest",
             "Feels confident that the Clan admires {PRONOUN/m_c/object}",
             "Would rather be out exploring instead of in boring Clan meetings",
@@ -166,9 +174,15 @@
             "Expects the Clan to perform hazardous patrols and battles under {PRONOUN/m_c/poss} leadership",
             "Was out performing dangerous battle moves instead of planning patrols"
         ],
-        "main_trait_constraint": [
-            "adventurous"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "adventurous"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "ambitious_leader",
@@ -200,7 +214,7 @@
     },
     {
         "id": "arrogant_leader",
-        "thoughts": [
+        "strings": [
             "Knows {PRONOUN/m_c/subject} didn't need anyone's assistance to become leader",
             "Feels a sense of pride in Clanmates respecting and admiring {PRONOUN/m_c/object}",
             "Is flustered after tripping over {PRONOUN/m_c/poss} paws",
@@ -216,9 +230,15 @@
             "Has a mouth faster than {PRONOUN/m_c/poss} claws",
             "Knows {PRONOUN/m_c/poss} words are law"
         ],
-        "main_trait_constraint": [
-            "arrogant"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "arrogant"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "bold_leader",
@@ -275,7 +295,7 @@
     },
     {
         "id": "leader_bloodthirsty_goodintentions",
-        "thoughts": [
+        "strings": [
             "Insists violence is just another method to future peace",
             "Doesn't realize {PRONOUN/m_c/poss} stories are scaring the kittens and apprentices",
             "Instructs mentors to be strict and harsher on their apprentices to make them prepared for any future battles",
@@ -283,16 +303,7 @@
             "Teaches {PRONOUN/m_c/poss} warriors how to fight dirty if absolutely necessary",
             "Teaches kittens how to fight an older cat... just in case",
             "Believes aggression is a great political tactic"
-        ],
-        "involved_cats": {
-            "m_c": {
-                "stat": {
-                    "trait": [
-                        "bloodthirsty"
-                    ]
-                }
-            }
-        }
+        ]
     },
     {
         "id": "calm_leader",
@@ -373,7 +384,7 @@
     },
     {
         "id": "childish_leader",
-        "thoughts": [
+        "strings": [
             "Pranks r_c by switching {PRONOUN/r_c/poss} fresh-kill with crowfood",
             "is often confused for not being the leader of c_n by the other Clans",
             "Isn't gonna let {PRONOUN/m_c/poss} rank stop {PRONOUN/m_c/object} from cracking jokes",
@@ -383,25 +394,11 @@
             "Hid a crushed stinkbug in r_c's nest",
             "Has been told {PRONOUN/m_c/subject} act more like a kit than a leader",
             "Pushes the blame onto another cat"
-        ],
-        "involved_cats": {
-            "m_c": {
-                "stat": {
-                    "trait": [
-                        "childish"
-                    ]
-                }
-            },
-            "r_c": {
-                "group": [
-                    "-afterlife"
-                ]
-            }
-        }
+        ]
     },
     {
         "id": "cold_leader",
-        "thoughts": [
+        "strings": [
             "Rolls {PRONOUN/m_c/poss} eyes when r_c suggests sharing their fresh-kill with other Clans",
             "Brought forth a new law for c_n to be hostile to outsiders",
             "Refuses to allow gutless cats as warriors",
@@ -410,25 +407,11 @@
             "Is using harsh words through a distressing event",
             "Is willing to humiliate a cat for disobeying {PRONOUN/m_c/object}",
             "Was seen yowling at a crying cat instead of comforting them"
-        ],
-        "involved_cats": {
-            "m_c": {
-                "stat": {
-                    "trait": [
-                        "cold"
-                    ]
-                }
-            },
-            "r_c": {
-                "group": [
-                    "-afterlife"
-                ]
-            }
-        }
+        ]
     },
     {
         "id": "daring_leader",
-        "thoughts": [
+        "strings": [
             "Was practicing pulling off dangerous tricks and battle moves",
             "Is puffing out {PRONOUN/m_c/poss} chest, admiring the Clan",
             "Is in the medicine den thanks to a failed trick",
@@ -440,13 +423,19 @@
             "Is proposing a risky plan to gather a hefty amount of prey",
             "Was seen leaping on the back of a predator to nip its neck better"
         ],
-        "main_trait_constraint": [
-            "daring"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "daring"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "flamboyant_leader",
-        "thoughts": [
+        "strings": [
             "Is giving others {PRONOUN/m_c/poss} insightful knowledge to boost their confidence",
             "Was too busy chatting to even begin a Clan meeting",
             "Confidently proclaims c_n is StarClan's favorite!",
@@ -476,13 +465,19 @@
             "Is fabulous!",
             "Is astoundingly loud in {PRONOUN/m_c/poss} opinions"
         ],
-        "main_trait_constraint": [
-            "flamboyant"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "flamboyant"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "gloomy_leader",
-        "thoughts": [
+        "strings": [
             "Is thinking out loud about the worst outcomes in hypothetical scenarios",
             "Would rather be in {PRONOUN/m_c/poss} nest than have to face whatever appears",
             "Is being extra jumpy today",
@@ -505,13 +500,19 @@
             "Knows {PRONOUN/m_c/subject} {VERB/m_c/are/is} beloved, but has a hard time telling {PRONOUN/m_c/self} that",
             "Fears death is near"
         ],
-        "main_trait_constraint": [
-            "gloomy"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "gloomy"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "humble_leader",
-        "thoughts": [
+        "strings": [
             "Is grateful to {PRONOUN/m_c/poss} Clanmates for allowing {PRONOUN/m_c/object} to lead c_n",
             "Is hoping the territory size is perfect for a growing Clan",
             "Knows that the size of the prey pile could be bigger, but is just glad the Clan has one at all",
@@ -525,9 +526,15 @@
             "Feels as if the other Clans trample over {PRONOUN/m_c/object}",
             "Was told by a rude Clanmate {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a stick in the mud"
         ],
-        "main_trait_constraint": [
-            "humble"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "humble"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "insecure_leader",
@@ -586,7 +593,7 @@
     },
     {
         "id": "rebellious_leader",
-        "thoughts": [
+        "strings": [
             "Has no qualms about changing the Warrior Code to whatever fits {PRONOUN/m_c/poss} mood",
             "Believes changing the status quo over traditions will improve the Clans",
             "Encouraging patrols to edge closer to neighboring Clan's territories",
@@ -598,13 +605,19 @@
             "Is resilient to naysayers",
             "Is impulsive on bending the rules for c_n"
         ],
-        "main_trait_constraint": [
-            "rebellious"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "rebellious"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "righteous_leader",
-        "thoughts": [
+        "strings": [
             "Is reliant on the Warrior Code",
             "Proclaims {PRONOUN/m_c/subject} {VERB/m_c/are/is} the judge and jury in the Clan",
             "Claims calamities derive from disloyal Clanmates",
@@ -617,13 +630,19 @@
             "Is keen to preserve the Clan, whatever the cost",
             "Knows justice will prevail to those that wronged {PRONOUN/m_c/object}"
         ],
-        "main_trait_constraint": [
-            "righteous"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "righteous"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "loving_leader",
-        "thoughts": [
+        "strings": [
             "Sometimes averts {PRONOUN/m_c/poss} eyes to codebreakers",
             "Is offering equal hugs to all the kits",
             "Doesn't think it's an issue allowing outsiders to join c_n",
@@ -640,13 +659,19 @@
             "Is pondering about promoting kits to apprentices when they're a <i>bit</i> older",
             "Can't help but question if the other Clans' kits are unloved and need to be brought to c_n instead"
         ],
-        "main_trait_constraint": [
-            "loving"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "loving"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "troublesome_leader",
-        "thoughts": [
+        "strings": [
             "Rolls {PRONOUN/m_c/poss} eyes as r_c suggests sharing their fresh-kill with the other Clans",
             "Has convinced {PRONOUN/m_c/self} other cats are incompetent",
             "Is having fun bossing others around",
@@ -660,16 +685,24 @@
             "Is gloating that the leader's word is law",
             "Is annoying {PRONOUN/m_c/poss} Clanmates"
         ],
-        "main_trait_constraint": [
-            "troublesome"
-        ],
-        "random_living_status": [
-            "living"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "troublesome"
+                    ]
+                }
+            },
+            "r_c": {
+                "group": [
+                    "-afterlife"
+                ]
+            }
+        }
     },
     {
         "id": "sneaky_leader",
-        "thoughts": [
+        "strings": [
             "Is concealing more knowledge than what {PRONOUN/m_c/subject} show",
             "Is digging up long-forgotten knowledge about c_n's history",
             "Has been sneaking out of the camp more often lately...",
@@ -686,16 +719,24 @@
             "Can easily switch {PRONOUN/m_c/poss} expressions",
             "Swipes r_c's prey"
         ],
-        "main_trait_constraint": [
-            "sneaky"
-        ],
-        "random_living_status": [
-            "living"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "sneaky"
+                    ]
+                }
+            },
+            "r_c": {
+                "group": [
+                    "-afterlife"
+                ]
+            }
+        }
     },
     {
         "id": "nervous_leader",
-        "thoughts": [
+        "strings": [
             "Feels as if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a constant target",
             "Doesn't feel like {PRONOUN/m_c/subject} {VERB/m_c/have/has} nine lives",
             "Wants to improve c_n, but doesn't know how",
@@ -712,13 +753,19 @@
             "Is self-conscious that {PRONOUN/m_c/poss} Clanmates view {PRONOUN/m_c/object} as weak",
             "Thought being leader would make {PRONOUN/m_c/object} less jumpy"
         ],
-        "main_trait_constraint": [
-            "nervous"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "nervous"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "strict_leader",
-        "thoughts": [
+        "strings": [
             "Is willing to discipline a Clanmate for disobeying both {PRONOUN/m_c/object} and the Code",
             "Will not allow Clanmates to proceed anything without {PRONOUN/m_c/poss} authorization",
             "Has a firm schedule Clanmates must heed to",
@@ -728,13 +775,19 @@
             "Has high expectations for {PRONOUN/m_c/poss} Clan",
             "Refuses to tolerate mistakes under {PRONOUN/m_c/poss} leadership"
         ],
-        "main_trait_constraint": [
-            "strict"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "strict"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "oblivious_leader",
-        "thoughts": [
+        "strings": [
             "Was found wandering about outside of camp",
             "Doesn't know personal boundaries",
             "Announced a Clan meeting was be located in {PRONOUN/m_c/poss} nest",
@@ -748,16 +801,24 @@
             "Called r_c another name",
             "Doesn't notice the leaves and twigs sticking out of {PRONOUN/m_c/poss} fur"
         ],
-        "main_trait_constraint": [
-            "oblivious"
-        ],
-        "random_living_status": [
-            "living"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "oblivious"
+                    ]
+                }
+            },
+            "r_c": {
+                "group": [
+                    "-afterlife"
+                ]
+            }
+        }
     },
     {
         "id": "mellow_leader",
-        "thoughts": [
+        "strings": [
             "Prefers going with the flow",
             "Is basking in the glowing sunlight and enjoying the soft breeze flowing through {PRONOUN/m_c/poss} coat",
             "Often reassures to {PRONOUN/m_c/poss} Clanmates that bad things pass quickly",
@@ -769,9 +830,15 @@
             "Is sending out good vibes",
             "Is constantly purring"
         ],
-        "main_trait_constraint": [
-            "mellow"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "mellow"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "leader_meanie_deputy_meanie",

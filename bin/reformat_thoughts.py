@@ -3,7 +3,7 @@ import os
 import ujson
 
 
-root_dir = "../resources/lang/en/thoughts"
+root_dir = "./resources/lang/en/thoughts"
 file_set = set()
 
 
@@ -20,14 +20,17 @@ def load_paths():
 
 def reformat():
     for path in file_set:
+        new_path = root_dir + "/" + path
+       
         new_thoughts = []
         try:
-            with open(path, "r") as read_file:
+            with open(new_path, "r") as read_file:
                 thoughts = read_file.read()
                 thoughts_dict = ujson.loads(thoughts)
 
-        except:
-            print(f"Something went wrong with {path}")
+        except Exception as e:
+            print(f"Something went wrong with {new_path}")
+            print(e)
             continue
 
         for t in thoughts_dict:
@@ -185,7 +188,7 @@ def reformat():
             "\/", "/"
         )  # ujson tries to escape "/", but doesn't end up doing a good job.
 
-        with open(path, "w") as write_file:
+        with open(new_path, "w") as write_file:
             write_file.write(dict_text)
 
 

@@ -387,6 +387,7 @@ class ChooseCardsScreen(MakeClanScreenBase):
                 rank_weights=self.get_config_during_creation(
                     "clan_creation.rank_weights"
                 ),
+                lifegen_kitten_creation=True
             ),
         )
         self.clan_info.clear_cats()

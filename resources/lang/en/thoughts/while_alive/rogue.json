@@ -31,42 +31,66 @@
     },
     {
         "id": "vengeful_rogue",
-        "thoughts": [
+        "strings": [
             "Wants vengeance on {PRONOUN/m_c/poss} past Clan"
         ],
-        "main_trait_constraint": [
-            "vengeful"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "vengeful"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "strange_rogue",
-        "thoughts": [
+        "strings": [
             "Crowns {PRONOUN/m_c/self} the ruler of all rogues"
         ],
-        "main_trait_constraint": [
-            "strange"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "strange"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "shameless_rogue",
-        "thoughts": [
+        "strings": [
             "Is eating kittypet kibble",
             "Stole some random kittypet's food",
             "Is eating dog food {PRONOUN/m_c/subject} found",
             "Is putting {PRONOUN/m_c/poss} own scent on c_n's clearly marked borders"
         ],
-        "main_trait_constraint": [
-            "shameless"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "shameless"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "cold_rogue",
-        "thoughts": [
+        "strings": [
             "Thinks about how {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} need anyone else"
         ],
-        "main_trait_constraint": [
-            "cold"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "cold"
+                    ]
+                }
+            }
+        }
     },
     {
         "id": "rogue_to_other_rogues",

@@ -588,7 +588,7 @@ def _one_moon_impl():
     # autosave
     if get_clan_setting("autosave") and game.clan.age % 5 == 0:
         try:
-            save_cats(switch_get_value(Switch.clan_name), Cat, game)
+            save_cats(switch_get_value(Switch.clan_save_id), Cat, game)
             game.clan.save_clan()
             game.clan.save_pregnancy(game.clan)
             game.save_events()
@@ -1458,7 +1458,7 @@ def lifegen_process_text(text):
 
     text = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), text)
 
-    text = text.replace("c_n", str(game.clan.displayname) + "Clan")
+    text = text.replace("c_n", str(game.clan.name) + "Clan")
     if game.clan.leader:
         text = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), text)
     if "w_c" in text:
@@ -1647,7 +1647,7 @@ def generate_app_ceremony():
             add_on_mentor = " no mentor" if not game.clan.your_cat.mentor else ""
             ceremony_txt = random.choice(lifegen_ceremonies[f"{game.clan.your_cat.status.rank} ceremony{add_on_lead}{add_on_mentor}"])
 
-        ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.displayname) + "Clan")
+        ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name) + "Clan")
         ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
         if (game.clan.leader) and (game.clan.leader.status.alive_in_player_clan):
             ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), ceremony_txt)
@@ -1697,7 +1697,7 @@ def generate_ceremony():
         else:
             ceremony_txt = random.choice(lifegen_ceremonies[game.clan.your_cat.status.rank + '_ceremony_no_mentor'])
     
-    ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.displayname) + "Clan")
+    ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name) + "Clan")
     ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
     
     if game.clan.leader and game.clan.leader.status.alive_in_player_clan:
@@ -1726,7 +1726,7 @@ def generate_ceremony():
     
 def generate_elder_ceremony():
     ceremony_txt = random.choice(lifegen_ceremonies['elder_ceremony'])
-    ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.displayname) + "Clan")
+    ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name) + "Clan")
     ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
     if game.clan.leader and game.clan.leader.status.alive_in_player_clan:
         ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), ceremony_txt)
@@ -3585,7 +3585,13 @@ def handle_injuries_or_general_death(cat):
                 sub_type=["mass_death"],
             )
             return True
-    chance_death = game.get_config_value("death_related", f"{game.clan.game_mode}_death_chance")
+
+    # LG: decrease kit death chance with number of queens
+    if game.clan.game_mode:
+        mode = "classic_"
+    else:
+        mode = ""
+    chance_death = get_config(f"death_related.{mode}death_chance")
     if cat.status.rank.is_baby():
         num_queens = 0
         for c in game.clan.clan_cats:
@@ -3924,7 +3930,7 @@ def handle_disaster_impacts(current_disaster):
                     else:
                         cat.history.add_death(death_text=current_disaster["collateral_damage"]["deaths"]["history_text"]["reg_death"])
                     cat.die()
-                    death_text = random.choice(current_disaster["collateral_damage"]["deaths"]["death_text"]).replace("m_c", str(cat.name)).replace("c_n", str(game.clan.displayname) + "Clan")
+                    death_text = random.choice(current_disaster["collateral_damage"]["deaths"]["death_text"]).replace("m_c", str(cat.name)).replace("c_n", str(game.clan.name) + "Clan")
                     game.cur_events_list.insert(0,
                         Single_Event(death_text, "birth_death", cat.ID))
 

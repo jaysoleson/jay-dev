@@ -888,23 +888,23 @@ class Status:
         if not game.clan.your_cat.dead:
             if game.clan.your_cat.status.group.is_any_clan_group():
                 if game.clan.your_cat.status.group_ID == CatGroup.PLAYER_CLAN_ID:
-                    heading_text = f"{game.clan.displayname}Clan"
+                    heading_text = f"{game.clan.name}"
                 else:
                     your_clan = None
                     for other_clan in game.clan.all_other_clans:
                         if other_clan.group_ID == game.clan.your_cat.status.group_ID:
                             your_clan = other_clan
                     if your_clan:
-                        heading_text = f"{your_clan.name}Clan"
+                        heading_text = f"{your_clan.name}"
                     else:
                         print("LG WARNING: Can't find your cat's group!")
-                        heading_text = f"{game.clan.displayname}Clan"
+                        heading_text = f"{game.clan.name}"
             elif game.clan.your_cat.status.group:
                 heading_text = f"The {(game.clan.your_cat.status.group).capitalize().replace('_', ' ')}"
             else:
                 heading_text = "Outside the Clan"
         else:
-            heading_text = f"{game.clan.displayname}Clan"
+            heading_text = f"{game.clan.name}"
 
         return heading_text
 

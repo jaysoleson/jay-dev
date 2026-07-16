@@ -16,6 +16,9 @@ class GameScreen(StrEnum):
     MAKE_CLAN_CHOOSE_CAMP = "choose_camp_screen"
     MAKE_CLAN_CHOOSE_SYMBOL = "choose_symbol_screen"
     MAKE_CLAN_CLAN_CREATED = "clan_created_screen"
+    # LG
+    MAKE_CLAN_CUSTOM_CAT = "custom_cat_screen"
+    MAKE_CLAN_YOUR_NAME = "choose_your_name_screen"
 
     # screens accessed through top menu
     CAMP = "camp_screen"

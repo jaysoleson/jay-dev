@@ -4149,16 +4149,16 @@ def create_cat(rank, moons=None, biome=None):
     return new_cat
 
 # Twelve example cats
-def create_example_cats(majority_rank: CatRank, rank_weights: dict, lifegen_kitten_creation=False) -> list[Cat]:
-    majority_rank_cats = sample(range(12), 3)
+def create_example_cats(majority_rank: CatRank, rank_weights: dict, lifegen_kitten_creation=False, max_cats=12) -> list[Cat]:
+    majority_rank_cats = sample(range(max_cats), 3)
 
     chosen_cats = []
     
     if lifegen_kitten_creation:
-        for cat_index in range(12):
+        for cat_index in range(max_cats):
             chosen_cats.append(create_cat(rank=CatRank.KITTEN))
     else:
-        for cat_index in range(12):
+        for cat_index in range(max_cats):
             if cat_index in majority_rank_cats:
                 chosen_cats.append(create_cat(rank=majority_rank))
             else:

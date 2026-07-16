@@ -33,6 +33,9 @@ class Switch(StrEnum):
     household_bg = auto()
     no_group_bg = auto()
 
+    future_clan_cats = auto()
+    # this is clan cats created in the background while youre choosing mc
+
     game_mode = auto()
     favorite_sub_tab = auto()
     root_cat = auto()
@@ -80,6 +83,7 @@ _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
     "clan_name": "",  # TODO: this is unused and undeclared as a strenum?
     "clan_creation_info": {},
     "possible_cats": [],
+    "future_clan_cats": [],
     "cur_screen": GameScreen.START,
     "saved_clan": False,
     "clan_list": [],

@@ -52,7 +52,7 @@ class LeaveClanWindow(GameWindow):
         prev_element = self.heading
         # LG edits: changes these items to lists to add group IDs
         social_list = [
-            (CatSocial.CLANCAT, CatGroup.PLAYER_CLAN_ID, (game.clan.displayname + "Clan")),
+            (CatSocial.CLANCAT, CatGroup.PLAYER_CLAN_ID, (game.clan.name + "Clan")),
             (CatSocial.LONER, CatGroup.LONER_GROUP_ID, "Loner group"),
             (CatSocial.ROGUE, CatGroup.ROGUE_GROUP_ID, "Rogue group"),
             (CatSocial.KITTYPET, CatGroup.HOUSEHOLD_ID, "Twolegplace")

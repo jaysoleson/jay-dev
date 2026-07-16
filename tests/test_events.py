@@ -72,7 +72,7 @@ class TestEvents(unittest.TestCase):
         game.clan.your_cat.inheritance = Inheritance(game.clan.your_cat)
         # ---
         save_load.cat_to_fade.clear()
-        game.clan.create_clan()
+        game.clan.create_clan(your_cat=game.clan.your_cat)
         game.cur_events_list.clear()
         game.herb_events_list.clear()
         game.clan.herb_supply.start_storage(15)

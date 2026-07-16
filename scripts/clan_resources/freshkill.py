@@ -5,6 +5,7 @@ import i18n
 
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES, create_example_cats, create_cat
 
+from scripts.game_structure import game
 from scripts.cat.enums import CatRank
 from scripts.cat.skills import SkillPath
 from scripts.config import get_config
@@ -128,7 +129,7 @@ class FreshkillPile:
                 self.pile[self.PLAYER_CLAN_KEY] = self._empty_sub_pile()
         else:
             self.pile = {self.PLAYER_CLAN_KEY: self._empty_sub_pile()}
-            self.pile[self.PLAYER_CLAN_KEY]["expires_in_4"] = constants.PREY_CONFIG["start_amount"]
+            self.pile[self.PLAYER_CLAN_KEY]["expires_in_4"] = get_config("prey.start_amount")
             if self._is_mc_outside():
                 self._init_outside_pile()
 
