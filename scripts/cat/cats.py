@@ -2677,12 +2677,9 @@ class Cat:
             if (
                 switch_get_value(Switch.request_apprentice) and
                 self.moons == 6 and
+                game.clan.your_cat and
                 game.clan.your_cat.status.alive_in_player_clan and
-                game.clan.your_cat.status.rank in [
-                    CatRank.WARRIOR, CatRank.MEDICINE_CAT,
-                    CatRank.MEDIATOR, CatRank.QUEEN,
-                    CatRank.DEPUTY, CatRank.LEADER
-                    ]
+                self.is_valid_mentor(game.clan.your_cat)
                 ):
                 new_mentor = game.clan.your_cat
             else:
