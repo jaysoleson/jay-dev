@@ -95,6 +95,9 @@ class ChooseCatsScreen(MakeClanScreenBase):
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
         )
+        self.clan_info.your_cat = None
+        switch_set_value(Switch.future_clan_cats, [])
+        # resetting your cat when you resturn from the customiser
 
         # create background pizzazz
         self.elements["background"] = UIModifiedImage(
@@ -360,21 +363,25 @@ class ChooseCatsScreen(MakeClanScreenBase):
                 )
             ),
         ):
-            self.clan_info.starting_members.append(
-                choice(
-                    [
-                        c
-                        for c in possible_cats
-                        if c
-                        not in [
-                            self.clan_info.leader,
-                            self.clan_info.deputy,
-                            self.clan_info.medicine_cat,
+            try:
+                self.clan_info.starting_members.append(
+                    choice(
+                        [
+                            c
+                            for c in possible_cats
+                            if c
+                            not in [
+                                self.clan_info.leader,
+                                self.clan_info.deputy,
+                                self.clan_info.medicine_cat,
+                            ]
+                            and c not in self.clan_info.starting_members
                         ]
-                        and c not in self.clan_info.starting_members
-                    ]
+                    )
                 )
-            )
+            except Exception as e:
+                print(f"LG: Failed to add Clan member #{i}")
+                print(e)
             self.update_head_display()
             self.refresh_cat_images_and_info()
             self.refresh_text_and_buttons()

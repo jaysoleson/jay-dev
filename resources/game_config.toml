@@ -949,6 +949,10 @@ dev_tools = false
       queen = 2
       "queen's apprentice" = 1.5
 
+      loner = 2
+      rogue = 2
+      kittypet = 3
+
   # the bonus prey a hunter skill cat will catch according to exp rank
   [prey.hunter_exp_bonus]
       untrained = 0.1

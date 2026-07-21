@@ -2,6 +2,7 @@ import pygame
 import pygame_gui
 from scripts.screens.make_clan_screens.MakeClanScreenBase import MakeClanScreenBase
 from scripts.screens.enums import GameScreen
+from scripts.game_structure import game
 
 from scripts.game_structure.game import Switch, switch_get_value
 from scripts.game_structure.game.switches import switch_set_value
@@ -85,7 +86,7 @@ class ChooseYourNameScreen(MakeClanScreenBase):
                 self.change_screen(GameScreen.MAKE_CLAN_CHOOSE_CAMP)
                 self.set_your_name()
             if event.ui_element == self.elements["previous_step"]:
-                self.change_screen(GameScreen.MAKE_CLAN_CHOOSE_CATS)
+                self.change_screen(game.last_screen_forupdate)
             if event.ui_element == self.elements["random_name"]:
                 self.elements["name_entry"].set_text(self.random_mc_name())
         return super().handle_event(event)
