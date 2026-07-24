@@ -2,6 +2,14 @@ import pygame
 from scripts.game_structure import game
 import random
 from scripts.cat.enums import CatRank, CatGroup, CatSocial
+from scripts.clan_resources.point_of_interest import (
+    load_pois,
+    get_poi_save_dict,
+    generate_and_add_new_poi,
+    PoiType,
+    get_poi_names_set,
+    clear_pois,
+)
 
 
 class Territory():
@@ -34,7 +42,7 @@ class Territory():
         last_indexes = {}
         # the index of the tile we're looking for neighbours for. 0 when still
         # branching off from the home point. when the home point is surrounded, we move on
-        MAX_ATTEMPTS = 100
+        MAX_ATTEMPTS = 100 - len(all_clans * 10)
         for i in range(MAX_ATTEMPTS):
             for clan in all_clans:
                 if clan.group_ID not in last_indexes:
@@ -114,15 +122,86 @@ class Territory():
                     if move == "west":
                         tiles_collected[clan.group_ID].append(west_tile)
 
+        all_pois = get_poi_save_dict()
+        poi_tiles = {}
+
+        for terrain_poi in all_pois["terrain"]:
+            if "twoleg" in terrain_poi:
+                random_tile = random.choice(border_tiles)
+            else:
+                random_tile = str(random.randint(0,10)) + "-" + str(random.randint(0,10))
+            poi_tiles.update({random_tile: terrain_poi})
+
+        moonplace_tile = random.choice(["10-0", "0-0", "0-10", "10-10"])
+
         for clan_ID, tile_list in tiles_collected.items():
+            new_tile_list = []
             for tile in tile_list:
                 if tile == "5-5":
+                    territory_dict[tile] = {"owner": None, "poi": "gathering"}
+                elif tile == moonplace_tile:
+                    territory_dict[tile] = {"owner": None, "poi": "moonplace"}
+                elif tile in poi_tiles:
+                    if "twoleg" in poi_tiles[tile]:
+                        territory_dict[tile] = {"owner": None, "poi": poi_tiles[tile]}
+                    else:
+                        territory_dict[tile] = {"owner": clan_ID, "poi": poi_tiles[tile]}
+                else:
+                    territory_dict[tile] = {"owner": clan_ID}
+                    new_tile_list.append(tile)
+        
+            # find them a camp
+            # first try to find a camp that is in the middle of the territory
+            # not up against a border
+            CAMP_ATTEMPT_LIMIT = 20
+            camp_found = False
+            for i in range(CAMP_ATTEMPT_LIMIT):
+                test_tile = random.choice(new_tile_list)
+                if test_tile in [moonplace_tile, poi_tiles, "5-5"]:
                     continue
-                territory_dict[tile] = {"owner": clan_ID}
+                x = int(test_tile.split("-")[0])
+                y = int(test_tile.split("-")[1])
+
+                neighbours = [
+                    f"{x-1}-{y}",
+                    f"{x+1}-{y}",
+                    f"{x}-{y-1}",
+                    f"{x}-{y+1}"
+                ]
+                count = 0
+                for i in neighbours:
+                    if i in new_tile_list:
+                        count += 1
+                if count >= 4:
+                    camp_found = True
+                    territory_dict[test_tile].update({"camp":True})
+                    break
+
+            if not camp_found:
+                print("No suitable location found. Randomly choosing.")
+                test_tile = random.choice(new_tile_list)
+                territory_dict[test_tile].update({"camp":True})
+        
+        # now unclaimed territory
+        for x in range(self.MAP_WIDTH):
+            for y in range(self.MAP_HEIGHT):
+                if f"{x}-{y}" not in territory_dict:
+                    if f"{x}-{y}" == "5-5":
+                        territory_dict[f"{x}-{y}"] = {"owner": None, "poi": "gathering"}
+                    elif f"{x}-{y}" == moonplace_tile:
+                        territory_dict[f"{x}-{y}"] = {"owner": None, "poi": "moonplace"}
+                    elif f"{x}-{y}" in poi_tiles:
+                        territory_dict[f"{x}-{y}"] = {"owner": None, "poi": poi_tiles[f"{x}-{y}"]}
+                    else:
+                        territory_dict[f"{x}-{y}"] = {"owner": None}
 
         return territory_dict
 
     def get_tile_owner(self, tile_string):
+
+        owner_ID = game.clan.territory_tile_info[tile_string]["owner"]
+        if not owner_ID:
+            return None
         tile_owner_group = game.used_group_IDs[game.clan.territory_tile_info[tile_string]["owner"]]
         tile_owner = None
 

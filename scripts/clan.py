@@ -378,6 +378,11 @@ class Clan:
         
         # CGWAR
         self.territory_tile_info = territory_class.generate_territories()
+        game.clan.colours = {
+                    "light": [148, 204, 116],
+                    "normal": [50, 156, 63],
+                    "dark": [4, 71, 39]
+                }
 
         # create leader's ceremony and give lives
         if self.leader:
@@ -847,15 +852,15 @@ class Clan:
         switch_set_value(Switch.error_message, "")
     
     def load_territory_json(self):
-        # game.clan.territory_tile_info = territory_class.generate_territories()
+        game.clan.territory_tile_info = territory_class.generate_territories()
         # ^^ debug overwriting every load for testing
 
-        with open(
-            get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json",
-            "r",
-            encoding="utf-8",
-        ) as read_file:
-            game.clan.territory_tile_info = ujson.loads(read_file.read())
+        # with open(
+        #     get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json",
+        #     "r",
+        #     encoding="utf-8",
+        # ) as read_file:
+        #     game.clan.territory_tile_info = ujson.loads(read_file.read())
 
     def load_clan_json(self):
         """
@@ -1006,12 +1011,6 @@ class Clan:
                     ID = game.get_free_group_ID(CatGroup.OTHER_CLAN)
                 else:
                     ID = other_clan["group_ID"]
-                # colours
-                oc_instance = OtherClan()
-                if "colours" not in other_clan:
-                    COLOURS = oc_instance.get_clan_colours()
-                else:
-                    COLOURS = other_clan["colours"]
 
                 game.clan.all_other_clans.append(
                     OtherClan(
@@ -1020,7 +1019,7 @@ class Clan:
                         temperament=other_clan["temperament"],
                         chosen_symbol=other_clan["chosen_symbol"],
                         ID=ID,
-                        colours=COLOURS
+                        colours=other_clan["colours"]
                     )
                 )
         else:
@@ -1551,7 +1550,8 @@ class OtherClan:
         self.temperament: tuple[str, str]
 
         self.colours = colours
-        self.colours = self.get_clan_colours()
+        if not self.colours:
+            self.colours = self.get_clan_colours()
 
         # detect old saves and convert
         if isinstance(temperament, str):
@@ -1611,15 +1611,16 @@ class OtherClan:
         "purple": {
             "light": [177, 139, 201],
             "normal": [119, 74, 148],
-            "dark": [177, 139, 201]
+            "dark": [56, 31, 71]
         },
     }
-        
+
         all_colours = (list(colour_options.keys()))
         for new_colour in all_colours.copy():
             for clan in game.clan.all_other_clans + [game.clan]:
-                if clan.colours["light"] == colour_options[new_colour]["light"]:
-                    all_colours.remove(new_colour)
+                if clan.colours:
+                    if clan.colours["light"] == colour_options[new_colour]["light"]:
+                        all_colours.remove(new_colour)
         chosen_colour = choice(all_colours)
         return colour_options[chosen_colour]
 

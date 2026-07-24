@@ -72,8 +72,14 @@ class MapTileButton(pygame_gui.elements.UIButton):
         self.rebuild()
 
     def set_colour(self):
-        self.colours["normal_bg"] = self.get_colour(self.tile_owner.colours["normal"])
-        self.colours["hovered_bg"] = self.get_colour(self.tile_owner.colours["dark"])
+        if self.tile_owner:
+            self.colours["normal_bg"] = self.get_colour(self.tile_owner.colours["normal"])
+            self.colours["normal_border"] = self.get_colour(self.tile_owner.colours["dark"])
+            self.colours["hovered_border"] = self.get_colour(self.tile_owner.colours["dark"])
+            self.colours["hovered_bg"] = self.get_colour(self.tile_owner.colours["dark"])
+        else:
+            self.colours["normal_border"] = self.get_colour([97, 69, 41])
+            self.colours["hovered_border"] = self.get_colour([51, 31, 11])
 
     def get_colour(self, value_list):
         colour = pygame.Color(value_list[0], value_list[1], value_list[2])
@@ -99,11 +105,21 @@ class MapTileButton(pygame_gui.elements.UIButton):
 
 
     def select(self):
-        self.colours["normal_bg"] = self.get_colour(self.tile_owner.colours["dark"])
+        if self.tile_owner:
+            self.colours["normal_bg"] = self.get_colour(self.tile_owner.colours["dark"])
+            self.colours["normal_border"] = self.get_colour(self.tile_owner.colours["dark"])
+        else:
+            self.colours["normal_border"] = self.get_colour([51, 31, 11])
+
         self.selected = True
         self.rebuild()
     
     def deselect(self):
-        self.colours["normal_bg"] = self.get_colour(self.tile_owner.colours["normal"])
+        if self.tile_owner:
+            self.colours["normal_bg"] = self.get_colour(self.tile_owner.colours["normal"])
+            self.colours["normal_border"] = self.get_colour(self.tile_owner.colours["dark"])
+        else:
+            self.colours["normal_border"] = self.get_colour([97, 69, 41])
+
         self.selected = False
         self.rebuild()

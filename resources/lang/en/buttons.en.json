@@ -48,6 +48,12 @@
         "saving": "saving...",
         "clan_saved": "saved!",
         "keep_cards": "keep",
-        "replace_cards": "replace"
+        "replace_cards": "replace",
+        "claim": "claim",
+        "claim_tooltip": "Negotiate for ownership of this territory.",
+        "forfeit": "forfeit",
+        "forfeit_tooltip": "Forfeit your ownership of this territory.",
+        "take": "take",
+        "take_tooltip": "Take this territory by force."
     }
 }
