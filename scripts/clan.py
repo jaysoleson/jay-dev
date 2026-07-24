@@ -58,6 +58,7 @@ from scripts.clan_package.get_clan_cats import (
     find_alive_cats_with_rank,
 )
 from scripts.screens.screens_core.screens_core import rebuild_top_menu_buttons
+from scripts.territory import territory_class
 
 
 class Clan:
@@ -88,6 +89,10 @@ class Clan:
         cruel_cards: list[str] = None,
         starting_members=None,
         starting_season="Newleaf",
+        # CGWAR
+        territory_tile_info = {},
+        colours = {},
+        # --
         self_run_init_functions=True,
     ):
         """
@@ -120,6 +125,10 @@ class Clan:
         )  # Must do this after the medicine cat is added to the list.
         self.age = 0
         self.starting_season = starting_season
+        # CGW
+        self.territory_tile_info = territory_tile_info
+        self.colours = colours
+        # --
         self.instructor = None
         # This is the first cat in starclan, to "guide" the other dead cats there.
         self.clan_cats = []
@@ -184,6 +193,10 @@ class Clan:
                 (self.age + modifiers[self.starting_season]) % 12
             ]
         )
+    # CGWAR
+    @property
+    def group_ID(self):
+        return CatGroup.PLAYER_CLAN_ID
 
     @property
     def name(self):
@@ -362,6 +375,9 @@ class Clan:
         generate_and_add_new_poi(game.clan.biome, PoiType.MOONPLACE)
         for i in range(3):
             generate_and_add_new_poi(game.clan.biome, PoiType.TERRAIN)
+        
+        # CGWAR
+        self.territory_tile_info = territory_class.generate_territories()
 
         # create leader's ceremony and give lives
         if self.leader:
@@ -541,6 +557,7 @@ class Clan:
             "reputation": self.reputation,
             "mediated": game.mediated,
             "starting_season": self.starting_season,
+            "colours": self.colours,
             "temperament": self.temperament,
             "just_died": game.just_died,
             "dead_cats_to_grieve": [x.ID for x in game.dead_cats_to_grieve],
@@ -550,6 +567,9 @@ class Clan:
             "source_build": get_version_info().is_source_build,
             "custom_pronouns": self.custom_pronouns,
         }
+
+        # CGW
+        territory_data = self.territory_tile_info
 
         # LEADER DATA
         if self.leader:
@@ -602,6 +622,9 @@ class Clan:
 
         safe_save(f"{get_save_dir()}/{self.save_id}/clan.json", clan_data)
 
+        # CGW
+        safe_save(f"{get_save_dir()}/{self.save_id}/territory.json", territory_data)
+
         if os.path.exists(f"{get_save_dir()}/{self.save_id}clan.json"):
             os.remove(f"{get_save_dir()}/{self.save_id}clan.json")
         elif os.path.exists(get_save_dir() + f"/{self.save_id}clan.txt") & (
@@ -630,6 +653,8 @@ class Clan:
             switch_set_value(
                 Switch.error_message, "There was an error loading the clan.json"
             )
+        
+        self.load_territory_json()
 
         # can't put this in post initialization bc guide isn't made before that func
         self.add_guide_influence()
@@ -820,6 +845,17 @@ class Clan:
         game.clan.chosen_symbol = clan_symbol_sprite(game.clan, return_string=True)
 
         switch_set_value(Switch.error_message, "")
+    
+    def load_territory_json(self):
+        # game.clan.territory_tile_info = territory_class.generate_territories()
+        # ^^ debug overwriting every load for testing
+
+        with open(
+            get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json",
+            "r",
+            encoding="utf-8",
+        ) as read_file:
+            game.clan.territory_tile_info = ujson.loads(read_file.read())
 
     def load_clan_json(self):
         """
@@ -919,6 +955,15 @@ class Clan:
             if "starting_season" in clan_data
             else "Newleaf"
         )
+        game.clan.colours = (
+            clan_data["colours"]
+            if "colours" in clan_data else
+                {
+                    "light": [148, 204, 116],
+                    "normal": [50, 156, 63],
+                    "dark": [4, 71, 39]
+                }
+            )
         game.clan.leader_lives = leader_lives
         game.clan.leader_predecessors = clan_data["leader_predecessors"]
 
@@ -961,6 +1006,13 @@ class Clan:
                     ID = game.get_free_group_ID(CatGroup.OTHER_CLAN)
                 else:
                     ID = other_clan["group_ID"]
+                # colours
+                oc_instance = OtherClan()
+                if "colours" not in other_clan:
+                    COLOURS = oc_instance.get_clan_colours()
+                else:
+                    COLOURS = other_clan["colours"]
+
                 game.clan.all_other_clans.append(
                     OtherClan(
                         name=other_clan.get("prefix", other_clan.get("name")),
@@ -968,6 +1020,7 @@ class Clan:
                         temperament=other_clan["temperament"],
                         chosen_symbol=other_clan["chosen_symbol"],
                         ID=ID,
+                        colours=COLOURS
                     )
                 )
         else:
@@ -1472,6 +1525,8 @@ class OtherClan:
         temperament: tuple[str, str] = None,
         chosen_symbol: str = "",
         ID: int = 0,
+        # CGW
+        colours: dict = None
     ):
         self.group_ID = ID
         if not self.group_ID:
@@ -1494,6 +1549,9 @@ class OtherClan:
         )
 
         self.temperament: tuple[str, str]
+
+        self.colours = colours
+        self.colours = self.get_clan_colours()
 
         # detect old saves and convert
         if isinstance(temperament, str):
@@ -1527,6 +1585,43 @@ class OtherClan:
             if chosen_symbol
             else clan_symbol_sprite(self, return_string=True)
         )
+    
+    def get_clan_colours(self):
+        colour_options = {
+        "pink": {
+            "light": [212, 138, 169],
+            "normal": [161, 72, 110],
+            "dark": [87, 18, 41]
+        },
+        "gold": {
+            "light": [184, 147, 77],
+            "normal": [156, 110, 54],
+            "dark": [110, 63, 24]
+        },
+        "grey": {
+            "light": [154, 152, 158],
+            "normal": [108, 104, 112],
+            "dark": [63, 61, 69]
+        },
+        "blue": {
+            "light": [123, 138, 199],
+            "normal": [76, 97, 145],
+            "dark": [34, 49, 82]
+        },
+        "purple": {
+            "light": [177, 139, 201],
+            "normal": [119, 74, 148],
+            "dark": [177, 139, 201]
+        },
+    }
+        
+        all_colours = (list(colour_options.keys()))
+        for new_colour in all_colours.copy():
+            for clan in game.clan.all_other_clans + [game.clan]:
+                if clan.colours["light"] == colour_options[new_colour]["light"]:
+                    all_colours.remove(new_colour)
+        chosen_colour = choice(all_colours)
+        return colour_options[chosen_colour]
 
     def __repr__(self):
         # has indicators that this is unlocalized, just in case
@@ -1558,6 +1653,7 @@ class OtherClan:
             "relations": self.relations,
             "temperament": self.temperament,
             "chosen_symbol": self.chosen_symbol,
+            "colours": self.colours
         }
 
     def get_standing(self) -> Literal["ally", "neutral", "hostile"]:

@@ -265,8 +265,6 @@ class ChooseCatsScreen(MakeClanScreenBase):
             elif event.ui_element in (
                 self.elements["cat" + str(u)] for u in range(0, 12)
             ):
-                self.elements["roll_container"].hide()
-
                 self.selected_cat = event.ui_element.return_cat_object()
                 if self.selected_cat in self.clan_info.starting_members:
                     self.clan_info.starting_members.remove(self.selected_cat)
@@ -411,6 +409,10 @@ class ChooseCatsScreen(MakeClanScreenBase):
             else:
                 self.elements["roll1"].hide()
                 self.elements["roll3"].hide()
+        
+        # CGW
+        if self.clan_info.leader:
+            self.elements["roll_container"].hide()
 
         # allow the player forward
         if self.clan_info.has_minimum_cats():

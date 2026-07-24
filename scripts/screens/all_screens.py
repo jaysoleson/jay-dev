@@ -34,6 +34,8 @@ from .make_clan_screens.ChooseNameScreen import ChooseNameScreen
 from .make_clan_screens.ChooseSymbolScreen import ChooseSymbolScreen
 from .make_clan_screens.ClanCreatedScreen import ClanCreatedScreen
 
+from .MapScreen import MapScreen
+
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
 # ---------------------------------------------------------------------------- #
@@ -93,6 +95,7 @@ def rebuild_all_screens():
         GameScreen.MEDIATION: MediationScreen,
         GameScreen.CHANGE_GENDER: ChangeGenderScreen,
         GameScreen.EVENT_EDIT: EventEditScreen,
+        GameScreen.MAP_SCREEN: MapScreen
     }
 
     for enum, classobj in enum_to_class.items():

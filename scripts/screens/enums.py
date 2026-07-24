@@ -42,3 +42,6 @@ class GameScreen(StrEnum):
     CHOOSE_MATE = "choose_mate_screen"
     CHOOSE_MENTOR = "choose_mentor_screen"
     CHOOSE_ADOPTIVE_PARENT = "choose_adoptive_parent_screen"
+
+    # CGWAR
+    MAP_SCREEN = "map_screen"
