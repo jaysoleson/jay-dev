@@ -1,4 +1,5 @@
 import os
+import pygame
 
 import ujson
 import i18n
@@ -12,6 +13,10 @@ class Herb:
         self._display_dict = self._herb_dict.get("display", {})
 
         self.expiration: int = self._herb_dict.get("expiration", 1)
+
+        # CGW
+        colour_list = self._herb_dict.get("colour")
+        self.colour = pygame.Color(colour_list[0], colour_list[1], colour_list[2])
 
     @property
     def singular_display(self):

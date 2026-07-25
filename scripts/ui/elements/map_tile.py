@@ -6,10 +6,10 @@ from pygame_gui.core import IContainerLikeInterface, UIElement, ObjectID
 from pygame_gui.core.gui_type_hints import RectLike, Coordinate
 from pygame_gui.core.interfaces import IUIManagerInterface
 
-from scripts.game_input import INPUT_ACTION_PRESSED, Action, INPUT_ACTION_RELEASED
 from scripts.game_structure import game
 from scripts.game_structure.screen_settings import screen
 from scripts.territory import territory_class
+from scripts.clan import COLOURS
 
 class MapTileButton(pygame_gui.elements.UIButton):
     """Subclass of pygame_gui's button class. This allows for auto-scaling of the
@@ -38,12 +38,41 @@ class MapTileButton(pygame_gui.elements.UIButton):
 
         # CGW
         tile_owner = None,
-        tile_string = None
+        tile_string = None,
+        view_colours = False,
+        view_icons = False,
+        icon_tile = False,
+        opacity = 255,
+        herb=None,
+        current_view="borders"
     ):
         self.sound_id = sound_id
+
+        # Clan object for the owner of the tile.
+        # Nonetype if no owner
         self.tile_owner = tile_owner
+
+        # string. "x-y"
         self.tile_string = tile_string
+
+        # bool
         self.selected = False
+
+        # int: opacity (alpha). 0 (transparent) to 255 (opaque)
+        self.opacity = opacity
+
+        # bools: are colours and icons visible
+        self.view_colour = view_colours
+        self.view_icons = view_icons
+
+        # bool: is it a tile with an icon on it
+        self.icon_tile = icon_tile
+
+        # the tile's main herb if it has one
+        self.herb = herb
+        self.current_view = current_view
+
+        self.colour_dict = {}
 
         super().__init__(
             relative_rect=relative_rect,
@@ -67,24 +96,116 @@ class MapTileButton(pygame_gui.elements.UIButton):
             command=command,
             tool_tip_object_id=tool_tip_object_id,
         )
+        self.border_width = 1
+
+        self.set_colour_dict()
+
         self.set_colour()
-        # self.create_border()
         self.rebuild()
+    
+    def set_colour_dict(self):
+        self.colour_dict = self.get_colour_dict()
+
+    def get_colour_dict(self):
+        """
+        Returns a dict of light, normal, and dark colours based on the base (normal)
+        """
+        opacity = self.opacity
+        if self.selected:
+            opacity = 255
+
+        colour = None
+        if self.current_view == "borders":
+            if self.tile_owner:
+                colour = COLOURS[self.tile_owner.colour]
+        elif self.current_view == "herbs":
+            if self.herb:
+                colour_object = game.clan.herb_supply.herb[self.herb].colour
+                colour = [colour_object.r, colour_object.g, colour_object.b]
+        if not colour:
+            colour = COLOURS["default"]
+
+        # deconstruct and reassemble edited versions of the colours            
+        hover_colour_list = [
+            round(colour[0] - colour[0] / 3),
+            round(colour[1] - colour[1] / 3),
+            round(colour[2] - colour[2] / 3)
+            ]
+        light_colour_list = [colour[0] + 15, colour[1] + 15, colour[2] + 15]
+
+        normal_colour = pygame.Color(colour[0], colour[1], colour[2], opacity)
+        light_colour = pygame.Color(light_colour_list[0], light_colour_list[1], light_colour_list[2], opacity)
+        hover_colour = pygame.Color(hover_colour_list[0], hover_colour_list[1], hover_colour_list[2], opacity)
+
+        return {
+            "light": light_colour,
+            "normal": normal_colour,
+            "dark": hover_colour,
+        }
 
     def set_colour(self):
-        if self.tile_owner:
-            self.colours["normal_bg"] = self.get_colour(self.tile_owner.colours["normal"])
-            self.colours["normal_border"] = self.get_colour(self.tile_owner.colours["dark"])
-            self.colours["hovered_border"] = self.get_colour(self.tile_owner.colours["dark"])
-            self.colours["hovered_bg"] = self.get_colour(self.tile_owner.colours["dark"])
+        # HERB VIEW
+        if self.current_view == "herbs":
+            if self.view_colour:
+                if self.herb:
+                    if self.selected:
+                        self.colours["normal_bg"] = self.colour_dict["dark"]
+                    else:
+                        self.colours["normal_bg"] = self.colour_dict["normal"]
+                    self.colours["hovered_bg"] = self.colour_dict["dark"]
+                    self.colours["normal_border"] = self.colour_dict["dark"]
+                else:
+                    self.colours["normal_border"] = self.colour_dict["normal"]
+                self.colours["hovered_border"] = self.colour_dict["dark"]
+            else:
+                self.colours["hovered_border"] = self.colour_dict["dark"]
+                if self.selected:
+                    self.colours["normal_border"] = self.colour_dict["dark"]
+                else:
+                    # transparent
+                    self.colours["normal_border"] = pygame.Color(0, 0, 0, 0)
+        # BORDER VIEW
         else:
-            self.colours["normal_border"] = self.get_colour([97, 69, 41])
-            self.colours["hovered_border"] = self.get_colour([51, 31, 11])
+            if self.view_colour:
+                if self.tile_owner:
+                    # someones territory: set BG for selected
+                    if self.selected:
+                        self.colours["normal_bg"] = self.colour_dict["dark"]
+                    else:
+                        self.colours["normal_bg"] = self.colour_dict["normal"]
+                    self.colours["hovered_bg"] = self.colour_dict["dark"]
+                    self.colours["normal_border"] = self.colour_dict["dark"]
+                else:
+                    if self.selected:
+                        self.colours["normal_border"] = self.colour_dict["dark"]
+                    else:
+                        self.colours["normal_border"] = self.colour_dict["normal"]
+                self.colours["hovered_border"] = self.colour_dict["dark"]
+                    
+                # icon tiles get bgs no matter who owns them.
+                if self.icon_tile:
+                    self.colours["normal_bg"] = self.colour_dict["normal"]
+                    self.colours["hovered_bg"] = self.colour_dict["dark"]
+            else:
+                self.colours["hovered_border"] = self.colour_dict["dark"]
+                if self.selected:
+                    self.colours["normal_border"] = self.colour_dict["dark"]
+                else:
+                    # transparent
+                    self.colours["normal_border"] = pygame.Color(0, 0, 0, 0)
+        
+        if self.view_icons:
+            if self.icon_tile:
+                if self.selected:
+                    self.colours["normal_bg"] = self.colour_dict["dark"]
+                else:
+                    self.colours["normal_bg"] = self.colour_dict["normal"]
+                self.colours["hovered_bg"] = self.colour_dict["dark"]
+        
+        self.colours["active_bg"] = self.colours["hovered_bg"]
+        self.colours["active_border"] = self.colours["hovered_border"]
 
-    def get_colour(self, value_list):
-        colour = pygame.Color(value_list[0], value_list[1], value_list[2])
-
-        return colour
+        self.set_colour_dict()
 
     def create_border(self):
         x, y = self.tile_string.split("-")
@@ -105,21 +226,13 @@ class MapTileButton(pygame_gui.elements.UIButton):
 
 
     def select(self):
-        if self.tile_owner:
-            self.colours["normal_bg"] = self.get_colour(self.tile_owner.colours["dark"])
-            self.colours["normal_border"] = self.get_colour(self.tile_owner.colours["dark"])
-        else:
-            self.colours["normal_border"] = self.get_colour([51, 31, 11])
-
+        self.border_width = 2
         self.selected = True
+        self.set_colour()
         self.rebuild()
     
     def deselect(self):
-        if self.tile_owner:
-            self.colours["normal_bg"] = self.get_colour(self.tile_owner.colours["normal"])
-            self.colours["normal_border"] = self.get_colour(self.tile_owner.colours["dark"])
-        else:
-            self.colours["normal_border"] = self.get_colour([97, 69, 41])
-
+        self.border_width = 1
         self.selected = False
+        self.set_colour()
         self.rebuild()

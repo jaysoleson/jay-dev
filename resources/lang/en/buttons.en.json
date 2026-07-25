@@ -54,6 +54,7 @@
         "forfeit": "forfeit",
         "forfeit_tooltip": "Forfeit your ownership of this territory.",
         "take": "take",
-        "take_tooltip": "Take this territory by force."
+        "take_tooltip": "Take this territory by force.",
+        "change_view": "View %{view}"
     }
 }

@@ -1009,3 +1009,19 @@ dev_tools = false
     ally = 30
     neutral = 17
     hostile = 7
+
+# CGWAR
+[bellsofwar]
+  territory_size = 11
+  # modifies a subtraction. a bigger number means smaller territory.
+  # smaller number, the more the game will attempt to expand the territory.
+  # dont set to a negative number !
+
+  random_territory_placement = true
+  # with this enabled, clans will choose completely random places in the map to expand their territory from
+  # while territories are being created.
+  # this can result in more varied territory shapes. camps might also be placed weirdly.
+
+  # with this set to false, territories will generate by stretching inward from the edges of the map.
+  # this usually results in slightly more balanced territories than the other option
+  # and clans will always have territory on the outer borders.

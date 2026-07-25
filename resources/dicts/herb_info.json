@@ -1,5 +1,6 @@
 {
     "elder_leaves": {
+        "colour": [44, 82, 63],
         "expiration": 12,
         "rarity": {
             "forest": {
@@ -29,6 +30,7 @@
         }
     },
     "cobwebs": {
+        "colour": [105, 113, 120],
         "expiration": 24,
         "rarity": {
             "forest": {
@@ -58,6 +60,7 @@
         }
     },
     "daisy": {
+        "colour": [83, 87, 15],
         "expiration": 8,
         "rarity": {
             "forest": {
@@ -87,6 +90,7 @@
         }
     },
     "horsetail": {
+        "colour": [105, 91, 68],
         "expiration": 8,
         "rarity": {
             "forest": {
@@ -116,6 +120,7 @@
         }
     },
     "juniper": {
+        "colour": [103, 112, 135],
         "expiration": 6,
         "rarity": {
             "forest": {
@@ -145,6 +150,7 @@
         }
     },
     "lungwort": {
+        "colour": [128, 89, 122],
         "expiration": 12,
         "rarity": {
             "forest": {
@@ -174,6 +180,7 @@
         }
     },
     "mallow": {
+        "colour": [153, 95, 126],
         "expiration": 12,
         "rarity": {
             "forest": {
@@ -203,6 +210,7 @@
         }
     },
     "marigold": {
+        "colour": [171, 159, 32],
         "expiration": 6,
         "rarity": {
             "forest": {
@@ -232,6 +240,7 @@
         }
     },
     "moss": {
+        "colour": [45, 77, 51],
         "expiration": 12,
         "rarity": {
             "forest": {
@@ -261,6 +270,7 @@
         }
     },
     "oak_leaves": {
+        "colour": [161, 95, 29],
         "expiration": 6,
         "rarity": {
             "forest": {
@@ -290,6 +300,7 @@
         }
     },
     "ragwort": {
+        "colour": [107, 110, 75],
         "expiration": 4,
         "rarity": {
             "forest": {
@@ -319,6 +330,7 @@
         }
     },
     "raspberry": {
+        "colour": [145, 29, 77],
         "expiration": 6,
         "rarity": {
             "forest": {
@@ -348,6 +360,7 @@
         }
     },
     "tansy": {
+        "colour": [103, 138, 50],
         "expiration": 8,
         "rarity": {
             "forest": {
@@ -377,6 +390,7 @@
         }
     },
     "thyme": {
+        "colour": [107, 125, 107],
         "expiration": 8,
         "rarity": {
             "forest": {
@@ -406,6 +420,7 @@
         }
     },
     "wild_garlic": {
+        "colour": [65, 82, 81],
         "expiration": 8,
         "rarity": {
             "forest": {
@@ -435,6 +450,7 @@
         }
     },
     "dandelion": {
+        "colour": [55, 120, 102],
         "expiration": 8,
         "rarity": {
             "forest": {
@@ -464,6 +480,7 @@
         }
     },
     "mullein": {
+        "colour": [110, 93, 122],
         "expiration": 10,
         "rarity": {
             "forest": {
@@ -493,6 +510,7 @@
         }
     },
     "rosemary": {
+        "colour": [155, 124, 161],
         "expiration": 12,
         "rarity": {
             "forest": {
@@ -522,6 +540,7 @@
         }
     },
     "burdock": {
+        "colour": [173, 78, 82],
         "expiration": 12,
         "rarity": {
             "forest": {
@@ -551,6 +570,7 @@
         }
     },
     "blackberry": {
+        "colour": [52, 47, 77],
         "expiration": 12,
         "rarity": {
             "forest": {
@@ -580,6 +600,7 @@
         }
     },
     "betony": {
+        "colour": [100, 151, 161],
         "expiration": 10,
         "rarity": {
             "forest": {
@@ -609,6 +630,7 @@
         }
     },
     "goldenrod": {
+        "colour": [148, 85, 75],
         "expiration": 8,
         "rarity": {
             "forest": {
@@ -638,6 +660,7 @@
         }
     },
     "poppy": {
+        "colour": [125, 15, 15],
         "expiration": 6,
         "rarity": {
             "forest": {
@@ -667,6 +690,7 @@
         }
     },
     "plantain": {
+        "colour": [89, 86, 62],
         "expiration": 10,
         "rarity": {
             "forest": {
@@ -696,6 +720,7 @@
         }
     },
     "catmint": {
+        "colour": [18, 59, 38],
         "expiration": 12,
         "rarity": {
             "forest": {
@@ -725,6 +750,7 @@
         }
     },
     "honey": {
+        "colour": [138, 90, 15],
         "expiration": 12,
         "rarity": {
             "forest": {
