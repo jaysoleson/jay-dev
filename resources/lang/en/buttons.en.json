@@ -55,6 +55,11 @@
         "forfeit_tooltip": "Forfeit your ownership of this territory.",
         "take": "take",
         "take_tooltip": "Take this territory by force.",
-        "change_view": "View %{view}"
+        "attack_camp": "attack",
+        "attack_camp_tooltip": "Attack the camp for prey and herbs. This may start a war.",
+        "change_view": "View %{view}",
+        "view_map": "View Territory",
+        "map_view_events": "events",
+        "map_view_events_tooltip": "View events that have recently happened here."
     }
 }

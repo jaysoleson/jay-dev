@@ -68,6 +68,7 @@ from scripts.clan_package.get_clan_cats import (
     find_alive_cats_with_rank,
     get_living_clan_cat_count,
 )
+from scripts.territory import territory_class
 
 logger = logging.getLogger(__name__)
 
@@ -80,6 +81,8 @@ WAR_TXT = None
 ceremony_lang = None
 war_lang = None
 ceremony_id_by_tag = {}
+
+TERRITORY_TXT = None
 
 
 def one_moon():
@@ -275,6 +278,9 @@ def one_moon():
             working=True,
         ),
     )
+
+    # CGWAR
+    other_clans_territory_wobble()
 
     if game.clan.game_mode in ("expanded", "cruel_season"):
         amount_per_med = get_amount_cat_for_one_medic(game.clan)
@@ -1117,12 +1123,14 @@ def one_moon_cat(cat):
 
 
 def load_war_resources():
-    global WAR_TXT, war_lang
+    global WAR_TXT, war_lang, TERRITORY_TXT
 
     if war_lang == i18n.config.get("locale"):
         return
     WAR_TXT = load_lang_resource("events/war.json")
     war_lang = i18n.config.get("locale")
+
+    TERRITORY_TXT = load_lang_resource("events/territory.json")
 
 
 def check_war():
@@ -2591,6 +2599,64 @@ def check_and_promote_deputy():
 
         game.cur_events_list.append(Single_Event(text, "ceremony", involved_cats))
 
+# -------------------------- #
+#        BELLS OF WAR        #
+# -------------------------- #
+
+def other_clans_territory_wobble():
+    global TERRITORY_TXT
+
+    proceed_chance = 45
+    if int(random.random() * proceed_chance):
+        return
+    first_clan = random.choice(game.clan.all_other_clans)
+    neighbouring_clans = territory_class.get_neighbouring_clans(first_clan)
+    if game.clan in neighbouring_clans:
+        neighbouring_clans.remove(game.clan)
+
+    if not neighbouring_clans:
+        return
+
+    second_clan = random.choice(neighbouring_clans)
+
+    first_clan_tiles, second_clan_tiles = territory_class.get_border_tiles_between_clans(first_clan, second_clan)
+    number = random.randint(1,2)
+    if number == 1:
+        traded_tile = random.choice(first_clan_tiles)
+        territory_class.update_tile_info(traded_tile, "owner", second_clan.group_ID)
+        print(first_clan.name, "=>", second_clan.name)
+    else:
+        traded_tile = random.choice(second_clan_tiles)
+        territory_class.update_tile_info(traded_tile, "owner", first_clan.group_ID)
+        print(second_clan.name, "=>", first_clan.name)
+
+    security = game.clan.territory_tile_info[traded_tile]["strength"]
+
+    chance = 2 * security + 1
+
+    if not int(random.random() * chance):
+        success = True
+    else:
+        success = False
+    # find an event
+    event_options = TERRITORY_TXT["taken_territory"]
+    # CGWAR TODO: add filtering? at least for if theyre at war (once i get multiwar back in)
+
+    # TODO CGWAR: seperate filter func
+    possible_events = []
+    for event in event_options:
+        if event["success"] == success:
+            possible_events.append(event)
+
+    chosen_event = random.choice(possible_events)
+    string = random.choice(chosen_event["events"])
+    event_string = event_text_adjust(
+        Cat,
+        string,
+        clan=first_clan if number == 1 else second_clan,
+        other_clan=second_clan if number == 1 else first_clan
+    )
+    game.cur_events_list.append(Single_Event(event_string, ["other_clans", "view_map"]))
 
 load_ceremonies()
 load_war_resources()

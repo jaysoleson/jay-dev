@@ -251,12 +251,11 @@ class LeaderDenScreen(Screens):
 
         # CGW
         self.map_screen_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 75), (130, 30))),
-            "Territory Map",
+            ui_scale(pygame.Rect((232, 75), (130, 30))),
+            "buttons.view_map",
             get_button_dict(ButtonStyles.SQUOVAL, (130, 30)),
             object_id="@buttonstyles_squoval",
-            manager=MANAGER,
-            anchors={"centerx": "centerx"}
+            manager=MANAGER
         )
 
         # FOCUS FRAME - container and inner elements

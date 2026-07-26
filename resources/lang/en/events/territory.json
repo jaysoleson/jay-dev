@@ -1,0 +1,55 @@
+{
+    "taken_territory": [
+        {
+            "id": "ally_success_01",
+            "events": [
+                "When o_c_n mentions being short prey at the Gathering, c_n doesn't hesitate to donate a piece of territory to them."
+            ],
+            "relation_change": 2,
+            "success": true
+        },
+        {
+            "id": "amicable_success_01",
+            "events": [
+                "c_n's leader offers o_c_n a piece of territory that their warriors were having trouble keeping up with. o_c_n accepts."
+            ],
+            "relation_change": 1,
+            "success": true
+        },
+        {
+            "id": "neutral_success_01",
+            "events": [
+                "o_c_n negotiates with c_n at the Gathering and leaves with an additional piece of territory."
+            ],
+            "relation_change": 0,
+            "success": true
+        },
+        {
+            "id": "tense_success_01",
+            "events": [
+                "o_c_n has started hunting on a piece of c_n's territory. c_n's leader, trying to avoid conflict, has decided to just give o_c_n the land."
+            ],
+            "relation_change": -1,
+            "success": true
+        },
+        {
+            "id": "hostile_success_01",
+            "events": [
+                "Rumour has it that c_n's newest piece of territory, taken from o_c_n, wasn't acquired through any peaceful means."
+            ],
+            "relation_change": -2,
+            "success": true
+        },
+        {
+            "id": "gen_failure_01",
+            "events": [
+                "c_n's leader travels to o_c_n's camp to negotiate for some territory, but leaves empty-pawed.",
+                "o_c_n denies c_n's request at the Gathering for hunting rights on their territory.",
+                "c_n tries to convince o_c_n to paw over a piece of territory. o_c_n's leader just scoffs.",
+                "o_c_n laughs in their face as c_n's leader asks to trade for a piece of territory."
+            ],
+            "relation_change": 0,
+            "success": false
+        }
+    ]
+}

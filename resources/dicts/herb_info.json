@@ -1,6 +1,6 @@
 {
     "elder_leaves": {
-        "colour": [44, 82, 63],
+        "colour": [63, 76, 161],
         "expiration": 12,
         "rarity": {
             "forest": {
@@ -30,7 +30,7 @@
         }
     },
     "cobwebs": {
-        "colour": [105, 113, 120],
+        "colour": [163, 164, 168],
         "expiration": 24,
         "rarity": {
             "forest": {
@@ -90,7 +90,7 @@
         }
     },
     "horsetail": {
-        "colour": [105, 91, 68],
+        "colour": [77, 74, 120],
         "expiration": 8,
         "rarity": {
             "forest": {
@@ -270,7 +270,7 @@
         }
     },
     "oak_leaves": {
-        "colour": [161, 95, 29],
+        "colour": [82, 54, 32],
         "expiration": 6,
         "rarity": {
             "forest": {
@@ -630,7 +630,7 @@
         }
     },
     "goldenrod": {
-        "colour": [148, 85, 75],
+        "colour": [158, 142, 73],
         "expiration": 8,
         "rarity": {
             "forest": {
