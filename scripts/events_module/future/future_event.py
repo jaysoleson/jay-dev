@@ -6,6 +6,8 @@ class FutureEvent:
         pool: dict = None,
         moon_delay: int = 0,
         involved_cats: dict = None,
+        # CGW
+        tile_location: list = None
     ):
         self.parent_event = parent_event
         self.event_type = event_type
@@ -13,6 +15,9 @@ class FutureEvent:
         self.moon_delay = moon_delay
 
         self.involved_cats = involved_cats
+
+        # CGWAR
+        self.tile_location = tile_location
 
         self.triggered = False
         self.allowed_events = self.pool.get("event_id")
@@ -26,4 +31,5 @@ class FutureEvent:
             "pool": self.pool,
             "moon_delay": self.moon_delay,
             "involved_cats": self.involved_cats,
+            "tile_location": self.tile_location
         }

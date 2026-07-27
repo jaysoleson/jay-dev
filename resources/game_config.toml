@@ -1012,20 +1012,23 @@ dev_tools = false
 
 # CGWAR
 [bellsofwar]
-  territory_expansion_modifier = 11
+  territory_expansion_modifier = 13
   # modifies a subtraction. a bigger number means smaller territory.
   # smaller number, the more the game will attempt to expand the territory.
   # dont set to a negative number !
 
   territory_grid_size = 17
-  # keep ABOVE 6 and BELOW 22
   # the number of territory squares along each axis your game will generate with.
-  # DEFAULT: 15
+  # I recommend staying ABOVE 10 and BELOW 19
+  # DEFAULT: 17
 
   random_territory_placement = true
   # with this enabled, clans will choose completely random places in the map to expand their territory from
   # while territories are being created.
   # with this set to false, territories will generate by stretching inward from the edges of the map.
+
+  save_events_for = 20
+  # how many moons events will stay in the per-tile log.
 
   [bellsofwar.heatmap_mod]
     [bellsofwar.heatmap_mod.small_map]

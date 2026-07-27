@@ -1620,6 +1620,14 @@
           },
           "title": "Supplies",
           "type": "array"
+        },
+        "tile_location": {
+          "description": "The type of tiles the event is allowed to occur on.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Tile Location",
+          "type": "array"
         }
       },
       "required": [

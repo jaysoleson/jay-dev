@@ -1294,6 +1294,7 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c fell into the river. r_c drowned alongside m_c while trying to rescue {PRONOUN/m_c/object}.",
+        "tile_location": ["river"],
         "m_c": {
             "age": [
                 "-kitten"

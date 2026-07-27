@@ -23,6 +23,7 @@ class TextPoolEvent:
     relationship_changes: list[RelationshipChangeDict] = field(
         default_factory=list[RelationshipChangeDict]
     )
+    tile_location: list[str] = None
 
     def __repr__(self):
         return self.id

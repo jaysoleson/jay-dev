@@ -32,7 +32,21 @@ from scripts.cat.enums import CatAge, CatRank
 from scripts.cat.personality import Personality
 from scripts.cat.skills import SkillPath
 from scripts.game_structure import constants
-
+from scripts.territory import territory_class
+from scripts.clan_resources.point_of_interest import (
+    load_pois,
+    get_poi_save_dict,
+    generate_and_add_new_poi,
+    get_poi_tags_set,
+    get_poi_categories_set,
+    get_poi_names_set,
+    clear_pois,
+)
+from scripts.game_structure.game.switches import (
+    Switch,
+    switch_get_value,
+    switch_set_value,
+)
 
 class ShortEvent:
     """
@@ -71,6 +85,7 @@ class ShortEvent:
         supplies: list = None,
         new_gender: List[str] = None,
         future_event: dict = None,
+        tile_location: List[str] = None
     ):
         if not event_id:
             print("WARNING: moon event has no event_id")
@@ -195,6 +210,8 @@ class ShortEvent:
         self.supplies = supplies if supplies else []
         self.new_gender = new_gender
         self.future_event = future_event if future_event else {}
+
+        self.tile_location = tile_location if tile_location else {}
 
         self.types: list[str] = []
         self.additional_event_text: str = ""
@@ -365,6 +382,13 @@ class ShortEvent:
             chosen_herb=self.chosen_herb,
         )
 
+        # get tile
+        # must be done after adjusting text
+        event_tile = self.handle_tile_location(other_clan)
+        if not event_tile:
+            print("No valid tile found! Aborting.")
+            return
+
         if self.chosen_herb:
             game.herb_events_list.append(f"{self.text} {self.herb_notice}")
 
@@ -375,6 +399,7 @@ class ShortEvent:
                 self.text + " " + self.additional_event_text,
                 self.types,
                 self.all_involved_cat_ids,
+                event_tile=event_tile if isinstance(event_tile, str) else None
             )
         )
 
@@ -966,6 +991,49 @@ class ShortEvent:
             self.herb_notice = i18n.t(
                 "screens.med_den.gain_event", herbs=adjust_list_text(herb_list)
             )
+
+    def handle_tile_location(self, other_clan):
+        """
+        Finds a valid tile for the event to happen in and puts it in the dict.
+        """
+        if not self.tile_location:
+            return True
+
+        # specific pois should work, but not by category or tag
+        # save this for later
+        # if preset in get_poi_tags_set():
+        #     preset = Switch.last_used_POI
+        #     switch_set_value(Switch.last_used_POI, "")
+
+        preset = choice(self.tile_location)
+        print("Location:", preset)
+        if preset not in territory_class.valid_tile_searches():
+            return False
+
+        valid_tiles = territory_class.get_tiles(preset, clan=game.clan, other_clan=other_clan)
+        if not valid_tiles:
+            return False
+
+        chosen_tile = choice(valid_tiles)
+        print("Event in:", chosen_tile)
+        if "events" in game.clan.territory_tile_info[chosen_tile]:
+            game.clan.territory_tile_info[chosen_tile]["events"].append(
+                {
+                    "moon": game.clan.age,
+                    "text": self.text,
+                    "saved": False
+                }
+            )
+        else:
+            game.clan.territory_tile_info[chosen_tile]["events"] = [
+                {
+                    "moon": game.clan.age,
+                    "text": self.text,
+                    "saved": False
+                }
+            ]
+        return chosen_tile
+
 
     def __repr__(self):
         return f"{self.event_id} ({self.sub_type})"

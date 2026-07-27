@@ -42,6 +42,10 @@ class Switch(StrEnum):
     keybinds_live = auto()
     card_conflict_changes = auto()
 
+    # CGW
+    last_used_POI = auto()
+    selected_tile = auto()
+
 
 _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
     "cat": "",
@@ -72,6 +76,9 @@ _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
     "switch_clans": False,
     "keybinds_live": False,
     "card_conflict_changes": {},
+
+    "last_used_POI": "",
+    "selected_tile": ""
 }
 """If you are somehow accessing this from outside game_switches.py, something has gone terribly wrong."""
 

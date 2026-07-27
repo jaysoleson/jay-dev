@@ -24,7 +24,9 @@ from scripts.clan_resources.point_of_interest import (
 from scripts.game_structure import localization, game
 from scripts.game_structure.game import switch_get_value, Switch
 from scripts.game_structure.localization import load_lang_resource, get_lang_config
-
+from scripts.game_structure.game.switches import (
+    switch_set_value
+)
 if TYPE_CHECKING:
     from scripts.cat.cats import Cat
 
@@ -135,17 +137,29 @@ def poi_repl(inner_details):
     """
     base_string = "points_of_interest."
     if inner_details[1].upper() == "TAG":
-        base_string += get_random_poi_by_tag(inner_details[2])
+        # CGW
+        random_poi = get_random_poi_by_tag(inner_details[2])
+        switch_set_value(Switch.last_used_POI, random_poi)
+        base_string += random_poi
+        # --
     elif inner_details[1].upper() == "NAME":
         names = set(inner_details[2].split(","))
-        base_string += (
+        # CGW
+        random_poi = (
             choice(list(names.intersection(get_poi_names_set())))
             if names.intersection(get_poi_names_set())
             else "MISSING_POI"
         )
+        switch_set_value(Switch.last_used_POI, random_poi)
+        base_string += random_poi
+        # ---
     elif inner_details[1].upper() == "CATEGORY":
         category = inner_details[2].upper()
-        base_string += get_random_poi_by_category(inner_details[2].lower())
+        # CGW
+        random_poi = get_random_poi_by_category(inner_details[2].lower())
+        switch_set_value(Switch.last_used_POI, random_poi)
+        base_string += random_poi
+        # ---
 
     return i18n.t(base_string)
 

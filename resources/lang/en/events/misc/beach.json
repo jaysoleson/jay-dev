@@ -15,6 +15,7 @@
         ],
         "frequency": 3,
         "event_text": "The apprentices are learning how to disguise their scents from enemies with kelp and seawater.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "status": [
                 "apprentice"
@@ -73,7 +74,8 @@
             "war"
         ],
         "frequency": 3,
-        "event_text": "m_c sat by the water, wondering why times are not as peaceful as the tides.",
+        "event_text": "m_c sits by the water, wondering why times are not as peaceful as the tides.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "status": [
                 "leader"
@@ -111,6 +113,7 @@
         ],
         "frequency": 1,
         "event_text": "A huge wave crashes into camp, leaving everyone soaked and the herb stores quite damaged.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "all_herb",
@@ -134,6 +137,7 @@
         ],
         "frequency": 1,
         "event_text": "m_c finds an old seagull nest while out hunting. It seems to be long abandoned, but some pretty feathers have remained intact! m_c decides to take some with {PRONOUN/m_c/object}.",
+        "tile_location": ["outside_camp"],
         "new_accessory": [
             "GULL FEATHERS"
         ],
@@ -176,6 +180,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c takes r_c down to the edge of the water and begins to warn {PRONOUN/r_c/object} of the dangerous things that can be found in the deep blue sea.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "relationship_status": [
                 "parent/child"
@@ -216,6 +221,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c takes r_c down to the edge of the water and begins to warn {PRONOUN/r_c/object} of the dangerous things that can be found in the deep blue sea.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "relationship_status": [
                 "mentor/app"
@@ -252,6 +258,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c paws at the pretty, glittering seaglass tangled in the seaweed that hangs over the nursery entrance.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "kitten"
@@ -268,6 +275,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c peers over the edge of the rock, past the barnacles exposed by the low tide, searching for something in {PRONOUN/m_c/poss} reflection in the sea below.",
+        "tile_location": ["any"],
         "m_c": {
             "status": [
                 "elder"
@@ -284,6 +292,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c takes r_c to look for pretty treasures in the sand. {PRONOUN/m_c/subject/CAP} {VERB/m_c/smile/smiles} at seeing {PRONOUN/m_c/poss} kit happy.",
+        "tile_location": ["territory"],
         "m_c": {
             "relationship_status": [
                 "parent/child"
@@ -322,6 +331,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c takes r_c to look for pretty treasures in the sand. {PRONOUN/m_c/subject/CAP} {VERB/m_c/blush/blushes} at r_c's smile.",
+        "tile_location": ["territory"],
         "m_c": {
             "relationship_status": [
                 "fancies"

@@ -99,3 +99,8 @@ class ShortEventSchemaItem(BaseModel):
         MISSING,
         description="Dictates how this event changes the various supply pools of the clan.",
     )
+
+    tile_location: Union[List[str], MISSING] = Field(
+        MISSING,
+        description="The type of tiles the event is allowed to occur on.",
+    )

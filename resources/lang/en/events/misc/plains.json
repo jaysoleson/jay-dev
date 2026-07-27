@@ -15,6 +15,7 @@
         ],
         "frequency": 4,
         "event_text": "The apprentices are learning how to survive in underground tunnels long-term, in case of a siege.",
+        "tile_location": ["territory"],
         "m_c": {
             "age": [
                 "any"
@@ -140,7 +141,8 @@
             "war"
         ],
         "frequency": 4,
-        "event_text": "m_c watched the grass sway across the plains, wondering when times would feel that gentle again. ",
+        "event_text": "m_c watched the grass sway across the plains, wondering when times would feel that gentle again.",
+        "tile_location": ["any"],
         "m_c": {
             "status": [
                 "leader"
@@ -173,6 +175,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c has been working to disguise the entrance into the camp tunnels.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
         },
@@ -201,6 +204,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c sits under the bridge while a Thundersnake travels above. Amidst the rumbling and roaring in {PRONOUN/m_c/poss} ears, {PRONOUN/m_c/subject} {VERB/m_c/swear/swears} {PRONOUN/m_c/subject} can hear prophecy_list_sound.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": ["leader", "medicine cat", "medicine cat apprentice"]
         }
@@ -217,6 +223,7 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c sits under the bridge while a Thundersnake travels above. Amidst the rumbling and roaring in {PRONOUN/m_c/poss} ears, {PRONOUN/m_c/subject} {VERB/m_c/swear/swears} {PRONOUN/m_c/subject} can hear prophecy_list_sound.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [],
             "status": [],

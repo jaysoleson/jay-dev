@@ -15,6 +15,7 @@
         ],
         "frequency": 4,
         "event_text": "The apprentices are learning how to weaponize stones and boulders in the mountainous landscape.",
+        "tile_location": ["territory"],
         "m_c": {
             "age": [
                 "any"
@@ -153,7 +154,8 @@
             "war"
         ],
         "frequency": 4,
-        "event_text": "m_c watched the sun set over the peaks, wondering at how the sky shone despite the war.",
+        "event_text": "m_c watches the sun set over the peaks, wondering at how the sky shines despite the war.",
+        "tile_location": ["any"],
         "m_c": {
             "status": [
                 "leader"
@@ -183,6 +185,7 @@
   ],
   "frequency": 2,
   "event_text": "For a heartbeat, m_c thought the reflection staring back at {PRONOUN/m_c/object} in the crystals around camp was not {PRONOUN/m_c/poss} own.",
+"tile_location": ["camp"],
   "m_c": {
     "age": [
       "any"

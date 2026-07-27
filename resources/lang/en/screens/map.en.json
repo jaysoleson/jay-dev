@@ -2,8 +2,14 @@
     "en": {
         "toggle_colours": "View Colours",
         "toggle_icons": "View Icons",
+        "toggle_water": "View water overlay",
         "view_herbs": "View herb distribution",
         "view_borders": "View Clan territories",
-        "view_strength": "View territory security"
+        "view_strength": "View territory security",
+        "view_terrain": "View terrain",
+        "save_event": "<b>Save Event</b><br>Saved events will not disappear after %{moons} moons.",
+        "delete_event": "<b>Remove Event</b><br>Click to delete this event from this tile's history. This is immediate and cannot be undone.",
+        "view_events_header": "View the events that have happened recently in this area. Events that are not saved will be removed from this log in %{moons} moons.",
+        "no_events": "No events have recently happened here."
     }
 }

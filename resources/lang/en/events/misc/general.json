@@ -15,6 +15,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c can't keep this secret anymore. {PRONOUN/m_c/subject/CAP} {VERB/m_c/request/requests} a Clan meeting, where {PRONOUN/m_c/subject} {VERB/m_c/reveal/reveals} the terrible secret {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} kept; {PRONOUN/m_c/subject} killed mur_c.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -80,6 +81,7 @@
         ],
         "frequency": 3,
         "event_text": "r_c is stunned when {PRONOUN/r_c/subject} {VERB/r_c/discover/discovers} m_c carelessly bragging about killing mur_c to a wandering loner.",
+        "tile_location": ["territory", "unclaimed_border"],
         "m_c": {
             "age": [
                 "any"
@@ -142,6 +144,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c is truthful when r_c questions {PRONOUN/m_c/object} about mur_c's strange death. m_c claims that mur_c deserved to die after what {PRONOUN/mur_c/subject} did to m_c.",
+        "tile_location": ["any"],
         "m_c": {
             "age": [
                 "any"
@@ -224,6 +227,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c boldly confesses to the entire Clan that {PRONOUN/m_c/subject} killed mur_c. m_c claims that mur_c deserved to pay for what {PRONOUN/mur_c/subject} did.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -279,6 +283,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c's cold eyes don't blink when {PRONOUN/m_c/subject} {VERB/m_c/are/is} accused of murdering mur_c and simply states that the Clan is better off without mur_c anyways.",
+        "tile_location": ["any"],
         "m_c": {
             "age": [
                 "any"
@@ -343,6 +348,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c doesn't change expressions in the slightest when r_c accuses {PRONOUN/m_c/object} of murdering mur_c. Who cares?",
+        "tile_location": ["any"],
         "m_c": {
             "age": [
                 "any"
@@ -480,6 +486,7 @@
         ],
         "frequency": 2,
         "event_text": "r_c gathers {PRONOUN/r_c/poss} courage and tells m_c {PRONOUN/r_c/subject} {VERB/r_c/know/knows} what {PRONOUN/m_c/subject} did to mur_c. m_c threatens r_c with the same fate if {PRONOUN/r_c/subject} {VERB/r_c/don't/doesn't} keep {PRONOUN/r_c/poss} mouth shut.",
+        "tile_location": ["any"],
         "m_c": {
             "age": [
                 "any"
@@ -577,6 +584,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c laughs menacingly as r_c accuses {PRONOUN/m_c/object} of murdering mur_c. So what if {PRONOUN/m_c/subject} did? What is r_c going to do about it?",
+        "tile_location": ["any"],
         "m_c": {
             "age": [
                 "any"
@@ -640,6 +648,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c can't keep this secret anymore. When {PRONOUN/m_c/subject} {VERB/m_c/find/finds} {PRONOUN/m_c/self} alone with r_c, {PRONOUN/m_c/subject} {VERB/m_c/tell/tells} the story of mur_c's death.",
+        "tile_location": ["any"],
         "m_c": {
             "age": [
                 "any"
@@ -697,6 +706,7 @@
         ],
         "frequency": 2,
         "event_text": "r_c overheard m_c muttering in {PRONOUN/m_c/poss} sleep, claws slashing at the air. {PRONOUN/m_c/poss/CAP} muttering confirms what r_c always suspected:  m_c was the one responsible for mur_c's death.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -750,6 +760,7 @@
         ],
         "frequency": 2,
         "event_text": "r_c wasn't even suspecting {PRONOUN/m_c/object}. But as soon as r_c mentions mur_c's death, m_c breaks down, telling how {PRONOUN/m_c/subject} didn't intend to do it, that it was all just an accident. Between wails, m_c begs r_c to understand {PRONOUN/m_c/subject} never wanted mur_c to die.",
+        "tile_location": ["any"],
         "m_c": {
             "age": [
                 "any"
@@ -815,6 +826,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c gathers the Clan to make a confession. {PRONOUN/m_c/subject/CAP} killed mur_c, but not for the reasons they might think. m_c knew mur_c was planning to do something that would've damaged c_n greatly, and {PRONOUN/m_c/subject} needed to act quickly before it was too late.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -882,6 +894,7 @@
         ],
         "frequency": 2,
         "event_text": "r_c takes m_c aside and tells {PRONOUN/m_c/object} {PRONOUN/r_c/subject} {VERB/r_c/know/knows} what {PRONOUN/m_c/subject} did to mur_c. Before m_c can defend {PRONOUN/m_c/self}, r_c eerily smiles and assures {PRONOUN/m_c/object} {PRONOUN/r_c/subject} won't tell anyone, because {PRONOUN/r_c/subject} {VERB/r_c/agree/agrees} with what m_c did. m_c isn't sure whether {PRONOUN/m_c/subject} should trust r_c's words.",
+        "tile_location": ["any"],
         "m_c": {
             "age": [
                 "any"
@@ -960,6 +973,7 @@
         ],
         "frequency": 2,
         "event_text": "When m_c and r_c are alone together, r_c gathers the courage to finally tell m_c {PRONOUN/r_c/subject} {VERB/r_c/know/knows} m_c was the one who killed mur_c, and {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} been waiting for {PRONOUN/m_c/object} to do the right thing and confess. If {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} do it, then r_c will have to be the one to tell the Clan. m_c is stunned and slightly impressed that r_c confronted {PRONOUN/m_c/object} alone.",
+        "tile_location": ["any"],
         "m_c": {
             "age": [
                 "any"
@@ -1040,6 +1054,7 @@
         "tags": ["clan:leader"],
         "frequency": 2,
         "event_text": "m_c calls a Clan meeting and reveals that r_c was responsible for taking mur_c's life. With the Clan leader against {PRONOUN/r_c/object}, r_c's place in the Clan is thrown into jeopardy.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "leader"
@@ -1101,6 +1116,7 @@
         ],
         "frequency": 4,
         "event_text": "r_c finds {PRONOUN/r_c/self} walking into one of {PRONOUN/r_c/poss} Clanmates' dreams again. Instead of a boring or nonsensical dream, r_c is horrified to watch m_c relive the murder of mur_c. {PRONOUN/r_c/subject/CAP} {VERB/r_c/wake/wakes} up in shock, wondering what to do with this new knowledge.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -1161,6 +1177,7 @@
         ],
         "frequency": 4,
         "event_text": "r_c announces that mur_c's death was no accident. m_c confesses there and then, detailing the act as if mur_c was a piece of fresh-kill.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -1259,6 +1276,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c admits quietly to r_c that {PRONOUN/m_c/subject} lost {PRONOUN/m_c/poss} temper on that terrible, fateful day... mur_c's death was at {PRONOUN/m_c/poss} paws.",
+        "tile_location": ["any"],
         "m_c": {
             "age": [
                 "any"
@@ -1339,6 +1357,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c unexpectedly breaks mid-conversation, confessing in a rush that {PRONOUN/m_c/subject} could have saved mur_c... but {PRONOUN/m_c/subject} panicked. In that way, m_c believes, {PRONOUN/m_c/subject} murdered mur_c.",
+        "tile_location": ["any"],
         "m_c": {
             "age": [
                 "any"
@@ -1429,6 +1448,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c stands in the water for hours on end, but the flow cannot wash away mur_c's blood, nor the guilt coiled heavy in {PRONOUN/m_c/poss} chest. {PRONOUN/m_c/subject/CAP} {VERB/m_c/admit/admits} {PRONOUN/m_c/poss} actions to the Clan later that day.",
+        "tile_location": ["water"],
         "m_c": {
             "age": [
                 "any"
@@ -1627,6 +1647,7 @@
         ],
         "frequency": 3,
         "event_text": "r_c yowls in shock, stammering that mur_c just appeared to {PRONOUN/r_c/object} and said {PRONOUN/mur_c/subject} {VERB/mur_c/were/was} murdered by m_c!",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -1721,6 +1742,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c went for a long walk this morning, deep in thought.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -1784,6 +1806,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c accidentally trespasses onto o_c_n's territory.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -1824,6 +1847,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c spends the evening regaling the Clan with stories of story_list.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -1859,6 +1883,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c was trying to fluff up {PRONOUN/m_c/poss} nest when {PRONOUN/m_c/subject} saw a thorn inside of {PRONOUN/m_c/poss} bedding. Another prank, but it could not fool {PRONOUN/m_c/object}!",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -1878,6 +1903,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c wasn't looking where {PRONOUN/m_c/subject} {VERB/m_c/were/was} going and tripped over a small stump, but came out of it with only {PRONOUN/m_c/poss} pride bruised.",
+        "tile_location": ["any"],
         "m_c": {
             "age": [
                 "any"
@@ -1897,6 +1923,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c misstepped and slipped from a rock, but landed on {PRONOUN/m_c/poss} feet nimbly, {PRONOUN/m_c/poss} Clanmates commenting on the show of dexterity.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -1931,6 +1958,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c tossed a snake out of the camp before it could bite someone.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -1966,6 +1994,7 @@
         ],
         "frequency": 1,
         "event_text": "m_c tries to convince r_c to run away with {PRONOUN/m_c/object}.",
+        "tile_location": ["camp", "border"],
         "m_c": {
             "age": [
                 "young adult",
@@ -2150,6 +2179,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c is caught outside of the Clan's territory.",
+        "tile_location": ["outside"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -2271,6 +2301,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c thought {PRONOUN/m_c/subject} saw a familiar wispy form lingering at the edge of camp, but it disappeared before {PRONOUN/m_c/subject} could be sure.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -2299,6 +2330,7 @@
         ],
         "frequency": 4,
         "event_text": "The older cats look fondly upon the kits who are dashing in and out of leaf piles at the edge of camp.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "senior",
@@ -2325,6 +2357,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c begin a small camp snowball fight while on guard duty, eventually getting the whole Clan to join in.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "warrior"
@@ -2370,6 +2403,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c encourages r_c to play in the snow with {PRONOUN/m_c/object} during a patrol.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "status": [
                 "apprentice",
@@ -2457,6 +2491,7 @@
         ],
         "frequency": 4,
         "event_text": "r_c finds acc_plural while out on a walk and decides to give them to m_c.",
+        "tile_location": ["outside_camp"],
         "new_accessory": [
             "WILD",
             "PLANT"
@@ -2513,6 +2548,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c finds acc_plural while out on a walk and decides to keep them.",
+        "tile_location": ["outside_camp"],
         "new_accessory": [
             "WILD",
             "PLANT"
@@ -2757,6 +2793,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c are so cuddled up and cozy in their nest they almost miss the dawn patrol.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "warrior",
@@ -2807,6 +2844,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c listens as r_c tells the story of how {PRONOUN/r_c/subject} fell in love with {PRONOUN/r_c/poss} mate to a group of starry-eyed kits.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -2860,6 +2898,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c watches r_c give an elder the best piece of prey on the pile. {PRONOUN/m_c/subject/CAP} {VERB/m_c/feel/feels} lucky to have such a kind cat as {PRONOUN/m_c/poss} mate.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -2923,6 +2962,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c and r_c watch the Clan's kits play and exchange significant glances.",
+        "tile_location": ["camp"],
         "m_c": {
             "relationship_status": [
                 "mates"
@@ -2962,6 +3002,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c and r_c take a late night patrol out of camp to watch the sunrise.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "age": [
                 "young adult",
@@ -3006,6 +3047,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c sits still as r_c helps remove some leftover leaf-bare fluff from the back of {PRONOUN/m_c/poss} neck.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "young adult",
@@ -3054,6 +3096,7 @@
         ],
         "frequency": 4,
         "event_text": "It's tough working in such extreme heat. m_c and r_c spend their evening relaxing together and cooling down in the shade.",
+        "tile_location": ["camp", "territory"],
         "m_c": {
             "status": [
                 "warrior",
@@ -3226,6 +3269,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c and r_c spend the evening chasing cicadas around camp. m_c keeps a trophy of {PRONOUN/m_c/poss} catch on {PRONOUN/m_c/poss} pelt.",
+        "tile_location": ["camp"],
         "new_accessory": [
             "CICADA WINGS",
             "BLACK CICADA"
@@ -3366,6 +3410,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c picks some flowers around the camp to bring back to the medicine den.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "kitten"
@@ -3402,6 +3447,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c chases fireflies around the camp while the warriors sleep.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "kitten"
@@ -3418,6 +3464,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c try to sneak out of camp, but are caught and returned to the nursery.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "kitten"
@@ -3462,6 +3509,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c and r_c sneak out of camp to chase butterflies.",
+        "tile_location": ["territory"],
         "m_c": {
             "status": [
                 "kitten"
@@ -3505,6 +3553,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c chase fireflies around the camp while the warriors try to sleep.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "kitten"
@@ -3550,6 +3599,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c lead a small leaf-gathering hunt, which the adult cats watch with amused purrs.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "kitten"
@@ -3591,6 +3641,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c play with the leaves around the camp.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "kitten"
@@ -3631,6 +3682,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c make little snow lumps at the entrance to the camp.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "kitten"
@@ -3675,6 +3727,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c flick snow at the warriors, giggling as they hide behind the nursery.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "kitten"
@@ -3744,6 +3797,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c snuck out of camp and brought back some acc_singular when {PRONOUN/m_c/poss} fur got snagged in a bush.",
+        "tile_location": ["territory"],
         "new_accessory": [
             "HOLLY",
             "JUNIPER",
@@ -3769,6 +3823,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c caught an insect while sneaking outside of the camp and proudly wears its wings as a trophy of {PRONOUN/m_c/poss} journey.",
+        "tile_location": ["outside_camp"],
         "new_accessory": [
             "MOTH WINGS",
             "ROSY MOTH WINGS",
@@ -3812,6 +3867,7 @@
         ],
         "frequency": 3,
         "event_text": "As the wind blows many petals in the camp, m_c picks a few to decorate {PRONOUN/m_c/self}.",
+        "tile_location": ["camp"],
         "new_accessory": [
             "PETALS"
         ],
@@ -3838,6 +3894,7 @@
         ],
         "frequency": 3,
         "event_text": "As the wind brings many fallen leaves in the camp, m_c picks a acc_singular to decorate {PRONOUN/m_c/poss} pelt.",
+        "tile_location": ["camp"],
         "new_accessory": [
             "OAK LEAVES",
             "MAPLE LEAF"
@@ -4096,6 +4153,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c is scolded after sneaking out of camp.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "kitten",
@@ -4187,6 +4245,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c sneaks out of camp with r_c.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "age": [
                 "adolescent"
@@ -4227,6 +4286,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c sneak out of camp to see the sunrise.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "age": [
                 "adolescent"
@@ -4267,6 +4327,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c sneak out of camp to see the moon rise.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "age": [
                 "adolescent"
@@ -4307,6 +4368,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c try to sneak out of camp, but are caught by their mentors.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "adolescent"
@@ -4357,6 +4419,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c were practicing climbing when they found a nest of strange eggs.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "age": [
                 "adolescent"
@@ -4403,6 +4466,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c sneak out of camp to go bird watching.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "age": [
                 "adolescent"
@@ -4445,6 +4509,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c play in the fallen leaves outside of camp.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "adolescent"
@@ -4487,6 +4552,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c play in the snow outside of camp.",
+        "tile_location": ["territory"],
         "m_c": {
             "age": [
                 "adolescent"
@@ -4592,6 +4658,7 @@
         },
         "frequency": 4,
         "event_text": "m_c collects feathers while wandering along {POI/name/terrain_gullcliffs}. {PRONOUN/m_c/subject/CAP} {VERB/m_c/wear/wears} a few in {PRONOUN/m_c/poss} pelt.",
+        "tile_location": ["terrain_gullcliffs"],
         "new_accessory": ["GULL FEATHERS"],
         "m_c": {
             "age": ["-kitten"]
@@ -4608,6 +4675,7 @@
         },
         "frequency": 4,
         "event_text": "r_c collects feathers while wandering along {POI/name/terrain_gullcliffs}. {PRONOUN/r_c/subject/CAP} {VERB/r_c/offer/offers} some to m_c as a gift.",
+        "tile_location": ["terrain_gullcliffs"],
         "new_accessory": ["GULL FEATHERS"],
         "m_c": {
             "relationship_status": ["likes"]
@@ -4639,6 +4707,7 @@
         },
         "frequency": 4,
         "event_text": "m_c gathers some pretty leaves and lays them out to dry on {POI/name/terrain_sunningrocks}. {PRONOUN/m_c/subject/CAP} {VERB/m_c/return/returns} to camp a few days later with a new accessory",
+        "tile_location": ["terrain_sunningrocks"],
         "new_accessory": ["DRY HERBS", "DRY CATMINT", "DRY NETTLES", "DRY LAURELS"],
         "m_c": {
             "status": ["-kitten"]
@@ -4655,6 +4724,7 @@
         },
         "frequency": 4,
         "event_text": "r_c gathers some pretty leaves and lays them out to dry on {POI/name/terrain_sunningrocks}. When {PRONOUN/r_c/subject} {VERB/r_c/return/returns} days later to gather {PRONOUN/r_c/poss} new accessory, {PRONOUN/r_c/subject} {VERB/r_c/discover/discovers} some cat has stolen them!",
+        "tile_location": ["terrain_sunningrocks"],
         "new_accessory": ["DRY HERBS", "DRY CATMINT", "DRY NETTLES", "DRY LAURELS"],
         "exclude_involved": ["m_c"],
         "m_c": {
@@ -4688,6 +4758,7 @@
         },
         "frequency": 4,
         "event_text": "m_c climbs up into {POI/name/terrain_rookery} to steal some feathers. {PRONOUN/m_c/subject/CAP} {VERB/m_c/return/returns} with a new pelt decoration and a few missing chunks of fur.",
+        "tile_location": ["terrain_rookery"],
         "new_accessory": ["JAY FEATHERS", "BLUE FEATHERS"],
         "m_c": {
             "status": ["-kitten"],
@@ -4718,6 +4789,7 @@
         },
         "frequency": 4,
         "event_text": "r_c climbs up into {POI/name/terrain_rookery} to steal some feathers. {PRONOUN/r_c/subject/CAP} {VERB/r_c/return/returns} with a few missing chunks of fur and triumphantly presents a flustered m_c with {PRONOUN/r_c/poss} prize.",
+        "tile_location": ["terrain_rookery"],
         "new_accessory": ["JAY FEATHERS", "BLUE FEATHERS"],
         "m_c": {
             "relationship_status": ["fancies"]
@@ -4764,6 +4836,7 @@
         },
         "frequency": 4,
         "event_text": "m_c insists {PRONOUN/m_c/poss} new pelt decoration was stolen from {POI/name/terrain_eaglenest}, but almost nobody believes {PRONOUN/m_c/object}.",
+        "tile_location": ["terrain_eaglenest"],
         "new_accessory": ["SPARROW FEATHERS"],
         "m_c": {
             "status": ["-kitten"],
@@ -4798,6 +4871,7 @@
         },
         "frequency": 4,
         "event_text": "r_c offers m_c a gift of feathers that {PRONOUN/r_c/subject} totally stole from {POI/name/terrain_eaglenest}. r_c fought off a whole flock of eagles for those feathers, so m_c had better appreciate them!",
+        "tile_location": ["terrain_eaglenest"],
         "new_accessory": ["SPARROW FEATHERS"],
         "r_c": {
             "status": ["apprentice"],
@@ -4830,6 +4904,7 @@
         },
         "frequency": 4,
         "event_text": "m_c goes missing in {POI/name/terrain_twolegplace} for a few days and comes back wearing a acc_singular.",
+        "tile_location": ["unclaimed"],
         "new_accessory": ["COLLAR"],
         "m_c": {
             "status": ["-kitten"]
@@ -4858,6 +4933,7 @@
         },
         "frequency": 4,
         "event_text": "m_c picks cattails near {POI/tag/water:flowing} and decides to wear them.",
+        "tile_location": ["water:flowing"],
         "new_accessory": ["CATTAIL"],
         "m_c": {
             "status": ["-kitten"]
@@ -4874,6 +4950,7 @@
         },
         "frequency": 4,
         "event_text": "m_c is on a walk by {POI/tag/prey:flying} when {PRONOUN/m_c/subject} {VERB/m_c/find/finds} some lovely feathers. {PRONOUN/m_c/subject/CAP} {VERB/m_c/decide/decides} to wear them.",
+        "tile_location": ["prey:flying"],
         "new_accessory": ["BLUE FEATHERS", "RED FEATHERS", "JAY FEATHERS", "GULL FEATHERS", "SPARROW FEATHERS"],
         "m_c": {
             "status": ["-kitten"]
@@ -4896,6 +4973,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c hears r_c complaining about the dry rye stalks underneath {PRONOUN/r_c/poss} paws when {PRONOUN/r_c/subject} {VERB/r_c/finish/finishes} cleaning the elders' den for the umpteenth time. The next day, m_c adorns {PRONOUN/m_c/poss} pelt with acc_plural.",
+        "tile_location": ["camp"],
         "new_accessory": [
             "RYE STALK"
         ],
@@ -4925,6 +5003,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c gets dared to hunt outside in the snow alone and returns with acc_singular in {PRONOUN/m_c/poss} pelt.",
+        "tile_location": ["outside_camp"],
         "new_accessory": [
             "WILD",
             "PLANT"
@@ -4948,6 +5027,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c is nearly blindsided by r_c as {PRONOUN/m_c/subject} {VERB/m_c/walk/walks} into camp after a long training day, listening to the kit squeak about a feather. r_c leads m_c to the nursery, where {PRONOUN/r_c/subject} carefully {VERB/r_c/put/puts} acc_plural in m_c's fur.",
+        "tile_location": ["camp"],
         "new_accessory": [
             "BLUE FEATHERS",
             "GULL FEATHERS",
@@ -4997,6 +5077,7 @@
         },
         "frequency": 2,
         "event_text": "m_c and r_c watch the rooks and jackdaws perform their swooping display at dusk.",
+        "tile_location": ["any"],
         "m_c": {
             "relationship_status": ["considers", "relates_to"]
         },
@@ -5021,6 +5102,7 @@
         "season": ["any"],
         "frequency": 4,
         "event_text": "m_c doesn't even look sorry when r_c discovers the mess {PRONOUN/m_c/subject} made in the nursery.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": ["kitten"],
             "relationship_status": ["child/parent"],
@@ -5072,6 +5154,7 @@
         "season": ["any"],
         "frequency": 4,
         "event_text": "r_c discovers m_c made a mess of the fresh-kill pile. m_c grins at {PRONOUN/r_c/object} through {PRONOUN/r_c/poss} scolding.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": ["kitten"],
             "trait": ["attention-seeker"]
@@ -5122,6 +5205,7 @@
         "season": ["any"],
         "frequency": 3,
         "event_text": "r_c discovers m_c ruined a few pieces of fresh-kill. m_c grins at {PRONOUN/r_c/object} through {PRONOUN/r_c/poss} scolding.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": ["kitten"],
             "trait": ["attention-seeker"]
@@ -5179,6 +5263,7 @@
         "season": ["any"],
         "frequency": 4,
         "event_text": "r_c snaps at m_c to get out of the elder's den and to leave {PRONOUN/r_c/object} alone. m_c trots out of the den with {PRONOUN/m_c/poss} tail high.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": ["kitten"],
             "trait": ["attention-seeker"]
@@ -5238,6 +5323,7 @@
         "season": ["any"],
         "frequency": 4,
         "event_text": "m_c bounds up to r_c and begs {PRONOUN/r_c/object} to watch {PRONOUN/m_c/object} do a trick. r_c snaps at {PRONOUN/m_c/object} to leave {PRONOUN/r_c/object} alone and stalks away.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": ["kitten"],
             "trait": ["attention-seeker"]
@@ -5297,6 +5383,7 @@
         "season": ["any"],
         "frequency": 4,
         "event_text": "m_c bounds up to r_c and begs {PRONOUN/r_c/object} to watch {PRONOUN/m_c/object} do a trick. r_c sits and watches, and cheers when {PRONOUN/m_c/subject} {VERB/m_c/finish/finishes}.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": ["kitten"],
             "trait": ["attention-seeker"]
@@ -5361,6 +5448,7 @@
         "season": ["any"],
         "frequency": 4,
         "event_text": "m_c wants to play with r_c, but r_c is busy.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": ["kitten"],
             "trait": ["attention-seeker"]
@@ -5395,6 +5483,7 @@
         "season": ["any"],
         "frequency": 3,
         "event_text": "r_c discovers m_c made a mess of {PRONOUN/r_c/poss} herbs. m_c grins at {PRONOUN/r_c/object} through {PRONOUN/r_c/poss} scolding. When r_c later fixes {PRONOUN/r_c/poss} herb stock, {PRONOUN/r_c/subject} {VERB/r_c/discover/discovers} some missing.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": ["kitten"],
             "trait": ["attention-seeker"]
@@ -5478,6 +5567,7 @@
         ],
         "frequency": 2,
         "event_text": "A stranger limped into camp this moon, knowing c_n was friendly, and requested a few nights of shelter while {PRONOUN/n_c:0/poss} wounds healed. c_n obliged.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -5515,6 +5605,7 @@
         ],
         "frequency": 2,
         "event_text": "A wandering healer was found on the border, hoping to learn from Clan medicine cats. {PRONOUN/n_c:0/subject/CAP} left a moon later, grateful and armed with new knowledge.",
+        "tile_location": ["border"],
         "m_c": {
             "status": [
                 "medicine cat"
@@ -5570,6 +5661,7 @@
         ],
         "frequency": 2,
         "event_text": "A stranger requested a few days of shelter in c_n's sturdy camp while the incoming storm blew over. c_n obliged.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -5608,6 +5700,7 @@
         ],
         "frequency": 1,
         "event_text": "A o_c_n apprentice asked to join c_n after having apparently forsaken {PRONOUN/n_c:0/poss} original Clan loyalties. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/stay/stays} for only a few days before sheepishly requesting to return home.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -5645,6 +5738,7 @@
         ],
         "frequency": 2,
         "event_text": "A kittypet asked to join c_n but returned to Twolegplace after only a few days, realizing {PRONOUN/n_c:0/poss} distaste for outdoor living.",
+        "tile_location": ["camp", "terrain_twolegplace"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -5685,6 +5779,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c was caught sharing prey with a kittypet, who was chased off by a patrol.",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -5755,6 +5850,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c was seen touching noses with a kittypet. Scandalous!",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "young adult",
@@ -5824,6 +5920,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c was seen playing with a kittypet over the border.",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -5894,6 +5991,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c was seen chasing a kittypet off of the territory.",
+        "tile_location": ["border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -5963,6 +6061,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c was seen in a very serious conversation with a kittypet, who ran away when another patrol approached.",
+        "tile_location": ["border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6021,6 +6120,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c caught a glimpse of a kittypet wandering in the distance.",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6048,6 +6148,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c found the scent of a stranger near the border, though the cat {PRONOUN/n_c:0/self} is long gone. Smells like Twolegs.",
+        "tile_location": ["border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6075,6 +6176,7 @@
         ],
         "frequency": 4,
         "event_text": "On a bit of c_n's territory that borders unclaimed land, m_c finds scent that indicates there's a loner wandering somewhere out there.",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6102,6 +6204,7 @@
         ],
         "frequency": 4,
         "event_text": "An outsider places their scent near the border, a polite courtesy that indicates they don't mean trouble.",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6132,6 +6235,7 @@
         ],
         "frequency": 4,
         "event_text": "c_n finds tracks crossing the border and then hurriedly backtracking, indicating the owner didn't intrude intentionally.",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6162,6 +6266,7 @@
         ],
         "frequency": 4,
         "event_text": "Someone has been hunting in c_n territory, a stranger without a Clan scent. c_n doesn't know {PRONOUN/n_c:0/poss} face, but they memorize {PRONOUN/n_c:0/poss} smell.",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6194,6 +6299,7 @@
         ],
         "frequency": 4,
         "event_text": "c_n's vast territory can be difficult to defend due to its size. The tracks of a rogue have now crossed their border repeatedly.",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6224,6 +6330,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c finds prey blood and the scent of an intruder.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6254,6 +6361,7 @@
         ],
         "frequency": 4,
         "event_text": "A cat has been trying to conceal their presence out in the borderlands...",
+        "tile_location": ["unclaimed_border", "unclaimed"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6284,6 +6392,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c was seen touching noses with someone from o_c_n. Scandalous!",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6331,6 +6440,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c was loitering around o_c_n's border, looking for a specific cat.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6351,6 +6461,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c was seen racing along the border with {PRONOUN/m_c/poss} rival from o_c_n.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6378,6 +6489,7 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c was seen arguing, and borderline-fighting, with a cat from o_c_n.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6404,6 +6516,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c was seen speaking calmly to a cat from o_c_n.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6430,6 +6543,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c sees that o_c_n has been cleaning the border pathways and adds {PRONOUN/m_c/poss} own paws to the effort.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6462,6 +6576,7 @@
         ],
         "frequency": 2,
         "event_text": "The thornbush might be on o_c_n's side of the border, but both Clans benefit from uprooting it before it can block the path further.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6490,6 +6605,7 @@
         ],
         "frequency": 2,
         "event_text": "Trying to see o_c_n cats in the flesh can be hard when the Clans live so far apart. m_c has to wait hours for a o_c_n patrol to pass on the message about local loner activity.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6520,6 +6636,7 @@
         ],
         "frequency": 2,
         "event_text": "Tracks don't lie, even if o_c_n may. One of them has been traipsing across the border. It remains to be seen if that cat is a confused apprentice or a deliberate provocateur.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6550,6 +6667,7 @@
         ],
         "frequency": 2,
         "event_text": "An area of the border looks a little too pristine. Almost like o_c_n have been covering something up there.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6576,6 +6694,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c was seen arguing, and borderline-fighting, with a loner.",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6627,6 +6746,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c was seen touching noses with a loner. Scandalous!",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "young adult",
@@ -6695,6 +6815,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c was seen talking calmly to a loner, before both cats went their separate ways.",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6762,6 +6883,7 @@
         ],
         "frequency": 1,
         "event_text": "m_c was seen taking food from a Twoleg!",
+        "tile_location": ["unclaimed_border", "unclaimed", "terrain_twolegplace"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6802,6 +6924,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c was caught sharing prey with a rogue, who was chased off by a patrol.",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6871,6 +6994,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c was seen touching noses with a rogue. Scandalous!",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "young adult",
@@ -6939,6 +7063,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c was seen chasing a rogue off of the territory.",
+        "tile_location": ["border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -7287,6 +7412,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c visits the other medicine cats.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "status": [
                 "medicine cat"
@@ -7309,6 +7435,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c visits o_c_n to converse with their medicine cats about an omen StarClan sent.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "status": [
                 "medicine cat"
@@ -7334,6 +7461,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c visits o_c_n to congratulate them on their new medicine cat.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "status": [
                 "medicine cat"
@@ -7543,6 +7671,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c visits the other medicine cats.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "status": [
                 "medicine cat"
@@ -7565,6 +7694,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c visits o_c_n to converse with their medicine cats about an omen.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "status": [
                 "medicine cat"
@@ -7590,6 +7720,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c visits o_c_n to congratulate them on their new medicine cat.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "status": [
                 "medicine cat"
@@ -7740,6 +7871,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c walks into the dreams of {PRONOUN/m_c/poss} Clanmates while everyone sleeps.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "any"
@@ -7759,6 +7891,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c tosses in {PRONOUN/m_c/poss} sleep as {PRONOUN/m_c/poss} dream-self pads through the thoughts of {PRONOUN/m_c/poss} Clanmates, picking up snippets of dream_list/m_c. {PRONOUN/m_c/subject/CAP} {VERB/m_c/wonder/wonders} whose dreams {PRONOUN/m_c/subject} walked in.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "any"
@@ -7778,6 +7911,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c correctly warns the leader of an ambush, thanks to {PRONOUN/m_c/poss} clairvoyant nature.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "any"
@@ -7883,6 +8017,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c was seen loudly bickering with the medicine cat of o_c_n.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "status": [
                 "medicine cat"
@@ -7905,6 +8040,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c was seen talking with a traveling loner healer on the border.",
+        "tile_location": ["border"],
         "m_c": {
             "status": [
                 "medicine cat"
@@ -7994,6 +8130,7 @@
         },
         "frequency": 1,
         "event_text": "m_c consults the patterns in the roots of {POI/tag/trees}, seeking wisdom.",
+        "tile_location": ["trees"],
         "m_c": {
             "status": ["medicine cat apprentice", "medicine cat"],
             "skill": ["OMEN,0"]
@@ -8010,6 +8147,7 @@
         },
         "frequency": 1,
         "event_text": "m_c has a frightening vision of {POI/tag/trees} being struck by lightning and lit ablaze.",
+        "tile_location": ["trees"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8025,6 +8163,7 @@
         },
         "frequency": 1,
         "event_text": "While walking beneath the bare branches of {POI/tag/trees}, m_c has a vision of new buds and fresh leaves despite the snowy weather.",
+        "tile_location": ["trees"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8040,6 +8179,7 @@
         },
         "frequency": 1,
         "event_text": "While walking beneath the lush branches of {POI/tag/trees}, m_c has a sudden vision of brittle twigs and decaying leaves despite the sunny weather.",
+        "tile_location": ["trees"],
         "m_c": {
             "status": ["medicine cat", "medicine cat apprentice"]
         }
@@ -8055,6 +8195,7 @@
         },
         "frequency": 1,
         "event_text": "m_c examines the new buds of {POI/tag/trees}, reading the fates of c_n's kittens in each one.",
+        "tile_location": ["trees"],
         "m_c": {
             "status": ["medicine cat", "medicine cat apprentice"],
             "skill": ["CLAIRVOYANT,0"]
@@ -8071,6 +8212,7 @@
         },
         "frequency": 1,
         "event_text": "m_c consults the patterns in the stones of {POI/tag/rocks}, seeking wisdom.",
+        "tile_location": ["rocks"],
         "m_c": {
             "status": ["medicine cat apprentice", "medicine cat"],
             "skill": ["OMEN,0"]
@@ -8087,6 +8229,7 @@
         },
         "frequency": 1,
         "event_text": "m_c has a frightening vision of a battle erupting at {POI/tag/rocks}, the stones stained red with blood.",
+        "tile_location": ["rocks"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8102,6 +8245,7 @@
         },
         "frequency": 1,
         "event_text": "m_c has a dream of Twolegs abandoning {POI/tag/Twolegs:present} and leaving it to be claimed by nature.",
+        "tile_location": ["Twolegs:present"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8117,6 +8261,7 @@
         },
         "frequency": 1,
         "event_text": "m_c has a vision of the waters of {POI/tag/water} drying up.",
+        "tile_location": ["water"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8132,6 +8277,7 @@
         },
         "frequency": 1,
         "event_text": "m_c has a vision of the waters of {POI/tag/water} overflowing and flooding the territories.",
+        "tile_location": ["water"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8147,6 +8293,7 @@
         },
         "frequency": 1,
         "event_text": "Whenever m_c is near {POI/tag/fall_risk}, {PRONOUN/m_c/subject} {VERB/m_c/hear/hears} the wails of a cat in distress, but no cat is there. m_c wonders if it's a sign.",
+        "tile_location": ["fall_risk"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8162,6 +8309,7 @@
         },
         "frequency": 1,
         "event_text": "m_c has a dream of {POI/tag/fall_risk}. The feeling of plummeting to {PRONOUN/m_c/poss} death jerks {PRONOUN/m_c/object} awake.",
+        "tile_location": ["fall_risk"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8177,6 +8325,7 @@
         },
         "frequency": 1,
         "event_text": "m_c has a recurring dream of an enormous egg among the nests of {POI/tag/nests}. It begins to crack, but m_c always wakes up before the chick hatches.",
+        "tile_location": ["nests"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8192,6 +8341,7 @@
         },
         "frequency": 1,
         "event_text": "m_c has a strange dream of an enormous egg among the nests of {POI/tag/nests}. When it hatches, r_c is revealed inside it, squawking like a chick.",
+        "tile_location": ["nests"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         },
@@ -8210,6 +8360,7 @@
         },
         "frequency": 1,
         "event_text": "Whenever m_c is near {POI/tag/cave}, {PRONOUN/m_c/subject} can't shake the feeling that something is watching {PRONOUN/m_c/object} from the darkness.",
+        "tile_location": ["cave"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8225,6 +8376,7 @@
         },
         "frequency": 1,
         "event_text": "m_c has a recurring dream of being trapped in {POI/tag/cave}. Footsteps thunder in {PRONOUN/m_c/poss} ears, louder and louder. m_c always snaps awake before {PRONOUN/m_c/poss} pursuer catches {PRONOUN/m_c/object}.",
+        "tile_location": ["cave"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8240,6 +8392,7 @@
         },
         "frequency": 1,
         "event_text": "While picking herbs near {POI/tag/cave}, m_c has a strange vision in which the stone becomes transparent and m_c is able to see the entire network of tunnels without obstruction.",
+        "tile_location": ["cave"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8255,6 +8408,7 @@
         },
         "frequency": 1,
         "event_text": "m_c has a vision of a raging storm forcing the entire Clan to shelter in {POI/tag/covered}.",
+        "tile_location": ["covered"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8270,6 +8424,7 @@
         },
         "frequency": 1,
         "event_text": "No matter where m_c goes on the territory, {PRONOUN/m_c/subject} can't seem to escape the sound of running water from {POI/tag/water:flowing}. m_c wonders if it's a sign.",
+        "tile_location": ["water:flowing"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8285,6 +8440,7 @@
         },
         "frequency": 1,
         "event_text": "m_c peers into {POI/tag/water:still}, struck with horror when it is not {PRONOUN/m_c/poss} own reflection looking back.",
+        "tile_location": ["water:still"],
         "m_c": {
             "status": ["medicine cat", "medicine cat"]
         }
@@ -8299,6 +8455,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c is brought back to camp after wandering off.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "senior"
@@ -8318,6 +8475,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c awakens with multiple objects stacked on {PRONOUN/m_c/object}, and the sound of giggling cats in the distance.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "elder"
@@ -8334,6 +8492,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c speaks to r_c about how to better fortify the camp.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -8377,6 +8536,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c helps reinforce the dens in the camp while the rest of the camp is on patrol.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -8411,6 +8571,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c places small feathers and shining stones near the nest of each Clanmate while they're on patrol.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -8445,6 +8606,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c keeps an eye on the camp while the warriors are on patrol.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -8610,6 +8772,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c travels to o_c_n to bring them an important message.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "status": [
                 "medicine cat",
@@ -8635,6 +8798,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c travels to the other Clans to bring them an important message.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "status": [
                 "medicine cat",
@@ -8714,6 +8878,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c calls a Clan meeting to give an important announcement.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "leader"
@@ -8763,6 +8928,7 @@
         ],
         "frequency": 2,
         "event_text": "The Clan worked hard to gather plenty of fresh-kill, but woke up to find pawprints leading away from the fresh-kill pile, and missing prey.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "freshkill",
@@ -8787,6 +8953,7 @@
         ],
         "frequency": 2,
         "event_text": "The Clan gathered a stockpile of food to save, the more the better, but one night the fresh-kill pile was drastically reduced and paw prints were found on the ground.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "freshkill",
@@ -8811,6 +8978,7 @@
         ],
         "frequency": 1,
         "event_text": "The o_c_n medicine cat comes asking if c_n has any herbs to spare. Unfortunately, the c_n herb stocks are far too low and c_n is unable to provide any help.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "all_herb",
@@ -8842,6 +9010,7 @@
         ],
         "frequency": 2,
         "event_text": "A medicine cat from o_c_n comes to c_n, asking for herbs to heal their sick Clanmates. c_n quickly shoos them away, not willing to admit that they already don't have enough to support themselves.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "all_herb",
@@ -8873,6 +9042,7 @@
         ],
         "frequency": 2,
         "event_text": "The o_c_n medicine cat comes asking if c_n have any given_herb to spare. Graciously, the Clan decides to aid their allies and share the herbs.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "any_herb",
@@ -8903,6 +9073,7 @@
         ],
         "frequency": 2,
         "event_text": "The medicine cat apprentice from o_c_n comes asking for given_herb. They refuse to say why their Clan needs them, but c_n still provides them with what they need.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "any_herb",
@@ -8934,6 +9105,7 @@
         ],
         "frequency": 1,
         "event_text": "The o_c_n medicine cat comes asking if c_n have any given_herb to spare. However, c_n only has enough for themselves and they refuse to share.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "any_herb",
@@ -8964,6 +9136,7 @@
         ],
         "frequency": 2,
         "event_text": "The medicine cat apprentice from o_c_n comes asking for herbs. They refuse to say why their Clan needs them, and c_n decides not to share their precious few given_herb.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "any_herb",
@@ -8994,6 +9167,7 @@
         ],
         "frequency": 2,
         "event_text": "The o_c_n medicine cat apprentice comes to c_n's camp, pleading for help with a yellowcough epidemic. c_n provides the cat with some of their extra lungwort.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "lungwort",
@@ -9025,6 +9199,7 @@
         ],
         "frequency": 2,
         "event_text": "A medicine cat from o_c_n comes to c_n, asking for lungwort to heal a case of yellowcough. c_n has some extra and so decides to share with their allies.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "lungwort",
@@ -9056,6 +9231,7 @@
         ],
         "frequency": 2,
         "event_text": "The o_c_n medicine cat apprentice comes to c_n's camp, pleading for help with a yellowcough epidemic. However, c_n has nothing that they are willing to share.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "lungwort",
@@ -9086,6 +9262,7 @@
         ],
         "frequency": 2,
         "event_text": "A medicine cat from o_c_n comes to c_n, asking for lungwort to heal a case of yellowcough. However, c_n hardly has enough for their own Clan and so refuses.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "lungwort",
@@ -9114,6 +9291,7 @@
         "tags": [],
         "frequency": 4,
         "event_text": "The herb stores are low, m_c decides to ask o_c_n for aid in these hard times. Thankfully, the allied Clan is happy to share their excess herbs.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "status": [
                 "medicine cat",
@@ -9150,6 +9328,7 @@
         ],
         "frequency": 4,
         "event_text": "lead_name hears from med_name that the Clan is low on herbs. m_c is sent to bargain with o_c_n for whatever herbs they can spare.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "status": [
                 "mediator",
@@ -9186,6 +9365,7 @@
         ],
         "frequency": 4,
         "event_text": "lead_name hears from med_name that the Clan is low on herbs. m_c is sent to bargain with o_c_n for whatever herbs they can spare.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "status": [
                 "warrior",
@@ -9223,6 +9403,7 @@
         "tags": [],
         "frequency": 4,
         "event_text": "While at the Gathering, m_c pulls the o_c_n leader aside and requests herbs from their Clan. The other leader is happy to help.",
+        "tile_location": ["gathering"],
         "m_c": {
             "status": [
                 "leader"
@@ -9255,6 +9436,7 @@
         "tags": [],
         "frequency": 4,
         "event_text": "While at the Gathering, m_c speaks to the other medicine cats and expresses worry over {PRONOUN/m_c/poss} herb stores. The medicine cats offer to bring some extra herbs to c_n later, to help bolster {PRONOUN/m_c/poss} supply.",
+        "tile_location": ["gathering"],
         "m_c": {
             "status": [
                 "medicine cat",
@@ -9292,6 +9474,7 @@
         ],
         "frequency": 1,
         "event_text": "Some sort of pest got into the herb stores and ruined much of the supplies. c_n will have to clean it out and start over anew.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "all_herb",
@@ -9318,6 +9501,7 @@
         ],
         "frequency": 1,
         "event_text": "Strong winds blew through the camp last night and scattered the herb store into a useless state. The Clan manages to recover some of the herbs, but the resulting supply is much smaller than before.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "all_herb",
@@ -9344,6 +9528,7 @@
         ],
         "frequency": 1,
         "event_text": "Some kind of blight has infected the herb stores. c_n has no choice but to clear out all the old herbs.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "all_herb",
@@ -9370,6 +9555,7 @@
         ],
         "frequency": 1,
         "event_text": "Freezing temperatures have not just affected the cats; they've also frostbitten the stored herbs. Many of them are useless now and will have to be replaced.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "all_herb",
@@ -9396,6 +9582,7 @@
         ],
         "frequency": 1,
         "event_text": "The newleaf rain has left the air humid and the whole camp damp. The herb stores are found to be growing mold and many herbs have to be thrown out.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "all_herb",
@@ -9422,6 +9609,7 @@
         ],
         "frequency": 1,
         "event_text": "The persistent, dry heat managed to cause a small fire in the herb stores. While no one was injured, many of the herbs are little more than ashes now.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "all_herb",
@@ -9448,6 +9636,7 @@
         ],
         "frequency": 3,
         "event_text": "As the herb stores are being inspected, it's noticed that some of the given_herb went bad. They'll need to be replaced.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "any_herb",
@@ -9473,7 +9662,8 @@
             "r_c"
         ],
         "frequency": 4,
-        "event_text": "The Clan has gathered plenty of moss recently, time to refresh the dens!",
+        "event_text": "The Clan has gathered plenty of moss recently. Time to refresh the dens!",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "moss",
@@ -9498,7 +9688,8 @@
             "r_c"
         ],
         "frequency": 4,
-        "event_text": "The herb stores have quite a lot of given_herb, the excess is given back to the earth.",
+        "event_text": "The herb stores have quite a lot of given_herb. The excess is given back to the earth.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "any_herb",
@@ -10402,6 +10593,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c travels to o_c_n to resolve some recent border disputes.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10428,6 +10620,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c travels to o_c_n to resolve some recent border disputes. The meeting goes better than expected, and m_c returns with a plan to solve the issue for good.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10466,6 +10659,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c travels to o_c_n to resolve some recent border disputes. However, no progress was made.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10492,6 +10686,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c travels to o_c_n to resolve some recent border disputes. However, it seems m_c only made o_c_n more upset.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10530,6 +10725,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c travels to o_c_n to resolve some recent hunting disputes.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10556,6 +10752,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c travels to o_c_n to resolve some recent hunting disputes. The meeting goes better than expected, and m_c returns with a plan to solve the issue for good.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10594,6 +10791,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c travels to o_c_n to resolve some recent hunting disputes. However, no progress was made.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10620,6 +10818,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c travels to o_c_n to resolve some recent hunting disputes. However, it seems m_c only made o_c_n more upset.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10658,6 +10857,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c travels to o_c_n to resolve some recent herb-gathering disputes.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10684,6 +10884,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c travels to o_c_n to resolve some recent herb-gathering disputes. The meeting goes better than expected, and m_c returns with a plan to solve the issue for good.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10722,6 +10923,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c travels to o_c_n to resolve some recent herb-gathering disputes. However, no progress was made.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10748,6 +10950,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c travels to o_c_n to resolve some recent herb-gathering disputes. However, it seems m_c only made o_c_n more upset.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10786,6 +10989,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c travels to o_c_n to resolve some recent personal disputes.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10812,6 +11016,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c travels to o_c_n to resolve some recent personal disputes. The meeting goes better than expected, and m_c returns with a plan to solve the issue for good.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10850,6 +11055,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c travels to o_c_n to resolve some recent personal disputes. However, no progress was made.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10876,6 +11082,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c travels to o_c_n to resolve some recent personal disputes. However, it seems m_c only made o_c_n more upset.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -10913,6 +11120,7 @@
         },
         "frequency": 1,
         "event_text": "m_c takes r_c out to teach {PRONOUN/r_c/object} how to keep {PRONOUN/r_c/poss} footing around {POI/tag/fall_risk}.",
+        "tile_location": ["fall_risk"],
         "m_c": {
             "relationship_status": ["mentor/app"]
         },
@@ -10940,6 +11148,7 @@
         },
         "frequency": 1,
         "event_text": "m_c takes r_c out to teach {PRONOUN/r_c/object} how to hunt safely near {POI/tag/tainted}.",
+        "tile_location": ["tainted"],
         "m_c": {
             "relationship_status": ["mentor/app"]
         },
@@ -10967,6 +11176,7 @@
         },
         "frequency": 1,
         "event_text": "m_c takes r_c out to teach {PRONOUN/r_c/object} what might collapse and what can be safely walked over around {POI/tag/unstable}.",
+        "tile_location": ["unstable"],
         "m_c": {
             "relationship_status": ["mentor/app"]
         },
@@ -11044,6 +11254,7 @@
         ],
         "frequency": 2,
         "event_text": "A o_c_n warrior is caught in the territory, m_c scruffed in their jaws. The warrior found the kit alone on the border and just wanted to bring {PRONOUN/m_c/object} home. No matter what their leader might say about c_n, {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} just an innocent kit. The warrior is escorted off the territory as m_c settles back into camp, only slightly dinged up from {PRONOUN/m_c/poss} adventure.",
+        "tile_location": ["territory"],
         "m_c": {
             "status": [
                 "kitten"
@@ -11079,6 +11290,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c stumbles upon a o_c_n warrior attempting to pack a wound with leaves. Without help, they'll soon be hunting with their ancestors. It would be so easy to just... walk past. But {PRONOUN/m_c/subject} can't. It's just a bit of cobweb and a moment of {PRONOUN/m_c/poss} time... Nobody has to know.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "status": [
                 "medicine cat",
@@ -11113,6 +11325,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c stumbles upon a o_c_n warrior attempting to pack a wound with leaves. Without help, they'll soon be hunting with their ancestors. It would be so easy to just... walk past. But {PRONOUN/m_c/subject} can't. A few berries placed into their jaws with some soothing words... and that's one less o_c_n cat to deal with.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "status": [
                 "medicine cat",
@@ -11147,6 +11360,7 @@
         ],
         "frequency": 4,
         "event_text": "A severely injured o_c_n warrior stumbles upon m_c, out collecting herbs. It's clear that no amount of intervention will save them. m_c soothingly offers a pawful of small red berries to ease their journey to Silverpelt.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "status": [
                 "medicine cat",
@@ -11183,6 +11397,7 @@
         ],
         "frequency": 4,
         "event_text": "A severely injured o_c_n warrior stumbles upon m_c, out collecting herbs. It's clear that no amount of intervention will save them. m_c tells them this with no small amount of personal satisfaction, watching passively as they slowly succumb.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "status": [
                 "medicine cat",
@@ -11214,6 +11429,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c is discovered frolicking along the border with an apprentice from o_c_n! Despite the reminder that the two Clans are far from allies, m_c loudly declares that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not giving up {PRONOUN/m_c/poss} friend over some dumb war.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "status": [
                 "apprentice",
@@ -11286,6 +11502,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c is discovered frolicking along the border with an apprentice from o_c_n! m_c's tail twitches as {PRONOUN/m_c/subject} {VERB/m_c/apologize/apologizes}, plucking up the courage to insist that {PRONOUN/m_c/poss} friend isn't like the rest of o_c_n at all! This war sucks.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "status": [
                 "apprentice",
@@ -11391,6 +11608,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c is discovered frolicking along the border with an apprentice from o_c_n! m_c deflates as {PRONOUN/m_c/subject} {VERB/m_c/are/is} berated in front of the entire Clan for consorting with the enemy in the middle of a war... but it's clear that nobody really blames m_c for something as innocent as friendship in such difficult times.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "status": [
                 "apprentice",
@@ -11450,6 +11668,7 @@
         ],
         "frequency": 1,
         "event_text": "During a meeting, a o_c_n warrior pushes acc_plural roughly into m_c's pelt with a derisive sniff and a snide remark... but everyone watching knows well that the gesture is genuine. It does suit m_c, after all.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "status": [
                 "any"
@@ -11485,6 +11704,7 @@
         ],
         "frequency": 4,
         "event_text": "More warriors have been posted around the edges of camp to keep watch on m_c's order.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "leader"
@@ -11527,6 +11747,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c has been assigning more warriors to watch the entrances into camp.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "deputy"
@@ -11570,6 +11791,7 @@
         ],
         "frequency": 2,
         "event_text": "A skirmish with o_c_n was interrupted by a dog. The two Clans were forced to work together to drive it off.",
+        "tile_location": ["territory", "other_clan_border", "other_clan_territory"],
         "m_c": {
             "status": [
                 "warrior"
@@ -11598,6 +11820,7 @@
         ],
         "frequency": 2,
         "event_text": "In a vicious fight with o_c_n, m_c kills a o_c_n warrior.",
+        "tile_location": ["territory", "other_clan_territory", "other_clan_border"],
         "m_c": {
             "status": [
                 "warrior",
@@ -11637,6 +11860,7 @@
         ],
         "frequency": 2,
         "event_text": "In a vicious fight with o_c_n, m_c kills a o_c_n apprentice.",
+        "tile_location": ["territory", "other_clan_territory", "other_clan_border"],
         "m_c": {
             "status": [
                 "warrior",
@@ -11835,6 +12059,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c goes to o_c_n in an attempt to ease the tension of war between the Clans. It goes well, and o_c_n begins to draw back from c_n's territory.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -11876,6 +12101,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c is checking in on every cat in the camp to make sure everyone is staying healthy in the midst of war.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "any"
@@ -11934,6 +12160,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c goes to o_c_n in an attempt to ease the tension of war between the Clans. It doesn't go well, and o_c_n further advances in c_n's territory.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -12259,6 +12486,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c hopes to find the herbs that c_n needs in the war and goes to look for them even in this leaf-bare's harsh weather.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "age": [
                 "any"
@@ -12554,6 +12782,7 @@
         ],
         "frequency": 1,
         "event_text": "o_c_n breaks into the camp and ravages the herb stores, taking some for themselves and destroying the rest.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "all_herb",
@@ -12589,6 +12818,7 @@
         ],
         "frequency": 1,
         "event_text": "c_n breaks into the o_c_n camp and steals precious herbs from their medicine cat den.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "status": [
                 "leader"
@@ -12651,6 +12881,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c spend the night by the o_c_n border, on watch for an attack that never comes.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "status": [
                 "warrior",
@@ -12696,6 +12927,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c and r_c spend the night by the o_c_n border. They confront a passing o_c_n patrol, but they're more keen on a conversation than a fight.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "status": [
                 "warrior",
@@ -12730,6 +12962,7 @@
         ],
         "frequency": 1,
         "event_text": "m_c and r_c spend the night by the o_c_n border. They confront a passing o_c_n patrol, but they're more keen on a conversation than a fight and offer to keep them company instead.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "status": [
                 "warrior",
@@ -12764,6 +12997,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c and r_c spend the night by the o_c_n border. They confront a passing o_c_n patrol, but they're more keen to trade insults than blows.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "status": [
                 "warrior",
@@ -12829,6 +13063,7 @@
         ],
         "frequency": 1,
         "event_text": "o_c_n breaks into the camp and ravages the herb stores, taking some for themselves and attempting to destroy the rest. The Clan manages to recover some of the herbs, but the store was still badly damaged.",
+        "tile_location": ["camp"],
         "supplies": [
             {
                 "type": "all_herb",
@@ -12969,6 +13204,7 @@
         ],
         "frequency": 1,
         "event_text": "m_c returns from a raid on o_c_n's camp with kit-blood on {PRONOUN/m_c/poss} claws.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "status": ["warrior", "deputy", "leader"],
             "trait": ["bloodthirsty"]
@@ -13013,6 +13249,7 @@
         ],
         "frequency": 4,
         "event_text": "At a Gathering, m_c overhears cats from another Clan gossiping about the war between c_n and o_c_n.",
+        "tile_location": ["gathering"],
         "m_c" : {
 			"age": ["-newborn","-kitten"]
 		},
@@ -13034,6 +13271,7 @@
         ],
         "frequency": 2,
         "event_text": "While on a border patrol, m_c meets a loner who demands to know why c_n is at war with o_c_n.",
+        "tile_location": ["unclaimed_border"],
         "m_c" : {
             "status": ["leader","deputy","warrior","apprentice"]
         },
@@ -13064,6 +13302,7 @@
         "sub_type":["war"],
         "frequency": 2,
         "event_text": "While on a patrol, m_c encounters a kittypet who complains about c_n's war with o_c_n being annoying. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/demand/demands} to know why c_n is involved in it in the first place.",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "status": ["leader", "deputy", "warrior", "apprentice"]
         },
@@ -13094,6 +13333,7 @@
         "sub_type":["war"],
         "frequency": 1,
         "event_text": "While on a patrol, m_c encounters a kittypet. {PRONOUN/n_c:0/subject/CAP} immediately {VERB/n_c:0/demand/demands} c_n ends the war. All the noise is interrupting {PRONOUN/n_c:0/poss} beauty sleep!",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "status": ["leader", "deputy", "warrior", "apprentice"]
         },
@@ -13124,6 +13364,7 @@
         "sub_type":["war"],
         "frequency": 1,
         "event_text": "While on a patrol, m_c encounters a loner. {PRONOUN/n_c:0/subject/CAP} immediately {VERB/n_c:0/demand/demands} c_n ends the war. All the noise is making it difficult for n_c:0 to hunt.",
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "status": ["leader", "deputy", "warrior", "apprentice"]
         },
@@ -13154,6 +13395,7 @@
         "sub_type": ["war"],
         "frequency": 3,
         "event_text": "While on a patrol, m_c encounters a kittypet. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/bounce/bounces} up to {PRONOUN/m_c/object} and {VERB/n_c:0/ask/asks} if {PRONOUN/n_c:0/subject} can join the war. It sounds like a fun game!",
+        "tile_location": ["unclaimed_border"],
         "m_c": { "status": ["leader","deputy","warrior","apprentice"]
             },
         "new_cat": [
@@ -13264,6 +13506,7 @@
         ],
         "frequency": 4,
         "event_text": "r_c nearly fell from a cliff and could have <i>sworn</i> another cat pushed {PRONOUN/r_c/object}.",
+        "tile_location": ["outside_camp"],
         "m_c": {},
         "r_c": {
             "age": [
@@ -13289,6 +13532,7 @@
         ],
         "frequency": 4,
         "event_text": "r_c took a moonhigh stroll, but returned to camp when {PRONOUN/r_c/subject} couldn't shake the feeling of someone watching {PRONOUN/r_c/object}.",
+        "tile_location": ["outside_camp"],
         "m_c": {},
         "r_c": {
             "age": [
@@ -13313,6 +13557,7 @@
         ],
         "frequency": 4,
         "event_text": "r_c was on a stroll when {PRONOUN/r_c/subject} realized m_c was following {PRONOUN/r_c/object}. m_c denied the accusation when r_c questioned {PRONOUN/m_c/object}.",
+        "tile_location": ["outside_camp"],
         "m_c": {},
         "r_c": {
             "age": [
@@ -13348,6 +13593,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c seemed annoyed that r_c practiced swimming while on patrol.",
+        "tile_location": ["outside_camp"],
         "m_c": {},
         "r_c": {
             "status": [
@@ -13372,6 +13618,7 @@
         ],
         "frequency": 4,
         "event_text": "r_c cheerfully agreed to patrol the cliffside with m_c, returning later with a dirtied pelt after almost falling.",
+        "tile_location": ["outside_camp"],
         "m_c": {
             "status": [
                 "leader",
@@ -13437,6 +13684,7 @@
         "tags": ["clan:medicine cat"],
         "frequency": 4,
         "event_text": "med_name was sure they had more deathberries than that... They must have been thrown out in the previous herb-cleaning.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "leader",
@@ -13586,6 +13834,7 @@
         ],
         "frequency": 4,
         "event_text": "A single crow feather appeared in r_c's nest one day. No one knew where it came from.",
+        "tile_location": ["camp"],
         "m_c": {},
         "r_c": {
             "skill": ["CAMP,1"]
@@ -13605,6 +13854,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c practices skirmishes with r_c, learning {PRONOUN/r_c/poss} style of fighting.",
+        "tile_location": ["territory"],
         "m_c": {
             "status": [
                 "leader",
@@ -13809,6 +14059,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c suggested r_c should cross the border with o_c_n to gather information, but r_c didn't think that would be wise.",
+        "tile_location": ["other_clan_border"],
         "m_c": {},
         "relationships": [
             {
@@ -13837,6 +14088,7 @@
         ],
         "frequency": 4,
         "event_text": "During a battle with o_c_n, a Clanmate saw m_c hesitate to help r_c fight off an enemy warrior.",
+        "tile_location": ["territory", "other_clan_border", "other_clan_territory"],
         "m_c": {
             "status": [
                 "leader",
@@ -13880,6 +14132,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c seems distracted during a fight at the border, {PRONOUN/m_c/poss} eyes constantly on r_c with a strangely calculating gleam.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "status": [
                 "leader",
@@ -13974,6 +14227,7 @@
         ],
         "frequency": 3,
         "event_text": "r_c bursts into camp, frantic and covered in wounds. {PRONOUN/r_c/subject/CAP} {VERB/r_c/insist/insists} m_c attacked {PRONOUN/r_c/object} while they were on patrol together.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "-kitten",
@@ -14041,6 +14295,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c bursts into camp, frantic and covered in wounds. {PRONOUN/m_c/subject/CAP} {VERB/m_c/insist/insists} r_c attacked {PRONOUN/m_c/object} while they were on patrol together.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "-kitten",
@@ -14122,6 +14377,7 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c poisons r_c after giving {PRONOUN/r_c/object} the wrong herb dosage. m_c claims it was an accident, but r_c isn't so sure...",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "medicine cat",
@@ -14177,6 +14433,7 @@
         "tags": [],
         "frequency": 3,
         "event_text": "r_c is badly poisoned after eating deathberries. When rushed to the medicine den, {PRONOUN/r_c/subject} {VERB/r_c/mumble/mumbles} that they don't taste like how m_c said they would...",
+        "tile_location": ["camp"],
         "m_c":
         {
             "status": [
@@ -14226,6 +14483,7 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c offers r_c a piece of prey from the pile. Later, r_c is rushed to the medicine den, having been poisoned by crowfood.",
+        "tile_location": ["camp"],
         "m_c":
         {
             "status": [
@@ -14273,6 +14531,7 @@
         "tags": [],
         "frequency": 3,
         "event_text": "r_c falls into the river. m_c helps rescue {PRONOUN/r_c/object}, but r_c swears {PRONOUN/r_c/subject} {VERB/r_c/were/was} pushed in.",
+        "tile_location": ["outside_camp"],
         "m_c":
         {
             "status": [
@@ -14316,6 +14575,7 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c meets with lead_name and claims {PRONOUN/m_c/subject} overheard r_c making plans to overthrow lead_name and take over the Clan.",
+        "tile_location": ["camp"],
         "m_c":
         {
             "status": [
@@ -14413,6 +14673,7 @@
     "tags": [],
     "frequency": 2,
     "event_text": "m_c was seen speaking to n_c:0 on the border. n_c:0 later attacked r_c's patrol, and though {PRONOUN/n_c:0/subject} {VERB/n_c:0/were/was} driven off, r_c was injured and couldn't shake the feeling n_c:0 was targeting {PRONOUN/r_c/object}.",
+        "tile_location": ["unclaimed_border"],
     "m_c": {
         "age": ["young adult", "adult", "senior adult"]
     },
@@ -14466,6 +14727,7 @@
     "tags": [],
     "frequency": 2,
     "event_text": "m_c was seen speaking to n_c:0 on the border. n_c:0 later attacks r_c's patrol, but {PRONOUN/n_c:0/subject} underestimated r_c's strength, and r_c, fighting for {PRONOUN/r_c/poss} life, kills {PRONOUN/n_c:0/object}.",
+        "tile_location": ["unclaimed_border"],
     "m_c": {
         "age": ["young adult", "adult", "senior adult"]
     },
@@ -14500,6 +14762,7 @@
     ],
     "frequency": 4,
     "event_text": "m_c fell asleep when {PRONOUN/m_c/subject} {VERB/m_c/were/was} supposed to be guarding camp.",
+        "tile_location": ["camp"],
     "m_c": {
         "status": [
           "warrior",
@@ -14613,6 +14876,7 @@
         "sub_type": ["war"],
         "frequency": 1,
         "event_text": "c_n catches o_c_n digging a pit trap.",
+        "tile_location": ["outside_camp"],
         "other_clan": {
             "current_rep": [
                 "any"
@@ -14628,6 +14892,7 @@
     "sub_type": ["war"],
     "frequency": 4,
     "event_text": "c_n drove off o_c_n in their most recent skirmish with no notable injuries.",
+        "tile_location": ["territory", "other_clan_border"],
     "other_clan": {
         "current_rep": ["any"],
         "changed": -1
@@ -14641,6 +14906,7 @@
     "sub_type": ["war"],
     "frequency": 3,
     "event_text": "c_n uses the dense foliage to their favor by ambushing o_c_n from the undergrowth and forcing their scouting patrol to scatter.",
+        "tile_location": ["other_clan_border"],
     "other_clan": {
         "current_rep": ["any"],
         "changed": -1
@@ -14672,6 +14938,7 @@
   ],
   "frequency": 3,
   "event_text": "While on guard duty, m_c caught r_c trying to sneak out of camp.",
+        "tile_location": ["camp"],
   "m_c": {
     "status": [
       "warrior",
@@ -14864,6 +15131,7 @@
     "tags": [],
     "frequency": 3,
     "event_text": "m_c is caught holding back in a fight against a o_c_n apprentice. ",
+        "tile_location": ["territory", "other_clan_border", "other_clan_territory"],
     "m_c": {
         "status": [
                 "apprentice"
@@ -14891,6 +15159,7 @@
         ],
         "frequency": 1,
         "event_text": "At the Gathering, o_c_n's deputy announces they are its new leader. Declaring complete loyalty to o_c_n, they renounce all alliances.",
+        "tile_location": ["gathering"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -14921,6 +15190,7 @@
         ],
         "frequency": 1,
         "event_text": "At the Gathering, o_c_n's deputy announces the sudden passing of their former leader. With a steely glint in their gaze, they renounce all prior alliances o_c_n held.",
+        "tile_location": ["gathering"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -14951,6 +15221,7 @@
         ],
         "frequency": 1,
         "event_text": "A o_c_n patrol brings news to c_n that their old leader is dead... and that the new one does not consider c_n a friend.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -14981,6 +15252,7 @@
         ],
         "frequency": 1,
         "event_text": "A strong Clan stands on their own four paws, needing no support from others. o_c_n's new leader decides that the other Clans need reminding of this fact and withdraws their alliances at once.",
+        "tile_location": ["other_clan_camp"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -15011,6 +15283,7 @@
         ],
         "frequency": 1,
         "event_text": "A wild-eyed o_c_n apprentice intrudes on the camp one day. They warn c_n that o_c_n is under new management... and all existing alliances are void.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -15041,6 +15314,7 @@
         ],
         "frequency": 2,
         "event_text": "o_c_n's deputy secretly meets with m_c and a patrol of c_n cats and talks their way out of a battle that would've caused pointless bloodshed.",
+        "tile_location": ["other_clan_border", "outside_camp"],
         "m_c": {
             "status": [
                 "warrior",
@@ -15067,6 +15341,7 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c convenes with o_c_n's mediator to discuss peace. The meeting goes well, and m_c is optimistic o_c_n might end the conflict soon.",
+        "tile_location": ["territory", "other_clan_border", "other_clan_territory"],
         "m_c": {
             "status": [
                 "mediator"
@@ -15090,6 +15365,7 @@
         "tags": [],
         "frequency": 1,
         "event_text": "o_c_n's medicine cat meets with m_c and shares an omen they received that foretells peace.",
+        "tile_location": ["territory", "other_clan_border", "other_clan_territory"],
         "m_c": {
             "status": [
                 "medicine cat"
@@ -15116,6 +15392,7 @@
         ],
         "frequency": 1,
         "event_text": "o_c_n's leader is killed in a battle with c_n. Their deputy takes over and promises to not follow in the pawsteps of their violent leader.",
+        "tile_location": ["territory", "other_clan_border", "other_clan_territory"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -15146,6 +15423,7 @@
         ],
         "frequency": 1,
         "event_text": "A group of cats from o_c_n arrive in c_n's camp and announce they've overthrown their leader to end hostilities between the Clans.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -15456,6 +15734,7 @@
     },
     "frequency": 4,
     "event_text": "m_c and r_c spend sunhigh frolicking and splashing each other by {POI/tag/water:flowing} to cool off in the sweltering heat.",
+        "tile_location": ["water:flowing"],
     "m_c": {
         "age": ["adolescent", "young adult"]
     },
@@ -15837,6 +16116,7 @@
         "tags": [],
         "frequency": 3,
         "event_text": "Having been defeated in battle, a o_c_n warrior begs for m_c to spare their life. m_c stares at them with sorrow and lets them get away.",
+        "tile_location": ["territory", "other_clan_border", "other_clan_territory"],
         "m_c": {
             "status": [
                 "warrior",
@@ -16410,6 +16690,7 @@
         "name": ["moon_mothermouth"]
     },
     "event_text": "m_c returns from {POI/name/moon_mothermouth} and swears {PRONOUN/m_c/poss} whiskers are bent from brushing against the sides of labyrinthine tunnels for so long!",
+        "tile_location": ["moon_mothermouth"],
     "m_c": {
       "status": ["medicine cat apprentice"]
     }
@@ -16423,6 +16704,7 @@
         "name": ["moon_pool"]
     },
     "event_text": "m_c returns from {POI/name/moon_pool}, drenched and dismayed. It seems {PRONOUN/m_c/subject} took a tumble into the sacred waters.",
+        "tile_location": ["moon_pool"],
     "m_c": {
       "status": ["medicine cat apprentice"]
     }
@@ -16436,6 +16718,7 @@
         "name": ["moon_meteor"]
     },
     "event_text": "m_c returns from {POI/name/moon_meteor} sneezing sporadically. Perhaps {PRONOUN/m_c/subject} {VERB/m_c/are/is} allergic to moon dust.",
+        "tile_location": ["moon_pool"],
     "m_c": {
       "status": ["medicine cat apprentice"]
     }
@@ -16449,6 +16732,7 @@
         "name": ["moon_cave"]
     },
     "event_text": "m_c returns from {POI/name/moon_cave}, looking more like a puff of fluff than a cat after hearing StarClan's voices echo around {PRONOUN/m_c/object}.",
+        "tile_location": ["moon_cave"],
     "m_c": {
       "status": ["medicine cat apprentice"]
     }
@@ -16466,6 +16750,7 @@
             "category": "gathering"
         },
         "event_text": "m_c won't stop asking r_c when it's {PRONOUN/m_c/poss} turn to join the Gathering at {POI/category/gathering}.",
+        "tile_location": ["gathering"],
         "m_c": {
             "status": [
                 "apprentice"
@@ -16493,6 +16778,7 @@
             "category": "gathering"
         },
         "event_text": "During the Gathering at {POI/category/gathering}, m_c overhears that o_c_n is struggling to find prey.",
+        "tile_location": ["gathering"],
         "m_c": {
             "status": [
                 "apprentice",
@@ -16513,6 +16799,7 @@
             "category": "gathering"
         },
         "event_text": "During the Gathering at {POI/category/gathering}, m_c overhears that o_c_n is suffering from a herb blight.",
+        "tile_location": ["gathering"],
         "m_c": {
             "status": [
                 "apprentice",
@@ -16533,6 +16820,7 @@
             "category": "gathering"
         },
         "event_text": "During the Gathering at {POI/category/gathering}, m_c overhears that o_c_n is dealing with a greencough outbreak.",
+        "tile_location": ["gathering"],
         "m_c": {
             "status": [
                 "apprentice",
@@ -16553,6 +16841,7 @@
             "category": "gathering"
         },
         "event_text": "m_c gathers the Clan to tell a story about the first time the Clans convened for a Gathering at {POI/category/gathering}.",
+        "tile_location": ["gathering"],
         "m_c": {
             "skill": ["STORY,1", "LORE,1"]
         }
@@ -16570,6 +16859,7 @@
             "category": "gathering"
         },
         "event_text": "m_c overhears some interesting gossip from the other deputies at {POI/category/gathering}.",
+        "tile_location": ["gathering"],
         "m_c": {
             "status": ["deputy"]
         }
@@ -16587,6 +16877,7 @@
             "category": "moonplace"
         },
         "event_text": "As soon as m_c returns from {POI/category/moonplace}, {PRONOUN/m_c/subject} {VERB/m_c/visit/visits} r_c in {PRONOUN/r_c/poss} den for a private conversation.",
+        "tile_location": ["moonplace"],
         "m_c": {
             "status": ["medicine cat"]
         },
@@ -16607,6 +16898,7 @@
             "category": "moonplace"
         },
         "event_text": "m_c seems shaken after {PRONOUN/m_c/poss} half-moon visit to {POI/category/moonplace}.",
+        "tile_location": ["moonplace"],
         "m_c": {
             "status": ["medicine cat"]
         }
@@ -16624,6 +16916,7 @@
             "category": "moonplace"
         },
         "event_text": "m_c seems disappointed by StarClan's wisdom after a visit to {POI/category/moonplace}.",
+        "tile_location": ["moonplace"],
         "m_c": {
             "status": ["medicine cat"]
         }
@@ -16641,6 +16934,7 @@
             "category": "moonplace"
         },
         "event_text": "m_c seems content after {PRONOUN/m_c/poss} half-moon visit to {POI/category/moonplace}.",
+        "tile_location": ["moonplace"],
         "m_c": {
             "status": ["medicine cat"]
         }
@@ -16658,6 +16952,7 @@
             "category": "moonplace"
         },
         "event_text": "m_c seems comforted by StarClan's wisdom after a visit to {POI/category/moonplace}.",
+        "tile_location": ["moonplace"],
         "m_c": {
             "status": ["medicine cat"]
         }
@@ -16675,6 +16970,7 @@
             "category": "moonplace"
         },
         "event_text": "m_c seems determined after {PRONOUN/m_c/poss} half-moon visit to {POI/category/moonplace}.",
+        "tile_location": ["moonplace"],
         "m_c": {
             "status": ["medicine cat"]
         }
@@ -16692,6 +16988,7 @@
             "category": "moonplace"
         },
         "event_text": "m_c overhears some interesting gossip from the other medicine cats at {POI/category/moonplace}.",
+        "tile_location": ["moonplace"],
         "m_c": {
             "status": ["medicine cat"]
         }

@@ -15,6 +15,7 @@
     ],
     "frequency": 3,
     "event_text": "The apprentices are learning how to ambush enemies from tall trees.",
+        "tile_location": ["outside_camp"],
     "m_c": {
       "status": [
         "apprentice"
@@ -146,6 +147,7 @@
     ],
     "frequency": 4,
     "event_text": "A small flock of sparrows has decided to start frequenting the branches high above camp. To the annoyance of many, their preening has dropped plenty of feathers around camp; m_c thinks they're pretty, though, and decides to keep some.",
+        "tile_location": ["camp"],
     "new_accessory": [
       "SPARROW FEATHERS"
     ]
@@ -163,6 +165,7 @@
     ],
     "frequency": 4,
     "event_text": "m_c watched the sun set over the forest, wondering at how the sky gleamed despite the war.",
+        "tile_location": ["outside_camp"],
     "m_c": {
       "status": [
         "leader"
@@ -195,6 +198,7 @@
     ],
     "frequency": 4,
     "event_text": "m_c has been bolstering the edges of camp with new brambles.",
+        "tile_location": ["camp"],
     "m_c": {
       "age": [
         "adolescent",
@@ -234,6 +238,7 @@
     ],
     "frequency": 3,
     "event_text": "m_c sees a flock of corvids swarm the fresh-kill pile and rushes to chase them off, though they've already made off with valuable prey. Mouse-dung!",
+    "tile_location": ["camp"],
     "m_c": {
       "age": [
         "adolescent",
@@ -267,6 +272,7 @@
     ],
     "frequency": 3,
     "event_text": "m_c sees a flock of corvids swarm the fresh-kill pile and rushes to chase them off, though they've already made off with valuable prey. At least {PRONOUN/m_c/subject} {VERB/m_c/were/was} able to grab hold of some of their tail feathers.",
+    "tile_location": ["camp"],
     "new_accessory": [
       "BLUE FEATHERS"
     ],
@@ -300,6 +306,7 @@
     ],
     "frequency": 3,
     "event_text": "m_c sees a flock of corvids swarm the fresh-kill pile and rushes to chase them off. Though successful, {PRONOUN/m_c/subject} {VERB/m_c/were/was} nearly pecked to death!",
+    "tile_location": ["camp"],
     "m_c": {
       "age": [
         "adolescent",
@@ -367,6 +374,7 @@
     "tags": [],
     "frequency": 3,
     "event_text": "After a storm blows through camp, m_c recruits r_c to help clean up fallen branches and leaf litter.",
+    "tile_location": ["camp"],
     "new_accessory": [],
     "m_c": {
       "status": [

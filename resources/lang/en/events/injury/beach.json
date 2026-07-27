@@ -9,6 +9,9 @@
         ],
         "frequency": 3,
         "event_text": "r_c rescued m_c from drowning after the apprentice headed out to practice alone.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice"
@@ -110,6 +113,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c was dashing around the apprentice rock, when {PRONOUN/m_c/subject} slipped and fell into the high tide waters of the cave. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} alright, though a bit bruised and embarrassed.",
+        "tile_location": ["camp"],
         "m_c": {
             "status": [
                 "apprentice"
@@ -146,6 +150,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c was messing around in the tide pools of the camp clearing, when {PRONOUN/m_c/poss} paw slipped and {PRONOUN/m_c/subject} fell in face-first. {PRONOUN/m_c/poss/CAP} pride is wounded, but otherwise {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} only bruised.",
+        "tile_location": ["camp"],
         "m_c": {
             "age": [
                 "adolescent"
@@ -184,6 +189,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c unwisely decided to go out swimming alone after r_c dared {PRONOUN/m_c/object} to. {PRONOUN/m_c/subject/CAP} made it back, but ended up drenched and shivering violently in the cold air.",
+        "tile_location": ["territory"],
         "m_c": {
             "status": [
                 "apprentice"
@@ -252,6 +258,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c rarely pays attention when r_c talks about proper ocean safety, and it shows when m_c gets thirsty on patrol and drinks salt water. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} back to camp severely dehydrated.",
+        "tile_location": ["territory"],
         "m_c": {
             "status": [
                 "apprentice"
@@ -318,6 +325,9 @@
         ],
         "frequency": 1,
         "event_text": "m_c was grabbed by a seagull, but luckily r_c saves {PRONOUN/m_c/object}! The kit is still left injured from the ordeal.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -386,6 +396,9 @@
         ],
         "frequency": 1,
         "event_text": "m_c was grabbed by a pelican, but luckily r_c saves {PRONOUN/m_c/object}! The kit is still left injured from the ordeal.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -458,6 +471,9 @@
         ],
         "frequency": 2,
         "event_text": "r_c dares m_c to try and swim out of camp and m_c can't possibly refuse the challenge. m_c nearly drowns and needs to be rescued by a warrior.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -545,6 +561,9 @@
         ],
         "frequency": 2,
         "event_text": "r_c dares m_c to try and swim out of camp and m_c can't possibly refuse the challenge. m_c nearly drowns in the freezing and needs to be rescued by a warrior, still shaking violently.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -630,6 +649,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c is hopping around in the tide pools when {PRONOUN/m_c/subject} {VERB/m_c/trip/trips} and {VERB/m_c/fall/falls} onto the rocks. Thankfully, {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} only a bit bruised.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -660,6 +682,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c is playing around on the iced-over tide pools, slipping and sliding every which way, when {PRONOUN/m_c/subject} {VERB/m_c/slip/slips} a little too much and {VERB/m_c/take/takes} a tumble.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -695,6 +720,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c is jumping around on the rocks when {PRONOUN/m_c/subject} {VERB/m_c/slip/slips} and {VERB/m_c/fall/falls}. The soft sand of the cave floor softens {PRONOUN/m_c/poss} landing, but {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} still bruised.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -730,6 +758,9 @@
         ],
         "frequency": 3,
         "event_text": "m_c found a hole in the rocks and, curious as all kits are, stuck {PRONOUN/m_c/poss} paw inside. The whole camp comes running when {PRONOUN/m_c/subject} {VERB/m_c/screech/screeches} in pain. It seems a snake was living in that hole.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -771,6 +802,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c stepped on some sharp stones while walking along the shoreline.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -800,6 +834,9 @@
         ],
         "frequency": 1,
         "event_text": "m_c was dragged out into the ocean by the tide, and inhaled a lot of water before managing to get out. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'ve/'s} been hacking and sputtering ever since.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -841,6 +878,9 @@
         ],
         "frequency": 3,
         "event_text": "A o_c_n warrior was nearly swept away by a wave during a shoreside battle. m_c dove in to pull {PRONOUN/m_c/poss} enemy back to the beach, despite {PRONOUN/m_c/poss} own injuries.",
+        "tile_location": [
+            "territory", "other_clan_border", "other_clan_territory"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -909,6 +949,9 @@
   ],
   "frequency": 1,
   "event_text": "While trying to climb the broken ship in camp, m_c's paw slipped and {PRONOUN/m_c/subject} fell to the ground with a nasty thump.",
+    "tile_location": [
+            "camp"
+        ],
   "m_c": {
     "age": [
       "kitten",
@@ -976,6 +1019,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c steps on something in the sand that causes {PRONOUN/m_c/object} to yelp. Seems like {PRONOUN/m_c/subject} stepped on a sea urchin.",
+        "tile_location": [
+            "camp"
+        ],
         "injury": [
             {
                 "cats": [
@@ -997,6 +1043,9 @@
         ],
         "frequency": 1,
         "event_text": "m_c steps on something in the sand that causes {PRONOUN/m_c/object} to yelp. As {PRONOUN/m_c/poss} paw starts to go numb {PRONOUN/m_c/subject} {VERB/m_c/realize/realizes} {PRONOUN/m_c/subject} must have stepped on a venomous sea urchin, and {PRONOUN/m_c/subject} {VERB/m_c/rush/rushes} to the medicine den.",
+        "tile_location": [
+            "camp"
+        ],
         "injury": [
             {
                 "cats": [

@@ -68,6 +68,7 @@ from scripts.clan_package.get_clan_cats import (
     find_alive_cats_with_rank,
     get_living_clan_cat_count,
 )
+from scripts.clan_resources.point_of_interest import get_poi_tags_set
 from scripts.territory import territory_class
 
 logger = logging.getLogger(__name__)
@@ -2619,21 +2620,22 @@ def other_clans_territory_wobble():
 
     second_clan = random.choice(neighbouring_clans)
 
-    first_clan_tiles, second_clan_tiles = territory_class.get_border_tiles_between_clans(first_clan, second_clan)
+    first_clan_tiles, second_clan_tiles = territory_class.get_tiles(
+        "other_clan_border",
+        clan=first_clan,
+        other_clan=second_clan
+        )
     number = random.randint(1,2)
     if number == 1:
         traded_tile = random.choice(first_clan_tiles)
         territory_class.update_tile_info(traded_tile, "owner", second_clan.group_ID)
-        print(first_clan.name, "=>", second_clan.name)
     else:
         traded_tile = random.choice(second_clan_tiles)
         territory_class.update_tile_info(traded_tile, "owner", first_clan.group_ID)
-        print(second_clan.name, "=>", first_clan.name)
 
     security = game.clan.territory_tile_info[traded_tile]["strength"]
 
     chance = 2 * security + 1
-
     if not int(random.random() * chance):
         success = True
     else:

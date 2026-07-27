@@ -22,6 +22,11 @@ from scripts.ui.theme import get_text_box_theme
 from ..ui.elements.checkbox import UICheckbox
 from scripts.config import get_config
 from scripts.game_structure.game.settings import game_setting_get
+from scripts.ui.windows.map_view_events import MapViewEvents
+from scripts.game_structure.game.switches import (
+    Switch,
+    switch_get_value
+)
 
 
 class MapScreen(Screens):
@@ -47,6 +52,7 @@ class MapScreen(Screens):
         self.view_checkboxes = {}
         self.view_colours = True
         self.view_icons = True
+        self.view_water = False
 
         # different view tabs
         self.tabs = {}
@@ -65,6 +71,9 @@ class MapScreen(Screens):
         self.all_interaction_buttons = ["claim", "forfeit", "take", "attack"]
 
     def screen_switches(self):
+        if switch_get_value(Switch.selected_tile):
+            self.selected_tile = switch_get_value(Switch.selected_tile)
+
         self.back_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((25, 25), (105, 30))),
             "buttons.back",
@@ -106,6 +115,17 @@ class MapScreen(Screens):
             starting_height=3,
             manager=MANAGER,
         )
+        # events
+        self.elements["view_events"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 210), (95, 30))),
+            "buttons.map_view_events",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (95, 30)),
+            object_id="@buttonstyles_rounded_rect",
+            manager=MANAGER,
+            container=self.tile_info_container,
+            anchors={"centerx":"centerx"},
+            tool_tip_text="buttons.map_view_events_tooltip"
+        )
 
         # checkbox labels. boxes r made later
         self.elements["colour_label"] = pygame_gui.elements.UITextBox(
@@ -120,6 +140,12 @@ class MapScreen(Screens):
             manager=MANAGER,
             object_id=get_text_box_theme("#text_box_30_horizleft"),
         )
+        self.elements["water_label"] = pygame_gui.elements.UITextBox(
+            "screens.map.toggle_water",
+            ui_scale(pygame.Rect((215, 600), (200, 40))),
+            manager=MANAGER,
+            object_id=get_text_box_theme("#text_box_30_horizleft"),
+        )
 
         self.create_map()
         self.update_tile_info()
@@ -130,11 +156,12 @@ class MapScreen(Screens):
 
     def update_buttons(self):
         # tabs
-        x_val = 194
+        x_val = 170
         options = {
             "borders": Icon.CAT_HEAD,
             "herbs": Icon.HERB,
-            "strength": Icon.SCRATCHES
+            "strength": Icon.SCRATCHES,
+            "terrain": Icon.MOUSE
         }
         for option, icon in options.items():
             if option in self.tabs:
@@ -163,6 +190,8 @@ class MapScreen(Screens):
             self.view_checkboxes["colour"].kill()
         if "icons" in self.view_checkboxes:
             self.view_checkboxes["icons"].kill()
+        if "water" in self.view_checkboxes:
+            self.view_checkboxes["water"].kill()
 
         self.view_checkboxes["colour"] = UICheckbox(
             position=(115, 565),
@@ -172,6 +201,11 @@ class MapScreen(Screens):
         self.view_checkboxes["icons"] = UICheckbox(
             position=(275, 565),
             check=self.view_icons,
+            manager=MANAGER,
+        )
+        self.view_checkboxes["water"] = UICheckbox(
+            position=(190, 600),
+            check=self.view_water,
             manager=MANAGER,
         )
 
@@ -210,6 +244,15 @@ class MapScreen(Screens):
                     self.view_icons = True
                 self.create_map()
                 self.update_checkboxes()
+            elif event.ui_element == self.view_checkboxes["water"]:
+                if self.view_water:
+                    self.view_water = False
+                else:
+                    self.view_water = True
+                self.create_map()
+                self.update_checkboxes()
+            elif event.ui_element == self.elements["view_events"]:
+                MapViewEvents(self.selected_tile)
             for interaction in self.all_interaction_buttons:
                 if interaction in self.elements and event.ui_element == self.elements[interaction]:
                     print(interaction)
@@ -282,6 +325,7 @@ class MapScreen(Screens):
                 tile_string = tile,
                 view_colours=self.view_colours,
                 view_icons=self.view_icons,
+                view_water=self.view_water,
                 icon_tile=icon_tile,
                 opacity=225,
                 herb=tile_info["herb"] if "herb" in tile_info else None,
@@ -308,7 +352,7 @@ class MapScreen(Screens):
         if "tile_info_pointer" in self.elements:
             self.elements["tile_info_pointer"].kill()
         self.elements["tile_info_pointer"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((492, 105 + int(self.selected_tile.split("-")[1]) * self.TILE_SIZE), (44, 30))),
+            ui_scale(pygame.Rect((492, 98 + int(self.selected_tile.split("-")[1]) * self.TILE_SIZE), (44, 30))),
             pygame.transform.scale(
                     self.ui_images["arrow"],
                     ui_scale_dimensions((44, 30)),
@@ -322,76 +366,46 @@ class MapScreen(Screens):
         if "selected_tile_info_text" in self.elements:
             self.elements["selected_tile_info_text"].kill()
         
+        tile_info = game.clan.territory_tile_info[self.selected_tile]
         if self.selected_tile:
             tile_owner = territory_class.get_tile_owner(self.selected_tile)
-            tile_info = game.clan.territory_tile_info[self.selected_tile]
 
-            name = ""
-            if "poi" in tile_info:
-                if "terrain" in tile_info["poi"]:
-                    name = "<b>" + event_text_adjust(Cat, text="{POI/name/" + tile_info["poi"] + "}").title() + "</b>"
-                else:
-                    name = "<b>" + event_text_adjust(Cat, text="{POI/category/" + tile_info["poi"] + "}").title() + "</b>"
-            elif "camp" in tile_info and tile_info["camp"]:
-                name = "<b>" + str(tile_owner.name) + " Camp</b>"
-            else:
-                name = f"<b>{game.clan.biome}</b>"
+            tile_name_string = territory_class.get_tile_name_string(self.selected_tile)
 
             self.elements["selected_tile_owner"] = pygame_gui.elements.UITextBox(
-                name,
-                ui_scale(pygame.Rect((0, 0), (200, 40))),
+                tile_name_string,
+                ui_scale(pygame.Rect((0, 0), (200, -1))),
                 manager=MANAGER,
                 container=self.tile_info_container,
-                object_id="#text_box_40_horizcenter",
+                object_id="#text_box_40_horizcenter_spacing_95",
                 anchors={"centerx": "centerx"}
             )
 
-            strength_dict = {
-                0: "Unguarded",
-                1: "Often forgotten",
-                2: "Patrolled infrequently",
-                3: "Patrolled regularly",
-                4: "Effectively guarded"
-            }
-
-            # herb info
             info = ""
-            if tile_owner:
-                info += f"<b>{tile_owner.name}'s Territory</b>"
-            else:
-                info += "<b>Unclaimed Land</b>"
+
+            owner_string = territory_class.get_owner_string(self.selected_tile)
+            info += f"<b>{owner_string}</b>"
             info += "<br>"
 
-            # info += f"({self.selected_tile.split('-')[0]}, {self.selected_tile.split('-')[1]})<br>"
-            if "strength" in tile_info:
-                info += strength_dict[(tile_info["strength"])]
-            info += "<br>"
+            security_string = territory_class.get_security_string(self.selected_tile)
+            if security_string:
+                info += security_string
+                info += "<br>"
 
 
-            if "herb" in tile_info:
+            herb_string = territory_class.get_herb_source_string(self.selected_tile, break_line=True)
+            if herb_string:
                 info += "---<br>"
-                info += "Effective source of <br><b>" + tile_info["herb"].replace("_", " ") + "</b>"
+                info += herb_string
 
             self.elements["selected_tile_info_text"] = pygame_gui.elements.UITextBox(
                 info,
-                ui_scale(pygame.Rect((0, 35), (180, 250))),
+                ui_scale(pygame.Rect((0, 10), (180, 100))),
                 manager=MANAGER,
                 container=self.tile_info_container,
                 object_id="#text_box_26_horizcenter_vert_spacing_95",
-                anchors={"centerx": "centerx"},
+                anchors={"centerx": "centerx", "top_target": self.elements["selected_tile_owner"]},
             )
-        
-        # events
-        self.elements["view_events"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 145), (95, 30))),
-            "buttons.map_view_events",
-            get_button_dict(ButtonStyles.ROUNDED_RECT, (95, 30)),
-            object_id="@buttonstyles_rounded_rect",
-            manager=MANAGER,
-            container=self.tile_info_container,
-            anchors={"centerx":"centerx"},
-            tool_tip_text="buttons.map_view_events_tooltip"
-        )
 
         # interaction buttons
         # kill them all first
@@ -399,7 +413,7 @@ class MapScreen(Screens):
             if button in self.elements:
                 self.elements[button].kill()
         
-        y_positions = [260, 300, 340]
+        y_positions = [300, 340]
         button_width = 115
     
         # CLAIM

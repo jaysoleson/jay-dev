@@ -9,6 +9,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c tried to sneak out of the camp, but fell and got a bruise before {PRONOUN/m_c/subject} even left the safety of the camp walls.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -41,6 +44,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c mixed up the herb dosages for r_c, poisoning {PRONOUN/r_c/object}.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "medicine cat",
@@ -113,6 +119,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c snuck out of camp and returned a bit bruised, but brimming with pride despite the scolding {PRONOUN/m_c/subject} {VERB/m_c/were/was} given.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -156,6 +165,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c play-fought a bit too hard and got a little bruised.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -189,6 +201,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c tried to sneak out of the camp, but fell and scraped {PRONOUN/m_c/poss} paw before {PRONOUN/m_c/subject} even left the safety of the camp walls.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -220,6 +235,9 @@
         ],
         "frequency": 3,
         "event_text": "m_c snuck out of camp and returned scraped up, but brimming with pride despite the scolding {PRONOUN/m_c/subject} {VERB/m_c/were/was} given.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -263,6 +281,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c play-fought a bit too hard and scraped {PRONOUN/m_c/self} up.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -348,6 +369,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c had a bad fall while taking a walk through the territory and returned to camp sore and bruised.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -531,6 +555,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c spent the day tending to the dens and might have worked a bit too hard. {PRONOUN/m_c/poss/CAP} joints are now quite sore.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -567,6 +594,9 @@
         ],
         "frequency": 1,
         "event_text": "m_c had a bad fall while taking a walk through the territory and, once found, has to be carried back home.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -858,6 +888,9 @@
         ],
         "frequency": 1,
         "event_text": "m_c was on a walk when {PRONOUN/m_c/subject} saw r_c being attacked by a rogue! {PRONOUN/m_c/subject/CAP} helped r_c escape, but not before gaining a few wounds.",
+        "tile_location": [
+            "territory", "unclaimed_border"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -961,6 +994,9 @@
         ],
         "frequency": 3,
         "event_text": "m_c was on a walk when {PRONOUN/m_c/subject} saw r_c being attacked by a dog! {PRONOUN/m_c/subject/CAP} helped r_c escape, but not before gaining a few wounds.",
+        "tile_location": [
+            "territory", "unclaimed_border"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -1081,6 +1117,9 @@
         ],
         "frequency": 3,
         "event_text": "On a border patrol near the o_c_n border, m_c could no longer take o_c_n's jeers and smirks. {PRONOUN/m_c/subject/CAP} lashed out at the first jeering cat {PRONOUN/m_c/subject} saw, although the hotheaded move ensured {PRONOUN/m_c/subject} didn't escape the skirmish without injury.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -1179,6 +1218,9 @@
         ],
         "frequency": 3,
         "event_text": "m_c snuck out of camp and returned cold and shivering, frostbite nipping at {PRONOUN/m_c/poss} paws.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -1224,6 +1266,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c was grabbed by a hawk, but luckily r_c saves {PRONOUN/m_c/object}! The kit is still left injured from the ordeal.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -1290,6 +1335,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c fell into a river, and inhaled a lot of water before managing to get out. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'ve/'s} been hacking and sputtering ever since.",
+        "tile_location": [
+            "river"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -1329,6 +1377,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was out wandering the territory for a bit too long and came back with frostbite.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -1370,6 +1421,9 @@
         ],
         "frequency": 1,
         "event_text": "m_c went out for a walk, but slipped on the ice and broke a bone.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -1412,6 +1466,9 @@
         ],
         "frequency": 1,
         "event_text": "m_c was grabbed and dropped by an eagle, but {PRONOUN/m_c/subject} somehow survived.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -1450,6 +1507,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was climbing a tree and got a splinter from one of the branches.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -1479,6 +1539,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was climbing a tree when {PRONOUN/m_c/subject} fell. Luckily, {PRONOUN/m_c/subject} {VERB/m_c/were/was} only bruised by the incident.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -1508,6 +1571,9 @@
         ],
         "frequency": 1,
         "event_text": "m_c couldn't help but try to show off by climbing the tallest tree {PRONOUN/m_c/subject} could find. {PRONOUN/m_c/poss/CAP} plan backfired when {PRONOUN/m_c/subject} fell out of the tree.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "adolescent"
@@ -1556,6 +1622,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c had a bad fall while taking a walk through the territory and comes back to camp quite sore.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -1587,6 +1656,9 @@
         ],
         "frequency": 1,
         "event_text": "m_c fell from a cliff and somehow survived, though not without breaking {PRONOUN/m_c/poss} leg.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -1625,6 +1697,9 @@
         ],
         "frequency": 1,
         "event_text": "m_c survived a vicious eagle attack with the claw marks to prove it!",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten",
@@ -1664,6 +1739,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was moving some branches out of the way when {PRONOUN/m_c/subject} got a splinter.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "senior",
@@ -1698,6 +1776,9 @@
         ],
         "frequency": 4,
         "event_text": "The ground inside the camp has turned into a muddy mess from the rain. m_c sprains {PRONOUN/m_c/poss} paw while trying to walk through the muck.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {},
         "injury": [
             {
@@ -1720,6 +1801,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c fought a rogue, but was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit bruised, but bruises are better than clawmarks.",
+        "tile_location": [
+            "unclaimed_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -1800,6 +1884,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c fought a fox, but was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit bruised, but bruises are better than clawmarks.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -1857,6 +1944,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c fought a dog, but was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit bruised, but bruises are better than clawmarks.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -1914,6 +2004,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c saved r_c from an enemy warrior, both making it out with hardly even a scratch.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -1990,6 +2083,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c saved r_c from a dog, and was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit bruised, but bruises are better than clawmarks.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -2098,6 +2194,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c fought a rogue, but was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit scraped up, but a few scrapes are better than clawmarks.",
+        "tile_location": [
+            "unclaimed_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -2177,6 +2276,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c fought a fox, but was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit scraped up, but a few scrapes are better than clawmarks.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -2234,6 +2336,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c saved r_c from a fox, and was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit scraped up, but a few scrapes are better than clawmarks.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -2346,6 +2451,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c fought a dog and got hurt.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -2396,6 +2504,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c saved r_c from a fox but was hurt.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -2480,6 +2591,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was hurt while protecting r_c, the leader, from a fox.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -2572,6 +2686,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was hurt while protecting the leader, r_c, from a rogue.",
+        "tile_location": [
+            "unclaimed_border"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -2682,6 +2799,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c fought a rogue and got hurt.",
+        "tile_location": [
+            "unclaimed_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -2757,6 +2877,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c fought a big dog and was badly injured.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -2807,6 +2930,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c saved r_c from a big dog, but was badly injured.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -2894,6 +3020,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c fought a hawk and got hurt.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -2947,6 +3076,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c saved r_c from a hawk but was hurt.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -3031,6 +3163,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was wounded during a harsh training exercise lead by r_c.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -3102,6 +3237,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was hurt by o_c_n warriors after being ordered by r_c to go over the border.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -3269,6 +3407,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c's tail was badly hurt by a fox while {PRONOUN/m_c/subject} {VERB/m_c/were/was} trying to follow r_c's orders.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -3354,6 +3495,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c's leg was badly injured after r_c forced {PRONOUN/m_c/object} to fight a big dog.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -3434,6 +3578,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c mistook a hare for a rabbit while hunting and {PRONOUN/m_c/poss} eyes were scratched, a valuable lesson learnt.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice"
@@ -3472,6 +3619,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was injured recklessly fighting a rogue that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
+        "tile_location": [
+            "unclaimed_border", "unclaimed"
+        ],
         "m_c": {
             "status": [
                 "apprentice"
@@ -3576,6 +3726,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was injured recklessly fighting an enemy warrior that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice"
@@ -3663,6 +3816,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was injured recklessly fighting a dog that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice"
@@ -3744,6 +3900,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was injured recklessly fighting a fox that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice"
@@ -3968,6 +4127,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c took a tumble off a rock while practicing {PRONOUN/m_c/poss} battle moves. {PRONOUN/m_c/subject/CAP}'ll be a bit tender for the next few days.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "adolescent"
@@ -3997,6 +4159,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was practicing {PRONOUN/m_c/poss} hunting pounce when {PRONOUN/m_c/subject} pounced right into a rock! Ow! {PRONOUN/m_c/subject/CAP} might be sore for a while.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "status": [
                 "apprentice"
@@ -4146,6 +4311,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was rushing around the camp in excitement for a patrol when {PRONOUN/m_c/poss} paw landed wrong on a rock! {PRONOUN/m_c/subject/CAP} took a tumble, and can't help limping the rest of the day.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice"
@@ -4179,6 +4347,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c snuck out at night on a dare, but soon came hobbling back to camp, head lowered in embarrassment. Seems like {PRONOUN/m_c/poss} paw got caught on something in the dark and caused {PRONOUN/m_c/object} to trip!",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "status": [
                 "apprentice"
@@ -6399,6 +6570,7 @@
         },
         "frequency": 1,
         "event_text": "m_c fought with a duck in the water, trying to kill it for the fresh-kill pile, but was knocked below the surface of {POI/name/terrain_lake} and inhaled a lot of water.",
+        "tile_location": ["lake"],
         "m_c": {
             "status": [
                 "apprentice",
