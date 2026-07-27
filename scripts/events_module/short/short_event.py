@@ -1009,10 +1009,31 @@ class ShortEvent:
         print("Location:", preset)
         if preset not in territory_class.valid_tile_searches():
             return False
+        
+        exclude_water = False
+        if preset not in get_poi_tags_set() and preset not in get_poi_categories_set():
+            if preset not in (
+                "river", "lake", "ocean", "water", "camp"
+            ):
+            # be default everything happens on DRY LAND
+                exclude_water = True
+                print("Excluding water.")
 
-        valid_tiles = territory_class.get_tiles(preset, clan=game.clan, other_clan=other_clan)
+        valid_tiles = territory_class.get_tiles(
+            preset,
+            clan=game.clan,
+            other_clan=other_clan,
+            exclude_water=exclude_water
+            )
         if preset == "other_clan_border":
             valid_tiles = valid_tiles[0]
+        if preset == "other_clan_inner_border":
+            valid_tiles = valid_tiles[1]
+        if exclude_water:
+            for tile in valid_tiles.copy():
+                if tile in territory_class.get_water_tiles_from_list(valid_tiles):
+                    print("ERROR: Water tile", tile, "found in land tiles list.", preset)
+                    valid_tiles.remove(tile)
         if not valid_tiles:
             return False
 

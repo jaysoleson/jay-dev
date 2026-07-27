@@ -258,7 +258,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c rarely pays attention when r_c talks about proper ocean safety, and it shows when m_c gets thirsty on patrol and drinks salt water. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} back to camp severely dehydrated.",
-        "tile_location": ["territory"],
+        "tile_location": ["ocean"],
         "m_c": {
             "status": [
                 "apprentice"
@@ -835,7 +835,7 @@
         "frequency": 1,
         "event_text": "m_c was dragged out into the ocean by the tide, and inhaled a lot of water before managing to get out. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'ve/'s} been hacking and sputtering ever since.",
         "tile_location": [
-            "territory"
+            "ocean"
         ],
         "m_c": {
             "age": [

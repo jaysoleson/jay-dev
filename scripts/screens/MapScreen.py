@@ -37,6 +37,9 @@ class MapScreen(Screens):
         "map": image_cache.load_image(
                     "resources/images/cgwar_map.png"
                 ).convert_alpha(),
+        "compass": image_cache.load_image(
+                    "resources/images/compass.png"
+                ).convert_alpha(),
     }
     def __init__(self, name=None):
         super().__init__(name)
@@ -53,6 +56,7 @@ class MapScreen(Screens):
         self.view_colours = True
         self.view_icons = True
         self.view_water = False
+        self.view_grid = True
 
         # different view tabs
         self.tabs = {}
@@ -142,13 +146,19 @@ class MapScreen(Screens):
         )
         self.elements["water_label"] = pygame_gui.elements.UITextBox(
             "screens.map.toggle_water",
-            ui_scale(pygame.Rect((215, 600), (200, 40))),
+            ui_scale(pygame.Rect((130, 600), (200, 40))),
+            manager=MANAGER,
+            object_id=get_text_box_theme("#text_box_30_horizleft"),
+        )
+        self.elements["grid_label"] = pygame_gui.elements.UITextBox(
+            "screens.map.toggle_grid",
+            ui_scale(pygame.Rect((325, 600), (200, 40))),
             manager=MANAGER,
             object_id=get_text_box_theme("#text_box_30_horizleft"),
         )
 
-        self.create_map()
         self.update_tile_info()
+        self.create_map()
         self.update_checkboxes()
         self.update_buttons()
 
@@ -156,12 +166,13 @@ class MapScreen(Screens):
 
     def update_buttons(self):
         # tabs
-        x_val = 170
+        x_val = 142
         options = {
             "borders": Icon.CAT_HEAD,
             "herbs": Icon.HERB,
             "strength": Icon.SCRATCHES,
-            "terrain": Icon.MOUSE
+            "terrain": Icon.MOUSE,
+            "event_density": Icon.CLAN_UNKNOWN
         }
         for option, icon in options.items():
             if option in self.tabs:
@@ -192,6 +203,8 @@ class MapScreen(Screens):
             self.view_checkboxes["icons"].kill()
         if "water" in self.view_checkboxes:
             self.view_checkboxes["water"].kill()
+        if "grid" in self.view_checkboxes:
+            self.view_checkboxes["grid"].kill()
 
         self.view_checkboxes["colour"] = UICheckbox(
             position=(115, 565),
@@ -204,8 +217,13 @@ class MapScreen(Screens):
             manager=MANAGER,
         )
         self.view_checkboxes["water"] = UICheckbox(
-            position=(190, 600),
+            position=(95, 600),
             check=self.view_water,
+            manager=MANAGER,
+        )
+        self.view_checkboxes["grid"] = UICheckbox(
+            position=(290, 600),
+            check=self.view_grid,
             manager=MANAGER,
         )
 
@@ -249,6 +267,13 @@ class MapScreen(Screens):
                     self.view_water = False
                 else:
                     self.view_water = True
+                self.create_map()
+                self.update_checkboxes()
+            elif event.ui_element == self.view_checkboxes["grid"]:
+                if self.view_grid:
+                    self.view_grid = False
+                else:
+                    self.view_grid = True
                 self.create_map()
                 self.update_checkboxes()
             elif event.ui_element == self.elements["view_events"]:
@@ -326,6 +351,7 @@ class MapScreen(Screens):
                 view_colours=self.view_colours,
                 view_icons=self.view_icons,
                 view_water=self.view_water,
+                view_grid=self.view_grid,
                 icon_tile=icon_tile,
                 opacity=225,
                 herb=tile_info["herb"] if "herb" in tile_info else None,
@@ -333,6 +359,19 @@ class MapScreen(Screens):
             )
             if tile == self.selected_tile:
                 self.map_tile_buttons[tile].select()
+        
+        if "compass" in self.elements:
+            self.elements["compass"].kill()
+        self.elements["compass"] = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((403, 43), (114, 114))),
+            pygame.transform.scale(
+                    self.ui_images["compass"],
+                    ui_scale_dimensions((114, 114)),
+                ),
+            starting_height=10,
+            manager=MANAGER,
+        )
+
     def update_tiles(self):
         for key, button in self.map_tile_buttons.items():
             if key != self.selected_tile:

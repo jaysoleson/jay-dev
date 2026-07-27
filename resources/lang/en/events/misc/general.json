@@ -1806,7 +1806,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c accidentally trespasses onto o_c_n's territory.",
-        "tile_location": ["other_clan_border"],
+        "tile_location": ["other_clan_inner_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -4904,7 +4904,7 @@
         },
         "frequency": 4,
         "event_text": "m_c goes missing in {POI/name/terrain_twolegplace} for a few days and comes back wearing a acc_singular.",
-        "tile_location": ["unclaimed"],
+        "tile_location": ["terrain_twolegplace"],
         "new_accessory": ["COLLAR"],
         "m_c": {
             "status": ["-kitten"]
@@ -16841,7 +16841,7 @@
             "category": "gathering"
         },
         "event_text": "m_c gathers the Clan to tell a story about the first time the Clans convened for a Gathering at {POI/category/gathering}.",
-        "tile_location": ["gathering"],
+        "tile_location": ["camp"],
         "m_c": {
             "skill": ["STORY,1", "LORE,1"]
         }

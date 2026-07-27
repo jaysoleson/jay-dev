@@ -42,6 +42,7 @@ class MapTileButton(pygame_gui.elements.UIButton):
         view_colours = False,
         view_icons = False,
         view_water = False,
+        view_grid = False,
         icon_tile = False,
         opacity = 255,
         herb=None,
@@ -66,6 +67,7 @@ class MapTileButton(pygame_gui.elements.UIButton):
         self.view_colour = view_colours
         self.view_icons = view_icons
         self.view_water = view_water
+        self.view_grid = view_grid
 
         self.current_view = current_view
 
@@ -76,6 +78,7 @@ class MapTileButton(pygame_gui.elements.UIButton):
         self.herb = herb
 
         self.colour_dict = {}
+        self.populated = False
 
         super().__init__(
             relative_rect=relative_rect,
@@ -156,6 +159,19 @@ class MapTileButton(pygame_gui.elements.UIButton):
                     colour = COLOURS[map_colours[tile_info["terrain"]]]
                 else:
                     colour = COLOURS["default"]
+        elif self.current_view == "event_density":
+            map_colours = {
+                0: "default",
+                1: "yellow",
+                2: "orange",
+                3: "red"
+            }
+            event_num = len(tile_info["events"]) if "events" in tile_info else 0
+            if event_num in map_colours:
+                colour = COLOURS[map_colours[event_num]]
+            else:
+                colour = COLOURS["purple"]
+
         if not colour:
             colour = COLOURS["default"]
 
@@ -201,45 +217,40 @@ class MapTileButton(pygame_gui.elements.UIButton):
         }
 
     def _set_colour(self):
-        populated = False
+        self.populated = False
+        tile_info = game.clan.territory_tile_info[self.tile_string]
         if self.current_view == "borders":
-            populated = self.tile_owner
+            self.populated = self.tile_owner
         elif self.current_view == "herbs":
-            populated = self.herb
+            self.populated = self.herb
         elif self.current_view == "strength":
-            populated = game.clan.territory_tile_info[self.tile_string]["strength"] > 0
+            self.populated = tile_info["strength"] > 0
         elif self.current_view == "terrain":
-            populated = "terrain" in game.clan.territory_tile_info[self.tile_string]
+            self.populated = "terrain" in tile_info
+        elif self.current_view == "event_density":
+            self.populated = "events" in tile_info and len(tile_info["events"]) > 0
         
         if self.view_water:
-            if "terrain" in game.clan.territory_tile_info[self.tile_string]:
-                if game.clan.territory_tile_info[self.tile_string]["terrain"] in (
+            if "terrain" in tile_info:
+                if tile_info["terrain"] in (
                     "river", "lake", "ocean"
                 ):
-                    populated = True
+                    self.populated = True
         
         if self.icon_tile:
-            populated = True
+            self.populated = True
 
         if self.view_colour:
-            if populated:
+            if self.populated:
                 if self.selected:
                     self.colours["normal_bg"] = self.colour_dict["dark"]
                 else:
                     self.colours["normal_bg"] = self.colour_dict["normal"]
-                    if self.tile_owner:
-                        self.colours["normal_border"] = self.colour_dict["dark"]
-                    else:
-                        self.colours["normal_border"] = self.colour_dict["normal"]
-                        if self.herb and not self.tile_owner:
-                            self.colours["normal_border"] = self.colour_dict["dark"]
                 self.colours["hovered_bg"] = self.colour_dict["dark"]
             else:
                 self.colours["normal_bg"] = pygame.Color(0, 0, 0, 0)
                 self.colours["hovered_bg"] = pygame.Color(0, 0, 0, 0)
-                self.colours["normal_border"] = self.colour_dict["normal"]
-            
-            self.colours["hovered_border"] = self.colour_dict["dark"]
+
         else:
             if self.icon_tile:
                 if self.selected:
@@ -259,6 +270,27 @@ class MapTileButton(pygame_gui.elements.UIButton):
 
             self.colours["hovered_border"] = self.colour_dict["dark"]
 
+        # GRID
+        if not self.view_grid:
+            self.colours["normal_border"] = self.colours["normal_bg"]
+            self.colours["hovered_border"] = self.colours["hovered_bg"]
+        else:
+            if self.populated:
+                if self.selected:
+                    self.colours["normal_border"] = self.colour_dict["dark"]
+                else:
+                    if self.tile_owner:
+                        self.colours["normal_border"] = self.colour_dict["dark"]
+                    else:
+                        if self.herb and not self.tile_owner or self.view_water:
+                            self.colours["normal_border"] = self.colour_dict["dark"]
+                        else:
+                            self.colours["normal_border"] = self.colour_dict["normal"]
+            else:
+                self.colours["normal_border"] = self.colour_dict["normal"]
+            
+            self.colours["hovered_border"] = self.colour_dict["dark"]
+        
         self.colours["active_bg"] = self.colours["hovered_bg"]
         self.colours["active_border"] = self.colours["hovered_border"]
 

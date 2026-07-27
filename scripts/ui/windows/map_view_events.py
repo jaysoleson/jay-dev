@@ -35,15 +35,16 @@ class MapViewEvents(GameWindow):
             object_id="#text_box_30_horizcenter_spacing_95",
             text_kwargs={"moons": get_config("bellsofwar.save_events_for")}
         )
+        name_string = territory_class.get_tile_name_string(self.tile)
         owner_string = territory_class.get_owner_string(self.tile)
         security_string = territory_class.get_security_string(self.tile)
 
         self.subtitle = pygame_gui.elements.UITextBox(
-            game.clan.biome +
+            name_string +
             " | " +
-            "<b>" + owner_string + "</b>" +
+            security_string +
             " | " +
-            security_string,
+            "<b>" + owner_string + "</b>",
             ui_scale(pygame.Rect((0, 65), (600, 30))),
             manager=MANAGER,
             container=self,

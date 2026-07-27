@@ -9,6 +9,7 @@
         ],
         "frequency": 2,
         "event_text": "m_c wandered out of camp, only to come back with a stranger. After explaining how m_c saved {PRONOUN/n_c:0/poss} life, the new cat introduces {PRONOUN/n_c:0/self} as n_c:0, and asks to join c_n.",
+        "tile_location": ["territory"],
         "m_c": {
             "age": [
                 "young adult",
@@ -57,6 +58,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c comes back to camp with a sodden kit in {PRONOUN/m_c/poss} jaws, explaining that {PRONOUN/m_c/subject} spotted {PRONOUN/n_c:0/object} floundering in the water — no parents in sight — and couldn't just leave the little scrap to die.",
+        "tile_location": [
+            "water"
+        ],
         "m_c": {
             "age": [
                 "young adult",
@@ -114,6 +118,9 @@
         ],
         "frequency": 2,
         "event_text": "After going for a walk, m_c returns to camp with a small kitten, explaining that {PRONOUN/m_c/subject} found {PRONOUN/n_c:0/object} abandoned, tucked away under a rocky ledge.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "young adult",
@@ -172,6 +179,7 @@
         "tags": [],
         "frequency": 2,
         "event_text": "A stranger washes up on the shore, coughing up saltwater and surrounded by the remains of what {PRONOUN/n_c:0/subject} {VERB/n_c:0/call/calls} a \"boat.\" m_c brings {PRONOUN/n_c:0/object} to camp to be treated.",
+        "tile_location": ["ocean"],
         "m_c": {
             "age": [],
             "status": [
@@ -234,6 +242,9 @@
         ],
         "frequency": 2,
         "event_text": "n_c:0 is found coughing and spluttering on the beach, and {PRONOUN/n_c:0/subject} weakly {VERB/n_c:0/explain/explains} {PRONOUN/n_c:0/subject} got caught in a current and ended up here.",
+        "tile_location": [
+            "ocean"
+        ],
         "new_cat": [
             [
                 "loner"

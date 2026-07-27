@@ -5099,6 +5099,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c's leg was badly hurt after r_c, {PRONOUN/m_c/poss} mentor, used a Twoleg trap during a training exercise.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "status": [
                 "apprentice"
@@ -5171,6 +5174,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was bitten by a snake, and miraculously survived!",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5209,6 +5215,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c wasn't looking where {PRONOUN/m_c/subject} {VERB/m_c/were/was} going and tripped over a small stump, gaining a few bruises.",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5238,6 +5247,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c misstepped and slipped from a rock, dislocating a joint.",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5267,6 +5279,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c slipped on some rocks and dislocated {PRONOUN/m_c/poss} leg.",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5296,6 +5311,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c slipped on some rocks and twisted {PRONOUN/m_c/poss} paw.",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5325,6 +5343,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c leapt from a rock, but {PRONOUN/m_c/subject} didn't land quite right.",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5354,6 +5375,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c misstepped and slipped from a rock, spraining {PRONOUN/m_c/poss} paw.",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5383,6 +5407,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c wasn't looking where {PRONOUN/m_c/subject} {VERB/m_c/were/was} going and tripped over a small stump, spraining {PRONOUN/m_c/poss} paw.",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5412,6 +5439,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c got {PRONOUN/m_c/poss} paw stuck in a Twoleg trap, but luckily escaped with only a sprain.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5441,6 +5471,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c ran too fast over harsh ground and hurt {PRONOUN/m_c/poss} paws.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -5499,6 +5532,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c helped to strengthen the camp walls but scraped up {PRONOUN/m_c/poss} paw pads in the process.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5568,6 +5604,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was out on a walk alone when {PRONOUN/m_c/subject} heard a dog approaching! {PRONOUN/m_c/subject/CAP} crawled into a thorny shrub to hide, but got some nasty scratches in the process.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5610,6 +5649,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was out on a walk alone when {PRONOUN/m_c/subject} heard a fox approaching! {PRONOUN/m_c/subject/CAP} crawled into a thorny shrub to hide, but got some nasty scratches in the process.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5652,6 +5694,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c fought a rogue and, while {PRONOUN/m_c/subject} drove the trespasser away, {PRONOUN/m_c/subject} needed to be rushed to the medicine cat den afterward.",
+        "tile_location": [
+            "unclaimed", "unclaimed_border"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5718,6 +5763,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c got {PRONOUN/m_c/poss} paw stuck in a Twoleg trap, and while {PRONOUN/m_c/subject} eventually escaped, {PRONOUN/m_c/poss} leg is heavily injured.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5838,6 +5886,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c's tail was badly injured by a dog.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5882,6 +5933,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c's tail was badly injured by a fox.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "age": [
                 "senior",
@@ -6162,6 +6216,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was helping reinforce the camp walls when {PRONOUN/m_c/subject} got a thorn stuck in {PRONOUN/m_c/poss} paw.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -6191,6 +6248,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was trying to fluff up {PRONOUN/m_c/poss} nest when {PRONOUN/m_c/subject} discovered that {PRONOUN/m_c/subject} {VERB/m_c/were/was} the victim of a prank. Fox-dung! There's now a sharp thorn embedded in {PRONOUN/m_c/poss} paw.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -6221,6 +6281,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c found a patch of flowering catmint! No one else is around, so {PRONOUN/m_c/subject} {VERB/m_c/bend/bends} down and {VERB/m_c/take/takes} a big bite. Yowch! A bee! {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} home with a swollen face...",
+        "tile_location": ["territory"],
         "m_c": {
             "age": [
                 "any"
@@ -6259,6 +6320,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c accidentally crossed the border on patrol and got {PRONOUN/m_c/poss} ear torn by an enemy warrior.",
+        "tile_location": ["other_clan_inner_border"],
         "m_c": {
             "age": [
                 "any"
@@ -6304,6 +6366,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c caught a cat from another Clan trespassing on their territory and {PRONOUN/m_c/poss} ear was torn in the ensuing scuffle.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -6350,6 +6415,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was attacked by a group of rats! {PRONOUN/m_c/subject/CAP} managed to fight them off, but didn't escape unscathed.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "-kitten",
@@ -6387,6 +6455,9 @@
         ],
         "frequency": 4,
         "event_text": "The day is so nice out today that m_c decided to sneak out of camp and go play in the flowers without anyone noticing. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} back with a swollen paw after stepping on a bee.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "kitten"
@@ -6423,6 +6494,9 @@
         ],
         "frequency": 4,
         "event_text": "Camp was supposed to be safe, but m_c found bees trying to form a hive in a corner of camp. Annoyed by their buzzing, m_c attacked them, and got swarmed by bees.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -6604,6 +6678,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was taking some prey from the fresh-kill pile only to find a horde of rats! {PRONOUN/m_c/subject/CAP} called to r_c for help and together they fought off the rats, but not before being injured.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6682,6 +6759,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was taking some prey from the fresh-kill pile only to find a horde of rats! While m_c managed to fight off every last rat, {PRONOUN/m_c/subject} got injured in the process.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6741,6 +6821,9 @@
         },
         "frequency": 1,
         "event_text": "m_c is so excited to be at the Gathering that {PRONOUN/m_c/subject} {VERB/m_c/forget/forgets} to watch {PRONOUN/m_c/poss} paws on the tree bridge. r_c has to jump in the water to rescue {PRONOUN/m_c/object}.",
+        "tile_location": [
+            "gathering"
+        ],
         "m_c": {
             "age": ["adolescent"],
             "trait": ["-careful", "-calm", "-wise"],
@@ -6787,6 +6870,9 @@
         },
         "frequency": 1,
         "event_text": "When r_c takes m_c to {POI/name/gather_fourtrees}, m_c declares {PRONOUN/m_c/poss} intention to be the first cat to climb all four trees. m_c is leaping from the first tree to the second when {PRONOUN/m_c/subject} {VERB/m_c/fall/falls}. {PRONOUN/m_c/poss/CAP} leg snaps under {PRONOUN/m_c/object}.",
+        "tile_location": [
+            "gathering"
+        ],
         "m_c": {
             "age": ["adolescent"],
             "trait": ["arrogant", "ambitious", "confident", "rebellious"],
@@ -6820,6 +6906,9 @@
         },
         "frequency": 2,
         "event_text": "m_c and r_c become poisoned after hunting near {POI/name/terrain_carrionplace,terrain_carrionbeach}.",
+        "tile_location": [
+            "terrain_carrionplace,terrain_carrionbeach"
+        ],
         "new_accessory": [],
         "m_c": {
             "status": ["leader", "deputy", "warrior", "apprentice"],
@@ -6852,6 +6941,9 @@
         },
         "frequency": 2,
         "event_text": "m_c and r_c sneak out and go on an adventure in the Twolegplace, but they barely escape with their lives after encountering a gang of rogues.",
+        "tile_location": [
+            "terrain_twolegplace"
+        ],
         "new_accessory": [],
         "m_c": {
             "status": ["apprentice"],
@@ -6924,6 +7016,9 @@
         },
         "frequency": 2,
         "event_text": "m_c is caught under a horse's hooves while hunting in {POI/name/terrain_horseplace}. r_c helps {PRONOUN/m_c/object} back to camp.",
+        "tile_location": [
+            "terrain_horseplace"
+        ],
         "new_accessory": [],
         "m_c": {
             "status": ["leader", "deputy", "warrior", "apprentice"],
@@ -6969,6 +7064,9 @@
         },
         "frequency": 2,
         "event_text": "m_c is hunting near {POI/tag/trees} when a branch falls on {PRONOUN/m_c/object}, injuring {PRONOUN/m_c/object}.",
+        "tile_location": [
+            "trees"
+        ],
         "new_accessory": [],
         "m_c": {
             "status": ["leader", "deputy", "warrior", "apprentice"]
@@ -7003,6 +7101,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c was left badly hurt during a battle with o_c_n. Surprisingly, the o_c_n medicine cat cares for {PRONOUN/m_c/object} until {PRONOUN/m_c/poss} Clanmates get there.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -7058,6 +7159,9 @@
         ],
         "frequency": 4,
         "event_text": "Having heard that o_c_n was running low on vital emergency herbs, m_c gathers up some excess stock and makes the trek. However, with a mouth full of leaves, m_c takes a claw to the face before {PRONOUN/m_c/subject} can explain {PRONOUN/m_c/poss} intentions.",
+        "tile_location": [
+            "other_clan_territory", "other_clan_camp"
+        ],
         "m_c": {
             "status": [
                 "medicine cat"
@@ -7139,6 +7243,9 @@
         ],
         "frequency": 4,
         "event_text": "Despite the Clan's alarmingly low stock of herbs, m_c brings what scant amount they have to o_c_n, having heard of their crisis. However, with a full mouth, m_c takes a claw to the face before {PRONOUN/m_c/subject} can explain {PRONOUN/m_c/poss} intentions.",
+        "tile_location": [
+            "other_clan_camp"
+        ],
         "m_c": {
             "status": [
                 "medicine cat"
@@ -7220,6 +7327,10 @@
         ],
         "frequency": 2,
         "event_text": "In a brutal battle, a o_c_n warrior spares m_c's life.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "warrior", "apprentice", "deputy", "leader"
@@ -7261,6 +7372,9 @@
         ],
         "frequency": 1,
         "event_text": "o_c_n raids the camp, and an enemy warrior breaks into the nursery. At the sight of m_c's terror, the warrior's resolve breaks down, and they leave m_c with hardly a scratch on {PRONOUN/m_c/object}.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "kitten"
@@ -7294,6 +7408,10 @@
         ],
         "frequency": 2,
         "event_text": "m_c acts without thinking, saving the life of a o_c_n warrior by chasing off the predator attempting to make them their lunch.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "-kitten",
@@ -7343,6 +7461,10 @@
         ],
         "frequency": 4,
         "event_text": "A o_c_n warrior nearly fell from a cliff during a border skirmish. m_c pulled {PRONOUN/m_c/poss} enemy back up from certain death, despite {PRONOUN/m_c/poss} battle injuries.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -7420,6 +7542,10 @@
     ],
     "frequency": 3,
     "event_text": "m_c and r_c spend the night by the o_c_n border and catch a o_c_n patrol sneaking into c_n territory. While r_c gets reinforcements, m_c keeps them occupied.",
+    "tile_location": [
+        "other_clan_border",
+        "other_clan_inner_border"
+    ],
     "m_c": {
         "status": [
             "warrior",
@@ -7474,6 +7600,10 @@
         ],
         "frequency": 4,
         "event_text": "A brutal battle against o_c_n leaves m_c injured.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -7524,6 +7654,10 @@
         ],
         "frequency": 4,
         "event_text": "m_c came out worse for wear after a border skirmish with o_c_n.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -7574,6 +7708,9 @@
         ],
         "frequency": 4,
         "event_text": "While o_c_n attempted a surprise attack on the c_n camp, m_c guarded the nursery, no matter how injured {PRONOUN/m_c/subject} became.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -7690,6 +7827,10 @@
         ],
         "frequency": 4,
         "event_text": "A horrible battle occurred between c_n and o_c_n patrols after the two patrols traded insults at the border. m_c and r_c were left badly injured.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -7747,6 +7888,10 @@
         ],
         "frequency": 1,
         "event_text": "While patrolling the o_c_n borders, m_c stepped on a concealed pit trap set by what seemed to be o_c_n warriors. m_c freezes with shock as {PRONOUN/m_c/subject} {VERB/m_c/plunge/plunges} into the depths of the trap. The other cats on the patrol flank {PRONOUN/m_c/object} as {PRONOUN/m_c/subject} {VERB/m_c/limp/limps} back to the camp.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -7800,6 +7945,10 @@
         ],
         "frequency": 4,
         "event_text": "During a skirmish with o_c_n, m_c took a blow meant for r_c.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -7883,6 +8032,10 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c is badly outnumbered in a fight with a o_c_n patrol and sustains grave injuries.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["warrior", "deputy", "leader"],
             "dies": false
@@ -7913,6 +8066,10 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c and r_c are badly outnumbered in a fight with a o_c_n patrol and sustain grave injuries.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["warrior", "deputy", "leader"],
             "dies": false
@@ -7947,6 +8104,10 @@
         "tags": ["clan:leader"],
         "frequency": 2,
         "event_text": "lead_name sends m_c to strengthen the markings along the border with o_c_n, but o_c_n had the same idea. m_c and r_c are injured in the ensuing fight.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["deputy"],
             "dies": false
@@ -7981,6 +8142,10 @@
         "tags": [],
         "frequency": 1,
         "event_text": "To settle a piece of disputed land in the ongoing war with o_c_n, m_c is chosen to fight one-on-one with a o_c_n warrior. m_c loses the duel, and the strip of territory goes to o_c_n.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["warrior", "deputy"],
             "skill": ["-FIGHTER,2"],
@@ -8024,6 +8189,10 @@
         "tags": [],
         "frequency": 2,
         "event_text": "To settle a piece of disputed land in the ongoing war with o_c_n, m_c is chosen to fight one-on-one with a o_c_n warrior. m_c wins the duel, and the strip of territory goes to c_n.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["warrior", "deputy"],
             "skill": ["FIGHTER,2"],
@@ -8067,6 +8236,9 @@
         "tags": [],
         "frequency": 1,
         "event_text": "m_c leads a raid on o_c_n's camp. r_c is badly injured in the fight.",
+        "tile_location": [
+            "other_clan_camp"
+        ],
         "m_c": {
             "status": ["warrior", "deputy", "leader"],
             "age": ["senior adult"],
@@ -8102,6 +8274,10 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c battles one of o_c_n's most feared warriors and winds up in the medicine den.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["warrior", "deputy", "leader"],
             "trait": ["confident", "daring", "bold", "arrogant", "fierce", "bloodthirsty", "ambitious", "arrogant", "shameless", "adventurous", "loyal", "rebellious", "troublesome", "vengeful"],
@@ -8133,6 +8309,10 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c is relieved to sustain only minor injuries in a fight with o_c_n.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["apprentice", "warrior", "deputy", "leader"],
             "trait": ["nervous", "careful", "wise", "calm", "insecure", "gloomy", "thoughtful", "sincere", "compassionate"],
@@ -8157,6 +8337,10 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c leads a patrol to skirmish with o_c_n at the border. When o_c_n's patrol retreats, {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} unscathed, save for {PRONOUN/m_c/poss} torn ear.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["warrior", "deputy", "leader"],
             "skill": ["FIGHTER,1"],
@@ -8188,6 +8372,9 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c's sharp reflexes while patrolling the o_c_n border save {PRONOUN/m_c/object} and r_c from an ambush. They escape with only minor injuries.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": ["warrior", "deputy", "leader"],
             "skill": ["SENSE,1"],
@@ -8223,6 +8410,10 @@
         "tags": [],
         "frequency": 2,
         "event_text": "A o_c_n patrol ambushes c_n's patrol when they renew the border markings. r_c and m_c are badly wounded in the fight.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["apprentice", "warrior", "deputy", "leader"],
             "dies": false
@@ -8257,6 +8448,10 @@
         "tags": [],
         "frequency": 2,
         "event_text": "c_n tries to ambush o_c_n at the border, but o_c_n is prepared. c_n loses the element of surprise and must retreat, m_c and r_c wounded.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["apprentice", "warrior", "deputy", "leader"],
             "dies": false
@@ -8291,6 +8486,10 @@
         "tags": [],
         "frequency": 2,
         "event_text": "c_n ambushes o_c_n at the border. Though they drive off the patrol, m_c and r_c are injured in the battle.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["apprentice", "warrior", "deputy", "leader"],
             "dies": false
@@ -8325,6 +8524,10 @@
         "tags": [],
         "frequency": 2,
         "event_text": "c_n ambushes o_c_n at the border. m_c and r_c sustain minor injuries in the fight, but the o_c_n patrol is driven off successfully.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["apprentice", "warrior", "deputy", "leader"],
             "dies": false
@@ -8359,6 +8562,9 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c sneaks onto o_c_n territory to poach prey. o_c_n catches {PRONOUN/m_c/object} and claws at {PRONOUN/m_c/poss} tail as {PRONOUN/m_c/subject} {VERB/m_c/flee/flees}.",
+        "tile_location": [
+            "other_clan_territory"
+        ],
         "m_c": {
             "status": ["warrior", "deputy", "leader"],
             "trait": ["rebellious", "troublesome", "vengeful"],
@@ -8412,6 +8618,10 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c confronts o_c_n's leader in battle. The warring Clans hold their breath as the leaders battle, and c_n is aggrieved when m_c is defeated.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["leader"],
             "skill": ["-FIGHTER,1"],
@@ -8455,6 +8665,10 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c confronts o_c_n's leader in battle. The warring Clans hold their breath as the leaders battle, and c_n is elated when m_c emerges victorious.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["leader"],
             "dies": false
@@ -8497,6 +8711,10 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c confronts o_c_n's leader in battle. The warring Clans hold their breath as the leaders battle, and c_n is elated when m_c emerges victorious.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["leader"],
             "skill": ["FIGHTER,1"],
@@ -8540,6 +8758,10 @@
         "tags": [],
         "frequency": 1,
         "event_text": "m_c sees r_c holding back in a fight with a o_c_n warrior. The rest of the c_n patrol is injured, but r_c barely has a scratch on {PRONOUN/r_c/object}.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["leader", "deputy", "warrior", "apprentice"]
         },
@@ -8588,6 +8810,10 @@
         "tags": [],
         "frequency": 3,
         "event_text": "During a battle at the border, o_c_n calls a retreat before any cat can be hurt too badly.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["leader", "deputy", "warrior"]
         },
@@ -8645,6 +8871,10 @@
         "tags": ["romance"],
         "frequency": 2,
         "event_text": "m_c saves r_c in a battle with o_c_n. r_c can't stop thinking about the act of heroism in the following days.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["leader", "deputy", "warrior"],
             "skill": ["FIGHTER,1"]
@@ -8684,6 +8914,10 @@
         "tags": ["romance"],
         "frequency": 2,
         "event_text": "m_c saves r_c in a battle with o_c_n and takes a beating. r_c hovers at {PRONOUN/m_c/poss} nestside, fearing for the cat who saved {PRONOUN/r_c/poss} life.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["leader", "deputy", "warrior"],
             "skill": ["-FIGHTER,1"]
@@ -8723,6 +8957,10 @@
         "tags": [],
         "frequency": 1,
         "event_text": "r_c catches m_c meeting with an enemy warrior at the o_c_n border. When r_c attacks the o_c_n warrior, m_c leaps to {PRONOUN/n_c:0/poss} defense and fights {PRONOUN/m_c/poss} own Clanmate.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": ["warrior"],
             "age": ["young adult"],
@@ -8813,6 +9051,10 @@
         ],
         "frequency": 2,
         "event_text": "When a fight breaks out between c_n and o_c_n, m_c fights to protect {PRONOUN/m_c/poss} apprentice, r_c, from the enemy Clan.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "warrior", "deputy", "leader"
@@ -8877,6 +9119,10 @@
         ],
         "frequency": 2,
         "event_text": "r_c and m_c match each other blow for blow in a fight with a o_c_n patrol. Though they are wounded, they protect each other.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "warrior", "apprentice", "deputy", "leader"
@@ -8935,6 +9181,10 @@
         ],
         "frequency": 2,
         "event_text": "m_c protects {PRONOUN/m_c/poss} little sibling, r_c, in a fight with o_c_n.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "warrior", "deputy", "leader"
@@ -8999,6 +9249,9 @@
         ],
         "frequency": 2,
         "event_text": "In a battle with o_c_n, r_c hauls an enemy warrior off m_c with the ferocity only a parent can show.",
+        "tile_location": [
+            "other_clan_border", "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "warrior", "apprentice", "deputy", "leader"
@@ -9050,6 +9303,9 @@
         ],
         "frequency": 2,
         "event_text": "In a battle with o_c_n, m_c sees an enemy warrior attack {PRONOUN/m_c/poss} parent, r_c. m_c leaps to r_c's defense and saves {PRONOUN/m_c/poss} life.",
+        "tile_location": [
+            "outside_camp", "other_clan_territory"
+        ],
         "m_c": {
             "status": [
                 "apprentice", "warrior", "deputy", "leader"
@@ -9414,6 +9670,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was running around on patrol when {PRONOUN/m_c/poss} paw landed right in a rabbit hole. {PRONOUN/m_c/subject/CAP} limped the whole way home.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -9457,6 +9716,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c got hurt while chasing fireflies through camp.",
+        "tile_location": [
+            "camp"
+        ],
         "new_accessory": [],
         "m_c": {
             "age": [
@@ -9482,6 +9744,9 @@
     "sub_type": ["war"],
     "frequency": 4,
     "event_text": "m_c and r_c return to camp, worn but triumphant after their victory against o_c_n.",
+    "tile_location": [
+        "camp"
+    ],
 
     "m_c": {
         "status": ["leader", "deputy", "warrior"]
@@ -9538,7 +9803,8 @@
         "sub_type": ["war"],
         "tags": [],
         "frequency": 1,
-        "event_text": "After a victorious battle against a o_c_n cat, m_c returns to camp with pride… only to trip over at the entrance, spraining {PRONOUN/m_c/poss} paw.",
+        "event_text": "After a victorious battle against a o_c_n cat, m_c returns to camp with pride... only to trip over at the entrance, spraining {PRONOUN/m_c/poss} paw.",
+        "tile_location": ["camp"],
         "new_accessory": [],
         "m_c": {
             "status": [
@@ -9573,6 +9839,7 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c hides in a cramped nook, planning to ambush the next o_c_n patrol. When no one shows, {PRONOUN/m_c/subject} {VERB/m_c/return/returns} to camp aching and stiff.",
+        "tile_location": ["other_clan_border"],
         "new_accessory": [],
         "m_c": {
             "status": [

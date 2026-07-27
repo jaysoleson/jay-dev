@@ -147,11 +147,11 @@ class Condition_Events:
             return
 
         if cat.ID not in nutrition_info.keys():
-            logger.error(
-                "Could not find cat with ID %s (%s) in the nutrition information.",
-                cat.ID,
-                str(cat.name),
-            )
+            # logger.error(
+            #     "Could not find cat with ID %s (%s) in the nutrition information.",
+            #     cat.ID,
+            #     str(cat.name),
+            # )
             return
 
         # get all events for a certain rank of a cat

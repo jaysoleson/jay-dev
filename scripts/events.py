@@ -126,7 +126,7 @@ def one_moon():
                 Cat.all_cats.values(),
             )
         )
-        game.clan.freshkill_pile.time_skip(relevant_cats, game.freshkill_event_list)
+        # game.clan.freshkill_pile.time_skip(relevant_cats, game.freshkill_event_list)
         # get the moonskip freshkill
         get_moon_freshkill()
 
@@ -2658,7 +2658,7 @@ def other_clans_territory_wobble():
         clan=first_clan if number == 1 else second_clan,
         other_clan=second_clan if number == 1 else first_clan
     )
-    game.cur_events_list.append(Single_Event(event_string, ["other_clans", "view_map"]))
+    game.cur_events_list.append(Single_Event(event_string, ["other_clans", "view_map"], event_tile=traded_tile))
 
 load_ceremonies()
 load_war_resources()
