@@ -1082,7 +1082,8 @@ class Territory():
         elif tile_type in ("river", "lake", "ocean"):
             valid_tiles = [
                 t for t in all_tiles
-                if "terrain" in territory_dict[t] and
+                if t in territory_dict and
+                "terrain" in territory_dict[t] and
                 territory_dict[t]["terrain"] == tile_type]
         else:
             valid_tiles = territory_tiles
@@ -1114,7 +1115,6 @@ class Territory():
                 if exclude_water:
                     if "terrain" in info:
                         if info["terrain"] in ("lake", "river"):
-                            print("skipping tile", tile)
                             continue
                 all_tiles.append(tile)
         return all_tiles
