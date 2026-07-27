@@ -1011,6 +1011,8 @@ class ShortEvent:
             return False
 
         valid_tiles = territory_class.get_tiles(preset, clan=game.clan, other_clan=other_clan)
+        if preset == "other_clan_border":
+            valid_tiles = valid_tiles[0]
         if not valid_tiles:
             return False
 

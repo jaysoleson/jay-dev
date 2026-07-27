@@ -1025,7 +1025,7 @@ class Territory():
                 other_clan,
                 territory_dict=territory_dict,
                 exclude_water=exclude_water
-                )[0]
+                )
         elif tile_type == "unclaimed_border":
             valid_tiles = self._get_outside_borders(
                 clan,
