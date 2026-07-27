@@ -1095,9 +1095,9 @@ class Territory():
         if not territory_dict:
             territory_dict = game.clan.territory_tile_info
         
-        for tile, tile_info in territory_dict:
-            if "poi" in tile_info:
-                if tile_info["poi"] == poi:
+        for tile, info in territory_dict.items():
+            if "poi" in info:
+                if info["poi"] == poi:
                     return [tile]
         return []
     
