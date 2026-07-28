@@ -629,7 +629,7 @@ class LeaderDenScreen(Screens):
         )
 
         self.focus_clan_elements["clan_symbol"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((0, 67), (100, 100))),
+            ui_scale(pygame.Rect((0, 52), (100, 100))),
             pygame.transform.scale(
                 clan_symbol_sprite(self.focus_clan, force_light=True),
                 ui_scale_dimensions((100, 100)),
@@ -646,7 +646,7 @@ class LeaderDenScreen(Screens):
         relation = self.focus_clan.get_standing()
 
         self.focus_clan_elements["clan_name"] = pygame_gui.elements.UILabel(
-            ui_scale(pygame.Rect((0, 15), (215, -1))),
+            ui_scale(pygame.Rect((0, 8), (215, -1))),
             text=self.focus_clan.name,
             object_id="#text_box_30_horizcenter",
             container=self.focus_clan_container,
@@ -687,8 +687,25 @@ class LeaderDenScreen(Screens):
             },
         )
 
+        # CGW
+        current_war = self.focus_clan.get_current_war()
+        if current_war:
+            text = current_war.get_opposition_string(self.focus_clan)
+
+            self.focus_clan_elements["at_war"] = pygame_gui.elements.UITextBox(
+                html_text=text,
+                relative_rect=ui_scale(pygame.Rect((0, 10), (215, -1))),
+                object_id="#text_box_24_horizcenter",
+                container=self.focus_clan_container,
+                manager=MANAGER,
+                anchors={
+                    "centerx": "centerx",
+                    "top_target": self.focus_clan_elements["clan_rel"],
+                },
+            )
+
         self.focus_frame_elements["negative_interaction"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 265), (121, 30))),
+            ui_scale(pygame.Rect((0, 275), (121, 30))),
             "provoke",
             get_button_dict(ButtonStyles.SQUOVAL, (121, 30)),
             object_id="@buttonstyles_squoval",
@@ -699,7 +716,7 @@ class LeaderDenScreen(Screens):
             anchors={"centerx": "centerx"},
         )
         self.focus_frame_elements["positive_interaction"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 305), (121, 30))),
+            ui_scale(pygame.Rect((0, 315), (121, 30))),
             "befriend",
             get_button_dict(ButtonStyles.SQUOVAL, (121, 30)),
             container=self.focus_clan_container,

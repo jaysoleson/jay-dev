@@ -33,7 +33,7 @@ class Territory():
         "terrain_sunningrocks",
     ]
     lake_pois = [
-        "terrain_lake"
+        "gather_island",
     ]
     ocean_pois = [
         "terrain_carrionbeach",
@@ -289,9 +289,9 @@ class Territory():
 
         # river, lake, ocean
         biome_water_features = {
-            "Plains": (1, 1, 0),
+            "Plains": (2, 1, 0),
             "Forest": (1, 1, 0),
-            "Mountainous": (1, 1, 1),
+            "Mountainous": (1, 2, 1),
             "Beach": (1, 1, 3),
             "Wetlands": (3, 2, 0),
             "Desert": (0, 0, 0)
@@ -313,7 +313,7 @@ class Territory():
         # force a lake at the center for the gathering island
         if "gather_island" in all_pois["gathering"]:
             create_lake = True
-            lake_starting_tile = f"{round(self.MAP_WIDTH/2)}-{round(self.MAP_HEIGHT/2)}"
+            lake_starting_tile = self.get_gathering_tile(territory_dict)
 
         if not create_river:
             if river_number:
@@ -329,9 +329,6 @@ class Territory():
         if game.clan.biome == "Beach":
             create_river = True
             create_ocean = True
-
-        create_lake = True
-        
 
         # now create them!
         if create_river:
@@ -370,6 +367,7 @@ class Territory():
                     all_tiles=non_water_tiles,
                     territory_dict=territory_dict
                 )
+                lake_starting_tile = None
 
         territory_dict = self._correct_terrain(territory_dict)
 
@@ -432,7 +430,7 @@ class Territory():
             endpoint = int(river_tiles[-1].split("-")[-1])
 
         valid_tiles = all_tiles.copy()
-        for tile in valid_tiles:
+        for tile in valid_tiles.copy():
             if "camp" in territory_dict[tile] and territory_dict[tile]["camp"]:
                 valid_tiles.remove(tile)
 
@@ -491,7 +489,18 @@ class Territory():
         return territory_dict
     
     def __create_lake(self, lake_tile, all_tiles, territory_dict={}):
-        # dont put anyones camp in the middle of the lake :(
+        valid_tiles = all_tiles.copy()
+        for tile in valid_tiles.copy():
+            neighbours = self.get_all_neighbours(tile, territory_dict=territory_dict)
+            for n in neighbours + [tile]:
+                if "camp" in territory_dict[n] and territory_dict[n]["camp"]:
+                    if n in valid_tiles:
+                        valid_tiles.remove(tile)
+                if "terrain" in territory_dict[n] and territory_dict[n]["terrain"] in (
+                    "river", "lake", "ocean"
+                ):
+                    if n in valid_tiles:
+                        valid_tiles.remove(tile)
 
         lake_tiles = self.distribute_tiles(
             item_list=[1],
@@ -612,20 +621,12 @@ class Territory():
                             if territory_dict[tile]["terrain"] == "river":
                                 feature_tiles.append(tile)
                     elif feature in (
-                        "terrain_lake"
-                        ):
-                        for tile in free_tiles:
-                            if "terrain" not in territory_dict[tile]:
-                                continue
-                            if territory_dict[tile]["terrain"] == "lake":
-                                feature_tiles.append(tile)
-                    elif feature in (
                         "terrain_carrionbeach", "terrain_gullcliffs"
                         ):
                         for tile in free_tiles:
                             if "terrain" not in territory_dict[tile]:
                                 continue
-                            if territory_dict[tile]["terrain"] == "ocean":
+                            if territory_dict[tile]["terrain"] in ("ocean", "lake"):
                                 feature_tiles.append(tile)
                     else:
                         # any other POIs are ones that should be on land
@@ -960,21 +961,6 @@ class Territory():
     def valid_tile_searches(self):
         # TODO: poi tag stuff hopefully
         # TODO: herb tile specification!
-        """
-        "other_clan_border" | A border with another Clan.
-        "other_clan_inner_border" | A border with another Clan on their side.
-        "other_clan_camp" | Another Clan's camp.
-        "unclaimed_border" | A border with unclaimed land or the edge of the map.
-        "border" | Any border.
-        "territory" | The inner territory.
-        "camp" | The camp.
-        "outside_camp" | Any territory or border.
-        "other_clan" | Another Clan's territory.
-        "outside" | Any outside territory, including other Clans' and unclaimed.
-        "unclaimed" | Unclaimed territory.
-        "any" | Any territory belonging to the specified Clan.
-        And any POI tags, categories, or names.
-        """
 
         valid_tags = [
             "other_clan_border",
@@ -1015,6 +1001,19 @@ class Territory():
             ):
         """
         Pass a tile type to recieve a list of valid tiles.
+        "other_clan_border" | A border with another Clan.
+        "other_clan_inner_border" | A border with another Clan on their side.
+        "other_clan_camp" | Another Clan's camp.
+        "unclaimed_border" | A border with unclaimed land or the edge of the map.
+        "border" | Any border.
+        "territory" | The inner territory.
+        "camp" | The camp.
+        "outside_camp" | Any territory or border.
+        "other_clan" | Another Clan's territory.
+        "outside" | Any outside territory, including other Clans' and unclaimed.
+        "unclaimed" | Unclaimed territory.
+        "any" | Any territory belonging to the specified Clan.
+        And any POI tags, categories, or names.
         """
         if not clan:
             clan = game.clan
@@ -1336,6 +1335,52 @@ class Territory():
             valid_neighbour_list.append(n)
 
         return valid_neighbour_list
+    
+    def get_all_neighbours(
+            self,
+            tile_string,
+            layer=1,
+            territory_dict={},
+            exclude_water=False,
+            only_water=False
+        ):
+
+        immediate_neighbours = self.get_immediate_neighbours(
+            tile_string,
+            layer,
+            territory_dict,
+            exclude_water,
+            only_water
+            )
+        
+        x = int(tile_string.split("-")[0])
+        y = int(tile_string.split("-")[1])
+        corners = [
+            f"{x-1}-{y-1}",
+            f"{x+1}-{y-1}",
+            f"{x-1}-{y+1}",
+            f"{x+1}-{y+1}"
+        ]
+        for n in corners:
+            if territory_dict:
+                if n not in territory_dict:
+                    continue
+            if exclude_water:
+                if territory_dict and n in territory_dict:
+                    if "terrain" in territory_dict[n]:
+                        if territory_dict[n]["terrain"] in ("river", "lake", "ocean"):
+                            continue
+
+            if only_water:
+                if territory_dict and n in territory_dict:
+                    if "terrain" in territory_dict[n]:
+                        if territory_dict[n]["terrain"] not in ("river", "lake", "ocean"):
+                            continue
+                    else:
+                        continue
+            immediate_neighbours.append(n)
+        return immediate_neighbours
+
     
     def update_tile_info(self, tile, key, value):
         if key == "owner":

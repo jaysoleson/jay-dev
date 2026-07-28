@@ -34,11 +34,6 @@
         "biome": ["any"],
         "tags": ["cave", "rocks", "covered"]
     },
-    "terrain_lake": {
-        "category": "terrain",
-        "biome": ["any"],
-        "tags": ["water:still", "water:flowing", "prey:water", "prey:flying"]
-    },
     "terrain_fordriver": {
         "category": "terrain",
         "biome": ["any"],

@@ -1031,6 +1031,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c was found dead near the o_c_n border.",
+        "tile_location": ["other_clan_border"],
         "m_c": {
             "skill": [
                 "-FIGHTER,2"
@@ -8413,13 +8414,11 @@
         "event_id": "gen_death_drownedbyaduck",
         "location": ["any"],
         "season": ["-leaf-bare"],
-        "poi": {
-            "name": ["terrain_lake"]
-        },
         "sub_type": [],
         "tags": [],
         "frequency": 1,
-        "event_text": "m_c attacked a duck, intending to bring it back for the fresh-kill pile, but was knocked below the surface of {POI/name/terrain_lake} and drowned.",
+        "event_text": "m_c attacked a duck, intending to bring it back for the fresh-kill pile, but was knocked below the surface of the lake and drowned.",
+        "tile_location": ["lake"],
         "m_c": {
             "status": [
                 "apprentice",

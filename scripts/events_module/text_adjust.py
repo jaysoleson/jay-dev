@@ -365,7 +365,12 @@ def ongoing_event_text_adjust(Cat, text, clan=None, other_clan_name=None):
         text = process_text(text, cat_dict)
 
     if other_clan_name:
-        text = text.replace("o_c_n", other_clan_name)
+        # text = text.replace("o_c_n", other_clan_name)
+        text = _replace_clan_name(
+            text,
+            "o_c_n",
+            other_clan_name,
+        )
     if clan:
         clan_name = str(clan.name)
     else:
@@ -541,13 +546,11 @@ def event_text_adjust(
 
     # other_clan_name
     if "o_c_n" in text and other_clan:
-        print("replacing o_c_n", text)
         text = _replace_clan_name(
             text,
             "o_c_n",
             other_clan if isinstance(other_clan, str) else other_clan.name,
         )
-        print("replaced o_c_n", text)
 
     # clan_name
     if "c_n" in text:

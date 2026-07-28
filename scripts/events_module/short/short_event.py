@@ -1006,7 +1006,6 @@ class ShortEvent:
         #     switch_set_value(Switch.last_used_POI, "")
 
         preset = choice(self.tile_location)
-        print("Location:", preset)
         if preset not in territory_class.valid_tile_searches():
             return False
         
@@ -1017,7 +1016,6 @@ class ShortEvent:
             ):
             # be default everything happens on DRY LAND
                 exclude_water = True
-                print("Excluding water.")
 
         valid_tiles = territory_class.get_tiles(
             preset,
@@ -1038,7 +1036,6 @@ class ShortEvent:
             return False
 
         chosen_tile = choice(valid_tiles)
-        print("Event in:", chosen_tile)
         if "events" in game.clan.territory_tile_info[chosen_tile]:
             game.clan.territory_tile_info[chosen_tile]["events"].append(
                 {

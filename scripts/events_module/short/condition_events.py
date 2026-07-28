@@ -357,7 +357,7 @@ class Condition_Events:
         triggered = False
 
         modify_for_war = (
-            game.clan.war["at_war"]
+            game.clan.get_current_war() is not None
             and switch_get_value(Switch.war_rel_change_type) != "rel_up"
         )
         path = (

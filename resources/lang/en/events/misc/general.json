@@ -13593,7 +13593,7 @@
         ],
         "frequency": 4,
         "event_text": "m_c seemed annoyed that r_c practiced swimming while on patrol.",
-        "tile_location": ["outside_camp"],
+        "tile_location": ["water"],
         "m_c": {},
         "r_c": {
             "status": [

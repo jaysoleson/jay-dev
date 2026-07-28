@@ -150,9 +150,9 @@ class MapTileButton(pygame_gui.elements.UIButton):
                     colour = COLOURS["default"]
         elif self.current_view == "terrain":
             map_colours = {
-                "river": "blue",
-                "lake": "blue",
-                "ocean": "blue"
+                "river": "ocean",
+                "lake": "ocean",
+                "ocean": "ocean"
             }
             if "terrain" in tile_info:
                 if self.view_colour:
@@ -193,7 +193,7 @@ class MapTileButton(pygame_gui.elements.UIButton):
             ) and self.current_view != "terrain":
                 colour_list = [normal_colour, light_colour, hover_colour]
                 new_colour_list = []
-                darken_by = [45, 22, 5]
+                darken_by = [35, 18, 5]
                 for colour in colour_list:
                     r = int(colour.r) - darken_by[0]
                     if r < 0:
@@ -282,10 +282,10 @@ class MapTileButton(pygame_gui.elements.UIButton):
                     if self.tile_owner:
                         self.colours["normal_border"] = self.colour_dict["dark"]
                     else:
-                        if self.herb and not self.tile_owner or self.view_water:
-                            self.colours["normal_border"] = self.colour_dict["dark"]
-                        else:
-                            self.colours["normal_border"] = self.colour_dict["normal"]
+                        self.colours["normal_border"] = self.colour_dict["normal"]
+                        if not self.tile_owner:
+                            if self.herb or self.view_water or self.current_view == "terrain":
+                                self.colours["normal_border"] = self.colour_dict["dark"]
             else:
                 self.colours["normal_border"] = self.colour_dict["normal"]
             

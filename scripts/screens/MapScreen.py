@@ -10,6 +10,8 @@ from scripts.ui.generate_button import get_button_dict, ButtonStyles
 from scripts.ui.icon import Icon
 from scripts.game_structure.screen_settings import MANAGER
 from scripts.ui.elements.image_button import UIImageButton
+from scripts.ui.elements.modified_image import UIModifiedImage
+
 from scripts.ui.scale import ui_scale, ui_scale_dimensions
 from scripts.game_structure import image_cache
 from scripts.game_structure import game
@@ -39,6 +41,9 @@ class MapScreen(Screens):
                 ).convert_alpha(),
         "compass": image_cache.load_image(
                     "resources/images/compass.png"
+                ).convert_alpha(),
+        "map_frame": image_cache.load_image(
+                    "resources/images/map_frame.png"
                 ).convert_alpha(),
     }
     def __init__(self, name=None):
@@ -75,6 +80,12 @@ class MapScreen(Screens):
         self.all_interaction_buttons = ["claim", "forfeit", "take", "attack"]
 
     def screen_switches(self):
+        for tile in game.clan.territory_tile_info:
+            if "events" in game.clan.territory_tile_info[tile]:
+                for event in game.clan.territory_tile_info[tile]["events"].copy():
+                    if game.clan.age - event["moon"] >= get_config("bellsofwar.save_events_for"):
+                        game.clan.territory_tile_info[tile]["events"].remove(event)
+
         if switch_get_value(Switch.selected_tile):
             self.selected_tile = switch_get_value(Switch.selected_tile)
 
@@ -91,6 +102,7 @@ class MapScreen(Screens):
             starting_height=3,
             manager=MANAGER,
         )
+
         self.map_container = UIContainer(
             ui_scale(pygame.Rect((60, 100), (self.BOX_SIZE[0], self.BOX_SIZE[1]))),
             starting_height=3,
@@ -121,7 +133,7 @@ class MapScreen(Screens):
         )
         # events
         self.elements["view_events"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 210), (95, 30))),
+            ui_scale(pygame.Rect((0, 260), (95, 30))),
             "buttons.map_view_events",
             get_button_dict(ButtonStyles.ROUNDED_RECT, (95, 30)),
             object_id="@buttonstyles_rounded_rect",
@@ -166,13 +178,13 @@ class MapScreen(Screens):
 
     def update_buttons(self):
         # tabs
-        x_val = 142
+        x_val = 105
         options = {
             "borders": Icon.CAT_HEAD,
-            "herbs": Icon.HERB,
             "strength": Icon.SCRATCHES,
+            "event_density": Icon.CLAN_UNKNOWN,
+            "herbs": Icon.HERB,
             "terrain": Icon.MOUSE,
-            "event_density": Icon.CLAN_UNKNOWN
         }
         for option, icon in options.items():
             if option in self.tabs:
@@ -187,7 +199,10 @@ class MapScreen(Screens):
                 anchors={"top_target": self.elements["map_box"]},
                 tool_tip_text=f"screens.map.view_{option}"
             )
-            x_val += 50
+            if option == "event_density":
+                x_val += 121
+            else:
+                x_val += 40
         
         for key, button in self.tabs.items():
             if self.current_view == key:
@@ -359,10 +374,26 @@ class MapScreen(Screens):
             )
             if tile == self.selected_tile:
                 self.map_tile_buttons[tile].select()
-        
+
+        if "map_frame" in self.elements:
+            self.elements["map_frame"].kill()
+
+        # UIModifiedImage allows hover over the tiles below it
+        # thank u whoever made this! i assume scribble! yay!
+        self.elements["map_frame"] = UIModifiedImage(
+            ui_scale(pygame.Rect((25, 65), (470, 470))),
+            pygame.transform.scale(
+                    self.ui_images["map_frame"],
+                    ui_scale_dimensions((470, 470)),
+                ),
+            starting_height=10,
+            manager=MANAGER,
+        )
+        self.elements["map_frame"].disable()
+
         if "compass" in self.elements:
             self.elements["compass"].kill()
-        self.elements["compass"] = pygame_gui.elements.UIImage(
+        self.elements["compass"] = UIModifiedImage(
             ui_scale(pygame.Rect((403, 43), (114, 114))),
             pygame.transform.scale(
                     self.ui_images["compass"],
@@ -371,6 +402,7 @@ class MapScreen(Screens):
             starting_height=10,
             manager=MANAGER,
         )
+        self.elements["compass"].disable()
 
     def update_tiles(self):
         for key, button in self.map_tile_buttons.items():
@@ -407,7 +439,6 @@ class MapScreen(Screens):
         
         tile_info = game.clan.territory_tile_info[self.selected_tile]
         if self.selected_tile:
-            tile_owner = territory_class.get_tile_owner(self.selected_tile)
 
             tile_name_string = territory_class.get_tile_name_string(self.selected_tile)
 
@@ -436,10 +467,19 @@ class MapScreen(Screens):
             if herb_string:
                 info += "---<br>"
                 info += herb_string
+                info += "<br>"
+
+            current_war = None
+            tile_owner = territory_class.get_tile_owner(self.selected_tile)
+            if tile_owner:
+                current_war = tile_owner.get_current_war()
+            if current_war:
+                info += "---<br>"
+                info += current_war.get_full_opposition_string(tile_owner)
 
             self.elements["selected_tile_info_text"] = pygame_gui.elements.UITextBox(
                 info,
-                ui_scale(pygame.Rect((0, 10), (180, 100))),
+                ui_scale(pygame.Rect((0, 10), (180, 180))),
                 manager=MANAGER,
                 container=self.tile_info_container,
                 object_id="#text_box_26_horizcenter_vert_spacing_95",
@@ -452,7 +492,7 @@ class MapScreen(Screens):
             if button in self.elements:
                 self.elements[button].kill()
         
-        y_positions = [300, 340]
+        y_positions = [315, 350]
         button_width = 115
     
         # CLAIM

@@ -1,19 +1,5 @@
 from scripts.game_structure import game
 
-
-def get_warring_clan():
-    """
-    returns enemy clan if a war is currently ongoing
-    """
-    enemy_clan = None
-    if game.clan.war.get("at_war", False):
-        for other_clan in game.clan.all_other_clans:
-            if other_clan.name == game.clan.war["enemy"]:
-                enemy_clan = other_clan
-
-    return enemy_clan
-
-
 def get_other_clan(clan_name):
     """
     returns the clan object of given clan name

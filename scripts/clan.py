@@ -60,6 +60,8 @@ from scripts.clan_package.get_clan_cats import (
 from scripts.screens.screens_core.screens_core import rebuild_top_menu_buttons
 from scripts.territory import territory_class
 
+from scripts.war import War
+
 with open(f"resources/dicts/colour_map.json", "r") as read_file:
     events = read_file.read()
     COLOURS = ujson.loads(events)
@@ -168,11 +170,18 @@ class Clan:
         self.herb_supply = HerbSupply()
         self.primary_disaster = None
         self.secondary_disaster = None
-        self.war = {
-            "at_war": False,
-            "enemy": None,
-            "duration": 0,
-        }
+        # CGWAR
+        # war is now a LIST: several clans can be at war with each other
+        # war will look like
+        # war = [
+        #     {
+        #         "offense": "1",
+        #         "defense": "2",
+        #         "demand": "1-3", "herbs", "prey",
+        #         "duration": 4
+        #     }
+        # ]
+        self.war = []
         self.future_events = []
         self.last_focus_change = None
         self.clans_in_focus = []
@@ -560,6 +569,7 @@ class Clan:
             "instructor": self.instructor.ID,
             "reputation": self.reputation,
             "mediated": game.mediated,
+            "war": game.clan.war,
             "starting_season": self.starting_season,
             "colour": self.colour,
             "temperament": self.temperament,
@@ -611,7 +621,10 @@ class Clan:
         # OTHER CLANS
         clan_data["other_clans"] = [i.save_info() for i in self.all_other_clans]
 
-        clan_data["war"] = self.war
+        war_json_list = []
+        for war in clan_data["war"]:
+            war_json_list.append(war.get_war_dict())
+        clan_data["war"] = war_json_list
 
         clan_data["poi"] = get_poi_save_dict()
 
@@ -851,15 +864,15 @@ class Clan:
         switch_set_value(Switch.error_message, "")
     
     def load_territory_json(self):
-        # game.clan.territory_tile_info = territory_class.generate_territories()
+        game.clan.territory_tile_info = territory_class.generate_territories()
         # ^^ debug overwriting every load for testing
 
-        with open(
-            get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json",
-            "r",
-            encoding="utf-8",
-        ) as read_file:
-            game.clan.territory_tile_info = ujson.loads(read_file.read())
+        # with open(
+        #     get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json",
+        #     "r",
+        #     encoding="utf-8",
+        # ) as read_file:
+        #     game.clan.territory_tile_info = ujson.loads(read_file.read())
 
     def load_clan_json(self):
         """
@@ -1042,8 +1055,30 @@ class Clan:
                 game.clan.add_cat(Cat.all_cats[cat])
             else:
                 print("WARNING: Cat not found:", cat)
+
         if "war" in clan_data:
-            game.clan.war = clan_data["war"]
+            if isinstance(clan_data["war"], dict):
+                new_war = War(
+                    offense=game.clan.group_ID,
+                    defense=clan_data["war"]["enemy"],
+                    demand="prey",
+                    duration=clan_data["war"]["duration"]
+                )
+                clan_data["war"] = []
+                clan_data["war"].append(new_war.get_war_dict())
+                # turn into a dict because everything gets converted 
+                # BACK into War objects momentarily
+
+            war_object_list = []
+            for war in clan_data["war"]:
+                new_war = War(
+                    offense=war["offense"],
+                    defense=war["defense"],
+                    demand=war["demand"],
+                    duration=war["duration"],
+                )
+                war_object_list.append(new_war)
+            game.clan.war = war_object_list
 
         game.clan.last_focus_change = clan_data.get("last_focus_change")
         game.clan.clans_in_focus = clan_data.get("clans_in_focus", [])
@@ -1488,6 +1523,14 @@ class Clan:
             clan_sociability, clan_aggression, clan_lawfulness, clan_stability
         )
 
+    def get_current_war(self):
+        current_war = None
+        for war in game.clan.war:
+            if war.is_in_war(self):
+                current_war = war
+                break
+        return current_war
+
     @temperament.setter
     def temperament(self, val):
         return
@@ -1579,6 +1622,14 @@ class OtherClan:
             if chosen_symbol
             else clan_symbol_sprite(self, return_string=True)
         )
+
+    def get_current_war(self):
+        current_war = None
+        for war in game.clan.war:
+            if war.is_in_war(self):
+                current_war = war
+                break
+        return current_war
     
     def get_clan_colour(self):
         all_colours = list(COLOURS.keys())

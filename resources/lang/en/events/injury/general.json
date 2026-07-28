@@ -3238,7 +3238,7 @@
         "frequency": 4,
         "event_text": "m_c was hurt by o_c_n warriors after being ordered by r_c to go over the border.",
         "tile_location": [
-            "other_clan_border"
+            "other_clan_inner_border"
         ],
         "m_c": {
             "status": [
@@ -6639,11 +6639,8 @@
         "season": ["-leaf-bare"],
         "sub_type": [],
         "tags": [],
-        "poi": {
-            "name": ["POI/name/terrain_lake"]
-        },
         "frequency": 1,
-        "event_text": "m_c fought with a duck in the water, trying to kill it for the fresh-kill pile, but was knocked below the surface of {POI/name/terrain_lake} and inhaled a lot of water.",
+        "event_text": "m_c fought with a duck in the water, trying to kill it for the fresh-kill pile, but was knocked below the surface of the lake and inhaled a lot of water.",
         "tile_location": ["lake"],
         "m_c": {
             "status": [

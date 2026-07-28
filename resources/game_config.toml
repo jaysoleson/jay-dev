@@ -1027,7 +1027,7 @@ dev_tools = false
   # while territories are being created.
   # with this set to false, territories will generate by stretching inward from the edges of the map.
 
-  save_events_for = 20
+  save_events_for = 100
   # how many moons events will stay in the per-tile log.
 
   [bellsofwar.heatmap_mod]
