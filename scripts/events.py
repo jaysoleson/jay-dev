@@ -85,6 +85,7 @@ war_lang = None
 ceremony_id_by_tag = {}
 
 TERRITORY_TXT = None
+MAP_INTERACTIONS = None
 
 
 def one_moon():
@@ -135,6 +136,9 @@ def one_moon():
     # Adding in any potential lead den events that have been saved
     if get_clan_setting("lead_den_interaction"):
         handle_lead_den_event()
+
+    if get_clan_setting("map_interaction"):
+        handle_map_interaction_event()
 
     # checking if a lost cat returns on their own
     rejoin_upperbound = constants.CONFIG["lost_cat"]["rejoin_chance"]
@@ -593,6 +597,174 @@ def handle_lead_den_event():
 
     set_clan_setting("lead_den_interaction", False)
 
+def handle_map_interaction_event():
+    """
+    CGWAR
+    """
+    global MAP_INTERACTIONS
+
+    interaction_dict = get_clan_setting("map_interaction")
+
+    target_tile = interaction_dict["tile"]
+    owner = territory_class.get_tile_owner(target_tile)
+
+    interaction = interaction_dict["interaction"]
+    events = MAP_INTERACTIONS[interaction]
+
+    if owner:
+        if owner.group_ID != interaction_dict["owner_ID"]:
+            print("Error: Target tile owner is different than in the map dict!")
+            print(target_tile)
+            return
+
+    # get event inserts
+    reputation_insert = owner.get_standing() if owner else "unclaimed"
+    border_tiles = territory_class.get_tiles(
+        "other_clan_inner_border",
+        clan=game.clan,
+        other_clan=owner
+        )
+
+    success_chance = 2
+    if target_tile in border_tiles:
+        border_insert = "border"
+    else:
+        border_insert = "not_border"
+        success_chance += 6
+    success_chance += round(territory_class.get_tile_desirability(target_tile))
+    success_chance += game.clan.territory_tile_info[target_tile]["strength"]
+
+    if interaction == "take":
+        success_chance = round(success_chance * 1.5)
+    
+    print("Success chance: 1/", success_chance)
+
+    success = False
+    if not int(random.random() * success_chance):
+        success = True
+    success_insert = "success" if success else "failure"
+
+    if success:
+        war_chance = success_chance
+    else:
+        war_chance = success_chance + 5
+
+    # now ATTACK event inserts --------------->
+    location_insert = ""
+    attack_war_insert = ""
+    if owner:
+        if target_tile == territory_class.get_camp_tile(owner)[0]:
+            location_insert = "camp"
+        elif target_tile in territory_class.get_tiles(
+            "other_clan_inner_border",
+            clan=game.clan,
+            other_clan=owner
+            ):
+            location_insert = "border"
+        else:
+            location_insert = "territory"
+
+        at_war = game.clan.get_current_war(territory_class.get_tile_owner(target_tile))
+        if at_war:
+            attack_war_insert = "at_war"
+        else:
+            attack_war_insert = "not_at_war"
+
+    war = False
+    war_insert = ""
+    demand_tile = None
+    if not int(random.random() * war_chance) and owner:
+        war_insert = "_war"
+        war = True
+        if success:
+            tiles = territory_class.get_tiles(
+                "other_clan_border",
+                clan=game.clan,
+                other_clan=owner
+                )
+            if not tiles or not owner:
+                tiles = territory_class.get_tiles(
+                    "all",
+                    clan=game.clan
+                )
+            demand_tile = random.choice(tiles)
+        else:
+            tiles = territory_class.get_tiles(
+                "all",
+                clan=game.clan
+            )
+            demand_tile = random.choice(tiles)
+
+    chosen_event = "No event found."
+    if interaction in ("claim", "take"):
+        print(reputation_insert, border_insert, success_insert + war_insert)
+        possible_events = events[reputation_insert][border_insert][success_insert + war_insert]
+    elif interaction == "forfeit":
+        possible_events = events
+    elif interaction == "attack":
+        # TODO: add a like. filter for these. reformat. for specified outcomes
+        possible_events = events[attack_war_insert][location_insert][game.clan.territory_tile_info[target_tile]["terrain"]]
+        owner.relations -= 3
+        if owner.relations < 0:
+            owner.relations = 0
+
+    else:
+        possible_events = events
+
+    for event in possible_events.copy():
+        if "m_c" in event and not game.clan.leader:
+            possible_events.remove(event)
+    chosen_event = random.choice(possible_events)
+
+    chosen_event = event_text_adjust(
+        Cat,
+        chosen_event,
+        main_cat=game.clan.leader,
+        clan=game.clan,
+        other_clan=owner
+    )
+    game.cur_events_list.append(Single_Event(chosen_event, "misc", event_tile=target_tile))
+
+    # TILE EVENTS ------------------>
+    if "events" in game.clan.territory_tile_info[target_tile]:
+        game.clan.territory_tile_info[target_tile]["events"].append(
+            {
+                "moon": game.clan.age,
+                "text": chosen_event,
+                "saved": False
+            }
+        )
+    else:
+        game.clan.territory_tile_info[target_tile]["events"] = [chosen_event]
+
+    if success:
+        territory_class.update_tile_info(target_tile, "owner", game.clan.group_ID)
+        tile_event = {
+                "moon": game.clan.age,
+                "text": event_text_adjust(
+                    Cat,
+                    "This territory was claimed by c_n.",
+                    clan=game.clan
+                    ),
+                "saved": False
+            }
+
+        if "events" in game.clan.territory_tile_info[target_tile]:
+            game.clan.territory_tile_info[target_tile]["events"].append(tile_event)
+        else:
+            game.clan.territory_tile_info[target_tile]["events"] = [tile_event]
+
+    # NEW WAR ------------------------>
+    if war:
+        new_war = War(
+            offense=owner.group_ID,
+            defense=game.clan.group_ID,
+            demand=demand_tile
+        )
+        game.clan.war.append(new_war)
+        owner.relations = 2
+    
+    set_clan_setting("map_interaction", {})
 
 def mediator_events(cat):
     """Check for mediator events"""
@@ -1125,8 +1297,8 @@ def one_moon_cat(cat):
     switch_set_value(Switch.skip_conditions, [])
 
 
-def load_war_resources():
-    global WAR_TXT, war_lang, TERRITORY_TXT
+def load_other_clan_events():
+    global WAR_TXT, war_lang, TERRITORY_TXT, MAP_INTERACTIONS
 
     if war_lang == i18n.config.get("locale"):
         return
@@ -1134,6 +1306,7 @@ def load_war_resources():
     war_lang = i18n.config.get("locale")
 
     TERRITORY_TXT = load_lang_resource("events/territory.json")
+    MAP_INTERACTIONS = load_lang_resource("events/map_interactions.json")
 
 
 def bellsofwar_check_war():
@@ -1222,8 +1395,8 @@ def bellsofwar_check_war():
             # random chance theyll start fighting with someone else instead
             # bc u pissed them off idk
             OFFENSE = other_clan
+            possible_clans = territory_class.get_neighbouring_clans(other_clan)
             if not int(random.random() * 3) or game.clan.get_current_war():
-                possible_clans = territory_class.get_neighbouring_clans(other_clan)
                 for clan in possible_clans.copy():
                     if clan == game.clan:
                         possible_clans.remove(clan)
@@ -1233,6 +1406,8 @@ def bellsofwar_check_war():
                     continue
                 DEFENSE = random.choice(possible_clans)
             else:
+                if game.clan not in possible_clans:
+                    continue
                 # YOURE getting attacked buddy
                 DEFENSE = game.clan
             new_war = War(
@@ -1267,8 +1442,8 @@ def find_war_events(event_type, war, rel_change=None):
             if not game.clan.leader:
                 war_events.remove(event)
                 continue
-            # print(war)
-            # print(war.is_in_war(game.clan))
+            print(war)
+            print(war.is_in_war(game.clan))
             if not war.is_in_war(game.clan):
                 war_events.remove(event)
                 continue
@@ -1344,7 +1519,7 @@ def find_war_events(event_type, war, rel_change=None):
             if possible_tiles:
                 event_tile = random.choice(possible_tiles)
     if event_tile:
-        game.cur_events_list.append(Single_Event(event, "other_clans", [game.clan.leader.ID], event_tile=event_tile))
+        game.cur_events_list.append(Single_Event(event, "other_clans", [], event_tile=event_tile))
 
         if "events" in game.clan.territory_tile_info[event_tile]:
             game.clan.territory_tile_info[event_tile]["events"].append(
@@ -2744,8 +2919,13 @@ def other_clans_territory_wobble():
 
     second_clan = random.choice(neighbouring_clans)
 
-    first_clan_tiles, second_clan_tiles = territory_class.get_tiles(
+    first_clan_tiles = territory_class.get_tiles(
         "other_clan_border",
+        clan=first_clan,
+        other_clan=second_clan
+        )
+    second_clan_tiles = territory_class.get_tiles(
+        "other_clan_inner_border",
         clan=first_clan,
         other_clan=second_clan
         )
@@ -2767,6 +2947,8 @@ def other_clans_territory_wobble():
     # find an event
     event_options = TERRITORY_TXT["taken_territory"]
     # CGWAR TODO: add filtering? at least for if theyre at war (once i get multiwar back in)
+    # TODO: filter by relations if slash when i add multi clan relations
+    # and add amicable/tense
 
     # TODO CGWAR: seperate filter func
     possible_events = []
@@ -2779,10 +2961,26 @@ def other_clans_territory_wobble():
     event_string = event_text_adjust(
         Cat,
         string,
-        clan=first_clan if number == 1 else second_clan,
-        other_clan=second_clan if number == 1 else first_clan
+        clan=second_clan if number == 1 else first_clan,
+        other_clan=first_clan if number == 1 else second_clan
     )
     game.cur_events_list.append(Single_Event(event_string, ["other_clans", "view_map"], event_tile=traded_tile))
+    if "events" in game.clan.territory_tile_info[traded_tile]:
+        game.clan.territory_tile_info[traded_tile]["events"].append(
+            {
+                "moon": game.clan.age,
+                "text": event_string,
+                "saved": False
+            }
+        )
+    else:
+        game.clan.territory_tile_info[traded_tile]["events"] = [
+            {
+                "moon": game.clan.age,
+                "text": event_string,
+                "saved": False
+            }
+        ]
 
 load_ceremonies()
-load_war_resources()
+load_other_clan_events()

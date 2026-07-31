@@ -4706,7 +4706,7 @@
             "name": ["terrain_sunningrocks"]
         },
         "frequency": 4,
-        "event_text": "m_c gathers some pretty leaves and lays them out to dry on {POI/name/terrain_sunningrocks}. {PRONOUN/m_c/subject/CAP} {VERB/m_c/return/returns} to camp a few days later with a new accessory",
+        "event_text": "m_c gathers some pretty leaves and lays them out to dry on {POI/name/terrain_sunningrocks}. {PRONOUN/m_c/subject/CAP} {VERB/m_c/return/returns} to camp a few days later with a new accessory.",
         "tile_location": ["terrain_sunningrocks"],
         "new_accessory": ["DRY HERBS", "DRY CATMINT", "DRY NETTLES", "DRY LAURELS"],
         "m_c": {
@@ -5738,7 +5738,7 @@
         ],
         "frequency": 2,
         "event_text": "A kittypet asked to join c_n but returned to Twolegplace after only a few days, realizing {PRONOUN/n_c:0/poss} distaste for outdoor living.",
-        "tile_location": ["camp", "terrain_twolegplace"],
+        "tile_location": ["terrain_twolegplace"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -6061,7 +6061,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c was seen in a very serious conversation with a kittypet, who ran away when another patrol approached.",
-        "tile_location": ["border"],
+        "tile_location": ["unclaimed_border"],
         "m_c": {
             "age": [
                 "adolescent",
@@ -16991,6 +16991,189 @@
         "tile_location": ["moonplace"],
         "m_c": {
             "status": ["medicine cat"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "leaf-bare"
+        ],
+        "frequency": 4,
+        "event_text": "m_c heads to the lakeside to spend some time alone, but finds a pair of Twolegs already there, sliding across its frozen surface.",
+        "tile_location": ["lake"],
+        "m_c": {
+            "status": ["-kitten"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_02",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 3,
+        "event_text": "m_c takes a nap by the river.",
+        "tile_location": ["coast:river"],
+        "m_c": {
+            "status": ["-kitten"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_03",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "-leaf-bare"
+        ],
+        "frequency": 3,
+        "event_text": "m_c catches a unique fish in the lake and insists to {PRONOUN/m_c/poss} friends that it's a new discovery.",
+        "tile_location": ["lake"],
+        "m_c": {
+            "status": ["warrior", "apprentice", "deputy", "leader"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_04",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 3,
+        "event_text": "m_c finds a cool rock by the river but accidentally drops it in.",
+        "tile_location": ["coast:river"],
+        "m_c": {
+            "status": ["kitten"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_05",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 2,
+        "event_text": "m_c swears {PRONOUN/m_c/subject} {VERB/m_c/see/sees} a large, snake-like creature swimming in the lake, but when {PRONOUN/m_c/subject} {VERB/m_c/bring/brings} r_c to come see it, it's nowhere to be found.",
+        "tile_location": ["coast:lake"],
+        "m_c": {
+            "status": ["-kitten"]
+        },
+        "r_c": {
+            "status": ["-kitten"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_06",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "newleaf", "greenleaf"
+        ],
+        "frequency": 2,
+        "event_text": "m_c and r_c discuss how high the river has gotten this season.",
+        "tile_location": ["camp", "coast:river"],
+        "m_c": {
+            "status": ["-kitten"]
+        },
+        "r_c": {
+            "status": ["-kitten"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_06",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "newleaf", "greenleaf"
+        ],
+        "frequency": 2,
+        "event_text": "The river's level has been climbing unexpectedly this season. m_c leads a patrol to pile some dirt around the territory to protect against flooding.",
+        "tile_location": ["camp", "coast:river"],
+        "m_c": {
+            "status": ["deputy", "warrior", "leader"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_06",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "newleaf", "greenleaf"
+        ],
+        "frequency": 2,
+        "event_text": "m_c sends r_c to the riverside to check its levels and ensure that a flood isn't on the way.",
+        "tile_location": ["coast:river"],
+        "m_c": {
+            "status": ["deputy", "leader"]
+        },
+        "r_c": {
+            "status": ["warrior"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_07",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 2,
+        "event_text": "m_c teaches a lesson to the kits about how to stay safe when walking by the river.",
+        "tile_location": ["coast:river"],
+        "m_c": {
+            "age": ["-kitten", "-adolescent"]
+        },
+        "r_c": {
+            "status": ["kitten"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_08",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "greenleaf"
+        ],
+        "frequency": 2,
+        "event_text": "m_c and r_c cool off on patrol by jumping into the lake.",
+        "tile_location": ["lake"],
+        "m_c": {
+            "status": ["warrior", "apprentice", "deputy", "leader"]
+        },
+        "r_c": {
+            "status": ["warrior", "apprentice", "deputy", "leader"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_08",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "greenleaf"
+        ],
+        "frequency": 2,
+        "event_text": "m_c jumps into the lake to cool off during a patrol with r_c. r_c would prefer to keep {PRONOUN/r_c/poss} fur dry.",
+        "tile_location": ["lake"],
+        "m_c": {
+            "status": ["warrior", "apprentice", "deputy", "leader"]
+        },
+        "r_c": {
+            "status": ["warrior", "apprentice", "deputy", "leader"]
         }
     }
 ]

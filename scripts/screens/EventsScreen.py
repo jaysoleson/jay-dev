@@ -903,17 +903,32 @@ class EventsScreen(Screens):
                 )
                 self.involved_cat_buttons.append(involved_cat_button)
 
+            # CGW edited
+            event_rect = None
+            if event_object.cats_involved:
+                event_rect = (
+                    display_element_event.get_relative_rect()[3]
+                    + (
+                        involved_cat_button.get_relative_rect()[3]
+                        + ui_scale_value(10)
+                        )
+                    )
+            elif event_object.event_tile:
+                event_rect = (
+                    display_element_event.get_relative_rect()[3]
+                    + (
+                        self.open_map_buttons[str(i) + "." + event_object.event_tile].get_relative_rect()[3]
+                        + ui_scale_value(10)
+                        )
+                    )
+            else:
+                event_rect = display_element_event.get_relative_rect()[3]
+                
             display_element_container.set_dimensions(
                 (
                     default_rect[2],
                     (
-                        display_element_event.get_relative_rect()[3]
-                        + (
-                            involved_cat_button.get_relative_rect()[3]
-                            + ui_scale_value(10)
-                        )
-                        if event_object.cats_involved
-                        else display_element_event.get_relative_rect()[3]
+                        event_rect
                     ),
                 )
             )

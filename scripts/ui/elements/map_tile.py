@@ -154,7 +154,7 @@ class MapTileButton(pygame_gui.elements.UIButton):
                 "lake": "ocean",
                 "ocean": "ocean"
             }
-            if "terrain" in tile_info:
+            if tile_info["terrain"] != "land":
                 if self.view_colour:
                     colour = COLOURS[map_colours[tile_info["terrain"]]]
                 else:
@@ -188,9 +188,7 @@ class MapTileButton(pygame_gui.elements.UIButton):
         hover_colour = pygame.Color(hover_colour_list[0], hover_colour_list[1], hover_colour_list[2], opacity)
 
         if self.view_water and self.view_colour:
-            if "terrain" in tile_info and tile_info["terrain"] in (
-                "river", "lake", "ocean"
-            ) and self.current_view != "terrain":
+            if tile_info["terrain"] != "land" and self.current_view != "terrain":
                 colour_list = [normal_colour, light_colour, hover_colour]
                 new_colour_list = []
                 darken_by = [35, 18, 5]
@@ -226,16 +224,13 @@ class MapTileButton(pygame_gui.elements.UIButton):
         elif self.current_view == "strength":
             self.populated = tile_info["strength"] > 0
         elif self.current_view == "terrain":
-            self.populated = "terrain" in tile_info
+            self.populated = tile_info["terrain"] != "land"
         elif self.current_view == "event_density":
             self.populated = "events" in tile_info and len(tile_info["events"]) > 0
         
         if self.view_water:
-            if "terrain" in tile_info:
-                if tile_info["terrain"] in (
-                    "river", "lake", "ocean"
-                ):
-                    self.populated = True
+            if tile_info["terrain"] != "land":
+                self.populated = True
         
         if self.icon_tile:
             self.populated = True

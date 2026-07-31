@@ -181,7 +181,7 @@ class Territory():
         if not self.all_clans:
             self.all_clans = game.clan.all_other_clans + [game.clan]
         for clan in self.all_clans:
-            camp_tile = self._get_camp_tile(clan, territory_dict=territory_dict)[0]
+            camp_tile = self.get_camp_tile(clan, territory_dict=territory_dict)[0]
             strength_tiles_collected = self.__distribute_heatmap_tiles(
                 layers=5,
                 starting_tile=camp_tile,
@@ -385,11 +385,35 @@ class Territory():
                     "river", "lake", "ocean"
                 ):
                     continue
+            elif "coast" in water_type:
+                water = water_type.split(":")[1]
+                if territory_dict[tile]["terrain"] != water:
+                    continue
+                if tile not in self._get_coast_tiles(water, territory_dict):
+                    continue
             else:
                 if territory_dict[tile]["terrain"] != water_type:
                     continue
             water_tiles.append(tile)
         return water_tiles
+
+    def _get_coast_tiles(self, water_type, territory_dict={}):
+        if not territory_dict:
+            territory_dict = game.clan.territory_tile_info
+        coast_tiles = []
+        for tile, info in territory_dict:
+            coast_tile = False
+            if info["terrain"] != water_type:
+                continue
+            for n in self.get_immediate_neighbours(tile, territory_dict):
+                if territory_dict[n]["terrain"] == "land":
+                    print(tile, "is a COAST tile!", water_type)
+                    coast_tile = True
+                    break
+            if coast_tile:
+                coast_tiles.append(tile)
+        return coast_tiles
+
 
     def get_land_tiles_from_list(self, tile_list, territory_dict={}):
         land_tiles = []
@@ -406,13 +430,13 @@ class Territory():
 
     def _correct_terrain(self, territory_dict={}):
         gather_tile = self.get_gathering_tile(territory_dict)
-        if "terrain" in territory_dict[gather_tile]:
-            territory_dict[gather_tile].pop("terrain")
+        territory_dict[gather_tile]["terrain"] = "land"
         
         for tile in territory_dict:
             if "camp" in territory_dict[tile] and territory_dict[tile]["camp"]:
-                if "terrain" in territory_dict[gather_tile]:
-                    territory_dict[gather_tile].pop("terrain")
+                territory_dict[tile]["terrain"] = "land"
+            if "terrain" not in territory_dict[tile]:
+                territory_dict[tile]["terrain"] = "land"
 
         return territory_dict
 
@@ -979,6 +1003,7 @@ class Territory():
             "river",
             "lake",
             "ocean",
+            "coast",
             "water",
             "gathering",
             "moonplace"
@@ -1013,6 +1038,7 @@ class Territory():
         "outside" | Any outside territory, including other Clans' and unclaimed.
         "unclaimed" | Unclaimed territory.
         "any" | Any territory belonging to the specified Clan.
+        "lake", "river", "ocean", "coast"
         And any POI tags, categories, or names.
         """
         if not clan:
@@ -1042,7 +1068,8 @@ class Territory():
             all_tiles = self.get_land_tiles_from_list(all_tiles, territory_dict)
 
 
-        if tile_type in get_poi_tags_set():
+        if tile_type in get_poi_tags_set() and tile_type != "water":
+            # water works bc i use it in a non poi way
             print("POI tag event. Skipping invalidation.")
             return all_tiles
         if tile_type in get_poi_categories_set():
@@ -1060,14 +1087,14 @@ class Territory():
                 other_clan,
                 territory_dict=territory_dict,
                 exclude_water=exclude_water
-                )
+                )[0]
         elif tile_type == "other_clan_inner_border":
             valid_tiles = self._get_border_tiles_between_clans(
                 clan,
                 other_clan,
                 territory_dict=territory_dict,
                 exclude_water=exclude_water
-                )
+                )[1]
         elif tile_type == "unclaimed_border":
             valid_tiles = self._get_outside_borders(
                 clan,
@@ -1084,11 +1111,11 @@ class Territory():
             valid_tiles = new_list
         elif tile_type == "other_clan_camp":
             if other_clan:
-                valid_tiles = self._get_camp_tile(other_clan, territory_dict=territory_dict)
+                valid_tiles = self.get_camp_tile(other_clan, territory_dict=territory_dict)
             else:
-                valid_tiles = self._get_camp_tile(random.choice(game.clan.all_other_clans), territory_dict=territory_dict)
+                valid_tiles = self.get_camp_tile(random.choice(game.clan.all_other_clans), territory_dict=territory_dict)
         elif tile_type == "camp":
-            valid_tiles = self._get_camp_tile(clan, territory_dict=territory_dict)
+            valid_tiles = self.get_camp_tile(clan, territory_dict=territory_dict)
         elif tile_type == "outside_camp":
             valid_tiles = all_tiles
         elif tile_type == "other_clan_territory":
@@ -1121,7 +1148,7 @@ class Territory():
                 territory_dict=territory_dict,
                 exclude_water=exclude_water
                 )
-        elif tile_type in ("river", "lake", "ocean", "water"):
+        elif tile_type in ("river", "lake", "ocean", "water", "coast"):
             valid_tiles = self.get_water_tiles_from_list(all_tiles, territory_dict, water_type=tile_type)
         else:
             valid_tiles = territory_tiles
@@ -1189,7 +1216,7 @@ class Territory():
 
         return clan1_border_tiles, clan2_border_tiles
     
-    def _get_camp_tile(self, clan, territory_dict={}):
+    def get_camp_tile(self, clan, territory_dict={}):
         """ Returns the tile string for the specified Clan's camp."""
         if not territory_dict:
             territory_dict = game.clan.territory_tile_info
@@ -1438,7 +1465,7 @@ class Territory():
         elif "camp" in tile_info and tile_info["camp"]:
             name = "<b>" + str(tile_owner.name) + " Camp</b>"
         else:
-            if "terrain" in tile_info:
+            if tile_info["terrain"] != "land":
                 name = f"<b>{tile_info['terrain'].capitalize()}</b>"
 
         return name
@@ -1483,6 +1510,20 @@ class Territory():
                 if territory_dict[tile]["poi"] == poi:
                     return tile
         return None
+    
+
+    def get_tile_desirability(self, tile):
+        territory_dict = game.clan.territory_tile_info
+        tile_info = territory_dict[tile]
+
+        desirability = 0
+        if tile_info["terrain"] in ("river", "lake"):
+            desirability += 2
+        if "herb" in tile_info:
+            if tile_info["herb"] in self.high_value_herbs:
+                desirability += self.high_value_herbs[tile_info["herb"]]
+        
+        return desirability
 
 
 territory_class = Territory()

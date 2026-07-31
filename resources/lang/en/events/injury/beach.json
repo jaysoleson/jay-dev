@@ -189,7 +189,7 @@
         ],
         "frequency": 3,
         "event_text": "m_c unwisely decided to go out swimming alone after r_c dared {PRONOUN/m_c/object} to. {PRONOUN/m_c/subject/CAP} made it back, but ended up drenched and shivering violently in the cold air.",
-        "tile_location": ["territory"],
+        "tile_location": ["water"],
         "m_c": {
             "status": [
                 "apprentice"

@@ -1023,10 +1023,6 @@ class ShortEvent:
             other_clan=other_clan,
             exclude_water=exclude_water
             )
-        if preset == "other_clan_border":
-            valid_tiles = valid_tiles[0]
-        if preset == "other_clan_inner_border":
-            valid_tiles = valid_tiles[1]
         if exclude_water:
             for tile in valid_tiles.copy():
                 if tile in territory_class.get_water_tiles_from_list(valid_tiles):

@@ -357,5 +357,43 @@
                 }
             }
         ]
+    },
+    {
+        "event_id": "cgwar_terrain_beach_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 4,
+        "event_text": "m_c takes a nap by the ocean and is rudely awoken by the tide hitting {PRONOUN/m_c/poss} back.",
+        "tile_location": [
+            "coast:ocean"
+        ],
+        "m_c": {
+            "status": [
+                "-kitten"
+            ]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_beach_02",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 4,
+        "event_text": "m_c finds a strange, shiny Twoleg object washed up on the shore. It looks hollow, with something flat curled up inside. m_c can't get it open, so {PRONOUN/m_c/subject} {VERB/m_c/toss/tosses} it back into the water.",
+        "tile_location": [
+            "coast:ocean"
+        ],
+        "m_c": {
+            "status": [
+                "-kitten"
+            ]
+        }
     }
 ]

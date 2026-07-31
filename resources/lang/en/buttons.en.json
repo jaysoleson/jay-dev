@@ -57,6 +57,7 @@
         "take_tooltip": "Take this territory by force.",
         "attack_camp": "attack",
         "attack_camp_tooltip": "Attack the camp for prey and herbs. This may start a war.",
+        "attack_war_tooltip": "Launch an attack on your opponent here.",
         "change_view": "View %{view}",
         "view_map": "View Territory",
         "map_view_events": "events",

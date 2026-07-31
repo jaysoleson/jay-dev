@@ -27,10 +27,13 @@ class War():
             "defense": self.defense,
             "demand": self.demand,
             "duration": self.duration,
-            "progrss": self.progress
+            "progress": self.progress
         }
     
     def is_in_war(self, clan, other_clan=None):
+        """
+        Return True if the specifed Clan(s) are a part of this war.
+        """
         if not other_clan:
             if clan.group_ID == self.offense:
                 return True
@@ -48,12 +51,6 @@ class War():
             ):
                 return True
         return False
-    
-    def is_offense(self, clan):
-        return clan.group_ID == self.offense
-    
-    def is_defense(self, clan):
-        return clan.group_ID == self.offense
     
     def get_opponent_ID(self, clan):
         """
@@ -92,6 +89,9 @@ class War():
         return f"<b>{clan.name}</b> is at war with <b>{opponent.name}</b>"
     
     def get_offense_object(self):
+        """
+        Returns the Clan or OtherClan object of the offensive Clan.
+        """
         offense_object = None
         for clan in [game.clan] + game.clan.all_other_clans:
             if clan.group_ID == self.offense:
@@ -100,6 +100,9 @@ class War():
         return offense_object
 
     def get_defense_object(self):
+        """
+        Returns the Clan or OtherClan object of the defensive Clan.
+        """
         defense_object = None
         for clan in [game.clan] + game.clan.all_other_clans:
             if clan.group_ID == self.defense:
@@ -113,6 +116,8 @@ class War():
         """
         # TODO: depends on herbs and borders, border strength
         # TODO: use this to change demands in the middle of wars!
+        # TODO: determine demand tile based on desirablility. herbs, water, POIs.
+        # and maybe find a way to involve this in the event text
         demand_tiles = territory_class.get_tiles(
             "other_clan_inner_border",
             clan=self.get_offense_object(),
@@ -126,6 +131,11 @@ class War():
         self.demand = demand
 
     def win_war(self, winner):
+        """
+        Handles prizes for winning wars.
+        """
+        # TODO: maybe winning extra tiles (neighbours of demand tile)
+        # TODO: prey and herbs
         if self.demand:
             print(winner.name, "wins the war! They win:", self.demand)
             if self.demand in game.clan.territory_tile_info:

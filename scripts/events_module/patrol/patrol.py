@@ -415,9 +415,9 @@ class Patrol:
         chance = 0
         # assigning other_clan relations
         other_clan_standing = other_clan.get_standing()
-        if other_clan_standing == "ally":
+        if other_clan_standing in ("ally", "amicable"):
             clan_allies = True
-        elif other_clan_standing == "hostile":
+        elif other_clan_standing in ("tense", "hostile"):
             clan_hostile = True
         elif other_clan_standing == "neutral":
             clan_neutral = True

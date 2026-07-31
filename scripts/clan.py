@@ -864,15 +864,15 @@ class Clan:
         switch_set_value(Switch.error_message, "")
     
     def load_territory_json(self):
-        game.clan.territory_tile_info = territory_class.generate_territories()
+        # game.clan.territory_tile_info = territory_class.generate_territories()
         # ^^ debug overwriting every load for testing
 
-        # with open(
-        #     get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json",
-        #     "r",
-        #     encoding="utf-8",
-        # ) as read_file:
-        #     game.clan.territory_tile_info = ujson.loads(read_file.read())
+        with open(
+            get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json",
+            "r",
+            encoding="utf-8",
+        ) as read_file:
+            game.clan.territory_tile_info = ujson.loads(read_file.read())
 
     def load_clan_json(self):
         """
@@ -1523,10 +1523,13 @@ class Clan:
             clan_sociability, clan_aggression, clan_lawfulness, clan_stability
         )
 
-    def get_current_war(self):
+    def get_current_war(self, other_clan=None):
         current_war = None
         for war in game.clan.war:
             if war.is_in_war(self):
+                if other_clan:
+                    if war.get_opponent_object(game.clan) != other_clan:
+                        continue
                 current_war = war
                 break
         return current_war
@@ -1543,7 +1546,9 @@ class OtherClan:
 
     interaction_dict = {
         "ally": ["offend", "praise"],
+        "amicable": ["offend", "praise"],
         "neutral": ["provoke", "befriend"],
+        "tense": ["antagonize", "appease", "declare"],
         "hostile": ["antagonize", "appease", "declare"],
     }
 
@@ -1674,16 +1679,20 @@ class OtherClan:
             "colour": self.colour
         }
 
-    def get_standing(self) -> Literal["ally", "neutral", "hostile"]:
+    def get_standing(self) -> Literal["ally", "amicable", "neutral", "tense", "hostile"]:
         """
         Gets if OtherClan is an ally, neutral, or hostile.
 
-        :return: One of "ally", "neutral" or "hostile".
+        :return: One of "ally", "amicable", "neutral", "tense", or "hostile".
         """
         if self.relations <= get_config("reputation.other_clans.hostile"):
             return "hostile"
+        elif self.relations <= get_config("reputation.other_clans.tense"):
+            return "tense"
         elif self.relations <= get_config("reputation.other_clans.neutral"):
             return "neutral"
+        elif self.relations <= get_config("reputation.other_clans.amicable"):
+            return "amicable"
         return "ally"
 
 
