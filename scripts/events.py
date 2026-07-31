@@ -2929,26 +2929,27 @@ def other_clans_territory_wobble():
         clan=first_clan,
         other_clan=second_clan
         )
-    number = random.randint(1,2)
-    if number == 1:
-        traded_tile = random.choice(first_clan_tiles)
-        territory_class.update_tile_info(traded_tile, "owner", second_clan.group_ID)
-    else:
-        traded_tile = random.choice(second_clan_tiles)
-        territory_class.update_tile_info(traded_tile, "owner", first_clan.group_ID)
 
     security = game.clan.territory_tile_info[traded_tile]["strength"]
-
     chance = 2 * security + 1
     if not int(random.random() * chance):
         success = True
     else:
         success = False
+
+    if success:
+        number = random.randint(1,2)
+        if number == 1:
+            traded_tile = random.choice(first_clan_tiles)
+            territory_class.update_tile_info(traded_tile, "owner", second_clan.group_ID)
+        else:
+            traded_tile = random.choice(second_clan_tiles)
+            territory_class.update_tile_info(traded_tile, "owner", first_clan.group_ID)
+
     # find an event
     event_options = TERRITORY_TXT["taken_territory"]
-    # CGWAR TODO: add filtering? at least for if theyre at war (once i get multiwar back in)
+    # CGWAR TODO: add filtering? at least for if theyre at war
     # TODO: filter by relations if slash when i add multi clan relations
-    # and add amicable/tense
 
     # TODO CGWAR: seperate filter func
     possible_events = []
