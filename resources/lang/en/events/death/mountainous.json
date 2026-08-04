@@ -9,6 +9,7 @@
         "tags": ["all_lives", "no_body"],
         "frequency": 1,
         "event_text": "m_c was buried alive when an avalanche hit the camp.",
+        "tile_location": ["camp"],
         "m_c": {
             "dies": true
         },
@@ -27,6 +28,9 @@
         "tags": ["clan:kitten"],
         "frequency": 2,
         "event_text": "m_c snuck out of camp and was lost to the strange, angular tunnels, nothing left to find but blood and weasel-scent.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": ["kitten"],
             "dies": true
@@ -50,6 +54,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c was killed by a stalactite falling in the middle of camp.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "any"

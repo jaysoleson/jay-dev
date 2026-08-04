@@ -6,6 +6,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c got stuck in quicksand and wasn't found in time.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": ["apprentice", "warrior", "deputy", "leader"],
             "dies": true
@@ -24,6 +27,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed by a snake with a strikingly white mouth.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": ["apprentice"],
             "dies": true

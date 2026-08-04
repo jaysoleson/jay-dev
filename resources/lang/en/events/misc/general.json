@@ -17175,5 +17175,190 @@
         "r_c": {
             "status": ["warrior", "apprentice", "deputy", "leader"]
         }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_09",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 4,
+        "event_text": "m_c and r_c are scolded for playing on the Thunderpath.",
+        "tile_location": ["thunderpath"],
+        "m_c": {
+            "status": ["warrior", "apprentice"],
+            "age": ["adolescent", "young adult"]
+        },
+        "r_c": {
+            "status": ["warrior", "apprentice"],
+            "age": ["adolescent", "young adult"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_10",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 4,
+        "event_text": "m_c and r_c are scolded for playing on the Silverpath.",
+        "tile_location": ["silverpath"],
+        "m_c": {
+            "status": ["warrior", "apprentice"],
+            "age": ["adolescent", "young adult"]
+        },
+        "r_c": {
+            "status": ["warrior", "apprentice"],
+            "age": ["adolescent", "young adult"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_11",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 2,
+        "event_text": "m_c finds a piece of prey on the Thunderpath and tells the rest of the patrol that {PRONOUN/m_c/subject} caught it.",
+        "tile_location": ["thunderpath"],
+        "m_c": {
+            "status": ["warrior", "apprentice"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_12",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 3,
+        "event_text": "m_c sneaks into Sunningrocks, just to see it, and is chased away by a o_c_n patrol.",
+        "tile_location": ["terrain_sunningrocks,other_clan_territory"],
+        "m_c": {
+            "status": ["apprentice"]
+        },
+        "other_clan": {
+            "owns": ["terrain_sunningrocks"]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_13",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 3,
+        "event_text": "m_c teaches r_c how to safely run across the Thunderpath.",
+        "tile_location": ["thunderpath"],
+        "m_c": {
+            "status": [
+                "warrior",
+                "deputy",
+                "leader"
+            ],
+            "relationship_status": [
+                "app/mentor"
+            ]
+        },
+        "r_c": {
+            "status": [
+                "apprentice"
+            ]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_13",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 4,
+        "event_text": "m_c and r_c spend the afternoon by the Thunderpath, counting how many monsters speed by.",
+        "tile_location": ["thunderpath"],
+        "m_c": {
+            "status": [
+                "warrior", "apprentice"
+            ]
+        },
+        "r_c": {
+            "status": [
+                "warrior", "apprentice"
+            ]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_14",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 3,
+        "event_text": "m_c has a close call with a monster at the Thunderpath.",
+        "tile_location": ["thunderpath"],
+        "m_c": {
+            "status": [
+                "warrior",
+                "deputy",
+                "leader",
+                "apprentice"
+            ]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_15",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 3,
+        "event_text": "When they hear the chime of an incoming Thundersnake, m_c and r_c abandon their patrol to watch it pass.",
+        "tile_location": ["silverpath"],
+        "m_c": {
+            "status": [
+                "warrior",
+                "apprentice",
+                "deputy",
+                "leader"
+            ]
+        },
+        "r_c": {
+            "status": [
+                "warrior",
+                "apprentice",
+                "deputy",
+                "leader"
+            ]
+        }
+    },
+    {
+        "event_id": "cgwar_terrain_gen_15",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 3,
+        "event_text": "m_c scoops some clay from the riverbed and makes {PRONOUN/m_c/poss} own rocks with it.",
+        "tile_location": ["coast:river"],
+        "m_c": {
+            "status": ["-kitten"]
+        }
     }
 ]

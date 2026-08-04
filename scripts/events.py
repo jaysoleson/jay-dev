@@ -625,17 +625,24 @@ def handle_map_interaction_event():
         other_clan=owner
         )
 
+    print(border_tiles)
+    print(target_tile)
+
     success_chance = 2
     if target_tile in border_tiles:
         border_insert = "border"
     else:
         border_insert = "not_border"
         success_chance += 6
+
     success_chance += round(territory_class.get_tile_desirability(target_tile))
     success_chance += game.clan.territory_tile_info[target_tile]["strength"]
 
     if interaction == "take":
         success_chance = round(success_chance * 1.5)
+
+    if not territory_class.get_tile_owner(target_tile):
+        success_chance /= 2
     
     print("Success chance: 1/", success_chance)
 
@@ -653,7 +660,7 @@ def handle_map_interaction_event():
     location_insert = ""
     attack_war_insert = ""
     if owner:
-        if target_tile == territory_class.get_camp_tile(owner)[0]:
+        if target_tile == territory_class.get_camp_tile(owner):
             location_insert = "camp"
         elif target_tile in territory_class.get_tiles(
             "other_clan_inner_border",
@@ -2930,21 +2937,22 @@ def other_clans_territory_wobble():
         other_clan=second_clan
         )
 
-    security = game.clan.territory_tile_info[traded_tile]["strength"]
-    chance = 2 * security + 1
+    chance = 6
     if not int(random.random() * chance):
         success = True
     else:
         success = False
 
-    if success:
-        number = random.randint(1,2)
-        if number == 1:
-            traded_tile = random.choice(first_clan_tiles)
+    number = random.randint(1,2)
+    if number == 1:
+        traded_tile = random.choice(first_clan_tiles)
+        if success:
             territory_class.update_tile_info(traded_tile, "owner", second_clan.group_ID)
-        else:
-            traded_tile = random.choice(second_clan_tiles)
+    else:
+        traded_tile = random.choice(second_clan_tiles)
+        if success:
             territory_class.update_tile_info(traded_tile, "owner", first_clan.group_ID)
+    # security = game.clan.territory_tile_info[traded_tile]["strength"]
 
     # find an event
     event_options = TERRITORY_TXT["taken_territory"]

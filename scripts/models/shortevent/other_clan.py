@@ -18,3 +18,7 @@ class OtherClan(BaseModel):
         MISSING,
         description="How the reputation of the Clan changes as a result of this event",
     )
+    owns: Union[List[str], MISSING] = Field(
+        MISSING,
+        description="A piece of territory the Clan must own to get the event."
+    )

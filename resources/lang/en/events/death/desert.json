@@ -6,6 +6,9 @@
           "tags": [],
           "frequency": 4,
           "event_text": "m_c was killed by a rattlesnake out in the territory.",
+          "tile_location": [
+              "outside_camp"
+          ],
           "m_c": {
               "status": ["apprentice", "warrior", "deputy", "leader"],
               "dies": true
@@ -24,6 +27,9 @@
           "tags": [],
           "frequency": 4,
           "event_text": "m_c chased a kangaroo rat into a burrow, only to run right into the fatal fangs of a surprised rattlesnake.",
+          "tile_location": [
+              "outside_camp"
+          ],
           "m_c": {
               "status": ["apprentice", "warrior", "deputy", "leader"],
               "dies": true
@@ -42,6 +48,9 @@
           "tags": [],
           "frequency": 4,
           "event_text": "m_c jumped on top of a rattlesnake by mistake and was killed by the ensuing bite.",
+        "tile_location": [
+            "outside_camp"
+        ],
           "m_c": {
               "status": ["apprentice"],
               "dies": true
@@ -60,6 +69,9 @@
           "tags": [],
           "frequency": 4,
           "event_text": "m_c died of dehydration after mistakenly following a mirage.",
+        "tile_location": [
+            "outside_camp"
+        ],
           "m_c": {
               "status": ["apprentice", "warrior", "deputy", "leader"],
               "dies": true
@@ -78,6 +90,9 @@
           "tags": [],
           "frequency": 4,
           "event_text": "m_c was killed after being stung by a scorpion.",
+        "tile_location": [
+            "outside_camp"
+        ],
           "m_c": {
               "status": ["apprentice", "warrior", "deputy", "leader"],
               "dies": true
@@ -96,6 +111,9 @@
           "tags": [],
           "frequency": 4,
           "event_text": "m_c was mistakenly stung by a scorpion during a hunt and succumbed to the venom.",
+        "tile_location": [
+            "outside_camp"
+        ],
           "m_c": {
               "status": ["apprentice", "warrior", "deputy", "leader"],
               "trait": ["ambitious", "bold", "charismatic", "competitive", "daring", "flamboyant", "insecure", "strange", "troublesome"],

@@ -875,7 +875,7 @@ class EventsScreen(Screens):
             if event_object.event_tile:
                 self.open_map_buttons[str(i) + "." + event_object.event_tile] = UISurfaceImageButton(
                     ui_scale(pygame.Rect((8, 5), (34, 34))),
-                    Icon.HERB,
+                    Icon.NEWLEAF,
                     get_button_dict(ButtonStyles.ICON, (34, 34)),
                     object_id="@buttonstyles_icon",
                     starting_height=3,

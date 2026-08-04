@@ -13,6 +13,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was murdered. The culprit is unknown.",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "status": [
                 "-leader"
@@ -76,6 +79,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was murdered. r_c stands over {PRONOUN/m_c/object}, blood dripping from {PRONOUN/r_c/poss} pelt.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -139,6 +145,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was murdered. r_c stands over {PRONOUN/m_c/object}, blood dripping from {PRONOUN/r_c/poss} pelt.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -207,6 +216,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was murdered by r_c in cold blood.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -273,6 +285,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was murdered by r_c in cold blood. r_c has made the death look accidental.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "-leader"
@@ -340,6 +355,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "r_c killed m_c by feeding {PRONOUN/m_c/object} deathberries.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "-leader"
@@ -404,6 +422,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "r_c killed m_c by feeding {PRONOUN/m_c/object} foxglove seeds.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -471,6 +492,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "r_c killed m_c by feeding {PRONOUN/m_c/object} nightshade berries.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -542,6 +566,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "r_c killed m_c by feeding {PRONOUN/m_c/object} water hemlock.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -609,6 +636,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "r_c killed m_c by consciously giving {PRONOUN/m_c/object} the wrong herbs.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -679,6 +709,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "r_c waited until all the medicine cats were asleep and dreaming by the edge of {POI/name/moon_pool}. Then, {PRONOUN/r_c/subject} held m_c's head under the water until {PRONOUN/m_c/subject} stopped struggling.",
+        "tile_location": [
+            "moon_pool"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -746,6 +779,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "The ghostly murmurs of {POI/name/moon_cave} cannot drown out m_c's cries for help when r_c gets {PRONOUN/r_c/poss} claws on {PRONOUN/m_c/object} at last.",
+        "tile_location": [
+            "moon_cave"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -813,6 +849,9 @@
         "tags": ["no_body"],
         "frequency": 4,
         "event_text": "During the half-moon, the gathered medicine cats wonder where m_c and r_c are. The moonlight flooding the Moonstone won't last all night. Outside, r_c heaps rocks on m_c's body.",
+        "tile_location": [
+            "moon_mouth"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -875,6 +914,9 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c was found dead near a fox den.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -913,6 +955,9 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c was bitten by a snake and succumbed to the venom.",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -938,6 +983,9 @@
         ],
         "frequency": 3,
         "event_text": "m_c saved r_c from a snake but was bitten in the process. The venom killed {PRONOUN/m_c/object}.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -1006,6 +1054,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c went missing and was found dead out in the territory.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "dies": true
         },
@@ -1064,6 +1115,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "o_c_n attempted to break into the camp. m_c died defending the nursery, r_c huddled beneath {PRONOUN/m_c/poss} cooling body.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -1133,6 +1187,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c was burned alive while trying to save r_c from a fire.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -1347,6 +1404,9 @@
         },
         "frequency": 2,
         "event_text": "m_c is caught under a horse's hooves while hunting in {POI/name/terrain_horseplace}. {PRONOUN/m_c/poss/CAP} Clanmates can't get to {PRONOUN/m_c/object} in time.",
+        "tile_location": [
+            "terrain_horseplace"
+        ],
         "m_c": {
             "dies": true,
             "status": ["leader", "deputy", "warrior", "apprentice"]
@@ -1369,6 +1429,9 @@
         },
         "frequency": 2,
         "event_text": "m_c is hunting near {POI/tag/trees} when a branch falls on {PRONOUN/m_c/object}, killing {PRONOUN/m_c/object}.",
+        "tile_location": [
+            "trees"
+        ],
         "new_accessory": [],
         "m_c": {
             "status": ["leader", "deputy", "warrior", "apprentice"],
@@ -1392,6 +1455,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c and r_c are killed by a gang of rogues.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "young adult",
@@ -1566,6 +1632,9 @@
         },
         "frequency": 4,
         "event_text": "m_c went missing and was found dead at the bottom of {POI/tag/fall_risk}.",
+        "tile_location": [
+            "fall_risk"
+        ],
         "m_c": {
             "dies": true
         },
@@ -1592,6 +1661,9 @@
         },
         "frequency": 4,
         "event_text": "m_c went missing and was found dead near {POI/tag/tainted}, a strange odor rising from {PRONOUN/m_c/poss} body.",
+        "tile_location": [
+            "tainted"
+        ],
         "m_c": {
             "dies": true
         },
@@ -1618,6 +1690,9 @@
         },
         "frequency": 4,
         "event_text": "m_c was killed when part of {POI/tag/unstable} collapsed.",
+        "tile_location": [
+            "unstable"
+        ],
         "m_c": {
             "dies": true,
             "status": ["-kitten", "-elder"]
@@ -1642,6 +1717,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c snuck out of camp, intending to discover more about {PRONOUN/m_c/poss} origins. After a long morning search, c_n found {PRONOUN/m_c/poss} cooling body.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -1682,6 +1760,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c sacrificed {PRONOUN/m_c/self} for r_c in a battle with o_c_n.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -1744,6 +1825,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c threw {PRONOUN/m_c/self} in front of an oncoming attack meant for r_c, taking the deadly blow instead.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -1806,6 +1890,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c stayed behind and fought a losing battle to give r_c time to escape.",
+        "tile_location": [
+            "other_clan_border", "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -1868,6 +1955,10 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c used {PRONOUN/m_c/poss} own body to shield r_c from a surprise o_c_n ambush, even though it meant certain death.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -1931,6 +2022,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed while investigating enemy territory.",
+        "tile_location": [
+            "other_clan_territory"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -1969,6 +2063,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c drowned in a river while trying to escape from a sudden o_c_n attack.",
+        "tile_location": [
+            "river"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -2009,6 +2106,9 @@
         ],
         "frequency": 1,
         "event_text": "m_c fell into a pit trap set by o_c_n's warriors.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten",
@@ -2044,6 +2144,9 @@
         ],
         "frequency": 3,
         "event_text": "m_c was hit by a monster while escaping across a Thunderpath from o_c_n warriors.",
+        "tile_location": [
+            "thunderpath"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -2081,6 +2184,9 @@
         ],
         "frequency": 4,
         "event_text": "o_c_n attempted to break into the camp. m_c and r_c are left cold on the ground in the aftermath.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "dies": true
         },
@@ -2121,6 +2227,9 @@
         ],
         "frequency": 3,
         "event_text": "m_c was buried alive in a cramped rabbit burrow by o_c_n warriors.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten",
@@ -2160,6 +2269,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "Blinded by blood in the midst of battle, r_c fatally mistakes m_c for a foe.",
+        "tile_location": [
+            "other_clan_border", "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -2249,6 +2361,10 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c was killed by a falling boulder that o_c_n warriors pushed from a cliff above {PRONOUN/m_c/object}.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -2287,6 +2403,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "o_c_n warriors broke into the camp and killed m_c after damaging the stockpiled prey.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -2336,6 +2455,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c suffered a heart attack due to the stress of the ongoing war.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "senior",
@@ -2368,7 +2490,11 @@
             "all_lives"
         ],
         "frequency": 4,
-        "event_text": "m_c was brutally murdered by a warrior from o_c_n, who cruelly took all {PRONOUN/m_c/poss} lives.",
+        "event_text": "m_c was brutally murdered by a warrior from o_c_n, who cruelly took all of {PRONOUN/m_c/poss} lives.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "leader"
@@ -2408,7 +2534,11 @@
             "all_lives"
         ],
         "frequency": 4,
-        "event_text": "m_c was brutally murdered by the leader of o_c_n, who cruelly took all {PRONOUN/m_c/poss} lives.",
+        "event_text": "m_c was brutally murdered by the leader of o_c_n, who cruelly took all of {PRONOUN/m_c/poss} lives.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "leader"
@@ -2448,7 +2578,11 @@
             "all_lives"
         ],
         "frequency": 4,
-        "event_text": "m_c was brutally murdered by the deputy of o_c_n, who cruelly took all {PRONOUN/m_c/poss} lives.",
+        "event_text": "m_c was brutally murdered by the deputy of o_c_n, who cruelly took all of {PRONOUN/m_c/poss} lives.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "leader"
@@ -2486,6 +2620,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c and r_c spend the night by the o_c_n border and catch a o_c_n patrol sneaking into c_n territory. While r_c gets reinforcements, m_c tries to hold them off and is killed.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -2529,6 +2666,9 @@
         ],
         "frequency": 2,
         "event_text": "o_c_n raids c_n's camp. Despite orders to hide in the nursery, m_c is ready to prove {PRONOUN/m_c/self}. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} no match for the o_c_n warriors, who leave {PRONOUN/m_c/object} cold on the ground.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -2564,6 +2704,10 @@
         ],
         "frequency": 1,
         "event_text": "m_c is killed by a o_c_n warrior in front of {PRONOUN/m_c/poss} apprentice, r_c.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "r_c": {
             "status": [
                 "apprentice"
@@ -2617,6 +2761,10 @@
         ],
         "frequency": 1,
         "event_text": "m_c is killed by a o_c_n warrior in front of {PRONOUN/m_c/poss} mentor, r_c.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "r_c": {
             "status": [
                 "warrior", "deputy", "leader"
@@ -2656,6 +2804,10 @@
         ],
         "frequency": 1,
         "event_text": "r_c and m_c match each other blow for blow in a fight with a o_c_n patrol. The tide of battle turns against the littermates, and m_c is killed in front of r_c.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "warrior", "apprentice", "deputy", "leader"
@@ -2705,6 +2857,10 @@
         ],
         "frequency": 1,
         "event_text": "r_c tries to protect {PRONOUN/r_c/poss} little sibling in a fight with o_c_n, but m_c is killed by enemy warriors.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "r_c": {
             "status": [
                 "warrior", "deputy", "leader"
@@ -2756,6 +2912,10 @@
         ],
         "frequency": 1,
         "event_text": "In a battle with o_c_n, r_c acts too late to save m_c and watches {PRONOUN/r_c/poss} kit die.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "r_c": {
             "status": [
                 "warrior", "deputy", "leader"
@@ -2805,6 +2965,10 @@
         ],
         "frequency": 1,
         "event_text": "In a battle with o_c_n, r_c sees an enemy warrior kill {PRONOUN/r_c/poss} parent, m_c.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "r_c": {
             "status": [
                 "warrior", "deputy", "leader"
@@ -2856,6 +3020,10 @@
         ],
         "frequency": 1,
         "event_text": "In the haze of battle, r_c is separated from m_c. When the dust settles, {PRONOUN/r_c/subject} {VERB/r_c/find/finds} m_c's cooling body.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "r_c": {
             "status": [
                 "warrior", "deputy", "leader"
@@ -2905,6 +3073,9 @@
         ],
         "frequency": 1,
         "event_text": "As m_c leaves camp with the battle patrol, r_c pleads for {PRONOUN/m_c/object} to return to {PRONOUN/r_c/object} safely. m_c does not keep {PRONOUN/m_c/poss} promise.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": ["warrior", "deputy", "leader"],
             "relationship_status": ["mates"],
@@ -2942,6 +3113,10 @@
         ],
         "frequency": 1,
         "event_text": "In a battle with o_c_n, r_c's mate m_c is killed. r_c vows the war will never end until o_c_n pays.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "r_c": {
             "status": [
                 "leader"
@@ -2981,6 +3156,9 @@
         ],
         "frequency": 1,
         "event_text": "Despite r_c's talent in battle, {PRONOUN/r_c/subject} and m_c are overwhelmed by waves of invading o_c_n warriors. Three hold r_c down as a fourth kills m_c in front of {PRONOUN/r_c/object}.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "r_c": {
             "status": [
                 "warrior", "deputy", "leader"
@@ -3033,6 +3211,10 @@
         "tags": ["lives_remain"],
         "frequency": 1,
         "event_text": "m_c loses a life in battle with o_c_n. r_c questions whether {PRONOUN/r_c/subject} can be {PRONOUN/m_c/poss} mate, knowing that {PRONOUN/r_c/subject}'ll have to lose m_c over and over again.",
+        "tile_location": [
+            "other_clan_border",
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "leader"
@@ -3087,6 +3269,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c wandered out into the territory and was later found dead, a peaceful expression on {PRONOUN/m_c/poss} face.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "senior"
@@ -3118,6 +3303,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was found stiff and curled up in {PRONOUN/m_c/poss} nest. It seems {PRONOUN/m_c/subject} died in {PRONOUN/m_c/poss} sleep.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "senior"
@@ -3149,6 +3337,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c faded more and more as the days went by, until one day, {PRONOUN/m_c/subject} {VERB/m_c/were/was} found dead in {PRONOUN/m_c/poss} nest.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "senior"
@@ -3178,6 +3369,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c is suddenly struck by a sharp pain in {PRONOUN/m_c/poss} chest. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} found later that day, cold.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "senior"
@@ -3214,6 +3408,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c loved each other so much they could not be parted, even by death. c_n found their bodies still wrapped around each other in the morning.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "senior"
@@ -3271,6 +3468,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c met {PRONOUN/m_c/poss} end at the long claws of a predator. Later, c_n found only {PRONOUN/m_c/poss} blood and a foul smell.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -3300,6 +3500,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was murdered by r_c in cold blood in the hope of taking {PRONOUN/m_c/poss} place.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "deputy"
@@ -3374,6 +3577,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was murdered by r_c in cold blood. r_c staged the death as an accident and hopes to take {PRONOUN/m_c/poss} place.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "deputy"
@@ -3450,6 +3656,9 @@
         ],
         "frequency": 4,
         "event_text": "Lured by trickery and deceptive words, m_c was shoved into a ravine by r_c, killing {PRONOUN/m_c/object}.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "deputy",
@@ -3514,6 +3723,9 @@
         ],
         "frequency": 4,
         "event_text": "r_c tricked m_c into playing on thin ice. {PRONOUN/r_c/subject/CAP} watched closely as m_c disappeared beneath the surface.",
+        "tile_location": [
+            "lake"
+        ],
         "m_c": {
             "skill": [
                 "-PROPHET,3",
@@ -3583,6 +3795,9 @@
         ],
         "frequency": 3,
         "event_text": "Last c_n heard, m_c and r_c were going out to play. They don't return, and the ice on a nearby pond is cracked.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten",
@@ -3648,6 +3863,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c fell into a sinkhole and was never seen again.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -3679,6 +3897,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c fell into a hidden burrow and was buried alive.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "dies": true
         },
@@ -3707,6 +3928,9 @@
         ],
         "frequency": 3,
         "event_text": "m_c was buried alive when a burrow collapsed on {PRONOUN/m_c/object}.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "dies": true
         },
@@ -3732,6 +3956,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c died from dehydration and heat stroke.",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -3765,6 +3992,9 @@
         ],
         "frequency": 3,
         "event_text": "m_c froze to death during a harsh snowstorm.",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "dies": true
         },
@@ -3790,6 +4020,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was found dead and cold in the snow.",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "dies": true
         },
@@ -3815,6 +4048,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was walking on the ice, when it cracked and {PRONOUN/m_c/subject} fell in.",
+        "tile_location": [
+            "lake"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -3841,6 +4077,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c died in a border skirmish against o_c_n.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -3879,6 +4118,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed while trying to save the medicine cat of o_c_n.",
+        "tile_location": [
+            "other_clan_territory"
+        ],
         "m_c": {
             "status": [
                 "-kitten",
@@ -3940,6 +4182,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed by the deputy of o_c_n.",
+        "tile_location": [
+            "other_clan_territory"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -3978,6 +4223,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed while trying to save the deputy of o_c_n.",
+        "tile_location": [
+            "other_clan_territory"
+        ],
         "m_c": {
             "status": [
                 "-kitten",
@@ -4026,6 +4274,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed by the leader of o_c_n.",
+        "tile_location": [
+            "other_clan_territory"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -4064,6 +4315,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed while trying to save the leader of o_c_n.",
+        "tile_location": [
+            "other_clan_territory"
+        ],
         "m_c": {
             "status": [
                 "-kitten",
@@ -4112,6 +4366,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c and r_c are killed in a border skirmish with o_c_n.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -4169,6 +4426,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c was buried alive in an avalanche.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -4203,6 +4463,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c was buried alive in a landslide.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -4230,6 +4493,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c was buried alive in a mudslide.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -4261,6 +4527,9 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c slipped off a cliff onto the sharp rocks below.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -4298,6 +4567,9 @@
         ],
         "frequency": 3,
         "event_text": "m_c slipped off a cliff onto the sharp rocks below and couldn't recover.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "leader"
@@ -4329,6 +4601,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was pushed off a cliff onto the sharp rocks below.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "-leader",
@@ -4398,6 +4673,9 @@
         ],
         "frequency": 2,
         "event_text": "r_c yowled a warning as {PRONOUN/r_c/subject} saw a circling shadow, right above m_c. r_c couldn't get there before m_c was carried high into the sky.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "kitten",
@@ -4458,6 +4736,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c was killed defending r_c from a hawk.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -4533,6 +4814,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c was carried off by an eagle, never to be seen again.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "kitten",
@@ -4568,6 +4852,9 @@
         ],
         "frequency": 3,
         "event_text": "m_c fell into a river and was swept away by the current, never to be seen again.",
+        "tile_location": [
+            "river"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -4596,6 +4883,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c was taken by a hawk, never to be seen again.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "kitten",
@@ -4660,6 +4950,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c fell into a river and drowned.",
+        "tile_location": [
+            "river"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -4695,6 +4988,9 @@
         "tags": ["all_lives"],
         "frequency": 3,
         "event_text": "m_c fell into a river and drowned.",
+        "tile_location": [
+            "river"
+        ],
         "r_c": {
             "age": [
                 "-kitten"
@@ -4751,6 +5047,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed when {PRONOUN/m_c/subject} snuck out of camp.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "kitten"
@@ -4786,6 +5085,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c died after getting into the herb stores and accidentally eating deathberries.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "kitten"
@@ -4820,6 +5122,9 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c was killed in {PRONOUN/m_c/poss} sleep by a snake that had snuck into camp.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "kitten",
@@ -4956,6 +5261,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "r_c invited m_c to private battle training. When m_c slipped and hit {PRONOUN/m_c/poss} head, {PRONOUN/m_c/subject} never woke back up.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "kitten"
@@ -5019,6 +5327,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "r_c suggested m_c try some shiny red berries. m_c's excitement faded with {PRONOUN/m_c/poss} life.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "kitten"
@@ -5081,6 +5392,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c snuck out of camp and misjudged the jump across a stream. r_c watched without concern as {PRONOUN/m_c/subject} disappeared under the water.",
+        "tile_location": [
+            "river"
+        ],
         "m_c": {
             "age": [
                 "kitten"
@@ -5143,6 +5457,9 @@
         ],
         "frequency": 4,
         "event_text": "o_c_n warriors broke into the camp and killed m_c after damaging the herb stores.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "medicine cat"
@@ -5188,6 +5505,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was killed by a o_c_n warrior while pulling an injured r_c away from battle.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": [
                 "medicine cat apprentice",
@@ -5315,6 +5635,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c wandered out into the territory and was later found dead.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5343,6 +5666,9 @@
         "tags": ["all_lives"],
         "frequency": 2,
         "event_text": "m_c wandered out into the territory and was later found dead.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5400,6 +5726,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was having a peaceful stroll outside of camp, when {PRONOUN/m_c/subject} {VERB/m_c/were/was} attacked and killed by a fox.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5429,6 +5758,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was having a peaceful stroll outside of camp, when {PRONOUN/m_c/subject} {VERB/m_c/were/was} attacked and killed by a badger.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5458,6 +5790,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was having a peaceful stroll outside of camp, when {PRONOUN/m_c/subject} {VERB/m_c/were/was} attacked and killed by a dog.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5564,6 +5899,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "Lightning struck in camp, killing m_c.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "any"
@@ -5607,6 +5945,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was swept away by a flood.",
+        "tile_location": [
+            "river"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5636,6 +5977,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c fell from the top branches of a tree. {PRONOUN/m_c/subject/CAP} never {VERB/m_c/get/gets} up again.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5668,6 +6012,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c fell from the top branches of a tree. The fall was too great, and {PRONOUN/m_c/subject} could not recover.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
             "leader"
@@ -5694,6 +6041,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c died fighting a dog.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -5726,6 +6076,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c died fighting a badger.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -5758,6 +6111,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c died fighting a rogue.",
+        "tile_location": [
+            "outside_camp", "unclaimed"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -5790,6 +6146,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was bitten by a venomous spider.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "dies": true
         },
@@ -5813,6 +6172,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c ate tainted fresh-kill and died.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "dies": true
         },
@@ -5836,6 +6198,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c failed to interpret a warning sign from StarClan and couldn't foresee the circumstances of {PRONOUN/m_c/poss} death.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "leader",
@@ -5870,6 +6235,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed defending r_c from a dog.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -5939,6 +6307,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed defending r_c from a badger.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -6008,6 +6379,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed defending r_c from a fox.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -6078,6 +6452,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c died while saving r_c from drowning.",
+        "tile_location": [
+            "water"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -6142,6 +6519,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c saved r_c from a monster but was run over in the process.",
+        "tile_location": [
+            "unclaimed"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -6206,6 +6586,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c saved r_c from a snake and was bitten in the process. The venom killed {PRONOUN/m_c/object}.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -6274,6 +6657,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was killed defending the kits during a o_c_n raid.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -6335,6 +6721,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed defending r_c from o_c_n warriors.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -6414,6 +6803,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed by an apprentice from o_c_n.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -6450,6 +6842,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c died trying to save a o_c_n apprentice.",
+        "tile_location": [
+            "other_clan_territory"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -6567,6 +6962,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c was brutally attacked by a rogue and lost all of {PRONOUN/m_c/poss} lives.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "leader"
@@ -6598,6 +6996,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was mauled by dogs and lost all of {PRONOUN/m_c/poss} lives.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "leader"
@@ -6630,6 +7031,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was burned alive while trying to save {PRONOUN/m_c/poss} Clanmates from a fire.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "leader"
@@ -6812,7 +7216,10 @@
             "all_lives"
         ],
         "frequency": 4,
-        "event_text": "m_c collapsed in the midst of camp, losing {PRONOUN/m_c/poss} remaining lives to old age.",
+        "event_text": "m_c collapsed in the middle of camp, losing {PRONOUN/m_c/poss} remaining lives to old age.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "senior"
@@ -6845,6 +7252,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "One day, the deputy found m_c dead in the leader's den, a life lost to old age.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "senior"
@@ -6879,6 +7289,9 @@
         ],
         "frequency": 4,
         "event_text": "One day, m_c is found dead in the leader's den, never to rise again.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "senior"
@@ -6947,6 +7360,9 @@
         ],
         "frequency": 3,
         "event_text": "m_c was pushed under a monster by r_c.",
+        "tile_location": [
+            "unclaimed"
+        ],
         "m_c": {
             "status": [
                 "-kitten"
@@ -7006,6 +7422,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was murdered by r_c in cold blood in order to take {PRONOUN/m_c/poss} place.",
+        "tile_location": [
+            "any"
+        ],
         "m_c": {
             "status": [
                 "leader"
@@ -7080,6 +7499,9 @@
         ],
         "frequency": 4,
         "event_text": "r_c attempted to murder m_c, but miscalculated how many lives {PRONOUN/m_c/subject} had. m_c retaliated with a killing blow.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "leader"
@@ -7180,6 +7602,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c and r_c were ambushed by a pack of dogs, but r_c was nowhere to be found when m_c looked for help.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "leader",
@@ -7255,6 +7680,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c lost a life while saving a kit from drowning. The kit seemed wary of r_c afterward, but no one noticed.",
+        "tile_location": [
+            "water"
+        ],
         "m_c": {
             "status": [
                 "leader"
@@ -7341,6 +7769,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c snuck out of camp to investigate {PRONOUN/m_c/poss} origins. {PRONOUN/m_c/subject/CAP} returned in the morning, haggard and haunted.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "young adult"
@@ -7377,6 +7808,9 @@
         ],
         "frequency": 4,
         "event_text": "o_c_n attempted to break into the camp. m_c died defending the nursery. r_c remained hidden beneath {PRONOUN/m_c/poss} body as StarClan brought m_c back to life.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "leader"
@@ -7443,6 +7877,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c died in a training accident.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice"
@@ -7470,6 +7907,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c died in a training accident.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice"
@@ -7505,6 +7945,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed by o_c_n warriors when {PRONOUN/m_c/subject} accidentally wandered over the border.",
+        "tile_location": [
+            "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -7547,6 +7990,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was killed by o_c_n warriors after deliberately crossing the border.",
+        "tile_location": [
+            "other_clan_territory"
+        ],
         "m_c": {
             "status": [
                 "apprentice"
@@ -7597,6 +8043,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c died during battle training with r_c. {PRONOUN/r_c/subject/CAP} exclaimed that it was all an accident.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "adolescent",
@@ -7664,6 +8113,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c disappeared from the nursery and was later found frozen not far from camp.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -7700,6 +8152,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "m_c was playing on the ice when it cracked and {PRONOUN/m_c/subject} fell in.",
+        "tile_location": [
+            "lake"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -7734,6 +8189,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c wandered away from camp in the night, never to be seen again.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -7762,6 +8220,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c vanished from camp after sneaking out. The search parties find nothing but blood.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -7790,7 +8251,10 @@
         ],
         "tags": [],
         "frequency": 4,
-        "event_text": "m_c was found within a few fox-lengths of camp after sneaking out, cold and covered in bite-marks. The scent of rat hung heavy in the air.",
+        "event_text": "m_c was found outside of camp after sneaking out, cold and covered in bite-marks. The scent of rat hung heavy in the air.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -7822,6 +8286,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c boasted about how ready {PRONOUN/m_c/subject} {VERB/m_c/were/was} for apprenticeship. {PRONOUN/m_c/subject/CAP} snuck away to prove it. The Clan finds only blood and raccoon-scent in the morning.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "kitten"
@@ -7854,6 +8321,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "multi_cat drown after the camp becomes flooded.",
+        "tile_location": [
+            "camp"
+        ],
         "history": [
             {
                 "cats": [
@@ -7880,6 +8350,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "multi_cat are killed after a fire rages through the camp.",
+        "tile_location": [
+            "camp"
+        ],
         "history": [
             {
                 "cats": [
@@ -7903,6 +8376,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "multi_cat are killed in an ambush by a group of rogues.",
+        "tile_location": [
+            "unclaimed_border"
+        ],
         "m_c": {
             "status": [
                 "leader",
@@ -7934,6 +8410,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "multi_cat are killed in a badger attack.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "leader",
@@ -7965,6 +8444,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "multi_cat freeze during a snowstorm.",
+        "tile_location": [
+            "camp"
+        ],
         "history": [
             {
                 "cats": [
@@ -7988,6 +8470,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "multi_cat die after the water dries up from a drought.",
+        "tile_location": [
+            "camp"
+        ],
         "history": [
             {
                 "cats": [
@@ -8088,6 +8573,9 @@
         ],
         "frequency": 2,
         "event_text": "multi_cat are taken away by Twolegs.",
+        "tile_location": [
+            "unclaimed"
+        ],
         "m_c": {
             "age": [
                 "-kitten",
@@ -8109,6 +8597,9 @@
         "tags": [],
         "frequency": 1,
         "event_text": "A thick fog covers c_n for days. When it finally lifts, multi_cat are found dead out in the territory.",
+        "tile_location": [
+            "territory"
+        ],
         "history": [
             {
                 "cats": [
@@ -8128,6 +8619,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c was killed when a fox followed fresh-kill scent into camp. Not even the fresh-kill pile was left untouched.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "any"
@@ -8162,6 +8656,9 @@
         ],
         "frequency": 4,
         "event_text": "m_c found a horde of rats lured by the fresh-kill pile. r_c helped {PRONOUN/m_c/object} fight, but m_c did not survive.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -8347,6 +8844,9 @@
         "tags": [],
         "frequency": 1,
         "event_text": "A thick fog descended on c_n for days. When it finally lifted, m_c's body was discovered out in the territory.",
+        "tile_location": [
+            "territory"
+        ],
         "m_c": {
             "status": [
                 "-kitten"
@@ -8393,6 +8893,9 @@
         "tags": ["clan:medicine cat"],
         "frequency": 1,
         "event_text": "m_c seemed hale and healthy on patrol until {PRONOUN/m_c/subject} had trouble speaking and began to limp. By the time {PRONOUN/m_c/poss} Clanmates came back with the medicine cat, m_c was dead.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -8445,6 +8948,9 @@
         "tags": [],
         "frequency": 1,
         "event_text": "m_c ventured too far out into a boggy area and drowned.",
+        "tile_location": [
+            "river"
+        ],
         "m_c": {
             "status": [
                 "-kitten"
@@ -8468,6 +8974,9 @@
         "tags": ["all_lives"],
         "frequency": 1,
         "event_text": "m_c vanished while patrolling alone. The search parties found blood and little evidence of struggle. Whatever killed m_c was too big to fight.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -8493,6 +9002,9 @@
         "tags": [],
         "frequency": 1,
         "event_text": "m_c taunted and provoked a stranger at the border into a fight. n_c:0 was the wrong cat to test; m_c never made it back to camp.",
+        "tile_location": [
+            "unclaimed_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -8535,6 +9047,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "r_c claimed the haze of battle and bloodlust were the reason {PRONOUN/r_c/subject} killed m_c.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -8627,6 +9142,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "r_c stood back and watched as the o_c_n deputy killed m_c.",
+        "tile_location": [
+            "other_clan_border", "other_clan_inner_border"
+        ],
         "m_c": {
             "status": [
                 "apprentice",
@@ -8708,6 +9226,9 @@
         },
         "frequency": 4,
         "event_text": "In the wake of a battle with o_c_n at {POI/name/terrain_sunningrocks}, r_c drags back m_c's body and claims that {PRONOUN/m_c/subject} {VERB/m_c/were/was} killed by the o_c_n deputy, and r_c killed the deputy in revenge.",
+        "tile_location": [
+            "terrain_sunningrocks"
+        ],
         "m_c": {
             "status": ["deputy"]
         },
@@ -8764,6 +9285,9 @@
         ],
         "frequency": 4,
         "event_text": "r_c watched as m_c struggled in a Twoleg trap, waiting till {PRONOUN/m_c/subject} stopped moving before leaving the area.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -8835,6 +9359,9 @@
         ],
         "frequency": 4,
         "event_text": "r_c hissed {PRONOUN/r_c/poss} grievances into m_c's ear as {PRONOUN/r_c/subject} killed {PRONOUN/m_c/object}.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -8901,6 +9428,9 @@
         ],
         "frequency": 4,
         "event_text": "A warning from StarClan gave m_c enough knowledge to survive r_c's attack. r_c could not say the same.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "leader"
@@ -8978,6 +9508,9 @@
         "tags": [],
         "frequency": 1,
         "event_text": "r_c meets with a rogue named n_c:0 on the border. A quarter-moon later, m_c turns up dead along the border, n_c:0's scent on {PRONOUN/m_c/poss} cold body.",
+        "tile_location": [
+            "unclaimed_border"
+        ],
         "m_c": {
             "status": [
                 "-kitten",
@@ -9042,6 +9575,9 @@
         "tags": ["lives_remain"],
         "frequency": 2,
         "event_text": "On a solo border patrol, m_c is attacked and killed by a rogue named n_c:0. When m_c is revived, n_c:0 lets it slip that r_c didn't say anything about resurrection as {PRONOUN/n_c:0/subject} {VERB/n_c:0/flee/flees}.",
+        "tile_location": [
+            "unclaimed_border"
+        ],
         "m_c": {
             "status": ["leader"],
             "skill": ["-FIGHTER,2"],
@@ -9095,6 +9631,9 @@
         "tags": [],
         "frequency": 4,
         "event_text": "r_c meets with a notorious rogue from {PRONOUN/r_c/poss} past, n_c:0, on the border. A quarter-moon later, m_c turns up dead along the border, n_c:0's scent on {PRONOUN/m_c/poss} cold body.",
+        "tile_location": [
+            "unclaimed_border"
+        ],
         "m_c": {
             "status": [
                 "-kitten",
@@ -9160,6 +9699,9 @@
         "tags": [],
         "frequency": 1,
         "event_text": "r_c promises n_c:0 a new beginning in c_n... at a price paid in blood. Within the moon, m_c is dead and r_c vouches for n_c:0 to join c_n.",
+        "tile_location": [
+            "unclaimed_border"
+        ],
         "m_c": {
             "status": [
                 "-kitten",
@@ -9226,6 +9768,9 @@
         "tags": [],
         "frequency": 1,
         "event_text": "At a busy Gathering, m_c is scratched by a piece of sharp metal jutting from {POI/name/gather_monster}. {PRONOUN/m_c/subject/CAP} {VERB/m_c/succumb/succumbs} to infection only a few days later.",
+        "tile_location": [
+            "gather_monster"
+        ],
         "m_c": {
             "dies": true,
             "age": ["-kitten"]
@@ -9248,6 +9793,9 @@
         "tags": [],
         "frequency": 2,
         "event_text": "m_c mixed up the herb dosages for r_c, and despite {PRONOUN/m_c/poss} desperate efforts, the poisoning is fatal.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "status": [
                 "medicine cat",
@@ -9312,6 +9860,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c was found cold in {PRONOUN/m_c/poss} nest, dead without any apparent cause.",
+        "tile_location": [
+            "camp"
+        ],
         "m_c": {
             "age": [
                 "-senior"
@@ -9367,6 +9918,9 @@
         "tags": [],
         "frequency": 1,
         "event_text": "There have been rumors around camp that dogs are roaming the Clan's territory. m_c goes out on {PRONOUN/m_c/poss} own to investigate. The c_n search party discovers m_c's mauled body the next day.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "young adult"
@@ -9418,6 +9972,9 @@
         ],
         "frequency": 1,
         "event_text": "While training with m_c near the river, r_c playfully shoves m_c. However, {PRONOUN/r_c/subject} {VERB/r_c/push/pushes} too hard and m_c loses {PRONOUN/m_c/poss} balance. Before r_c can save {PRONOUN/m_c/object}, the current sweeps m_c away.",
+        "tile_location": [
+            "river"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -9533,6 +10090,9 @@
         ],
         "frequency": 1,
         "event_text": "m_c sneaks out of camp. c_n's search parties find the scent of lynx and no sign of the missing kit.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "kitten"
@@ -9562,6 +10122,9 @@
         ],
         "frequency": 2,
         "event_text": "While out on the territory, m_c vanishes. All that can be found is {PRONOUN/m_c/poss} fading scent and the stronger scent of lynx. ",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -9595,6 +10158,9 @@
         ],
         "frequency": 2,
         "event_text": "A heron snatched m_c when {PRONOUN/m_c/subject} {VERB/m_c/were/was} too close to the water's edge.",
+        "tile_location": [
+            "coast:lake"
+        ],
         "m_c": {
             "age": [
                 "kitten"
@@ -9619,6 +10185,9 @@
         "tags": [],
         "frequency": 1,
         "event_text": "m_c slips out of camp on a dare. c_n finds m_c's cooling body encircled by o_c_n scent.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "age": [
                 "kitten"
@@ -9662,6 +10231,9 @@
         ],
         "frequency": 2,
         "event_text": "m_c entered a Twoleg's chicken roost and attacked the hens. {PRONOUN/m_c/subject/CAP} {VERB/m_c/were/was} killed by a rooster eager to defend his flock.",
+        "tile_location": [
+            "unclaimed"
+        ],
         "m_c": {
             "age": [
                 "-kitten"
@@ -9700,6 +10272,9 @@
   "tags": [],
   "frequency": 2,
   "event_text": "The Clan grows concerned after m_c doesn't return from guard duty. {PRONOUN/m_c/poss/CAP} body is later found out in the territory, scent reeking of o_c_n.",
+"tile_location": [
+    "outside_camp"
+],
   "m_c": {
     "skill": [
       "-FIGHTER,2"
@@ -9736,6 +10311,9 @@
   "tags": [],
   "frequency": 2,
   "event_text": "The Clan grows concerned after m_c doesn't return from guard duty. {PRONOUN/m_c/poss/CAP} body is later found out in the territory with a rogue's scent wreathing around {PRONOUN/m_c/object}.",
+"tile_location": [
+    "outside_camp"
+],
   "m_c": {
     "skill": [
       "-FIGHTER,2"
@@ -9801,6 +10379,9 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c was found dead near the o_c_n border.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "skill": [
                 "-FIGHTER,2"
@@ -9864,6 +10445,9 @@
         "tags": [],
         "frequency": 3,
         "event_text": "A vicious battle breaks out between c_n and o_c_n. Amidst the flurry of claws and blood, r_c takes advantage of the chaos to isolate m_c and murder {PRONOUN/m_c/object} without being noticed.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -9936,6 +10520,9 @@
         "tags": [],
         "frequency": 3,
         "event_text": "r_c brutally murders m_c and plants {PRONOUN/m_c/poss} body near the o_c_n border to frame the warring Clan for {PRONOUN/m_c/poss} death.",
+        "tile_location": [
+            "other_clan_border"
+        ],
         "m_c": {
             "status": [
                 "any"
@@ -10005,6 +10592,9 @@
         "tags": [],
         "frequency": 3,
         "event_text": "m_c chases a trespassing o_c_n warrior off of the territory. On {PRONOUN/m_c/poss} way back, {PRONOUN/m_c/subject} {VERB/m_c/are/is} ambushed by r_c, who murders {PRONOUN/m_c/object} on the spot.",
+        "tile_location": [
+            "outside_camp"
+        ],
         "m_c": {
             "status": [
                 "warrior",
@@ -10071,6 +10661,9 @@
     },
     "frequency": 1,
     "event_text": "m_c is so excited to be at the Gathering that {PRONOUN/m_c/subject} {VERB/m_c/forget/forgets} to watch {PRONOUN/m_c/poss} paws on the tree bridge. No cat is able to pull {PRONOUN/m_c/object} to shore in time, and the Gathering is cut short for a vigil.",
+    "tile_location": [
+        "gather_island"
+    ],
     "m_c": {
         "dies": true,
         "age": ["adolescent"],
@@ -10095,6 +10688,9 @@
     },
     "frequency": 1,
     "event_text": "When r_c takes m_c to {POI/name/gather_fourtrees}, m_c declares {PRONOUN/m_c/poss} intention to be the first cat to climb all four trees. r_c can't stop {PRONOUN/m_c/object} in time. m_c only makes it halfway up the first when {PRONOUN/m_c/subject} {VERB/m_c/fall/falls}, never to get back up.",
+    "tile_location": [
+        "gather_fourtrees"
+    ],
     "m_c": {
         "dies": true,
         "age": ["adolescent"],

@@ -62,7 +62,7 @@ class MapScreen(Screens):
         self.view_checkboxes = {}
         self.view_colours = True
         self.view_icons = True
-        self.view_water = False
+        self.view_terrain = False
         self.view_grid = True
 
         # different view tabs
@@ -237,7 +237,7 @@ class MapScreen(Screens):
         )
         self.view_checkboxes["water"] = UICheckbox(
             position=(95, 600),
-            check=self.view_water,
+            check=self.view_terrain,
             manager=MANAGER,
         )
         self.view_checkboxes["grid"] = UICheckbox(
@@ -282,10 +282,10 @@ class MapScreen(Screens):
                 self.create_map()
                 self.update_checkboxes()
             elif event.ui_element == self.view_checkboxes["water"]:
-                if self.view_water:
-                    self.view_water = False
+                if self.view_terrain:
+                    self.view_terrain = False
                 else:
-                    self.view_water = True
+                    self.view_terrain = True
                 self.create_map()
                 self.update_checkboxes()
             elif event.ui_element == self.view_checkboxes["grid"]:
@@ -374,7 +374,7 @@ class MapScreen(Screens):
                 tile_string = tile,
                 view_colours=self.view_colours,
                 view_icons=self.view_icons,
-                view_water=self.view_water,
+                view_terrain=self.view_terrain,
                 view_grid=self.view_grid,
                 icon_tile=icon_tile,
                 opacity=225,

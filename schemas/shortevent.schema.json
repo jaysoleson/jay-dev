@@ -931,6 +931,14 @@
           "description": "How the reputation of the Clan changes as a result of this event",
           "title": "Changed",
           "type": "integer"
+        },
+        "owns": {
+          "description": "A piece of territory the Clan must own to get the event.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Owns",
+          "type": "array"
         }
       },
       "title": "OtherClan",
@@ -939,7 +947,9 @@
     "OtherClanRep": {
       "enum": [
         "hostile",
+        "tense",
         "neutral",
+        "amicable",
         "ally",
         "any"
       ],

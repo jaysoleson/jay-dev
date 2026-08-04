@@ -41,7 +41,7 @@ class MapTileButton(pygame_gui.elements.UIButton):
         tile_string = None,
         view_colours = False,
         view_icons = False,
-        view_water = False,
+        view_terrain = False,
         view_grid = False,
         icon_tile = False,
         opacity = 255,
@@ -66,7 +66,7 @@ class MapTileButton(pygame_gui.elements.UIButton):
         # bools: are colours and icons visible
         self.view_colour = view_colours
         self.view_icons = view_icons
-        self.view_water = view_water
+        self.view_terrain = view_terrain
         self.view_grid = view_grid
 
         self.current_view = current_view
@@ -148,17 +148,6 @@ class MapTileButton(pygame_gui.elements.UIButton):
                     colour = COLOURS[map_colours[tile_info["strength"]]]
                 else:
                     colour = COLOURS["default"]
-        elif self.current_view == "terrain":
-            map_colours = {
-                "river": "ocean",
-                "lake": "ocean",
-                "ocean": "ocean"
-            }
-            if tile_info["terrain"] != "land":
-                if self.view_colour:
-                    colour = COLOURS[map_colours[tile_info["terrain"]]]
-                else:
-                    colour = COLOURS["default"]
         elif self.current_view == "event_density":
             map_colours = {
                 0: "default",
@@ -172,6 +161,19 @@ class MapTileButton(pygame_gui.elements.UIButton):
             else:
                 colour = COLOURS["purple"]
 
+        elif self.current_view == "terrain" or (self.view_terrain and self.view_colour and not colour):
+            map_colours = {
+                "river": "ocean",
+                "lake": "ocean",
+                "ocean": "ocean",
+                "thunderpath": "grey",
+                "silverpath": "grey"
+            }
+            if tile_info["terrain"] != "land":
+                if self.view_colour:
+                    colour = COLOURS[map_colours[tile_info["terrain"]]]
+                else:
+                    colour = COLOURS["default"]
         if not colour:
             colour = COLOURS["default"]
 
@@ -187,11 +189,15 @@ class MapTileButton(pygame_gui.elements.UIButton):
         light_colour = pygame.Color(light_colour_list[0], light_colour_list[1], light_colour_list[2], opacity)
         hover_colour = pygame.Color(hover_colour_list[0], hover_colour_list[1], hover_colour_list[2], opacity)
 
-        if self.view_water and self.view_colour:
+        if self.view_terrain and self.view_colour:
             if tile_info["terrain"] != "land" and self.current_view != "terrain":
                 colour_list = [normal_colour, light_colour, hover_colour]
                 new_colour_list = []
-                darken_by = [35, 18, 5]
+                if tile_info["terrain"] in ("silverpath", "thunderpath"):
+                    darken_by = [20, 20, 20]
+                else:
+                    darken_by = [35, 18, 5]
+
                 for colour in colour_list:
                     r = int(colour.r) - darken_by[0]
                     if r < 0:
@@ -228,7 +234,7 @@ class MapTileButton(pygame_gui.elements.UIButton):
         elif self.current_view == "event_density":
             self.populated = "events" in tile_info and len(tile_info["events"]) > 0
         
-        if self.view_water:
+        if self.view_terrain:
             if tile_info["terrain"] != "land":
                 self.populated = True
         
@@ -279,7 +285,7 @@ class MapTileButton(pygame_gui.elements.UIButton):
                     else:
                         self.colours["normal_border"] = self.colour_dict["normal"]
                         if not self.tile_owner:
-                            if self.herb or self.view_water or self.current_view == "terrain":
+                            if self.herb or self.view_terrain or self.current_view == "terrain":
                                 self.colours["normal_border"] = self.colour_dict["dark"]
             else:
                 self.colours["normal_border"] = self.colour_dict["normal"]

@@ -1006,16 +1006,22 @@ class ShortEvent:
         #     switch_set_value(Switch.last_used_POI, "")
 
         preset = choice(self.tile_location)
-        if preset not in territory_class.valid_tile_searches():
-            return False
-        
+        if "," in preset:
+            preset_list = preset.split(",")
+        else:
+            preset_list = [preset]
+
         exclude_water = False
-        if preset not in get_poi_tags_set() and preset not in get_poi_categories_set():
-            if preset not in (
-                "river", "lake", "ocean", "water", "camp"
-            ):
-            # be default everything happens on DRY LAND
-                exclude_water = True
+        for p in preset_list:
+            if p not in get_poi_tags_set() and p not in get_poi_categories_set():
+                if p not in (
+                    "river", "lake", "ocean", "water", "camp"
+                ):
+                # be default everything happens on DRY LAND
+                    exclude_water = True
+                    print("Shortevent: Exc water")
+            if p not in territory_class.valid_tile_searches():
+                return False
 
         valid_tiles = territory_class.get_tiles(
             preset,
@@ -1023,11 +1029,6 @@ class ShortEvent:
             other_clan=other_clan,
             exclude_water=exclude_water
             )
-        if exclude_water:
-            for tile in valid_tiles.copy():
-                if tile in territory_class.get_water_tiles_from_list(valid_tiles):
-                    print("ERROR: Water tile", tile, "found in land tiles list.", preset)
-                    valid_tiles.remove(tile)
         if not valid_tiles:
             return False
 

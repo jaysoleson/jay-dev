@@ -2,7 +2,7 @@
     "en": {
         "toggle_colours": "Show Colours",
         "toggle_icons": "Show Icons",
-        "toggle_water": "Show water overlay",
+        "toggle_water": "Show terrain overlay",
         "toggle_grid": "Show grid",
         "view_herbs": "View herb distribution",
         "view_borders": "View Clan territories",

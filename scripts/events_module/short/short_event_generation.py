@@ -17,6 +17,7 @@ from scripts.events_module.event_filters import (
     event_for_cat,
     event_for_reputation,
     event_for_clan_relations,
+    event_for_territory,
     event_for_freshkill_supply,
     event_for_herb_supply,
     event_for_season,
@@ -480,6 +481,13 @@ def filter_events(
                 event.other_clan["current_rep"], other_clan
             ):
                 continue
+
+            # CGW
+            if "owns" in event.other_clan:
+                if not event_for_territory(
+                    event.other_clan["owns"], other_clan
+                ):
+                    continue
 
             # during a war we want to encourage the clans to have positive events
             # when the overall war notice was positive
