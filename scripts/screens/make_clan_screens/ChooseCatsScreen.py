@@ -69,6 +69,22 @@ class ChooseCatsScreen(MakeClanScreenBase):
     def screen_switches(self):
         super().screen_switches()
 
+        # LG
+        # if customising a new life u need to make possilbe cats here
+        if not switch_get_value(Switch.possible_cats):
+            switch_set_value(
+                Switch.possible_cats,
+                create_example_cats(
+                    majority_rank=self.get_config_during_creation(
+                        "clan_creation.majority_rank"
+                    ),
+                    rank_weights=self.get_config_during_creation(
+                        "clan_creation.rank_weights"
+                    ),
+                    lifegen_kitten_creation=True
+                ),
+            )
+
         # determine ranks needed
         self.need_leader = self.get_config_during_creation(
             "clan_creation.ranks_needed.leader"

@@ -156,7 +156,7 @@ class DeathScreen(GameWindow):
                 switch_set_value(Switch.customise_new_life, True)
                 switch_set_value(Switch.continue_after_death, False)
                 game.last_screen_forupdate = switch_get_value(Switch.cur_screen)
-                switch_set_value(Switch.cur_screen, GameScreen.MAKE_CLAN)
+                switch_set_value(Switch.cur_screen, GameScreen.MAKE_CLAN_CHOOSE_CATS)
                 game.switch_screens = True
 
                 self.begin_anew_button.kill()

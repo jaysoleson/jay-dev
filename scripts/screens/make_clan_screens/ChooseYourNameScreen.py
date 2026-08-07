@@ -83,8 +83,11 @@ class ChooseYourNameScreen(MakeClanScreenBase):
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.elements["next_step"]:
-                self.change_screen(GameScreen.MAKE_CLAN_CHOOSE_CAMP)
                 self.set_your_name()
+                if switch_get_value(Switch.customise_new_life):
+                    self.change_screen(GameScreen.MAKE_CLAN_CLAN_CREATED)
+                else:
+                    self.change_screen(GameScreen.MAKE_CLAN_CHOOSE_CAMP)
             if event.ui_element == self.elements["previous_step"]:
                 self.change_screen(game.last_screen_forupdate)
             if event.ui_element == self.elements["random_name"]:
@@ -95,6 +98,10 @@ class ChooseYourNameScreen(MakeClanScreenBase):
         self.clan_info.your_cat.name.prefix = (
             self.elements["name_entry"].get_text().strip()
         )
+        if switch_get_value(Switch.customise_new_life):
+            game.clan.your_cat = self.clan_info.your_cat
+            game.clan.your_cat.moons = -1
+            switch_set_value(Switch.possible_cats, [])
 
     def update_buttons(self):
         if self.elements["name_entry"].get_text().strip():
