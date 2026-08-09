@@ -288,6 +288,13 @@
           "$ref": "#/$defs/StandingDict",
           "title": "Standing"
         },
+        "min_max_faith": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Min Max Faith",
+          "type": "array"
+        },
         "stat": {
           "$ref": "#/$defs/StatDict",
           "title": "Stat"

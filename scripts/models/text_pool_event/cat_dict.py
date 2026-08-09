@@ -19,6 +19,9 @@ class CatDict(BaseModel):
     age: Union[List[Age], MISSING] = MISSING
     group: Union[List[Group], MISSING] = MISSING
     standing: Union[StandingDict, MISSING] = MISSING
+    # LG
+    min_max_faith: Union[List[int], MISSING] = MISSING
+    # -->
     stat: Union[StatDict, MISSING] = MISSING
     health: Union[HealthDict, MISSING] = MISSING
     backstory: Union[List[Backstory], MISSING] = MISSING

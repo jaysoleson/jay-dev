@@ -155,10 +155,8 @@
                     "medicine cat",
                     "medicine cat apprentice"
                 ],
-                "cluster": [
-                    "low_sc",
-                    "mid_sc",
-                    "high_sc"
+                "min_max_faith": [
+                    1, 9
                 ]
             }
         }
@@ -184,10 +182,8 @@
                     "medicine cat",
                     "medicine cat apprentice"
                 ],
-                "cluster": [
-                    "low_df",
-                    "mid_df",
-                    "high_df"
+                "min_max_faith": [
+                    -9, -1
                 ]
             }
         }

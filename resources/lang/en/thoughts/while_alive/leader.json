@@ -289,9 +289,13 @@
             "Rakes a claw across a cat's muzzle for debating against {PRONOUN/m_c/object}",
             "Is ready to tear off a cat's coat for c_n"
         ],
-        "main_trait_constraint": [
-            "bloodthirsty"
-        ]
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": ["bloodthirsty"]
+                }
+            }
+        }
     },
     {
         "id": "leader_bloodthirsty_goodintentions",
