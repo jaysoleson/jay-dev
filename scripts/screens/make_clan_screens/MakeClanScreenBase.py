@@ -273,7 +273,7 @@ class MakeClanScreenBase(Screens):
             save_id=save_id,
             **self.clan_info.get_dict(),
         )
-        game.clan.create_clan(your_cat=self.clan_info.your_cat, clan_age=self.clan_info.clan_age)
+        game.clan.create_clan(your_cat=self.clan_info.your_cat, clan_age=self.clan_info.clan_age, unborn=True)
 
         game.cur_events_list.clear()
         game.herb_events_list.clear()

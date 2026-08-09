@@ -74,15 +74,12 @@ class FreshkillPileTest(unittest.TestCase):
 
         self.test_clan_name = f"Test_{uuid4()}"
 
-        your_cat = cat_factory.create_cat(rank=CatRank.KITTEN, moons=1)
-
         game.clan = Clan(
             save_id=self.test_clan_name,
             display_name="Test",
             leader=cat_factory.create_cat(rank=CatRank.LEADER, moons=20),
             deputy=cat_factory.create_cat(rank=CatRank.DEPUTY, moons=20),
             medicine_cat=cat_factory.create_cat(rank=CatRank.MEDICINE_CAT, moons=20),
-            your_cat=your_cat,
             biome="Forest",
             camp_bg="camp1",
             symbol="symbolADDER0",
@@ -91,6 +88,7 @@ class FreshkillPileTest(unittest.TestCase):
             starting_season="Newleaf",
         )
         save_load.cat_to_fade.clear()
+        your_cat = cat_factory.create_cat(rank=CatRank.ELDER, moons=126)
         game.clan.create_clan(your_cat=your_cat)
 
         for _c in Cat.all_cats_list:
@@ -193,7 +191,7 @@ class FreshkillPileTest(unittest.TestCase):
         self.freshkill_pile.total_amount = current_amount
 
         # feed them
-        self.freshkill_pile.feed_cats(self.cat_list)
+        self.freshkill_pile.feed_cats(self.cat_list, testcat=self.kitten)
 
         # check that kitten is full
         self.assertEqual(

@@ -294,7 +294,7 @@ class Clan:
             "clan.settings has been deprecated, use get_clan_setting() and set_clan_setting() instead. Unrecoverable."
         )
 
-    def create_clan(self, your_cat=None, clan_age="new"):
+    def create_clan(self, your_cat=None, clan_age="new", unborn=False):
         """
         This function is only called once a new clan is
         created in the 'clan created' screen, not every time
@@ -348,10 +348,11 @@ class Clan:
         self.all_other_clans = []
 
         self.your_cat = your_cat
-        self.your_cat.moons = -1
-        self.your_cat.parent1 = None
-        self.your_cat.parent2 = None
-        self.your_cat.adoptive_parents = []
+        if unborn:
+            self.your_cat.moons = -1
+            self.your_cat.parent1 = None
+            self.your_cat.parent2 = None
+            self.your_cat.adoptive_parents = []
 
         self.add_cat(self.your_cat)
         switch_set_value(Switch.cat, None)

@@ -71,7 +71,6 @@ class FreshkillPile:
     @staticmethod
     def _empty_sub_pile() -> dict:
         return {
-            "expires_in_4": 0,
             "expires_in_3": 0,
             "expires_in_2": 0,
             "expires_in_1": 0,
@@ -129,7 +128,7 @@ class FreshkillPile:
                 self.pile[self.PLAYER_CLAN_KEY] = self._empty_sub_pile()
         else:
             self.pile = {self.PLAYER_CLAN_KEY: self._empty_sub_pile()}
-            self.pile[self.PLAYER_CLAN_KEY]["expires_in_4"] = get_config("prey.start_amount")
+            self.pile[self.PLAYER_CLAN_KEY]["expires_in_3"] = get_config("prey.start_amount")
             if self._is_mc_outside():
                 self._init_outside_pile()
 
@@ -138,6 +137,8 @@ class FreshkillPile:
         self.fed_kits = []
         self.queens = []
         self.is_manual_feeding = False
+
+        self.testcat = None
 
     @property
     def active_pile_key(self) -> str:
@@ -327,13 +328,15 @@ class FreshkillPile:
         self._update_needed_food(living_cats)
         self.update_total_amount()
 
-    def feed_cats(self, cats_to_feed: list, is_manual_feeding=False) -> None:
+    def feed_cats(self, cats_to_feed: list, is_manual_feeding=False, testcat=None) -> None:
         """
         Takes given cats and feeds them according to chosen tactics.
 
         :param cats_to_feed: List of cat objects to feed
         :param is_manual_feeding: If True, cats will only have nutrition added, not removed as they would on timeskip
         """
+        self.testcat = testcat
+
         self.update_nutrition(cats_to_feed)
 
         self.is_manual_feeding = is_manual_feeding
@@ -422,6 +425,7 @@ class FreshkillPile:
         :param list cats_to_feed: Cats to feed
         :param feed_high_rank_first: If True, feeds from high rank to low. If False, the reverse.
         """
+
         feed_order = get_config("prey.feeding.order")
         if feed_high_rank_first:
             feed_order.reverse()
@@ -540,6 +544,7 @@ class FreshkillPile:
 
         ration_prey = get_clan_setting("ration_prey")
 
+
         for cat in group:
             # if already fed, get'em outta here
             if cat in self.already_fed:
@@ -597,7 +602,6 @@ class FreshkillPile:
         :param prey_required: Monthly prey requirement for this cat
         """
         ration_deficit = prey_required - amount_allowed
-
         # here we feed the cat from the pile! we eat the prey soonest to expire first
         # if we get through all the expiration groups, and we still need prey, then there was no prey left
         order_of_expiration = [
@@ -607,7 +611,7 @@ class FreshkillPile:
         ]
         amount_still_needed = amount_allowed
         for pile in order_of_expiration:
-            amount_still_needed = self.take_from_pile(pile, amount_still_needed)
+            amount_still_needed = self.take_from_pile(pile, amount_still_needed, cat=cat)
         # even if the cat isn't full, they have eaten, so they go in this list!
         self.already_fed.append(cat)
 
@@ -637,7 +641,7 @@ class FreshkillPile:
 
         # if they fulfilled their prey requirement and weren't hungry to begin with, then their nutrition score is left alone
 
-    def take_from_pile(self, pile_group: str, given_amount):
+    def take_from_pile(self, pile_group: str, given_amount, cat=None):
         """
         Take the amount from a specific pile group and returns the rest of the original needed amount.
 
@@ -653,6 +657,7 @@ class FreshkillPile:
             remaining_amount : int|float
                 the amount which could not be consumed from the given pile group
         """
+        # LG REMOVE CAT PARAM
         if self.timeskip_feed and not get_clan_setting("auto_feed"):
             return given_amount
 
