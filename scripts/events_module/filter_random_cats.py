@@ -1,10 +1,11 @@
 import random
 
 from scripts.game_structure import game
-from scripts.cat.enums import CatGroup, CatRank, CatAge
+from scripts.cat.enums import CatGroup, CatAge
 from scripts.cat.cats import Cat, BACKSTORIES
 from scripts.lifegen_utility import get_cluster
 from scripts.clan_package.settings import get_clan_setting
+from scripts.cat_relations.inheritance import Inheritance
 
 # pylint: disable=consider-using-dict-items
 
@@ -605,6 +606,8 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                             if not valid:
                                 continue
                             if to_cat:
+                                if not to_cat.inheritance:
+                                    to_cat.inheritance = Inheritance(to_cat)
                                 if rel_tag == "mates":
                                     rel_valid = to_cat.ID in from_cat.mate
                                 elif rel_tag == "non-mates":
