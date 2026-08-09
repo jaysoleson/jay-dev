@@ -1252,7 +1252,7 @@ class Clan:
                 game.clan.demon = Cat.all_cats[demon_info]
                 game.clan.add_cat(game.clan.demon)
         else:
-            game.clan.demon = Cat(
+            game.clan.demon = NewCatFactory.create_cat(
                 status_dict={
                     "rank": choice((CatRank.WARRIOR, CatRank.WARRIOR, CatRank.ELDER)),
                     "group_ID": CatGroup.DARK_FOREST_ID,
@@ -1456,7 +1456,7 @@ class Clan:
             game.clan.add_cat(game.clan.demon)
             game.clan.demon.df = True
         else:
-            game.clan.demon = Cat(
+            game.clan.demon = NewCatFactory.create_cat(
                 status_dict={
                     "rank": choice((CatRank.WARRIOR, CatRank.WARRIOR, CatRank.ELDER)),
                     "group_ID": CatGroup.DARK_FOREST_ID,

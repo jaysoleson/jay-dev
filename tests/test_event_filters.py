@@ -58,7 +58,7 @@ class TestEventFilters(unittest.TestCase):
         game.clan.leader = self.test_cat
 
         # LG
-        self.test_your_cat = create_cat(CatRank.KITTEN, moons=2)
+        self.test_your_cat = cat_factory.create_cat(rank=CatRank.KITTEN, moons=2)
         game.clan.your_cat = self.test_your_cat
 
 

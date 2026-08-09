@@ -9,6 +9,7 @@ from ..ui.scale import ui_scale, ui_scale_dimensions
 from scripts.cat.sprites.display_sprites import generate_sprite
 from scripts.clan_package.get_clan_cats import find_alive_cats_with_rank
 from scripts.game_structure.localization import load_lang_resource
+from scripts.cat.factories.new_cat_factory import NewCatFactory
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch, switch_append_list_value, switch_remove_list_value
@@ -459,9 +460,9 @@ class MoonplaceScreen(Screens):
                 is_apprentice = randint(1, 4) == 1
                 # give an age that fits the role
                 moons = randint(6, 11) if is_apprentice else randint(20, 120)
-                cat = Cat(
+                cat = NewCatFactory.create_cat(
                     name=Name(),
-                    moons=moons,
+                    moons=moons
                 )
                 if is_apprentice:
                     cat.rank_change(CatRank.MEDICINE_APPRENTICE)
