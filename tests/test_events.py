@@ -49,7 +49,7 @@ class TestEvents(unittest.TestCase):
             biome="Forest",
             camp_bg="camp1",
             symbol="symbolADDER0",
-            your_cat=create_cat(CatRank.KITTEN),
+            your_cat=cat_factory.create_cat(rank=CatRank.KITTEN),
             game_mode="expanded",
             starting_members=[
                 cat_factory.create_cat(rank=rank)
@@ -150,7 +150,7 @@ class TestEvents(unittest.TestCase):
                     for cat in Cat.all_cats_list:
                         if (
                             cat.ID not in game.patrolled
-                            and cat.status.rank.is_allowed_to_patrol()
+                            and cat.status.rank.is_allowed_to_patrol(cat)
                             and cat.status.alive_in_player_clan
                             and not cat.not_working()
                         ):

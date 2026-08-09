@@ -3778,7 +3778,7 @@ def handle_murder(cat):
         if targets:
             chosen_target = random.choice(targets)
 
-            kill_chance = constants.CONFIG["death_related"]["base_murder_kill_chance"]
+            kill_chance = get_config("death_related.murder.base_murder_kill_chance")
 
             extreme_neg = len(
                 [l for l in chosen_target.get_reltype_tiers() if l.is_extreme_neg]

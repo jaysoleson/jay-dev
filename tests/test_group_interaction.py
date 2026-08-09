@@ -17,7 +17,8 @@ from scripts.game_structure import game
 os.environ["SDL_VIDEODRIVER"] = "dummy"
 os.environ["SDL_AUDIODRIVER"] = "dummy"
 
-from scripts.cat.cats import Relationship
+from scripts.cat.factories.new_cat_factory import NewCatFactory
+from scripts.cat.cats import Relationship, Cat
 
 cat_factory = TestCatFactory()
 
@@ -28,7 +29,7 @@ class MainCatFiltering(unittest.TestCase):
         leader=None,
         deputy=None,
         medicine_cat=None,
-        your_cat=Cat(), 
+        your_cat=NewCatFactory.create_cat(rank=CatRank.KITTEN), 
         biome="Forest",
         camp_bg=None,
         cruel_cards=[],

@@ -68,13 +68,13 @@ class FreshkillPileTest(unittest.TestCase):
         self.elder = cat_factory.create_cat(rank=CatRank.ELDER, moons=126)
         self.kitten = cat_factory.create_cat(rank=CatRank.KITTEN, moons=3)
 
-        your_cat=create_cat(CatRank.KITTEN),
-
         members = [self.elder, self.kitten]
         members.extend(self.warriors)
         members.extend(self.apprentices)
 
         self.test_clan_name = f"Test_{uuid4()}"
+
+        your_cat = cat_factory.create_cat(rank=CatRank.KITTEN, moons=1)
 
         game.clan = Clan(
             save_id=self.test_clan_name,
@@ -82,7 +82,7 @@ class FreshkillPileTest(unittest.TestCase):
             leader=cat_factory.create_cat(rank=CatRank.LEADER, moons=20),
             deputy=cat_factory.create_cat(rank=CatRank.DEPUTY, moons=20),
             medicine_cat=cat_factory.create_cat(rank=CatRank.MEDICINE_CAT, moons=20),
-            your_cat=cat_factory.create_cat(rank=CatRank.KITTEN, moons=1)
+            your_cat=your_cat,
             biome="Forest",
             camp_bg="camp1",
             symbol="symbolADDER0",
@@ -91,7 +91,7 @@ class FreshkillPileTest(unittest.TestCase):
             starting_season="Newleaf",
         )
         save_load.cat_to_fade.clear()
-        game.clan.create_clan()
+        game.clan.create_clan(your_cat=your_cat)
 
         for _c in Cat.all_cats_list:
             if _c == game.clan.leader:
@@ -131,15 +131,13 @@ class FreshkillPileTest(unittest.TestCase):
         """
         # given
         freshkill_pile = FreshkillPile()
-        self.assertEqual(freshkill_pile.active_pile["expires_in_4"], self.amount)
-        self.assertEqual(freshkill_pile.active_pile["expires_in_3"], 0)
+        self.assertEqual(freshkill_pile.active_pile["expires_in_3"], self.amount)
         self.assertEqual(freshkill_pile.active_pile["expires_in_2"], 0)
         self.assertEqual(freshkill_pile.active_pile["expires_in_1"], 0)
 
         # then
         freshkill_pile.add_freshkill(1)
-        self.assertEqual(freshkill_pile.active_pile["expires_in_4"], self.amount + 1)
-        self.assertEqual(freshkill_pile.active_pile["expires_in_3"], 0)
+        self.assertEqual(freshkill_pile.active_pile["expires_in_3"], self.amount + 1)
         self.assertEqual(freshkill_pile.active_pile["expires_in_2"], 0)
         self.assertEqual(freshkill_pile.active_pile["expires_in_1"], 0)
 
