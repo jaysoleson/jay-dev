@@ -526,6 +526,7 @@ class ProfileScreen(Screens):
                 elif self.the_cat.genderalign in ["trans female", "trans male"]:
                     self.the_cat.genderalign = "nonbinary"
                 self.the_cat.pronouns = get_new_pronouns(self.the_cat.genderalign)
+                self.the_cat.get_new_thought()
                 self.clear_profile()
                 self.build_profile()
                 self.update_disabled_buttons_and_text()
@@ -860,7 +861,11 @@ class ProfileScreen(Screens):
 
         # initialize thoughts if they have none
         if not self.the_cat.thought:
-            if self.the_cat.status.is_other_clancat:
+            if self.the_cat is game.clan.instructor:
+                self.the_cat.get_new_thought(CatThought.IS_GUIDE)
+            elif self.the_cat is game.clan.demon:
+                self.the_cat.get_new_thought(CatThought.IS_DF_GUIDE)
+            elif self.the_cat.status.is_other_clancat:
                 # this isn't great, but it's only being run if someone checks an
                 # other clan cat when booting the game before doing a timeskip
                 other_clan_cats = [
@@ -877,20 +882,6 @@ class ProfileScreen(Screens):
         cat_name = shorten_text_to_fit(cat_name, 500, 20)
         if self.the_cat.dead:
             cat_name += " (dead)"  # A dead cat will have the (dead) sign next to their name
-
-        # Instructor thoughts
-        if self.the_cat.dead and game.clan.instructor is self.the_cat:
-            self.the_cat.get_new_thought(CatThought.IS_GUIDE)
-        if self.the_cat.dead and game.clan.demon is self.the_cat:
-            self.the_cat.get_new_thought(CatThought.IS_DF_GUIDE)
-
-        self.profile_elements["cat_name"] = pygame_gui.elements.UITextBox(cat_name,
-                                                                        ui_scale(pygame.Rect((50, 280), (-1, 105))),
-                                                                        object_id=get_text_box_theme(
-                                                                            "#text_box_40_horizcenter"),
-                                                                        manager=MANAGER)
-        name_text_size = self.profile_elements["cat_name"].get_relative_rect()
-        self.profile_elements["cat_name"].kill()
 
         self.profile_elements["cat_name"] = pygame_gui.elements.UITextBox(
             cat_name,
@@ -1410,12 +1401,12 @@ class ProfileScreen(Screens):
             # NEWLINE ----------
             output += "\n"
 
-        if the_cat in [game.clan.instructor, game.clan.demon]:
+        if the_cat in (game.clan.instructor, game.clan.demon):
             output += i18n.t(f"general.guide")
             output += "\n"
 
         if the_cat.dead:
-            if the_cat in [game.clan.instructor, game.clan.demon] or the_cat.status.is_outsider:
+            if the_cat in (game.clan.instructor, game.clan.demon) or the_cat.status.is_outsider:
                 text = i18n.t(
                     "general.past_no_group",
                     rank=i18n.t(f"general.{the_cat.status.rank}", count=1),
@@ -1549,11 +1540,9 @@ class ProfileScreen(Screens):
         # NEWLINE ----------
         output += "\n"
         # CAT SKILLS
-
-        if the_cat.moons < 1:
-            output += "???"
-        else:
-            output += the_cat.skills.skill_string()
+        output += the_cat.skills.skill_string(
+            is_adolescent=(the_cat.age == CatAge.ADOLESCENT)
+        )
         # NEWLINE ----------
         output += "\n"
 
@@ -3322,7 +3311,7 @@ class ProfileScreen(Screens):
 
             # SET ACCORDING TO DEATH STATE
             if self.the_cat.dead:
-                if self.the_cat.ID in [game.clan.instructor.ID, game.clan.demon.ID]:
+                if self.the_cat.ID in (game.clan.instructor.ID, game.clan.demon.ID):
                     text = "screens.profile.follow"
                     if self.the_cat == game.clan.instructor:
                         layer = self.sc
@@ -3688,7 +3677,7 @@ class ProfileScreen(Screens):
                 biome_platforms.subsurface(pygame.Rect(0 + offset, 0, 80, 70)),
                 (240, 210),
             )
-        elif the_cat.dead or game.clan.instructor.ID == the_cat.ID:
+        elif the_cat.dead or game.clan.instructor.ID == the_cat.ID or game.clan.demon.ID == the_cat.ID:
             biome_platforms = platformsheet.subsurface(
                 pygame.Rect(0, order.index("SC/DF") * 70, 640, 70)
             )

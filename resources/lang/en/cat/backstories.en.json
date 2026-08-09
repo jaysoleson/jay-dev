@@ -93,6 +93,7 @@
         "dark_forest_kits": "Dark Forest kit",
         "oldstarclan_backstories": "dead",
 
+        "healer_backstories": "formerly a healer",
         "beginning_clanborn": "{PRONOUN/m_c/subject/CAP} {VERB/m_c/were/was} born on moon %{birth_moon} during %{birth_season}.",
 
         "beginning_cotc": "{PRONOUN/m_c/subject/CAP} joined the Clan on moon %{moon} at the age of %{join_age}.",

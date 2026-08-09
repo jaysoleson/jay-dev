@@ -219,7 +219,6 @@
             "m_c": {
                 "stat": {
                     "trait": [
-                        "sneaky",
                         "arrogant",
                         "shameless",
                         "wise",
@@ -671,5 +670,22 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "dark_forest_stealth",
+        "strings": [
+            "Easily avoided encountering another shadowy cat",
+            "Talked {PRONOUN/m_c/poss} way out of a training session",
+            "Tricked a shadowy cat into doing {PRONOUN/m_c/poss} bidding"
+        ],
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "skill": [
+                        "STEALTH,1"
+                    ]
+                }
+            }
+        }
     }
 ]

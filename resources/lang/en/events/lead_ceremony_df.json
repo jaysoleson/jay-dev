@@ -315,7 +315,6 @@
         "lonesome",
         "loyal",
         "nervous",
-        "sneaky",
         "strange"
       ],
       "rank": [
@@ -730,10 +729,10 @@
       ]
     },
 
-    "sneaky_adult": {
+    "cunning_adult": {
       "tags": [],
       "lead_trait": [],
-      "star_trait": ["sneaky"],
+      "star_trait": ["cunning"],
       "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
@@ -1905,11 +1904,10 @@
         }
       ]
     },
-    "sneaky_warrior": {
+  
+    "cunning_warrior": {
       "tags": [],
-      "lead_trait": [
-        "sneaky"
-      ],
+      "lead_trait": ["cunning"],
       "star_trait": [],
       "rank": [
         "warrior",

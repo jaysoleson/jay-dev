@@ -7,7 +7,8 @@ import pygame
 import pygame_gui
 import ujson
 
-from scripts.cat.cats import Cat, BACKSTORIES, create_option_preview_cat
+from scripts.cat.cats import Cat, BACKSTORIES
+from scripts.cat.factories.create_example_cat import create_option_preview_cat
 from scripts.game_structure.game.settings import game_setting_get
 from scripts.cat.pelts import Pelt
 from scripts.cat.personality import Personality
