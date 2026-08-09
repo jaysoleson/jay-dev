@@ -120,7 +120,7 @@ class TestCondition(unittest.TestCase):
 
     def test_cold_injury(self):
         # GIVEN
-        clan = Clan(your_cat=Cat())
+        clan = Clan(your_cat=cat_factory.create_cat(rank=CatRank.KITTEN))
         patrol_cat = cat_factory.create_cat(
             moons=20,
             status_dict={"rank": CatRank.WARRIOR},

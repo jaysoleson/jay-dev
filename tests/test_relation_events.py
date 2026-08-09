@@ -4,7 +4,7 @@ from random import Random
 from unittest.mock import patch
 from scripts.cat.cats import Cat
 
-from scripts.cat.enums import CatGroup
+from scripts.cat.enums import CatGroup, CatRank
 from scripts.cat.factories.test_cat_factory import TestCatFactory
 from scripts.clan_package.settings import (
     load_clan_settings,
@@ -183,7 +183,7 @@ class CanHaveKits(unittest.TestCase):
     )
     def test_no_kit_setting(self, check_if_can_have_kits):
         # given
-        test_clan = Clan(save_id="clan", your_cat=Cat())
+        test_clan = Clan(save_id="clan", your_cat=cat_factory.create_cat(rank=CatRank.KITTEN))
         test_clan.pregnancy_data = {}
         cat1 = cat_factory.create_cat(gender="female", disable_random=True)
         cat1.no_kits = True
@@ -251,7 +251,7 @@ class Pregnancy(unittest.TestCase):
     )
     def test_single_cat_female(self, check_if_can_have_kits):
         # given
-        clan = Clan(save_id="clan", your_cat=Cat())
+        clan = Clan(save_id="clan", your_cat=cat_factory.create_cat(rank=CatRank.KITTEN))
         cat = cat_factory.create_cat(
             gender="female", age="adult", moons=40, disable_random=True
         )
@@ -269,7 +269,7 @@ class Pregnancy(unittest.TestCase):
     )
     def test_pair(self, check_if_can_have_kits):
         # given
-        clan = Clan(save_id="clan", your_cat=Cat())
+        clan = Clan(save_id="clan", your_cat=cat_factory.create_cat(rank=CatRank.KITTEN))
         cat1 = cat_factory.create_cat(
             gender="female", age="adult", moons=40, disable_random=True
         )

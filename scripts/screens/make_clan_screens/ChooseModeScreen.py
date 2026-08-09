@@ -227,7 +227,7 @@ class ChooseModeScreen(MakeClanScreenBase):
         self.clan_info.symbol = symbol
 
         # MEMBERS
-        self.clan_info.your_cat = NewCatFactory.create_cat(CatRank.KITTEN)
+        self.clan_info.your_cat = NewCatFactory.create_cat(rank=CatRank.KITTEN)
         self.clan_info.leader = NewCatFactory.create_cat(rank=CatRank.WARRIOR)
         self.clan_info.deputy = NewCatFactory.create_cat(rank=CatRank.WARRIOR)
         self.clan_info.medicine_cat = NewCatFactory.create_cat(rank=CatRank.WARRIOR)

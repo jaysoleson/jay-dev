@@ -3209,7 +3209,7 @@ class ProfileScreen(Screens):
             if (
                 Pregnancy_Events.check_if_can_have_kits(
                     cat=self.the_cat,
-                    single_parentage=get_clan_setting("single parentage"),
+                    allow_single_parent=get_clan_setting("single parentage"),
                     allow_unmated=True,
                     allow_affair=get_clan_setting("affair")
                     ) and 
