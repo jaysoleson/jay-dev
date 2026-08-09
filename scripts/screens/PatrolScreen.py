@@ -1231,8 +1231,7 @@ class PatrolScreen(Screens):
         if switch_get_value(Switch.patrol_category) == "clangen":
             for the_cat in Cat.all_cats_list:
                 if (
-                    the_cat.in_camp
-                    and the_cat.ID not in game.patrolled
+                    the_cat.ID not in game.patrolled
                     and the_cat.status.rank.is_allowed_to_patrol(the_cat)
                     and the_cat.status.alive_in_your_cat_group
                     and the_cat not in self.current_patrol
@@ -1272,7 +1271,6 @@ class PatrolScreen(Screens):
                     self.current_patrol.insert(0, you)
                 for the_cat in Cat.all_cats_list:
                     if (
-                        the_cat.in_camp and
                         the_cat.status.alive_in_your_cat_group and
                         the_cat.ID not in game.dated_cats and
                         the_cat not in self.current_patrol and
@@ -1293,7 +1291,6 @@ class PatrolScreen(Screens):
                         if (
                             c.moons >= 6 and
                             c.status.alive_in_your_cat_group and
-                            c.in_camp and
                             c.ID != the_cat.ID and
                             c.ID not in game.patrolled and
                             c.ID not in self.current_patrol and

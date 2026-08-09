@@ -335,6 +335,7 @@ class ChooseCatsScreen(MakeClanScreenBase):
             ),
         )
         possible_cats = switch_get_value(Switch.future_clan_cats)
+        print("Upcoming Clan Cats:", possible_cats)
         if self.need_leader:
             self.clan_info.leader = choice(
                 [
@@ -389,7 +390,7 @@ class ChooseCatsScreen(MakeClanScreenBase):
                     )
                 )
             except Exception as e:
-                print(f"LG: Failed to add Clan member #{i}")
+                print(f"LG: Failed to add Clan member #{_}")
                 print(e)
             self.update_head_display()
             self.refresh_cat_images_and_info()

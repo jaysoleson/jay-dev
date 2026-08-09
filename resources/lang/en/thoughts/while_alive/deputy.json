@@ -504,8 +504,8 @@
         "involved_cats": {
             "m_c": {
                 "stat": {
-                    "trait": [
-                        "sneaky"
+                    "skill": [
+                        "STEALTH,1"
                     ]
                 }
             }
@@ -520,8 +520,8 @@
         "involved_cats": {
             "m_c": {
                 "stat": {
-                    "trait": [
-                        "sneaky"
+                    "skill": [
+                        "STEALTH,1"
                     ]
                 }
             },

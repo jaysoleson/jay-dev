@@ -602,7 +602,9 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                             )
 
                             # special logic for the different types of relationship
-                            if valid:
+                            if not valid:
+                                continue
+                            if to_cat:
                                 if rel_tag == "mates":
                                     rel_valid = to_cat.ID in from_cat.mate
                                 elif rel_tag == "non-mates":
@@ -787,15 +789,17 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                                             else:
                                                 print(f"WARNING: Invalid relationship tag ({rel_tag})")
                                                 rel_valid = False
+                            else:
+                                rel_valid = True
 
-                                if rel_valid:
-                                    valid_rels += 1
-                                    if FROM not in new_dict:
-                                        new_dict[FROM] = from_cat
-                                        match_found = True
-                                    if TO not in new_dict:
-                                        new_dict[TO] = to_cat
-                                        match_found = True
+                            if rel_valid:
+                                valid_rels += 1
+                                if FROM not in new_dict:
+                                    new_dict[FROM] = from_cat
+                                    match_found = True
+                                if TO not in new_dict:
+                                    new_dict[TO] = to_cat
+                                    match_found = True
 
             if valid_rels != rels_to_check:
                 return {}

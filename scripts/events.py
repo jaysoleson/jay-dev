@@ -1021,9 +1021,6 @@ def generate_birth_event():
         kits = Pregnancy_Events.get_kits(kits_amount=num_siblings, cat=parent1, other_cat=parent2, adoptive_parents=adoptive_parents, clan=game.clan)
         for kit in kits:
             kit.status = deepcopy(game.clan.your_cat.status)
-            if kit.status.is_clancat and kit.status.rank != CatRank.NEWBORN:
-                kit.status._change_rank(CatRank.NEWBORN)
-            kit.age = CatAge.NEWBORN
             kit.backstory = game.clan.your_cat.backstory
             if not game.clan.your_cat.status.group.is_any_clan_group():
                 kit.specsuffix_hidden = True
@@ -1401,8 +1398,6 @@ def generate_birth_event():
             game.clan.your_cat.status.rank != CatRank.NEWBORN
             ):
             game.clan.your_cat.rank_change(CatRank.NEWBORN)
-        if game.clan.your_cat.age != CatAge.NEWBORN:
-            game.clan.your_cat.age = CatAge.NEWBORN
         
         game.cur_events_list.insert(0, Single_Event(adjusted_birth_txt, ["alert", "birth_death"], game.clan.your_cat.ID))
 
@@ -1438,7 +1433,6 @@ def generate_birth_event():
                 s.relationships[c.ID] = start_relation
 
     game.clan.your_cat.w_done = False
-    game.clan.your_cat.age = CatAge.NEWBORN
     switch_set_value(Switch.continue_after_death, False)
     
 def get_living_cats():

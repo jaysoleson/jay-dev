@@ -12,6 +12,7 @@ class CatTogglesDict(TypedDict):
     no_kits: bool
     no_mates: bool
     no_retire: bool
+    no_faith: bool
     prevent_fading: bool
     favourite: bool
 

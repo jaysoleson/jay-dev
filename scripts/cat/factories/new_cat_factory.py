@@ -104,6 +104,7 @@ class NewCatFactory(BaseCatFactory, ABC):
                 no_kits=False,
                 no_mates=False,
                 no_retire=False,
+                no_faith=False,
                 prevent_fading=False,
                 favourite=False,
             ),

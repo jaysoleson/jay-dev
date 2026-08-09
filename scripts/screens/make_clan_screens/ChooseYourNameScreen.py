@@ -49,7 +49,7 @@ class ChooseYourNameScreen(MakeClanScreenBase):
 
         self.elements["your_cat_image"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((0, -50), (160, 160))),
-            pygame.transform.scale(self.clan_info.your_cat.sprite, ui_scale_dimensions((200, 200))),
+            pygame.transform.scale(self.clan_info.your_cat.sprite, ui_scale_dimensions((160, 160))),
             starting_height=1,
             manager=MANAGER,
             anchors={"centerx": "centerx", "centery": "centery"}

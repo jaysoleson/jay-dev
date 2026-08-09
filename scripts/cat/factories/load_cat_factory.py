@@ -71,6 +71,7 @@ class LoadCatFactory(BaseCatFactory):
             no_kits=kwargs.get("no_kits", False),
             no_mates=kwargs.get("no_mates", False),
             no_retire=kwargs.get("no_retire", False),
+            no_faith=kwargs.get("no_faith", False),
             prevent_fading=kwargs.get("prevent_fading", False),
             favourite=kwargs.get("favourite", False),
         )

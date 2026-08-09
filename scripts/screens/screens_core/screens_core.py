@@ -591,7 +591,7 @@ def get_camp_bgs():
         camp_bg_base_dir, camp_nr = get_current_camp()
         biome = game.clan.biome.lower()
     except AttributeError:
-        camp_bg_base_dir = "resources/images/camp_bg/clancat/"
+        camp_bg_base_dir = "resources/images/camp_bg/"
         camp_nr = "camp1"
         biome = available_biome[0]
 

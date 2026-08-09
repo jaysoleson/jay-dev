@@ -477,7 +477,7 @@ class EventsScreen(Screens):
         )
 
         self.clan_info["symbol"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((10, 25), (100, 100))),
+            ui_scale(pygame.Rect((30, 25), (100, 100))),
             pygame.transform.scale(
                 clan_symbol_sprite(game.clan), ui_scale_dimensions((100, 100))
             ),
@@ -1418,7 +1418,7 @@ class EventsScreen(Screens):
         game.clan.your_cat.pelt.rebuild_sprite = True
         if game.clan.your_cat.moons != -1:
             self.you = UISpriteButton(
-                ui_scale(pygame.Rect((560, 100), (120, 120))),
+                ui_scale(pygame.Rect((580, 100), (120, 120))),
                 game.clan.your_cat.sprite,
                 cat_id=game.clan.your_cat.ID,
                 manager=MANAGER

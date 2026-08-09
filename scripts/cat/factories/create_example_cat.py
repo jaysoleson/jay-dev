@@ -12,18 +12,27 @@ if TYPE_CHECKING:
     from scripts.cat.cats import Cat
 
 
-def create_example_cats(majority_rank: CatRank, rank_weights: dict) -> list["Cat"]:
-    majority_rank_cats = sample(range(12), 3)
+def create_example_cats(
+        majority_rank: CatRank,
+        rank_weights: dict,
+        lifegen_kitten_creation=False,
+        max_cats=12
+        ) -> list["Cat"]:
+    majority_rank_cats = sample(range(max_cats), 3)
 
     chosen_cats = []
-    for cat_index in range(12):
-        if cat_index in majority_rank_cats:
-            chosen_cats.append(NewCatFactory.create_cat(rank=majority_rank))
-        else:
-            random_rank = choices(
-                list(rank_weights.keys()), list(rank_weights.values())
-            )[0]
-            chosen_cats.append(NewCatFactory.create_cat(rank=random_rank))
+    if lifegen_kitten_creation:
+        for cat_index in range(max_cats):
+            chosen_cats.append(NewCatFactory.create_cat(rank=CatRank.KITTEN, moons=1))
+    else:
+        for cat_index in range(max_cats):
+            if cat_index in majority_rank_cats:
+                chosen_cats.append(NewCatFactory.create_cat(rank=majority_rank))
+            else:
+                random_rank = choices(
+                    list(rank_weights.keys()), list(rank_weights.values())
+                )[0]
+                chosen_cats.append(NewCatFactory.create_cat(rank=random_rank))
 
     return chosen_cats
 

@@ -249,8 +249,7 @@ class Cat:
         self.no_retire = toggles["no_retire"]
         self.prevent_fading = toggles["prevent_fading"]  # Prevents a cat from fading
         self.favourite = toggles["favourite"]
-
-        # LG
+        # toggles -> LG
         self.no_faith = toggles["no_faith"]
 
         # misc
@@ -293,7 +292,8 @@ class Cat:
         self.df_join_moon = 0
         self.df_patrols = 0
         self.graduated_df = False
-
+        self.backstory_str = ""
+        # --------->
 
         self.faded = faded  # This is only used to flag cats that are faded, but won't be added to the faded list until
         # the next save.
@@ -3894,8 +3894,7 @@ class Cat:
                 "lock_faith": self.lock_faith if self.lock_faith else "flexible",
                 "df_patrols": self.df_patrols if self.df_patrols else 0,
                 "df_join_moon": self.df_join_moon if self.df_join_moon else 0,
-                "graduated_df": self.graduated_df if self.graduated_df else False,
-                "old_status": self.old_status if self.old_status else ""
+                "graduated_df": self.graduated_df if self.graduated_df else False
             }
 
     def determine_next_and_previous_cats(

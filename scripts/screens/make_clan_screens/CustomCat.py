@@ -16,9 +16,11 @@ from scripts.ui.generate_button import ButtonStyles, get_button_dict
 from scripts.ui.icon import Icon
 from scripts.ui.scale import ui_scale, ui_scale_dimensions
 from scripts.ui.theme import get_text_box_theme
-from scripts.cat.cats import Cat, create_cat
+from scripts.cat.cats import Cat
 from scripts.cat.enums import CatRank, CatAge
 from scripts.cat.pelts import Pelt
+from scripts.cat.factories.new_cat_factory import NewCatFactory
+
 
 class CustomCatScreen(MakeClanScreenBase):
     def __init__(self, name="custom_cat_screen"):
@@ -35,7 +37,7 @@ class CustomCatScreen(MakeClanScreenBase):
         super().screen_switches()
         self.starting_cat = Cat.all_cats.get(switch_get_value(Switch.cat))
         # dummy cat
-        self.custom_cat = create_cat(CatRank.KITTEN)
+        self.custom_cat = NewCatFactory.create_cat(rank=CatRank.KITTEN, moons=1)
 
         if self.starting_cat and not self.clan_info.your_cat:
             self.reset_custom_cat(copycat=self.starting_cat)
@@ -91,7 +93,7 @@ class CustomCatScreen(MakeClanScreenBase):
                 self._assign_cat()
                 self.change_screen(GameScreen.MAKE_CLAN_YOUR_NAME)
             elif event.ui_element == self.elements["random_cat"]:
-                self.custom_cat = create_cat(CatRank.KITTEN)
+                self.custom_cat = NewCatFactory.create_cat(rank=CatRank.KITTEN, moons=1)
                 self.update_sprite()
             elif event.ui_element == self.elements["reset_cat"]:
                 self.reset_custom_cat()

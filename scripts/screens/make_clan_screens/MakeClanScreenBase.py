@@ -359,8 +359,10 @@ class MakeClanScreenBase(Screens):
             return None
 
         leaf = self.clan_info.starting_season.replace("-", "")
-
-        camp_bg_base_dir = f"resources/images/camp_bg/{your_group}/"
+        if your_group == "clancat":
+            camp_bg_base_dir = "resources/images/camp_bg/"
+        else:
+            camp_bg_base_dir = f"resources/images/camp_bg/{your_group}/"
         start_leave = leaf.casefold()
         light_dark = "dark" if game_setting_get("dark mode") else "light"
 

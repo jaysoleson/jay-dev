@@ -492,7 +492,6 @@ def _check_cat_age(cat, ages: list) -> bool:
         raise ValueError(
             "One or more ages provided are invalid CatAges - double-check spelling"
         ) from e
-
     if cat.age.value in enum_ages:
         return not is_exclusionary
 

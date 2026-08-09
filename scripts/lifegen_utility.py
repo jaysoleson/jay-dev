@@ -157,7 +157,7 @@ def get_current_camp():
     if game.clan.your_cat:
         if game.clan.your_cat.status.group in [CatGroup.PLAYER_CLAN, CatGroup.OTHER_CLAN]:
             camp_nr = game.clan.camp_bg
-            camp_bg_base_dir = "resources/images/camp_bg/clancat"
+            camp_bg_base_dir = "resources/images/camp_bg"
         elif game.clan.your_cat.status.group == CatGroup.ROGUE_GROUP:
             camp_nr = game.clan.rogue_group_bg
             camp_bg_base_dir = "resources/images/camp_bg/rogue"
@@ -172,7 +172,7 @@ def get_current_camp():
             camp_bg_base_dir = "resources/images/camp_bg/none"
     else:
         camp_nr = game.clan.camp_bg
-        camp_bg_base_dir = "resources/images/camp_bg/clancat"
+        camp_bg_base_dir = "resources/images/camp_bg"
 
     return camp_bg_base_dir, camp_nr
 

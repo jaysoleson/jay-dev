@@ -168,6 +168,9 @@ class ChooseCampScreen(MakeClanScreenBase):
             for tab_id, button in self.tabs.items():
                 if event.ui_element == button:
                     tabnum = tab_id.replace("tab", "")
+                    if "_" in tabnum:
+                        # its a season tab
+                        continue
                     self.selected_camp_tab = int(tabnum)
                     self.refresh_selected_camp()
 

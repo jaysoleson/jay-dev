@@ -18,7 +18,7 @@ import i18n
 import ujson
 
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
-from scripts.cat.enums import CatRank, CatGroup, CatSocial
+from scripts.cat.enums import CatRank, CatGroup, CatSocial, CatAge
 from scripts.cat_relations.inheritance import Inheritance
 from scripts.cat.cats import Cat, BACKSTORIES
 from scripts.cat.enums import CatRank, CatGroup, CatSocial, CatCompatibility
@@ -334,7 +334,7 @@ class Clan:
 
         self.add_cat(self.instructor)
         
-        self.demon = Cat(
+        self.demon = NewCatFactory.create_cat(
             status_dict={"rank": instructor_rank, "group_ID": CatGroup.DARK_FOREST_ID},
             backstory=choice(
                 BACKSTORIES["backstory_categories"]["new_df_guide_backstories"]

@@ -4,7 +4,7 @@ from typing import List
 
 import i18n
 
-from scripts.cat.cats import Cat, cat_class, BACKSTORIES, create_example_cats, create_cat
+from scripts.cat.cats import Cat
 
 from scripts.game_structure import game
 from scripts.cat.enums import CatRank
