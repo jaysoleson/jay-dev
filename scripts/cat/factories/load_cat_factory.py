@@ -271,6 +271,7 @@ class LoadCatFactory(BaseCatFactory):
                 "tint": kwargs.get("tint"),
                 "scars": kwargs["scars"],
                 "accessory": kwargs.get("accessory", []),
+                "inventory": kwargs.get("inventory", []),
                 "opacity": kwargs.get("opacity", 100),
             }
         )
