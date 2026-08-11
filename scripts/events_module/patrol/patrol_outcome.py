@@ -42,7 +42,9 @@ from scripts.clan_resources.freshkill import (
     HUNTER_BONUS,
     FRESHKILL_ACTIVE,
 )
-
+from scripts.clan_package.get_clan_cats import (
+    find_alive_cats_with_rank,
+)
 from scripts.game_structure.game.switches import (
     switch_get_value,
     Switch,
@@ -175,6 +177,11 @@ class PatrolOutcome:
         # Determine which outcomes are possible
         allowed_outcomes = []
         for outcome in possible_outcomes:
+            # LG EDIT
+            if "med_name" in outcome.text:
+                if not find_alive_cats_with_rank(Cat, [CatRank.MEDICINE_APPRENTICE, CatRank.MEDICINE_APPRENTICE]):
+                    continue
+            # --->
             if outcome.stat_skill or outcome.stat_trait:
                 outcome._get_stat_cat(patrol)
                 if not isinstance(outcome.stat_cat, Cat):
