@@ -386,7 +386,7 @@ class ShortEvent:
         # must be done after adjusting text
         event_tile = self.handle_tile_location(other_clan)
         if not event_tile:
-            print("No valid tile found! Aborting.")
+            print(self.event_id, ": No valid tile found for", self.tile_location, ". Aborting.")
             return
 
         if self.chosen_herb:

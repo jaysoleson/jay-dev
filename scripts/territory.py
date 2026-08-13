@@ -1239,6 +1239,9 @@ class Territory():
                 valid_tiles = [self.get_camp_tile(clan, territory_dict=territory_dict)]
             elif tile_filter == "outside_camp":
                 valid_tiles = all_tiles
+                camp_tile = self.get_camp_tile(other_clan, territory_dict=territory_dict)
+                if camp_tile in valid_tiles:
+                    valid_tiles.remove(camp_tile)
             elif tile_filter == "other_clan_territory":
                 if other_clan:
                     valid_tiles = self._get_all_territory_tiles(
@@ -1423,18 +1426,17 @@ class Territory():
     def _get_all_unclaimed_tiles(self, territory_dict={}, exclude_water=False):
         if not territory_dict:
             territory_dict = game.clan.territory_tile_info
-        
+
         unclaimed_tiles = []
         for tile in territory_dict:
             if not territory_dict[tile]["owner"]:
                 if "poi" in territory_dict[tile]:
                     continue
                 if exclude_water:
-                    if "terrain" in territory_dict[tile]:
-                        if territory_dict[tile]["terrain"] in (
-                            "lake", "ocean"
-                        ):
-                            continue
+                    if territory_dict[tile]["terrain"] in (
+                        "lake", "ocean"
+                    ):
+                        continue
                 unclaimed_tiles.append(tile)
         return unclaimed_tiles
 
