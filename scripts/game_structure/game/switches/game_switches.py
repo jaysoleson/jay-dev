@@ -41,6 +41,7 @@ class Switch(StrEnum):
     switch_clan = auto()
     keybinds_live = auto()
     card_conflict_changes = auto()
+    confirmed_deck_list = auto()
 
     # CGW
     last_used_POI = auto()
@@ -76,6 +77,7 @@ _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
     "switch_clans": False,
     "keybinds_live": False,
     "card_conflict_changes": {},
+    "confirmed_deck_list": [],
 
     "last_used_POI": "",
     "selected_tile": ""

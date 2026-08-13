@@ -61,6 +61,7 @@
         "change_view": "View %{view}",
         "view_map": "View Territory",
         "map_view_events": "events",
-        "map_view_events_tooltip": "View events that have recently happened here."
+        "map_view_events_tooltip": "View events that have recently happened here.",
+        "confirm": "confirm"
     }
 }
