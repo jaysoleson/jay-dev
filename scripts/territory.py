@@ -15,8 +15,7 @@ from scripts.cat.cats import Cat
 
 
 class Territory():
-    MAP_WIDTH = get_config("bellsofwar.territory_grid_size")
-    MAP_HEIGHT = get_config("bellsofwar.territory_grid_size")
+    MAP_SIZE = get_config("bellsofwar.territory_grid_size")
 
     high_value_herbs = {
         "catmint": 4,
@@ -54,14 +53,18 @@ class Territory():
         # get border tiles
         border_tiles = []
         all_tiles = []
-        for x in range(self.MAP_WIDTH):
-            for y in range(self.MAP_HEIGHT):
-                territory_dict[f"{x}-{y}"] = {"owner": None}
+        for x in range(self.MAP_SIZE):
+            for y in range(self.MAP_SIZE):
+                territory_dict[f"{x}-{y}"] = {
+                    "owner": None,
+                    "terrain": "land",
+                    "events": []
+                    }
                 if (
                     x == 0 or
                     y == 0 or
-                    x == self.MAP_WIDTH - 1 or
-                    y == self.MAP_HEIGHT - 1
+                    x == self.MAP_SIZE - 1 or
+                    y == self.MAP_SIZE - 1
                 ):
                     border_tiles.append(f"{x}-{y}")
                 all_tiles.append(f"{x}-{y}")
@@ -75,7 +78,7 @@ class Territory():
         border_tiles_collected = self.distribute_tiles(
             item_list=self.all_clans,
             max_attempts=(
-                (self.MAP_WIDTH * 10) -
+                (self.MAP_SIZE * 10) -
                 len(self.all_clans * get_config("bellsofwar.territory_expansion_modifier"))
                 ),
             starting_tiles=all_tiles if get_config("bellsofwar.random_territory_placement") else border_tiles,
@@ -88,11 +91,11 @@ class Territory():
             for tile in tile_list:
                 # nothing important can go on the top corner
                 # as its blocked by the compass on the map screen lol
-                top_corner = f"{self.MAP_HEIGHT-1}-0"
+                top_corner = f"{self.MAP_SIZE-1}-0"
                 if tile not in territory_dict:
                     territory_dict[tile]["owner"] = None
                 else:
-                    if tile == f"{round(self.MAP_WIDTH/2)}-{round(self.MAP_HEIGHT/2)}":
+                    if tile == f"{round(self.MAP_SIZE/2)}-{round(self.MAP_SIZE/2)}":
                         territory_dict[tile]["poi"] = "gathering"
                     else:
                         territory_dict[tile]["owner"] = clan.group_ID
@@ -135,7 +138,7 @@ class Territory():
             )
 
         for tile in territory_dict:
-            if tile == f"{round(self.MAP_WIDTH/2)}-{round(self.MAP_HEIGHT/2)}":
+            if tile == f"{round(self.MAP_SIZE/2)}-{round(self.MAP_SIZE/2)}":
                 territory_dict[tile]["poi"] = "gathering"
 
         # NOW give them all empty events lists
@@ -161,8 +164,8 @@ class Territory():
         new_dict = self._set_general_strength(territory_dict, override=override)
 
         # 0 strength
-        for x in range(self.MAP_WIDTH):
-            for y in range(self.MAP_HEIGHT):
+        for x in range(self.MAP_SIZE):
+            for y in range(self.MAP_SIZE):
                 if "strength" not in new_dict[f"{x}-{y}"]:
                     if new_dict[f"{x}-{y}"]["owner"]:
                         new_dict[f"{x}-{y}"].update({"strength": 1})
@@ -174,8 +177,8 @@ class Territory():
         return new_dict
 
     def _set_unclaimed_territory(self, territory_dict):
-        for x in range(self.MAP_WIDTH):
-            for y in range(self.MAP_HEIGHT):
+        for x in range(self.MAP_SIZE):
+            for y in range(self.MAP_SIZE):
                 if f"{x}-{y}" not in territory_dict:
                     territory_dict[f"{x}-{y}"]["owner"] = None
 
@@ -263,7 +266,7 @@ class Territory():
 
         possible_herbs = list(game.clan.herb_supply.base_herb_list.keys())
         assembled_herb_list = []
-        herb_num = random.randint(18,25)
+        herb_num = random.randint(18,26)
 
         for i in range(herb_num):
             assembled_herb_list.append(random.choice(possible_herbs))
@@ -272,7 +275,7 @@ class Territory():
         # big patches of oak leaves would make more sense in a forest than beach yk
         herb_tiles_collected = self.distribute_tiles(
             item_list=assembled_herb_list,
-            max_attempts=round(self.MAP_WIDTH / 2),
+            max_attempts=round(self.MAP_SIZE / 2),
             starting_tiles=valid_tiles,
             all_valid_tiles=valid_tiles
             )
@@ -301,15 +304,14 @@ class Territory():
         else:
             biome_thunderpath_chances = {
                 "Plains": 2,
-                "Forest": 4,
-                "Mountainous": 5,
+                "Forest": 2,
+                "Mountainous": 3,
                 "Beach": 0,
                 "Wetlands": 0,
-                "Desert": 5
+                "Desert": 4
             }
             if not int(random.random() * biome_thunderpath_chances[game.clan.biome]):
                 create_thunderpath = True
-        create_thunderpath = True
 
         # river, lake, ocean
         biome_water_features = {
@@ -325,7 +327,7 @@ class Territory():
         lake_number = biome_water_features[game.clan.biome][1]
         ocean_number = biome_water_features[game.clan.biome][2]
 
-        lake_starting_tile = None
+        lake_starting_tiles = []
         all_pois = get_poi_save_dict()
         for feature in all_pois["terrain"]:
             if feature in self.river_pois:
@@ -337,7 +339,12 @@ class Territory():
         # force a lake at the center for the gathering island
         if "gather_island" in all_pois["gathering"]:
             create_lake = True
-            lake_starting_tile = self.get_gathering_tile(territory_dict)
+            lake_starting_tiles.append(self.get_gathering_tile(territory_dict))
+
+        if game.clan.biome == "Forest" and game.clan.camp_bg == "camp4":
+            # Lakeside
+            create_lake = True
+            lake_starting_tiles.append(self.get_camp_tile(game.clan, territory_dict))
 
         if not create_river:
             if river_number:
@@ -346,8 +353,9 @@ class Territory():
                     create_river = True
         if not create_lake:
             if lake_number:
-                if not int(random.random() * 6):
+                if not int(random.random() * 5):
                     create_lake = True
+        create_lake = True
 
         # beach always gets a river and an ocean!
         if game.clan.biome == "Beach":
@@ -370,10 +378,10 @@ class Territory():
                         i for i in border_tiles if int(i.split("-")[0]) == 0
                     ],
                     "south": [
-                        i for i in border_tiles if int(i.split("-")[1]) == self.MAP_HEIGHT - 1
+                        i for i in border_tiles if int(i.split("-")[1]) == self.MAP_SIZE - 1
                     ],
                     "west": [
-                        i for i in border_tiles if int(i.split("-")[0]) == self.MAP_WIDTH - 1
+                        i for i in border_tiles if int(i.split("-")[0]) == self.MAP_SIZE - 1
                     ]
                 }
                 for i in range(ocean_number):
@@ -383,15 +391,65 @@ class Territory():
                         territory_dict=territory_dict
                     )
         
-        non_water_tiles = self.get_land_tiles_from_list(all_tiles, territory_dict)
+        non_water_tiles = self.get_terrain_tiles_from_list(all_tiles, territory_dict, "land")
+        if self.get_gathering_tile(territory_dict) in non_water_tiles:
+            non_water_tiles.remove(self.get_gathering_tile(territory_dict))
+
+        if lake_starting_tiles:
+            lake_number = len(lake_starting_tiles)
+
         if create_lake:
+            lake_tile_index = 0
             for i in range(lake_number):
+                lake_source = lake_starting_tiles[lake_tile_index] if lake_tile_index < len(lake_starting_tiles) else random.choice(non_water_tiles)
+
+                if lake_source == self.get_camp_tile(game.clan, territory_dict):
+                    print("Adjusting valid tiles for Lakeside")
+                    # change valid tiles so its lakeSIDE, not in the middle.
+
+                    camp_x = int(lake_source.split("-")[0])
+                    camp_y = int(lake_source.split("-")[1])
+        
+                    valid_directions = ["west", "east", "north", "south"]
+                    if camp_x == 0:
+                        valid_directions.remove("west")
+                    if camp_x == self.MAP_SIZE:
+                        valid_directions.remove("east")
+                    if camp_y == 0:
+                        valid_directions.remove("north")
+                    if camp_y == self.MAP_SIZE:
+                        valid_directions.remove("south")
+
+                    direction = random.choice(valid_directions)
+                    print("Lake direction:", direction)
+
+                    for nwtile in non_water_tiles.copy():
+                        nw_x = int(nwtile.split("-")[0])
+                        nw_y = int(nwtile.split("-")[1])
+
+                        if direction == "north":
+                            if nw_y > camp_y - 1:
+                                non_water_tiles.remove(nwtile)
+                                continue
+                        elif direction == "east":
+                            if nw_x < camp_x + 1:
+                                non_water_tiles.remove(nwtile)
+                                continue
+                        elif direction == "south":
+                            if nw_y < camp_x + 1:
+                                non_water_tiles.remove(nwtile)
+                                continue
+                        elif direction == "west":
+                            if nw_x > camp_x - 1:
+                                non_water_tiles.remove(nwtile)
+                                continue
+
                 territory_dict = self.__create_lake(
-                    lake_tile=lake_starting_tile if lake_starting_tile else random.choice(non_water_tiles),
+                    lake_tile=lake_source,
                     all_tiles=non_water_tiles,
                     territory_dict=territory_dict
                 )
-                lake_starting_tile = None
+                lake_tile_index += 1
 
         if create_silverpath:
             territory_dict = self.__create_thunderpath(territory_dict=territory_dict, terrain_type="silverpath")
@@ -480,7 +538,7 @@ class Territory():
         return territory_dict
 
     def get_terrain_tiles_from_list(self, tile_list, territory_dict={}, terrain_type="water"):
-        terain_tiles = []
+        terrain_tiles = []
         for tile in tile_list:
             if tile not in territory_dict:
                 continue
@@ -500,8 +558,8 @@ class Territory():
             else:
                 if territory_dict[tile]["terrain"] != terrain_type:
                     continue
-            terain_tiles.append(tile)
-        return terain_tiles
+            terrain_tiles.append(tile)
+        return terrain_tiles
 
     def _get_coast_tiles(self, water_type, territory_dict={}):
         if not territory_dict:
@@ -576,7 +634,7 @@ class Territory():
         }
         RIVER_ATTEMPTS = get_config("bellsofwar.territory_grid_size") * 4
         for i in range(RIVER_ATTEMPTS):
-            if endpoint >= self.MAP_WIDTH - 1:
+            if endpoint >= self.MAP_SIZE - 1:
                 break
             all_neighbours = self.get_immediate_neighbours(river_tiles[-1], territory_dict=territory_dict)
             possible_choices = []
@@ -629,10 +687,14 @@ class Territory():
                     if tile in valid_tiles:
                         valid_tiles.remove(tile)
                 if "terrain" in territory_dict[n] and territory_dict[n]["terrain"] in (
-                    "river", "lake", "ocean"
+                    "lake", "ocean"
                 ):
                     if tile in valid_tiles:
                         valid_tiles.remove(tile)
+        if not valid_tiles:
+            print("Can't create a lake with no valid tiles!")
+            return territory_dict
+        print("LAKE! Starting on", lake_tile)
 
         lake_tiles = self.distribute_tiles(
             item_list=[1],
@@ -684,7 +746,7 @@ class Territory():
         ]
         # nothing important can go on the top corner
         # as its blocked by the compass on the map screen lol
-        top_corner = f"{self.MAP_HEIGHT-1}-0"
+        top_corner = f"{self.MAP_SIZE-1}-0"
         if top_corner in free_tiles:
             free_tiles.remove(top_corner)
 
@@ -705,7 +767,7 @@ class Territory():
                 # just go along the edges
                 if not moonplace_tiles:
                     for tile in free_tiles:
-                        if tile.split("-")[0] in (0, self.MAP_HEIGHT - 1):
+                        if tile.split("-")[0] in (0, self.MAP_SIZE - 1):
                             moonplace_tiles.append(tile)
                 for tile in moonplace_tiles.copy():
                     if clan_poi_dict[category][0] != "moon_pool":
@@ -736,14 +798,14 @@ class Territory():
                             for n in neighbours:
                                 if (
                                     not territory_dict[n]["owner"] and
-                                    n != f"{round(self.MAP_WIDTH/2)}-{round(self.MAP_HEIGHT/2)}" and
+                                    n != f"{round(self.MAP_SIZE/2)}-{round(self.MAP_SIZE/2)}" and
                                     "poi" not in territory_dict[n]
                                     ):
                                     feature_tiles.append(tile)
                         # same code as moonplace
                         if not feature_tiles:
                             for tile in free_tiles:
-                                if tile.split("-")[0] in (0, self.MAP_HEIGHT - 1):
+                                if tile.split("-")[0] in (0, self.MAP_SIZE - 1):
                                     feature_tiles.append(tile)
                     elif feature in (
                         "terrain_fordriver", "terrain_waterfall", "terrain_sunningrocks"
@@ -840,9 +902,9 @@ class Territory():
         # TODO CGWAR: docs
 
         tiles_collected = {}
-        if self.MAP_WIDTH <= 11:
+        if self.MAP_SIZE <= 11:
             info = "bellsofwar.heatmap_mod.small_map"
-        elif self.MAP_WIDTH <= 17:
+        elif self.MAP_SIZE <= 17:
             info = "bellsofwar.heatmap_mod.medium_map"
         else:
             info = "bellsofwar.heatmap_mod.large_map"
@@ -995,8 +1057,8 @@ class Territory():
                     y = int(source_tile.split("-")[1])
 
                     north_tile = f"{x}-{y-1}" if y > 0 else None
-                    east_tile = f"{x+1}-{y}" if x < self.MAP_WIDTH - 1 else None
-                    south_tile = f"{x}-{y+1}" if y < self.MAP_HEIGHT - 1 else None
+                    east_tile = f"{x+1}-{y}" if x < self.MAP_SIZE - 1 else None
+                    south_tile = f"{x}-{y+1}" if y < self.MAP_SIZE - 1 else None
                     west_tile = f"{x-1}-{y}" if x > 0 else None
 
                     options = []
@@ -1183,7 +1245,7 @@ class Territory():
         if "," in tile_type:
             tile_type_list = tile_type.split(",")
         else:
-            if "other_clan" in tile_type:
+            if "other_clan" in tile_type or "unclaimed" in tile_type:
                 tile_type_list = [tile_type]
             else:
                 tile_type_list = [tile_type, "any"]
@@ -1201,7 +1263,6 @@ class Territory():
                 elif tile_filter == "moonplace":
                     valid_tiles = [self.get_moonplace_tile(territory_dict=territory_dict)]
             elif tile_filter in get_poi_names_set():
-                print("specific poi event")
                 valid_tiles = [self.get_poi_tile(poi=tile_filter, territory_dict=territory_dict)]
 
             # BoW ----------------------->

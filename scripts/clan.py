@@ -872,15 +872,15 @@ class Clan:
         switch_set_value(Switch.error_message, "")
     
     def load_territory_json(self):
-        # game.clan.territory_tile_info = territory_class.generate_territories()
+        game.clan.territory_tile_info = territory_class.generate_territories()
         # ^^ debug overwriting every load for testing
 
-        with open(
-            get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json",
-            "r",
-            encoding="utf-8",
-        ) as read_file:
-            game.clan.territory_tile_info = ujson.loads(read_file.read())
+        # with open(
+        #     get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json",
+        #     "r",
+        #     encoding="utf-8",
+        # ) as read_file:
+        #     game.clan.territory_tile_info = ujson.loads(read_file.read())
 
     def load_clan_json(self):
         """

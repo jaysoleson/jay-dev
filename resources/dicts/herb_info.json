@@ -780,6 +780,7 @@
         }
     },
     "yew_berries": {
+        "colour": [214, 0, 36],
         "expiration": 6,
         "rarity": {
             "forest": {

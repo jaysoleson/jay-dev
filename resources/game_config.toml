@@ -1115,7 +1115,9 @@ dev_tools = false
   territory_expansion_modifier = 13
   # modifies a subtraction. a bigger number means smaller territory.
   # smaller number, the more the game will attempt to expand the territory.
-  # dont set to a negative number !
+  # dont set to a negative number!
+  # recommended range: 5-15
+  # DEFAULT: 13
 
   territory_grid_size = 17
   # the number of territory squares along each axis your game will generate with.
