@@ -624,9 +624,6 @@ def handle_map_interaction_event():
         other_clan=owner
         )
 
-    print(border_tiles)
-    print(target_tile)
-
     success_chance = 2
     if target_tile in border_tiles:
         border_insert = "border"
@@ -638,7 +635,7 @@ def handle_map_interaction_event():
     success_chance += game.clan.territory_tile_info[target_tile]["strength"]
 
     if interaction == "take":
-        success_chance = round(success_chance * 1.5)
+        success_chance = round(success_chance / 2)
 
     if not territory_class.get_tile_owner(target_tile):
         success_chance /= 2

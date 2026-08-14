@@ -306,8 +306,8 @@ class Territory():
                 "Plains": 2,
                 "Forest": 2,
                 "Mountainous": 3,
-                "Beach": 0,
-                "Wetlands": 0,
+                "Beach": 10,
+                "Wetlands": 20,
                 "Desert": 4
             }
             if not int(random.random() * biome_thunderpath_chances[game.clan.biome]):
@@ -355,7 +355,6 @@ class Territory():
             if lake_number:
                 if not int(random.random() * 5):
                     create_lake = True
-        create_lake = True
 
         # beach always gets a river and an ocean!
         if game.clan.biome == "Beach":
