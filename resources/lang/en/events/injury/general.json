@@ -120,7 +120,7 @@
         "frequency": 4,
         "event_text": "m_c snuck out of camp and returned a bit bruised, but brimming with pride despite the scolding {PRONOUN/m_c/subject} {VERB/m_c/were/was} given.",
         "tile_location": [
-            "territory"
+            "not_other_clan_territory"
         ],
         "m_c": {
             "status": [
@@ -236,7 +236,7 @@
         "frequency": 3,
         "event_text": "m_c snuck out of camp and returned scraped up, but brimming with pride despite the scolding {PRONOUN/m_c/subject} {VERB/m_c/were/was} given.",
         "tile_location": [
-            "territory"
+            "not_other_clan_territory"
         ],
         "m_c": {
             "status": [
@@ -889,7 +889,7 @@
         "frequency": 1,
         "event_text": "m_c was on a walk when {PRONOUN/m_c/subject} saw r_c being attacked by a rogue! {PRONOUN/m_c/subject/CAP} helped r_c escape, but not before gaining a few wounds.",
         "tile_location": [
-            "territory", "unclaimed_border"
+            "not_other_clan_territory"
         ],
         "m_c": {
             "age": [
@@ -995,7 +995,7 @@
         "frequency": 3,
         "event_text": "m_c was on a walk when {PRONOUN/m_c/subject} saw r_c being attacked by a dog! {PRONOUN/m_c/subject/CAP} helped r_c escape, but not before gaining a few wounds.",
         "tile_location": [
-            "territory", "unclaimed_border"
+            "not_other_clan_territory"
         ],
         "m_c": {
             "age": [
@@ -1334,9 +1334,9 @@
             "leaf-fall"
         ],
         "frequency": 2,
-        "event_text": "m_c fell into a river, and inhaled a lot of water before managing to get out. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'ve/'s} been hacking and sputtering ever since.",
+        "event_text": "m_c fell into the river, and inhaled a lot of water before managing to get out. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'ve/'s} been hacking and sputtering ever since.",
         "tile_location": [
-            "river"
+            "river,not_other_clan_territory"
         ],
         "m_c": {
             "age": [
@@ -1378,7 +1378,7 @@
         "frequency": 4,
         "event_text": "m_c was out wandering the territory for a bit too long and came back with frostbite.",
         "tile_location": [
-            "outside_camp"
+            "not_other_clan_territory"
         ],
         "m_c": {
             "age": [
@@ -1422,7 +1422,7 @@
         "frequency": 1,
         "event_text": "m_c went out for a walk, but slipped on the ice and broke a bone.",
         "tile_location": [
-            "territory"
+            "not_other_clan_territory"
         ],
         "m_c": {
             "age": [
@@ -5887,7 +5887,7 @@
         "frequency": 4,
         "event_text": "m_c's tail was badly injured by a dog.",
         "tile_location": [
-            "territory"
+            "outside_camp,land"
         ],
         "m_c": {
             "age": [
@@ -5934,7 +5934,7 @@
         "frequency": 4,
         "event_text": "m_c's tail was badly injured by a fox.",
         "tile_location": [
-            "territory"
+            "outside_camp,land"
         ],
         "m_c": {
             "age": [
@@ -10128,9 +10128,147 @@
             "log": {
                 "cats_from": "cat_from grew worried that cat_to viewed {PRONOUN/cat_from/object} as something to be used after being ordered to punish a Clanmate." }
             }
-            
-        
-    ]
-}
+        ]
+    },
+    {
+        "event_id": "gen_injury_cgwar_deathberries_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "tags": [],
+        "frequency": 2,
+        "event_text": "It's dangerous having so many deathberries growing around camp. m_c is rushed to the medicine den after eating some.",
+        "tile_location": [
+            "camp,yew_berries"
+        ],
+        "m_c": {
+            "status": [
+                "kitten", "apprentice"
+            ]
+        },
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "death": "m_c died after unknowingly eating some of the deathberries growing near camp."
+            }
+        ],
+        "injury": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "poisoned"
+                ]
+            }
+        ]
+    },
+    {
+        "event_id": "gen_injury_cgwar_deathberries_02",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "tags": [],
+        "frequency": 2,
+        "event_text": "m_c hobbles into the medicine den, ill, after ingesting a mouse that had deathberries in its belly.",
+        "tile_location": [
+            "camp,yew_berries"
+        ],
+        "m_c": {},
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "death": "m_c died after eating a mouse who had eaten deathberries."
+            }
+        ],
+        "injury": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "poisoned"
+                ]
+            }
+        ]
+    },
+    {
+        "event_id": "gen_injury_cgwar_deathberries_03",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "tags": [],
+        "frequency": 2,
+        "event_text": "m_c wakes up horribly sick one day, showing clear signs of deathberry poisoning. The Clan determines that {PRONOUN/m_c/subject} must have stepped in some fallen berries around camp and licked {PRONOUN/m_c/poss} paws without knowing.",
+        "tile_location": [
+            "camp,yew_berries"
+        ],
+        "m_c": {},
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "death": "m_c died after being poisoned by deathberries."
+            }
+        ],
+        "injury": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "poisoned"
+                ]
+            }
+        ]
+    },
+    {
+        "event_id": "gen_injury_cgwar_honey_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "tags": [],
+        "frequency": 2,
+        "event_text": "m_c can't resist trying to gather some of the honey around camp, but is met with an angry family of bees. They walk over to the medicine den, embarrassed, hoping that no one saw.",
+        "tile_location": [
+            "camp,honey"
+        ],
+        "m_c": {},
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "death": "m_c reacted poorly to a bee sting."
+            }
+        ],
+        "injury": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "bee sting"
+                ]
+            }
+        ]
+    }
 ]
 

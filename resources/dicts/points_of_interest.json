@@ -34,6 +34,11 @@
         "biome": ["any"],
         "tags": ["cave", "rocks", "covered"]
     },
+    "moon_hollowtree": {
+        "category": "moonplace",
+        "biome": ["any"],
+        "tags": ["trees", "prey:flying", "covered"]
+    },
     "terrain_fordriver": {
         "category": "terrain",
         "biome": ["any"],

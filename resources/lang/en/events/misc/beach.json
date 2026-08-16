@@ -395,5 +395,38 @@
                 "-kitten"
             ]
         }
+    },
+    {
+        "event_id": "gen_death_cgwar_terrain_05",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 3,
+        "event_text": "m_c and r_c took a walk by the coast and ended up falling asleep by the water. While they were asleep, a storm began and the tide rose to pull them in. r_c tried {PRONOUN/r_c/poss} best to help m_c back to shore, but {PRONOUN/r_c/subject} ended up returning to camp alone, telling m_c's friends and family that {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} sorry.",
+        "tile_location": [
+            "coast:ocean"
+        ],
+        "m_c": {
+            "status": [
+                "-kitten", "-leader"
+            ],
+            "dies": true
+        },
+        "r_c": {
+            "status": [
+                "-kitten"
+            ]
+        },
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "death": "m_c was taken out by the tide during an oceanside nap."
+            }
+        ]
     }
 ]

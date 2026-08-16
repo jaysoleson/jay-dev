@@ -118,158 +118,253 @@
             }
         }
     },
-    "take": {
-        "ally": {
-            "border": {
-                "success": [
-                    "A c_n patrol waits for a o_c_n patrol on the border and informs them politely that this territory belongs to c_n now. The o_c_n patrol, a bit wary and confused, allows it and heads back to camp to report the incident to their leader."
-                ],
-                "failure": [
-                    "A c_n patrol waits for a o_c_n patrol on the border and informs them politely that this territory belongs to c_n now. The o_c_n patrol, however, just laughs it off."
-                ],
-                "success_war": [
-                    "c_n starts moving their markers further and further into o_c_n territory, assuming that their ally won't want to start a war over a silly piece of land. c_n was wrong. o_c_n declares war on c_n, announcing that such disrespect will not be tolerated."
-                ],
-                "failure_war": [
-                    "c_n starts moving their markers further and further into o_c_n territory. One day, a o_c_n patrol catches them and attacks, reclaiming the land for themselves. The land once again belongs to o_c_n-- but that doesn't stop them from declaring war against c_n for the transgression."
-                ]
-            },
-            "not_border": {
-                "success": [
-                    "A c_n patrol sneaks into o_c_n territory and starts hunting on a patch of land they've been eyeing. A o_c_n patrol, confused, comes by and tries to send them away, but c_n holds their ground until o_c_n agrees to let them stay there. "
-                ],
-                "failure": [
-                    "A c_n patrol sneaks into o_c_n territory and starts hunting on a patch of land they've been eyeing. A o_c_n patrol sends them away, saying that if c_n really needs prey that bad, they can come deliver some. "
-                ],
-                "success_war": [
-                    "c_n sets up a hunting outpost in a particularly lucrative part of o_c_n's territory with little resistance. However, when they stop by one day, they find that some prey they left overnight has been covertly poisoned. This must mean war."
-                ],
-                "failure_war": [
-                    "c_n tries to push into o_c_n territory, but o_c_n pushes back. After some back-and-forth, o_c_n declares a formal war. They tell the Gathering that they mourn the strong allyship o_c_n and c_n once had."
-                ]
-            }
+    "take": [
+        {
+            "standing": ["ally", "amicable", "neutral"],
+            "success": true,
+            "border": true,
+            "events": [
+                "A c_n patrol waits for a o_c_n patrol on the border and informs them politely that this territory belongs to c_n now. The o_c_n patrol, a bit wary and confused, allows it and heads back to camp to report the incident to their leader."
+            ]
         },
-        "amicable": {
-            "border": {
-                "success": [
-                    "A c_n patrol waits for a o_c_n patrol on the border and informs them politely that this territory belongs to c_n now. The o_c_n patrol, a bit wary and confused, allows it and heads back to camp to report the incident to their leader."
-                ],
-                "failure": [
-                    "A c_n patrol waits for a o_c_n patrol on the border and informs them politely that this territory belongs to c_n now. The o_c_n patrol, however, just laughs it off."
-                ],
-                "success_war": [
-                    "c_n starts moving their markers further and further into o_c_n territory, assuming that their neighbour won't want to start a war over a silly piece of land. c_n was wrong. o_c_n declares war on c_n, announcing that such disrespect will not be tolerated."
-                ],
-                "failure_war": [
-                    "c_n starts moving their markers further and further into o_c_n territory. One day, a o_c_n patrol catches them and attacks, reclaiming the land for themselves. The land once again belongs to o_c_n-- but that doesn't stop them from declaring war against c_n for the transgression."
-                ]
-            },
-            "not_border": {
-                "success": [
-                    "A c_n patrol sneaks into o_c_n territory and starts hunting on a patch of land they've been eyeing. A o_c_n patrol comes by and tries to send them away, but c_n holds their ground until o_c_n agrees to let them stay there. "
-                ],
-                "failure": [
-                    "A c_n patrol sneaks into o_c_n territory and starts hunting on a patch of land they've been eyeing. A o_c_n patrol sends them away, saying that if c_n really needs prey that bad, they'll need to find some unclaimed territory. "
-                ],
-                "success_war": [
-                    "c_n sets up a hunting outpost in a particularly lucrative part of o_c_n's territory with little resistance. However, when they stop by one day, they find that some prey they left overnight has been poisoned. This must mean war."
-                ],
-                "failure_war": [
-                    "c_n tries to push into o_c_n territory, but o_c_n pushes back. After some back-and-forth, o_c_n declares a formal war. They tell the Gathering that they mourn the friendship o_c_n and c_n once had."
-                ]
-            }
+        {
+            "standing": ["ally", "amicable"],
+            "success": false,
+            "border": true,
+            "events": [
+                "A c_n patrol waits for a o_c_n patrol on the border and informs them politely that this territory belongs to c_n now. The o_c_n patrol, however, just laughs it off."
+            ]
         },
-        "neutral": {
-            "border": {
-                "success": [
-                    "A c_n patrol waits for a o_c_n patrol on the border and informs them that this territory belongs to c_n now. The o_c_n patrol, a bit agitated, just heads back to camp to report the incident to their leader."
-                ],
-                "failure": [
-                    "c_n tries to move their markers further into o_c_n territory, but the next day, they find o_c_n's markers back where they were to begin with."
-                ],
-                "success_war": [
-                    "A c_n patrol waits for a o_c_n patrol on the border and informs them that this territory belongs to c_n now. The o_c_n cats object, and, when they can't get the c_n cats to back down, they storm back to their camp, furious. A formal war is declared on c_n later that day."
-                ],
-                "failure_war": [
-                    "A c_n patrol waits for a o_c_n patrol on the border and informs them that this territory belongs to c_n now. The o_c_n cats object, chasing the c_n cats back over the border. The o_c_n cats are furious-- a formal war is declared on c_n later that day."
-                ]
-            },
-            "not_border": {
-                "success": [
-                    "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n isn't happy, but c_n defends it so fiercely that the other Clan has no choice but to accept it."
-                ],
-                "failure": [
-                    "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n sends multiple patrols to chase them back to c_n territory."
-                ],
-                "success_war": [
-                    "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n patrols attempt to chase them off, but c_n holds their ground. At the next Gathering, o_c_n's leader makes a formal war declaration over the piece of land."
-                ],
-                "failure_war": [
-                    "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. Several o_c_n patrols chase them off, leaving the warriors with many bumps and scratches. At the next Gathering, o_c_n's leader declares war on c_n for the transgression."
-                ]
-            }
+        {
+            "standing": ["ally"],
+            "success": null,
+            "border": "any",
+            "events": [
+                "c_n starts moving their markers further and further into o_c_n territory, assuming that their ally won't want to start a war over a silly piece of land. c_n was wrong. o_c_n declares war on c_n, announcing that such disrespect will not be tolerated."
+            ]
         },
-        "tense": {
-            "border": {
-                "success": [
-                    "A large c_n patrol hides out by the o_c_n border. When a o_c_n patrol comes by, they attack, wounding the unsuspecting warriors and sending them running. c_n marks this territory as their own and o_c_n, begrudgingly, does not dispute it."
-                ],
-                "failure": [
-                    "c_n tries to move their markers further into o_c_n territory, but the next day, they find o_c_n's markers back where they were the day before with a smattering of prey-blood on the ground to send a message."
-                ],
-                "success_war": [
-                    "A large c_n patrol hides out by the o_c_n border. When a o_c_n patrol comes by, they attack, wounding the unsuspecting warriors and sending them running. c_n marks this territory as their own, and the next day, a o_c_n patrol arrives in camp to deliver a formal declaration of war. o_c_n plans to win their territory back."
-                ],
-                "failure_war": [
-                    "A large c_n patrol hides out by the o_c_n border. When a o_c_n patrol comes by, they attack, but o_c_n is ready to defend their territory. c_n loses the battle, and in the coming days, o_c_n sends more and more patrols to fight their way into c_n territory. c_n is at war."
-                ]
-            },
-            "not_border": {
-                "success": [
-                    "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n isn't happy, but c_n defends it so fiercely that the enemy Clan has no choice but to accept it."
-                ],
-                "failure": [
-                    "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. Several o_c_n patrols chase them off, leaving the warriors with many bumps and scratches. At the next Gathering, o_c_n's leader laughs with their Clan about what a mouse-brained idea that was."
-                ],
-                "success_war": [
-                    "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n patrols attempt to chase them off, but c_n holds their ground. At the next Gathering, o_c_n's leader makes a formal war declaration over the piece of land."
-                ],
-                "failure_war": [
-                    "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. Several o_c_n patrols chase them off, leaving the warriors with many bumps and scratches. At the next Gathering, o_c_n's leader declares war on c_n for the transgression."
-                ]
-            }
+        {
+            "standing": ["any"],
+            "success": true,
+            "border": "any",
+            "terrain": ["terrain_sunningrocks"],
+            "events": [
+                "c_n launches an attack at Sunningrocks and is able to take it from o_c_n."
+            ]
         },
-        "hostile": {
-            "border": {
-                "success": [
-                    "A large c_n patrol hides out by the o_c_n border. When a o_c_n patrol comes by, they attack, wounding the unsuspecting warriors and sending them running. c_n marks this territory as their own and o_c_n, begrudgingly, does not dispute it."
-                ],
-                "failure": [
-                    "A large c_n patrol hides out by the o_c_n border. When a o_c_n patrol comes by, they attack, but o_c_n is ready to defend their territory. c_n ends up fleeing the skirmish with no extra territory."
-                ],
-                "success_war": [
-                    "A large c_n patrol hides out by the o_c_n border. When a o_c_n patrol comes by, they attack, wounding the unsuspecting warriors and sending them running. c_n marks this territory as their own, and the next day, a o_c_n patrol arrives in camp to deliver a formal declaration of war. o_c_n plans to win their territory back."
-                ],
-                "failure_war": [
-                    "A large c_n patrol hides out by the o_c_n border. When a o_c_n patrol comes by, they attack, but o_c_n is ready to defend their territory. c_n loses the battle, and in the coming days, o_c_n sends more and more patrols to fight their way into c_n territory. c_n is at war."
-                ]
-            },
-            "not_border": {
-                "success": [
-                    "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n isn't happy, but c_n defends it so fiercely that the enemy Clan has no choice but to accept it."
-                ],
-                "failure": [
-                    "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. Several o_c_n patrols chase them off, leaving the warriors with many bumps and scratches. At the next Gathering, o_c_n's leader laughs with their Clan about what a mouse-brained idea that was."
-                ],
-                "success_war": [
-                    "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n patrols attempt to chase them off, but c_n holds their ground. At the next Gathering, o_c_n's leader makes a formal war declaration over the piece of land."
-                ],
-                "failure_war": [
-                    "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. Several o_c_n patrols chase them off, leaving the warriors with many bumps and scratches. At the next Gathering, o_c_n's leader declares war on c_n for the transgression."
-                ]
-            }
+        {
+            "standing": ["any"],
+            "success": false,
+            "border": "any",
+            "terrain": ["terrain_sunningrocks"],
+            "events": [
+                "c_n's attempt to take Sunningrocks from o_c_n is a failure."
+            ]
+        },
+        {
+            "standing": ["any"],
+            "success": null,
+            "border": "any",
+            "terrain": ["terrain_sunningrocks"],
+            "events": [
+                "c_n launches an attack at Sunningrocks in order to take it from Sunningrocks, but o_c_n puts up a fight. In the end, the Clan's can't come to an agreement, and war is declared."
+            ]
+        },
+        {
+            "standing": ["amicable"],
+            "success": null,
+            "border": true,
+            "events": [
+                "c_n starts moving their markers further and further into o_c_n territory, assuming that their neighbour won't want to start a war over a silly piece of land. c_n was wrong. o_c_n declares war on c_n, announcing that such disrespect will not be tolerated."
+            ]
+        },
+        {
+            "standing": ["amicable"],
+            "success": true,
+            "border": false,
+            "events": [
+                "A c_n patrol sneaks into o_c_n territory and starts hunting on a patch of land they've been eyeing. A o_c_n patrol comes by and tries to send them away, but c_n holds their ground until o_c_n agrees to let them stay there."
+            ]
+        },
+        {
+            "standing": ["amicable"],
+            "success": false,
+            "border": false,
+            "events": [
+                "A c_n patrol sneaks into o_c_n territory and starts hunting on a patch of land they've been eyeing. A o_c_n patrol sends them away, saying that if c_n really needs prey that bad, they'll need to find some unclaimed territory."
+            ]
+        },
+        {
+            "standing": ["amicable"],
+            "success": null,
+            "border": false,
+            "events": [
+                "c_n sets up a hunting outpost in a particularly lucrative part of o_c_n's territory with little resistance. However, when they stop by one day, they find that some prey they left overnight has been poisoned. This must mean war."
+            ]
+        },
+        {
+            "standing": ["neutral"],
+            "success": true,
+            "border": true,
+            "events": [
+                "A c_n patrol waits for a o_c_n patrol on the border and informs them that this territory belongs to c_n now. The o_c_n patrol, a bit agitated, just heads back to camp to report the incident to their leader."
+            ]
+        },
+        {
+            "standing": ["neutral"],
+            "success": false,
+            "border": true,
+            "events": [
+                "c_n tries to move their markers further into o_c_n territory, but the next day, they find o_c_n's markers back where they were to begin with."
+            ]
+        },
+        {
+            "standing": ["neutral"],
+            "success": null,
+            "border": true,
+            "events": [
+                "A c_n patrol waits for a o_c_n patrol on the border and informs them that this territory belongs to c_n now. The o_c_n cats object, and, when they can't get the c_n cats to back down, they storm back to their camp, furious. A formal war is declared on c_n later that day."
+            ]
+        },
+        {
+            "standing": ["neutral"],
+            "success": true,
+            "border": false,
+            "events": [
+                "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n isn't happy, but c_n defends it so fiercely that the other Clan has no choice but to accept it."
+            ]
+        },
+        {
+            "standing": ["neutral"],
+            "success": false,
+            "border": false,
+            "events": [
+                "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n sends multiple patrols to chase them back to c_n territory."
+            ]
+        },
+        {
+            "standing": ["neutral"],
+            "success": null,
+            "border": false,
+            "events": [
+                "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n patrols attempt to chase them off, but c_n holds their ground. At the next Gathering, o_c_n's leader makes a formal war declaration over the piece of land."
+            ]
+        },
+        {
+            "standing": ["tense"],
+            "success": true,
+            "border": true,
+            "events": [
+                "A large c_n patrol hides out by the o_c_n border. When a o_c_n patrol comes by, they attack, wounding the unsuspecting warriors and sending them running. c_n marks this territory as their own and o_c_n, begrudgingly, does not dispute it."
+            ]
+        },
+        {
+            "standing": ["tense"],
+            "success": false,
+            "border": true,
+            "events": [
+                "c_n tries to move their markers further into o_c_n territory, but the next day, they find o_c_n's markers back where they were the day before with a smattering of prey-blood on the ground to send a message."
+            ]
+        },
+        {
+            "standing": ["tense"],
+            "success": null,
+            "border": true,
+            "events": [
+                "A large c_n patrol hides out by the o_c_n border. When a o_c_n patrol comes by, they attack, wounding the unsuspecting warriors and sending them running. c_n marks this territory as their own, and the next day, a o_c_n patrol arrives in camp to deliver a formal declaration of war. o_c_n plans to win their territory back."
+            ]
+        },
+        {
+            "standing": ["tense"],
+            "success": true,
+            "border": false,
+            "events": [
+                "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n isn't happy, but c_n defends it so fiercely that the enemy Clan has no choice but to accept it."
+            ]
+        },
+        {
+            "standing": ["tense"],
+            "success": false,
+            "border": false,
+            "events": [
+                "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. Several o_c_n patrols chase them off, leaving the warriors with many bumps and scratches. At the next Gathering, o_c_n's leader laughs with their Clan about what a mouse-brained idea that was."
+            ]
+        },
+        {
+            "standing": ["tense"],
+            "success": null,
+            "border": false,
+            "events": [
+                "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n patrols attempt to chase them off, but c_n holds their ground. At the next Gathering, o_c_n's leader makes a formal war declaration over the piece of land."
+            ]
+        },
+        {
+            "standing": ["hostile"],
+            "success": true,
+            "border": true,
+            "events": [
+                "A large c_n patrol hides out by the o_c_n border. When a o_c_n patrol comes by, they attack, wounding the unsuspecting warriors and sending them running. c_n marks this territory as their own and o_c_n, begrudgingly, does not dispute it."
+            ]
+        },
+        {
+            "standing": ["hostile"],
+            "success": false,
+            "border": true,
+            "events": [
+                "A large c_n patrol hides out by the o_c_n border. When a o_c_n patrol comes by, they attack, but o_c_n is ready to defend their territory. c_n ends up fleeing the skirmish with no extra territory."
+            ]
+        },
+        {
+            "standing": ["hostile"],
+            "success": null,
+            "border": true,
+            "events": [
+                "A large c_n patrol hides out by the o_c_n border. When a o_c_n patrol comes by, they attack, wounding the unsuspecting warriors and sending them running. c_n marks this territory as their own, and the next day, a o_c_n patrol arrives in camp to deliver a formal declaration of war. o_c_n plans to win their territory back."
+            ]
+        },
+        {
+            "standing": ["hostile"],
+            "success": true,
+            "border": false,
+            "events": [
+                "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n isn't happy, but c_n defends it so fiercely that the enemy Clan has no choice but to accept it."
+            ]
+        },
+        {
+            "standing": ["hostile"],
+            "success": false,
+            "border": false,
+            "events": [
+                "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. Several o_c_n patrols chase them off, leaving the warriors with many bumps and scratches. At the next Gathering, o_c_n's leader laughs with their Clan about what a mouse-brained idea that was."
+            ]
+        },
+        {
+            "standing": ["hostile"],
+            "success": null,
+            "border": false,
+            "events": [
+                "c_n barges into o_c_n territory and marks a patch in the middle as belonging to them. o_c_n patrols attempt to chase them off, but c_n holds their ground. At the next Gathering, o_c_n's leader makes a formal war declaration over the piece of land."
+            ]
+        },
+        {
+            "standing": ["ally", "amicable", "neutral", "tense", "hostile"],
+            "success": false,
+            "border": "any",
+            "herb": ["catmint", "honey", "lungwort", "juniper"],
+            "events": [
+                "A c_n patrol storms onto o_c_n land and lays claim to a crucial patch of (herb). Despite their determination, o_c_n chases them off. As c_n warriors retreat, a o_c_n cat calls after them that they're going to need more than just (herb) if they're ever seen on this territory again."
+            ]
+        },
+        {
+            "standing": ["ally", "amicable", "neutral", "tense", "hostile"],
+            "success": true,
+            "border": "any",
+            "terrain": ["lake", "ocean"],
+            "events": [
+                "c_n ambushes a o_c_n patrol while they're relaxing in the water, floating and napping on pieces of driftwood. The attack is such a shock that o_c_n is hardly able to fight back. This territory now belongs to c_n."
+            ]
         }
-    },
+    ],
     "forfeit": [
         "c_n decides to stop using resources patrolling some of their territory. The territory now belongs to no Clan."
     ],

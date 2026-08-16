@@ -392,7 +392,7 @@ class ShortEvent:
         # get tile
         # must be done after adjusting text
         event_tile = self.handle_tile_location(other_clan)
-        if not event_tile:
+        if self.tile_location and not event_tile:
             print(self.event_id, ": No valid tile found for", self.tile_location, ". Aborting.")
             return
 
@@ -406,7 +406,7 @@ class ShortEvent:
                 self.text + " " + self.additional_event_text,
                 self.types,
                 self.all_involved_cat_ids,
-                event_tile=event_tile if isinstance(event_tile, str) else None
+                event_tile=event_tile.tile_string if event_tile else None
             )
         )
 
@@ -1004,58 +1004,44 @@ class ShortEvent:
         Finds a valid tile for the event to happen in and puts it in the dict.
         """
         if not self.tile_location:
-            return True
-
-        # specific pois should work, but not by category or tag
-        # save this for later
-        # if preset in get_poi_tags_set():
-        #     preset = Switch.last_used_POI
-        #     switch_set_value(Switch.last_used_POI, "")
+            return None
 
         preset = choice(self.tile_location)
+        if preset in get_poi_tags_set():
+            if switch_get_value(Switch.last_used_POI):
+                print("Preset:", preset)
+                preset = switch_get_value(Switch.last_used_POI)
+                print("TAG: Getting POI to assign to event:", preset)
+        # elif preset in get_poi_categories_set():
+        #     if switch_get_value(Switch.last_used_POI):
+        #         print("Preset:", preset)
+        #         preset = switch_get_value(Switch.last_used_POI)
+        #         print("CAT: Getting POI to assign to event:", preset)
+
+        if switch_get_value(Switch.last_used_POI):
+            switch_set_value(Switch.last_used_POI, "")
+
         if "," in preset:
             preset_list = preset.split(",")
         else:
             preset_list = [preset]
 
-        exclude_water = False
-        for p in preset_list:
-            if p not in get_poi_tags_set() and p not in get_poi_categories_set():
-                if p not in (
-                    "river", "lake", "ocean", "water", "camp"
-                ):
-                # be default everything happens on DRY LAND
-                    exclude_water = True
-                    print("Shortevent: Exc water")
-            if p not in territory_class.valid_tile_searches():
-                return False
-
         valid_tiles = territory_class.get_tiles(
-            preset,
+            tile_types=preset_list,
             clan=game.clan,
-            other_clan=other_clan,
-            exclude_water=exclude_water
+            other_clan=other_clan
             )
         if not valid_tiles:
-            return False
+            return None
 
         chosen_tile = choice(valid_tiles)
-        if "events" in game.clan.territory_tile_info[chosen_tile]:
-            game.clan.territory_tile_info[chosen_tile]["events"].append(
-                {
-                    "moon": game.clan.age,
-                    "text": self.text,
-                    "saved": False
-                }
-            )
-        else:
-            game.clan.territory_tile_info[chosen_tile]["events"] = [
-                {
-                    "moon": game.clan.age,
-                    "text": self.text,
-                    "saved": False
-                }
-            ]
+        chosen_tile.events.append(
+            {
+                "moon": game.clan.age,
+                "text": self.text,
+                "saved": False
+            }
+        )
         return chosen_tile
 
 

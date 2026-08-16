@@ -60,9 +60,14 @@ from scripts.clan_package.get_clan_cats import (
     find_alive_cats_with_rank,
 )
 from scripts.screens.screens_core.screens_core import rebuild_top_menu_buttons
-from scripts.territory import territory_class
+from scripts.create_territory import (
+    generate_territories,
+    set_strength
+)
 
 from scripts.war import War
+from scripts.tile import TerritoryTile
+from scripts.territory import territory_class
 
 with open(f"resources/dicts/colour_map.json", "r") as read_file:
     events = read_file.read()
@@ -99,6 +104,9 @@ class Clan:
         # CGWAR
         territory_tile_info = {},
         colour = "green",
+
+        # classified tile list
+        territory_tiles: list[TerritoryTile] = None,
         # --
         self_run_init_functions=True,
     ):
@@ -136,6 +144,8 @@ class Clan:
         # CGW
         self.territory_tile_info = territory_tile_info
         self.colour = colour
+
+        self.territory_tiles = territory_tiles
         # --
         self.instructor = None
         # This is the first cat in starclan, to "guide" the other dead cats there.
@@ -396,8 +406,10 @@ class Clan:
             generate_and_add_new_poi(game.clan.biome, PoiType.TERRAIN)
         
         # CGWAR
-        self.territory_tile_info = territory_class.generate_territories()
         game.clan.colour = "green"
+
+        tile_dict = generate_territories()
+        game.clan.territory_tiles = self.generate_territories_tile_list(tile_dict)
 
         # create leader's ceremony and give lives
         if self.leader:
@@ -579,7 +591,9 @@ class Clan:
         }
 
         # CGW
-        territory_data = self.territory_tile_info
+        territory_data = {}
+        for tile in self.territory_tiles:
+            territory_data[tile.tile_string] = tile.get_save_dict()
 
         # LEADER DATA
         if self.leader:
@@ -872,15 +886,62 @@ class Clan:
         switch_set_value(Switch.error_message, "")
     
     def load_territory_json(self):
-        # game.clan.territory_tile_info = territory_class.generate_territories()
-        # ^^ debug overwriting every load for testing
-
         with open(
             get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json",
             "r",
             encoding="utf-8",
         ) as read_file:
-            game.clan.territory_tile_info = ujson.loads(read_file.read())
+            tile_dict = ujson.loads(read_file.read())
+
+        tile_dict = generate_territories()
+        # ^^ debug overwriting every load for testing
+
+        game.clan.territory_tiles = self.generate_territories_tile_list(tile_dict)
+
+    def generate_territories_tile_list(self, tile_dict):
+        tile_list = []
+
+        for tile_string, info in tile_dict.items():
+            x = int(tile_string.split("-")[0])
+            y = int(tile_string.split("-")[1])
+
+            owner_str = info["owner"] if "owner" in info else None
+            owner = None
+            for clan in game.clan.all_other_clans + [game.clan]:
+                if clan.group_ID == owner_str:
+                    owner = clan
+                    break
+
+            poi = info["poi"] if "poi" in info else None
+            terrain = info["terrain"] if "terrain" in info else None
+            herb = info["herb"] if "herb" in info else None
+            strength = info["strength"] if "strength" in info else 0
+            camp = info["camp"] if "camp" in info else False
+            tile_events = info["events"] if "events" in info else []
+
+            new_tile = TerritoryTile(
+                x,
+                y,
+                owner,
+                poi,
+                terrain,
+                herb,
+                strength,
+                camp,
+                tile_events
+            )
+            tile_list.append(new_tile)
+        return tile_list
+
+    def remap_territory_strength(self):
+        strength_dict = {}
+        for tile in game.clan.territory_tiles:
+            strength_dict[tile.tile_string] = tile.get_save_dict()
+        strength_dict = set_strength(
+            strength_dict,
+            override=True
+            )
+        game.clan.territory_tiles = self.generate_territories_tile_list(strength_dict)
 
     def load_clan_json(self):
         """
@@ -1091,10 +1152,14 @@ class Clan:
 
             war_object_list = []
             for war in clan_data["war"]:
+                if "-" in war["demand"]:
+                    wardemand = territory_class.get_tile_from_string(war["demand"])
+                else:
+                    wardemand = war["demand"]
                 new_war = War(
                     offense=war["offense"],
                     defense=war["defense"],
-                    demand=war["demand"],
+                    demand=wardemand,
                     duration=war["duration"],
                 )
                 war_object_list.append(new_war)
@@ -1651,6 +1716,9 @@ class OtherClan:
         )
 
     def get_current_war(self):
+        """
+        Returns the War object of the war this Clan is currently involved in.
+        """
         current_war = None
         for war in game.clan.war:
             if war.is_in_war(self):
@@ -1659,7 +1727,11 @@ class OtherClan:
         return current_war
     
     def get_clan_colour(self):
+        """
+        Assigns a colour to a Clan upon creation.
+        """
         all_colours = list(COLOURS.keys())
+        all_colours.remove("default")
         for new_colour in all_colours.copy():
             for clan in game.clan.all_other_clans + [game.clan]:
                 if clan.colour:

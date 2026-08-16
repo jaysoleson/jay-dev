@@ -44,6 +44,7 @@ from scripts.ui.scale import (
 )
 from scripts.clan_package.get_clan_cats import get_living_clan_cat_count
 from scripts.ui.windows.view_cards import ViewCardsWindow
+from scripts.territory import territory_class
 
 
 class EventsScreen(Screens):
@@ -145,7 +146,7 @@ class EventsScreen(Screens):
 
             for key, btn in self.open_map_buttons.items():
                 if element == btn:
-                    switch_set_value(Switch.selected_tile, key.split(".")[1])
+                    switch_set_value(Switch.selected_tile, territory_class.get_tile_from_string(key.split(".")[1]))
                     self.change_screen(GameScreen.MAP_SCREEN)
             if element == self.timeskip_button:
                 # ensure we can't run the same timeskip multiple times

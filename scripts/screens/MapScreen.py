@@ -84,11 +84,10 @@ class MapScreen(Screens):
         self.selected_tile_owner = None
 
     def screen_switches(self):
-        for tile in game.clan.territory_tile_info:
-            if "events" in game.clan.territory_tile_info[tile]:
-                for event in game.clan.territory_tile_info[tile]["events"].copy():
-                    if game.clan.age - event["moon"] >= get_config("bellsofwar.save_events_for"):
-                        game.clan.territory_tile_info[tile]["events"].remove(event)
+        for tile in game.clan.territory_tiles:
+            for event in tile.events.copy():
+                if game.clan.age - event["moon"] >= get_config("bellsofwar.save_events_for"):
+                    tile.events.remove(event)
 
         if switch_get_value(Switch.selected_tile):
             self.selected_tile = switch_get_value(Switch.selected_tile)
@@ -185,10 +184,10 @@ class MapScreen(Screens):
         x_val = 105
         options = {
             "borders": Icon.CAT_HEAD,
-            "strength": Icon.SCRATCHES,
-            "event_density": Icon.CLAN_UNKNOWN,
-            "herbs": Icon.HERB,
             "terrain": Icon.MOUSE,
+            "event_density": Icon.CLAN_UNKNOWN,
+            "strength": Icon.SCRATCHES,
+            "herbs": Icon.HERB,
         }
         for option, icon in options.items():
             if option in self.tabs:
@@ -330,27 +329,27 @@ class MapScreen(Screens):
             self.map_tile_buttons[ele].kill()
         self.map_tile_buttons = {}
 
-        for tile, tile_info in game.clan.territory_tile_info.items():
-            x = int(tile.split("-")[0])
-            y = int(tile.split("-")[1])
+        for tile in game.clan.territory_tiles:
 
             text = ""
             icon_tile = False
             if self.view_icons:
-                
-                if "poi" in tile_info:
+                if tile.in_dispute():
                     icon_tile = True
-                    if tile_info["poi"] == "gathering":
+                    text = Icon.SCRATCHES
+                elif tile.poi:
+                    icon_tile = True
+                    if tile.poi == "gathering":
                         text = Icon.CLAN_OTHER
-                    elif tile_info["poi"] == "moonplace":
+                    elif tile.poi == "moonplace":
                         text = Icon.HERB
-                    elif "terrain" in tile_info["poi"]:
+                    elif "terrain" in tile.poi:
                         text = Icon.PAW
-                elif "camp" in tile_info and tile_info["camp"]:
+                elif tile.camp:
                     text = Icon.CLAN_PLAYER
                     icon_tile = True
                 if get_clan_setting("map_interaction"):
-                    if get_clan_setting("map_interaction")["tile"] == tile:
+                    if get_clan_setting("map_interaction")["tile"] == tile.tile_string:
                         icon_tile = True
                         text = Icon.NEWLEAF
 
@@ -362,7 +361,7 @@ class MapScreen(Screens):
             self.map_tile_buttons[tile] = MapTileButton(
                 relative_rect=ui_scale(
                     pygame.Rect(
-                        (x * self.TILE_SIZE, y * self.TILE_SIZE),
+                        (tile.x * self.TILE_SIZE, tile.y * self.TILE_SIZE),
                         (self.TILE_SIZE + modifier, self.TILE_SIZE + modifier)
                         )
                     ),
@@ -370,15 +369,13 @@ class MapScreen(Screens):
                 # object_id="#text_box_22_horizcenter",
                 container=self.map_container,
                 manager=MANAGER,
-                tile_owner=territory_class.get_tile_owner(tile),
-                tile_string = tile,
+                tile_object=tile,
                 view_colours=self.view_colours,
                 view_icons=self.view_icons,
                 view_terrain=self.view_terrain,
                 view_grid=self.view_grid,
                 icon_tile=icon_tile,
                 opacity=225,
-                herb=tile_info["herb"] if "herb" in tile_info else None,
                 current_view=self.current_view
             )
             if tile == self.selected_tile:
@@ -432,7 +429,7 @@ class MapScreen(Screens):
         if "tile_info_pointer" in self.elements:
             self.elements["tile_info_pointer"].kill()
         self.elements["tile_info_pointer"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((492, 98 + int(self.selected_tile.split("-")[1]) * self.TILE_SIZE), (44, 30))),
+            ui_scale(pygame.Rect((492, 98 + self.selected_tile.y * self.TILE_SIZE), (44, 30))),
             pygame.transform.scale(
                     self.ui_images["arrow"],
                     ui_scale_dimensions((44, 30)),
@@ -445,14 +442,11 @@ class MapScreen(Screens):
             self.elements["selected_tile_owner"].kill()
         if "selected_tile_info_text" in self.elements:
             self.elements["selected_tile_info_text"].kill()
-        
-        tile_info = game.clan.territory_tile_info[self.selected_tile]
+
         if self.selected_tile:
 
-            tile_name_string = territory_class.get_tile_name_string(self.selected_tile)
-
             self.elements["selected_tile_owner"] = pygame_gui.elements.UITextBox(
-                tile_name_string,
+                self.selected_tile.name_string(),
                 ui_scale(pygame.Rect((0, 0), (200, -1))),
                 manager=MANAGER,
                 container=self.tile_info_container,
@@ -462,29 +456,23 @@ class MapScreen(Screens):
 
             info = ""
 
-            owner_string = territory_class.get_owner_string(self.selected_tile)
-            info += f"<b>{owner_string}</b>"
+            info += f"{self.selected_tile.owner_string()}"
             info += "<br>"
 
-            security_string = territory_class.get_security_string(self.selected_tile)
-            if security_string:
-                info += security_string
-                info += "<br>"
+            info += self.selected_tile.security_string()
+            info += "<br>"
 
-
-            herb_string = territory_class.get_herb_source_string(self.selected_tile, break_line=True)
-            if herb_string:
+            if self.selected_tile.herb:
                 info += "---<br>"
-                info += herb_string
+                info += self.selected_tile.herb_string()
                 info += "<br>"
 
-            owner = territory_class.get_tile_owner(self.selected_tile)
             current_war = None
-            if owner:
-                current_war = owner.get_current_war()
-            if current_war:
+            if self.selected_tile.owner:
+                current_war = self.selected_tile.owner.get_current_war()
+            if current_war and not self.selected_tile.in_dispute():
                 info += "---<br>"
-                info += current_war.get_full_opposition_string(owner)
+                info += current_war.get_full_opposition_string(self.selected_tile.owner)
 
             self.elements["selected_tile_info_text"] = pygame_gui.elements.UITextBox(
                 info,
@@ -495,7 +483,7 @@ class MapScreen(Screens):
                 anchors={"centerx": "centerx", "top_target": self.elements["selected_tile_owner"]},
             )
 
-        at_war = game.clan.get_current_war(territory_class.get_tile_owner(self.selected_tile))
+        at_war = game.clan.get_current_war(self.selected_tile.owner)
 
         # interaction buttons
         # kill them all first
@@ -507,8 +495,8 @@ class MapScreen(Screens):
         button_width = 115
     
         # CLAIM
-        if tile_info["owner"] != game.clan.group_ID:
-            if "camp" in tile_info or at_war:
+        if self.selected_tile.owner != game.clan:
+            if self.selected_tile.camp or at_war:
                 if at_war:
                     tooltip = "buttons.attack_war_tooltip"
                 else:
@@ -534,7 +522,7 @@ class MapScreen(Screens):
                     anchors={"centerx":"centerx"},
                     tool_tip_text="buttons.claim_tooltip"
                 )
-                if tile_info["owner"]:
+                if self.selected_tile.owner:
                     self.elements["take"] = UISurfaceImageButton(
                         ui_scale(pygame.Rect((0, y_positions[1]), (button_width, 30))),
                         "buttons.take",
@@ -547,15 +535,15 @@ class MapScreen(Screens):
                     )
                 # gathering, moonplaces, and camps cant be claimed
                 if (
-                    ("poi" in tile_info and tile_info["poi"] in ["moonplace", "gathering", "terrain_twolegplace"])
-                    or "camp" in tile_info and tile_info["camp"]
+                    self.selected_tile.poi in ["moonplace", "gathering", "terrain_twolegplace"] or
+                    self.selected_tile.camp
                     ):
                     self.elements["claim"].disable()
                     if "take" in self.elements:
                         self.elements["take"].disable()
         
         # FORFEIT
-        elif tile_info["owner"] == game.clan.group_ID:
+        elif self.selected_tile.owner == game.clan:
             self.elements["forfeit"] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((0, y_positions[0]), (button_width, 30))),
                 "buttons.forfeit",
@@ -566,7 +554,7 @@ class MapScreen(Screens):
                 anchors={"centerx":"centerx"},
                 tool_tip_text="buttons.forfeit_tooltip"
             )
-            if "camp" in tile_info and tile_info["camp"]:
+            if self.selected_tile.camp:
                 self.elements["forfeit"].disable()
 
         self.update_interaction_buttons()
@@ -577,7 +565,7 @@ class MapScreen(Screens):
                 if interaction in self.elements:
                     if (
                         get_clan_setting("map_interaction")["interaction"] == interaction and
-                        get_clan_setting("map_interaction")["tile"] == self.selected_tile
+                        get_clan_setting("map_interaction")["tile"] == self.selected_tile.tile_string
                         ):
                         self.elements[interaction].disable()
                     else:
@@ -587,13 +575,11 @@ class MapScreen(Screens):
         """
         Sets the dict for the map interaction.
         """
-        print("Selected interaction:", interaction_type)
-        owner = territory_class.get_tile_owner(self.selected_tile)
         set_clan_setting(
             "map_interaction",
             {
-                "tile": self.selected_tile,
-                "owner_ID": owner.group_ID if owner else None,
+                "tile": self.selected_tile.tile_string,
+                "owner_ID": self.selected_tile.owner.group_ID if self.selected_tile.owner else None,
                 "interaction": interaction_type
             }
         )

@@ -87,10 +87,12 @@ def create_short_event(
     if current_war and random.randint(1, war_chance) != 1:
         other_clan = current_war.get_opponent_object(game.clan)
         sub_types.append("war")
+        print("Getting OC 01", other_clan.name)
     else:
         other_clan = random.choice(
             game.clan.all_other_clans if game.clan.all_other_clans else None
         )
+        print("Getting OC 02", other_clan.name)
 
     # collecting CAMP skill cats for reduction events
     camp_cats = [

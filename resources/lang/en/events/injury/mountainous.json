@@ -49,6 +49,7 @@
         ],
         "frequency": 1,
         "event_text": "m_c's tail was badly injured by falling rocks.",
+        "tile_location": ["outside_camp,land"],
         "m_c": {
             "age": [
                 "adolescent",

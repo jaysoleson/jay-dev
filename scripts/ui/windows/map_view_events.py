@@ -35,16 +35,16 @@ class MapViewEvents(GameWindow):
             object_id="#text_box_30_horizcenter_spacing_95",
             text_kwargs={"moons": get_config("bellsofwar.save_events_for")}
         )
-        name_string = territory_class.get_tile_name_string(self.tile)
-        owner_string = territory_class.get_owner_string(self.tile)
-        security_string = territory_class.get_security_string(self.tile)
+        name_string = self.tile.name_string()
+        owner_string = self.tile.owner_string()
+        security_string = self.tile.security_string()
 
         self.subtitle = pygame_gui.elements.UITextBox(
             name_string +
             " | " +
             security_string +
             " | " +
-            "<b>" + owner_string + "</b>",
+            owner_string,
             ui_scale(pygame.Rect((0, 65), (600, 30))),
             manager=MANAGER,
             container=self,
@@ -68,8 +68,7 @@ class MapViewEvents(GameWindow):
         self.event_elements = {}
 
         self.events_list = []
-        if "events" in game.clan.territory_tile_info[self.tile]:
-            self.events_list = game.clan.territory_tile_info[self.tile]["events"]
+        self.events_list = self.tile.events
 
         if not self.events_list:
             self.event_elements["no_events"] = pygame_gui.elements.UITextBox(
@@ -140,7 +139,7 @@ class MapViewEvents(GameWindow):
                     tool_tip_text=tooltip,
                     anchors={"top_target": self.event_elements[str(index) + "_moon"]}
                 )
-                if game.clan.territory_tile_info[self.tile]["events"][index]["saved"]:
+                if self.tile.events[index]["saved"]:
                     self.event_elements[str(index) + "_saveevent"].disable()
 
                 self.event_elements[str(index) + "_deleteevent"] = UISurfaceImageButton(
@@ -165,7 +164,7 @@ class MapViewEvents(GameWindow):
                     index, btn_type = key.split("_")
                     index = int(index)
                     if btn_type == "deleteevent":
-                        game.clan.territory_tile_info[self.tile]["events"].remove(game.clan.territory_tile_info[self.tile]["events"][index])
+                        self.tile.events.remove(game.clan.territory_tile_info[self.tile]["events"][index])
                     elif btn_type == "saveevent":
-                        game.clan.territory_tile_info[self.tile]["events"][index]["saved"] = True
+                        self.tile.events[index]["saved"] = True
                     self.build_events_list()

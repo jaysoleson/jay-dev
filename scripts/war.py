@@ -5,10 +5,14 @@ import random
 class War():
     # INDIVIDUAL wars
     # maybe move events and stuff here
+    """
+    offense is the GROUP ID
+    SO IS DEFENSE
+    """
     def __init__(
             self,
-            offense=[],
-            defense=[],
+            offense="",
+            defense="",
             demand="",
             duration=0,
             progress=0
@@ -25,7 +29,7 @@ class War():
         return {
             "offense": self.offense,
             "defense": self.defense,
-            "demand": self.demand,
+            "demand": self.demand if isinstance(self.demand, str) else self.demand.tile_string,
             "duration": self.duration,
             "progress": self.progress
         }
@@ -66,9 +70,9 @@ class War():
         """
         opponent_object = None
         opponent_ID = self.get_opponent_ID(clan)
-        for clan in [game.clan] + game.clan.all_other_clans:
-            if clan.group_ID == opponent_ID:
-                opponent_object = clan
+        for other_clan in [game.clan] + game.clan.all_other_clans:
+            if other_clan.group_ID == opponent_ID:
+                opponent_object = other_clan
                 break
         return opponent_object
     
@@ -119,11 +123,10 @@ class War():
         # TODO: determine demand tile based on desirablility. herbs, water, POIs.
         # and maybe find a way to involve this in the event text
         demand_tiles = territory_class.get_tiles(
-            "other_clan_inner_border",
+            ["other_clan_inner_border"],
             clan=self.get_offense_object(),
-            other_clan=self.get_defense_object(),
-            exclude_water=True
-            )[0]
+            other_clan=self.get_defense_object()
+            )
         if demand_tiles:
             demand = random.choice(demand_tiles)
         else:
@@ -138,8 +141,9 @@ class War():
         # TODO: prey and herbs
         if self.demand:
             print(winner.name, "wins the war! They win:", self.demand)
-            if self.demand in game.clan.territory_tile_info:
-                territory_class.update_tile_info(self.demand, "owner", winner.group_ID)
+            if not isinstance(self.demand, str):
+                self.demand.owner = winner
+                game.clan.remap_territory_strength()
     
     def __repr__(self):
         return f"{self.get_offense_object().name} vs. {self.get_defense_object().name} | {self.duration} moons | Demands: {self.demand}"

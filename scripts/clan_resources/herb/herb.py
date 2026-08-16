@@ -3,6 +3,7 @@ import pygame
 
 import ujson
 import i18n
+from scripts.game_structure import game
 
 
 class Herb:
@@ -38,7 +39,21 @@ class Herb:
         """
         rarity_dict = self._herb_dict.get("rarity", {})
 
-        return rarity_dict.get(biome.casefold(), {}).get(season.casefold(), 0)
+        rarity = rarity_dict.get(biome.casefold(), {}).get(season.casefold(), 0)
+
+        # CGWAR edited
+        # the presence of herbs in your territory makes them easier to gather passively
+        for tile in game.clan.territory_tiles:
+            if (
+                tile.herb == self.name and
+                tile.owner == game.clan
+                ):
+                rarity -= tile.strength
+                break
+        if rarity < 1:
+            rarity = 1
+
+        return rarity
 
 
 with open(

@@ -54,6 +54,12 @@ def get_random_poi_by_tag(tag):
     """
     return choice(_poi_by_tags.get(tag, ["MISSING_POI"]))
 
+# CGW
+def get_all_pois_by_tag(tag):
+    """
+    Returns a list of all POIs by a specified tag.
+    """
+    return _poi_by_tags.get(tag, ["MISSING_POI"])
 
 def get_random_poi_by_category(category: Literal["gathering", "moonplace", "terrain"]):
     try:
