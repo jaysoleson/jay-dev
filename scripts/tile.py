@@ -1,11 +1,19 @@
-# individual tiles/ class stores all of their info
+"""
+
+TODO: Docs
+
+
+"""
 from scripts.game_structure import game
 from scripts.config import get_config
-from scripts.events_module.text_adjust import event_text_adjust, adjust_list_text
+from scripts.events_module.text_adjust import event_text_adjust
 from scripts.cat.cats import Cat
 from scripts.territory import territory_class
 
 class TerritoryTile():
+    """
+    Responsible for creating and storing individual tiles.
+    """
     MAP_SIZE = get_config("bellsofwar.territory_grid_size")
     high_value_herbs = {
             "catmint": 4,
@@ -46,7 +54,8 @@ class TerritoryTile():
             strength (int): The territory's security level on a scale from 1-5.
                 default value: 1
             # CAMP
-            events (list): A list of all events within a specified time period that occurred on this tile.
+            events (list): A list of all events
+            within a specified time period that occurred on this tile.
                 default value: []
 
         ------------->
@@ -54,7 +63,7 @@ class TerritoryTile():
         """
         self.x = x
         self.y = y
-    
+
         self.owner = owner
         self.terrain = terrain
         self.poi = poi
@@ -80,13 +89,20 @@ class TerritoryTile():
     # PROPERTIES --------------------->
     @property
     def tile_string(self):
+        """
+        Returns the stringified version of the tile, using x and y positions.
+        self.x-self.y
+        """
         return f"{self.x}-{self.y}"
 
     def in_dispute(self):
+        """
+        If the tile is a demand in an ongoing war, returns the Clans involved.
+        """
         for war in game.clan.war:
             if war.demand == self:
                 return [war.get_offense_object().name, war.get_defense_object().name]
-        return None
+        return []
 
     # TEXT DISPLAY FUNCTIONS
     def name_string(self):
@@ -95,12 +111,30 @@ class TerritoryTile():
         E.G. "The Twolegplace", "Forest", "GemClan Camp".
         """
 
-        name = f"<b>{game.clan.biome}</b>" if game.clan.biome != "Mountainous" else "<b>Mountains</b>"
+        name = (
+            f"<b>{game.clan.biome}</b>" if
+            game.clan.biome != "Mountainous" else
+            "<b>Mountains</b>"
+            )
         if self.poi:
             if "terrain" in self.poi:
-                name = "<b>" + event_text_adjust(Cat, text="{POI/name/" + self.poi + "}").title() + "</b>"
+                name = (
+                    "<b>" +
+                    event_text_adjust(
+                        Cat,
+                        text="{POI/name/" + self.poi + "}"
+                        ).title() +
+                    "</b>"
+                )
             else:
-                name = "<b>" + event_text_adjust(Cat, text="{POI/category/" + self.poi + "}").title() + "</b>"
+                name = (
+                    "<b>" +
+                    event_text_adjust(
+                        Cat,
+                        text="{POI/category/" + self.poi + "}"
+                        ).title() +
+                    "</b>"
+                )
         elif self.camp:
             name = "<b>" + str(self.owner.name) + " Camp</b>"
         elif self.in_dispute():
@@ -117,7 +151,13 @@ class TerritoryTile():
         E.G. "GemClan Territory", "Unclaimed Land".
         """
         if self.in_dispute():
-            return "Fought over by <b>" + self.in_dispute()[0] + " </b>and<b> " + self.in_dispute()[1] + "."
+            return (
+                "Fought over by <b>" +
+                self.in_dispute()[0] +
+                " </b>and<b> " +
+                self.in_dispute()[1] +
+                "."
+                )
         if self.owner:
             return f"<b>{self.owner.name}'s Territory</b>"
         return "<b>Unclaimed Land</b>"
@@ -140,22 +180,31 @@ class TerritoryTile():
         return strength_dict[self.strength]
 
     def herb_string(self):
+        """
+        Returns the string describing the tile's prevalent herb.
+        """
         if not self.herb:
             return ""
         return "Effective source of <br><b>" + self.herb.replace("_", " ") + "</b>"
 
     # OTHER HELPERS
     def desirability(self):
+        """
+        Calculates tile desirability based on herbs and terrain.
+        """
         desirability = 0
         if self.terrain in ("river", "lake"):
             desirability += 2
         if self.herb:
             if self.herb in self.high_value_herbs:
                 desirability += self.high_value_herbs[self.herb]
-        
+
         return desirability
-    
+
     def get_immediate_neighbours(self):
+        """
+        Returns TerritoryTile objects neighbouring the tile in all four directions.
+        """
         neighbour_strings = [
             f"{self.x - 1}-{self.y}",
             f"{self.x + 1}-{self.y}",

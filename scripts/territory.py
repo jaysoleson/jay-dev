@@ -1,3 +1,9 @@
+"""
+
+TODO: Docs
+
+
+"""
 from scripts.game_structure import game
 from scripts.config import get_config
 from scripts.clan_resources.point_of_interest import (
@@ -6,11 +12,14 @@ get_poi_names_set
 )
 
 class Territory():
+    """
+    Class containing territory information!
+    Does not store or create tiles.
+    """
     MAP_SIZE = get_config("bellsofwar.territory_grid_size")
 
     def __init__(self):
         self.all_clans = []
-        self.generated_tiles = []
 
         self.terrain_types = [
             "land", "river", "lake", "ocean",
@@ -21,13 +30,19 @@ class Territory():
         ]
 
     def get_owned_tiles(self, clan):
+        """
+        Returns all tiles owned by the specified Clan.
+        """
         owned_tiles = []
         for tile in game.clan.territory_tiles:
             if tile.owner == clan:
                 owned_tiles.append(tile)
         return owned_tiles
-    
+
     def get_clan_territory_dict(self):
+        """
+        Returns a dict where key = Clan and value = list[TerritoryTile]
+        """
         return_dict = {}
         for clan in self.all_clans:
             return_dict[clan] = []
@@ -36,7 +51,6 @@ class Territory():
             if tile.owner:
                 return_dict[tile.owner].append(tile)
         return return_dict
-    
 
     def get_neighbouring_clans(self, clan):
         """
@@ -53,25 +67,13 @@ class Territory():
         return clans
 
     def get_tile_from_string(self, string):
+        """
+        Takes a tile string and returns the TerritoryTile it belongs to.
+        """
         for tile in game.clan.territory_tiles:
             if tile.tile_string == string:
                 return tile
         return None
-
-    def is_valid_tile_string(self, string):
-        if "--" in string:
-            return False
-        if string[0] == "-":
-            return False
-
-        x = int(string.split("-")[0])
-        y = int(string.split("-")[1])
-
-        if x < 0 or x >= self.MAP_SIZE:
-            return False
-        if y < 0 or y >= self.MAP_SIZE:
-            return False
-        return True
 
     def get_tiles(
             self,
@@ -79,6 +81,10 @@ class Territory():
             clan=None,
             other_clan=None
             ):
+        """
+        Takes a list of tile_types and returns a list of tiles
+        that adhere to all of those parameters.
+        """
         all_tiles = game.clan.territory_tiles
         if not isinstance(tile_types, list):
             print("Tile types is not a list!", tile_types)
@@ -220,7 +226,7 @@ class Territory():
                 print("No logic for tile type", tile_type)
         # print("GET TILES:", tile_types)
         return all_tiles
-    
+
     def _get_all_border_tiles(self, clan):
         """
         Returns a list of all border tiles of a specified Clan's territory.
