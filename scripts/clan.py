@@ -38,7 +38,6 @@ from scripts.clan_resources.point_of_interest import (
     get_poi_save_dict,
     generate_and_add_new_poi,
     PoiType,
-    get_poi_names_set,
     clear_pois,
 )
 from scripts.config import get_config
@@ -102,11 +101,10 @@ class Clan:
         starting_members=None,
         starting_season="Newleaf",
         # CGWAR
-        territory_tile_info = {},
         colour = "green",
 
         # classified tile list
-        territory_tiles: list[TerritoryTile] = None,
+        territory_tiles: list[TerritoryTile] = [],
         # --
         self_run_init_functions=True,
     ):
@@ -142,7 +140,6 @@ class Clan:
         self.age = 0
         self.starting_season = starting_season
         # CGW
-        self.territory_tile_info = territory_tile_info
         self.colour = colour
 
         self.territory_tiles = territory_tiles
@@ -183,18 +180,9 @@ class Clan:
         self.herb_supply = HerbSupply()
         self.primary_disaster = None
         self.secondary_disaster = None
-        # CGWAR
-        # war is now a LIST: several clans can be at war with each other
-        # war will look like
-        # war = [
-        #     {
-        #         "offense": "1",
-        #         "defense": "2",
-        #         "demand": "1-3", "herbs", "prey",
-        #         "duration": 4
-        #     }
-        # ]
+        # CGW
         self.war = []
+        # -->
         self.future_events = []
         self.last_focus_change = None
         self.clans_in_focus = []
@@ -404,7 +392,7 @@ class Clan:
         generate_and_add_new_poi(game.clan.biome, PoiType.MOONPLACE)
         for i in range(3):
             generate_and_add_new_poi(game.clan.biome, PoiType.TERRAIN)
-        
+
         # CGWAR
         game.clan.colour = "green"
 
@@ -680,14 +668,49 @@ class Clan:
             switch_set_value(
                 Switch.error_message, "There was an error loading the clan.json"
             )
-        
+        # johann todo tomorrow:
+        # forfeit territory when tile is in dispute can end the war?
         self.load_territory_json()
+
+        # war must be loaded after territory and clan
+        self.load_war()
 
         # can't put this in post initialization bc guide isn't made before that func
         self.add_guide_influence()
         load_clan_settings()
 
         return version_info
+
+    def load_war(self):
+        """
+        Loads and converts War.
+        """
+        if isinstance(game.clan.war, dict):
+            new_war = War(
+                offense=game.clan.group_ID,
+                defense=game.clan.war["enemy"],
+                demand="prey",
+                duration=game.clan.war["duration"]
+            )
+            game.clan.war = []
+            game.clan.war.append(new_war.get_war_dict())
+            # turn into a dict because everything gets converted 
+            # BACK into War objects momentarily
+
+        war_object_list = []
+        for war in game.clan.war:
+            if "-" in war["demand"]:
+                wardemand = territory_class.get_tile_from_string(war["demand"])
+            else:
+                wardemand = war["demand"]
+            new_war = War(
+                offense=war["offense"],
+                defense=war["defense"],
+                demand=wardemand,
+                duration=war["duration"],
+            )
+            war_object_list.append(new_war)
+        game.clan.war = war_object_list
 
     @staticmethod
     def add_guide_influence():
@@ -886,6 +909,9 @@ class Clan:
         switch_set_value(Switch.error_message, "")
     
     def load_territory_json(self):
+        """
+        TODO: Docs
+        """
         with open(
             get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json",
             "r",
@@ -893,12 +919,16 @@ class Clan:
         ) as read_file:
             tile_dict = ujson.loads(read_file.read())
 
-        tile_dict = generate_territories()
+        # tile_dict = generate_territories()
         # ^^ debug overwriting every load for testing
 
         game.clan.territory_tiles = self.generate_territories_tile_list(tile_dict)
 
     def generate_territories_tile_list(self, tile_dict):
+        """
+        Assembles a list of TerritoryTiles from the dict
+        created in create_territory.py
+        """
         tile_list = []
 
         for tile_string, info in tile_dict.items():
@@ -918,6 +948,7 @@ class Clan:
             strength = info["strength"] if "strength" in info else 0
             camp = info["camp"] if "camp" in info else False
             tile_events = info["events"] if "events" in info else []
+            history = info["history"] if "history" in info else []
 
             new_tile = TerritoryTile(
                 x,
@@ -928,12 +959,16 @@ class Clan:
                 herb,
                 strength,
                 camp,
-                tile_events
+                tile_events,
+                history=history
             )
             tile_list.append(new_tile)
         return tile_list
 
     def remap_territory_strength(self):
+        """
+        Remaps territory strength. Call when tile ownership changes.
+        """
         strength_dict = {}
         for tile in game.clan.territory_tiles:
             strength_dict[tile.tile_string] = tile.get_save_dict()
@@ -1137,33 +1172,8 @@ class Clan:
             switch_set_value(Switch.traceback, error)
             raise error
         # CGWAR
-        if "war" in clan_data:
-            if isinstance(clan_data["war"], dict):
-                new_war = War(
-                    offense=game.clan.group_ID,
-                    defense=clan_data["war"]["enemy"],
-                    demand="prey",
-                    duration=clan_data["war"]["duration"]
-                )
-                clan_data["war"] = []
-                clan_data["war"].append(new_war.get_war_dict())
-                # turn into a dict because everything gets converted 
-                # BACK into War objects momentarily
-
-            war_object_list = []
-            for war in clan_data["war"]:
-                if "-" in war["demand"]:
-                    wardemand = territory_class.get_tile_from_string(war["demand"])
-                else:
-                    wardemand = war["demand"]
-                new_war = War(
-                    offense=war["offense"],
-                    defense=war["defense"],
-                    demand=wardemand,
-                    duration=war["duration"],
-                )
-                war_object_list.append(new_war)
-            game.clan.war = war_object_list
+        game.clan.war = clan_data["war"]
+        # ^^ this gets overwritten later
 
         game.clan.last_focus_change = clan_data.get("last_focus_change")
         game.clan.clans_in_focus = clan_data.get("clans_in_focus", [])
@@ -1725,7 +1735,7 @@ class OtherClan:
                 current_war = war
                 break
         return current_war
-    
+
     def get_clan_colour(self):
         """
         Assigns a colour to a Clan upon creation.

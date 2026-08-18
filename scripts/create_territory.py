@@ -1,3 +1,10 @@
+"""
+
+TODO: Docs
+
+
+"""
+
 from scripts.game_structure import game
 import random
 from scripts.clan_resources.point_of_interest import (
@@ -52,7 +59,8 @@ def generate_territories():
             territory_dict[f"{x}-{y}"] = {
                 "owner": None,
                 "terrain": "land",
-                "events": []
+                "events": [],
+                "history": []
                 }
             if (
                 x == 0 or
@@ -122,7 +130,7 @@ def generate_territories():
                 break
 
         if not chosen_camp_tile:
-            print("No suitable location found. Randomly choosing.")
+            print("No suitable location found for camp. Randomly choosing.")
             test_tile = random.choice(camp_option_tile_list)
             territory_dict[test_tile].update({"camp":True})
             chosen_camp_tile = test_tile
@@ -134,10 +142,6 @@ def generate_territories():
     for tile in territory_dict:
         if tile == f"{round(MAP_SIZE/2)}-{round(MAP_SIZE/2)}":
             territory_dict[tile]["poi"] = "gathering"
-
-    # NOW give them all empty events lists
-    for tile in territory_dict:
-        territory_dict[tile]["events"] = []
 
     territory_dict = _generate_terrain_info(territory_dict, border_tiles, all_tiles)
     territory_dict = _distribute_herbs(territory_dict, all_tiles)
@@ -180,7 +184,7 @@ def _set_unclaimed_territory(territory_dict):
 
 def _set_general_strength(territory_dict, override=False):
     for clan in game.clan.all_other_clans + [game.clan]:
-        camp_tile = get_camp_tile(clan, territory_dict=territory_dict)
+        camp_tile = get_camp_tile(clan, territory_dict)
         strength_tiles_collected = __distribute_heatmap_tiles(
             layers=5,
             starting_tile=camp_tile,
@@ -246,19 +250,16 @@ def _distribute_herbs(territory_dict, all_tiles):
     # HERBS!
     # not all herbs get chosen, some might get chosen twice and have different patches!
     # hopefully the rng gods bless you with endless fields of catmint
-    valid_tiles = all_tiles.copy()
-    for tile in valid_tiles:
-        neighbours = _get_immediate_neighbours(tile, territory_dict=territory_dict)
-        for n in neighbours:
-            if "terrain" in territory_dict[n] and territory_dict[n]["terrain"] in (
-                "river", "lake", "ocean", "silverpath", "thunderpath"
-            ):
-                if tile in valid_tiles:
-                    valid_tiles.remove(tile)
+    valid_tiles = []
+    for tile in all_tiles:
+        if "terrain" in territory_dict[tile]:
+            if territory_dict[tile]["terrain"] != "land":
+                continue
+        valid_tiles.append(tile)
 
     possible_herbs = list(game.clan.herb_supply.base_herb_list.keys())
     assembled_herb_list = []
-    herb_num = random.randint(18,26)
+    herb_num = random.randint(22,26)
 
     for i in range(herb_num):
         assembled_herb_list.append(random.choice(possible_herbs))
@@ -351,6 +352,10 @@ def _generate_terrain_info(territory_dict, border_tiles=[], all_tiles=[]):
         create_river = True
         create_ocean = True
 
+    if not create_lake and not create_ocean and not create_river:
+        # give a river if theres nothing else.. because no water features is boring
+        create_river = True
+
     # now create them!
     if create_river:
         for i in range(river_number):
@@ -393,7 +398,6 @@ def _generate_terrain_info(territory_dict, border_tiles=[], all_tiles=[]):
             lake_source = lake_starting_tiles[lake_tile_index] if lake_tile_index < len(lake_starting_tiles) else random.choice(non_water_tiles)
 
             if lake_source == get_camp_tile(game.clan, territory_dict):
-                print("Adjusting valid tiles for Lakeside")
                 # change valid tiles so its lakeSIDE, not in the middle.
 
                 camp_x = int(lake_source.split("-")[0])
@@ -752,6 +756,11 @@ def __place_pois(territory_dict):
                         "river", "lake", "ocean", "thunderpath", "silverpath"
                     ):
                         moonplace_tiles.remove(tile)
+                else:
+                    if "terrain" in territory_dict[tile] and territory_dict[tile]["terrain"] in (
+                        "thunderpath", "silverpath"
+                    ):
+                        moonplace_tiles.remove(tile)
             if not moonplace_tiles:
                 moonplace_tiles = free_tiles.copy()
             chosen_tile = random.choice(moonplace_tiles)
@@ -767,7 +776,7 @@ def __place_pois(territory_dict):
                         if tile in territory_dict:
                             if "terrain" in territory_dict[tile]:
                                 if territory_dict[tile]["terrain"] in (
-                                    "river", "lake", "ocean"
+                                    "river", "lake", "ocean", "silverpath", "thunderpath"
                                 ):
                                     continue
                         # try to find a spot in unclaimed territory first
@@ -870,7 +879,6 @@ def _set_tile_strengths(
     return territory_dict
 
 def __distribute_heatmap_tiles(
-        
         layers=4,
         starting_tile="",
         all_valid_tiles=[]
@@ -1175,6 +1183,9 @@ def get_camp_tile(clan, territory_dict):
             if "camp" in territory_dict[tile] and territory_dict[tile]["camp"]:
                 camp = tile
                 break
+    if not camp:
+        print("Couldn't find camp for", clan.name, "?")
+        camp = "0-0"
     return camp
 
 def _get_all_border_tiles(clan, territory_dict, exclude_water=False):
@@ -1277,7 +1288,6 @@ def _get_immediate_neighbours(
     return valid_neighbour_list
 
 def _get_all_neighbours(
-        
         tile_string,
         layer=1,
         territory_dict={},
@@ -1292,7 +1302,7 @@ def _get_all_neighbours(
         exclude_water,
         only_water
         )
-    
+
     x = int(tile_string.split("-")[0])
     y = int(tile_string.split("-")[1])
     corners = [
@@ -1322,17 +1332,14 @@ def _get_all_neighbours(
     return immediate_neighbours
 
 def _get_gathering_tile(territory_dict):
-    
     for tile in territory_dict:
         if "poi" not in territory_dict[tile]:
             continue
         if territory_dict[tile]["poi"] == "gathering":
             return tile
-    print("No gathering tile!")
     return None
 
 def _get_moonplace_tile(territory_dict):
-    
     for tile in territory_dict:
         if "poi" not in territory_dict[tile]:
             continue

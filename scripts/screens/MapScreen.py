@@ -9,7 +9,6 @@ from scripts.ui.generate_box import get_box, BoxStyles
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
 from scripts.ui.icon import Icon
 from scripts.game_structure.screen_settings import MANAGER
-from scripts.ui.elements.image_button import UIImageButton
 from scripts.ui.elements.modified_image import UIModifiedImage
 
 from scripts.ui.scale import ui_scale, ui_scale_dimensions
@@ -17,9 +16,6 @@ from scripts.game_structure import image_cache
 from scripts.game_structure import game
 from pygame_gui.core import UIContainer
 from scripts.ui.elements.map_tile import MapTileButton
-from scripts.territory import territory_class
-from scripts.events_module.text_adjust import event_text_adjust
-from scripts.cat.cats import Cat
 from scripts.ui.theme import get_text_box_theme
 from ..ui.elements.checkbox import UICheckbox
 from scripts.config import get_config
@@ -136,14 +132,22 @@ class MapScreen(Screens):
         )
         # events
         self.elements["view_events"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 260), (95, 30))),
+            ui_scale(pygame.Rect((10, 230), (85, 30))),
             "buttons.map_view_events",
-            get_button_dict(ButtonStyles.ROUNDED_RECT, (95, 30)),
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (85, 30)),
             object_id="@buttonstyles_rounded_rect",
             manager=MANAGER,
             container=self.tile_info_container,
-            anchors={"centerx":"centerx"},
             tool_tip_text="buttons.map_view_events_tooltip"
+        )
+        self.elements["view_history"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((105, 230), (85, 30))),
+            "buttons.map_view_history",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (85, 30)),
+            object_id="@buttonstyles_rounded_rect",
+            manager=MANAGER,
+            container=self.tile_info_container,
+            tool_tip_text="buttons.map_view_history_tooltip"
         )
 
         # checkbox labels. boxes r made later
@@ -296,6 +300,8 @@ class MapScreen(Screens):
                 self.update_checkboxes()
             elif event.ui_element == self.elements["view_events"]:
                 MapViewEvents(self.selected_tile)
+            elif event.ui_element == self.elements["view_history"]:
+                MapViewEvents(self.selected_tile, view_type="history")
             for interaction in self.all_interaction_buttons:
                 if interaction in self.elements and event.ui_element == self.elements[interaction]:
                     self.handle_map_interaction(interaction)

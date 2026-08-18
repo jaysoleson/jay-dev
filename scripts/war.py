@@ -90,7 +90,8 @@ class War():
         The Clan passed as an argument will come first in the sentence.
         """
         opponent = self.get_opponent_object(clan)
-        return f"<b>{clan.name}</b> is at war with <b>{opponent.name}</b>"
+        demand = self.demand if isinstance(self.demand, str) else "territory"
+        return f"<b>{clan.name}</b> is at war with <b>{opponent.name}</b> over <b>{demand}</b>."
     
     def get_offense_object(self):
         """
@@ -127,10 +128,12 @@ class War():
             clan=self.get_offense_object(),
             other_clan=self.get_defense_object()
             )
-        if demand_tiles:
+        if demand_tiles and random.randint(1,4) != 1:
             demand = random.choice(demand_tiles)
         else:
             demand = random.choice(["herbs", "prey"])
+
+        print("DEMAND:", demand)
         self.demand = demand
 
     def win_war(self, winner):
@@ -142,8 +145,13 @@ class War():
         if self.demand:
             print(winner.name, "wins the war! They win:", self.demand)
             if not isinstance(self.demand, str):
-                self.demand.owner = winner
-                game.clan.remap_territory_strength()
+                self.demand.change_owner(winner)
+            else:
+                # prey or herbs
+                pass
+
+    def end_war(self):
+        game.clan.war.remove(self)
     
     def __repr__(self):
         return f"{self.get_offense_object().name} vs. {self.get_defense_object().name} | {self.duration} moons | Demands: {self.demand}"

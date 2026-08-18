@@ -34,7 +34,8 @@ class TerritoryTile():
             herb: str = None,
             strength: int = 0,
             camp: bool = False,
-            events: list = []
+            events: list = [],
+            history: list = []
     ):
         """
         Class object of a single territory tile.
@@ -53,10 +54,13 @@ class TerritoryTile():
                 default value: None
             strength (int): The territory's security level on a scale from 1-5.
                 default value: 1
-            # CAMP
-            events (list): A list of all events
-            within a specified time period that occurred on this tile.
-                default value: []
+            camp (bool): Whether or not the tile houses the owner's camp.
+                default value: False
+            events (list):
+                A list of all events within a specified time period that occurred on this tile.
+                    default value: []
+            history (list):
+                A compilation of ownership history.
 
         ------------->
          
@@ -71,6 +75,7 @@ class TerritoryTile():
         self.strength = strength
         self.camp = camp
         self.events = events
+        self.history = history
 
     def get_save_dict(self):
         """
@@ -83,7 +88,8 @@ class TerritoryTile():
             "poi": self.poi,
             "strength": self.strength,
             "camp": self.camp,
-            "events": self.events
+            "events": self.events,
+            "history": self.history
         }
 
     # PROPERTIES --------------------->
@@ -232,8 +238,42 @@ class TerritoryTile():
                         return True
             else:
                 if n.owner == border_type:
+                    if border_type is None:
+                        # it doesnt count as bordering unclaimed land
+                        # if it's just bordering the gathering or moonplace spot
+                        if n.poi in ("gathering", "moonplace"):
+                            continue
                     return True
         return False
+
+    # EDIT INFO
+    def add_event(self, event_text):
+        """
+        Appends an event to the events list.
+        """
+        self.events.append(
+            {
+                "moon": game.clan.age,
+                "text": event_text,
+                "saved": False
+            }
+        )
+
+    def change_owner(self, new_owner):
+        """
+        Switches tile ownership. Handles remapping strength and adding to history.
+        """
+        self.history.append(
+            {
+                "moon": game.clan.age,
+                "ownership_change": {
+                    "old": self.owner.group_ID if self.owner else None,
+                    "new": new_owner.group_ID if new_owner else None
+                }
+            }
+        )
+        self.owner = new_owner
+        game.clan.remap_territory_strength()
 
     def __repr__(self):
         return f"#TILE: {self.tile_string}"

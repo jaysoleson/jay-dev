@@ -1006,42 +1006,36 @@ class ShortEvent:
         if not self.tile_location:
             return None
 
-        preset = choice(self.tile_location)
-        if preset in get_poi_tags_set():
-            if switch_get_value(Switch.last_used_POI):
-                print("Preset:", preset)
-                preset = switch_get_value(Switch.last_used_POI)
-                print("TAG: Getting POI to assign to event:", preset)
-        # elif preset in get_poi_categories_set():
-        #     if switch_get_value(Switch.last_used_POI):
-        #         print("Preset:", preset)
-        #         preset = switch_get_value(Switch.last_used_POI)
-        #         print("CAT: Getting POI to assign to event:", preset)
+        valid_tiles_dict = {}
+        # find valid tiles for all tile_location options
+        for option in self.tile_location:
+            preset = option
+            if preset in get_poi_tags_set():
+                if switch_get_value(Switch.last_used_POI):
+                    preset = switch_get_value(Switch.last_used_POI)
+                    switch_set_value(Switch.last_used_POI, "")
 
-        if switch_get_value(Switch.last_used_POI):
-            switch_set_value(Switch.last_used_POI, "")
+            if "," in preset:
+                preset_list = preset.split(",")
+            else:
+                preset_list = [preset]
 
-        if "," in preset:
-            preset_list = preset.split(",")
-        else:
-            preset_list = [preset]
+            found_tiles = territory_class.get_tiles(
+                tile_types=preset_list,
+                clan=game.clan,
+                other_clan=other_clan
+                )
+            if not found_tiles:
+                continue
 
-        valid_tiles = territory_class.get_tiles(
-            tile_types=preset_list,
-            clan=game.clan,
-            other_clan=other_clan
-            )
-        if not valid_tiles:
+            valid_tiles_dict[preset] = found_tiles
+
+        if not valid_tiles_dict:
             return None
 
-        chosen_tile = choice(valid_tiles)
-        chosen_tile.events.append(
-            {
-                "moon": game.clan.age,
-                "text": self.text,
-                "saved": False
-            }
-        )
+        chosen_preset = choice(list(valid_tiles_dict.keys()))
+        chosen_tile = choice(valid_tiles_dict[chosen_preset])
+        chosen_tile.add_event(self.text)
         return chosen_tile
 
 

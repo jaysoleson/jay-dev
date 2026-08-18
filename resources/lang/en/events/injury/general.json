@@ -10269,6 +10269,116 @@
                 ]
             }
         ]
+    },
+    {
+        "event_id": "cgwar_disputed_territory_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "war"
+        ],
+        "tags": [],
+        "frequency": 2,
+        "event_text": "m_c gets into a scrap with a o_c_n patrol on their disputed territory. m_c ends up fleeing with an injury and a chorus of o_c_n cats jeering after {PRONOUN/m_c/object}.",
+        "tile_location": [
+            "disputed"
+        ],
+        "m_c": {
+            "status": [
+                "apprentice", "warrior", "deputy"
+            ]
+        },
+        "injury": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "battle_injury"
+                ]
+            },
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "battle_injury"
+                ]
+            }
+        ],
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "scar": "m_c was scarred after a skirmish with a warring Clan.",
+                "death": "m_c died from {PRONOUN/m_c/poss} wounds after a skirmish with a warring Clan."
+            }
+        ],
+        "other_clan": {
+            "current_rep": [
+                "hostile"
+            ]
+        }
+    },
+    {
+        "event_id": "cgwar_disputed_territory_02",
+        "location": [
+            "plains"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "war"
+        ],
+        "tags": [],
+        "frequency": 2,
+        "event_text": "m_c is ambushed by o_c_n warriors while exploring the Silverpath and leaves a trail of blood as {PRONOUN/m_c/subject} {VERB/m_c/follow/follows} it back to camp.",
+        "tile_location": [
+            "silverpath,not_other_clan_territory"
+        ],
+        "m_c": {
+            "status": [
+                "apprentice", "warrior", "deputy"
+            ]
+        },
+        "injury": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "battle_injury"
+                ]
+            },
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "battle_injury"
+                ]
+            }
+        ],
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "scar": "m_c was scarred after an ambush from a warring Clan.",
+                "death": "m_c died from {PRONOUN/m_c/poss} wounds after an ambush from a warring Clan."
+            }
+        ],
+        "other_clan": {
+            "current_rep": [
+                "hostile"
+            ]
+        }
     }
 ]
 

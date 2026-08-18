@@ -52,7 +52,7 @@
         "claim": "claim",
         "claim_tooltip": "Negotiate for ownership of this territory.",
         "forfeit": "forfeit",
-        "forfeit_tooltip": "Forfeit your ownership of this territory.",
+        "forfeit_tooltip": "Forfeit your claim of this territory.",
         "take": "take",
         "take_tooltip": "Take this territory by force.",
         "attack_camp": "attack",
@@ -62,6 +62,8 @@
         "view_map": "View Territory",
         "map_view_events": "events",
         "map_view_events_tooltip": "View events that have recently happened here.",
+        "map_view_history": "history",
+        "map_view_history_tooltip": "View this territory's history.",
         "confirm": "confirm"
     }
 }

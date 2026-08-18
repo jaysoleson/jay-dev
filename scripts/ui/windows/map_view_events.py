@@ -19,15 +19,16 @@ from scripts.ui.generate_box import get_box, BoxStyles
 
 
 class MapViewEvents(GameWindow):
-    def __init__(self, tile):
+    def __init__(self, tile, view_type="events"):
         super().__init__(
             ui_scale(pygame.Rect((90, 125), (620, 450))),
         )
         self.tile = tile
         self.event_elements = {}
+        self.view_type = view_type
 
         self.heading = pygame_gui.elements.UITextBox(
-            "screens.map.view_events_header",
+            f"screens.map.view_{view_type}_header",
             ui_scale(pygame.Rect((5, 10), (510, 55))),
             manager=MANAGER,
             container=self,
@@ -41,7 +42,7 @@ class MapViewEvents(GameWindow):
 
         self.subtitle = pygame_gui.elements.UITextBox(
             name_string +
-            " | " +
+            (" | " if security_string else "") +
             security_string +
             " | " +
             owner_string,
@@ -60,7 +61,10 @@ class MapViewEvents(GameWindow):
             anchors={"centerx": "centerx"}
         )
 
-        self.build_events_list()
+        if self.view_type == "events":
+            self.build_events_list()
+        else:
+            self.build_history_list()
     
     def build_events_list(self):
         for item in self.event_elements:
@@ -72,7 +76,7 @@ class MapViewEvents(GameWindow):
 
         if not self.events_list:
             self.event_elements["no_events"] = pygame_gui.elements.UITextBox(
-                "screens.map.no_events",
+                f"screens.map.no_events",
                 ui_scale(pygame.Rect((5, 10), (530, 100))),
                 manager=MANAGER,
                 container=self.event_container,
@@ -153,7 +157,104 @@ class MapViewEvents(GameWindow):
                     tool_tip_text="screens.map.delete_event",
                     anchors={"top_target": self.event_elements[str(index) + "_moon"]},
                 )
-        
+    def build_history_list(self):
+        for item in self.event_elements:
+            self.event_elements[item].kill()
+        self.event_elements = {}
+
+        self.events_list = []
+        self.events_list = self.tile.history
+
+        if not self.events_list:
+            self.event_elements["no_history"] = pygame_gui.elements.UITextBox(
+                f"screens.map.no_history",
+                ui_scale(pygame.Rect((5, 10), (530, 100))),
+                manager=MANAGER,
+                container=self.event_container,
+                anchors={"centerx": "centerx"},
+                object_id="#text_box_26_horizcenter_vertcenter_spacing_95",
+            )
+        else:
+            for index, event in enumerate(self.events_list):
+                previous_element = (
+                    self.event_elements[str(index - 1) + "_frame"]
+                    if index > 0
+                    else None
+                    )
+                history_text = self.get_history_text(event)
+                self.event_elements[str(index) + "_text"] = pygame_gui.elements.UITextBox(
+                    history_text,
+                    ui_scale(pygame.Rect((32, 29), (375, -1))),
+                    manager=MANAGER,
+                    container=self.event_container,
+                    anchors=(
+                        {"centerx": "centerx"} if not previous_element else
+                        {"centerx": "centerx", "top_target": previous_element}
+                        ),
+                    object_id="#text_box_26_horizcenter_vertcenter_spacing_95",
+                )
+                # find the height of the text element (varies based on hwo long the event is)
+                # and adjust the frame accordingly.
+                # theres a min height so the moon + buttons will always fit.
+                min_height = 120
+                height = self.event_elements[str(index) + "_text"].rect.height + 42
+                if height < min_height:
+                    height = min_height
+
+                self.event_elements[str(index) + "_frame"] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((0, 15), (500, height))),
+                    get_box(BoxStyles.FRAME, (520, height)),
+                    starting_height=1,
+                    container=self.event_container,
+                    manager=MANAGER,
+                    anchors=(
+                        {"centerx": "centerx"} if not previous_element else
+                        {"centerx": "centerx", "top_target": previous_element}
+                    ),
+                )
+                self.event_elements[str(index) + "_moon"] = pygame_gui.elements.UITextBox(
+                    "<b>Moon</b><br>" + str(event["moon"]),
+                    ui_scale(pygame.Rect((52, 26), (70, 60))),
+                    manager=MANAGER,
+                    container=self.event_container,
+                    anchors=(
+                        None if not previous_element else
+                        {"top_target": previous_element}
+                        ),
+                    object_id="#text_box_26_horizcenter_vertcenter_spacing_95",
+                )
+
+                self.event_elements[str(index) + "_deleteevent"] = UISurfaceImageButton(
+                    ui_scale(pygame.Rect((52, 0), (20, 20))),
+                    Icon.SCRATCHES,
+                    get_button_dict(ButtonStyles.ROUNDED_RECT, (20, 20)),
+                    starting_height=2,
+                    object_id="@buttonstyles_rounded_rect",
+                    container=self.event_container,
+                    manager=MANAGER,
+                    tool_tip_text="screens.map.delete_event",
+                    anchors={"top_target": self.event_elements[str(index) + "_moon"]},
+                )
+
+    def get_history_text(self, event):
+        text = ""
+        if "ownership_change" in event:
+            old_owner = territory_class.get_clan_from_ID(event["ownership_change"]["old"])
+            new_owner = territory_class.get_clan_from_ID(event["ownership_change"]["new"])
+            if event["ownership_change"]["old"]:
+                text = i18n.t(
+                    "screens.map.ownership_change",
+                    old=old_owner.name,
+                    new=new_owner.name
+                    )
+            else:
+                text = i18n.t(
+                    "screens.map.ownership_change_none",
+                    new=new_owner.name
+                    )
+
+        return text
+
     def process_event(self, event) -> bool:
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
@@ -164,7 +265,10 @@ class MapViewEvents(GameWindow):
                     index, btn_type = key.split("_")
                     index = int(index)
                     if btn_type == "deleteevent":
-                        self.tile.events.remove(game.clan.territory_tile_info[self.tile]["events"][index])
+                        if self.view_type == "events":
+                            self.tile.events.remove(self.tile.events[index])
+                        else:
+                            self.tile.events.remove(self.tile.events[index])
                     elif btn_type == "saveevent":
                         self.tile.events[index]["saved"] = True
                     self.build_events_list()

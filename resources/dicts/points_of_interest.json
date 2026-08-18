@@ -69,6 +69,11 @@
         "biome": ["plains"],
         "tags": ["Twolegs:present", "prey:ground", "prey:flying"]
     },
+    "terrain_farmhouse": {
+        "category": "terrain",
+        "biome": ["plains"],
+        "tags": ["Twolegs:present", "prey:ground", "prey:flying"]
+    },
     "terrain_deepforest": {
         "category": "terrain",
         "biome": ["forest"],

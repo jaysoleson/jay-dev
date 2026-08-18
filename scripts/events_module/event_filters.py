@@ -300,15 +300,15 @@ def event_for_territory(required_territory: list, other_clan) -> bool:
     # make territory list bc i cant import it
     # circular import:(
     all_tiles = []
-    for tile in game.clan.territory_tile_info:
-        if game.clan.territory_tile_info[tile]["owner"] == other_clan.group_ID:
+    for tile in game.clan.territory_tiles:
+        if tile.owner == other_clan.group_ID:
             all_tiles.append(tile)
 
     for item in required_territory:
         if "terrain" in item:
             for tile in all_tiles:
-                if "poi" in game.clan.territory_tile_info[tile]:
-                    if game.clan.territory_tile_info[tile]["poi"] == item:
+                if tile.poi:
+                    if tile.poi == item:
                         return True
     return False
 

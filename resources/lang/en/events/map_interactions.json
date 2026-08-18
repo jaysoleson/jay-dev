@@ -357,6 +357,15 @@
         },
         {
             "standing": ["ally", "amicable", "neutral", "tense", "hostile"],
+            "success": false,
+            "border": "any",
+            "herb": ["yew_berries"],
+            "events": [
+                "A c_n patrol launches an attack on a o_c_n deathberry patch, attempting to take the territory. However, o_c_n is able to chase them off. Why is o_c_n so fiercely protective of their poison, anyway..?"
+            ]
+        },
+        {
+            "standing": ["ally", "amicable", "neutral", "tense", "hostile"],
             "success": true,
             "border": "any",
             "terrain": ["lake", "ocean"],
@@ -367,6 +376,9 @@
     ],
     "forfeit": [
         "c_n decides to stop using resources patrolling some of their territory. The territory now belongs to no Clan."
+    ],
+    "forfeit_war": [
+        "c_n decides that this territory isn't worth fighting over. They forfeit the land to o_c_n and end the war."
     ],
     "attack": {
         "at_war": {
@@ -400,16 +412,24 @@
             },
             "border": {
                 "land": [
-                    "A skirmish breaks out on the o_c_n border."
+                    "A skirmish breaks out on the o_c_n border.",
+                    "A battle breaks out on the o_c_n border.",
+                    "c_n launches an attack on a o_c_n border patrol and sends them running."
                 ],
                 "river": [
-                    "A skirmish breaks out on the o_c_n border."
+                    "A skirmish breaks out on the o_c_n border.",
+                    "A battle breaks out on the o_c_n border.",
+                    "c_n launches an attack on a o_c_n border patrol and sends them running."
                 ],
                 "lake": [
-                    "A skirmish breaks out on the o_c_n border."
+                    "A skirmish breaks out on the o_c_n border.",
+                    "A battle breaks out on the o_c_n border.",
+                    "c_n launches an attack on a o_c_n border patrol and sends them running."
                 ],
                 "ocean": [
-                    "A skirmish breaks out on the o_c_n border."
+                    "A skirmish breaks out on the o_c_n border.",
+                    "A battle breaks out on the o_c_n border.",
+                    "c_n launches an attack on a o_c_n border patrol and sends them running."
                 ]
             }
         },

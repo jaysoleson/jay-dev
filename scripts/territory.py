@@ -7,8 +7,13 @@ TODO: Docs
 from scripts.game_structure import game
 from scripts.config import get_config
 from scripts.clan_resources.point_of_interest import (
-get_poi_categories_set,
-get_poi_names_set
+    get_poi_categories_set,
+    get_poi_names_set,
+    get_poi_tags_set
+)
+from scripts.game_structure.game.switches import (
+    Switch,
+    switch_get_value
 )
 
 class Territory():
@@ -107,8 +112,7 @@ class Territory():
                 all_tiles = [
                     t for t in all_tiles.copy() if
                     t.owner == clan and
-                    t.is_bordering(None) and
-                    t.poi not in ("gathering", "moonplace")
+                    t.is_bordering(None)
                 ]
             elif tile_type == "unclaimed":
                 all_tiles = [
@@ -139,6 +143,15 @@ class Territory():
                 all_tiles = [
                     t for t in all_tiles.copy() if
                     t.herb
+                ]
+            elif tile_type == "disputed":
+                all_tiles = [
+                    t for t in all_tiles.copy() if
+                    t.in_dispute() and
+                    (
+                        clan.name in t.in_dispute() and
+                        other_clan.name in t.in_dispute()
+                    )
                 ]
             elif tile_type == "camp":
                 all_tiles = [
@@ -216,7 +229,13 @@ class Territory():
                     t for t in all_tiles.copy() if
                     t.poi == tile_type
                 ]
-                print(tile_type, all_tiles)
+            elif tile_type in get_poi_tags_set():
+                target_poi = switch_get_value(Switch.last_used_POI)
+                print("Finding POI by tag:", tile_type, target_poi)
+                all_tiles = [
+                    t for t in all_tiles.copy() if
+                    t.poi == target_poi
+                ]
             else:
                 # shouldnt need this
                 for tile in all_tiles:
@@ -224,7 +243,7 @@ class Territory():
                         all_tiles = [tile]
                         break
                 print("No logic for tile type", tile_type)
-        # print("GET TILES:", tile_types)
+
         return all_tiles
 
     def _get_all_border_tiles(self, clan):
@@ -238,5 +257,17 @@ class Territory():
             if tile.is_bordering("any"):
                 border_tiles.append(tile)
         return border_tiles
+
+    def get_clan_from_ID(self, clan_ID):
+        """
+        Returns the Clan object from a group ID.
+        There MUST be a clangen way to do this but i cant find it........
+        """
+        if clan_ID == game.clan.group_ID:
+            return game.clan
+        for clan in game.clan.all_other_clans:
+            if clan.group_ID:
+                return clan
+        return None
 
 territory_class = Territory()

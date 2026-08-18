@@ -470,7 +470,7 @@
         "frequency": 4,
         "event_text": "A loner waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The loner decides to take on a more Clan-like name and is now called n_c:0.",
         "tile_location": [
-            "unclaimed_border"
+            "unclaimed_border,land"
         ],
         "m_c": {
             "status": ["warrior", "deputy", "leader", "medicine cat"]
@@ -507,7 +507,7 @@
         "frequency": 4,
         "event_text": "A loner waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The loner decides to keep {PRONOUN/n_c:0/poss} old name, n_c:0.",
         "tile_location": [
-            "unclaimed_border"
+            "unclaimed_border,land"
         ],
         "m_c": {
             "status": [
@@ -758,7 +758,7 @@
         "frequency": 4,
         "event_text": "A kittypet waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The kittypet decides to keep {PRONOUN/n_c:0/poss} old name, n_c:0.",
         "tile_location": [
-            "unclaimed_border"
+            "unclaimed_border,land"
         ],
         "m_c": {
             "status": ["leader", "deputy", "warrior", "medicine cat"]
@@ -795,7 +795,7 @@
         "frequency": 4,
         "event_text": "A kittypet waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The kittypet decides to take on a more Clan-like name and is now called n_c:0.",
         "tile_location": [
-            "unclaimed_border"
+            "unclaimed_border,land"
         ],
         "m_c": {
             "status": [
@@ -974,7 +974,7 @@
         "frequency": 4,
         "event_text": "A rogue waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The rogue decides to keep {PRONOUN/n_c:0/poss} old name, n_c:0.",
         "tile_location": [
-            "unclaimed_border"
+            "unclaimed_border,land"
         ],
         "m_c": {
             "status": ["leader", "deputy", "warrior", "medicine cat"]
@@ -1011,7 +1011,7 @@
         "frequency": 4,
         "event_text": "A rogue waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The rogue decides to take a new name and is now called n_c:0.",
         "tile_location": [
-            "unclaimed_border"
+            "unclaimed_border,land"
         ],
         "m_c": {
             "status": ["leader", "deputy", "warrior", "medicine cat"]

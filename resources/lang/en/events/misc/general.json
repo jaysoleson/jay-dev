@@ -18790,5 +18790,77 @@
                 "medicine cat", "medicine cat apprentice"
             ]
         }
+    },
+    {
+        "event_id": "cgwar_misc_disputedterritory_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "war"
+        ],
+        "tags": [],
+        "frequency": 3,
+        "event_text": "The territory that c_n and o_c_n are fighting over has been so destoryed by the numerous skirmishes that m_c is starting to reconsider if c_n even wants it anymore.",
+        "tile_location": [
+            "disputed"
+        ],
+        "m_c": {
+            "status": [
+                "leader"
+            ]
+        },
+        "future_event": []
+    },
+    {
+        "event_id": "cgwar_misc_disputedterritory_02",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "war"
+        ],
+        "tags": [],
+        "frequency": 3,
+        "event_text": "m_c accidentally drowns a o_c_n warrior while partaking in a skirmish at the Clans' disputed territory.",
+        "tile_location": [
+            "disputed,water"
+        ],
+        "m_c": {
+            "status": [
+                "apprentice", "warrior", "deputy"
+            ]
+        },
+        "future_event": []
+    },
+    {
+        "event_id": "cgwar_misc_disputedterritory_03",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "war"
+        ],
+        "tags": [],
+        "frequency": 3,
+        "event_text": "m_c accidentally chases a o_c_n warrior under the paws of a large monster while in a skirmish at the Clans' disputed territory.",
+        "tile_location": [
+            "disputed,thunderpath", "disputed,silverpath"
+        ],
+        "m_c": {
+            "status": [
+                "apprentice", "warrior", "deputy"
+            ]
+        },
+        "future_event": []
     }
 ]
