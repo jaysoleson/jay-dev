@@ -228,6 +228,9 @@ class TerritoryTile():
         for n in self.get_immediate_neighbours():
             if not n:
                 continue
+            if border_type == "any":
+                if n.owner != self.owner:
+                    return True
             if isinstance(border_type, str):
                 # it's terrain!
                 if border_type == "water":
@@ -272,6 +275,7 @@ class TerritoryTile():
                 }
             }
         )
+        print("CHANGE OWNER", self, ":", self.owner, "->", new_owner)
         self.owner = new_owner
         game.clan.remap_territory_strength()
 

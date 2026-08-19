@@ -128,7 +128,8 @@ def one_moon():
                 Cat.all_cats.values(),
             )
         )
-        # game.clan.freshkill_pile.time_skip(relevant_cats, game.freshkill_event_list)
+        game.clan.freshkill_pile.time_skip(relevant_cats, game.freshkill_event_list)
+        # CGWAR DEBUG: comment out for no starving cats
         # get the moonskip freshkill
         get_moon_freshkill()
 
@@ -2896,7 +2897,7 @@ def handle_map_interaction_event():
         try:
             POSSIBLE_EVENTS = events[attack_war_insert][location_insert][target_tile.terrain]
         except:
-            POSSIBLE_EVENTS = events[attack_war_insert]["camp"]
+            POSSIBLE_EVENTS = events[attack_war_insert]["camp"][target_tile.terrain]
     else:
         POSSIBLE_EVENTS = events
 
@@ -2939,7 +2940,6 @@ def handle_map_interaction_event():
 
     # NEW WAR ------------------------>
     if war:
-        print("STARTING WAR FROM TAKE")
         new_war = War(
             offense=other_clan.group_ID,
             defense=game.clan.group_ID,

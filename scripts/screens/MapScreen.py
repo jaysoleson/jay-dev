@@ -502,7 +502,11 @@ class MapScreen(Screens):
     
         # CLAIM
         if self.selected_tile.owner != game.clan:
-            if self.selected_tile.camp or at_war:
+            if (
+                self.selected_tile.owner and
+                (self.selected_tile.camp or 
+                at_war)
+                ):
                 if at_war:
                     tooltip = "buttons.attack_war_tooltip"
                 else:

@@ -10585,6 +10585,7 @@
         ],
         "frequency": 2,
         "event_text": "A stray acc_singular in its last moments of life leads m_c to a new herb gathering spot. It gives a final flutter before it gently descends to the ground. Is it a sign from StarClan, or a coincidence? m_c doesn't know, but {PRONOUN/m_c/subject} {VERB/m_c/decide/decides} to keep it with {PRONOUN/m_c/object} in its honor.",
+        "tile_location": ["territory"],
         "new_accessory": [
             "BLACK CICADA",
             "CICADA WINGS",
@@ -18475,8 +18476,8 @@
         "season": [
             "-leaf-bare"
         ],
-        "frequency": 3,
-        "event_text": "m_c collects some of the honey around camp and delivers some to every den.",
+        "frequency": 2,
+        "event_text": "m_c collects some of the honey around camp and delivers it to every den.",
         "tile_location": [
             "camp,honey"
         ],

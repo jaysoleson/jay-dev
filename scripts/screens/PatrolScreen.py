@@ -28,6 +28,8 @@ from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
 from ..ui.windows.rel_change_details import RelChangeDetailWindow
 
+from scripts.territory import territory_class
+
 
 class PatrolScreen(Screens):
     current_patrol = []
@@ -84,6 +86,14 @@ class PatrolScreen(Screens):
                     switch_set_value(Switch.cat, cat.ID)
                     game.last_screen_forProfile = GameScreen.PATROL
                     self.change_screen(GameScreen.PROFILE)
+            # CGWAR
+            if event.link_target.startswith("tile://"):
+                tile_string = event.link_target.split("tile://", maxsplit=1)[1]
+                target_tile = territory_class.get_tile_from_string(tile_string)
+                switch_set_value(Switch.selected_tile, target_tile)
+                game.last_screen_forupdate = GameScreen.PATROL
+                self.change_screen(GameScreen.MAP_SCREEN)
+
 
         elif event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if self.patrol_stage == "choose_cats":

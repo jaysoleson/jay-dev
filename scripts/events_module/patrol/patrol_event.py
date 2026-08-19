@@ -66,6 +66,7 @@ class PatrolEvent:
         self.tags = tags if tags is not None else []
 
         self.poi = poi if poi else {}
+
         # add 8, 6, 4 or 2 if there are between 1-4 specific named locations
         # todo: check for balancing
         if self.poi.get("name") and not 1 > len(self.poi["name"]) > 5:

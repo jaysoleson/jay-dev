@@ -272,7 +272,7 @@ class Territory():
         if clan_ID == game.clan.group_ID:
             return game.clan
         for clan in game.clan.all_other_clans:
-            if clan.group_ID:
+            if clan.group_ID == clan_ID:
                 return clan
         return None
 

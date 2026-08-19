@@ -42,7 +42,12 @@ from scripts.clan_resources.freshkill import (
     HUNTER_BONUS,
     FRESHKILL_ACTIVE,
 )
-
+from scripts.territory import territory_class
+from scripts.game_structure.game.switches import (
+    Switch,
+    switch_get_value,
+    switch_set_value
+)
 
 class PatrolOutcome:
     """Holds all info on patrol outcomes, and methods to handle that outcome"""
@@ -238,11 +243,19 @@ class PatrolOutcome:
         """Create a hyperlink to a cat profile from patrol results."""
         return f'<a href="cat://{cat.ID}"><b>{escape(str(cat.name))}</b></a>'
 
-    def execute_outcome(self, patrol: "Patrol") -> Tuple[str, str, list, Optional[str]]:
+    # CGW
+    @staticmethod
+    def _tile_map_link(tile_string) -> str:
+        """Create a hyperlink to a map tile!"""
+        return f"<a href='tile://{tile_string}'><b>territory map</b></a>"
+
+    def execute_outcome(self, patrol: "Patrol", patrol_event=None) -> Tuple[str, str, list, Optional[str]]:
         """
         Executes the outcome. Returns a tuple with the final outcome text, the results text, and any outcome art
         :returns: Outcome text, results text, list of created rel logs (might be empty), outcome art (might be None)
         """
+        # patrol event is cgwar
+        # i need info from the Past. like the info and tile location
         rel_results = {}
 
         # This must be done before text processing so that the new cat's pronouns are generated first
@@ -298,15 +311,82 @@ class PatrolOutcome:
         results.append(self._handle_herbs(patrol))
         results.append(self._handle_exp(patrol))
         results.append(self._handle_mentor_app(patrol))
+        # CGW
+        results.append(self._handle_tile_event(patrol, processed_text, patrol_event))
 
         # Filter out empty results strings
         results = [x for x in results if x]
+
 
         self._handle_future_event(patrol)
 
         print("PATROL END -----------------------------------------------------")
 
         return processed_text, " ".join(results), rel_results, self.get_outcome_art()
+
+    # CGW
+    def _handle_tile_event(self, patrol: "Patrol", processed_text, patrol_event):
+        if (
+            switch_get_value(Switch.last_used_POI)
+            ):
+            # not the best way to do it but oh well
+            tile_types = [switch_get_value(Switch.last_used_POI)]
+            switch_set_value(Switch.last_used_POI, "")
+        else:
+            # TEMP ------------------------------->
+            # do correctly after merging patrol reformat
+            # maybe..............
+            if "border" in patrol_event.types:
+                if patrol.other_clan:
+                    tile_types = ["other_clan_border"]
+                else:
+                    tile_types = ["border"]
+            else:
+                if (
+                    self.injury or
+                    self.dead_cats or
+                    self.lost_cats or
+                    self.new_cat
+                ):
+                    tile_types = ["outside_camp"]
+                else:
+                    # nothing rlly happened ..... bye
+                    return
+            # ------------------------------------>
+
+        possible_tiles = territory_class.get_tiles(
+            tile_types,
+            clan=game.clan,
+            other_clan=patrol.other_clan
+            )
+        if not possible_tiles:
+            return ""
+
+        # TEMPPP
+        # when i have the patrol reformat, ill reconsider writing
+        # unique events to put in the tile_event.
+        # but for now, its just the patrol intro and outcome.
+        intro = event_text_adjust(
+            Cat,
+            patrol_event.intro_text,
+            patrol_leader=patrol.patrol_leader,
+            random_cat=patrol.random_cat,
+            patrol_cats=patrol.patrol_cats,
+            patrol_apprentices=patrol.patrol_apprentices,
+            new_cats=patrol.new_cats,
+            clan=game.clan,
+            other_clan=patrol.other_clan,
+        )
+
+        event_text = (
+            intro + "<br><br>" + processed_text
+        )
+        # ------>
+
+        chosen_tile = choice(possible_tiles)
+        chosen_tile.add_event(event_text)
+
+        return f"This event has been recorded in your {self._tile_map_link(chosen_tile.tile_string)}."
 
     def _handle_future_event(self, patrol):
         """

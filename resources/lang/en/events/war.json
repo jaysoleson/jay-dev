@@ -3,7 +3,7 @@
     "event": "War",
     "trigger_events": [
         [
-            "The war between c_n and o_c_n has begun.",
+            "c_n and o_c_n have gone to war.",
             ["camp"]
         ],
         [

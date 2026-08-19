@@ -26,7 +26,7 @@ from scripts.events_module.event_filters import (
     event_for_location,
     event_for_season,
     cat_for_event,
-    event_for_poi,
+    event_for_poi
 )
 from scripts.events_module.patrol.patrol_event import PatrolEvent
 from scripts.events_module.patrol.patrol_outcome import PatrolOutcome
@@ -43,6 +43,7 @@ from scripts.events_module.text_adjust import (
     event_text_adjust,
 )
 from scripts.special_dates import SpecialDate, is_today
+from scripts.territory import territory_class
 
 
 logger = logging.getLogger(__name__)
@@ -289,7 +290,11 @@ class Patrol:
                 self.patrol_leader = choice(self.patrol_cats)
 
         if clan.all_other_clans and len(clan.all_other_clans) > 0:
-            self.other_clan = choice(clan.all_other_clans)
+            # CGW edit
+            neighbours = territory_class.get_neighbouring_clans(clan)
+            if not neighbours:
+                neighbours = clan.all_other_clans
+            self.other_clan = choice(neighbours)
         else:
             self.other_clan = None
 
@@ -941,7 +946,7 @@ class Patrol:
             )
 
         # Run the chosen outcome
-        return final_event.execute_outcome(self)
+        return final_event.execute_outcome(self, patrol_event=self.patrol_event)
 
     def calculate_success(
         self, success_outcome: PatrolOutcome, fail_outcome: PatrolOutcome
