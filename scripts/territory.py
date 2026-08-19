@@ -180,6 +180,12 @@ class Territory():
                     t.terrain == "land" and
                     t not in border_tiles
                 ]
+            elif tile_type == "other_clan_territory":
+                all_tiles = [
+                    t for t in all_tiles.copy() if
+                    t.owner == other_clan and
+                    t.terrain == "land"
+                ]
             elif tile_type == "border":
                 border_tiles = self._get_all_border_tiles(clan)
                 all_tiles = [

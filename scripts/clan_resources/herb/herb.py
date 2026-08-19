@@ -33,7 +33,7 @@ class Herb:
             count=2,
         )
 
-    def get_rarity(self, biome, season) -> int:
+    def get_rarity(self, biome, season, territory_tiles=[], clan=None) -> int:
         """
         returns rarity of the herb within clan's current biome and season
         """
@@ -43,10 +43,10 @@ class Herb:
 
         # CGWAR edited
         # the presence of herbs in your territory makes them easier to gather passively
-        for tile in game.clan.territory_tiles:
+        for tile in territory_tiles:
             if (
                 tile.herb == self.name and
-                tile.owner == game.clan
+                tile.owner == clan
                 ):
                 rarity -= tile.strength
                 break
