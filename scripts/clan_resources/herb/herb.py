@@ -3,7 +3,6 @@ import pygame
 
 import ujson
 import i18n
-from scripts.game_structure import game
 
 
 class Herb:
