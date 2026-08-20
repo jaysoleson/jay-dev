@@ -56,7 +56,7 @@
         "take": "take",
         "take_tooltip": "Take this territory by force.",
         "attack_camp": "attack",
-        "attack_camp_tooltip": "Attack the camp for prey and herbs. This may start a war.",
+        "attack_camp_tooltip": "Attack the camp for prey and herbs. This will greatly damage your relationship with this Clan.",
         "attack_war_tooltip": "Launch an attack on your opponent here. Attacks can help you win the war.",
         "change_view": "View %{view}",
         "view_map": "View Territory",

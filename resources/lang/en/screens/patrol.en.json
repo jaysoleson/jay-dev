@@ -47,6 +47,10 @@
             "one": "%{herbs} was gathered on patrol.",
             "many": "%{herbs} were gathered on patrol."
         },
+        "herb_log_raid": {
+            "one": "%{herbs} was taken in a raid on an enemy camp.",
+            "many": "%{herbs} were taken in a raid on an enemy camp."
+        },
         "prey_log": {
             "one": "%{count} piece of prey was caught on a patrol.",
             "many": "%{count} pieces of prey were caught on a patrol."

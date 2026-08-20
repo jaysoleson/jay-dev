@@ -327,7 +327,7 @@ class PatrolOutcome:
     # CGW
     def _handle_tile_event(self, patrol: "Patrol", processed_text, patrol_event):
         if (
-            switch_get_value(Switch.last_used_POI)
+            patrol_event.poi
             ):
             # not the best way to do it but oh well
             tile_types = [switch_get_value(Switch.last_used_POI)]
@@ -337,7 +337,12 @@ class PatrolOutcome:
             # do correctly after merging patrol reformat
             # maybe..............
             if "border" in patrol_event.types:
-                if patrol.other_clan:
+                # hack
+                if "river" in patrol_event.intro_text:
+                    tile_types = ["river"]
+                elif "coast" in patrol_event.intro_text:
+                    tile_types = ["coast:ocean"]
+                elif patrol.other_clan:
                     tile_types = ["other_clan_border"]
                 else:
                     tile_types = ["border"]

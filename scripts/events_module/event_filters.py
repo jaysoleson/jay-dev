@@ -288,7 +288,7 @@ def event_for_clan_relations(required_rel: list, other_clan) -> bool:
     if not required_rel or "any" in required_rel:
         return True
 
-    current_standing = other_clan.get_standing()
+    current_standing = other_clan.get_standing(game.clan)
 
     return current_standing in required_rel
 

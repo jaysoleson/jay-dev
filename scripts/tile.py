@@ -162,7 +162,7 @@ class TerritoryTile():
                 self.in_dispute()[0] +
                 " </b>and<b> " +
                 self.in_dispute()[1] +
-                "."
+                ".</b>"
                 )
         if self.owner:
             return f"<b>{self.owner.name}'s Territory</b>"
@@ -275,7 +275,6 @@ class TerritoryTile():
                 }
             }
         )
-        print("CHANGE OWNER", self, ":", self.owner, "->", new_owner)
         self.owner = new_owner
         game.clan.remap_territory_strength()
 

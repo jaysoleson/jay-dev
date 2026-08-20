@@ -443,7 +443,8 @@ class HerbSupply:
         amount_modifier = 1
         quantity_modifier = 1
 
-        med_skills = med_cat.skills.get_all()
+        if med_cat:
+            med_skills = med_cat.skills.get_all()
         amount_modifier += med_skills.get(SkillPath.SENSE, 0)
         quantity_modifier += med_skills.get(SkillPath.CLEVER, 0)
 

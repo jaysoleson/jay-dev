@@ -97,7 +97,7 @@ class MapScreen(Screens):
             anchors={"centerx": "centerx"},
             manager=MANAGER,
         )
-        # self.debug_button.hide()
+        self.debug_button.hide()
 
         self.back_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((25, 25), (105, 30))),
@@ -480,8 +480,9 @@ class MapScreen(Screens):
             info += f"{self.selected_tile.owner_string()}"
             info += "<br>"
 
-            info += self.selected_tile.security_string()
-            info += "<br>"
+            if self.selected_tile.security_string():
+                info += self.selected_tile.security_string()
+                info += "<br>"
 
             if self.selected_tile.herb:
                 info += "---<br>"
@@ -497,7 +498,7 @@ class MapScreen(Screens):
 
             self.elements["selected_tile_info_text"] = pygame_gui.elements.UITextBox(
                 info,
-                ui_scale(pygame.Rect((0, 10), (180, 180))),
+                ui_scale(pygame.Rect((0, 10), (180, 220 - self.elements["selected_tile_owner"].rect.height))),
                 manager=MANAGER,
                 container=self.tile_info_container,
                 object_id="#text_box_26_horizcenter_vert_spacing_95",
@@ -547,6 +548,8 @@ class MapScreen(Screens):
                     anchors={"centerx":"centerx"},
                     tool_tip_text="buttons.claim_tooltip"
                 )
+                if self.selected_tile.in_dispute():
+                    self.elements["claim"].disable()
                 if self.selected_tile.owner:
                     self.elements["take"] = UISurfaceImageButton(
                         ui_scale(pygame.Rect((0, y_positions[1]), (button_width, 30))),
@@ -558,6 +561,8 @@ class MapScreen(Screens):
                         anchors={"centerx":"centerx"},
                         tool_tip_text="buttons.take_tooltip"
                     )
+                    if self.selected_tile.in_dispute():
+                        self.elements["take"].disable()
                 # gathering, moonplaces, and camps cant be claimed
                 if (
                     self.selected_tile.poi in ["moonplace", "gathering", "terrain_twolegplace"] or

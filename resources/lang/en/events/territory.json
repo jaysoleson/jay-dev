@@ -51,5 +51,37 @@
             "relation_change": 0,
             "success": false
         }
-    ]
+    ],
+    "relation_wobble": {
+        "ally:rel_up": [
+            "It didn't seem possible, but c_n and o_c_n appear even more buddy-buddy these days than ever before."
+        ],
+        "ally:rel_down": [
+            "c_n and o_c_n are usually quite friendly, but the other Clans at the Gathering notice that there's a bit of an awkward air between their leaders lately."
+        ],
+        "amicable:rel_up": [
+            "c_n and o_c_n are getting even friendlier these days."
+        ],
+        "amicable:rel_down": [
+            "c_n and o_c_n's budding friendship seems to have taken a halt. Their leaders can't agree on anything at the Gathering this moon."
+        ],
+        "neutral:rel_up": [
+            "c_n and o_c_n's leaders share laughs at the Gathering that no other Clan's leader can hear. Could it be that the two Clans are forming a friendship?"
+        ],
+        "neutral:rel_down": [
+            "c_n's warriors seem awkward and antsy around o_c_n's warriors at the Gathering."
+        ],
+        "tense:rel_up": [
+            "Despite the disagreements the two Clans have been having lately, c_n and o_c_n manage to remain civil at the Gathering."
+        ],
+        "tense:rel_down": [
+            "c_n and o_c_n's warriors spread lies about each other to their neighbours at the Gathering."
+        ],
+        "hostile:rel_up": [
+            "c_n and o_c_n have been nothing but hostile these days, but, surprisingly, they agree on something at the Gathering."
+        ],
+        "hostile:rel_down": [
+            "c_n and o_c_n's leaders almost get into a fight at the Gathering. The relationship between the two Clans has never been rockier."
+        ]
+    }
 }

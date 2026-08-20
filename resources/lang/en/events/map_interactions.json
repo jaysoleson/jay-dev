@@ -435,19 +435,24 @@
         },
         "not_at_war": {
             "camp": {
-                "land": [
-                    "c_n raids o_c_n's camp."
+                "success": [
+                    "c_n raids o_c_n's camp, making off with precious supplies.",
+                    "A c_n patrol barges into o_c_n camp, making off with some supplies and leaving no one hurt.",
+                    "A c_n patrol struts into o_c_n camp and demands some supplies to take home. o_c_n's leader hands it over with little trouble, not wanting any blood to be shed.",
+                    "A c_n battle patrol sneaks into o_c_n's camp in the middle of the night and makes off with some valuable supplies."
                 ],
-                "river": [
-                    "c_n raids o_c_n's camp."
-                ],
-                "lake": [
-                    "c_n raids o_c_n's camp."
-                ],
-                "ocean": [
-                    "c_n raids o_c_n's camp."
+                "failure": [
+                    "c_n raids o_c_n's camp, but is chased off before they can gather any supplies.",
+                    "A c_n patrol barges into o_c_n camp and demands some supplies to take home. A group of o_c_n senior warriors chases them back to the border, snapping at their heels.",
+                    "A c_n patrol attempts to steal some supplies from o_c_n's camp, but o_c_n's senior warriors fight them off.",
+                    "A c_n battle patrol sneaks into o_c_n's camp in the middle of the night to steal supplies, but they're forced to retreat when a kit starts crying, alerting the Clan to c_n's presence."
                 ]
             }
-        }
+        },
+        "end_war": [
+            "After a particularly brutal attack from c_n, o_c_n finally surrenders. c_n wins the war.",
+            "o_c_n's leader limps into c_n camp, their tail up in truce, and admits defeat to c_n. m_c sends them home with some herbs and announces to c_n later that day that the war is won!",
+            "o_c_n conceds defeat after a brutal attack from c_n."
+        ]
     }
 }

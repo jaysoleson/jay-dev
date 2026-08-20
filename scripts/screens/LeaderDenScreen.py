@@ -535,7 +535,7 @@ class LeaderDenScreen(Screens):
                 f"clan_rel{i}"
             ] = pygame_gui.elements.UILabel(
                 ui_scale(pygame.Rect((0, 0), (133, -1))),
-                text=f"screens.leader_den.{other_clan.get_standing().strip()}",
+                text=f"screens.leader_den.{other_clan.get_standing(game.clan).strip()}",
                 object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95"),
                 container=self.other_clan_selection_elements[f"container{i}"],
                 manager=MANAGER,
@@ -635,6 +635,13 @@ class LeaderDenScreen(Screens):
         if self.focus_clan_container:
             self.focus_clan_container.kill()
 
+        # cgwar debug
+        # for clan in game.clan.all_other_clans + [game.clan]:
+        #     if clan == self.focus_clan:
+        #         continue
+        #     standing = self.focus_clan.get_standing(clan)
+        #     print("DB:", self.focus_clan.name, "and", clan.name, "are", standing)
+
         self.focus_clan_container = UIContainer(
             ui_scale(pygame.Rect((0, 0), (240, 398))),
             object_id="#focus_clan_container",
@@ -655,7 +662,7 @@ class LeaderDenScreen(Screens):
             anchors={"centerx": "centerx"},
         )
 
-        relation = self.focus_clan.get_standing()
+        relation = self.focus_clan.get_standing(game.clan)
 
         self.focus_clan_elements["clan_name"] = pygame_gui.elements.UILabel(
             ui_scale(pygame.Rect((0, 8), (215, -1))),

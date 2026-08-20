@@ -385,6 +385,16 @@ class Clan:
             other_clan = OtherClan()
             self.all_other_clans.append(other_clan)
 
+        # set rel
+        for from_clan in self.all_other_clans:
+            for to_clan in self.all_other_clans + [game.clan]:
+                if to_clan == from_clan:
+                    continue
+                from_clan.relations[to_clan.group_ID] = randint(
+                    get_config("clan_creation.starting_clan_relation")[0],
+                    get_config("clan_creation.starting_clan_relation")[1],
+                )
+
         # remove any already loaded points of interest
         clear_pois()
 
@@ -1135,7 +1145,7 @@ class Clan:
                 game.clan.all_other_clans.append(
                     OtherClan(
                         name=other_clan.get("prefix", other_clan.get("name")),
-                        relations=int(other_clan["relations"]),
+                        relations=other_clan["relations"],
                         temperament=other_clan["temperament"],
                         chosen_symbol=other_clan["chosen_symbol"],
                         ID=ID,
@@ -1160,8 +1170,22 @@ class Clan:
                     clan_data["other_clan_chosen_symbol"].split(","),
                 ):
                     game.clan.all_other_clans.append(
-                        OtherClan(name, int(relation), temper, symbol)
+                        OtherClan(name, None, temper, symbol)
                     )
+        for from_clan in game.clan.all_other_clans:
+            if isinstance(from_clan.relations, int):
+                your_rel = from_clan.relations
+                from_clan.relations = {}
+                for to_clan in game.clan.all_other_clans + [game.clan]:
+                    if to_clan == from_clan:
+                        continue
+                    if to_clan == game.clan:
+                        from_clan.relations[to_clan.group_ID] = your_rel
+                    else:
+                        from_clan.relations[to_clan.group_ID] = randint(
+                            get_config("clan_creation.starting_clan_relation")[0],
+                            get_config("clan_creation.starting_clan_relation")[1],
+                        )
 
         missing_cats = []
         for cat in clan_data["clan_cats"].split(","):
@@ -1668,7 +1692,7 @@ class OtherClan:
     def __init__(
         self,
         name: str = "",
-        relations: int = 0,
+        relations: dict = {},
         temperament: tuple[str, str] = None,
         chosen_symbol: str = "",
         ID: int = 0,
@@ -1690,10 +1714,12 @@ class OtherClan:
             while self.name in used_names:  # making sure we don't repeat a name
                 self.name = choice(clan_names)
 
-        self._relations = relations or randint(
-            get_config("clan_creation.starting_clan_relation")[0],
-            get_config("clan_creation.starting_clan_relation")[1],
-        )
+        # self._relations = relations or randint(
+        #     get_config("clan_creation.starting_clan_relation")[0],
+        #     get_config("clan_creation.starting_clan_relation")[1],
+        # )
+        # CGWAR: relations are set after all clans are made
+        self._relations = relations
 
         self.temperament: tuple[str, str]
 
@@ -1773,11 +1799,12 @@ class OtherClan:
 
     @property
     def relations(self):
-        return min(self._relations, get_config("reputation.other_clans.relation_cap"))
+        return self._relations
+        # return min(self._relations, get_config("reputation.other_clans.relation_cap"))
 
     @relations.setter
     def relations(self, value):
-        self._relations = min(value, get_config("reputation.other_clans.relation_cap"))
+        self._relations = value
 
     def save_info(self):
         """
@@ -1792,19 +1819,19 @@ class OtherClan:
             "colour": self.colour
         }
 
-    def get_standing(self) -> Literal["ally", "amicable", "neutral", "tense", "hostile"]:
+    def get_standing(self, clan) -> Literal["ally", "amicable", "neutral", "tense", "hostile"]:
         """
         Gets if OtherClan is an ally, neutral, or hostile.
 
         :return: One of "ally", "amicable", "neutral", "tense", or "hostile".
         """
-        if self.relations <= get_config("reputation.other_clans.hostile"):
+        if self.relations[clan.group_ID] <= get_config("reputation.other_clans.hostile"):
             return "hostile"
-        elif self.relations <= get_config("reputation.other_clans.tense"):
+        elif self.relations[clan.group_ID] <= get_config("reputation.other_clans.tense"):
             return "tense"
-        elif self.relations <= get_config("reputation.other_clans.neutral"):
+        elif self.relations[clan.group_ID] <= get_config("reputation.other_clans.neutral"):
             return "neutral"
-        elif self.relations <= get_config("reputation.other_clans.amicable"):
+        elif self.relations[clan.group_ID] <= get_config("reputation.other_clans.amicable"):
             return "amicable"
         return "ally"
 

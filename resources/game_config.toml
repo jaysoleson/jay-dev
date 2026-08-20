@@ -656,7 +656,7 @@ dev_tools = false
   rerolls = -1
 
   # other clans will start with a random relation between the two numbers
-  starting_clan_relation = [8, 12]
+  starting_clan_relation = [8, 18]
 
   # the "default" rank, the majority of cats will take this and random high ranks will originate from this rank
   majority_rank = "warrior"
@@ -1129,7 +1129,7 @@ dev_tools = false
   # while territories are being created.
   # with this set to false, territories will generate by stretching inward from the edges of the map.
 
-  save_events_for = 100
+  save_events_for = 20
   # how many moons events will stay in the per-tile log.
 
   [bellsofwar.heatmap_mod]

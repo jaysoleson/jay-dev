@@ -118,6 +118,11 @@ def one_moon():
     update_afterlife_temper()
     Pregnancy_Events.handle_pregnancy_age(game.clan)
     # check_war()
+
+    # CGWAR
+    other_clans_territory_wobble()
+    if not int(random.random() * 4):
+        other_clans_relations_wobble()
     bellsofwar_check_war()
 
     if game.clan.game_mode in ("expanded", "cruel_season") and game.clan.freshkill_pile:
@@ -286,9 +291,6 @@ def one_moon():
         ),
     )
 
-    # CGWAR
-    other_clans_territory_wobble()
-
     if game.clan.game_mode in ("expanded", "cruel_season"):
         amount_per_med = get_amount_cat_for_one_medic(game.clan)
         med_fulfilled = medicine_cats_can_cover_clan(
@@ -434,7 +436,7 @@ def handle_lead_den_event():
 
         # change relations and append relation text
         rel_change = chosen_event["rel_change"]
-        other_clan.relations += rel_change
+        other_clan.relations[game.clan.group_ID] += rel_change
         if rel_change > 0:
             event_text += i18n.t("hardcoded.relations_improved")
         elif rel_change == 0:
@@ -1127,8 +1129,8 @@ def bellsofwar_check_war():
     
     global WAR_TXT
 
-    # if game.clan.age <= 4:
-    #     return
+    if game.clan.age <= 4:
+        return
 
     # real
     # first, check all wars, find events, see if they need to end
@@ -1139,11 +1141,12 @@ def bellsofwar_check_war():
         offense_clan = war.get_offense_object()
         defense_clan = war.get_defense_object()
 
-        your_war = False
-        your_opponent = None
-        if game.clan in (offense_clan, defense_clan):
-            your_war = True
-            your_opponent = war.get_opponent_object(game.clan)
+        if not offense_clan:
+            print("No offense Clan for war:", war.get_war_dict())
+            continue
+        if not defense_clan:
+            print("No defense Clan for war:", war.get_war_dict())
+            continue
 
         threshold = 10
         if "bloodthirsty" in offense_clan.temperament:
@@ -1153,20 +1156,8 @@ def bellsofwar_check_war():
 
         threshold -= war.duration
 
-        # check if war should conclude
-        conclude_war = False
-        if your_war:
-            conclude_war = your_opponent.relations >= threshold and war.duration > 1
-            if conclude_war:
-                your_opponent.relations = 5
-
-        else:
-            chance = 10 - war.duration
-            if chance <= 1:
-                chance = 1
-            conclude_war = not int(random.random() * chance)
-
-        
+        conclude_war = offense_clan.relations[defense_clan.group_ID] >= threshold and war.duration > 1
+        # CGWAR TODO: change for your clan when u can participate in wars. like with attacks
 
         rel_change=None
         if conclude_war:
@@ -1180,13 +1171,24 @@ def bellsofwar_check_war():
             rel_options = ["rel_up", "neutral", "rel_down"]
             rel_change = random.choice(rel_options)
             war.progress = rel_options.index(rel_change) - 1
-            if your_war:
-                if your_opponent.relations < 0:
-                    your_opponent.relations = 0
-                if rel_change == "rel_up":
-                    your_opponent.relations += 2
-                elif rel_change == "rel_down" and your_opponent.relations > 1:
-                    your_opponent.relations -= 1
+
+            if rel_change == "rel_up":
+                if offense_clan.group_ID != game.clan.group_ID:
+                    offense_clan.relations[defense_clan.group_ID] += 2
+                if defense_clan.group_ID != game.clan.group_ID:
+                    defense_clan.relations[offense_clan.group_ID] += 2
+            elif rel_change == "rel_down":
+                if offense_clan.group_ID != game.clan.group_ID:
+                    offense_clan.relations[defense_clan.group_ID] -= 1
+                if defense_clan.group_ID != game.clan.group_ID:
+                    defense_clan.relations[offense_clan.group_ID] -= 1
+
+            if defense_clan.group_ID != game.clan.group_ID:
+                if defense_clan.relations[offense_clan.group_ID] < 0:
+                    defense_clan.relations[offense_clan.group_ID] = 0
+            if offense_clan.group_ID != game.clan.group_ID:
+                if offense_clan.relations[defense_clan.group_ID] < 0:
+                    offense_clan.relations[defense_clan.group_ID] = 0
 
             event_type = "progress_events"
         find_war_events(event_type, war, rel_change=rel_change)
@@ -1204,29 +1206,21 @@ def bellsofwar_check_war():
         ):
             threshold = 3
 
-        start_war = int(other_clan.relations) <= threshold and not int(
-            random.random() * int(other_clan.relations)
+        possible_clans = game.clan.all_other_clans + [game.clan]
+        possible_clans.remove(other_clan)
+        war_clan = random.choice(possible_clans)
+
+        start_war = int(other_clan.relations[war_clan.group_ID]) <= threshold and not int(
+            random.random() * int((other_clan.relations[war_clan.group_ID]) * 3)
         )
         # start_war = True
         if start_war is True:
+            print("STARTING A WAR BETWEEN", other_clan.name, "AND", war_clan.name)
+            print(other_clan.relations[war_clan.group_ID])
             # random chance theyll start fighting with someone else instead
             # bc u pissed them off idk
             OFFENSE = other_clan
-            possible_clans = territory_class.get_neighbouring_clans(other_clan)
-            if not int(random.random() * 3) or game.clan.get_current_war():
-                for clan in possible_clans.copy():
-                    if clan == game.clan:
-                        possible_clans.remove(clan)
-                    elif clan.get_current_war():
-                        possible_clans.remove(clan)
-                if not possible_clans:
-                    continue
-                DEFENSE = random.choice(possible_clans)
-            else:
-                if game.clan not in possible_clans:
-                    continue
-                # YOURE getting attacked buddy
-                DEFENSE = game.clan
+            DEFENSE = war_clan
             new_war = War(
                 offense=OFFENSE.group_ID,
                 defense=DEFENSE.group_ID,
@@ -2713,6 +2707,57 @@ def check_and_promote_deputy():
 #        BELLS OF WAR        #
 # -------------------------- #
 
+def other_clans_relations_wobble():
+    global TERRITORY_TXT
+    possible_clans = game.clan.all_other_clans.copy()
+    from_clan = random.choice(possible_clans)
+    possible_clans.remove(from_clan)
+    if not possible_clans:
+        return
+    to_clan = random.choice(possible_clans)
+
+    if from_clan.get_current_war():
+        return
+    if to_clan.get_current_war():
+        return
+
+    print("rel changing:", from_clan.name, "and", to_clan.name)
+
+    event_options = TERRITORY_TXT["relation_wobble"]
+    current_standing = from_clan.get_standing(to_clan)
+    rel_change = random.choice(["rel_up", "rel_down"])
+    possible_events = event_options[f"{current_standing}:{rel_change}"]
+
+    additional_text = ""
+    if rel_change == "rel_up":
+        from_clan.relations[to_clan.group_ID] += 1
+        additional_text = " (relations improved)"
+    else:
+        from_clan.relations[to_clan.group_ID] -= 1
+        additional_text = " (relations worsened)"
+
+    if from_clan.relations[to_clan.group_ID] > 30:
+        from_clan.relations[to_clan.group_ID] = 30
+    elif from_clan.relations[to_clan.group_ID] < 0:
+        from_clan.relations[to_clan.group_ID] = 0
+
+    chosen_event = random.choice(possible_events) + additional_text
+    event_text = event_text_adjust(
+        Cat,
+        chosen_event,
+        clan=from_clan,
+        other_clan=to_clan
+    )
+    event_tile = None
+    if "Gathering" in event_text:
+        # hack
+        event_tile = territory_class.get_tiles(["gathering"])[0]
+        event_tile.add_event(event_text)
+    game.cur_events_list.append(Single_Event(event_text, ["other_clans"], event_tile=event_tile.tile_string))
+
+
+    from_clan.relations[to_clan.group_ID] = 0
+
 def other_clans_territory_wobble():
     global TERRITORY_TXT
 
@@ -2809,97 +2854,134 @@ def handle_map_interaction_event():
                 )
             )
             found_war.end_war()
+            return
 
-    # Calculate Chances ------------------------------------->
-    success_chance = 3
-    success_chance += round(target_tile.desirability())
-    success_chance += target_tile.strength
-    success_chance += 6 if not target_tile.is_bordering(game.clan) else 0
-    if interaction == "take":
-        success_chance = round(success_chance / 2)
-    if not other_clan:
-        success_chance /= 2
-
-    # Roll chances ------------------------------------------->
-    success = False
-    if not int(random.random() * success_chance):
-        success = True
-
-    if success:
-        war_chance = success_chance
-    else:
-        war_chance = success_chance + 5
-
-    war = False
-    if (
-        not int(random.random() * war_chance) and
-        other_clan and
-        not game.clan.get_current_war()
-        ):
-        war = True
-
-    # EVENTS ------------------------------------------------->
-    # Get inserts -------------------------------------------->
-    success_insert = "success" if success else "failure"
-    if war:
-        success_insert = "war"
-    location_insert = ""
-    attack_war_insert = ""
-    reputation_insert = ""
-    if other_clan:
-        if target_tile.camp:
-            location_insert = "camp"
-        elif target_tile in territory_class.get_tiles(
-            ["other_clan_inner_border"],
-            clan=game.clan,
-            other_clan=other_clan
-            ):
-            location_insert = "border"
-        else:
-            location_insert = "territory"
-
-        at_war = game.clan.get_current_war(other_clan)
-        if at_war:
-            attack_war_insert = "at_war"
-        else:
-            attack_war_insert = "not_at_war"
-
-    if other_clan != game.clan:
-        reputation_insert = other_clan.get_standing() if other_clan else "unclaimed"
-    border_insert = "border" if target_tile.is_bordering(game.clan) else "not_border"
-
-    # Effects --------------------------------------------->
-    if interaction == "take":
-        other_clan.relations -= 1
-        if other_clan.relations < 0:
-            other_clan.relations = 0
-    elif interaction == "attack":
-        other_clan.relations -= 3
-        if other_clan.relations < 0:
-            other_clan.relations = 0
-
-    # Compile event paths ---------------------------------->
     events = MAP_INTERACTIONS[interaction]
-    if interaction == "claim":
-        if target_tile.poi in events[reputation_insert]:
-            POSSIBLE_EVENTS = events[reputation_insert][target_tile.poi][success_insert]
+    POSSIBLE_EVENTS = None
+    if interaction == "attack":
+        ongoing_war = game.clan.get_current_war()
+        if ongoing_war:
+            if other_clan.group_ID == ongoing_war.get_opponent_object(game.clan).group_ID:
+                end_war_chance = 2
+                # if not int(random.random() * end_war_chance):
+                # ending war bc u beat their ass so bad
+                ongoing_war.win_war(game.clan)
+                ongoing_war.end_war()
+                POSSIBLE_EVENTS = events["end_war"]
+
+    success = False
+    war = False
+    additional_text = ""
+    if not POSSIBLE_EVENTS:
+        # Calculate Chances ------------------------------------->
+        success_chance = 3
+        success_chance += round(target_tile.desirability())
+        success_chance += target_tile.strength
+        success_chance += 6 if not target_tile.is_bordering(game.clan) else 0
+        if interaction == "take":
+            success_chance = round(success_chance / 2)
+        if not other_clan:
+            success_chance /= 2
+
+        # Roll chances ------------------------------------------->
+        if not int(random.random() * success_chance):
+            success = True
+
+        if success:
+            war_chance = success_chance
         else:
-            POSSIBLE_EVENTS = events[reputation_insert][border_insert][success_insert]
-    elif interaction == "take":
-        POSSIBLE_EVENTS = get_take_events(
-                reputation_insert,
-                border=target_tile.is_bordering(game.clan),
-                success=None if war else success,
-                tile=target_tile,
-                events=events
-                )
-    elif interaction == "attack":
-        try:
-            POSSIBLE_EVENTS = events[attack_war_insert][location_insert][target_tile.terrain]
-        except:
-            POSSIBLE_EVENTS = events[attack_war_insert]["camp"][target_tile.terrain]
-    else:
-        POSSIBLE_EVENTS = events
+            war_chance = success_chance + 5
+
+        if (
+            not int(random.random() * war_chance) and
+            other_clan and
+            not game.clan.get_current_war() and
+            not other_clan.get_current_war()
+            ):
+            war = True
+
+        # EVENTS ------------------------------------------------->
+        # Get inserts -------------------------------------------->
+        success_insert = "success" if success else "failure"
+        if war:
+            success_insert = "war"
+        location_insert = ""
+        attack_war_insert = ""
+        reputation_insert = ""
+        if other_clan:
+            if target_tile.camp:
+                location_insert = "camp"
+            elif target_tile in territory_class.get_tiles(
+                ["other_clan_inner_border"],
+                clan=game.clan,
+                other_clan=other_clan
+                ):
+                location_insert = "border"
+            else:
+                location_insert = "territory"
+
+            at_war = game.clan.get_current_war(other_clan)
+            if at_war:
+                attack_war_insert = "at_war"
+            else:
+                attack_war_insert = "not_at_war"
+
+        if other_clan != game.clan:
+            reputation_insert = other_clan.get_standing(game.clan) if other_clan else "unclaimed"
+        border_insert = "border" if target_tile.is_bordering(game.clan) else "not_border"
+
+        # Effects --------------------------------------------->
+        if interaction == "take":
+            other_clan.relations[game.clan.group_ID] -= 1
+            if other_clan.relations[game.clan.group_ID] < 0:
+                other_clan.relations[game.clan.group_ID] = 0
+        elif interaction == "attack":
+            other_clan.relations[game.clan.group_ID] -= 3
+            if other_clan.relations[game.clan.group_ID] < 0:
+                other_clan.relations[game.clan.group_ID] = 0
+
+        # Compile event paths ---------------------------------->
+        if interaction == "claim":
+            if target_tile.poi in events[reputation_insert]:
+                POSSIBLE_EVENTS = events[reputation_insert][target_tile.poi][success_insert]
+            else:
+                POSSIBLE_EVENTS = events[reputation_insert][border_insert][success_insert]
+        elif interaction == "take":
+            POSSIBLE_EVENTS = get_take_events(
+                    reputation_insert,
+                    border=target_tile.is_bordering(game.clan),
+                    success=None if war else success,
+                    tile=target_tile,
+                    events=events
+                    )
+        elif interaction == "attack":
+            if target_tile.camp:
+                chances = {
+                    "ally": 2,
+                    "amicable": 3,
+                    "neutral": 5,
+                    "tense": 6,
+                    "hostile": 5
+                }
+                raid_success_chance = chances[other_clan.get_standing(game.clan)]
+                raid_success = not int(random.random() * raid_success_chance)
+
+                POSSIBLE_EVENTS = events[attack_war_insert]["camp"]["success" if raid_success else "failure"]
+                reduce = 15, 2
+                if raid_success:
+                    reduce = [7, 3]
+                    additional_text = raid_camp()
+
+                if other_clan.relations[game.clan.group_ID] > reduce[0]:
+                    other_clan.relations[game.clan.group_ID] = reduce[0]
+                else:
+                    other_clan.relations[game.clan.group_ID] -= reduce[1]
+                if other_clan.relations[game.clan.group_ID] < 0:
+                    other_clan.relations[game.clan.group_ID] = 0
+            else:
+                POSSIBLE_EVENTS = events[attack_war_insert][location_insert][target_tile.terrain]
+        else:
+            POSSIBLE_EVENTS = events
 
     possible_events = POSSIBLE_EVENTS
 
@@ -2918,7 +3000,7 @@ def handle_map_interaction_event():
         main_cat=game.clan.leader,
         clan=game.clan,
         other_clan=other_clan
-    )
+    ) + additional_text
     if "(herb)" in chosen_event:
         chosen_event = chosen_event.replace("(herb)", target_tile.herb.replace("_", " "))
 
@@ -2928,15 +3010,16 @@ def handle_map_interaction_event():
     target_tile.add_event(chosen_event)
 
     if success and not war:
-        target_tile.change_owner(game.clan)
-        game.clan.remap_territory_strength()
-        tile_event = event_text_adjust(
-                        Cat,
-                        "This territory was claimed by c_n.",
-                        clan=game.clan
-                    )
+        if not target_tile.camp:
+            target_tile.change_owner(game.clan)
+            game.clan.remap_territory_strength()
+            tile_event = event_text_adjust(
+                            Cat,
+                            "This territory was claimed by c_n.",
+                            clan=game.clan
+                        )
 
-        target_tile.add_event(tile_event)
+            target_tile.add_event(tile_event)
 
     # NEW WAR ------------------------>
     if war:
@@ -2946,7 +3029,7 @@ def handle_map_interaction_event():
             demand=target_tile
         )
         game.clan.war.append(new_war)
-        other_clan.relations = 1
+        other_clan.relations[game.clan.group_ID] = 1
 
         tile_event = event_text_adjust(
                         Cat,
@@ -2958,6 +3041,39 @@ def handle_map_interaction_event():
         target_tile.add_event(tile_event)
     
     set_clan_setting("map_interaction", {})
+
+def raid_camp():
+    result = random.randint(1,3)
+    supplies = []
+    if result == 1:
+        supplies = ["herbs"]
+    elif result == 2:
+        supplies = ["prey"]
+    else:
+        supplies = ["prey", "herbs"]
+
+    if "herbs" in supplies:
+        medcat = None
+        medcats = find_alive_cats_with_rank(Cat, [CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE])
+        if medcats:
+            medcat = random.choice(medcats)
+        list_of_herb_strs, found_herbs = game.clan.herb_supply.get_found_herbs(
+            med_cat=medcat
+        )
+        herb_string = adjust_list_text(list_of_herb_strs).capitalize()
+        full_amount_count = sum(found_herbs.values())
+        game.herb_events_list.append(
+                i18n.t(
+                    "screens.patrol.herb_log_raid", count=full_amount_count, herbs=herb_string
+                )
+            )
+    if "prey" in supplies:
+        add_prey = game.clan.freshkill_pile.amount_food_needed()
+        game.clan.freshkill_pile.add_freshkill(add_prey)
+
+
+    return f" ({adjust_list_text(supplies)} gained)"
+
 
 def get_take_events(
         rep,

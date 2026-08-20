@@ -1,6 +1,9 @@
 from scripts.game_structure import game
 from scripts.territory import territory_class
 import random
+from scripts.events_module.text_adjust import (
+    adjust_list_text
+)
 
 class War():
     # INDIVIDUAL wars
@@ -87,11 +90,23 @@ class War():
     def get_full_opposition_string(self, clan):
         """
         Returns an "at war with" string, mentioning both Clans.
+        Or all Clans if there are multiple.
         The Clan passed as an argument will come first in the sentence.
         """
-        opponent = self.get_opponent_object(clan)
-        demand = self.demand if isinstance(self.demand, str) else "territory"
-        return f"<b>{clan.name}</b> is at war with <b>{opponent.name}</b> over <b>{demand}</b>."
+        found_wars = []
+        for war in game.clan.war:
+            if clan.group_ID in [war.offense, war.defense]:
+                found_wars.append(war)
+
+        opponents = []
+        for war in found_wars:
+            opponents.append(war.get_opponent_object(clan).name)
+
+        if len(opponents) == 1:
+            opponent = self.get_opponent_object(clan)
+            demand = self.demand if isinstance(self.demand, str) else "territory"
+            return f"<b>{clan.name}</b> is at war with <b>{opponent.name}</b> over <b>{demand}</b>."
+        return f"<b>{clan.name}</b> is at war with <b>{adjust_list_text(opponents)}</b>."
     
     def get_offense_object(self):
         """
@@ -145,7 +160,8 @@ class War():
         if self.demand:
             print(winner.name, "wins the war! They win:", self.demand)
             if not isinstance(self.demand, str):
-                self.demand.change_owner(winner)
+                if self.demand.owner != winner:
+                    self.demand.change_owner(winner)
             else:
                 # prey or herbs
                 pass

@@ -419,7 +419,7 @@ class Patrol:
         clan_size = int(len(game.clan.clan_cats))
         chance = 0
         # assigning other_clan relations
-        other_clan_standing = other_clan.get_standing()
+        other_clan_standing = other_clan.get_standing(game.clan)
         if other_clan_standing in ("ally", "amicable"):
             clan_allies = True
         elif other_clan_standing in ("tense", "hostile"):
