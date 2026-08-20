@@ -968,15 +968,24 @@ class Clan:
     def remap_territory_strength(self):
         """
         Remaps territory strength. Call when tile ownership changes.
+        Technically this kills all the tiles and replaces them with clones
         """
         strength_dict = {}
         for tile in game.clan.territory_tiles:
             strength_dict[tile.tile_string] = tile.get_save_dict()
+            strength_dict[tile.tile_string].pop("strength")
+        game.clan.territory_tiles.clear()
         strength_dict = set_strength(
-            strength_dict,
-            override=True
+            strength_dict
             )
+        # override argument Investigate
         game.clan.territory_tiles = self.generate_territories_tile_list(strength_dict)
+
+        # redo war demand tiles
+        for war in game.clan.war:
+            if not isinstance(war.demand, str):
+                tile_string = war.demand.tile_string
+                war.demand = territory_class.get_tile_from_string(tile_string)
 
     def load_clan_json(self):
         """

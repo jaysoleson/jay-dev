@@ -210,23 +210,23 @@ def _set_border_strength(territory_dict):
                 starting_tile=tile,
                 all_valid_tiles=_get_all_territory_tiles(clan, territory_dict)
                 )
-            if "strength" in territory_dict[tile]:
+            if "strength" in territory_dict[tile] and territory_dict[tile]["strength"]:
                 if territory_dict[tile]["strength"] < 3:
                     territory_dict[tile]["strength"] = 3
             else:
                 territory_dict[tile]["strength"] = 3
-    
+
             territory_dict = _set_tile_strengths(
                 border_strength_tiles_collected,
                 territory_dict
                 )
-    
+
     return territory_dict
 
 def _set_poi_strength(territory_dict):
     for clan in game.clan.all_other_clans + [game.clan]:
         for tile, info in territory_dict.items():
-            if "poi" in info and info["owner"] == clan.group_ID:
+            if "poi" in info and info["owner"] == clan.group_ID and info["poi"]:
                 if "terrain" in info and info["terrain"] in ("lake", "ocean"):
                     continue
                 poi_strength_tiles_collected = __distribute_heatmap_tiles(
@@ -857,7 +857,6 @@ def _set_herb_strength(
     return territory_dict
 
 def _set_tile_strengths(
-        
         tiles_collected,
         territory_dict,
         override=False
@@ -1128,7 +1127,7 @@ def _get_all_territory_tiles(clan, territory_dict, exclude_water=False):
         if info["owner"] == clan.group_ID:
             if exclude_water:
                 if "terrain" in info:
-                    if info["terrain"] in ("lake", "river", "ocean"):
+                    if info["terrain"] in ("lake", "river", "ocean", "thunderpath", "silverpath"):
                         continue
             all_tiles.append(tile)
     return all_tiles
@@ -1193,7 +1192,6 @@ def _get_all_border_tiles(clan, territory_dict, exclude_water=False):
     Returns a list of ALL border tiles for the specified Clan.
     Includes Clan borders and outside borders.
     """
-
     all_border_tiles = _get_outside_borders(
         clan,
         territory_dict=territory_dict,

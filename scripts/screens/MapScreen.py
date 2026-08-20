@@ -48,6 +48,7 @@ class MapScreen(Screens):
         super().__init__(name)
         self.elements = {}
         self.back_button = None
+        self.debug_button = None
         self.selected_tile = None
 
         self.map_tile_buttons = {}
@@ -87,6 +88,16 @@ class MapScreen(Screens):
 
         if switch_get_value(Switch.selected_tile):
             self.selected_tile = switch_get_value(Switch.selected_tile)
+
+        self.debug_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 10), (105, 30))),
+            "remap",
+            get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
+            object_id="@buttonstyles_squoval",
+            anchors={"centerx": "centerx"},
+            manager=MANAGER,
+        )
+        # self.debug_button.hide()
 
         self.back_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((25, 25), (105, 30))),
@@ -251,6 +262,9 @@ class MapScreen(Screens):
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            if event.ui_element == self.debug_button:
+                game.clan.remap_territory_strength()
+                self.create_map()
             if event.ui_element == self.back_button:
                 self.change_screen(game.last_screen_forupdate)
             
@@ -311,6 +325,7 @@ class MapScreen(Screens):
     
     def exit_screen(self):
         self.back_button.kill()
+        self.debug_button.kill()
         self.map_container.kill()
         self.tile_info_container.kill()
 
