@@ -16,6 +16,7 @@
         "no_events": "No events have recently happened here.",
         "no_history": "This territory has no ownership history.",
         "ownership_change": "This territory switched ownership from %{old} to %{new}.",
-        "ownership_change_none": "%{new} now owns this territory."
+        "ownership_change_none": "%{new} now owns this territory.",
+        "help_tooltip": "Welcome to your <b>territory map</b>. This map shows all sorts of information, such as Clan borders, terrain, and where some herbs are more prevalent.<br>The territory you own is important. Herbs that are most prevalent in your territory will be easier to collect each moon, and the presence of terrain features, as well as which Clans you share borders with, will unlock different events."
     }
 }

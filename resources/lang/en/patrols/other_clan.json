@@ -3936,7 +3936,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "app1 averts {PRONOUN/app1/poss} eyes from the other apprentice. Friendships with other Clans shouldn't be encouraged; loyalty to c_n comes first. The patrol continues marking the border in icy silence",
+                "text": "app1 averts {PRONOUN/app1/poss} eyes from the other apprentice. Friendships with other Clans shouldn't be encouraged; loyalty to c_n comes first. The patrol continues marking the border in icy silence.",
                 "exp": 0,
                 "stat_trait": [
                     "cold",

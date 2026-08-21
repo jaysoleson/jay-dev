@@ -16,6 +16,7 @@ from scripts.config import get_config
 # this script is only used for CREATING territories.
 # actually storing and updating territories is done in territory.py
 # no method from this script should ever be used anywhere else
+# except set_strength................
 
 MAP_SIZE = get_config("bellsofwar.territory_grid_size")
 
@@ -24,8 +25,9 @@ high_value_herbs = {
     "honey": 4,
     "lungwort": 3,
     "poppy": 3,
-    "cobwebs": 4,
-    "moss": 3
+    "cobwebs": 3,
+    "moss": 3,
+    "yew_berries": 4
 }
 
 river_pois = [

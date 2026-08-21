@@ -4,6 +4,7 @@ import ujson
 import random
 
 from scripts.screens.Screens import Screens
+from scripts.ui.elements.image_button import UIImageButton
 from scripts.ui.elements.surface_image_button import UISurfaceImageButton
 from scripts.ui.generate_box import get_box, BoxStyles
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
@@ -48,6 +49,7 @@ class MapScreen(Screens):
         super().__init__(name)
         self.elements = {}
         self.back_button = None
+        self.help_button = None
         self.debug_button = None
         self.selected_tile = None
 
@@ -88,6 +90,14 @@ class MapScreen(Screens):
 
         if switch_get_value(Switch.selected_tile):
             self.selected_tile = switch_get_value(Switch.selected_tile)
+
+        self.help_button = UIImageButton(
+            ui_scale(pygame.Rect((725, 25), (34, 34))),
+            "",
+            object_id="#help_button",
+            manager=MANAGER,
+            tool_tip_text="screens.map.help_tooltip",
+        )
 
         self.debug_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((0, 10), (105, 30))),
@@ -328,6 +338,7 @@ class MapScreen(Screens):
         self.debug_button.kill()
         self.map_container.kill()
         self.tile_info_container.kill()
+        self.help_button.kill()
 
         for ele in self.elements:
             self.elements[ele].kill()

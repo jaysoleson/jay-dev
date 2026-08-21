@@ -2817,10 +2817,16 @@ def other_clans_territory_wobble():
     event_string = event_text_adjust(
         Cat,
         string,
-        clan=second_clan if number == 1 else first_clan,
-        other_clan=first_clan if number == 1 else second_clan
+        clan=first_clan if number == 1 else second_clan,
+        other_clan=second_clan if number == 1 else first_clan
     )
-    game.cur_events_list.append(Single_Event(event_string, ["other_clans", "view_map"], event_tile=traded_tile.tile_string))
+    game.cur_events_list.append(
+        Single_Event(
+            event_string,
+            ["other_clans"],
+            event_tile=traded_tile.tile_string
+            )
+        )
     traded_tile.add_event(event_string)
 
 def handle_map_interaction_event():
