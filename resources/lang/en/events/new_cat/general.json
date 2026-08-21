@@ -4296,13 +4296,13 @@
                 "old_name",
                 "tribecat",
                 "exists",
-                "age:adult,young adult,senior adult,senior"
+                "age:adult"
             ],
             [
                 "old_name",
                 "tribecat",
                 "exists",
-                "age:adult,young adult,senior adult,senior"
+                "age:adult"
             ]
         ],
         "outsider": {

@@ -445,8 +445,8 @@ class HerbSupply:
 
         if med_cat:
             med_skills = med_cat.skills.get_all()
-        amount_modifier += med_skills.get(SkillPath.SENSE, 0)
-        quantity_modifier += med_skills.get(SkillPath.CLEVER, 0)
+            amount_modifier += med_skills.get(SkillPath.SENSE, 0)
+            quantity_modifier += med_skills.get(SkillPath.CLEVER, 0)
 
         # list of the herbs, sorted by most need
         herb_list = self.sorted_by_need
