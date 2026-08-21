@@ -468,6 +468,7 @@ class Patrol:
                 possible_patrols.extend(self.generate_patrol_events(self.DISASTER))
 
         # new cat patrols
+        chance = 1
         if chance == 1:
             if welcoming_rep:
                 possible_patrols.extend(

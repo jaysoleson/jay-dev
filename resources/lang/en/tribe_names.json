@@ -1,0 +1,836 @@
+{
+    "names": {
+        "ANY_BIRD": {
+            "frequency": 2,
+            "names": {
+                "that Flies": [
+                    "at Dawn",
+                    "at Dusk",
+                    "through Storm",
+                    "All Day"
+                ],
+                "that Calls": [
+                    "at Dawn",
+                    "at Dusk",
+                    "at Night"
+                ],
+                "that Sings": [
+                    "at Dawn",
+                    "at Dusk",
+                    "at Night",
+                    "In the Morning",
+                    "its Song"
+                ],
+                "with": [
+                    "{Dark,Light,Dappled,Tawny,Bright,Striped,Pale,Downy} Feathers",
+                    "{Endless,Happy,Sorrowful} Song",
+                    "{Large,Small,Striking,Pale,Dappled,Tawny,Broken} Wings"
+                ]
+            }
+        },
+        "Adder,Snake,Cobra,Python": {
+            "frequency": 2,
+            "names": {
+                "that": [
+                    "Waits to Strike",
+                    "Slithers through {Grass,Field,Forest}"
+                ],
+                "with": [
+                    "Deadly Venom",
+                    "Sharp Teeth",
+                    "{Patterned,Pale,Dull,Spotted,Striped,Yellow,Red,Black} Scales"
+                ]
+            }
+        },
+        "Bat": {
+            "frequency": 3,
+            "names": {
+                "that Flies": [
+                    "Through Sky",
+                    "in Cave",
+                    "With Grace",
+                    "In Silence",
+                    "Overhead",
+                    "at Night",
+                    "in Daylight",
+                    "in Group"
+                ],
+                "that Sleeps": [
+                    "in Cave",
+                    "in Den",
+                    "in Nest",
+                    "Soundly",
+                    "on Roof"
+                ],
+                "that Cries": [
+                    "at Night",
+                    "in Cave",
+                    "in Sky"
+                ]
+            }
+        },
+        "Berry,Raspberry,Blueberry,Strawberry,Red Berry,Small Berry,Round Berry,Blackberry": {
+            "frequency": 3,
+            "names": {
+                "Foraged by": [
+                    "SMALL_BIRD",
+                    "RODENT"
+                ],
+                "Fallen": [
+                    "to Ground",
+                    "from Bush"
+                ]
+            }
+        },
+        "Bug,Insect,Ant,Beetle,Moth,Bee,Firefly": {
+            "frequency": 2,
+            "names": {
+                "that": [
+                    "{Hides,Sleeps,Shelters} in Leaves",
+                    "Hides Under {Pebble,Rock,Stone,Leaves,Branches,Twigs}",
+                    "Sleeps Soundly",
+                    "Travels {Quickly,Slowly,Through Rain}"
+                ],
+                "with": [
+                    "{Shining,Spotted,Smooth,Patterned} {Shell,Wings}"
+                ]
+            }
+        },
+        "Cloud": {
+            "frequency": 3,
+            "names": {
+                "that Floats Through": [
+                    "Sky",
+                    "Night"
+                ],
+                "Heavy With": [
+                    "Rain",
+                    "Storm",
+                    "Lightning",
+                    "Thunder"
+                ],
+                "Reflected In": [
+                    "RUSHING_WATER",
+                    "STILL_WATER",
+                    "Ice"
+                ],
+                "that": [
+                    "Casts Shadow",
+                    "Blocks the Sun",
+                    "Hides the Sun",
+                    "Shields from Sun",
+                    "Glows at Sunset"
+                ]
+            }
+        },
+        "Day,Night,Storm": {
+            "frequency": 1,
+            "names": {
+                "that": [
+                    "Never Ends",
+                    "Lasts Forever"
+                ],
+                "with": [
+                    "Chill in Air"
+                ]
+            }
+        },
+        "Distant": {
+            "frequency": 2,
+            "names": {
+                "Cry of": [
+                    "LARGE_ANIMAL",
+                    "ANY_BIRD"
+                ],
+                "Sound of": [
+                    "Rain",
+                    "Storm",
+                    "RUSHING_WATER",
+                    "Thunder",
+                    "Rockfall",
+                    "Avalanche",
+                    "Laughter",
+                    "LARGE_ANIMAL",
+                    "ANY_BIRD",
+                    "Howling"
+                ],
+                "Sight of": [
+                    "Rain",
+                    "Storm",
+                    "Mountain",
+                    "Flowers",
+                    "RUSHING_WATER",
+                    "STILL_WATER",
+                    "Dawn",
+                    "Sunrise"
+                ]
+            }
+        },
+        "Dust": {
+            "frequency": 2,
+            "names": {
+                "that": [
+                    "Settles {on Ground,in Cave}",
+                    "{Travels on,Swirls in} Wind"
+                ],
+                "Kicked Up": [
+                    "by {Fight,Skirmish,Scuffle,Deer,Goat}"
+                ]
+            }
+        },
+        "Fish,Small Fish,Large Fish,Minnow,Trout,Salmon": {
+            "frequency": 3,
+            "names": {
+                "that Swims": [
+                    "in {Circles,Shadows,Sunlight,Group}",
+                    "in RUSHING_WATER",
+                    "in STILL_WATER",
+                    "Upstream",
+                    "Underpaw",
+                    "Under Ice"
+                ],
+                "with": [
+                    "{Bright,Shining,Coloured,Dark,Dappled,Spotted,Striped} Scales"
+                ]
+            }
+        },
+        "Frog,Spotted Frog,Spotted Lizard,Lizard,Toad": {
+            "frequency": 3,
+            "names": {
+                "that Sits": [
+                    "{on,Under} {Leaf,Stone,Rock}",
+                    "by RUSHING_WATER",
+                    "by STILL_WATER",
+                    "by Cliff",
+                    "in {Rain,Storm}"
+                ],
+                "that Hops": [
+                    "{Out of,Into,Through} {Water,Rain,Pond,Tree,Puddle}",
+                    "Across Path",
+                    "in Trees",
+                    "from Branch"
+                ],
+                "with": [
+                    "{Brilliant,Small,Large,Many,Few} Spots",
+                    "Small Tail"
+                ],
+                "that": [
+                    "Catches Fly",
+                    "Hides from {Rain,Storm}",
+                    "Jumps High",
+                    "Leaps Great Distances"
+                ]
+            }
+        },
+        "Green,Blue,Red,Purple,Pale,Orange,Yellow": {
+            "frequency": 2,
+            "names": {
+                "Light": [
+                    "In Sky",
+                    "at Night",
+                    "on STILL_WATER",
+                    "on Water"
+                ],
+                "Flower": [
+                    "that {Blooms,Wilts}"
+                ]
+            }
+        },
+        "Horse": {
+            "frequency": 3,
+            "filters": {
+                "biome": [
+                    "Plains"
+                ]
+            },
+            "names": {
+                "Running": [
+                    "Through Field",
+                    "for Joy",
+                    "Quickly",
+                    "Slowly",
+                    "Swiftly"
+                ],
+                "that Runs": [
+                    "Through Field",
+                    "for Joy",
+                    "Quickly",
+                    "Slowly",
+                    "Swiftly"
+                ],
+                "with": [
+                    "White Spots",
+                    "Brown Spots",
+                    "Long Mane",
+                    "Endless Energy",
+                    "White Blaze"
+                ]
+            }
+        },
+        "LARGE_ANIMAL": {
+            "frequency": 2,
+            "names": {
+                "that": [
+                    "{Hunts at,Fishes in,Sits by,Sleeps by} RUSHING_WATER",
+                    "{Hunts at,Fishes in,Sits by,Sleeps by} STILL_WATER",
+                    "Sleeps through {Season,Storm,Rain,Thunder}",
+                    "{Hunts,Stalks} {Quietly,at Sunset,at Sunrise,at Dusk,at Dawn,at Night}",
+                    "{Lashes,Twitches} Tail"
+                ],
+                "with": [
+                    "{Black,Brown,Thick,Fluffy} Fur",
+                    "Large {Paws,Ears,Snout,Muzzle}",
+                    "{Brown,White,Large,Small} {Spots,Stripes}",
+                    "{Long,Short} Tail",
+                    "{Loud,Quiet,Distant} Voice",
+                    "Endless Energy"
+                ],
+                "That Cries": [
+                    "at Night",
+                    "In Fear",
+                    "at Dusk",
+                    "at Dawn"
+                ],
+                "that Runs": [
+                    "Swiftly",
+                    "with Grace",
+                    "Through Field",
+                    "From Rain",
+                    "From Storm",
+                    "From Flames"
+                ]
+            }
+        },
+        "LARGE_BIRD": {
+            "frequency": 2,
+            "names": {
+                "that": [
+                    "Swoops Low",
+                    "Flies High",
+                    "Protects Nest",
+                    "Protects Young",
+                    "Hunts from Above",
+                    "Bravely Flies",
+                    "Flies in Sky"
+                ],
+                "with": [
+                    "Sharp Talons",
+                    "Sharp Beak",
+                    "{Large,Small,Pretty,Patterned} Wings",
+                    "{Loud,Distant,Echoing,Quiet} Cry",
+                    "Striped Feathers"
+                ]
+            }
+        },
+        "Mist,Fog,Haze": {
+            "frequency": 2,
+            "names": {
+                "Low": [
+                    "in {Forest,Field}",
+                    "on Ground"
+                ],
+                "that Sits": [
+                    "in {Field,Forest,Morning,Evening,Sunlight,Moonlight}",
+                    "at {Dusk,Dawn,Night}"
+                ]
+            }
+        },
+        "Moon": {
+            "frequency": 2,
+            "names": {
+                "Hidden by": [
+                    "Clouds",
+                    "Bats",
+                    "Smoke",
+                    "Trees"
+                ],
+                "Fallen": [
+                    "from Sky"
+                ]
+            }
+        },
+        "Moss,Mushroom,Frog,Toad": {
+            "frequency": 2,
+            "names": {
+                "on": [
+                    "Fallen {Log,Tree,Branch}",
+                    "{Large,Small,Round,Shining} {Stone,Boulder,Rock}"
+                ],
+                "by": [
+                    "{Rushing,Quick} RUSHING_WATER"
+                ]
+            }
+        },
+        "Patch": {
+            "frequency": 1,
+            "names": {
+                "of": [
+                    "{Daisy,Juniper,Poppy,Catmint,Berries,Flowers,Moss,Wildflowers,Dandelions} in {Forest,Field,Valley}"
+                ]
+            }
+        },
+        "Pink,Red,Purple,Orange,Dazzling,Bright,Glowing": {
+            "frequency": 1,
+            "names": {
+                "Light of": [
+                    "Dawn",
+                    "Dusk",
+                    "Sunrise",
+                    "Sunset"
+                ],
+                "Reflection in": [
+                    "Lake",
+                    "Pond",
+                    "Sea",
+                    "Puddle",
+                    "Still Water",
+                    "Water"
+                ]
+            }
+        },
+        "RODENT": {
+            "frequency": 2,
+            "names": {
+                "Nibbling on": [
+                    "Seed",
+                    "Berry",
+                    "Blackberry",
+                    "Raspberry",
+                    "Plant",
+                    "Grass",
+                    "Daisies",
+                    "Herbs"
+                ],
+                "Killed": [
+                    "by LARGE_BIRD",
+                    "Swiftly",
+                    "with Grace",
+                    "{with,without} Mercy"
+                ],
+                "Chased": [
+                    "by LARGE_ANIMAL",
+                    "Through {Field,Forest,Swamp}"
+                ],
+                "with": [
+                    "{Small,Large,Perked} Ears",
+                    "{Small,Large,Heavy,Light,Gentle} Paws",
+                    "{Coarse,Soft,Long,Fluffy} Fur"
+                ],
+                "Chatting with": [
+                    "SMALL_BIRD"
+                ]
+            }
+        },
+        "RUSHING_WATER": {
+            "frequency": 3,
+            "names": {
+                "Where": [
+                    "{Many,Large,Small} Fish Swim",
+                    "{Bears,Cats,Wolves} Hunt"
+                ],
+                "that": [
+                    "Leads to STILL_WATER",
+                    "Leads to Waterfall",
+                    "Runs Downhill",
+                    "Circles Island",
+                    "Winds Through TERRAIN_FEATURE",
+                    "Carries {Fish,Leaves,Debris}"
+                ],
+                "with": [
+                    "{Cool,Cold,Warm} Water",
+                    "{Large,Small,Many,Few} Fish"
+                ]
+            }
+        },
+        "Rain": {
+            "frequency": 3,
+            "names": {
+                "that": [
+                    "Falls {Endlessly,Quietly,Loudly,Slowly,Forever,Gently}",
+                    "Collects {in Leaf,in Puddle,on Ground}"
+                ],
+                "During": [
+                    "Thunderstorm",
+                    "{Sunny,Clear,Stormy,Cloudy,Windy} Day",
+                    "Leaf-bare",
+                    "Newleaf",
+                    "Greenleaf",
+                    "Leaf-fall"
+                ]
+            }
+        },
+        "Red Leaf,Yellow Leaf,Leaf,Green Leaf,Small Leaf,Large Leaf": {
+            "frequency": 3,
+            "names": {
+                "that": [
+                    "{Sways,Rustles,Falls,Blows} in {Wind,Storm}",
+                    "Crunches Underpaw",
+                    "Falls from Tree",
+                    "Floats Down RUSHING_WATER",
+                    "Collects Water",
+                    "Filters Sunlight",
+                    "Curls in Heat",
+                    "Yellows in Leaf-fall"
+                ],
+                "with": [
+                    "Holes for Sunlight",
+                    "Many Holes",
+                    "Pointy Shape"
+                ]
+            }
+        },
+        "SMALL_BIRD": {
+            "frequency": 2,
+            "names": {
+                "that": [
+                    "Sits on {Branch,Stone,Boulder,Twig,Ground}",
+                    "Sings at {Dawn,Dusk,Night,Sunset,Sunrise}",
+                    "{Flaps,Grooms} its Wings"
+                ],
+                "with": [
+                    "{Bright,Dark,Pale,Fluffy,Colourful,Dull} {Feathers,Wings}"
+                ]
+            }
+        },
+        "Shadow": {
+            "frequency": 2,
+            "names": {
+                "that": [
+                    "Moves {Quickly,Slowly}",
+                    "Rests on Water"
+                ],
+                "Cast by": [
+                    "Sun",
+                    "Fire",
+                    "Moon",
+                    "Lightning"
+                ],
+                "of": [
+                    "{Large,Small,Tawny,Angry,Looming,Hunting,Fierce,Hungry} LARGE_BIRD",
+                    "Hunting LARGE_ANIMAL",
+                    "{Tall,Twisted,Young,Old,Large,Small} Tree"
+                ]
+            }
+        },
+        "Shark,Dolphin,Whale,Orca,Fish": {
+            "frequency": 2,
+            "filters": {
+                "biome": "Beach"
+            },
+            "names": {
+                "that": [
+                    "Crests the Water",
+                    "{Leaps,Jumps} from Water",
+                    "Swims {in Ocean,Freely,Swiftly,Patiently,Slowly}"
+                ],
+                "with": [
+                    "{Shining,Shiny,Sleek} {Back,Fins}",
+                    "{Child,Children} Following"
+                ]
+            }
+        },
+        "Shell": {
+            "frequency": 2,
+            "filters": {
+                "biome": [
+                    "Beach"
+                ]
+            },
+            "names": {
+                "with": [
+                    "Sound of {Ocean,Water}",
+                    "{Red,Purple,Large,Small} {Stripes,Spots}",
+                    "Pointed Shape"
+                ],
+                "Found": [
+                    "near STILL_WATER",
+                    "near RUSHING_WATER",
+                    "by RODENT"
+                ]
+            }
+        },
+        "Sky": {
+            "frequency": 3,
+            "names": {
+                "with": [
+                    "{Drifting,Dark,Many,Spinning,Twisted,Towering,Fluffy,White,Grey,Pale,No,Endless} Clouds",
+                    "Rainbow",
+                    "Endless Stars",
+                    "Twinkling Stars",
+                    "Many {Birds,Stars,Colours}",
+                    "{Pale,Yellow,White,Bright,Shining,Orange,Half,Full,Quarter} Moon"
+                ],
+                "Reflected in": [
+                    "RUSHING_WATER",
+                    "STILL_WATER",
+                    "Ice",
+                    "Eye"
+                ],
+                "that": [
+                    "Smells of {Rain,Smoke,Storms}"
+                ]
+            }
+        },
+        "Smoke": {
+            "frequency": 2,
+            "names": {
+                "Rising": [
+                    "from {Forest,Trees,Flames,Mountain}",
+                    "Into Sky"
+                ],
+                "Covering": [
+                    "Moon",
+                    "Sun",
+                    "Sky"
+                ]
+            }
+        },
+        "Snow": {
+            "frequency": 3,
+            "names": {
+                "that": [
+                    "Shields from Wind",
+                    "Covers Ground",
+                    "Hides Dens",
+                    "{Hides,Buries} Secrets",
+                    "Falls {Quickly,Gently,From Trees,From Sky,in Storm}",
+                    "Melts {in Sun,Quickly}",
+                    "Shines in Sun",
+                    "Sticks to Trees",
+                    "{Buries,Hides} Herbs"
+                ]
+            }
+        },
+        "Sparkle": {
+            "frequency": 1,
+            "names": {
+                "of": [
+                    "{Sun,Moon,Stars} on Water",
+                    "RUSHING_WATER in Sunlight",
+                    "STILL_WATER in Sunlight",
+                    "LARGE_ANIMAL's Eye"
+                ],
+                "on": [
+                    "STILL_WATER",
+                    "Water"
+                ]
+            }
+        },
+        "Star,Moon,Sun": {
+            "frequency": 1,
+            "names": {
+                "that": [
+                    "Shines on {Water,Lake,Pond,Still Water,Puddle}",
+                    "Glows in Sky"
+                ]
+            }
+        },
+        "Stone,Rock,Pebble": {
+            "frequency": 2,
+            "names": {
+                "that": [
+                    "{Tumbles,Falls} Down {Hill,Mountain,Cliff,Cliffside}",
+                    "Blocks Path",
+                    "Holds {Gem,Geode,Fossil}",
+                    "Provides Shelter",
+                    "Shines in Sun",
+                    "Sits in RUSHING_WATER",
+                    "Sits in Water",
+                    "Sits in STILL_WATER"
+                ]
+            }
+        },
+        "Strength,Wisdom,Courage,Bravery,Beauty,Heart": {
+            "frequency": 1,
+            "names": {
+                "of": [
+                    "the LARGE_BIRD",
+                    "the LARGE_ANIMAL"
+                ]
+            }
+        },
+        "Sun": {
+            "frequency": 3,
+            "names": {
+                "that Shines": [
+                    "in Camp",
+                    "through Clouds",
+                    "through Rain",
+                    "through Storms",
+                    "Strongly",
+                    "Warmly",
+                    "in Leaf-bare",
+                    "in Leaf-fall",
+                    "in Newleaf",
+                    "in Greenleaf",
+                    "through Trees"
+                ],
+                "that Melts": [
+                    "the Frost",
+                    "the Ice",
+                    "the Snow"
+                ],
+                "Covered by": [
+                    "Clouds",
+                    "Moon",
+                    "Branches",
+                    "Leaves",
+                    "Smoke"
+                ],
+                "Hidden by": [
+                    "Clouds",
+                    "Moon",
+                    "Branches",
+                    "Leaves",
+                    "Smoke"
+                ]
+            }
+        },
+        "Sunrise,Sunset,Sunshine,Moonlight": {
+            "frequency": 2,
+            "names": {
+                "Over": [
+                    "Mountain",
+                    "Lake",
+                    "Ocean",
+                    "Sea",
+                    "Water"
+                ]
+            }
+        },
+        "Swoop,Screech,Cry,Wing,Talon,Eye,Flight,Egg,Wing,Feather": {
+            "frequency": 1,
+            "names": {
+                "of": [
+                    "{Angry,Frightened,Fierce,Hungry,Chestnut,White,Tawny,Large,Small,Vicious} ANY_BIRD"
+                ]
+            }
+        },
+        "TERRAIN_FEATURE": {
+            "frequency": 2,
+            "names": {
+                "Where": [
+                    "LARGE_BIRDs {Live,Hunt,Sleep,Play,Explore,Fly}",
+                    "LARGE_ANIMAL {Lives,Hunts,Sleeps,Plays,Explores,Sits}"
+                ]
+            }
+        },
+        "Tooth,Claw": {
+            "frequency": 2,
+            "names": {
+                "of": [
+                    "{Large,Small,Hunting,Fallen} LARGE_ANIMAL",
+                    "LARGE_ANIMAL",
+                    "RODENT"
+                ],
+                "that": [
+                    "Pierces {Prey,Skin,Flesh,Hide,Fruit}"
+                ]
+            }
+        },
+        "Tree": {
+            "frequency": 4,
+            "names": {
+                "with": [
+                    "Twisted {Roots,Branches,Trunk}",
+                    "Rotting Bark",
+                    "Thin Bark",
+                    "Scarred Bark",
+                    "Many Branches",
+                    "{Purple,Orange,Yellow,Brown,Gree,Dappled} Leaves",
+                    "Empty Branches",
+                    "Mossy Branches"
+                ],
+                "Covered in": [
+                    "Moss",
+                    "Lichen",
+                    "Mushrooms",
+                    "Cobwebs",
+                    "Vines"
+                ],
+                "that": [
+                    "Stands Tall",
+                    "Bends in Wind",
+                    "Falls to Storm",
+                    "Falls to Lightning",
+                    "Survives the Storm",
+                    "Basks in Sunlight",
+                    "Never {Falls,Bends,Breaks}"
+                ]
+            }
+        }
+    },
+    "large_birds": [
+        "Owl",
+        "Eagle",
+        "Falcon",
+        "Hawk",
+        "Vulture"
+    ],
+    "small_birds": [
+        "Jay",
+        "Robin",
+        "Songbird",
+        "Cardinal",
+        "Canary",
+        "Blackbird",
+        "Bluebird",
+        "Gull",
+        "Bird",
+        "Raven",
+        "Crow",
+        "Dove",
+        "Sparrow",
+        "Finch",
+        "Starling"
+    ],
+    "rodents": [
+        "Squirrel",
+        "Rabbit",
+        "Hare",
+        "Bunny",
+        "Chipmunk",
+        "Gray Squirrel",
+        "Red Squirrel",
+        "Gopher",
+        "Mouse",
+        "Rat",
+        "Vole",
+        "Shrew",
+        "Groundhog"
+    ],
+    "large_animals": [
+        "Fox",
+        "Badger",
+        "Wolf",
+        "Coyote",
+        "Cougar",
+        "Tiger",
+        "Lion",
+        "Bear",
+        "Leopard",
+        "Lioness",
+        "Snow Leopard"
+    ],
+    "terrain_features": [
+        "Field",
+        "Hill",
+        "Mountain",
+        "Cliff",
+        "Valley",
+        "Ridge",
+        "Crag"
+    ],
+    "rushing_water": [
+        "River",
+        "Stream",
+        "Creek",
+        "Brook"
+    ],
+    "still_water": [
+        "Lake",
+        "Pond",
+        "Puddle",
+        "Ocean"
+    ]
+}

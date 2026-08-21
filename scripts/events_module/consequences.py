@@ -25,6 +25,8 @@ from scripts.game_structure import game, constants
 from scripts.cat.constants import BACKSTORIES, PERMANENT
 from scripts.events_module.text_adjust import process_text, adjust_list_text
 
+from scripts.cat.tribe_names import generate_tribe_name
+
 
 def create_new_cat_block(
     Cat: Optional["Cat"],
@@ -134,7 +136,7 @@ def create_new_cat_block(
             CatRank.MEDIATOR_APPRENTICE,
             CatRank.MEDIATOR,
             CatRank.MEDICINE_APPRENTICE,
-            CatRank.MEDICINE_CAT,
+            CatRank.MEDICINE_CAT
         ]:
             rank = match.group(1)
             break
@@ -171,7 +173,7 @@ def create_new_cat_block(
                 Cat.age_moons[CatAge.ADOLESCENT][0],
                 Cat.age_moons[CatAge.ADOLESCENT][1],
             )
-        elif rank in [CatRank.WARRIOR, CatRank.MEDIATOR, CatRank.MEDICINE_CAT]:
+        elif rank in [CatRank.WARRIOR, CatRank.MEDIATOR, CatRank.MEDICINE_CAT, CatRank.TRIBECAT]:
             age = randint(
                 Cat.age_moons["young adult"][0], Cat.age_moons["senior adult"][1]
             )
@@ -194,11 +196,16 @@ def create_new_cat_block(
             cat_group = other_clan.group_ID
         else:
             cat_group = choice([x.group_ID for x in game.clan.all_other_clans])
+    # CGW
+    elif "tribecat" in attribute_list:
+        cat_social = CatSocial.TRIBECAT
+    # ---
     else:
         if parent1:
             cat_social = parent1.status.social
         else:
-            cat_social = choice([CatSocial.KITTYPET, CatSocial.LONER, "former clancat"])
+            print("ROLLING RANDOM SOCIAL")
+            cat_social = choice([CatSocial.KITTYPET, CatSocial.LONER, "former clancat", CatSocial.TRIBECAT])
 
     # LITTER
     litter = False
@@ -613,7 +620,7 @@ def create_new_cat(
 
         if original_social == "former clancat":
             new_cat.status.leave_group(
-                choice([CatSocial.KITTYPET, CatSocial.LONER, CatSocial.ROGUE])
+                choice([CatSocial.KITTYPET, CatSocial.LONER, CatSocial.ROGUE, CatSocial.TRIBECAT])
             )
         # now we actually add them to the clan, if they should be joining
         if not outside and alive:
@@ -664,23 +671,28 @@ def create_new_cat(
             selected_category = choices(name_categories, weights, k=1)[0]
             name = choice(names.names_dict[selected_category])
 
-            # now, if this cat should take a new clan name, we give them such
-            if new_name:
-                # check if adding suffix to OG name
-                if bool(getrandbits(1)):
-                    spaces = name.count(" ")
-                    if spaces > 0:
-                        # make a list of the words within the name, then add the OG name back in the list
-                        words = name.split(" ")
-                        words.append(name)
-                        new_prefix = choice(words)  # pick new prefix from that list
-                        new_cat.change_name(new_prefix=new_prefix)
-                # else, take a whole new name
-                else:
-                    new_cat.change_name()
-            # else, let them keep their old name
+            if original_social == CatRank.TRIBECAT:
+                new_cat.name.prefix = generate_tribe_name(new_cat)
+                new_cat.name.suffix = ""
+                new_cat.specsuffix_hidden = True
             else:
-                new_cat.change_name(new_prefix=name, new_suffix="")
+            # now, if this cat should take a new clan name, we give them such
+                if new_name:
+                    # check if adding suffix to OG name
+                    if bool(getrandbits(1)):
+                        spaces = name.count(" ")
+                        if spaces > 0:
+                            # make a list of the words within the name, then add the OG name back in the list
+                            words = name.split(" ")
+                            words.append(name)
+                            new_prefix = choice(words)  # pick new prefix from that list
+                            new_cat.change_name(new_prefix=new_prefix)
+                    # else, take a whole new name
+                    else:
+                        new_cat.change_name()
+                # else, let them keep their old name
+                else:
+                    new_cat.change_name(new_prefix=name, new_suffix="")
 
         # Remove disabling scars, if they generated.
         # these are removed bc the cat won't have the associated perm condition

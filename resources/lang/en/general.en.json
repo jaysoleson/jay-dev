@@ -91,6 +91,10 @@
             "one": "kittypet",
             "many": "kittypets"
         },
+        "tribecat": {
+            "one": "tribecat",
+            "many": "tribecats"
+        },
         "former Clancat": {
             "one": "former Clancat",
             "many": "former Clancats"

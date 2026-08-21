@@ -25,6 +25,8 @@ class Status:
         CatRank.LONER: CatSocial.LONER,
         CatRank.ROGUE: CatSocial.ROGUE,
         CatRank.KITTYPET: CatSocial.KITTYPET,
+
+        CatRank.TRIBECAT: CatSocial.TRIBECAT
     }
     """A dict of ranks and their corresponding social status"""
 
@@ -188,6 +190,8 @@ class Status:
                     rank = CatRank.LONER
                 elif social == CatSocial.KITTYPET:
                     rank = CatRank.KITTYPET
+                elif social == CatSocial.TRIBECAT:
+                    rank = CatRank.TRIBECAT
             else:
                 rank = self.get_rank_from_age(age, disable_random)
 

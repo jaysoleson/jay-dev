@@ -4148,5 +4148,187 @@
         }
       }
     ]
-  }
+  },
+    {
+        "event_id": "gen_new_cat_anytribecat1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 3,
+        "event_text": "m_c finds a Tribecat named n_c:0, who joins the Clan. The Tribecat decides to keep {PRONOUN/n_c:0/poss} old name.",
+        "tile_location": [
+            "unclaimed"
+        ],
+        "m_c": {
+            "age": [
+                "adolescent",
+                "young adult",
+                "adult",
+                "senior adult",
+                "senior"
+            ],
+            "status": [
+                "any"
+            ]
+        },
+        "new_cat": [
+            [
+                "old_name",
+                "tribecat",
+                "exists",
+                "age:adult"
+            ]
+        ],
+        "outsider": {
+            "current_rep": [
+                "any"
+            ],
+            "changed": 1
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "m_c"
+                ],
+                "cats_to": [
+                    "n_c:0"
+                ],
+                "values": [
+                    "trust",
+                    "respect"
+                ],
+                "amount": 20,
+                "mutual": true,
+                "log": {
+                    "cats_from": "m_c found n_c:0 and was the one to invite {PRONOUN/n_c:0/object} into the Clan."
+                }
+            }
+        ]
+    },
+    {
+        "event_id": "gen_new_cat_anytribecat2",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 3,
+        "event_text": "m_c finds a Tribecat who joins the Clan. The Tribecat decides to take a more Clan-like name: n_c:0.",
+        "tile_location": [
+            "unclaimed"
+        ],
+        "m_c": {
+            "age": [
+                "adolescent",
+                "young adult",
+                "adult",
+                "senior adult",
+                "senior"
+            ],
+            "status": [
+                "any"
+            ]
+        },
+        "new_cat": [
+            [
+                "new_name",
+                "tribecat",
+                "exists"
+            ]
+        ],
+        "outsider": {
+            "current_rep": [
+                "any"
+            ],
+            "changed": 1
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "m_c"
+                ],
+                "cats_to": [
+                    "n_c:0"
+                ],
+                "values": [
+                    "trust",
+                    "respect"
+                ],
+                "amount": 20,
+                "mutual": true,
+                "log": {
+                    "cats_from": "m_c found n_c:0 and was the one to invite {PRONOUN/n_c:0/object} into the Clan."
+                }
+            }
+        ]
+    },
+    {
+        "event_id": "gen_new_cat_anytribecat3",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 3,
+        "event_text": "A pair of cats from a faraway Tribe show up on the c_n border and asks for a place to stay. c_n decides to take them in.",
+        "tile_location": [
+            "border"
+        ],
+        "m_c": {
+            "age": [
+                "adolescent",
+                "young adult",
+                "adult",
+                "senior adult",
+                "senior"
+            ],
+            "status": [
+                "any"
+            ]
+        },
+        "new_cat": [
+            [
+                "old_name",
+                "tribecat",
+                "exists",
+                "age:adult,young adult,senior adult,senior"
+            ],
+            [
+                "old_name",
+                "tribecat",
+                "exists",
+                "age:adult,young adult,senior adult,senior"
+            ]
+        ],
+        "outsider": {
+            "current_rep": [
+                "any"
+            ],
+            "changed": 1
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "n_c:0", "n_c:1"
+                ],
+                "cats_to": [
+                    "some_clan"
+                ],
+                "values": [
+                    "trust",
+                    "comfort"
+                ],
+                "amount": 15,
+                "mutual": false,
+                "log": {
+                    "cats_from": "cat_from felt welcomed into the Clan upon {PRONOUN/cat_from/poss} arrival."
+                }
+            }
+        ]
+    }
 ]

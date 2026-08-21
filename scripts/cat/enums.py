@@ -53,6 +53,9 @@ class CatSocial(StrEnum):
     LONER = "loner"
     KITTYPET = "kittypet"
 
+    # CGW
+    TRIBECAT = "tribecat"
+
 
 class CatRank(StrEnum):
     # clan ranks
@@ -72,6 +75,9 @@ class CatRank(StrEnum):
     LONER = "loner"
     ROGUE = "rogue"
     KITTYPET = "kittypet"
+
+    # CGWAR: Tribecat
+    TRIBECAT = "tribecat"
 
     def is_baby(self) -> bool:
         return self in (self.NEWBORN, self.KITTEN)

@@ -569,7 +569,7 @@ dev_tools = false
 
   # set to true (NO QUOTES) to ensure the debug patrol succeeds
   # set to false (NO QUOTES) to ensure the debug patrol fails
-  debug_ensure_patrol_outcome = ""
+  debug_ensure_patrol_outcome = true
 
 [event_generation]
   # forces event with this id to occur

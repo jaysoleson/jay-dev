@@ -30,6 +30,9 @@
         "kittypet_backstories": [
             "kittypet1", "kittypet2", "kittypet3", "kittypet4", "refugee3", "tragedy_survivor3", "guided1", "refugee6"
         ],
+        "tribecat_backstories": [
+            "tribecat01"
+        ],
         "former_clancat_backstories": [
             "otherclan1",
             "otherclan2",
