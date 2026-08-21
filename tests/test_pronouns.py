@@ -79,6 +79,7 @@ def _test():
                 "credits_text.json",
                 "clansettings.json",
                 "gamesettings.json",
+                "tribe_names.json"
             ):
                 path = os.path.join(root, file)
 
