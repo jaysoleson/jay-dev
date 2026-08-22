@@ -654,21 +654,13 @@
             "names": {
                 "that Shines": [
                     "in Camp",
-                    "through Clouds",
-                    "through Rain",
-                    "through Storms",
+                    "through {Clouds,Rain,Storms,Smoke,Trees,Branches}",
                     "Strongly",
                     "Warmly",
-                    "in Leaf-bare",
-                    "in Leaf-fall",
-                    "in Newleaf",
-                    "in Greenleaf",
-                    "through Trees"
+                    "in {Leaf-bare,Leaf-fall,Greenleaf,Newleaf}"
                 ],
                 "that Melts": [
-                    "the Frost",
-                    "the Ice",
-                    "the Snow"
+                    "the {Frost,Ice,Snow}"
                 ],
                 "Covered by": [
                     "Clouds",
@@ -683,6 +675,9 @@
                     "Branches",
                     "Leaves",
                     "Smoke"
+                ],
+                "that": [
+                    "Never Sets"
                 ]
             }
         },

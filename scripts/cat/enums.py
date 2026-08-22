@@ -120,7 +120,7 @@ class CatRank(StrEnum):
         return False
 
     def is_any_clancat_rank(self) -> bool:
-        return self not in (self.ROGUE, self.LONER, self.KITTYPET)
+        return self not in (self.ROGUE, self.LONER, self.KITTYPET, self.TRIBECAT)
 
     @staticmethod
     def get_num_of_clan_ranks() -> int:

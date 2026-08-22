@@ -1141,13 +1141,6 @@ def bellsofwar_check_war():
         offense_clan = war.get_offense_object()
         defense_clan = war.get_defense_object()
 
-        if not offense_clan:
-            print("No offense Clan for war:", war.get_war_dict())
-            continue
-        if not defense_clan:
-            print("No defense Clan for war:", war.get_war_dict())
-            continue
-
         threshold = 10
         if "bloodthirsty" in offense_clan.temperament:
             threshold = 12
@@ -1215,8 +1208,6 @@ def bellsofwar_check_war():
         )
         # start_war = True
         if start_war is True:
-            print("STARTING A WAR BETWEEN", other_clan.name, "AND", war_clan.name)
-            print(other_clan.relations[war_clan.group_ID])
             # random chance theyll start fighting with someone else instead
             # bc u pissed them off idk
             OFFENSE = other_clan
@@ -1237,11 +1228,22 @@ def find_war_events(event_type, war, rel_change=None):
     """
     Finds and performs a war event for the specified war.
     """
+    outcome = None
+    if event_type == "conclusion_events":
+        outcome = random.choice(
+            [
+                "offense_wins",
+                "truce",
+                "defense_wins"
+            ]
+        )
 
     clan = war.get_offense_object()
     enemy_clan = war.get_defense_object()
     if rel_change:
         war_events = WAR_TXT[event_type][rel_change]
+    elif outcome:
+        war_events = WAR_TXT[event_type][outcome] 
     else:
         war_events = WAR_TXT[event_type]
 
@@ -1289,20 +1291,12 @@ def find_war_events(event_type, war, rel_change=None):
     event_tile = None
     winner = None
     if event_type == "conclusion_events":
-        outcome = random.choice(
-            [
-                "offense_wins",
-                "truce",
-                "defense_wins"
-            ]
-        )
         winner_dict = {
             "offense_wins": war.get_offense_object(),
             "truce": None,
             "defense_wins": war.get_defense_object()
         }
         winner = winner_dict[outcome]
-        war_events = war_events[outcome]
         if winner:
             war.win_war(winner)
             if war.demand:
@@ -2721,8 +2715,6 @@ def other_clans_relations_wobble():
     if to_clan.get_current_war():
         return
 
-    print("rel changing:", from_clan.name, "and", to_clan.name)
-
     event_options = TERRITORY_TXT["relation_wobble"]
     current_standing = from_clan.get_standing(to_clan)
     rel_change = random.choice(["rel_up", "rel_down"])
@@ -2749,11 +2741,13 @@ def other_clans_relations_wobble():
         other_clan=to_clan
     )
     event_tile = None
+    event_tile_string = ""
     if "Gathering" in event_text:
         # hack
         event_tile = territory_class.get_tiles(["gathering"])[0]
         event_tile.add_event(event_text)
-    game.cur_events_list.append(Single_Event(event_text, ["other_clans"], event_tile=event_tile.tile_string))
+        event_tile_string = event_tile.tile_string
+    game.cur_events_list.append(Single_Event(event_text, ["other_clans"], event_tile=event_tile_string))
 
 
     from_clan.relations[to_clan.group_ID] = 0
