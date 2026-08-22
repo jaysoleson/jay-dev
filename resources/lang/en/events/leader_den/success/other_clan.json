@@ -2533,5 +2533,29 @@
     },
     "player_clan_temper": ["any"],
     "other_clan_temper": ["wary"]
+  },
+  {
+    "interaction_type": "trade",
+    "event_text": "m_c offers o_c_n a trade. o_c_n accepts happily.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": [
+      "any"
+    ],
+    "other_clan_temper": [
+      "any"
+    ]
+  },
+  {
+    "interaction_type": "declare",
+    "event_text": "m_c announces to a shocked crowd at the Gathering that c_n will be going to war with o_c_n.",
+    "rel_change": -1,
+    "m_c": {},
+    "player_clan_temper": [
+      "any"
+    ],
+    "other_clan_temper": [
+      "any"
+    ]
   }
 ]

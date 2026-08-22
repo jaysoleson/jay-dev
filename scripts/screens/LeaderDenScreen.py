@@ -32,6 +32,7 @@ from scripts.clan_package.get_clan_cats import (
     get_living_clan_cat_count,
 )
 from scripts.screens.enums import GameScreen
+from scripts.territory import territory_class
 
 
 class LeaderDenScreen(Screens):
@@ -65,6 +66,12 @@ class LeaderDenScreen(Screens):
 
         # CGW
         self.map_screen_button = None
+        self.trade_progression_step = 0
+        self.trade_buttons = {}
+        self.trade_dict = {
+            "given": "prey",
+            "recieved": "prey"
+        }
 
         self.other_clan_selection_container = None
         self.other_clan_selection_elements = {}
@@ -108,6 +115,13 @@ class LeaderDenScreen(Screens):
                     "screens.leader_den.", ""
                 )
                 self.update_clan_interaction_choice(text)
+            elif event.ui_element == self.focus_frame_elements["cgwar_interaction"]:
+                text = self.focus_frame_elements["cgwar_interaction"].text.replace(
+                    "screens.leader_den.", ""
+                )
+                if text == "trade":
+                    self.trade_progression_step += 1
+                self.update_clan_interaction_choice(text)
             elif event.ui_element == self.focus_frame_elements["clans_tab"]:
                 self.open_clans_tab()
             elif event.ui_element == self.focus_frame_elements["outsiders_tab"]:
@@ -122,6 +136,23 @@ class LeaderDenScreen(Screens):
                 self.update_outsider_cats()
             elif event.ui_element == self.map_screen_button:
                 self.change_screen(GameScreen.MAP_SCREEN)
+
+            # trade
+            if event.ui_element in self.trade_buttons.values():
+                string = ""
+                for t in self.trade_buttons:
+                    if self.trade_buttons[t] == event.ui_element:
+                        string = t
+                        break
+                print("SELECTED", string)
+                if string == "next":
+                    self.trade_progression_step += 1
+                    self.update_trade_window()
+                else:
+                    interaction, option = string.split("-")
+                    self.update_trade_dict(interaction, option)
+                    self.update_trade_window()
+                    self.update_clan_interaction_choice("trade")
 
     def screen_switches(self):
         """
@@ -351,7 +382,7 @@ class LeaderDenScreen(Screens):
         self.screen_elements["clan_notice_text"].show()
 
         self.screen_elements["temper_text"] = pygame_gui.elements.UITextBox(
-            relative_rect=ui_scale(pygame.Rect((68, -11), (445, -1))),
+            relative_rect=ui_scale(pygame.Rect((68, 5), (445, -1))),
             html_text="screens.leader_den.temper_text",
             object_id=get_text_box_theme("#text_box_30_horizcenter_spacing_95"),
             manager=MANAGER,
@@ -635,13 +666,6 @@ class LeaderDenScreen(Screens):
         if self.focus_clan_container:
             self.focus_clan_container.kill()
 
-        # cgwar debug
-        # for clan in game.clan.all_other_clans + [game.clan]:
-        #     if clan == self.focus_clan:
-        #         continue
-        #     standing = self.focus_clan.get_standing(clan)
-        #     print("DB:", self.focus_clan.name, "and", clan.name, "are", standing)
-
         self.focus_clan_container = UIContainer(
             ui_scale(pygame.Rect((0, 0), (240, 398))),
             object_id="#focus_clan_container",
@@ -745,6 +769,18 @@ class LeaderDenScreen(Screens):
             visible=False,
             anchors={"centerx": "centerx"},
         )
+        self.focus_frame_elements["cgwar_interaction"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 355), (121, 30))),
+            "screens.leader_den.trade",
+            get_button_dict(ButtonStyles.SQUOVAL, (121, 30)),
+            container=self.focus_clan_container,
+            object_id="@buttonstyles_squoval",
+            starting_height=3,
+            manager=MANAGER,
+            visible=False,
+            anchors={"centerx": "centerx"},
+        )
+
 
         if self.no_leader:
             self.focus_clan_container.disable()
@@ -760,6 +796,13 @@ class LeaderDenScreen(Screens):
         )
         self.focus_frame_elements["positive_interaction"].show()
 
+        # CGW
+        if len(interaction) > 2:
+            self.focus_frame_elements["cgwar_interaction"].set_text(
+                f"screens.leader_den.{interaction[2]}"
+            )
+            self.focus_frame_elements["cgwar_interaction"].show()
+
     def update_clan_interaction_choice(self, object_id):
         """
         handles changing chosen clan interaction. updates notice text.
@@ -773,6 +816,8 @@ class LeaderDenScreen(Screens):
             text_kwargs={
                 "m_c": game.clan.leader,
                 "other_clan": self.focus_clan,
+                "given": self.trade_dict["given"] if isinstance(self.trade_dict["given"], str) else "territory",
+                "recieved": self.trade_dict["recieved"] if isinstance(self.trade_dict["recieved"], str) else "territory",
             },
         )
 
@@ -807,16 +852,180 @@ class LeaderDenScreen(Screens):
         if random.random() >= fail_chance:
             success = True
 
-        set_clan_setting(
-            "lead_den_clan_event",
-            {
-                "cat_ID": gathering_cat.ID,
-                "other_clan": self.focus_clan.name,
-                "player_clan_temper": self.clan_temper,
-                "interaction_type": interaction_type,
-                "success": success,
-            },
-        )
+        # CGW
+        if interaction_type == "declare":
+            success = True
+        # --
+
+        if interaction_type == "trade":
+            self.update_trade_window()
+            set_clan_setting(
+                "lead_den_clan_event",
+                {
+                    "cat_ID": gathering_cat.ID,
+                    "other_clan": self.focus_clan.name,
+                    "player_clan_temper": self.clan_temper,
+                    "interaction_type": interaction_type,
+                    "success": success,
+                    "given": self.trade_dict["given"],
+                    "recieved": self.trade_dict["recieved"]
+                },
+            )
+        else:
+            set_clan_setting(
+                "lead_den_clan_event",
+                {
+                    "cat_ID": gathering_cat.ID,
+                    "other_clan": self.focus_clan.name,
+                    "player_clan_temper": self.clan_temper,
+                    "interaction_type": interaction_type,
+                    "success": success,
+                },
+            )
+
+    def update_trade_window(self):
+        if "positive_interaction" in self.focus_frame_elements:
+            self.focus_frame_elements["positive_interaction"].kill()
+        if "negative_interaction" in self.focus_frame_elements:
+            self.focus_frame_elements["negative_interaction"].kill()
+        if "cgwar_interaction" in self.focus_frame_elements:
+            self.focus_frame_elements["cgwar_interaction"].kill()
+
+        for ele in self.trade_buttons:
+            self.trade_buttons[ele].kill()
+        self.trade_buttons = {}
+
+        options = ["territory", "prey", "herbs"]
+        if self.trade_progression_step == 1:
+            for i, option in enumerate(options):
+                self.trade_buttons[f"given-{option}"] = UISurfaceImageButton(
+                    ui_scale(pygame.Rect((0, 245 + 30*i), (121, 25))),
+                    option,
+                    get_button_dict(ButtonStyles.ROUNDED_RECT, (121, 25)),
+                    container=self.focus_clan_container,
+                    object_id="@buttonstyles_rounded_rect",
+                    starting_height=3,
+                    manager=MANAGER,
+                    tool_tip_text=f"Offer {option}",
+                    anchors={"centerx": "centerx"},
+                )
+                self.trade_buttons["next"] = UISurfaceImageButton(
+                    ui_scale(pygame.Rect((0, 350), (30, 30))),
+                    Icon.ARROW_RIGHT,
+                    get_button_dict(ButtonStyles.ICON, (30, 30)),
+                    container=self.focus_clan_container,
+                    object_id="@buttonstyles_icon",
+                    manager=MANAGER,
+                    tool_tip_text="Next Step",
+                    anchors={"centerx": "centerx"},
+                )
+            self.update_trade_buttons()
+        elif self.trade_progression_step == 2:
+            for i, option in enumerate(options):
+                self.trade_buttons[f"recieved-{option}"] = UISurfaceImageButton(
+                    ui_scale(pygame.Rect((0, 245 + 30*i), (121, 25))),
+                    option,
+                    get_button_dict(ButtonStyles.ROUNDED_RECT, (121, 25)),
+                    container=self.focus_clan_container,
+                    object_id="@buttonstyles_rounded_rect",
+                    starting_height=3,
+                    manager=MANAGER,
+                    tool_tip_text=f"Ask for {option}",
+                    anchors={"centerx": "centerx"},
+                )
+                self.trade_buttons["next"] = UISurfaceImageButton(
+                    ui_scale(pygame.Rect((0, 350), (30, 30))),
+                    Icon.ARROW_DOUBLERIGHT,
+                    get_button_dict(ButtonStyles.ICON, (30, 30)),
+                    container=self.focus_clan_container,
+                    object_id="@buttonstyles_icon",
+                    manager=MANAGER,
+                    tool_tip_text="Next Step",
+                    anchors={"centerx": "centerx"},
+                )
+            self.update_trade_buttons()
+        else:
+            current_dict = get_clan_setting("lead_den_clan_event")
+            requested_tile = None
+            offered_tile = None
+            if self.trade_dict["recieved"] == "territory":
+                requested_tile = self.get_tile("recieved")
+                self.trade_dict["recieved"] = requested_tile
+            if self.trade_dict["given"] == "territory":
+                offered_tile = self.get_tile("given")
+                self.trade_dict["given"] = offered_tile
+
+            set_clan_setting(
+                "lead_den_clan_event",
+                {
+                    "cat_ID": current_dict["cat_ID"],
+                    "other_clan": current_dict["other_clan"],
+                    "player_clan_temper": current_dict["player_clan_temper"],
+                    "interaction_type": current_dict["interaction_type"],
+                    "success": current_dict["success"],
+                    "given": self.trade_dict["given"],
+                    "recieved": self.trade_dict["recieved"]
+                },
+            )
+            self.trade_progression_step = 0
+            self.update_other_clan_focus()
+
+            print("INTERACTION DICT:", get_clan_setting("lead_den_clan_event"))
+
+    def get_tile(self, interaction):
+        possible_tiles = []
+        if interaction == "recieved":
+            possible_tiles = territory_class.get_tiles(
+                ["other_clan_inner_border"],
+                clan=game.clan,
+                other_clan=self.focus_clan
+                )
+            if not possible_tiles:
+                possible_tiles = territory_class.get_tiles(
+                    ["unclaimed_border"],
+                    clan=self.focus_clan
+                    )
+            if not possible_tiles:
+                possible_tiles = territory_class.get_tiles(
+                    ["outside_camp"],
+                    clan=self.focus_clan
+                    )
+        else:
+            possible_tiles = territory_class.get_tiles(
+                ["other_clan_border"],
+                clan=game.clan,
+                other_clan=self.focus_clan
+                )
+            if not possible_tiles:
+                possible_tiles = territory_class.get_tiles(
+                    ["unclaimed_border"],
+                    clan=game.clan
+                    )
+            if not possible_tiles:
+                possible_tiles = territory_class.get_tiles(
+                    ["outside_camp"],
+                    clan=game.clan
+                    )
+        return random.choice(possible_tiles)
+
+    def update_trade_dict(self, key, value):
+        self.trade_dict[key] = value
+
+    def update_trade_buttons(self):
+        options = ["territory", "prey", "herbs"]
+        for option in options:
+            if self.trade_dict["given"] == option:
+                if f"given-{option}" in self.trade_buttons:
+                    self.trade_buttons[f"given-{option}"].disable()
+            else:
+                if f"given-{option}" in self.trade_buttons:
+                    self.trade_buttons[f"given-{option}"].enable()
+            if self.trade_dict["recieved"] == option:
+                if f"recieved-{option}" in self.trade_buttons:
+                    self.trade_buttons[f"recieved-{option}"].disable()
+            else:
+                if f"recieved-{option}" in self.trade_buttons:
+                    self.trade_buttons[f"recieved-{option}"].enable()
 
     def _compare_temper(
         self, player_temper: str, other_temper: str, temper_dict: dict

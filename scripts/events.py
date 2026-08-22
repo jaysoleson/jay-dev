@@ -434,6 +434,30 @@ def handle_lead_den_event():
         # get text
         event_text = chosen_event["event_text"]
 
+        # CGW
+        # JOHANN TODO: fix
+        # given/recieved will be tile_strings now
+        recieved = info_dict["recieved"]
+        given = info_dict["given"]
+
+        print("Received:", recieved)
+        print("Given:", given)
+
+        additional_text = ""
+        recieved_string = recieved if isinstance(recieved, str) else "territory"
+        given_string = given if isinstance(given, str) else "territory"
+
+        if info_dict["interaction_type"] == "trade":
+            additional_text = f" ({recieved_string.capitalize()} gained, {given_string} given)"
+
+        if not isinstance(recieved, str):
+            print("changing recieved tile owner")
+            recieved.change_owner(game.clan)
+        if not isinstance(given, str):
+            print("changing given tile owner")
+            given.change_owner(other_clan)
+        # --
+
         # change relations and append relation text
         rel_change = chosen_event["rel_change"]
         other_clan.relations[game.clan.group_ID] += rel_change
@@ -451,7 +475,7 @@ def handle_lead_den_event():
             main_cat=gathering_cat,
             other_clan=other_clan,
             clan=game.clan,
-        )
+        ) + additional_text
         game.cur_events_list.insert(
             4, Single_Event(event_text, "other_clans", [gathering_cat.ID])
         )
@@ -1150,7 +1174,6 @@ def bellsofwar_check_war():
         threshold -= war.duration
 
         conclude_war = offense_clan.relations[defense_clan.group_ID] >= threshold and war.duration > 1
-        # CGWAR TODO: change for your clan when u can participate in wars. like with attacks
 
         rel_change=None
         if conclude_war:

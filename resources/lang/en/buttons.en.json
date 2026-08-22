@@ -53,6 +53,8 @@
         "claim_tooltip": "Negotiate for ownership of this territory.",
         "forfeit": "forfeit",
         "forfeit_tooltip": "Forfeit your claim of this territory.",
+        "add_to_trade": "add to trade",
+        "add_to_trade_tooltip": "Change the tile involved in your upcoming trade offer.",
         "take": "take",
         "take_tooltip": "Take this territory by force.",
         "attack_camp": "attack",

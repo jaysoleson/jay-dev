@@ -1675,10 +1675,10 @@ class OtherClan:
     """
 
     interaction_dict = {
-        "ally": ["offend", "praise"],
+        "ally": ["offend", "praise", "trade"],
         "amicable": ["offend", "praise"],
         "neutral": ["provoke", "befriend"],
-        "tense": ["antagonize", "appease", "declare"],
+        "tense": ["antagonize", "appease"],
         "hostile": ["antagonize", "appease", "declare"],
     }
 

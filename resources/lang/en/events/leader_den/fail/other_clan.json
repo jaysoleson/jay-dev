@@ -1523,5 +1523,17 @@
     },
     "player_clan_temper": ["any"],
     "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "trade",
+    "event_text": "m_c offers o_c_n a trade, but o_c_n declines, stating that o_c_n already has everything they need.",
+    "rel_change": 0,
+    "m_c": {},
+    "player_clan_temper": [
+      "any"
+    ],
+    "other_clan_temper": [
+      "any"
+    ]
   }
 ]

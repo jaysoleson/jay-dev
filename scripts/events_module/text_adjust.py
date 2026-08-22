@@ -349,7 +349,6 @@ def ongoing_event_text_adjust(Cat, text, clan=None, other_clan_name=None):
     :param other_clan_name: the other Clan's name if another Clan is involved
     """
     cat_dict = {}
-    print("Adjust:", text)
     if "lead_name" in text:
         kitty = Cat.fetch_cat(game.clan.leader)
         cat_dict["lead_name"] = (str(kitty.name), choice(kitty.pronouns))

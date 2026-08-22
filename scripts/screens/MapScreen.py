@@ -361,6 +361,8 @@ class MapScreen(Screens):
             self.map_tile_buttons[ele].kill()
         self.map_tile_buttons = {}
 
+        interaction_dict = get_clan_setting("lead_den_clan_event")
+
         for tile in game.clan.territory_tiles:
 
             text = ""
@@ -369,6 +371,10 @@ class MapScreen(Screens):
                 if tile.in_dispute():
                     icon_tile = True
                     text = Icon.SCRATCHES
+                elif "given" in interaction_dict and tile == interaction_dict["given"]:
+                    text = Icon.GREENLEAF
+                elif "recieved" in interaction_dict and tile == interaction_dict["recieved"]:
+                    text = Icon.GREENLEAF
                 elif tile.poi:
                     icon_tile = True
                     if tile.poi == "gathering":
