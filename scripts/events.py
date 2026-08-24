@@ -435,27 +435,30 @@ def handle_lead_den_event():
         event_text = chosen_event["event_text"]
 
         # CGW
-        # JOHANN TODO: fix
-        # given/recieved will be tile_strings now
-        recieved = info_dict["recieved"]
-        given = info_dict["given"]
-
-        print("Received:", recieved)
-        print("Given:", given)
-
         additional_text = ""
-        recieved_string = recieved if isinstance(recieved, str) else "territory"
-        given_string = given if isinstance(given, str) else "territory"
+        recieved_tile = None
+        given_tile = None
+        if info_dict["success"]:
+            recieved = info_dict["recieved"]
+            given = info_dict["given"]
+            print("Received:", recieved)
+            print("Given:", given)
 
-        if info_dict["interaction_type"] == "trade":
-            additional_text = f" ({recieved_string.capitalize()} gained, {given_string} given)"
+            recieved_tile = territory_class.get_tile_from_string(recieved)
+            given_tile = territory_class.get_tile_from_string(given)
 
-        if not isinstance(recieved, str):
-            print("changing recieved tile owner")
-            recieved.change_owner(game.clan)
-        if not isinstance(given, str):
-            print("changing given tile owner")
-            given.change_owner(other_clan)
+            recieved_string = recieved if not recieved_tile else "territory"
+            given_string = given if not given_tile else "territory"
+
+            if info_dict["interaction_type"] == "trade":
+                additional_text = f" ({recieved_string.capitalize()} gained, {given_string} given)"
+
+            if recieved_tile:
+                print("changing recieved tile owner")
+                recieved_tile.change_owner(game.clan)
+            if given_tile:
+                print("changing given tile owner")
+                given_tile.change_owner(other_clan)
         # --
 
         # change relations and append relation text

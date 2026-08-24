@@ -371,9 +371,9 @@ class MapScreen(Screens):
                 if tile.in_dispute():
                     icon_tile = True
                     text = Icon.SCRATCHES
-                elif "given" in interaction_dict and tile == interaction_dict["given"]:
+                elif "given" in interaction_dict and tile.tile_string == interaction_dict["given"]:
                     text = Icon.GREENLEAF
-                elif "recieved" in interaction_dict and tile == interaction_dict["recieved"]:
+                elif "recieved" in interaction_dict and tile.tile_string == interaction_dict["recieved"]:
                     text = Icon.GREENLEAF
                 elif tile.poi:
                     icon_tile = True

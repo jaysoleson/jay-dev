@@ -816,8 +816,8 @@ class LeaderDenScreen(Screens):
             text_kwargs={
                 "m_c": game.clan.leader,
                 "other_clan": self.focus_clan,
-                "given": self.trade_dict["given"] if isinstance(self.trade_dict["given"], str) else "territory",
-                "recieved": self.trade_dict["recieved"] if isinstance(self.trade_dict["recieved"], str) else "territory",
+                "given": self.trade_dict["given"],
+                "recieved": self.trade_dict["recieved"],
             },
         )
 
@@ -859,6 +859,16 @@ class LeaderDenScreen(Screens):
 
         if interaction_type == "trade":
             self.update_trade_window()
+            recieved = (
+                self.get_tile("recieved").tile_string
+                if self.trade_dict["recieved"] == "territory" else
+                self.trade_dict["recieved"]
+                )
+            given = (
+                self.get_tile("given").tile_string
+                if self.trade_dict["given"] == "territory" else
+                self.trade_dict["given"]
+                )
             set_clan_setting(
                 "lead_den_clan_event",
                 {
@@ -867,8 +877,8 @@ class LeaderDenScreen(Screens):
                     "player_clan_temper": self.clan_temper,
                     "interaction_type": interaction_type,
                     "success": success,
-                    "given": self.trade_dict["given"],
-                    "recieved": self.trade_dict["recieved"]
+                    "given": given,
+                    "recieved": recieved
                 },
             )
         else:
@@ -946,14 +956,16 @@ class LeaderDenScreen(Screens):
             self.update_trade_buttons()
         else:
             current_dict = get_clan_setting("lead_den_clan_event")
-            requested_tile = None
-            offered_tile = None
-            if self.trade_dict["recieved"] == "territory":
-                requested_tile = self.get_tile("recieved")
-                self.trade_dict["recieved"] = requested_tile
-            if self.trade_dict["given"] == "territory":
-                offered_tile = self.get_tile("given")
-                self.trade_dict["given"] = offered_tile
+            recieved = (
+                self.get_tile("recieved").tile_string
+                if self.trade_dict["recieved"] == "territory" else
+                self.trade_dict["recieved"]
+                )
+            given = (
+                self.get_tile("given").tile_string
+                if self.trade_dict["given"] == "territory" else
+                self.trade_dict["given"]
+                )
 
             set_clan_setting(
                 "lead_den_clan_event",
@@ -963,8 +975,8 @@ class LeaderDenScreen(Screens):
                     "player_clan_temper": current_dict["player_clan_temper"],
                     "interaction_type": current_dict["interaction_type"],
                     "success": current_dict["success"],
-                    "given": self.trade_dict["given"],
-                    "recieved": self.trade_dict["recieved"]
+                    "given": given,
+                    "recieved": recieved
                 },
             )
             self.trade_progression_step = 0

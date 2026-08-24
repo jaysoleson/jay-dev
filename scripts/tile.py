@@ -266,6 +266,7 @@ class TerritoryTile():
         """
         Switches tile ownership. Handles remapping strength and adding to history.
         """
+        print("CHANGE OWNER:", self.tile_string, new_owner.name + "Clan")
         self.history.append(
             {
                 "moon": game.clan.age,
