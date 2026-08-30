@@ -362,6 +362,8 @@ class MapScreen(Screens):
         self.map_tile_buttons = {}
 
         interaction_dict = get_clan_setting("lead_den_clan_event")
+        if not interaction_dict:
+            interaction_dict = {}
 
         for tile in game.clan.territory_tiles:
 
