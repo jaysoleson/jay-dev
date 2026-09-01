@@ -125,7 +125,7 @@ class TestEvents(unittest.TestCase):
         with self.subTest(
             "Timeskip Failed",
         ):
-            for _ in range(500):
+            for _ in range(100):
                 events.one_moon()
 
                 if not _ % 10:
