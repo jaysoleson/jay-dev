@@ -35,6 +35,8 @@ def choose_random_cats(
     chosen_cat_dict = {}
     abbrevs = []
 
+    possible_cats_dict = {}
+
     # try:
     if cats_block:
         if "y_c" not in cats_block:
@@ -189,7 +191,8 @@ def __filter_group(abbrev_block, cat, your_cat):
         ):
             return False
     else:
-        if "residence" not in abbrev_block and cat.status.group != your_cat.status.group:
+        ref_group = CatGroup.PLAYER_CLAN if your_cat.dead else your_cat.status.group
+        if "residence" not in abbrev_block and cat.status.group != ref_group:
             return False
     return True
 
@@ -201,14 +204,17 @@ def __filter_standing(abbrev_block, cat, your_cat):
         return True
 
     standing_found = False
+    ref_group_id = (
+        CatGroup.PLAYER_CLAN_ID if your_cat.dead else your_cat.status.group_ID
+    )
     standing_dict = {
-        "member": cat.status.is_member(your_cat.status.group_ID),
-        "lost": cat.status.is_lost(your_cat.status.group_ID),
-        "exiled": cat.status.is_exiled(your_cat.status.group_ID),
-        "shunned": cat.status.is_shunned(your_cat.status.group_ID),
-        "daylight": cat.status.is_daylight_warrior(your_cat.status.group_ID),
+        "member": cat.status.is_member(ref_group_id),
+        "lost": cat.status.is_lost(ref_group_id),
+        "exiled": cat.status.is_exiled(ref_group_id),
+        "shunned": cat.status.is_shunned(ref_group_id),
+        "daylight": cat.status.is_daylight_warrior(ref_group_id),
         "forgiven": cat.status.is_forgiven(),
-        "near": cat.status.is_near(your_cat.status.group_ID),
+        "near": cat.status.is_near(ref_group_id),
         "outsider": cat.status.is_outsider
     }
     for tag in abbrev_block["standing"]:
@@ -589,6 +595,8 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                             continue
                         if match_found:
                             continue
+                        if not from_cat:
+                            continue
                         for to_cat in to_cat_list:
                             if valid_rels == rels_to_check:
                                 continue
@@ -696,8 +704,6 @@ def __filter_relationships(all_abbrevs, rel_block, dict_possible_cats, your_cat,
                                             if murder["victim"] == to_cat.ID:
                                                 rel_valid = True
                                                 break
-                                elif rel_tag == "non-related":
-                                    rel_valid = from_cat.ID in to_cat.get_relatives()
 
                                 elif rel_tag == "app/mentor":
                                     rel_valid = from_cat.ID in to_cat.apprentice

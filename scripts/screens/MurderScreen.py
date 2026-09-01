@@ -1875,8 +1875,21 @@ class MurderScreen(Screens):
         # (1 = you, 2 = accomplice, 3 = both)
         if punishment_chance in (1, 3):
             you.status.shun_from_group()
+            demote_text = you.shunned_demotion() if not you.dead else ""
+            if demote_text:
+                game.cur_events_list.insert(
+                    3, Single_Event(demote_text, ["alert", "birth_death"], [you.ID])
+                )
         if punishment_chance in (2, 3) and accomplice:
             accomplice.status.shun_from_group()
+            demote_text = accomplice.shunned_demotion() if not accomplice.dead else ""
+            if demote_text:
+                game.cur_events_list.insert(
+                    3,
+                    Single_Event(
+                        demote_text, ["alert", "birth_death"], [accomplice.ID]
+                    ),
+                )
 
         if punishment_chance == 1:
             if accomplice and not accompliced:

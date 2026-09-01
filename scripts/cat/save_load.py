@@ -167,6 +167,43 @@ def get_faded_ids():
     return faded_ids + cat_to_fade
 
 
+# fields on a Cat that store references to other cats by ID
+_SINGLE_REF_FIELDS = ("parent1", "parent2", "mentor", "df_mentor")
+_LIST_REF_FIELDS = (
+    "adoptive_parents",
+    "apprentice",
+    "former_apprentices",
+    "mate",
+    "previous_mates",
+    "df_apprentices",
+    "faded_offspring",
+)
+
+
+def prune_dead_relationships(cat_class: Type["Cat"]):
+    resolvable = set(cat_class.all_cats.keys()) | set(get_faded_ids())
+
+    pruned = 0
+    for cat in cat_class.all_cats.values():
+        for field in _SINGLE_REF_FIELDS:
+            value = getattr(cat, field, None)
+            if value and value not in resolvable:
+                setattr(cat, field, None)
+                pruned += 1
+        for field in _LIST_REF_FIELDS:
+            value = getattr(cat, field, None)
+            if not value:
+                continue
+            cleaned = [cid for cid in value if cid in resolvable]
+            if len(cleaned) != len(value):
+                pruned += len(value) - len(cleaned)
+                setattr(cat, field, cleaned)
+
+    if pruned:
+        print(f"Pruned {pruned} while loading.")
+    return pruned
+
+
 def load_faded_cat_ids(clanname):
     global faded_ids
     fade_cat_dir = Path(get_save_dir()) / clanname / "faded_cats"
