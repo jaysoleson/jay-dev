@@ -42,7 +42,10 @@ class ClanCreatedScreen(MakeClanScreenBase):
 
         self.elements["your_cat_image"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((350, 125), (100, 100))),
-            pygame.transform.scale(generate_sprite(cat_to_show, always_living=True, life_state="newborn"), ui_scale_dimensions((100, 100))),
+            pygame.transform.scale(
+                generate_sprite(cat_to_show, always_living=True, life_state="newborn"),
+                ui_scale_dimensions((100, 100)),
+            ),
             starting_height=1,
             manager=MANAGER,
         )
@@ -79,4 +82,3 @@ class ClanCreatedScreen(MakeClanScreenBase):
         # LG
         switch_set_value(Switch.future_clan_cats, [])
         switch_set_value(Switch.cat, self.clan_info.your_cat)
-        

@@ -377,7 +377,7 @@ class RelationshipScreen(Screens):
                 if search_text.lower() in str(cat.cat_to.name).lower():
                     search_cats.append(cat)
             self.filtered_cats = search_cats
-        
+
         seen = set()
         uniq = []
         for x in self.filtered_cats:
@@ -411,7 +411,10 @@ class RelationshipScreen(Screens):
         # LG: you filter
         elif get_clan_setting("show only you"):
             self.filtered_cats = list(
-                filter(lambda rel: rel.cat_to.ID == game.clan.your_cat.ID, self.filtered_cats)
+                filter(
+                    lambda rel: rel.cat_to.ID == game.clan.your_cat.ID,
+                    self.filtered_cats,
+                )
             )
         # ---
         if not get_clan_setting("show_positive"):

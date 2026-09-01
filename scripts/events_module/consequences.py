@@ -787,8 +787,7 @@ def create_new_cat(
 
 
 def gather_cat_objects(
-    Cat, abbr_list: List[str], event, stat_cat=None, extra_cat=None,
-    dialogue_dict={}
+    Cat, abbr_list: List[str], event, stat_cat=None, extra_cat=None, dialogue_dict={}
 ) -> list:
     """
     gathers cat objects from list of abbreviations used within an event format block
@@ -884,7 +883,7 @@ def gather_cat_objects(
                 found_cat_list.discard(getattr(event, "random_cat", None))
                 if getattr(event, "patrol_cats", None):
                     found_cat_list.difference_update(set(event.patrol_cats))
-        
+
         # LG
         elif re.match(r"r_c:[0-9]+", abbr):  # lifegen chosen cats
             index = re.match(r"r_c:([0-9]+)", abbr).group(1)
@@ -938,7 +937,12 @@ def gather_cat_objects(
 
 
 def unpack_rel_block(
-    Cat, relationship_effects: List[dict], event=None, stat_cat=None, extra_cat=None, dialogue_dict={}
+    Cat,
+    relationship_effects: List[dict],
+    event=None,
+    stat_cat=None,
+    extra_cat=None,
+    dialogue_dict={},
 ) -> dict:
     """
     Unpacks the info from the relationship effect block used in patrol and moon events, then adjusts rel values
@@ -970,10 +974,14 @@ def unpack_rel_block(
         ):
             is_clan_reaction = True
 
-        cats_from_ob = gather_cat_objects(Cat, cats_from, event, stat_cat, extra_cat, dialogue_dict)
-        cats_to_ob = gather_cat_objects(Cat, cats_to, event, stat_cat, extra_cat, dialogue_dict)
+        cats_from_ob = gather_cat_objects(
+            Cat, cats_from, event, stat_cat, extra_cat, dialogue_dict
+        )
+        cats_to_ob = gather_cat_objects(
+            Cat, cats_to, event, stat_cat, extra_cat, dialogue_dict
+        )
 
-        # get rid of any Nones that might have snuck in 
+        # get rid of any Nones that might have snuck in
         cats_from_ob = [c for c in cats_from_ob if c is not None]
         cats_to_ob = [c for c in cats_to_ob if c is not None]
 

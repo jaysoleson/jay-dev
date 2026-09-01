@@ -108,12 +108,16 @@ class HerbSupply:
                     self._collected_groups[group_key][herb] = int(amount)
         elif "storage" in herb_supply or "collected" in herb_supply:
             for herb, amounts in herb_supply.get("storage", {}).items():
-                self._storage_groups[self.PLAYER_CLAN_KEY][herb] = [int(i) for i in amounts]
+                self._storage_groups[self.PLAYER_CLAN_KEY][herb] = [
+                    int(i) for i in amounts
+                ]
             for herb, amount in herb_supply.get("collected", {}).items():
                 self._collected_groups[self.PLAYER_CLAN_KEY][herb] = int(amount)
         else:
             for herb, amounts in herb_supply.items():
-                self._storage_groups[self.PLAYER_CLAN_KEY][herb] = [int(i) for i in amounts]
+                self._storage_groups[self.PLAYER_CLAN_KEY][herb] = [
+                    int(i) for i in amounts
+                ]
 
     @property
     def combined_supply_dict(self) -> dict:

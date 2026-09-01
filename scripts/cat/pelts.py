@@ -225,7 +225,7 @@ class Pelt:
                 body_accessories.append(sprite)
             elif sprite_list[sprite] == "paws":
                 paw_accessories.append(sprite)
-    
+
     plant2_accessories = []
     for sprite_list in sprites.PLANT2_DATA["sprite_list"]:
         plant2_accessories.extend(sprite_list)
@@ -345,11 +345,11 @@ class Pelt:
 
     # this is used for acc-giving events, only change if you're adding a new category tag to the event filter
     # adding a category here will automatically update the event editor's options
-  
+
     clangen_acc_categories = {
         "PLANT": plant_accessories,
         "WILD": wild_accessories,
-        "COLLAR": collar_accessories
+        "COLLAR": collar_accessories,
     }
     lifegen_acc_categories = {
         "PLANT": plant_accessories,
@@ -365,33 +365,29 @@ class Pelt:
         "MISC2": misc2_accessories,
         "HARNESS": harness_accessories,
         "SMALLANIMALS": smallanimals_accessories,
-        "WILD2": wild2_accessories
+        "WILD2": wild2_accessories,
     }
 
     # LIFEGEN
     # for the inventory + customiser
     all_lifegen_accessories = (
-        plant_accessories +
-        wild_accessories +
-        collar_accessories +
-        aliveInsect_accessories +
-        plant2_accessories +
-        sophisticated_accessories +
-        deadInsect_accessories +
-        fruit_accessories +
-        flower_crown_accessories +
-        misc_accessories +
-        misc2_accessories +
-        harness_accessories +
-        smallanimals_accessories +
-        wild2_accessories
-        )
-
-    all_clangen_accessories = (
-        plant_accessories +
-        wild_accessories +
-        collar_accessories
+        plant_accessories
+        + wild_accessories
+        + collar_accessories
+        + aliveInsect_accessories
+        + plant2_accessories
+        + sophisticated_accessories
+        + deadInsect_accessories
+        + fruit_accessories
+        + flower_crown_accessories
+        + misc_accessories
+        + misc2_accessories
+        + harness_accessories
+        + smallanimals_accessories
+        + wild2_accessories
     )
+
+    all_clangen_accessories = plant_accessories + wild_accessories + collar_accessories
 
     # for generate_sprite()
     # these are JUST lifegen accessories
@@ -408,7 +404,7 @@ class Pelt:
         misc2_accessories,
         harness_accessories,
         smallanimals_accessories,
-        wild2_accessories
+        wild2_accessories,
     ]
     acc_data_list = [
         sprites.ALIVEINSECT_DATA,
@@ -421,7 +417,7 @@ class Pelt:
         sprites.MISC2_ACCS_DATA,
         sprites.HARNESS_DATA,
         sprites.SMALLANIMALS_DATA,
-        sprites.WILD2_DATA
+        sprites.WILD2_DATA,
     ]
     # ---
 
@@ -506,7 +502,7 @@ class Pelt:
                 "senior adult": adult_sprite if adult_sprite is not None else 6,
                 "senior": senior_sprite if senior_sprite is not None else 12,
                 "para_adult": para_adult_sprite if para_adult_sprite is not None else 0,
-                "newborn": newborn_sprite if newborn_sprite is not None else 0
+                "newborn": newborn_sprite if newborn_sprite is not None else 0,
             }
             for age, pose in self.cat_sprites.items():
                 # we only need to convert if it's using the old sprite pose numbers
@@ -523,7 +519,9 @@ class Pelt:
 
                 elif age == CatAge.NEWBORN:
                     self.cat_sprites[age] = (
-                        f"newborn{pose}" if f"newborn{pose}" in self.newborn_poses else "newborn2"
+                        f"newborn{pose}"
+                        if f"newborn{pose}" in self.newborn_poses
+                        else "newborn2"
                     )
                     continue
                 elif age == CatAge.KITTEN:
@@ -1169,15 +1167,16 @@ class Pelt:
 
         if acc_display_choice == 1:
             self.accessory = tuple(
-                (choice(
-                    Pelt.plant_accessories +
-                    Pelt.wild_accessories +
-                    Pelt.aliveInsect_accessories +
-                    Pelt.deadInsect_accessories +
-                    Pelt.fruit_accessories +
-                    Pelt.plant2_accessories
-                    )
-                ,)
+                (
+                    choice(
+                        Pelt.plant_accessories
+                        + Pelt.wild_accessories
+                        + Pelt.aliveInsect_accessories
+                        + Pelt.deadInsect_accessories
+                        + Pelt.fruit_accessories
+                        + Pelt.plant2_accessories
+                    ),
+                )
             )
         else:
             self.accessory = tuple()
@@ -1551,15 +1550,18 @@ class Pelt:
 
     def get_sprites_name(self):
         return Pelt.pattern_sprite_names[self.name]
-    
+
     def is_wildcard_tortie(self):
         """
         LIFEGEN: Checks if a pelt is a wildcard for LG achievement purposes
         """
         if self.name == "Tortie" or self.name == "Calico":
-            #If I have to rewrite this code again, I will have a breakdown, do not tempt me. I will cry. It will be pathetic.
+            # If I have to rewrite this code again, I will have a breakdown, do not tempt me. I will cry. It will be pathetic.
             ##Check wildcard colour combo
-            is_base_black_white = self.colour in [self.white_colours, self.black_colours]
+            is_base_black_white = self.colour in [
+                self.white_colours,
+                self.black_colours,
+            ]
             is_base_ginger = self.colour in self.ginger_colours
             if self.tortie_colour in self.white_colours:
                 return True
@@ -1576,12 +1578,13 @@ class Pelt:
                 "classic",
                 "agouti",
                 "single",
-                "smoke"
-                ]
+                "smoke",
+            ]
             plain_lower = [
                 "singlestripe",
                 "smoke",
-                "single"] #Placeholder Variable Name, my hed hurr
+                "single",
+            ]  # Placeholder Variable Name, my hed hurr
             if self.tortie_base in plain_lower:
                 if self.tortie_pattern not in not_wildcard_patterns:
                     return True
@@ -1591,17 +1594,17 @@ class Pelt:
             # real pattern stuff
             if self.tortie_base in ("singlestripe", "smoke", "single"):
                 if self.tortie_pattern not in [
-                        "tabby",
-                        "mackerel",
-                        "classic",
-                        "single",
-                        "smoke",
-                        "agouti",
-                        "ticked",
-                    ]:
+                    "tabby",
+                    "mackerel",
+                    "classic",
+                    "single",
+                    "smoke",
+                    "agouti",
+                    "ticked",
+                ]:
                     return True
             else:
-                if self.tortie_pattern not in  [self.tortie_base, "single"]:
+                if self.tortie_pattern not in [self.tortie_base, "single"]:
                     return True
             return False
 

@@ -54,7 +54,7 @@ class ClanInfo:
     deputy: Optional[Cat] = None
     medicine_cat: Optional[Cat] = None
     your_cat: Cat = None
-    social: CatSocial = None,
+    social: CatSocial = (None,)
     starting_members: list = field(default_factory=list)
     biome: str = "Forest"
     camp_bg: str = "camp1"
@@ -132,13 +132,11 @@ class ClanInfo:
             "game_mode": self.game_mode,
             "cruel_cards": self.cruel_cards,
             "starting_size": self.starting_size,
-            "clan_age": self.clan_age
+            "clan_age": self.clan_age,
         }
 
     def no_cats_chosen(self) -> bool:
-        return (
-            not self.your_cat
-        )
+        return not self.your_cat
 
     def has_minimum_cats(self) -> bool:
         return len(self.get_all_cats()) >= get_config(
@@ -273,7 +271,11 @@ class MakeClanScreenBase(Screens):
             save_id=save_id,
             **self.clan_info.get_dict(),
         )
-        game.clan.create_clan(your_cat=self.clan_info.your_cat, clan_age=self.clan_info.clan_age, unborn=True)
+        game.clan.create_clan(
+            your_cat=self.clan_info.your_cat,
+            clan_age=self.clan_info.clan_age,
+            unborn=True,
+        )
 
         game.cur_events_list.clear()
         game.herb_events_list.clear()
@@ -282,7 +284,11 @@ class MakeClanScreenBase(Screens):
         game.clan.grief_strings.clear()
 
         # LG: pick a couple unselected kits to add to the clan
-        possible_kits = [c for c in switch_get_value(Switch.possible_cats) if c != self.clan_info.your_cat]
+        possible_kits = [
+            c
+            for c in switch_get_value(Switch.possible_cats)
+            if c != self.clan_info.your_cat
+        ]
         kit_num = choice([0, 0, 0, 0, 0, 1, 1, 1, 2])
         for i in range(kit_num):
             kit = choice(possible_kits)
@@ -318,8 +324,8 @@ class MakeClanScreenBase(Screens):
         self.clan_info.your_cat.name.give_prefix(
             self.clan_info.your_cat.pelt.eye_colour,
             self.clan_info.your_cat.pelt.colour,
-            game.clan.biome
-            )
+            game.clan.biome,
+        )
         return self.clan_info.your_cat.name.prefix
 
     def random_card(self) -> str:

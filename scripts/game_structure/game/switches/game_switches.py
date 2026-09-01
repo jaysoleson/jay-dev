@@ -115,7 +115,6 @@ _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
     "keybinds_live": False,
     "card_conflict_changes": {},
     "confirmed_deck_list": [],
-
     # LIFEGEN
     "attended_half_moon": False,
     "other_meds": [],
@@ -135,8 +134,7 @@ _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
     "customise_new_life": False,
     "talk_category": "talk",
     "accomplices": [],
-    "change_group": None
-
+    "change_group": None,
 }
 """If you are somehow accessing this from outside game_switches.py, something has gone terribly wrong."""
 

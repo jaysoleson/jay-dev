@@ -37,14 +37,14 @@ class ChooseNameScreen(MakeClanScreenBase):
             "This Clan will be... ",
             ui_scale(pygame.Rect((200, 100), (405, 25))),
             object_id=get_text_box_theme("#text_box_30_horizcenter"),
-            manager=MANAGER
-            )
+            manager=MANAGER,
+        )
         self.elements["small"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((220, 160), (100, 30))),
             "Small",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
             object_id="@buttonstyles_squoval",
-            manager=MANAGER
+            manager=MANAGER,
         )
 
         self.elements["medium"] = UISurfaceImageButton(
@@ -52,7 +52,7 @@ class ChooseNameScreen(MakeClanScreenBase):
             "Medium",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
             object_id="@buttonstyles_squoval",
-            manager=MANAGER
+            manager=MANAGER,
         )
 
         self.elements["large"] = UISurfaceImageButton(
@@ -60,7 +60,7 @@ class ChooseNameScreen(MakeClanScreenBase):
             "Large",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
             object_id="@buttonstyles_squoval",
-            manager=MANAGER
+            manager=MANAGER,
         )
 
         self.elements["medium"].disable()
@@ -71,7 +71,7 @@ class ChooseNameScreen(MakeClanScreenBase):
             get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
             object_id="@buttonstyles_squoval",
             tool_tip_text="The Clan has existed for many moons and cats' backstories will reflect this.",
-            manager=MANAGER
+            manager=MANAGER,
         )
         self.elements["new"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((425, 200), (80, 30))),
@@ -79,7 +79,7 @@ class ChooseNameScreen(MakeClanScreenBase):
             get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
             object_id="@buttonstyles_squoval",
             tool_tip_text="The Clan is newly established and cats' backstories will reflect this.",
-            manager=MANAGER
+            manager=MANAGER,
         )
         self.elements["established"].disable()
         # ---

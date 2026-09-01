@@ -29,7 +29,7 @@ class MainCatFiltering(unittest.TestCase):
         leader=None,
         deputy=None,
         medicine_cat=None,
-        your_cat=NewCatFactory.create_cat(rank=CatRank.KITTEN), 
+        your_cat=NewCatFactory.create_cat(rank=CatRank.KITTEN),
         biome="Forest",
         camp_bg=None,
         cruel_cards=[],

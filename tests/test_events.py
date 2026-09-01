@@ -26,6 +26,7 @@ from scripts.game_structure.game.save_load import read_clans
 from scripts.housekeeping.datadir import get_save_dir
 from scripts.cat_relations.inheritance import Inheritance
 
+
 class TestEvents(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

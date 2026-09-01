@@ -34,10 +34,9 @@ class UIDropDown(UIDropDownContainer):
         child_trigger_close: bool = True,
         starting_selection: list = None,
         open_on_hover: bool = False,
-
         # LG
         your_cat=None,
-        clan_name=""
+        clan_name="",
     ):
         """
         Class to handle the creation and management of non-scrolling dropdowns. It's recommended to use the on_use()
@@ -144,8 +143,8 @@ class UIDropDown(UIDropDownContainer):
             display_text = i18n.t(
                 child,
                 your_group=your_cat.status.get_group_heading_text() if your_cat else "",
-                name=clan_name
-                )
+                name=clan_name,
+            )
 
             y_pos = -2 if prev_element else 0
 

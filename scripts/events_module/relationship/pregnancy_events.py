@@ -119,9 +119,7 @@ class Pregnancy_Events:
         if not cat.status.alive_in_player_clan or cat.not_working():
             return
 
-        if not (
-            cat.status.alive_in_player_clan or cat.status.alive_in_your_cat_group
-        ):
+        if not (cat.status.alive_in_player_clan or cat.status.alive_in_your_cat_group):
             return
 
         # Handle birth cooldown outside of the check_if_can_have_kits function, so it only happens once
@@ -160,8 +158,10 @@ class Pregnancy_Events:
             if not get_clan_setting("single parentage"):
                 return
 
-        chance = Pregnancy_Events.get_balanced_kit_chance(cat, second_parent, is_affair, clan)
-        
+        chance = Pregnancy_Events.get_balanced_kit_chance(
+            cat, second_parent, is_affair, clan
+        )
+
         if not int(random.random() * chance):
             # If you've reached here - congrats, kits!
             if kits_are_adopted:
@@ -557,7 +557,8 @@ class Pregnancy_Events:
             mate_is_med = [mate_id for mate_id in cat.mate if mate_id in meds]
             if not meds or cat in meds or len(mate_is_med) > 0:
                 possible_events = [
-                    event for event in possible_events
+                    event
+                    for event in possible_events
                     if CatRank.MEDICINE_CAT not in event
                 ]
 
@@ -601,7 +602,8 @@ class Pregnancy_Events:
                 mate_is_med = [mate_id for mate_id in cat.mate if mate_id in meds]
                 if not meds or cat in meds or len(mate_is_med) > 0:
                     possible_events = [
-                        event for event in possible_events
+                        event
+                        for event in possible_events
                         if CatRank.MEDICINE_CAT not in event
                     ]
 
@@ -626,7 +628,7 @@ class Pregnancy_Events:
             for clan_cat in game.clan.clan_cats:
                 clan_cat_cat = Cat.fetch_cat(clan_cat)
                 if clan_cat_cat:
-                    clan_cat_cat.faith+= round(random.uniform(0,1), 2)
+                    clan_cat_cat.faith += round(random.uniform(0, 1), 2)
 
         # display event
         game.cur_events_list.append(
@@ -634,7 +636,6 @@ class Pregnancy_Events:
                 print_event, ["health", "birth_death"], involved_cats, cat_dict=cat_dict
             )
         )
-
 
     # ---------------------------------------------------------------------------- #
     #                          check if event is triggered                         #
@@ -647,7 +648,6 @@ class Pregnancy_Events:
             return False
 
         if cat.birth_cooldown > 0:
-
             return False
 
         if "recovering from birth" in cat.injuries:
@@ -1462,7 +1462,9 @@ class Pregnancy_Events:
 
         # LG
         if game.clan and game.clan.your_cat:
-            if game.clan.your_cat in (first_parent, second_parent) and switch_get_value(Switch.have_kits):
+            if game.clan.your_cat in (first_parent, second_parent) and switch_get_value(
+                Switch.have_kits
+            ):
                 inverse_chance = 1
 
         return inverse_chance

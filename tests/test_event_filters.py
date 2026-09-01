@@ -61,7 +61,6 @@ class TestEventFilters(unittest.TestCase):
         self.test_your_cat = cat_factory.create_cat(rank=CatRank.KITTEN, moons=2)
         game.clan.your_cat = self.test_your_cat
 
-
     def test_location(self):
         """
         Tests a variety of location tag combinations

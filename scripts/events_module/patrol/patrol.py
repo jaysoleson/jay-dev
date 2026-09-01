@@ -47,7 +47,7 @@ from scripts.clan_package.get_clan_cats import find_alive_cats_with_rank
 from scripts.game_structure.game.switches import (
     switch_get_value,
     Switch,
-    switch_append_list_value
+    switch_append_list_value,
 )
 
 from scripts.events_module.filter_random_cats import choose_random_cats
@@ -203,20 +203,20 @@ class Patrol:
             #         print(cat.name)
 
         Patrol.used_patrols.append(self.patrol_event.patrol_id)
-        
+
         patrol_cat_ids = []
         for c in patrol_cats:
             patrol_cat_ids.append(c.ID)
         if game.clan.your_cat.ID in patrol_cat_ids:
             if switch_get_value(Switch.patrol_category) == "lifegen":
-                switch_append_list_value(Switch.patrolled, '2')
+                switch_append_list_value(Switch.patrolled, "2")
 
-            elif switch_get_value(Switch.patrol_category) == 'clangen':
-                switch_append_list_value(Switch.patrolled, '1')
-            elif switch_get_value(Switch.patrol_category) == 'date':
-                switch_append_list_value(Switch.patrolled, '4')
+            elif switch_get_value(Switch.patrol_category) == "clangen":
+                switch_append_list_value(Switch.patrolled, "1")
+            elif switch_get_value(Switch.patrol_category) == "date":
+                switch_append_list_value(Switch.patrolled, "4")
             else:
-                switch_append_list_value(Switch.patrolled, '3')
+                switch_append_list_value(Switch.patrolled, "3")
 
         return event_text_adjust(
             Cat,
@@ -228,7 +228,7 @@ class Patrol:
             new_cats=self.new_cats,
             clan=game.clan,
             other_clan=self.other_clan,
-            chosen_lifegen_cats=self.patrol_event.chosen_lifegen_cats
+            chosen_lifegen_cats=self.patrol_event.chosen_lifegen_cats,
         )
 
     def proceed_patrol(
@@ -253,19 +253,24 @@ class Patrol:
                         new_cats=self.new_cats,
                         clan=game.clan,
                         other_clan=self.other_clan,
-                        chosen_lifegen_cats=self.patrol_event.chosen_lifegen_cats
+                        chosen_lifegen_cats=self.patrol_event.chosen_lifegen_cats,
                     ),
                     "",
                     [],
                     None,
                 )
-                    
+
             else:
                 return "Error - no event chosen", "", None
 
-        return self.determine_outcome(antagonize=(path == "antag"), chosen_lifegen_cats = self.patrol_event.chosen_lifegen_cats)
+        return self.determine_outcome(
+            antagonize=(path == "antag"),
+            chosen_lifegen_cats=self.patrol_event.chosen_lifegen_cats,
+        )
 
-    def add_patrol_cats(self, patrol_cats: List[Cat], clan: Clan, patrol_type: str = None) -> None:
+    def add_patrol_cats(
+        self, patrol_cats: List[Cat], clan: Clan, patrol_type: str = None
+    ) -> None:
         """Add the list of cats to the patrol class and handles to set all needed values.
 
         Parameters
@@ -327,7 +332,7 @@ class Patrol:
             elif switch_get_value(Switch.patrol_category) == "date":
                 game.dated_cats.append(cat.ID)
 
-        #PATROL LEADER AND RANDOM CAT CAN NOT CHANGE AFTER SET-UP
+        # PATROL LEADER AND RANDOM CAT CAN NOT CHANGE AFTER SET-UP
 
         # DETERMINE PATROL LEADER
         # sets medcat as leader if they're in the patrol
@@ -352,11 +357,12 @@ class Patrol:
         else:
             # Get the oldest cat
             possible_leader = [
-                i for i in self.patrol_cats
+                i
+                for i in self.patrol_cats
                 if not i.status.rank.is_any_apprentice_rank()
             ]
             if possible_leader:
-                # Flip a coin to pick the most experience, or oldest. 
+                # Flip a coin to pick the most experience, or oldest.
                 if randint(0, 1):
                     possible_leader.sort(key=lambda x: x.moons)
                 else:
@@ -370,28 +376,34 @@ class Patrol:
         else:
             self.other_clan = None
 
-        if switch_get_value(Switch.patrol_category) != 'clangen':
+        if switch_get_value(Switch.patrol_category) != "clangen":
             self.patrol_leader = game.clan.your_cat
             # youre always da leader here
-            
+
         # DETERMINE RANDOM CAT
         # Find random cat
-        if switch_get_value(Switch.patrol_category) == 'date':
+        if switch_get_value(Switch.patrol_category) == "date":
             for date_cat in patrol_cats:
                 if date_cat.ID != game.clan.your_cat.ID:
                     self.random_cat = date_cat
                     break
-        elif len(patrol_cats) > 1 and switch_get_value(Switch.patrol_category) == 'df':
+        elif len(patrol_cats) > 1 and switch_get_value(Switch.patrol_category) == "df":
             # LG: if theres df cats on the patrol, r_c will always be DF
             # to make writing a bit more open
-            df_patrol_cats = [i for i in patrol_cats if (
-                i.status.group == CatGroup.DARK_FOREST and
-                i.ID != game.clan.your_cat.ID
-                )]
+            df_patrol_cats = [
+                i
+                for i in patrol_cats
+                if (
+                    i.status.group == CatGroup.DARK_FOREST
+                    and i.ID != game.clan.your_cat.ID
+                )
+            ]
             if df_patrol_cats:
                 self.random_cat = choice(df_patrol_cats)
             else:
-                possible_random_cats = [i for i in patrol_cats if i.ID != game.clan.your_cat.ID]
+                possible_random_cats = [
+                    i for i in patrol_cats if i.ID != game.clan.your_cat.ID
+                ]
                 self.random_cat = choice(possible_random_cats)
         # Find random cat
         else:
@@ -402,7 +414,8 @@ class Patrol:
                         [
                             i
                             for i in self.patrol_cats
-                            if i != self.patrol_leader and i not in self.patrol_apprentices
+                            if i != self.patrol_leader
+                            and i not in self.patrol_apprentices
                         ]
                     )
                 # if no adults, grab anyone
@@ -412,7 +425,6 @@ class Patrol:
                     )
             else:
                 self.random_cat = choice(patrol_cats)
-
 
         if self.random_cat is None and self.patrol_cats:
             self.random_cat = (
@@ -446,7 +458,6 @@ class Patrol:
         biome_dir = f"{biome}/"
         leaf = f"{season}"
         self.update_resources(biome_dir, leaf)
-        
 
         possible_patrols = []
         # This is for debugging purposes, load-in *ALL* the possible patrols when debug_override_patrol_stat_requirements is true. (May require longer loading time)
@@ -553,7 +564,7 @@ class Patrol:
             welcoming_rep = True
             chance = welcoming_chance
 
-        if switch_get_value(Switch.patrol_category) == 'clangen':
+        if switch_get_value(Switch.patrol_category) == "clangen":
             possible_patrols.extend(self.generate_patrol_events(self.HUNTING))
             possible_patrols.extend(self.generate_patrol_events(self.HUNTING_SZN))
             possible_patrols.extend(self.generate_patrol_events(self.BORDER))
@@ -566,7 +577,7 @@ class Patrol:
             possible_patrols.extend(self.generate_patrol_events(self.BORDER_GEN))
             possible_patrols.extend(self.generate_patrol_events(self.TRAINING_GEN))
             possible_patrols.extend(self.generate_patrol_events(self.MEDCAT_GEN))
-        elif switch_get_value(Switch.patrol_category) == 'lifegen':
+        elif switch_get_value(Switch.patrol_category) == "lifegen":
             status = game.clan.your_cat.status.rank
             if status == CatRank.KITTEN:
                 possible_patrols.extend(self.generate_patrol_events(self.KIT_LIFEGEN))
@@ -574,39 +585,64 @@ class Patrol:
                 possible_patrols.extend(self.generate_patrol_events(self.GEN_LIFEGEN))
 
                 if status == CatRank.APPRENTICE:
-                    possible_patrols.extend(self.generate_patrol_events(self.APP_LIFEGEN))
+                    possible_patrols.extend(
+                        self.generate_patrol_events(self.APP_LIFEGEN)
+                    )
                 elif status == CatRank.MEDICINE_APPRENTICE:
-                    possible_patrols.extend(self.generate_patrol_events(self.MEDAPP_LIFEGEN))
+                    possible_patrols.extend(
+                        self.generate_patrol_events(self.MEDAPP_LIFEGEN)
+                    )
                 elif status == CatRank.MEDIATOR_APPRENTICE:
-                    possible_patrols.extend(self.generate_patrol_events(self.MEDIATORAPP_LIFEGEN))
+                    possible_patrols.extend(
+                        self.generate_patrol_events(self.MEDIATORAPP_LIFEGEN)
+                    )
                 elif status == CatRank.QUEENS_APPRENTICE:
-                    possible_patrols.extend(self.generate_patrol_events(self.QUEENAPP_LIFEGEN))
+                    possible_patrols.extend(
+                        self.generate_patrol_events(self.QUEENAPP_LIFEGEN)
+                    )
                 elif status == CatRank.QUEEN:
-                    possible_patrols.extend(self.generate_patrol_events(self.QUEEN_LIFEGEN))
+                    possible_patrols.extend(
+                        self.generate_patrol_events(self.QUEEN_LIFEGEN)
+                    )
                 elif status == CatRank.MEDICINE_CAT:
-                    possible_patrols.extend(self.generate_patrol_events(self.MED_LIFEGEN))
+                    possible_patrols.extend(
+                        self.generate_patrol_events(self.MED_LIFEGEN)
+                    )
                 elif status == CatRank.MEDIATOR:
-                    possible_patrols.extend(self.generate_patrol_events(self.MEDIATOR_LIFEGEN))
+                    possible_patrols.extend(
+                        self.generate_patrol_events(self.MEDIATOR_LIFEGEN)
+                    )
                 elif status == CatRank.DEPUTY:
-                    possible_patrols.extend(self.generate_patrol_events(self.DEPUTY_LIFEGEN))
+                    possible_patrols.extend(
+                        self.generate_patrol_events(self.DEPUTY_LIFEGEN)
+                    )
                 elif status == CatRank.LEADER:
-                    possible_patrols.extend(self.generate_patrol_events(self.LEADER_LIFEGEN))
+                    possible_patrols.extend(
+                        self.generate_patrol_events(self.LEADER_LIFEGEN)
+                    )
                 elif status == CatRank.ELDER:
-                    possible_patrols.extend(self.generate_patrol_events(self.ELDER_LIFEGEN))
+                    possible_patrols.extend(
+                        self.generate_patrol_events(self.ELDER_LIFEGEN)
+                    )
                 else:
-                    possible_patrols.extend(self.generate_patrol_events(self.WARRIOR_LIFEGEN))
-        elif switch_get_value(Switch.patrol_category) == 'date':
+                    possible_patrols.extend(
+                        self.generate_patrol_events(self.WARRIOR_LIFEGEN)
+                    )
+        elif switch_get_value(Switch.patrol_category) == "date":
             possible_patrols.extend(self.generate_patrol_events(self.DATE_LIFEGEN))
         else:
             possible_patrols.extend(self.generate_patrol_events(self.DF_LIFEGEN))
 
-        if game_setting_disaster and switch_get_value(Switch.patrol_category) == 'clangen':
+        if (
+            game_setting_disaster
+            and switch_get_value(Switch.patrol_category) == "clangen"
+        ):
             dis_chance = int(random.getrandbits(3))  # disaster patrol chance
             if dis_chance == 1:
                 possible_patrols.extend(self.generate_patrol_events(self.DISASTER))
 
         # new cat patrols
-        if chance == 1 and switch_get_value(Switch.patrol_category) == 'clangen':
+        if chance == 1 and switch_get_value(Switch.patrol_category) == "clangen":
             if welcoming_rep:
                 possible_patrols.extend(
                     self.generate_patrol_events(self.NEW_CAT_WELCOMING)
@@ -619,7 +655,7 @@ class Patrol:
                 )
 
         # other Clan patrols
-        if other_clan and switch_get_value(Switch.patrol_category) == 'clangen':
+        if other_clan and switch_get_value(Switch.patrol_category) == "clangen":
             if clan_neutral:
                 possible_patrols.extend(self.generate_patrol_events(self.OTHER_CLAN))
             elif clan_allies:
@@ -676,7 +712,6 @@ class Patrol:
                     f"is not found. Check output for reason."
                 )
         return final_patrols, final_romance_patrols
-            
 
     def _check_constraints(self, patrol: PatrolEvent) -> bool:
         if not filter_relationship_type(
@@ -812,12 +847,14 @@ class Patrol:
             for patrol in possible_patrols:
                 # LG
                 if switch_get_value(Switch.patrol_category) == "clangen":
-                # we dont have enough patrols to rely on the frequency like that......
-                # ---
+                    # we dont have enough patrols to rely on the frequency like that......
+                    # ---
                     if (
                         patrol.frequency != chosen_frequency
                         and patrol.patrol_id
-                        != constants.CONFIG["patrol_generation"]["debug_ensure_patrol_id"]
+                        != constants.CONFIG["patrol_generation"][
+                            "debug_ensure_patrol_id"
+                        ]
                     ):
                         continue
                 # if not self._check_constraints(patrol):
@@ -828,11 +865,13 @@ class Patrol:
                 if patrol.lifegen_cat_constraints:
                     cat_dict = choose_random_cats(
                         cats_block=patrol.lifegen_cat_constraints,
-                        rel_block=patrol.lifegen_relationship_constraints if patrol.lifegen_relationship_constraints else [],
+                        rel_block=patrol.lifegen_relationship_constraints
+                        if patrol.lifegen_relationship_constraints
+                        else [],
                         your_cat=game.clan.your_cat,
                         the_cat=None,
-                        cat_dict= {"p_l": game.clan.your_cat}
-                        )
+                        cat_dict={"p_l": game.clan.your_cat},
+                    )
                     if not cat_dict:
                         continue
                     for abbrev, cat_obj in cat_dict.items():
@@ -931,30 +970,43 @@ class Patrol:
 
                 else:
                     if switch_get_value(Switch.patrol_category) == "lifegen":
-                        if not any(p in patrol.tags for p in ["sc_lifegen", "ur_lifegen", "df_lifegen"]) and game.clan.your_cat.dead:
+                        if (
+                            not any(
+                                p in patrol.tags
+                                for p in ["sc_lifegen", "ur_lifegen", "df_lifegen"]
+                            )
+                            and game.clan.your_cat.dead
+                        ):
                             continue
-                        if "sc_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.STARCLAN):
+                        if "sc_lifegen" in patrol.tags and (
+                            not game.clan.your_cat.status.group == CatGroup.STARCLAN
+                        ):
                             continue
-                        elif "df_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.DARK_FOREST):
+                        elif "df_lifegen" in patrol.tags and (
+                            not game.clan.your_cat.status.group == CatGroup.DARK_FOREST
+                        ):
                             continue
-                        elif "ur_lifegen" in patrol.tags and (not game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE):
+                        elif "ur_lifegen" in patrol.tags and (
+                            not game.clan.your_cat.status.group
+                            == CatGroup.UNKNOWN_RESIDENCE
+                        ):
                             continue
                     if switch_get_value(Switch.patrol_category) == "df":
                         if len(self.patrol_cats) > 1:
                             other_cat = self.patrol_cats[1]
-                            
+
                             if not other_cat.joined_df:
                                 if "fellowtrainee" in patrol.tags:
                                     continue
-                            
+
                             else:
                                 if "fellowtrainee" not in patrol.tags:
                                     continue
 
                         if "mc_death" in patrol.tags:
-                            if random.randint(1,8) != 1:
+                            if random.randint(1, 8) != 1:
                                 continue
-                                
+
                         if "shunned" in patrol.tags:
                             if not game.clan.your_cat.status.is_shunned():
                                 continue
@@ -962,7 +1014,7 @@ class Patrol:
                         if "shunned" in patrol.tags:
                             if not game.clan.your_cat.status.is_shunned():
                                 continue
-                        
+
                         if "shunned" not in patrol.tags and "df" not in patrol.tags:
                             if game.clan.your_cat.status.is_shunned():
                                 continue
@@ -970,7 +1022,10 @@ class Patrol:
                         if "df" in patrol.tags:
                             if len(self.patrol_cats) > 1:
                                 other_cat = self.patrol_cats[1]
-                                if not game.clan.your_cat.joined_df or not other_cat.joined_df:
+                                if (
+                                    not game.clan.your_cat.joined_df
+                                    or not other_cat.joined_df
+                                ):
                                     # need both cats to be trainees for goop romance
                                     continue
 
@@ -988,9 +1043,8 @@ class Patrol:
                     romantic_patrols.append(patrol)
                 else:
                     filtered_patrols.append(patrol)
-                
+
                 checks += 1
-                
 
             if not filtered_patrols:
                 # if we've circled back around to 4 then we need to reset the used patrols
@@ -1001,7 +1055,6 @@ class Patrol:
                     used_frequencies.add(chosen_frequency)
                     chosen_frequency = find_new_frequency(used_frequencies)
 
-            
         # make sure the hunting patrols are balanced
         if patrol_type == "hunting":
             filtered_patrols = self.balance_hunting(filtered_patrols)
@@ -1119,7 +1172,6 @@ class Patrol:
                 else self.patrol_cats[0]
             )
 
-
         # First Step - Filter outcomes and pick a fail and success outcome
         success_outcomes = (
             self.patrol_event.antag_success_outcomes
@@ -1168,21 +1220,39 @@ class Patrol:
 
         final_event, success = self.calculate_success(chosen_success, chosen_failure)
 
-        if success and switch_get_value(Switch.patrol_category) == 'date':
+        if success and switch_get_value(Switch.patrol_category) == "date":
             try:
-                game.clan.your_cat.relationships[self.random_cat.ID].romance += randint(1,5)
-                game.clan.your_cat.relationships[self.random_cat.ID].trust += randint(1,5)
-                game.clan.your_cat.relationships[self.random_cat.ID].comfort += randint(1,5)
-                self.random_cat.relationships[game.clan.your_cat.ID].romance += randint(1,5)
-                self.random_cat.relationships[game.clan.your_cat.ID].trust += randint(1,5)
-                self.random_cat.relationships[game.clan.your_cat.ID].comfort += randint(1,5)
+                game.clan.your_cat.relationships[self.random_cat.ID].romance += randint(
+                    1, 5
+                )
+                game.clan.your_cat.relationships[self.random_cat.ID].trust += randint(
+                    1, 5
+                )
+                game.clan.your_cat.relationships[self.random_cat.ID].comfort += randint(
+                    1, 5
+                )
+                self.random_cat.relationships[game.clan.your_cat.ID].romance += randint(
+                    1, 5
+                )
+                self.random_cat.relationships[game.clan.your_cat.ID].trust += randint(
+                    1, 5
+                )
+                self.random_cat.relationships[game.clan.your_cat.ID].comfort += randint(
+                    1, 5
+                )
             except:
                 print("ERROR: handling relationship changes in date patrol")
-        elif not success and switch_get_value(Switch.patrol_category) == 'date':
+        elif not success and switch_get_value(Switch.patrol_category) == "date":
             try:
-                self.random_cat.relationships[game.clan.your_cat.ID].romance -= randint(1,5)
-                self.random_cat.relationships[game.clan.your_cat.ID].trust -= randint(1,5)
-                self.random_cat.relationships[game.clan.your_cat.ID].comfort -= randint(1,5)
+                self.random_cat.relationships[game.clan.your_cat.ID].romance -= randint(
+                    1, 5
+                )
+                self.random_cat.relationships[game.clan.your_cat.ID].trust -= randint(
+                    1, 5
+                )
+                self.random_cat.relationships[game.clan.your_cat.ID].comfort -= randint(
+                    1, 5
+                )
             except:
                 print("ERROR: handling relationship changes in date patrol")
         print(f"PATROL ID: {self.patrol_event.patrol_id} | SUCCESS: {success}")
@@ -1208,12 +1278,13 @@ class Patrol:
             ):
                 game.clan.your_cat.graduated_df = True
 
-
         print(f"PATROL ID: {self.patrol_event.patrol_id} | SUCCESS: {success}")
-        
+
         # Run the chosen outcome
         self.chosen_lifegen_cats = chosen_lifegen_cats
-        return final_event.execute_outcome(self, chosen_lifegen_cats=chosen_lifegen_cats)
+        return final_event.execute_outcome(
+            self, chosen_lifegen_cats=chosen_lifegen_cats
+        )
 
     def calculate_success(
         self, success_outcome: PatrolOutcome, fail_outcome: PatrolOutcome
@@ -1332,25 +1403,27 @@ class Patrol:
             # LG
             cluster1, cluster2 = get_cluster(kitty.personality.trait)
             if (
-                cluster1 in success_outcome.stat_cluster or
-                cluster2 and cluster2 in success_outcome.stat_cluster
-                ):
+                cluster1 in success_outcome.stat_cluster
+                or cluster2
+                and cluster2 in success_outcome.stat_cluster
+            ):
                 success_chance += constants.CONFIG["patrol_generation"][
                     "win_stat_cat_modifier"
                 ]
 
             if (
-                cluster1 in fail_outcome.stat_cluster or
-                cluster2 and cluster2 in fail_outcome.stat_cluster
-                ):
+                cluster1 in fail_outcome.stat_cluster
+                or cluster2
+                and cluster2 in fail_outcome.stat_cluster
+            ):
                 success_chance += constants.CONFIG["patrol_generation"][
                     "fail_stat_cat_modifier"
                 ]
             # ---
 
             skill_updates += f"{kitty.name} updated chance to {success_chance} | "
-        if switch_get_value(Switch.patrol_category) == 'date':
-            c = random.randint(1,100)
+        if switch_get_value(Switch.patrol_category) == "date":
+            c = random.randint(1, 100)
             success_chance = 40
             date = None
             you = game.clan.your_cat
@@ -1367,14 +1440,14 @@ class Patrol:
                     success_chance += 20
                 elif date.relationships.get(you.ID).romance > 10:
                     success_chance += 10
-                
+
                 if date.relationships.get(you.ID).like > 40:
                     success_chance += 15
                 elif date.relationships.get(you.ID).like > 30:
                     success_chance += 10
                 elif date.relationships.get(you.ID).like > 20:
                     success_chance += 5
-                    
+
                 if date.relationships.get(you.ID).like < -50:
                     success_chance -= 50
                 if date.relationships.get(you.ID).like < -30:
@@ -1383,7 +1456,7 @@ class Patrol:
                     success_chance -= 30
                 if date.relationships.get(you.ID).like < -0:
                     success_chance -= 10
-                success_chance += random.randint(-20,20)
+                success_chance += random.randint(-20, 20)
             success_chance = min(90, success_chance)
             success_chance = max(success_chance, 10)
             print(f"c: {c} chance: {success_chance}")
@@ -1417,7 +1490,7 @@ class Patrol:
         return (success_outcome if success else fail_outcome, success)
 
     def update_resources(self, biome_dir, leaf):
-        if switch_get_value(Switch.patrol_category) == 'lifegen':
+        if switch_get_value(Switch.patrol_category) == "lifegen":
             resources = [
                 # LIFEGEN
                 ("GEN_LIFEGEN", "lifegen/general.json"),
@@ -1433,16 +1506,11 @@ class Patrol:
                 ("DEPUTY_LIFEGEN", "lifegen/deputy.json"),
                 ("LEADER_LIFEGEN", "lifegen/leader.json"),
                 ("ELDER_LIFEGEN", "lifegen/elder.json"),
-
             ]
-        elif switch_get_value(Switch.patrol_category) == 'df':
-            resources = [
-                ("DF_LIFEGEN", "lifegen/df.json")
-            ]
-        elif switch_get_value(Switch.patrol_category) == 'date':
-            resources = [
-                ("DATE_LIFEGEN", "lifegen/date.json")
-            ]
+        elif switch_get_value(Switch.patrol_category) == "df":
+            resources = [("DF_LIFEGEN", "lifegen/df.json")]
+        elif switch_get_value(Switch.patrol_category) == "date":
+            resources = [("DATE_LIFEGEN", "lifegen/date.json")]
         else:
             resources = [
                 ("HUNTING_SZN", f"{biome_dir}hunting/{leaf}.json"),

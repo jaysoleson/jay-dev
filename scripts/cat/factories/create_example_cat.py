@@ -13,11 +13,11 @@ if TYPE_CHECKING:
 
 
 def create_example_cats(
-        majority_rank: CatRank,
-        rank_weights: dict,
-        lifegen_kitten_creation=False,
-        max_cats=12
-        ) -> list["Cat"]:
+    majority_rank: CatRank,
+    rank_weights: dict,
+    lifegen_kitten_creation=False,
+    max_cats=12,
+) -> list["Cat"]:
     majority_rank_cats = sample(range(max_cats), 3)
 
     chosen_cats = []

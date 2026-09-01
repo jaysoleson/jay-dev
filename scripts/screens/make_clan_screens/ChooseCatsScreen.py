@@ -82,7 +82,7 @@ class ChooseCatsScreen(MakeClanScreenBase):
                     rank_weights=self.get_config_during_creation(
                         "clan_creation.rank_weights"
                     ),
-                    lifegen_kitten_creation=True
+                    lifegen_kitten_creation=True,
                 ),
             )
 
@@ -316,11 +316,7 @@ class ChooseCatsScreen(MakeClanScreenBase):
     def create_clan_members(self):
         # EDITED FOR LG: used to be choose_random_cats
         # now creates the rest of the clan
-        size_dict = {
-            "small": 10,
-            "medium": 15,
-            "large": 20
-        }
+        size_dict = {"small": 10, "medium": 15, "large": 20}
         switch_set_value(
             Switch.future_clan_cats,
             create_example_cats(
@@ -331,7 +327,7 @@ class ChooseCatsScreen(MakeClanScreenBase):
                     "clan_creation.rank_weights"
                 ),
                 lifegen_kitten_creation=False,
-                max_cats=size_dict[self.clan_info.starting_size]
+                max_cats=size_dict[self.clan_info.starting_size],
             ),
         )
         possible_cats = switch_get_value(Switch.future_clan_cats)
@@ -827,7 +823,6 @@ class ChooseCatsScreen(MakeClanScreenBase):
         )
         self.elements["cat_info"].show()
 
-    
     def _add_to_cat_column(self, cat, index, container, position_offset):
         """Places the cat into its column within the given container"""
 

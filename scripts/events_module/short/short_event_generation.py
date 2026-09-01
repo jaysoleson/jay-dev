@@ -200,7 +200,7 @@ def find_needed_events(frequency, event_type=None, main_cat=None) -> list:
         # biome specific events
         event_list.extend(generate_event_objects(event_type, biome, frequency))
 
-        # general (non-biome) events 
+        # general (non-biome) events
         event_list.extend(generate_event_objects(event_type, "general", frequency))
 
     return event_list

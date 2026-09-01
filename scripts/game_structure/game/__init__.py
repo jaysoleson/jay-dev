@@ -29,7 +29,7 @@ mediated = []  # Keep track of which couples have been mediated this moon.
 just_died = []  # keeps track of which cats died this moon via die()
 
 # LG
-told_story = [] # keeps track of who has been told a story by the elders this moon
+told_story = []  # keeps track of who has been told a story by the elders this moon
 # ---
 
 dead_cats_to_grieve = (
@@ -63,7 +63,6 @@ used_group_IDs: dict = {
     CatGroup.STARCLAN_ID: CatGroup.STARCLAN,
     CatGroup.UNKNOWN_RESIDENCE_ID: CatGroup.UNKNOWN_RESIDENCE,
     CatGroup.DARK_FOREST_ID: CatGroup.DARK_FOREST,
-
     # LG
     CatGroup.ROGUE_GROUP_ID: CatGroup.ROGUE_GROUP,
     CatGroup.LONER_GROUP_ID: CatGroup.LONER_GROUP,
@@ -232,11 +231,10 @@ def reset_used_group_IDs():
             CatGroup.STARCLAN,
             CatGroup.DARK_FOREST,
             CatGroup.UNKNOWN_RESIDENCE,
-
             # LG
             CatGroup.ROGUE_GROUP,
             CatGroup.LONER_GROUP,
-            CatGroup.HOUSEHOLD
+            CatGroup.HOUSEHOLD,
         ):
             used_group_IDs.pop(ID)
 

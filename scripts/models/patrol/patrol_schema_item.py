@@ -62,10 +62,9 @@ class PatrolSchemaItem(BaseModel):
     )
     relationships: Union[List, MISSING] = Field(
         MISSING,
-        description="LIFEGEN: Specified relationships between randomly mentioned cats."
+        description="LIFEGEN: Specified relationships between randomly mentioned cats.",
     )
     # ---
-
 
     frequency: int = Field(
         ...,

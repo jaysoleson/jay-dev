@@ -19,16 +19,16 @@ from scripts.ui.theme import get_text_box_theme
 from scripts.cat.cats import Cat
 from scripts.cat.names import names
 
+
 class ChooseYourNameScreen(MakeClanScreenBase):
     path = "resources/images/pick_clan_screen"
     ui_images = {
         "screen_art": pygame.image.load(f"{path}/your_name_screen.png").convert_alpha(),
     }
+
     def __init__(self, name="custom_cat_screen"):
         super().__init__(name)
         self.prefixes = names.names_dict["clan_prefixes"]
-
-        
 
     def screen_switches(self):
         super().screen_switches()
@@ -44,15 +44,19 @@ class ChooseYourNameScreen(MakeClanScreenBase):
         )
         self.elements["background"].disable()
 
-        self.elements["previous_step"].set_relative_position(ui_scale_dimensions((253, 500)))
+        self.elements["previous_step"].set_relative_position(
+            ui_scale_dimensions((253, 500))
+        )
         self.elements["next_step"].set_relative_position(ui_scale_dimensions((0, 500)))
 
         self.elements["your_cat_image"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((0, -50), (160, 160))),
-            pygame.transform.scale(self.clan_info.your_cat.sprite, ui_scale_dimensions((160, 160))),
+            pygame.transform.scale(
+                self.clan_info.your_cat.sprite, ui_scale_dimensions((160, 160))
+            ),
             starting_height=1,
             manager=MANAGER,
-            anchors={"centerx": "centerx", "centery": "centery"}
+            anchors={"centerx": "centerx", "centery": "centery"},
         )
 
         # NAME
@@ -62,13 +66,13 @@ class ChooseYourNameScreen(MakeClanScreenBase):
             get_button_dict(ButtonStyles.ICON, (34, 34)),
             object_id="@buttonstyles_icon",
             manager=MANAGER,
-            sound_id="dice_roll"
+            sound_id="dice_roll",
         )
 
         self.elements["name_entry"] = pygame_gui.elements.UITextEntryLine(
             ui_scale(pygame.Rect((330, 400), (140, 29))),
             manager=MANAGER,
-            initial_text=self.clan_info.your_cat.name.prefix
+            initial_text=self.clan_info.your_cat.name.prefix,
         )
         self.elements["name_entry"].set_forbidden_characters("forbidden_file_path")
         self.elements["name_entry"].set_text_length_limit(15)
@@ -77,7 +81,7 @@ class ChooseYourNameScreen(MakeClanScreenBase):
             "kit",
             ui_scale(pygame.Rect((470, 400), (100, 29))),
             object_id=get_text_box_theme("#text_box_30"),
-            manager=MANAGER
+            manager=MANAGER,
         )
 
     def handle_event(self, event):
@@ -108,7 +112,7 @@ class ChooseYourNameScreen(MakeClanScreenBase):
             self.elements["next_step"].enable()
         else:
             self.elements["next_step"].disable()
-    
+
     def on_use(self):
         super().on_use()
         self.update_buttons()

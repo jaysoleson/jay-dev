@@ -21,7 +21,7 @@ def load_paths():
 def reformat():
     for path in file_set:
         new_path = root_dir + "/" + path
-       
+
         new_thoughts = []
         try:
             with open(new_path, "r") as read_file:
@@ -100,7 +100,7 @@ def reformat():
                 r_c = {}
                 if t.get("random_status_constraint"):
                     r_c["status"] = t.get("random_status_constraint")
-                
+
                 # LG
                 if t.get("random_cluster_constraint"):
                     r_c["cluster"] = t.get("random_cluster_constraint")
@@ -154,9 +154,9 @@ def reformat():
                         "skill": t.get("random_skill_constraint"),
                     }
 
-                if t.get("has_injuries", {}).get("r_c") or t.get("perm_conditions", {}).get(
-                    "r_c"
-                ):
+                if t.get("has_injuries", {}).get("r_c") or t.get(
+                    "perm_conditions", {}
+                ).get("r_c"):
                     health: dict = {"condition": []}
                     if t.get("has_injuries", {}).get("r_c"):
                         health["condition"] = t["has_injuries"]["r_c"]

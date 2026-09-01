@@ -343,7 +343,7 @@ class RoleScreen(Screens):
             CatRank.NEWBORN: "kit_icon.png",
             CatRank.ELDER: "elder_icon.png",
             CatRank.QUEEN: "elder_icon.png",
-            CatRank.QUEENS_APPRENTICE: "kit_icon.png"
+            CatRank.QUEENS_APPRENTICE: "kit_icon.png",
         }
 
         if self.the_cat.status.rank in paths:

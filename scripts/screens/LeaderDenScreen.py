@@ -1136,14 +1136,16 @@ class LeaderDenScreen(Screens):
         i = 0
 
         for cat in display_cats:
-            if get_clan_setting("show fav")  and cat.favourite != 0:
+            if get_clan_setting("show fav") and cat.favourite != 0:
                 self.fav[str(i)] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((5 + pos_x, 0 + pos_y), (50, 50))),
                     pygame.transform.scale(
                         pygame.image.load(
-                            f"resources/images/fav_marker_{cat.favourite}.png").convert_alpha(),
-                        (50, 50)),
-                        container=self.outsider_cat_list_container
+                            f"resources/images/fav_marker_{cat.favourite}.png"
+                        ).convert_alpha(),
+                        (50, 50),
+                    ),
+                    container=self.outsider_cat_list_container,
                 )
                 self.fav[str(i)].disable()
             self.outsider_cat_buttons[f"sprite{str(i)}"] = UISpriteButton(

@@ -729,7 +729,7 @@ class TestSocialAssignment(unittest.TestCase):
             CatRank.LEADER,
             CatRank.ELDER,
             CatRank.QUEEN,
-            CatRank.QUEENS_APPRENTICE
+            CatRank.QUEENS_APPRENTICE,
         )
 
         for rank in clancat_ranks:
@@ -743,5 +743,7 @@ class TestSocialAssignment(unittest.TestCase):
 
         for rank, social in zip(outsider_ranks, outsider_social):
             with self.subTest("outsider social assignment"):
-                cat = cat_factory.create_cat(status_dict={"rank": rank}, disable_random=True)
+                cat = cat_factory.create_cat(
+                    status_dict={"rank": rank}, disable_random=True
+                )
                 self.assertTrue(cat.status.social == social)

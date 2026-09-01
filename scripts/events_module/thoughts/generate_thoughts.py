@@ -191,7 +191,7 @@ def _load_allowed_thoughts(thought_type: CatThought, main_cat: "Cat"):
 
     # GUIDES
     if thought_type == CatThought.IS_GUIDE:
-    # LG EDITED
+        # LG EDITED
         if game.clan.followingsc:
             thoughts = load_lang_resource(f"{start_path}/starclan.json")
         else:

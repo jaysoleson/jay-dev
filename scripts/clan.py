@@ -32,7 +32,11 @@ from scripts.cat.save_load import (
     prune_dead_relationships,
 )
 from scripts.clan_package.clan_names import get_possible_clan_names
-from scripts.clan_package.settings import save_clan_settings, load_clan_settings, get_clan_setting
+from scripts.clan_package.settings import (
+    save_clan_settings,
+    load_clan_settings,
+    get_clan_setting,
+)
 from scripts.game_structure.game.settings import game_setting_get
 from scripts.clan_package.settings.clan_settings import (
     reset_loaded_clan_settings,
@@ -69,12 +73,8 @@ from scripts.clan_package.get_clan_cats import (
 )
 from scripts.screens.screens_core.screens_core import rebuild_top_menu_buttons
 
-from scripts.events_module.consequences import (
-    create_new_cat
-)
-from scripts.clan_package.get_clan_cats import (
-    get_possible_mates
-)
+from scripts.events_module.consequences import create_new_cat
+from scripts.clan_package.get_clan_cats import get_possible_mates
 
 logger = logging.getLogger(__name__)
 
@@ -156,12 +156,12 @@ class Clan:
         self.biome = biome
         self.override_biome = None
         self.camp_bg = camp_bg
-       
+
         self.rogue_group_bg = rogue_group_bg
         self.loner_group_bg = loner_group_bg
         self.household_bg = household_bg
         self.no_group_bg = no_group_bg
-        
+
         self.chosen_symbol = symbol
         self.game_mode = game_mode
         self.pregnancy_data = {}
@@ -170,7 +170,7 @@ class Clan:
         self.demon = None
         # ^^ dark forest guide
         self.followingsc = followingsc
-        
+
         self.your_cat = your_cat
         self.murdered = {}
         self.exile_return = False
@@ -320,7 +320,7 @@ class Clan:
                 CatRank.DEPUTY,
                 CatRank.ELDER,
                 CatRank.QUEEN,
-                CatRank.QUEENS_APPRENTICE
+                CatRank.QUEENS_APPRENTICE,
             )
         )
 
@@ -328,21 +328,21 @@ class Clan:
             status_dict={"rank": instructor_rank, "group_ID": CatGroup.STARCLAN_ID},
             backstory=choice(
                 BACKSTORIES["backstory_categories"]["new_sc_guide_backstories"]
-            ) if self.clan_age == "new" else choice(
-                BACKSTORIES["backstory_categories"]["clan_guide_backstories"]
-            ),
+            )
+            if self.clan_age == "new"
+            else choice(BACKSTORIES["backstory_categories"]["clan_guide_backstories"]),
         )
         self.instructor.dead_for = randint(20, 200)
 
         self.add_cat(self.instructor)
-        
+
         self.demon = NewCatFactory.create_cat(
             status_dict={"rank": instructor_rank, "group_ID": CatGroup.DARK_FOREST_ID},
             backstory=choice(
                 BACKSTORIES["backstory_categories"]["new_df_guide_backstories"]
-            ) if self.clan_age == "new" else choice(
-                BACKSTORIES["backstory_categories"]["df_backstories"]
-            ),
+            )
+            if self.clan_age == "new"
+            else choice(BACKSTORIES["backstory_categories"]["df_backstories"]),
         )
 
         self.demon.dead_for = randint(20, 200)
@@ -452,7 +452,7 @@ class Clan:
         if switch_get_value(Switch.game_mode) == "":
             switch_set_value(Switch.game_mode, "classic")
             self.game_mode = "classic"
-        
+
         # makes sure all the settings are at their starting positions
         self._adjust_settings()
 
@@ -460,16 +460,16 @@ class Clan:
         """Generates up to three pairs of mates."""
 
         def get_adult_mateless_cat():
-            alive_cats = [i for i in Cat.all_cats.values() if (
-                i.moons >= 14 and
-                i.status.alive_in_player_clan
-                )
-                ]
+            alive_cats = [
+                i
+                for i in Cat.all_cats.values()
+                if (i.moons >= 14 and i.status.alive_in_player_clan)
+            ]
             if alive_cats:
                 return choice(alive_cats)
             return None
 
-        num_mates = randint(0,3)
+        num_mates = randint(0, 3)
 
         for i in range(num_mates):
             same_age_cats = []
@@ -483,13 +483,11 @@ class Clan:
                     random_cat.set_mate(random_mate_cat)
 
     def generate_families(self):
-
         def get_kit_parent():
-            alive_cats = [i for i in Cat.all_cats.values() if (
-                i.moons >= 20 and
-                i.moons <= 100 and
-                i.status.alive_in_player_clan
-                )
+            alive_cats = [
+                i
+                for i in Cat.all_cats.values()
+                if (i.moons >= 20 and i.moons <= 100 and i.status.alive_in_player_clan)
             ]
 
             for cat in alive_cats:
@@ -503,10 +501,11 @@ class Clan:
             return None
 
         def get_app_parent():
-            alive_cats = [i for i in Cat.all_cats.values() if (
-                i.moons >= 40 and
-                i.moons <= 100 and
-                i.status.alive_in_player_clan)]
+            alive_cats = [
+                i
+                for i in Cat.all_cats.values()
+                if (i.moons >= 40 and i.moons <= 100 and i.status.alive_in_player_clan)
+            ]
 
             for cat in alive_cats:
                 if not cat.inheritance:
@@ -517,18 +516,21 @@ class Clan:
             if alive_cats:
                 return choice(alive_cats)
             return None
-        
+
         clan_kits = find_alive_cats_with_rank(Cat, [CatRank.KITTEN])
-        clan_apps = find_alive_cats_with_rank(Cat, [
-            CatRank.APPRENTICE,
-            CatRank.MEDICINE_APPRENTICE,
-            CatRank.MEDIATOR_APPRENTICE,
-            CatRank.QUEENS_APPRENTICE,
-        ])
+        clan_apps = find_alive_cats_with_rank(
+            Cat,
+            [
+                CatRank.APPRENTICE,
+                CatRank.MEDICINE_APPRENTICE,
+                CatRank.MEDIATOR_APPRENTICE,
+                CatRank.QUEENS_APPRENTICE,
+            ],
+        )
 
         if not clan_kits and not clan_apps:
             return
-        
+
         if clan_kits:
             for kit in clan_kits:
                 if not kit.inheritance:
@@ -542,16 +544,27 @@ class Clan:
                         if parent.mate:
                             kit.parent2 = choice(parent.mate)
                             if not Cat.all_cats.get(kit.parent2).inheritance:
-                                Cat.all_cats.get(kit.parent2).inheritance = Inheritance(Cat.all_cats.get(kit.parent2))
-                            Cat.all_cats.get(kit.parent2).inheritance.update_inheritance()
+                                Cat.all_cats.get(kit.parent2).inheritance = Inheritance(
+                                    Cat.all_cats.get(kit.parent2)
+                                )
+                            Cat.all_cats.get(
+                                kit.parent2
+                            ).inheritance.update_inheritance()
 
                         for other_kit in clan_kits:
-                            if other_kit.ID != kit.ID and kit.moons == other_kit.moons and not other_kit.parent1 and other_kit.backstory == "clanborn":
+                            if (
+                                other_kit.ID != kit.ID
+                                and kit.moons == other_kit.moons
+                                and not other_kit.parent1
+                                and other_kit.backstory == "clanborn"
+                            ):
                                 other_kit.parent1 = parent.ID
                                 parent.inheritance.update_inheritance()
                                 if kit.parent2:
                                     other_kit.parent2 = kit.parent2
-                                    Cat.all_cats.get(kit.parent2).inheritance.update_inheritance()
+                                    Cat.all_cats.get(
+                                        kit.parent2
+                                    ).inheritance.update_inheritance()
                                     if not other_kit.inheritance:
                                         other_kit.inheritance = Inheritance(other_kit)
                 kit.inheritance.update_inheritance()
@@ -569,9 +582,13 @@ class Clan:
                         if parent.mate:
                             app.parent2 = choice(parent.mate)
                             if not Cat.all_cats.get(app.parent2).inheritance:
-                                Cat.all_cats.get(app.parent2).inheritance = Inheritance(Cat.all_cats.get(app.parent2))
+                                Cat.all_cats.get(app.parent2).inheritance = Inheritance(
+                                    Cat.all_cats.get(app.parent2)
+                                )
                             app.inheritance.update_inheritance()
-                            Cat.all_cats.get(app.parent2).inheritance.update_inheritance()
+                            Cat.all_cats.get(
+                                app.parent2
+                            ).inheritance.update_inheritance()
 
         for cat in Cat.all_cats.values():
             if not cat.inheritance:
@@ -580,22 +597,26 @@ class Clan:
                 cat.inheritance.update_inheritance()
 
     def populate_sc(self):
-        for i in range(randint(2,5)):
-            random_backstory = choice(["dead1",
-                "dead3",
-                "dead4",
-                "dead6",
-                "dead8",
-                "dead10",
-                "dead12",
-                "dead15"])
+        for i in range(randint(2, 5)):
+            random_backstory = choice(
+                [
+                    "dead1",
+                    "dead3",
+                    "dead4",
+                    "dead6",
+                    "dead8",
+                    "dead10",
+                    "dead12",
+                    "dead15",
+                ]
+            )
             sc_cat = create_new_cat(
                 Cat,
                 new_name=True,
                 alive=False,
                 backstory=random_backstory,
-                original_group=CatGroup.NONE
-                )[0]
+                original_group=CatGroup.NONE,
+            )[0]
             sc_cat.history.beginning = None
             sc_cat.dead_for = randint(20, 200)
             sc_cat.status.add_to_group(CatGroup.STARCLAN_ID)
@@ -605,18 +626,22 @@ class Clan:
             self.add_cat(sc_cat)
 
     def populate_ur(self):
-        for i in range(randint(2,5)):
-            random_backstory = choice(["dead1",
-                "dead2",
-                "dead3",
-                "dead4",
-                "dead5",
-                "dead6",
-                "dead8",
-                "dead9",
-                "dead10",
-                "dead11",
-                "dead12"])
+        for i in range(randint(2, 5)):
+            random_backstory = choice(
+                [
+                    "dead1",
+                    "dead2",
+                    "dead3",
+                    "dead4",
+                    "dead5",
+                    "dead6",
+                    "dead8",
+                    "dead9",
+                    "dead10",
+                    "dead11",
+                    "dead12",
+                ]
+            )
             status = choice([CatRank.LONER, CatRank.KITTYPET])
             ur_cat = create_new_cat(
                 Cat,
@@ -624,31 +649,35 @@ class Clan:
                 alive=False,
                 outside=True,
                 backstory=random_backstory,
-                original_social=CatSocial.LONER
-                )[0]
+                original_social=CatSocial.LONER,
+            )[0]
             ur_cat.history.beginning = None
-            ur_cat.dead_for = randint(20,100)
+            ur_cat.dead_for = randint(20, 100)
             ur_cat.status.add_to_group(CatGroup.UNKNOWN_RESIDENCE_ID)
             self.add_cat(ur_cat)
 
     def populate_df(self):
-        for i in range(randint(2,5)):
-            random_backstory = choice(["dead2",
-                "dead5",
-                "dead7",
-                "dead8",
-                "dead9",
-                "dead11",
-                "dead12",
-                "dead13",
-                "dead14"])
+        for i in range(randint(2, 5)):
+            random_backstory = choice(
+                [
+                    "dead2",
+                    "dead5",
+                    "dead7",
+                    "dead8",
+                    "dead9",
+                    "dead11",
+                    "dead12",
+                    "dead13",
+                    "dead14",
+                ]
+            )
             df_cat = create_new_cat(
                 Cat,
                 new_name=True,
                 alive=False,
                 backstory=random_backstory,
-                original_group=CatGroup.NONE
-                )[0]
+                original_group=CatGroup.NONE,
+            )[0]
             df_cat.history.beginning = None
             df_cat.dead_for = randint(20, 200)
             df_cat.status.add_to_group(CatGroup.DARK_FOREST_ID)
@@ -657,9 +686,8 @@ class Clan:
             )
             self.add_cat(df_cat)
 
-
     def generate_outsiders(self):
-        for i in range(randint(0,5)):
+        for i in range(randint(0, 5)):
             outsider = create_new_cat(
                 Cat,
                 moons=randint(15, 120),
@@ -667,7 +695,7 @@ class Clan:
                 original_social=choice(
                     (CatSocial.LONER, CatSocial.ROGUE, CatSocial.KITTYPET)
                 ),
-                )[0]
+            )[0]
             outsider.history.beginning = None
             self.add_cat(outsider)
 
@@ -675,12 +703,16 @@ class Clan:
         """Generates up to three pairs of mates."""
 
         def get_adult_mateless_cat():
-            alive_cats = [i for i in Cat.all_cats.values() if i.moons >= 14 and not i.dead and not i.mate]
+            alive_cats = [
+                i
+                for i in Cat.all_cats.values()
+                if i.moons >= 14 and not i.dead and not i.mate
+            ]
             if alive_cats:
                 return choice(alive_cats)
             return None
 
-        num_mates = randint(0,3)
+        num_mates = randint(0, 3)
 
         for i in range(num_mates):
             same_age_cats = []
@@ -695,7 +727,11 @@ class Clan:
 
     def generate_outsider_families(self):
         def get_kit_parent():
-            alive_cats = [i for i in Cat.all_cats.values() if i.moons >= 20 and i.moons <= 100 and not i.dead]
+            alive_cats = [
+                i
+                for i in Cat.all_cats.values()
+                if i.moons >= 20 and i.moons <= 100 and not i.dead
+            ]
 
             for cat in alive_cats:
                 if not cat.inheritance:
@@ -708,7 +744,11 @@ class Clan:
             return None
 
         def get_app_parent():
-            alive_cats = [i for i in Cat.all_cats.values() if i.moons >= 40 and i.moons <= 100 and not i.dead]
+            alive_cats = [
+                i
+                for i in Cat.all_cats.values()
+                if i.moons >= 40 and i.moons <= 100 and not i.dead
+            ]
 
             for cat in alive_cats:
                 if not cat.inheritance:
@@ -719,18 +759,21 @@ class Clan:
             if alive_cats:
                 return choice(alive_cats)
             return None
-        
+
         clan_kits = find_alive_cats_with_rank(Cat, [CatRank.NEWBORN, CatRank.KITTEN])
-        clan_apps = find_alive_cats_with_rank(Cat, [
-            CatRank.APPRENTICE,
-            CatRank.MEDICINE_APPRENTICE,
-            CatRank.MEDIATOR_APPRENTICE,
-            CatRank.QUEENS_APPRENTICE,
-        ])
+        clan_apps = find_alive_cats_with_rank(
+            Cat,
+            [
+                CatRank.APPRENTICE,
+                CatRank.MEDICINE_APPRENTICE,
+                CatRank.MEDIATOR_APPRENTICE,
+                CatRank.QUEENS_APPRENTICE,
+            ],
+        )
 
         if not clan_kits and not clan_apps:
             return
-        
+
         if clan_kits:
             for kit in clan_kits:
                 if not kit.inheritance:
@@ -744,16 +787,27 @@ class Clan:
                         if parent.mate:
                             kit.parent2 = choice(parent.mate)
                             if not Cat.all_cats.get(kit.parent2).inheritance:
-                                Cat.all_cats.get(kit.parent2).inheritance = Inheritance(Cat.all_cats.get(kit.parent2))
-                            Cat.all_cats.get(kit.parent2).inheritance.update_inheritance()
+                                Cat.all_cats.get(kit.parent2).inheritance = Inheritance(
+                                    Cat.all_cats.get(kit.parent2)
+                                )
+                            Cat.all_cats.get(
+                                kit.parent2
+                            ).inheritance.update_inheritance()
 
                         for other_kit in clan_kits:
-                            if other_kit.ID != kit.ID and other_kit.ID != game.clan.your_cat.ID and kit.moons == other_kit.moons and not other_kit.parent1:
+                            if (
+                                other_kit.ID != kit.ID
+                                and other_kit.ID != game.clan.your_cat.ID
+                                and kit.moons == other_kit.moons
+                                and not other_kit.parent1
+                            ):
                                 other_kit.parent1 = parent.ID
                                 parent.inheritance.update_inheritance()
                                 if kit.parent2:
                                     other_kit.parent2 = kit.parent2
-                                    Cat.all_cats.get(kit.parent2).inheritance.update_inheritance()
+                                    Cat.all_cats.get(
+                                        kit.parent2
+                                    ).inheritance.update_inheritance()
                                     if not other_kit.inheritance:
                                         other_kit.inheritance = Inheritance(other_kit)
                 kit.inheritance.update_inheritance()
@@ -770,7 +824,9 @@ class Clan:
                     if parent.mate:
                         app.parent2 = choice(parent.mate)
                         if not Cat.all_cats.get(app.parent2).inheritance:
-                            Cat.all_cats.get(app.parent2).inheritance = Inheritance(Cat.all_cats.get(app.parent2))
+                            Cat.all_cats.get(app.parent2).inheritance = Inheritance(
+                                Cat.all_cats.get(app.parent2)
+                            )
                         app.inheritance.update_inheritance()
                         Cat.all_cats.get(app.parent2).inheritance.update_inheritance()
 
@@ -783,37 +839,38 @@ class Clan:
             CatGroup.ROGUE_GROUP_ID: {
                 "range": [0, 5],
                 "social": CatSocial.ROGUE,
-                "rank": CatRank.ROGUE
+                "rank": CatRank.ROGUE,
             },
             CatGroup.LONER_GROUP_ID: {
                 "range": [0, 5],
                 "social": CatSocial.LONER,
-                "rank": CatRank.LONER
+                "rank": CatRank.LONER,
             },
             CatGroup.HOUSEHOLD_ID: {
                 "range": [0, 2],
                 "social": CatSocial.KITTYPET,
-                "rank": CatRank.KITTYPET
-            }
+                "rank": CatRank.KITTYPET,
+            },
         }
 
         if group_ID not in info_dict:
             return
 
-        for i in range(info_dict[group_ID]["range"][0], info_dict[group_ID]["range"][1]):
+        for i in range(
+            info_dict[group_ID]["range"][0], info_dict[group_ID]["range"][1]
+        ):
             new_cat = create_new_cat(
                 Cat,
                 rank=info_dict[group_ID]["rank"],
                 original_social=info_dict[group_ID]["social"],
                 new_name=False,
-                outside=True
-                )[0]
+                outside=True,
+            )[0]
             new_cat.history.beginning = None
             self.add_cat(new_cat)
             new_cat.status.add_to_group(group_ID)
             # print("Adding", new_cat.name, "to your group!", new_cat.status.group, game.clan.your_cat.status.group)
             # print(new_cat.ID)
-        
 
     @staticmethod
     def _adjust_settings():
@@ -949,13 +1006,11 @@ class Clan:
             "displayname": self.prefix,
             "clanage": self.age,
             "biome": self.biome,
-
             "camp_bg": self.camp_bg,
             "rogue_group_bg": self.rogue_group_bg,
             "loner_group_bg": self.loner_group_bg,
             "household_bg": self.household_bg,
             "no_group_bg": self.no_group_bg,
-
             "clan_symbol": self.chosen_symbol,
             "gamemode": self.game_mode,
             "cruel_cards": self.cruel_cards,
@@ -965,7 +1020,7 @@ class Clan:
             "instructor": self.instructor.ID,
             "demon": self.demon.ID,
             "reputation": self.reputation,
-            "following_starclan": self.followingsc, 
+            "following_starclan": self.followingsc,
             "mediated": game.mediated,
             "told_story": game.told_story,
             "starting_season": self.starting_season,
@@ -980,7 +1035,7 @@ class Clan:
             "exile_return": self.exile_return,
             "affair": self.affair,
             "custom_pronouns": self.custom_pronouns,
-            "clan_age": self.clan_age
+            "clan_age": self.clan_age,
         }
 
         # LEADER DATA
@@ -1012,8 +1067,12 @@ class Clan:
         if self.your_cat:
             clan_data["your_cat"] = self.your_cat.ID
         else:
-            alive_clan_cats = [x for x in Cat.all_cats_list if x.status.alive_in_player_clan]
-            clan_data["your_cat"] = choice(alive_clan_cats).ID if alive_clan_cats else None
+            alive_clan_cats = [
+                x for x in Cat.all_cats_list if x.status.alive_in_player_clan
+            ]
+            clan_data["your_cat"] = (
+                choice(alive_clan_cats).ID if alive_clan_cats else None
+            )
 
         if self.focus_cat:
             clan_data["focus_cat"] = self.focus_cat.ID
@@ -1032,8 +1091,8 @@ class Clan:
         clan_data["other_clans"] = [i.save_info() for i in self.all_other_clans]
 
         clan_data["war"] = self.war
-        clan_data['achievements'] = self.achievements
-        clan_data['talks'] = self.talks
+        clan_data["achievements"] = self.achievements
+        clan_data["talks"] = self.talks
         clan_data["disaster"] = self.disaster
         clan_data["disaster_moon"] = self.disaster_moon
         clan_data["focus"] = self.focus
@@ -1084,7 +1143,6 @@ class Clan:
         # can't put this in post initialization bc guide isn't made before that func
         self.add_guide_influence()
         load_clan_settings()
-        
 
         return version_info
 
@@ -1122,24 +1180,24 @@ class Clan:
             encoding="utf-8",
         ) as read_file:  # pylint: disable=redefined-outer-name
             clan_data = read_file.read()
-        clan_data = clan_data.replace('\t', ',')
-        sections = clan_data.split('\n')
+        clan_data = clan_data.replace("\t", ",")
+        sections = clan_data.split("\n")
         if len(sections) == 8:
-            general = sections[0].split(',')
-            leader_info = sections[1].split(',')
-            deputy_info = sections[2].split(',')
-            med_cat_info = sections[3].split(',')
+            general = sections[0].split(",")
+            leader_info = sections[1].split(",")
+            deputy_info = sections[2].split(",")
+            med_cat_info = sections[3].split(",")
             instructor_info = sections[4]
-            members = sections[5].split(',')
+            members = sections[5].split(",")
             demon_info = sections[6]
             other_clans = []
         elif len(sections) == 7:
-            general = sections[0].split(',')
-            leader_info = sections[1].split(',')
-            deputy_info = sections[2].split(',')
-            med_cat_info = sections[3].split(',')
+            general = sections[0].split(",")
+            leader_info = sections[1].split(",")
+            deputy_info = sections[2].split(",")
+            med_cat_info = sections[3].split(",")
             instructor_info = sections[4]
-            members = sections[5].split(',')
+            members = sections[5].split(",")
             demon_info = sections[6]
             other_clans = []
         else:
@@ -1148,7 +1206,7 @@ class Clan:
             deputy_info = 0, 0
             med_cat_info = sections[2].split(",")
             instructor_info = sections[3]
-            members = sections[4].split(',')
+            members = sections[4].split(",")
             demon_info = sections[5]
             other_clans = []
         if len(general) == 9:
@@ -1242,14 +1300,16 @@ class Clan:
         else:
             game.clan.instructor = NewCatFactory.create_cat(
                 status_dict={
-                    "rank": choice((CatRank.WARRIOR, CatRank.WARRIOR, CatRank.QUEEN, CatRank.ELDER)),
+                    "rank": choice(
+                        (CatRank.WARRIOR, CatRank.WARRIOR, CatRank.QUEEN, CatRank.ELDER)
+                    ),
                     "group": CatGroup.STARCLAN,
                 },
             )
             # update_sprite(game.clan.instructor)
             game.clan.instructor.dead = True
             game.clan.add_cat(game.clan.instructor)
-            
+
         if len(sections) > 4:
             if demon_info in Cat.all_cats:
                 game.clan.demon = Cat.all_cats[demon_info]
@@ -1257,7 +1317,14 @@ class Clan:
             else:
                 game.clan.demon = NewCatFactory.create_cat(
                     status_dict={
-                        "rank": choice((CatRank.WARRIOR, CatRank.WARRIOR, CatRank.QUEEN, CatRank.ELDER)),
+                        "rank": choice(
+                            (
+                                CatRank.WARRIOR,
+                                CatRank.WARRIOR,
+                                CatRank.QUEEN,
+                                CatRank.ELDER,
+                            )
+                        ),
                         "group": CatGroup.DARK_FOREST,
                     },
                 )
@@ -1354,7 +1421,9 @@ class Clan:
             your_cat = Cat.all_cats.get(clan_data["your_cat"])
         if your_cat is None:
             print("You don't have a cat! Choosing one for you...")
-            candidates = [x for x in Cat.all_cats_list if x.status.alive_in_your_cat_group]
+            candidates = [
+                x for x in Cat.all_cats_list if x.status.alive_in_your_cat_group
+            ]
             if candidates:
                 your_cat = choice(candidates)
                 print(f"Hello, {your_cat.name}!")
@@ -1401,10 +1470,18 @@ class Clan:
             medicine_cat=med_cat,
             biome=clan_data["biome"],
             camp_bg=clan_data["camp_bg"],
-            rogue_group_bg=clan_data["rogue_group_bg"] if "rogue_group_bg" in clan_data else "camp1",
-            loner_group_bg=clan_data["loner_group_bg"] if "loner_group_bg" in clan_data else "camp1",
-            household_bg=clan_data["household_bg"] if "household_bg" in clan_data else "camp1",
-            no_group_bg=clan_data["no_group_bg"] if "no_group_bg" in clan_data else "camp1",
+            rogue_group_bg=clan_data["rogue_group_bg"]
+            if "rogue_group_bg" in clan_data
+            else "camp1",
+            loner_group_bg=clan_data["loner_group_bg"]
+            if "loner_group_bg" in clan_data
+            else "camp1",
+            household_bg=clan_data["household_bg"]
+            if "household_bg" in clan_data
+            else "camp1",
+            no_group_bg=clan_data["no_group_bg"]
+            if "no_group_bg" in clan_data
+            else "camp1",
             game_mode=clan_data["gamemode"],
             cruel_cards=[
                 c
@@ -1417,11 +1494,11 @@ class Clan:
 
         # LG
         if "following_starclan" in clan_data:
-            game.clan.followingsc = clan_data['following_starclan']
+            game.clan.followingsc = clan_data["following_starclan"]
         else:
             game.clan.followingsc = True
         # ---
-        
+
         # LG: loading used IDs used to be here, but its moved below other_clans loading now
 
         game.clan.reputation = clan_data["reputation"]
@@ -1461,7 +1538,7 @@ class Clan:
             # update_sprite(game.clan.instructor)
             game.clan.instructor.dead = True
             game.clan.add_cat(game.clan.instructor)
-            
+
         # demon Info
         if "demon" in clan_data and clan_data["demon"] in Cat.all_cats:
             game.clan.demon = Cat.all_cats[clan_data["demon"]]
@@ -1477,7 +1554,7 @@ class Clan:
             game.clan.demon.dead = True
             game.clan.add_cat(game.clan.demon)
             game.clan.demon.df = True
-   
+
         ##Commented this out because I don't know why it's in here twice. If lead/dep/med stuff starts sobbing... ye ##
         # game.clan.leader_lives = leader_lives
         # game.clan.leader_predecessors = clan_data["leader_predecessors"]
@@ -1527,7 +1604,7 @@ class Clan:
                     game.clan.all_other_clans.append(
                         OtherClan(name, int(relation), temper, symbol)
                     )
-        
+
         # LG
         # MOVED HERE
         if clan_data.get("used_group_IDs"):
@@ -1535,12 +1612,12 @@ class Clan:
 
             # LG
             # correct for new lifegen groups
-            if game.used_group_IDs['5'] != CatGroup.ROGUE_GROUP:
-                game.used_group_IDs['5'] = CatGroup.ROGUE_GROUP
-            if game.used_group_IDs['6'] != CatGroup.LONER_GROUP:
-                game.used_group_IDs['6'] = CatGroup.LONER_GROUP
-            if game.used_group_IDs['7'] != CatGroup.HOUSEHOLD:
-                game.used_group_IDs['7'] = CatGroup.HOUSEHOLD
+            if game.used_group_IDs["5"] != CatGroup.ROGUE_GROUP:
+                game.used_group_IDs["5"] = CatGroup.ROGUE_GROUP
+            if game.used_group_IDs["6"] != CatGroup.LONER_GROUP:
+                game.used_group_IDs["6"] = CatGroup.LONER_GROUP
+            if game.used_group_IDs["7"] != CatGroup.HOUSEHOLD:
+                game.used_group_IDs["7"] = CatGroup.HOUSEHOLD
 
             # fix clan IDs. so otherclans with 5, 6, or 7 as their id will move down the list
             # to make room for the above ones ^^
@@ -1548,13 +1625,13 @@ class Clan:
             for other_clan in game.clan.all_other_clans:
                 count += 1
                 if (
-                    other_clan.group_ID in game.used_group_IDs and
-                    game.used_group_IDs[other_clan.group_ID] != other_clan
-                    ):
+                    other_clan.group_ID in game.used_group_IDs
+                    and game.used_group_IDs[other_clan.group_ID] != other_clan
+                ):
                     # generate the new ID. adds to the last number in the existing list (7)
                     new_group_id = 7 + count
                     other_clan.group_ID = str(new_group_id)
-                    
+
                     # now add to game used IDs
                     game.used_group_IDs.update({str(new_group_id): CatGroup.OTHER_CLAN})
 
@@ -1595,7 +1672,7 @@ class Clan:
         # Patrolled cats
         if "patrolled_cats" in clan_data:
             game.patrolled = clan_data["patrolled_cats"]
-        
+
         if "dated_cats" in clan_data:
             game.dated_cats = clan_data["dated_cats"]
 
@@ -1612,7 +1689,9 @@ class Clan:
             else:
                 game.told_story = clan_data["told_story"]
 
-        game.clan.clan_age = clan_data["clan_age"] if "clan_age" in clan_data else "established"
+        game.clan.clan_age = (
+            clan_data["clan_age"] if "clan_age" in clan_data else "established"
+        )
 
         # Cat who had just died
         if "just_died" in clan_data:
@@ -1654,19 +1733,18 @@ class Clan:
             achievement_list = []
             for item in clan_data["achievements"]:
                 if not isinstance(item, list):
-                    achievement_list.append([item, game.clan.your_cat.ID]
-                    )
+                    achievement_list.append([item, game.clan.your_cat.ID])
                 else:
                     achievement_list.append(item)
 
             game.clan.achievements = achievement_list
-        
+
         if "talks" in clan_data:
             game.clan.talks = clan_data["talks"]
 
         if "disaster" in clan_data:
             game.clan.disaster = clan_data["disaster"]
-        
+
         if "disaster_moon" in clan_data:
             game.clan.disaster_moon = clan_data["disaster_moon"]
 
@@ -1681,7 +1759,7 @@ class Clan:
                 game.clan.focus_cat = None
             else:
                 game.clan.focus_cat = Cat.all_cats[clan_data["focus_cat"]]
-        
+
         switch_set_value(Switch.error_message, "")
 
         # Return Version Info.
@@ -1690,7 +1768,7 @@ class Clan:
             "version_commit": clan_data.get("version_commit"),
             "source_build": clan_data.get("source_build"),
         }
-    
+
     def convert_group_IDs(self):
         """
         LIFEGEN FUNCTION
@@ -1702,47 +1780,51 @@ class Clan:
             for group_ID in ["5", "6", "7"]:
                 if cat.status.rank.is_any_clancat_rank():
                     for group in cat.status.standing_history.copy():
-                        if group['group'] == group_ID:
+                        if group["group"] == group_ID:
                             index = cat.status.standing_history.index(group)
                             cat.status.standing_history.remove(group)
 
                             new_standing_block = {
                                 "group": "8",
                                 "standing": group["standing"],
-                                "near": group["near"]
+                                "near": group["near"],
                             }
-                            cat.status.standing_history.insert(index, new_standing_block)
+                            cat.status.standing_history.insert(
+                                index, new_standing_block
+                            )
                     for group in cat.status.group_history.copy():
-                        if group['group'] == group_ID:
+                        if group["group"] == group_ID:
                             index = cat.status.group_history.index(group)
                             cat.status.group_history.remove(group)
 
                             new_group_block = {
                                 "group": "8",
                                 "rank": group["rank"],
-                                "moons_as": group["moons_as"]
+                                "moons_as": group["moons_as"],
                             }
                             cat.status.group_history.insert(index, new_group_block)
-    
+
     def load_accessories(self):
         """
         loads all accessories for cat inventories
         when all accessories is toggled on
         """
-        if get_clan_setting('all accessories'):
+        if get_clan_setting("all accessories"):
             for cat in Cat.all_cats_list:
                 if game_setting_get("lifegen_sprite_changes"):
                     acc_list = Pelt.all_lifegen_accessories
                 else:
                     acc_list = Pelt.all_clangen_accessories
-                
+
                 if "NOTAIL" in cat.pelt.scars or "HALFTAIL" in cat.pelt.scars:
                     for acc in Pelt.tail_accessories:
                         if acc in acc_list:
                             try:
                                 acc_list.remove(acc)
                             except ValueError:
-                                print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
+                                print(
+                                    f"attempted to remove {acc} from possible acc list, but it was not in the list!"
+                                )
                 # LG
                 if "NOPAW" in cat.pelt.scars:
                     for acc in Pelt.paw_accessories:
@@ -1750,7 +1832,9 @@ class Clan:
                             try:
                                 acc_list.remove(acc)
                             except ValueError:
-                                print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
+                                print(
+                                    f"attempted to remove {acc} from possible acc list, but it was not in the list!"
+                                )
                 return acc_list
 
     def load_pregnancy(self, clan):
@@ -1968,7 +2052,9 @@ class Clan:
 
             clan.herb_supply.set_required_herb_count(get_living_clan_cat_count(Cat))
         except Exception:
-            logger.exception("Failed to load herb supply; starting with an empty supply.")
+            logger.exception(
+                "Failed to load herb supply; starting with an empty supply."
+            )
             clan.herb_supply = HerbSupply()
 
     def save_herb_supply(self, clan):
@@ -2033,7 +2119,9 @@ class Clan:
             else:
                 clan.freshkill_pile = FreshkillPile()
         except Exception:
-            logger.exception("Failed to load freshkill pile; starting with an empty pile.")
+            logger.exception(
+                "Failed to load freshkill pile; starting with an empty pile."
+            )
             clan.freshkill_pile = FreshkillPile()
 
     def save_freshkill_pile(self, clan):
@@ -2053,7 +2141,7 @@ class Clan:
             data[k] = {
                 "max_score": nutr.max_score,
                 "current_score": nutr.current_score,
-                "percentage": nutr.percentage
+                "percentage": nutr.percentage,
             }
 
         safe_save(f"{get_save_dir()}/{game.clan.save_id}/nutrition_info.json", data)

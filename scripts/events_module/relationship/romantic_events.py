@@ -26,7 +26,7 @@ from scripts.game_structure.game.switches import (
     Switch,
     switch_get_value,
     switch_set_value,
-    switch_append_list_value
+    switch_append_list_value,
 )
 from scripts.config import get_config
 

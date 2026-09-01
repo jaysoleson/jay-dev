@@ -20,7 +20,6 @@ from scripts.ui.windows.cruel_locked_action import CruelLockedAction
 from scripts.cat.enums import CatSocial
 
 
-
 class ChooseCampScreen(MakeClanScreenBase):
     def __init__(self, name="choose_camp_screen"):
         super().__init__(name)
@@ -156,7 +155,9 @@ class ChooseCampScreen(MakeClanScreenBase):
             elif event.ui_element == self.elements["random_background"]:
                 # Select a random biome and background
                 self.clan_info.biome = self.random_biome_selection()
-                max_camps = len((self.get_possible_camps()[self.clan_info.biome]).keys())
+                max_camps = len(
+                    (self.get_possible_camps()[self.clan_info.biome]).keys()
+                )
                 self.selected_camp_tab = randrange(1, max_camps)
                 self.clan_info.camp_bg = f"camp{self.selected_camp_tab}"
                 self.refresh_selected_camp()
@@ -164,7 +165,7 @@ class ChooseCampScreen(MakeClanScreenBase):
             elif event.ui_element == self.elements["next_step"]:
                 self.clan_info.camp_bg = f"camp{self.selected_camp_tab}"
                 self.change_screen(GameScreen.MAKE_CLAN_CHOOSE_SYMBOL)
-            
+
             for tab_id, button in self.tabs.items():
                 if event.ui_element == button:
                     tabnum = tab_id.replace("tab", "")
@@ -243,31 +244,30 @@ class ChooseCampScreen(MakeClanScreenBase):
         camp_dict = self.get_possible_camps()
 
         for camp_num, camp_info in camp_dict[self.clan_info.biome].items():
-            tab_rect = ui_scale(pygame.Rect((0, 0), (camp_info['button_width'], 30)))
+            tab_rect = ui_scale(pygame.Rect((0, 0), (camp_info["button_width"], 30)))
             tab_rect.topright = (
                 ui_scale_offset((5, 180))
-                if int(camp_num) == 1 else
-                ui_scale_offset((5, 5))
-                )
+                if int(camp_num) == 1
+                else ui_scale_offset((5, 5))
+            )
 
             self.tabs[f"tab{camp_num}"] = UISurfaceImageButton(
                 tab_rect,
                 f"screens.make_clan.{camp_info['camp_name']}",
-                get_button_dict(ButtonStyles.VERTICAL_TAB, (camp_info['button_width'], 30)),
+                get_button_dict(
+                    ButtonStyles.VERTICAL_TAB, (camp_info["button_width"], 30)
+                ),
                 object_id="@buttonstyles_vertical_tab",
                 manager=MANAGER,
                 anchors=(
                     {
                         "right": "right",
                         "right_target": self.elements["art_frame"],
-                        "top_target": self.tabs[f"tab{int(camp_num) - 1}"] 
+                        "top_target": self.tabs[f"tab{int(camp_num) - 1}"],
                     }
-                    if int(camp_num) > 1 else 
-                    {
-                        "right": "right",
-                        "right_target": self.elements["art_frame"]
-                    }
-                )
+                    if int(camp_num) > 1
+                    else {"right": "right", "right_target": self.elements["art_frame"]}
+                ),
             )
 
         tab_num = 10
@@ -316,7 +316,7 @@ class ChooseCampScreen(MakeClanScreenBase):
                     "3": {"camp_name": "camp_grotto", "button_width": 85},
                     "4": {"camp_name": "camp_lakeside", "button_width": 100},
                     "5": {"camp_name": "camp_pine", "button_width": 100},
-                    "6": {"camp_name": "camp_birch", "button_width": 85}
+                    "6": {"camp_name": "camp_birch", "button_width": 85},
                 },
                 "Mountainous": {
                     "1": {"camp_name": "camp_cliff", "button_width": 70},
@@ -324,7 +324,7 @@ class ChooseCampScreen(MakeClanScreenBase):
                     "3": {"camp_name": "camp_crystal_river", "button_width": 130},
                     "4": {"camp_name": "camp_rocky_slope", "button_width": 135},
                     "5": {"camp_name": "camp_quarry", "button_width": 85},
-                    "6": {"camp_name": "camp_ruins", "button_width": 85}
+                    "6": {"camp_name": "camp_ruins", "button_width": 85},
                 },
                 "Plains": {
                     "1": {"camp_name": "camp_grasslands", "button_width": 115},
@@ -336,7 +336,7 @@ class ChooseCampScreen(MakeClanScreenBase):
                     "7": {"camp_name": "camp_farm", "button_width": 85},
                     "8": {"camp_name": "camp_bushland", "button_width": 105},
                     "9": {"camp_name": "camp_castle", "button_width": 95},
-                    "10": {"camp_name": "camp_bridge", "button_width": 85}
+                    "10": {"camp_name": "camp_bridge", "button_width": 85},
                 },
                 "Beach": {
                     "1": {"camp_name": "camp_tidepools", "button_width": 110},
@@ -345,66 +345,42 @@ class ChooseCampScreen(MakeClanScreenBase):
                     "4": {"camp_name": "camp_fjord", "button_width": 80},
                     "5": {"camp_name": "camp_tropical_island", "button_width": 140},
                     "6": {"camp_name": "camp_quay", "button_width": 75},
-                }
+                },
             }
         elif self.clan_info.your_cat.status.social == CatSocial.ROGUE:
             camp_dict = {
-                "Forest": {
-                    "1": {"camp_name": "rogue_forest", "button_width": 110}
-                },
+                "Forest": {"1": {"camp_name": "rogue_forest", "button_width": 110}},
                 "Mountainous": {
                     "1": {"camp_name": "rogue_mountainous", "button_width": 110}
                 },
-                "Plains": {
-                    "1": {"camp_name": "rogue_plains", "button_width": 110}
-                },
-                "Beach": {
-                    "1": {"camp_name": "rogue_beach", "button_width": 110}
-                }
+                "Plains": {"1": {"camp_name": "rogue_plains", "button_width": 110}},
+                "Beach": {"1": {"camp_name": "rogue_beach", "button_width": 110}},
             }
         elif self.clan_info.your_cat.status.social == CatSocial.LONER:
             camp_dict = {
-                "Forest": {
-                    "1": {"camp_name": "loner_forest", "button_width": 110}
-                },
+                "Forest": {"1": {"camp_name": "loner_forest", "button_width": 110}},
                 "Mountainous": {
                     "1": {"camp_name": "loner_mountainous", "button_width": 110}
                 },
-                "Plains": {
-                    "1": {"camp_name": "loner_plains", "button_width": 110}
-                },
-                "Beach": {
-                    "1": {"camp_name": "loner_beach", "button_width": 110}
-                }
+                "Plains": {"1": {"camp_name": "loner_plains", "button_width": 110}},
+                "Beach": {"1": {"camp_name": "loner_beach", "button_width": 110}},
             }
         elif self.clan_info.your_cat.status.social == CatSocial.KITTYPET:
             camp_dict = {
-                "Forest": {
-                    "1": {"camp_name": "household_forest", "button_width": 110}
-                },
+                "Forest": {"1": {"camp_name": "household_forest", "button_width": 110}},
                 "Mountainous": {
                     "1": {"camp_name": "household_mountainous", "button_width": 110}
                 },
-                "Plains": {
-                    "1": {"camp_name": "household_plains", "button_width": 110}
-                },
-                "Beach": {
-                    "1": {"camp_name": "household_beach", "button_width": 110}
-                }
+                "Plains": {"1": {"camp_name": "household_plains", "button_width": 110}},
+                "Beach": {"1": {"camp_name": "household_beach", "button_width": 110}},
             }
         else:
             camp_dict = {
-                "Forest": {
-                    "1": {"camp_name": "no_group_forest", "button_width": 110}
-                },
+                "Forest": {"1": {"camp_name": "no_group_forest", "button_width": 110}},
                 "Mountainous": {
                     "1": {"camp_name": "no_group_mountainous", "button_width": 110}
                 },
-                "Plains": {
-                    "1": {"camp_name": "no_group_plains", "button_width": 110}
-                },
-                "Beach": {
-                    "1": {"camp_name": "no_group_beach", "button_width": 110}
-                }
+                "Plains": {"1": {"camp_name": "no_group_plains", "button_width": 110}},
+                "Beach": {"1": {"camp_name": "no_group_beach", "button_width": 110}},
             }
         return camp_dict

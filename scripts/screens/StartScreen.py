@@ -64,7 +64,7 @@ class StartScreen(Screens):
     def choose_random_menu(self, folder_path):
         """This will choose a random menu to display from the menus folder."""
         files = os.listdir(folder_path)
-        png_files = [file for file in files if file.endswith('.png')]
+        png_files = [file for file in files if file.endswith(".png")]
 
         if png_files:
             chosen_file = random.choice(png_files)
@@ -357,8 +357,13 @@ class StartScreen(Screens):
         try:
             global has_checked_for_update
             global update_available
-            if not get_version_info().is_source_build and not get_version_info().is_itch and get_version_info().upstream.lower() == "sedgestripe/clangen".lower() and \
-                    game_setting_get('check_for_updates') and not has_checked_for_update:
+            if (
+                not get_version_info().is_source_build
+                and not get_version_info().is_itch
+                and get_version_info().upstream.lower() == "sedgestripe/clangen".lower()
+                and game_setting_get("check_for_updates")
+                and not has_checked_for_update
+            ):
                 if has_update(UpdateChannel(get_version_info().release_channel)):
                     update_available = True
                     show_popup = True
@@ -368,7 +373,10 @@ class StartScreen(Screens):
                             "r",
                             encoding="utf-8",
                         ) as read_file:
-                            if read_file.readline().strip() == get_latest_version_number().strip():
+                            if (
+                                read_file.readline().strip()
+                                == get_latest_version_number().strip()
+                            ):
                                 show_popup = False
 
                     # LG
@@ -408,7 +416,7 @@ class StartScreen(Screens):
             "",
             get_button_dict(ButtonStyles.ROUNDED_RECT, (700, 32)),
             object_id="@buttonstyles_rounded_rect",
-            manager=MANAGER
+            manager=MANAGER,
         )
         self.warning_label_background.disable()
         self.warning_label = pygame_gui.elements.UITextBox(

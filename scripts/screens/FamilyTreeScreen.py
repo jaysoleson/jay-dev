@@ -21,6 +21,7 @@ from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.icon import Icon
 from scripts.clan_package.settings import get_clan_setting
 
+
 class FamilyTreeScreen(Screens):
     # Page numbers for siblings and offspring
 
@@ -588,14 +589,18 @@ class FamilyTreeScreen(Screens):
                     info_text += "\n"
                     info_text += adjust_list_text(list(add_info))
 
-            if get_clan_setting("show fav")  and (not _kitty.faded and _kitty.favourite != 0):
+            if get_clan_setting("show fav") and (
+                not _kitty.faded and _kitty.favourite != 0
+            ):
                 try:
                     self.fav[str(i)] = pygame_gui.elements.UIImage(
                         ui_scale(pygame.Rect((324 + pos_x, 485 + pos_y), (50, 50))),
                         pygame.transform.scale(
                             pygame.image.load(
-                                f"resources/images/fav_marker_{_kitty.favourite}.png").convert_alpha(),
-                            (50, 50))
+                                f"resources/images/fav_marker_{_kitty.favourite}.png"
+                            ).convert_alpha(),
+                            (50, 50),
+                        ),
                     )
                     self.fav[str(i)].disable()
                 except:

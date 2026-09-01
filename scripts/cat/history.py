@@ -177,7 +177,7 @@ class History:
             "died_by": self.died_by,
             "scar_events": self.scar_events,
             "murder": self.murder,
-            "wrong_placement": self.wrong_placement
+            "wrong_placement": self.wrong_placement,
         }
         return history_dict
 
@@ -195,18 +195,14 @@ class History:
 
         if df is True:
             # when a cat is met in the dark forest
-            self.beginning = {
-            "moon": game.clan.age
-        }
+            self.beginning = {"moon": game.clan.age}
         else:
-           self.beginning = {
-            "clan_born": clan_born,
-            "birth_season": game.clan.current_season if clan_born else None,
-            "age": self.cat.moons,
-            "moon": game.clan.age,
-           }
-      
-            
+            self.beginning = {
+                "clan_born": clan_born,
+                "birth_season": game.clan.current_season if clan_born else None,
+                "age": self.cat.moons,
+                "moon": game.clan.age,
+            }
 
     def add_mentor_facet_influence_strings(self):
         """
@@ -324,7 +320,6 @@ class History:
             SkillPath.CLAIRVOYANT: ["predicting the future"],
             SkillPath.PROPHET: ["understanding prophecies"],
             SkillPath.GHOST: ["connecting to the afterlife"],
-
             # LG
             SkillPath.EXPLORER: ["exploring unknown areas"],
             SkillPath.TRACKER: ["tracking down scents"],
@@ -359,7 +354,7 @@ class History:
             # Rogue-unique
             SkillPath.BRAWLER: ["brawling"],
             SkillPath.INTIMIDATOR: ["intimidating others"],
-            SkillPath.AMBUSHER: ["laying ambushes"]
+            SkillPath.AMBUSHER: ["laying ambushes"],
         }
 
         for _ment in self.mentor_influence["skill"]:
@@ -618,7 +613,7 @@ class History:
         clan_reveal: bool = False,
         aware_individuals: list = None,
         # LG
-        shunned_cat = None
+        shunned_cat=None,
     ):
         """
         This adds reveal information to both the murderer and victim's history. This should be called from the murderer's history.

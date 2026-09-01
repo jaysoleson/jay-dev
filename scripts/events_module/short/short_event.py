@@ -539,14 +539,14 @@ class ShortEvent:
         #     acc_list.extend(Pelt.plant_accessories)
         # if "COLLAR" in possible_accs:
         #     acc_list.extend(Pelt.collar_accessories)
-        
+
         # LIFEGEN
-        
+
         if game_setting_get("lifegen_sprite_changes"):
             categories = Pelt.lifegen_acc_categories
         else:
             categories = Pelt.clangen_acc_categories
-        
+
         for category in categories:
             if category in possible_accs:
                 acc_list.extend(categories[category])

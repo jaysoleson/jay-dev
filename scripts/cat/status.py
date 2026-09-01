@@ -324,14 +324,18 @@ class Status:
         Returns True if the cat is currently part of the player clan.
         """
         return self.group == CatGroup.PLAYER_CLAN
-    
+
     # LG
     @property
     def alive_in_your_cat_group(self) -> bool:
         """
         Returns True if the cat is currently part of the same group as your cat
         """
-        if not game.clan or not game.clan.your_cat or (game.clan.your_cat and game.clan.your_cat.dead):
+        if (
+            not game.clan
+            or not game.clan.your_cat
+            or (game.clan.your_cat and game.clan.your_cat.dead)
+        ):
             return self.alive_in_player_clan
         # this fails tests bc it checks this before Clan exists
         # so... nonecheck failsafe
@@ -422,7 +426,12 @@ class Status:
                 CatRank.WARRIOR
                 if disable_random
                 else choices(
-                    [CatRank.WARRIOR, CatRank.MEDICINE_CAT, CatRank.MEDIATOR, CatRank.QUEEN],
+                    [
+                        CatRank.WARRIOR,
+                        CatRank.MEDICINE_CAT,
+                        CatRank.MEDIATOR,
+                        CatRank.QUEEN,
+                    ],
                     weights=[6, 2, 1, 1],
                 )[0]
             )
@@ -445,11 +454,7 @@ class Status:
         self.group_history[-1]["moons_as"] += 1
 
     # LIFEGEN
-    def init_your_cat_status(
-            self,
-            rank: CatRank,
-            group_ID: str = None
-    ):
+    def init_your_cat_status(self, rank: CatRank, group_ID: str = None):
         # creates you cat's status history.
         # clear initial player clan history that they generated with
         self.group_history = []
@@ -575,11 +580,7 @@ class Status:
         """
         # LG edit
         # required because CG assumes youre only becoming an outside when you leave a group
-        if new_social_status in (
-            CatSocial.KITTYPET,
-            CatSocial.ROGUE,
-            CatSocial.LONER
-        ):
+        if new_social_status in (CatSocial.KITTYPET, CatSocial.ROGUE, CatSocial.LONER):
             rank = CatRank(new_social_status)
         else:
             rank = self.get_rank_from_age(age=cat_age)
@@ -791,7 +792,7 @@ class Status:
                 return True
 
         return False
-    
+
     def is_member(self, group_ID: str = CatGroup.PLAYER_CLAN_ID) -> bool:
         """
         Returns True if the cat's current standing with a group is MEMBER (a
@@ -828,23 +829,30 @@ class Status:
                 return True
 
         return False
-    
+
     def is_forgiven(self) -> bool:
         standing = self.get_standing_with_group(CatGroup.PLAYER_CLAN_ID)
         for item in standing:
             if isinstance(item, list) and item[0] == CatStanding.SHUNNED:
                 if not self.is_shunned():
                     moons_since_shun = (
-                        game.clan.age -
-                        item[1] -
-                        constants.CONFIG["lifegen"]["shunned_cat"]["max_shunned_moons"]
-                        )
-                    if moons_since_shun < constants.CONFIG["lifegen"]["shunned_cat"]["max_forgiven_moons"]:
+                        game.clan.age
+                        - item[1]
+                        - constants.CONFIG["lifegen"]["shunned_cat"][
+                            "max_shunned_moons"
+                        ]
+                    )
+                    if (
+                        moons_since_shun
+                        < constants.CONFIG["lifegen"]["shunned_cat"][
+                            "max_forgiven_moons"
+                        ]
+                    ):
                         return True
         return False
-        
+
     def is_daylight_warrior(self, group_ID: str = None) -> bool:
-        """ 
+        """
         LG: Returns True if a cat is a daylight warrior!
         """
         if not group_ID:
@@ -885,7 +893,7 @@ class Status:
                 return True
 
         return False
-    
+
     # LG
     def get_group_heading_text(self):
         """

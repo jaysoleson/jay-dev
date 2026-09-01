@@ -79,7 +79,6 @@ class Trait(Enum):
     not_flamboyant = "-flamboyant"
     not_rebellious = "-rebellious"
 
-
     mellow = "mellow"
     flexible = "flexible"
     stoic = "stoic"

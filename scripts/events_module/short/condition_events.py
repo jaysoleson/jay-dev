@@ -637,7 +637,9 @@ class Condition_Events:
                 switch_append_list_value(Switch.skip_conditions, illness)
                 # gather potential event strings for healed illness
                 try:
-                    possible_string_list = Condition_Events.ILLNESS_HEALED_STRINGS[illness]
+                    possible_string_list = Condition_Events.ILLNESS_HEALED_STRINGS[
+                        illness
+                    ]
                 except:
                     print("couldn't find illness")
 
@@ -1130,10 +1132,9 @@ class Condition_Events:
                         )
                     )
                     if cat.ID == game.clan.your_cat.ID:
-                        if 'retire' not in switch_get_value(Switch.windows_dict):
-                            switch_append_list_value(Switch.windows_dict, 'retire')
+                        if "retire" not in switch_get_value(Switch.windows_dict):
+                            switch_append_list_value(Switch.windows_dict, "retire")
 
-                            
     @staticmethod
     def give_risks(
         cat, event_list, cat_dict, condition, progression, conditions, dictionary

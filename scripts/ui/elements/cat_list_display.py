@@ -251,7 +251,10 @@ class UICatListDisplay(UIContainer):
             fav_indexes = [
                 display_cats.index(cat) for cat in display_cats if cat.favourite
             ]
-            [self.create_favor_indicator(i, self.boxes[i], display_cats[i].favourite) for i in fav_indexes]
+            [
+                self.create_favor_indicator(i, self.boxes[i], display_cats[i].favourite)
+                for i in fav_indexes
+            ]
 
         # CAT SPRITE
         [

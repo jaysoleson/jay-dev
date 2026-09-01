@@ -128,7 +128,9 @@ class FreshkillPile:
                 self.pile[self.PLAYER_CLAN_KEY] = self._empty_sub_pile()
         else:
             self.pile = {self.PLAYER_CLAN_KEY: self._empty_sub_pile()}
-            self.pile[self.PLAYER_CLAN_KEY]["expires_in_3"] = get_config("prey.start_amount")
+            self.pile[self.PLAYER_CLAN_KEY]["expires_in_3"] = get_config(
+                "prey.start_amount"
+            )
             if self._is_mc_outside():
                 self._init_outside_pile()
 
@@ -328,7 +330,9 @@ class FreshkillPile:
         self._update_needed_food(living_cats)
         self.update_total_amount()
 
-    def feed_cats(self, cats_to_feed: list, is_manual_feeding=False, testcat=None) -> None:
+    def feed_cats(
+        self, cats_to_feed: list, is_manual_feeding=False, testcat=None
+    ) -> None:
         """
         Takes given cats and feeds them according to chosen tactics.
 
@@ -544,7 +548,6 @@ class FreshkillPile:
 
         ration_prey = get_clan_setting("ration_prey")
 
-
         for cat in group:
             # if already fed, get'em outta here
             if cat in self.already_fed:
@@ -611,7 +614,9 @@ class FreshkillPile:
         ]
         amount_still_needed = amount_allowed
         for pile in order_of_expiration:
-            amount_still_needed = self.take_from_pile(pile, amount_still_needed, cat=cat)
+            amount_still_needed = self.take_from_pile(
+                pile, amount_still_needed, cat=cat
+            )
         # even if the cat isn't full, they have eaten, so they go in this list!
         self.already_fed.append(cat)
 

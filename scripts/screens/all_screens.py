@@ -108,7 +108,6 @@ def rebuild_all_screens():
         GameScreen.MEDIATION: MediationScreen,
         GameScreen.CHANGE_GENDER: ChangeGenderScreen,
         GameScreen.EVENT_EDIT: EventEditScreen,
-
         GameScreen.MURDER: MurderScreen,
         GameScreen.AFFAIR: AffairScreen,
         GameScreen.GIFT: GiftScreen,
@@ -119,7 +118,7 @@ def rebuild_all_screens():
         GameScreen.CHOOSE_DEPUTY: DeputyScreen,
         GameScreen.ACHIEVEMENTS: AchievementScreen,
         GameScreen.ELDER_STORY: ElderStoryScreen,
-        GameScreen.QUEEN: QueenScreen
+        GameScreen.QUEEN: QueenScreen,
     }
 
     for enum, classobj in enum_to_class.items():

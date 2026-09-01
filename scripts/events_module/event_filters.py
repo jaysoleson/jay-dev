@@ -200,7 +200,7 @@ def event_for_tags(
                         CatRank.APPRENTICE,
                         CatRank.MEDIATOR_APPRENTICE,
                         CatRank.MEDICINE_APPRENTICE,
-                        CatRank.QUEENS_APPRENTICE
+                        CatRank.QUEENS_APPRENTICE,
                     ],
                 ):
                     return False
@@ -399,10 +399,9 @@ def event_for_cat(
         "backstory": _check_cat_backstory,
         "gender": _check_cat_gender,
         "health": _check_cat_health,
-
         # LG
         "min_max_faith": _check_cat_faith,
-        "cluster": _check_cat_cluster
+        "cluster": _check_cat_cluster,
     }
 
     for param, func in func_lookup.items():
@@ -863,15 +862,18 @@ def _check_cat_backstory(cat, backstories: list) -> bool:
 
     return is_exclusionary
 
+
 def _check_cat_faith(cat, min_max_faith: list) -> bool:
     if cat.faith < min_max_faith[0] or cat.faith > min_max_faith[1]:
         return False
     return True
 
+
 def _check_cat_cluster(cat, clusters: list) -> bool:
     if any(cluster in get_cluster(cat.personality.trait) for cluster in clusters):
         return True
     return False
+
 
 def _check_cat_gender(cat, genders: list) -> bool:
     """
@@ -1790,7 +1792,7 @@ def filter_relationship_type(group: list, filter_types: List[str], patrol_leader
         if "app/mentor" in exclusionary_values and not qualifies:
             return False
         filter_types.remove("app/mentor")
-    
+
     # LG
     if "df_app/df_mentor" in filter_types:
         if len(group) != 2:

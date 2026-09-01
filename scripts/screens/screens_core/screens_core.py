@@ -424,6 +424,7 @@ def rebuild_mute(location: str):
         anchors=anchors,
     )
 
+
 def get_red_bg(dark_mode=False):
     if dark_mode:
         b = 50
@@ -439,12 +440,15 @@ def get_red_bg(dark_mode=False):
                 if game.clan.your_cat.history.murder:
                     if "is_murderer" in game.clan.your_cat.history.murder:
                         if len(game.clan.your_cat.history.murder["is_murderer"]) > 0:
-                            for m in range(len(game.clan.your_cat.history.murder["is_murderer"])):
+                            for m in range(
+                                len(game.clan.your_cat.history.murder["is_murderer"])
+                            ):
                                 b -= b_alter
     if dark_mode:
-        return [57, max(36,b), 36]
+        return [57, max(36, b), 36]
     else:
         return [206, max(b, 167), 168]
+
 
 def rebuild_bgs():
     global default_fullscreen_bgs

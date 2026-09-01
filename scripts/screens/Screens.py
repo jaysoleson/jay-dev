@@ -28,7 +28,7 @@ from scripts.game_structure.game.switches import (
     switch_set_value,
     switch_get_value,
     Switch,
-    switch_remove_list_value
+    switch_remove_list_value,
 )
 from scripts.game_structure.propagating_thread import PropagatingThread
 from scripts.game_structure.screen_settings import (
@@ -92,7 +92,6 @@ class Screens:
             GameScreen.MEDIATION,
             GameScreen.CHANGE_GENDER,
             GameScreen.FAMILY_TREE,
-
             GameScreen.ELDER_STORY,
         ]:
             game.last_list_forProfile = None
@@ -207,20 +206,27 @@ class Screens:
             final_actions()
             switch_set_value(Switch.window_open, False)
 
-        
         if len(switch_get_value(Switch.windows_dict)) > 0:
-            if 'name kits' in switch_get_value(Switch.windows_dict) and not switch_get_value(Switch.window_open):
-                NameKitsWindow('events screen')
-                switch_remove_list_value(Switch.windows_dict, 'name kits')
-            elif 'retire' in switch_get_value(Switch.windows_dict) and not switch_get_value(Switch.window_open):
-                RetireWindow('events screen')
-                switch_remove_list_value(Switch.windows_dict, 'retire')
-            elif 'deputy' in switch_get_value(Switch.windows_dict) and not switch_get_value(Switch.window_open):
-                ChooseDeputyWindow('events screen')
-                switch_remove_list_value(Switch.windows_dict, 'deputy')
-            elif 'mate' in switch_get_value(Switch.windows_dict) and not switch_get_value(Switch.window_open):
-                MateWindow('events screen')
-                switch_remove_list_value(Switch.windows_dict, 'mate')
+            if "name kits" in switch_get_value(
+                Switch.windows_dict
+            ) and not switch_get_value(Switch.window_open):
+                NameKitsWindow("events screen")
+                switch_remove_list_value(Switch.windows_dict, "name kits")
+            elif "retire" in switch_get_value(
+                Switch.windows_dict
+            ) and not switch_get_value(Switch.window_open):
+                RetireWindow("events screen")
+                switch_remove_list_value(Switch.windows_dict, "retire")
+            elif "deputy" in switch_get_value(
+                Switch.windows_dict
+            ) and not switch_get_value(Switch.window_open):
+                ChooseDeputyWindow("events screen")
+                switch_remove_list_value(Switch.windows_dict, "deputy")
+            elif "mate" in switch_get_value(
+                Switch.windows_dict
+            ) and not switch_get_value(Switch.window_open):
+                MateWindow("events screen")
+                switch_remove_list_value(Switch.windows_dict, "mate")
         return
 
     def on_use(self):

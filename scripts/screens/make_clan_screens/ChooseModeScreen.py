@@ -44,7 +44,7 @@ class ChooseModeScreen(MakeClanScreenBase):
                     rank_weights=self.get_config_during_creation(
                         "clan_creation.rank_weights"
                     ),
-                    lifegen_kitten_creation=True
+                    lifegen_kitten_creation=True,
                 ),
             )
 

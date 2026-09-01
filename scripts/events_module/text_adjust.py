@@ -391,7 +391,7 @@ def event_text_adjust(
     other_clan=None,
     chosen_herb: str = None,
     # LG: random cats in patrols
-    chosen_lifegen_cats: list = None
+    chosen_lifegen_cats: list = None,
 ):
     """
     handles finding abbreviations in the text and replacing them appropriately, returns the adjusted text
@@ -453,7 +453,7 @@ def event_text_adjust(
                 str(patrol_leader.name),
                 choice(patrol_leader.pronouns),
             )
-    
+
     # LG
     for i, lg_cat in enumerate(chosen_lifegen_cats):
         name = str(lg_cat.name)

@@ -345,7 +345,6 @@ class ClanSettingsScreen(Screens):
                     ur += 1
                 continue
 
-
             living_cats += 1
 
             if cat.status.is_outsider:
@@ -399,7 +398,7 @@ class ClanSettingsScreen(Screens):
                 "faded": str(faded_cats),
             },
         )
-        
+
         self.checkboxes_text["achievements"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((335, 615), (120, 30))),
             "achievements",

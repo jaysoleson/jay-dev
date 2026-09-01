@@ -60,25 +60,17 @@ class Sprites:
         "sprites/dicts/sophisticated_data.json", "r", encoding="utf-8"
     ) as read_file:
         SOPHISTICATED_DATA = ujson.loads(read_file.read())
-    with open(
-        "sprites/dicts/fruit_data.json", "r", encoding="utf-8"
-    ) as read_file:
+    with open("sprites/dicts/fruit_data.json", "r", encoding="utf-8") as read_file:
         FRUIT_DATA = ujson.loads(read_file.read())
     with open(
         "sprites/dicts/flowercrowns_data.json", "r", encoding="utf-8"
     ) as read_file:
         FLOWERCROWNS_DATA = ujson.loads(read_file.read())
-    with open(
-        "sprites/dicts/misc_accs_data.json", "r", encoding="utf-8"
-    ) as read_file:
+    with open("sprites/dicts/misc_accs_data.json", "r", encoding="utf-8") as read_file:
         MISC_ACCS_DATA = ujson.loads(read_file.read())
-    with open(
-        "sprites/dicts/misc2_accs_data.json", "r", encoding="utf-8"
-    ) as read_file:
+    with open("sprites/dicts/misc2_accs_data.json", "r", encoding="utf-8") as read_file:
         MISC2_ACCS_DATA = ujson.loads(read_file.read())
-    with open(
-        "sprites/dicts/harness_data.json", "r", encoding="utf-8"
-    ) as read_file:
+    with open("sprites/dicts/harness_data.json", "r", encoding="utf-8") as read_file:
         HARNESS_DATA = ujson.loads(read_file.read())
     with open(
         "sprites/dicts/smallanimals_data.json", "r", encoding="utf-8"
@@ -353,7 +345,6 @@ class Sprites:
             self.PLANT_DATA,
             self.WILD_DATA,
             self.COLLAR_DATA,
-
             self.ALIVEINSECT_DATA,
             self.DEADINSECT_DATA,
             self.PLANT2_DATA,
