@@ -570,6 +570,10 @@ def event_text_adjust(
 
         text = _replace_clan_name(text, "c_n", clan_name)
 
+    # war enemy Clan
+    if "w_c" in text and game.clan and game.clan.war.get("enemy"):
+        text = text.replace("w_c", str(game.clan.war["enemy"]))
+
     # prey lists
     text = adjust_prey_abbr(text)
 

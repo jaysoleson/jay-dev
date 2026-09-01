@@ -327,6 +327,7 @@ class ClanSettingsScreen(Screens):
         elders = 0
         kits = 0
         cats_outside = 0
+        cats_other_clans = 0
         starclan = 0
         df = 0
         ur = 0
@@ -344,11 +345,17 @@ class ClanSettingsScreen(Screens):
                     ur += 1
                 continue
 
+
+            living_cats += 1
+
             if cat.status.is_outsider:
                 cats_outside += 1
                 continue
 
-            living_cats += 1
+            if not cat.status.alive_in_player_clan:
+                cats_other_clans += 1
+                continue
+
             if cat.status.rank == CatRank.MEDICINE_CAT:
                 med_cats += 1
             elif cat.status.rank == CatRank.MEDICINE_APPRENTICE:
@@ -378,6 +385,7 @@ class ClanSettingsScreen(Screens):
                 "starclan": str(starclan),
                 "darkforest": str(df),
                 "unknownresidence": str(ur),
+                "othercats": str(cats_other_clans),
                 "medcats": str(med_cats),
                 "medcatapps": str(med_cat_apprentices),
                 "warriors": str(warriors),

@@ -596,6 +596,8 @@ class Inheritance:
                     self.all_but_cousins.append(inter_id)
 
                 grand_parent_cat = self.cat.fetch_cat(inter_parent_id)
+                if not grand_parent_cat:
+                    continue
                 if len(self.parents_siblings[inter_id]["additional"]) > 0:
                     add_info = self.parents_siblings[inter_id]["additional"][0]
                     self.parents_siblings[inter_id]["additional"][0] = (

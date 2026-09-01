@@ -28,6 +28,8 @@ from scripts.cat.names import names
 from scripts.cat.save_load import (
     save_cats,
     get_faded_ids,
+    load_faded_cat_ids,
+    prune_dead_relationships,
 )
 from scripts.clan_package.clan_names import get_possible_clan_names
 from scripts.clan_package.settings import save_clan_settings, load_clan_settings, get_clan_setting
@@ -1252,6 +1254,17 @@ class Clan:
             if demon_info in Cat.all_cats:
                 game.clan.demon = Cat.all_cats[demon_info]
                 game.clan.add_cat(game.clan.demon)
+            else:
+                game.clan.demon = Cat(
+                    status_dict={
+                        "rank": choice(
+                            (CatRank.WARRIOR, CatRank.WARRIOR, CatRank.ELDER)
+                        ),
+                        "group_ID": CatGroup.DARK_FOREST_ID,
+                    }
+                )
+                game.clan.demon.dead = True
+                game.clan.add_cat(game.clan.demon)
         else:
             game.clan.demon = NewCatFactory.create_cat(
                 status_dict={
@@ -1573,6 +1586,10 @@ class Clan:
             raise error
         if "war" in clan_data:
             game.clan.war = clan_data["war"]
+
+        load_faded_cat_ids(clan_data["clanname"])
+
+        prune_dead_relationships(Cat)
 
         game.clan.last_focus_change = clan_data.get("last_focus_change")
         game.clan.clans_in_focus = clan_data.get("clans_in_focus", [])

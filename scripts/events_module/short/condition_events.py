@@ -269,6 +269,8 @@ class Condition_Events:
         event_string = None
         cat_dict = {"m_c": cat}
 
+        prev_lives = game.clan.leader_lives
+
         if cat.is_ill():
             event_string, cat_dict = Condition_Events.handle_already_ill(cat)
         else:
@@ -334,7 +336,7 @@ class Condition_Events:
         # if an event happened, then add event to cur_event_list and save death if it happened.
         if event_string:
             types = ["health"]
-            if cat.dead:
+            if cat.dead or game.clan.leader_lives < prev_lives:
                 types.append("birth_death")
             game.cur_events_list.append(
                 Single_Event(event_string, types, cat_dict=cat_dict)
@@ -902,7 +904,7 @@ class Condition_Events:
 
         if event_string:
             types = ["health"]
-            if cat.dead:
+            if cat.dead or game.clan.leader_lives < starting_life_count:
                 types.append("birth_death")
             game.cur_events_list.append(
                 Single_Event(event_string, types, cat_dict=cat_dict)

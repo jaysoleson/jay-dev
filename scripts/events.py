@@ -1163,16 +1163,28 @@ def generate_birth_event():
         parent1 = None
         parent2 = None
         adoptive_parents = []
+
+        # These birth types need at least one living clan cat to act as a parent
+        clan_parent_types = (
+            BirthType.ONE_PARENT,
+            BirthType.TWO_PARENTS,
+            BirthType.ONE_ADOPTIVE_PARENT,
+            BirthType.TWO_ADOPTIVE_PARENTS,
+        )
+        if birth_type in clan_parent_types and pick_valid_parent(adoptive=True) is None:
+            birth_type = BirthType.NO_PARENTS
+
         if birth_type in [BirthType.NO_PARENTS, BirthType.ALONE]:
             parent1 = generate_outsider_parent(dead=True)
 
         elif birth_type == BirthType.ONE_PARENT:
             parent1 = pick_valid_parent()
-            if parent1.mate:
-                parent2 = Cat.fetch_cat(parent1.mate[-1])
-                birth_type = BirthType.TWO_PARENTS
             if not parent1:
                 birth_type = BirthType.NO_PARENTS
+                parent1 = generate_outsider_parent(dead=True)
+            elif parent1.mate:
+                parent2 = Cat.fetch_cat(parent1.mate[-1])
+                birth_type = BirthType.TWO_PARENTS
 
         elif birth_type == BirthType.TWO_PARENTS:
             parent1 = pick_valid_parent()
@@ -2217,6 +2229,7 @@ def handle_fading(cat):
         get_clan_setting("fading")
         and not cat.prevent_fading
         and cat.ID != game.clan.instructor.ID
+        and (game.clan.demon is None or cat.ID != game.clan.demon.ID)
         and not cat.faded
     ):
         age_to_fade = constants.CONFIG["fading"]["age_to_fade"]
@@ -4120,7 +4133,9 @@ def exile_or_forgive(cat):
     involved_cats = []
     involved_cats.append(cat.ID)
 
-    if game.clan.your_cat.ID == cat.ID:
+    is_your_cat = game.clan.your_cat is not None and game.clan.your_cat.ID == cat.ID
+
+    if is_your_cat:
         fate = int((constants.CONFIG["lifegen"]["shunned_cat"]["exile_chance"][cat.age.replace(' ', '_')]) * 1.75)
     else:
         fate = int(constants.CONFIG["lifegen"]["shunned_cat"]["exile_chance"][cat.age.replace(' ', '_')])
@@ -4130,9 +4145,9 @@ def exile_or_forgive(cat):
         text = event_text_adjust(
             Cat,
             text=(
-                "m_c has been exiled from c_n."
-                if cat.ID != game.clan.your_cat.ID
-                else "You have been exiled from c_n."
+                "You have been exiled from c_n."
+                if is_your_cat
+                else "m_c has been exiled from c_n."
                 ),
             main_cat=cat,
             clan=game.clan
@@ -4142,9 +4157,9 @@ def exile_or_forgive(cat):
         text = event_text_adjust(
             Cat,
             text=(
-                "m_c has been unshunned and welcomed back into c_n."
-                if cat.ID != game.clan.your_cat.ID
-                else "You have been unshunned and welcomed back into c_n."
+                "You have been unshunned and welcomed back into c_n."
+                if is_your_cat
+                else "m_c has been unshunned and welcomed back into c_n."
                 ),
             main_cat=cat,
             clan=game.clan

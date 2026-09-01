@@ -328,14 +328,37 @@ class ShortEvent:
 
         # handle murder reveals
         if "murder_reveal" in self.sub_type or "hidden_murder_reveal" in self.sub_type:
+            no_shun = "LIFEGEN_no_shun" in self.sub_type
             clan_reveal = "clan_wide" in self.tags
+
+            if not clan_reveal and not no_shun and self.random_cat:
+                if not randrange(2):
+                    clan_reveal = True
+                    self.additional_event_text = (
+                        f"{self.random_cat.name} has told the Clan about "
+                        f"{self.main_cat.name}'s crime."
+                    )
+                else:
+                    self.additional_event_text = (
+                        f"{self.random_cat.name} has decided to keep "
+                        f"{self.main_cat.name}'s secret."
+                    )
+
+            should_shun = clan_reveal and not no_shun
             self.main_cat.history.reveal_murder(
                 victim=self.victim_cat,
                 murderer_id=self.main_cat.ID,
                 clan_reveal=clan_reveal,
-                aware_individuals=[self.random_cat.ID],
-                shunned_cat=self.main_cat if clan_reveal else None,
+                aware_individuals=[self.random_cat.ID] if self.random_cat else [],
+                shunned_cat=self.main_cat if should_shun else None,
             )
+
+            if should_shun:
+                demotion_text = self.main_cat.shunned_demotion()
+                if demotion_text:
+                    self.additional_event_text = (
+                        f"{self.additional_event_text} {demotion_text}".strip()
+                    )
 
         # change outsider rep
         if self.outsider:

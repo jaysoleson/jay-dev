@@ -1563,12 +1563,14 @@ class PatrolScreen(Screens):
             )
 
             # Show Cat's Mate, if they have one
+            self.mate = None
             if len(self.selected_cat.mate) > 0:
                 if self.selected_mate_index > len(self.selected_cat.mate) - 1:
                     self.selected_mate_index = 0
                 self.mate = Cat.fetch_cat(
                     self.selected_cat.mate[self.selected_mate_index]
                 )
+            if self.mate:
                 self.elements["mate_frame"] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((140, 190), (166, 170))), self.mate_frame
                 )
