@@ -69,7 +69,7 @@ class TestEvents(unittest.TestCase):
             starting_season="Newleaf",
         )
         # dpmo
-        game.clan.your_cat.inheritance = Inheritance(game.clan.your_cat)
+        # game.clan.your_cat.inheritance = Inheritance(game.clan.your_cat)
         # ---
         save_load.cat_to_fade.clear()
         game.clan.create_clan(your_cat=game.clan.your_cat, unborn=True)
@@ -178,3 +178,4 @@ class TestEvents(unittest.TestCase):
 
                 if not _ % 100:
                     print(f"CLANCATS ALIVE: {get_living_clan_cat_count(Cat)}")
+                print("TEST #", _)

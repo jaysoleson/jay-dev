@@ -151,6 +151,8 @@ ceremony_id_by_tag = {}
 
 # LG
 checks = []
+all_achievements = load_lang_resource("achievements.json")
+lifegen_events = {}
 b_txt = load_lang_resource("events/birth_events.json")
 lifegen_ceremonies = load_lang_resource("events/lifegen_events/ceremonies.json")
 kit_events = load_lang_resource("events/lifegen_events/kit_events.json")
@@ -171,6 +173,8 @@ def _one_moon_impl():
     global new_cat_invited
     global checks
     # i have no idea what checks does. coffee help
+    global all_achievements
+    global lifegen_events
     
     game.cur_events_list = []
     game.herb_events_list = []
@@ -479,23 +483,7 @@ def _one_moon_impl():
     check_leader()
     check_and_promote_deputy()
 
-    # Resort
-    if switch_get_value(Switch.sort_type) != "id":
-        Cat.sort_cats()
-
-    # Clear all the loaded event dicts.
-    GenerateEvents.clear_loaded_events()
-
-    # autosave
-    if get_clan_setting("autosave") and game.clan.age % 5 == 0:
-        try:
-            save_cats(switch_get_value(Switch.clan_save_id), Cat, game)
-            game.clan.save_clan()
-            game.clan.save_pregnancy(game.clan)
-            game.save_events()
-        except:
-            SaveErrorWindow(traceback.format_exc())
-
+    lifegen_events = load_lifegen_events()
     if game.clan.your_cat.status.alive_in_your_cat_group:
         if game.clan.your_cat.moons == 0:
             generate_birth_event()
@@ -521,7 +509,7 @@ def _one_moon_impl():
                 ) and
                 not game.clan.your_cat.w_done and
                 not game.clan.your_cat.status.is_shunned()
-                ):
+            ):
             generate_ceremony()
         elif game.clan.your_cat.status.rank != CatRank.ELDER and game.clan.your_cat.moons != 119:
             generate_lifegen_events()
@@ -557,7 +545,7 @@ def _one_moon_impl():
         generate_death_event()
     elif game.clan.your_cat.dead:
         generate_lifegen_events()
-        
+
     # LIFEGEN
     # murdered dict clears after six moons of no murder attempts
     if "moon" in game.clan.murdered:
@@ -584,25 +572,14 @@ def _one_moon_impl():
     # Clear all the loaded event dicts.
     GenerateEvents.clear_loaded_events()
 
-    # autosave
-    if get_clan_setting("autosave") and game.clan.age % 5 == 0:
-        try:
-            save_cats(switch_get_value(Switch.clan_save_id), Cat, game)
-            game.clan.save_clan()
-            game.clan.save_pregnancy(game.clan)
-            game.save_events()
-        except:
-            SaveErrorWindow(traceback.format_exc())
 
     # ACHIEVEMENTS
     new_achievements = check_achievements(Cat, eventspage=True)
 
     achievements_list = []
-    all_achievements = load_lang_resource("achievements.json")
     for item in new_achievements:
         achievements_list.append(f"<b>{all_achievements[item][0]}</b>")
 
-    
     if achievements_list:
         if len(achievements_list) == 1:
             pre_string = "You've earned an achievement this moon: "
@@ -612,6 +589,15 @@ def _one_moon_impl():
         string = adjust_list_text(achievements_list)
         game.cur_events_list.insert(0, Single_Event((pre_string + string + "!"), "alert"))
     # ---
+    # autosave
+    if get_clan_setting("autosave") and game.clan.age % 5 == 0:
+        try:
+            save_cats(switch_get_value(Switch.clan_save_id), Cat, game)
+            game.clan.save_clan()
+            game.clan.save_pregnancy(game.clan)
+            game.save_events()
+        except:
+            SaveErrorWindow(traceback.format_exc())
 
 
 def update_afterlife_temper():
@@ -1472,13 +1458,12 @@ def lifegen_process_text(text):
 
     return text
 
-def generate_lifegen_events():
-    """
-    LIFEGEN: Random flavour events on moonskip!
-    """
+def load_lifegen_events():
+    loaded_events = {}    
+    if game.clan.your_cat.status.rank == CatRank.NEWBORN:
+        return loaded_events
 
     resource_dir = "events/lifegen_events/moon_events/living/"
-
     if game.clan.your_cat.dead:
         if game.clan.your_cat.status.group == CatGroup.STARCLAN:
             resource_dir = "events/lifegen_events/moon_events/starclan/"
@@ -1487,12 +1472,10 @@ def generate_lifegen_events():
         elif game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
             resource_dir = "events/lifegen_events/moon_events/unknown_residence/"
 
-    loaded_events = {}    
     loaded_events.update(load_lang_resource(resource_dir + "general.json"))
-
+    
     if game.clan.your_cat.status.rank.is_any_clancat_rank():
         loaded_events.update(load_lang_resource(resource_dir + "general_no_kit.json"))
-    
     if (
         game.clan.your_cat.status.rank.is_any_clancat_rank() or
         game.clan.your_cat.status.rank in (
@@ -1503,9 +1486,18 @@ def generate_lifegen_events():
 
     if game.clan.your_cat.status.is_exiled():
         loaded_events.update(load_lang_resource(resource_dir + "exiled.json"))
+        return loaded_events
     
     if game.clan.your_cat.status.rank == CatRank.ELDER and game.clan.your_cat.moons < 100:
         loaded_events.update(load_lang_resource(resource_dir + "young elder.json"))
+
+    return loaded_events
+
+def generate_lifegen_events():
+    """
+    LIFEGEN: Random flavour events on moonskip!
+    """
+    global lifegen_events
 
     possible_events = []
 
@@ -1520,7 +1512,7 @@ def generate_lifegen_events():
         possible_types.append("affair")
 
     # try:
-    for key, event in loaded_events.items():
+    for key, event in lifegen_events.items():
         if "season" in event and game.clan.current_season not in event["season"]:
             continue
         if "biome" in event and game.clan.biome not in event["biome"]:
@@ -1560,12 +1552,9 @@ def generate_lifegen_events():
                 involved_cats
             ]
         )
-   
-    # except Exception as e:
-    #     print("ERROR Generating LifeGen Events:", e)
 
     if not possible_events:
-        print("No possible events.")
+        # print("No possible Lifegen events this moon.")
         return
 
     for i in range(random.randint(0,5)):
@@ -2384,7 +2373,6 @@ def one_moon_cat(cat):
         cat.name.specsuffix_hidden = True
 
     # corrects the name if the leader is shunned but their special suffix isnt hidden
-    
 
     cat.status.increase_current_moons_as()
 
@@ -2451,7 +2439,7 @@ def one_moon_cat(cat):
     # newborns don't do much
     if cat.status.rank == CatRank.NEWBORN:
         return
-    
+
     if (cat.status.alive_in_your_cat_group or cat.status.alive_in_player_clan) and not cat.status.is_outsider:
         if not cat.status.is_shunned():
             handle_apprentice_EX(cat)  # This must be before perform_ceremonies!

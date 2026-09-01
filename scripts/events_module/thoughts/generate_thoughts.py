@@ -196,7 +196,7 @@ def _load_allowed_thoughts(thought_type: CatThought, main_cat: "Cat"):
             thoughts = load_lang_resource(f"{start_path}/starclan.json")
         else:
             thoughts = load_lang_resource(f"{start_path}/dark_forest.json")
-    if thought_type == CatThought.IS_DF_GUIDE:
+    elif thought_type == CatThought.IS_DF_GUIDE:
         if game.clan.followingsc:
             thoughts = load_lang_resource(f"{start_path}/starclan.json")
         else:
