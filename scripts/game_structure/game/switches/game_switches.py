@@ -42,6 +42,7 @@ class Switch(StrEnum):
     keybinds_live = auto()
     card_conflict_changes = auto()
     confirmed_deck_list = auto()
+    ceremony_accessory = auto()
 
     # CGW
     last_used_POI = auto()
@@ -78,9 +79,10 @@ _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
     "keybinds_live": False,
     "card_conflict_changes": {},
     "confirmed_deck_list": [],
+    "ceremony_accessory": False,
 
     "last_used_POI": "",
-    "selected_tile": ""
+    "selected_tile": "",
 }
 """If you are somehow accessing this from outside game_switches.py, something has gone terribly wrong."""
 

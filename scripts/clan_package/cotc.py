@@ -1,3 +1,4 @@
+from scripts.clan import OtherClan
 from scripts.game_structure import game
 
 def get_other_clan(clan_name):
@@ -9,7 +10,7 @@ def get_other_clan(clan_name):
             return clan
 
 
-def change_clan_relations(other_clan, difference):
+def change_clan_relations(other_clan: OtherClan, difference):
     """
     will change the Clan's relation with other clans according to the difference parameter.
     """
