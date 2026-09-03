@@ -2449,4 +2449,3 @@ def get_take_events(
     return possible_events
 
 load_other_clan_events()
-load_war_resources()

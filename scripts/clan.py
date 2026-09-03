@@ -1635,12 +1635,15 @@ class OtherClan:
             "colour": self.colour
         }
 
-    def get_standing(self, clan) -> Literal["ally", "amicable", "neutral", "tense", "hostile"]:
+    def get_standing(self, clan=None) -> Literal["ally", "amicable", "neutral", "tense", "hostile"]:
         """
         Gets if OtherClan is an ally, neutral, or hostile.
 
         :return: One of "ally", "amicable", "neutral", "tense", or "hostile".
         """
+        if not clan:
+            clan = game.clan
+
         if self.relations[clan.group_ID] <= get_config("reputation.other_clans.hostile"):
             return "hostile"
         elif self.relations[clan.group_ID] <= get_config("reputation.other_clans.tense"):

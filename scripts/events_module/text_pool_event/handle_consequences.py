@@ -38,6 +38,12 @@ from scripts.events_module.text_adjust import (
 from scripts.events_module.text_pool_event.text_pool_event import TextPoolEvent
 from scripts.events_module.thoughts.generate_thoughts import get_new_thought
 from scripts.game_structure import game, constants
+from scripts.territory import territory_class
+from scripts.game_structure.game.switches import (
+    Switch,
+    switch_get_value,
+    switch_set_value
+)
 
 disable_random: bool = False
 logger = logging.getLogger(__name__)
@@ -47,6 +53,9 @@ def execute_outcome(
     event: TextPoolEvent,
     event_involved_cats: dict[str, Union[Cat, list[Cat]]],
     other_clan: OtherClan = None,
+    # CGW
+    patrol_event=None,
+    intro_string=None
 ) -> tuple[str, str]:
     """
     Executes the outcome, applying any specified consequences.
@@ -76,6 +85,7 @@ def execute_outcome(
         _handle_conditions(event, event_involved_cats, other_clan),
         _handle_reputation_changes(event, other_clan),
         _handle_supply_changes(event, event_involved_cats),
+        _handle_tile_event(event, event_involved_cats, other_clan, processed_text, intro_string, patrol_event)
     ]
 
     acc_results, processed_text = _handle_accessories(
@@ -576,6 +586,11 @@ def _profile_link(cat: Cat) -> str:
     """Create a hyperlink to a cat profile from patrol results."""
     return f'<a href="cat://{cat.ID}"><b>{escape(str(cat.name))}</b></a>'
 
+# CGW
+def _tile_map_link(tile_string) -> str:
+    """Create a hyperlink to a map tile!"""
+    return f"<a href='tile://{tile_string}'><b>territory map</b></a>"
+
 
 def _handle_reputation_changes(event: TextPoolEvent, other_clan: OtherClan) -> str:
     if not event.reputation_changes:
@@ -635,6 +650,72 @@ def _handle_supply_changes(
     results.append(_handle_prey(prey_blocks, event_involved_cats))
     return " ".join(results)
 
+def _handle_tile_event(
+        event: TextPoolEvent,
+        event_involved_cats: dict[str, Union[Cat, list[Cat]]],
+        other_clan,
+        processed_text,
+        intro_string,
+        patrol_event
+        ):
+    if (
+        patrol_event.poi
+        ):
+        # not the best way to do it but oh well
+        tile_types = [switch_get_value(Switch.last_used_POI)]
+        switch_set_value(Switch.last_used_POI, "")
+    else:
+        # TEMP ------------------------------->
+        # do correctly after merging patrol reformat
+        # maybe..............
+        if "border" in patrol_event.types:
+            # hack
+            if "river" in intro_string:
+                tile_types = ["river"]
+            elif "coast" in intro_string:
+                tile_types = ["coast:ocean"]
+            elif other_clan:
+                tile_types = ["other_clan_border"]
+            else:
+                tile_types = ["border"]
+        else:
+            if (
+                event.condition or
+                event.death or
+                event.lost or
+                event.meet
+            ):
+                tile_types = ["outside_camp"]
+            else:
+                # nothing rlly happened ..... bye
+                return
+        # ------------------------------------>
+
+    possible_tiles = territory_class.get_tiles(
+        tile_types,
+        clan=game.clan,
+        other_clan=other_clan
+        )
+    if not possible_tiles:
+        return ""
+
+    intro = event_text_adjust(
+        Cat,
+        intro_string,
+        involved_cat_dict=event_involved_cats,
+        clan=game.clan,
+        other_clan=other_clan,
+    )
+
+    event_text = (
+        intro + "<br><br>" + processed_text
+    )
+    # ------>
+
+    chosen_tile = choice(possible_tiles)
+    chosen_tile.add_event(event_text)
+
+    return f"This event has been recorded in your {_tile_map_link(chosen_tile.tile_string)}."
 
 def _handle_prey(
     prey_info: list[SupplyDict], event_involved_cats: dict[str, Union[Cat, list[Cat]]]

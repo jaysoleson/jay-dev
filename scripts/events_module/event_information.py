@@ -95,5 +95,5 @@ class EventInformation:
             types=info_dict.get("types", None),
             cats_involved=info_dict.get("cats_involved", None),
             cat_dict=cat_dict,
-            event_tile=dict.get("event_tile", None)
+            event_tile=info_dict.get("event_tile", None)
         )

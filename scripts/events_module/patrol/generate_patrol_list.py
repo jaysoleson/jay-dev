@@ -41,6 +41,13 @@ def get_patrol_list(
     possible_patrols.extend(_get_all_patrols_of_type(patrol_type, biome, path, season))
 
     # OTHER CLAN
+    # CGW
+    # CGWAR TODO" maybe actually make unique patrol files here
+    if other_clan_rep == "tense":
+        other_clan_rep = "hostile"
+    elif other_clan_rep == "amicable":
+        other_clan_rep = "ally"
+    # --
     possible_patrols.extend(_load_file(f"{path}other_clan.json"))
     if other_clan_rep != "neutral":
         possible_patrols.extend(_load_file(f"{path}other_clan_{other_clan_rep}.json"))

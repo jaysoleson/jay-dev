@@ -85,6 +85,9 @@ class Patrol:
     used_patrols = {"romance": [], "normal": []}
 
     def __init__(self):
+        # CGW
+        self.chosen_intro_string: str = ""
+        # --
         self.patrol_event: Optional[PatrolEvent] = None
         self.debug_patrol_id: str = ""
         self.other_clan = None
@@ -118,8 +121,12 @@ class Patrol:
         )
 
         # Choose other clan
+        neighbours = territory_class.get_neighbouring_clans(game.clan)
         if game.clan.all_other_clans and len(game.clan.all_other_clans) > 0:
-            self.other_clan = choice(game.clan.all_other_clans)
+            if neighbours:
+                self.other_clan = choice(neighbours)
+            else:
+                self.other_clan = choice(game.clan.all_other_clans)
         else:
             self.other_clan = None
 
@@ -127,10 +134,12 @@ class Patrol:
         self.patrol_event = self._get_possible_patrol(patrol_type)
         self._create_needed_cats()
 
+        self.chosen_intro_string = choice(self.patrol_event.intro_strings)
+
         # Return text adjusted patrol intro
         return event_text_adjust(
             Cat,
-            choice(self.patrol_event.intro_strings),
+            self.chosen_intro_string,
             involved_cat_dict=self.involved_cats,
             clan=game.clan,
             other_clan=self.other_clan,
@@ -657,6 +666,8 @@ class Patrol:
             chosen_outcome,
             self.outcome_cats["success" if success else "failure"],
             self.other_clan,
+            patrol_event=self.patrol_event,
+            intro_string=self.chosen_intro_string
         ) + (self.get_patrol_art(chosen_outcome),)
 
     def calculate_success(
