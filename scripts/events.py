@@ -2084,7 +2084,7 @@ def other_clans_relations_wobble():
         event_tile = territory_class.get_tiles(["gathering"])[0]
         event_tile.add_event(event_text)
         event_tile_string = event_tile.tile_string
-    game.cur_events_list.append(Single_Event(event_text, ["other_clans"], event_tile=event_tile_string))
+    game.cur_events_list.append(EventInformation(event_text, ["other_clans"], event_tile=event_tile_string))
 
 
     from_clan.relations[to_clan.group_ID] = 0
@@ -2152,7 +2152,7 @@ def other_clans_territory_wobble():
         other_clan=second_clan if number == 1 else first_clan
     )
     game.cur_events_list.append(
-        Single_Event(
+        EventInformation(
             event_string,
             ["other_clans"],
             event_tile=traded_tile.tile_string
@@ -2341,7 +2341,7 @@ def handle_map_interaction_event():
     if "(herb)" in chosen_event:
         chosen_event = chosen_event.replace("(herb)", target_tile.herb.replace("_", " "))
 
-    game.cur_events_list.append(Single_Event(chosen_event, "misc", event_tile=target_tile.tile_string))
+    game.cur_events_list.append(EventInformation(chosen_event, ["misc"], event_tile=target_tile.tile_string))
 
     # TILE EVENTS ---------------------------------------->
     target_tile.add_event(chosen_event)

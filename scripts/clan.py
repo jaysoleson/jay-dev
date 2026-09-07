@@ -696,16 +696,21 @@ class Clan:
         Loads and converts War.
         """
         if isinstance(game.clan.war, dict):
-            new_war = War(
-                offense=game.clan.group_ID,
-                defense=game.clan.war["enemy"],
-                demand="prey",
-                duration=game.clan.war["duration"]
-            )
-            game.clan.war = []
-            game.clan.war.append(new_war.get_war_dict())
+            if game.clan.war["at_war"]:
+                new_war = War(
+                    offense=game.clan.group_ID,
+                    defense=game.clan.war["enemy"],
+                    demand="prey",
+                    duration=game.clan.war["duration"]
+                )
+                game.clan.war = []
+                game.clan.war.append(new_war.get_war_dict())
             # turn into a dict because everything gets converted 
             # BACK into War objects momentarily
+
+        # if there wasnt any war to convert, make an empty list
+        if isinstance(game.clan.war, dict):
+            game.clan.war = []
 
         war_object_list = []
         for war in game.clan.war:
@@ -736,12 +741,17 @@ class Clan:
         """
         TODO: Docs
         """
-        with open(
-            get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json",
-            "r",
-            encoding="utf-8",
-        ) as read_file:
-            tile_dict = ujson.loads(read_file.read())
+        filename = get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json"
+        if not os.path.exists(filename):
+            print("You're playing on a Clangen save! Generating territories...")
+            tile_dict = generate_territories()
+        else:
+            with open(
+                get_save_dir() + "/" + switch_get_value(Switch.clan_list)[0] + "/territory.json",
+                "r",
+                encoding="utf-8",
+            ) as read_file:
+                tile_dict = ujson.loads(read_file.read())
 
         # tile_dict = generate_territories()
         # ^^ debug overwriting every load for testing
@@ -958,6 +968,11 @@ class Clan:
                 else:
                     ID = other_clan["group_ID"]
 
+                if "colour" not in other_clan:
+                    colour = None
+                else:
+                    colour = other_clan["colour"]
+
                 game.clan.all_other_clans.append(
                     OtherClan(
                         name=other_clan.get("prefix", other_clan.get("name")),
@@ -965,7 +980,7 @@ class Clan:
                         temperament=other_clan["temperament"],
                         chosen_symbol=other_clan["chosen_symbol"],
                         ID=ID,
-                        colour=other_clan["colour"]
+                        colour=colour
                     )
                 )
         else:

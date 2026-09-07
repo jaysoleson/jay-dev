@@ -47,6 +47,7 @@ class Switch(StrEnum):
     # CGW
     last_used_POI = auto()
     selected_tile = auto()
+    edit_map_info = auto()
 
 
 _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
@@ -83,6 +84,9 @@ _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
 
     "last_used_POI": "",
     "selected_tile": "",
+    "edit_map_info": {
+        "owner": "1"
+    }
 }
 """If you are somehow accessing this from outside game_switches.py, something has gone terribly wrong."""
 

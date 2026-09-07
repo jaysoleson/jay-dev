@@ -4,6 +4,11 @@
         "biome": ["any"],
         "tags": ["trees"]
     },
+    "gather_falls": {
+        "category": "gathering",
+        "biome": ["mountainous", "forest"],
+        "tags": ["water:flowing", "prey:water", "rocks", "fall_risk"]
+    },
     "gather_island": {
         "category": "gathering",
         "biome": ["any"],

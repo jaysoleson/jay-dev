@@ -660,6 +660,7 @@ def _handle_tile_event(
         patrol_event
         ):
     if (
+        patrol_event and
         patrol_event.poi
         ):
         # not the best way to do it but oh well
@@ -669,7 +670,7 @@ def _handle_tile_event(
         # TEMP ------------------------------->
         # do correctly after merging patrol reformat
         # maybe..............
-        if "border" in patrol_event.types:
+        if patrol_event and "border" in patrol_event.types:
             # hack
             if "river" in intro_string:
                 tile_types = ["river"]

@@ -8,6 +8,7 @@ from scripts.ui.elements.image_button import UIImageButton
 from scripts.ui.elements.surface_image_button import UISurfaceImageButton
 from scripts.ui.generate_box import get_box, BoxStyles
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
+from scripts.game_structure import constants
 from scripts.ui.icon import Icon
 from scripts.game_structure.screen_settings import MANAGER
 from scripts.ui.elements.modified_image import UIModifiedImage
@@ -22,12 +23,13 @@ from ..ui.elements.checkbox import UICheckbox
 from scripts.config import get_config
 from scripts.game_structure.game.settings import game_setting_get
 from scripts.ui.windows.map_view_events import MapViewEvents
+from scripts.ui.windows.edit_map_options import EditMapOptions
 from scripts.game_structure.game.switches import (
     Switch,
     switch_get_value
 )
 from scripts.clan_package.settings import get_clan_setting, set_clan_setting
-
+from scripts.territory import territory_class
 
 
 class MapScreen(Screens):
@@ -63,6 +65,9 @@ class MapScreen(Screens):
         self.view_icons = True
         self.view_terrain = False
         self.view_grid = True
+        # debug
+        self.edit_map = False
+        self.edit_map_information = {}
 
         # different view tabs
         self.tabs = {}
@@ -107,7 +112,8 @@ class MapScreen(Screens):
             anchors={"centerx": "centerx"},
             manager=MANAGER,
         )
-        self.debug_button.hide()
+        if not constants.CONFIG["dev_tools"]:
+            self.debug_button.hide()
 
         self.back_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((25, 25), (105, 30))),
@@ -196,6 +202,14 @@ class MapScreen(Screens):
             manager=MANAGER,
             object_id=get_text_box_theme("#text_box_30_horizleft"),
         )
+        self.elements["edit_map_label"] = pygame_gui.elements.UITextBox(
+            "screens.map.toggle_edit_map",
+            ui_scale(pygame.Rect((175, 650), (200, 40))),
+            manager=MANAGER,
+            object_id=get_text_box_theme("#text_box_30_horizleft"),
+        )
+        if not constants.CONFIG["dev_tools"]:
+            self.elements["edit_map_label"].hide()
 
         self.update_tile_info()
         self.create_map()
@@ -238,7 +252,6 @@ class MapScreen(Screens):
             else:
                 button.enable()
 
-
     def update_checkboxes(self):
         if "colour" in self.view_checkboxes:
             self.view_checkboxes["colour"].kill()
@@ -248,6 +261,9 @@ class MapScreen(Screens):
             self.view_checkboxes["water"].kill()
         if "grid" in self.view_checkboxes:
             self.view_checkboxes["grid"].kill()
+
+        if "edit_map" in self.view_checkboxes:
+            self.view_checkboxes["edit_map"].kill()
 
         self.view_checkboxes["colour"] = UICheckbox(
             position=(115, 565),
@@ -270,14 +286,39 @@ class MapScreen(Screens):
             manager=MANAGER,
         )
 
+        self.view_checkboxes["edit_map"] = UICheckbox(
+            position=(150, 650),
+            check=self.edit_map,
+            manager=MANAGER,
+        )
+        if not constants.CONFIG["dev_tools"]:
+            self.view_checkboxes["edit_map"].hide()
+
+        if "map_edit_option_window" in self.elements:
+            self.elements["map_edit_option_window"].kill()
+        self.elements["map_edit_option_window"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((570, 580), (120, 30))),
+            "edit options",
+            get_button_dict(ButtonStyles.SQUOVAL, (120, 30)),
+            starting_height=2,
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+            tool_tip_text=str(switch_get_value(Switch.edit_map_info))
+        )
+        if not self.edit_map:
+            self.elements["map_edit_option_window"].hide()
+
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.debug_button:
                 game.clan.remap_territory_strength()
                 self.create_map()
-            if event.ui_element == self.back_button:
+            elif event.ui_element == self.back_button:
                 self.change_screen(game.last_screen_forupdate)
-            
+            elif event.ui_element == self.elements["map_edit_option_window"]:
+                print("EDIT OPTIONS")
+                EditMapOptions(self.edit_map_information)
+
             for key, button in self.map_tile_buttons.items():
                 if event.ui_element == button:
                     if button.selected:
@@ -288,7 +329,13 @@ class MapScreen(Screens):
                         button.select()
                         self.selected_tile = key
                         self.update_tile_info()
+
+                    if self.edit_map:
+                        self.edit_map_tile()
+                        self.create_map()
+
                     self.update_tiles()
+                    self.update_buttons()
             for key, button in self.tabs.items():
                 if event.ui_element == button:
                     self.current_view = key
@@ -322,6 +369,12 @@ class MapScreen(Screens):
                     self.view_grid = True
                 self.create_map()
                 self.update_checkboxes()
+            elif event.ui_element == self.view_checkboxes["edit_map"]:
+                if self.edit_map:
+                    self.edit_map = False
+                else:
+                    self.edit_map = True
+                self.update_checkboxes()
             elif event.ui_element == self.elements["view_events"]:
                 MapViewEvents(self.selected_tile)
             elif event.ui_element == self.elements["view_history"]:
@@ -332,7 +385,35 @@ class MapScreen(Screens):
                     self.update_interaction_buttons()
                     self.create_map()
         return super().handle_event(event)
-    
+
+    def edit_map_tile(self):
+        if not self.selected_tile:
+            return
+        self.edit_map_information = switch_get_value(Switch.edit_map_info)
+        if "owner" in self.edit_map_information:
+            new_owner = territory_class.get_clan_from_ID(self.edit_map_information["owner"])
+            self.selected_tile.change_owner(new_owner)
+        if "poi" in self.edit_map_information:
+            for tile in game.clan.territory_tiles:
+                if tile.poi == self.edit_map_information["poi"]:
+                    tile.poi = None
+                    break
+            self.selected_tile.poi = self.edit_map_information["poi"]
+            print("New poi for", self.selected_tile, ":", self.selected_tile.poi)
+        if "terrain" in self.edit_map_information:
+            self.selected_tile.terrain = self.edit_map_information["terrain"]
+            if self.selected_tile.terrain == "land":
+                self.selected_tile.herb = None
+        if "herb" in self.edit_map_information:
+            self.selected_tile.herb = self.edit_map_information["herb"]
+        if "camp" in self.edit_map_information:
+            if self.selected_tile.owner:
+                for tile in game.clan.territory_tiles:
+                    if tile.owner == self.selected_tile.owner and tile.camp:
+                        tile.camp = False
+                        break
+                self.selected_tile.camp = True
+
     def exit_screen(self):
         self.back_button.kill()
         self.debug_button.kill()

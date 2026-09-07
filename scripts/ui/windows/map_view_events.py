@@ -65,7 +65,7 @@ class MapViewEvents(GameWindow):
             self.build_events_list()
         else:
             self.build_history_list()
-    
+
     def build_events_list(self):
         for item in self.event_elements:
             self.event_elements[item].kill()
