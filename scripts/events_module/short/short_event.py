@@ -13,6 +13,7 @@ from scripts.cat_relations.relationship import Relationship
 from scripts.clan_package.cotc import change_clan_reputation, change_clan_relations
 from scripts.clan_package.get_clan_cats import find_alive_cats_with_rank
 from scripts.clan_package.settings import get_clan_setting
+from scripts.clan_resources.point_of_interest import get_poi_from_constraints
 from scripts.config import get_config
 from scripts.events_module.event_information import EventInformation
 from scripts.events_module.consequences import (
@@ -284,6 +285,13 @@ class ShortEvent:
             if self.handle_accessories() is False:
                 return
 
+        # find POI name if we need it
+        chosen_poi = None
+        if self.poi:
+            chosen_poi = get_poi_from_constraints(
+                self.poi.get("name"), self.poi.get("tags"), self.poi.get("category")
+            )
+
         # change relationships before killing anyone
         if self.relationships:
             # we're doing this here to make sure rel logs get adjusted text
@@ -296,6 +304,7 @@ class ShortEvent:
                 new_cats=self.new_cats,
                 other_clan=other_clan,
                 clan=game.clan,
+                chosen_poi=chosen_poi,
             )
             for change in self.relationships:
                 for group in change.get("log", []):
@@ -306,6 +315,7 @@ class ShortEvent:
                         random_cat=self.random_cat,
                         victim_cat=self.victim_cat,
                         new_cats=self.new_cats,
+                        chosen_poi=chosen_poi,
                     )
 
             unpack_rel_block(Cat, self.relationships, self)
@@ -385,6 +395,7 @@ class ShortEvent:
             clan=game.clan,
             other_clan=other_clan,
             chosen_herb=self.chosen_herb,
+            chosen_poi=chosen_poi,
         )
 
         # get tile

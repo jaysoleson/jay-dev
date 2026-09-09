@@ -54,10 +54,10 @@ def execute_outcome(
     event: TextPoolEvent,
     event_involved_cats: dict[str, Union[Cat, list[Cat]]],
     other_clan: OtherClan = None,
-    # CGW
+    chosen_poi: str = None,
     patrol_event=None,
     intro_string=None
-) -> tuple[str, str]:
+) -> tuple[str, str, dict]:
     """
     Executes the outcome, applying any specified consequences.
     If new cats are created, event_involved_cats *will* be modified to add the newly created cats.
@@ -76,17 +76,18 @@ def execute_outcome(
         involved_cat_dict=event_involved_cats,
         clan=game.clan,
         other_clan=other_clan,
+        chosen_poi=chosen_poi,
     )
 
     results = [
         _handle_joining(event, event_involved_cats),
+        _handle_death(event, event_involved_cats, other_clan, chosen_poi),
         _handle_meeting(event, event_involved_cats),
-        _handle_death(event, event_involved_cats, other_clan),
         _handle_lost(event, event_involved_cats),
         _handle_conditions(event, event_involved_cats, other_clan),
         _handle_reputation_changes(event, other_clan),
         _handle_supply_changes(event, event_involved_cats),
-        _handle_tile_event(event, event_involved_cats, other_clan, processed_text, intro_string, patrol_event)
+        _handle_tile_event(event, event_involved_cats, other_clan, processed_text, intro_string, patrol_event, chosen_poi)
     ]
 
     acc_results, processed_text = _handle_accessories(
@@ -109,6 +110,7 @@ def execute_outcome(
                     involved_cat_dict=event_involved_cats,
                     clan=game.clan,
                     other_clan=other_clan,
+                    chosen_poi=chosen_poi,
                 )
 
     # apply rel effects (append result text)
@@ -295,6 +297,7 @@ def _handle_death(
     event: TextPoolEvent,
     event_involved_cats: dict[str, Union[Cat, list[Cat]]],
     other_clan: OtherClan,
+    chosen_poi: str = None,
 ) -> str:
     """
     Handles cats dying on patrol
@@ -332,6 +335,7 @@ def _handle_death(
                             Cat,
                             i18n.t("cat.history.n_leader_death_all"),
                             main_cat=c,
+                            chosen_poi=chosen_poi,
                         )
                     )
                 elif "some_lives" in death_tags:
@@ -344,6 +348,7 @@ def _handle_death(
                             Cat,
                             i18n.t("cat.history.n_leader_lost_lives", count=lives_lost),
                             main_cat=c,
+                            chosen_poi=chosen_poi,
                         )
                     )
                 else:
@@ -354,6 +359,7 @@ def _handle_death(
                             Cat,
                             i18n.t("cat.history.n_leader_lost_lives", count=1),
                             main_cat=c,
+                            chosen_poi=chosen_poi,
                         )
                     )
                 if extra_result := check_stolen_vitality(c, lives_lost):
@@ -657,19 +663,13 @@ def _handle_tile_event(
         other_clan,
         processed_text,
         intro_string,
-        patrol_event
+        patrol_event,
+        chosen_poi
         ):
-    if (
-        patrol_event and
-        patrol_event.poi
-        ):
-        # not the best way to do it but oh well
-        tile_types = [switch_get_value(Switch.last_used_POI)]
-        switch_set_value(Switch.last_used_POI, "")
+    if chosen_poi:
+        print("HANDLE TILE EVENT: CHOSEN POI:", chosen_poi)
+        tile_types = [chosen_poi]
     else:
-        # TEMP ------------------------------->
-        # do correctly after merging patrol reformat
-        # maybe..............
         if patrol_event and "border" in patrol_event.types:
             # hack
             if "river" in intro_string:
