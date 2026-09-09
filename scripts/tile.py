@@ -9,6 +9,9 @@ from scripts.config import get_config
 from scripts.events_module.text_adjust import event_text_adjust
 from scripts.cat.cats import Cat
 from scripts.territory import territory_class
+from scripts.clan_resources.point_of_interest import (
+    get_poi_save_dict
+)
 
 class TerritoryTile():
     """
@@ -124,23 +127,19 @@ class TerritoryTile():
             )
         if self.poi:
             if "terrain" in self.poi:
-                name = (
-                    "<b>" +
-                    event_text_adjust(
-                        Cat,
-                        text="{POI/name/" + self.poi + "}"
-                        ).title() +
-                    "</b>"
+                name = event_text_adjust(
+                    Cat,
+                    "POI",
+                    chosen_poi=self.poi
                 )
+                name = "<b>" + name.title() + "</b>"
             else:
-                name = (
-                    "<b>" +
-                    event_text_adjust(
-                        Cat,
-                        text="{POI/category/" + self.poi + "}"
-                        ).title() +
-                    "</b>"
+                name = event_text_adjust(
+                    Cat,
+                    "POI",
+                    chosen_poi=get_poi_save_dict()[self.poi][0]
                 )
+                name = "<b>" + name.title() + "</b>"
         elif self.camp:
             name = "<b>" + str(self.owner.name) + " Camp</b>"
         elif self.in_dispute():
