@@ -52,7 +52,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["leader"]
+                "rank": [
+                    "leader"
+                ]
             }
         },
         "frequency": 4,
@@ -118,7 +120,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["kitten"]
+                "rank": [
+                    "kitten"
+                ]
             }
         },
         "frequency": 4,
@@ -488,8 +492,12 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "residence": ["sc"],
-                "age": ["not_kitten"]
+                "residence": [
+                    "sc"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "frequency": 4,
@@ -551,8 +559,12 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "residence": ["df"],
-                "age": ["not_kitten"]
+                "residence": [
+                    "df"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "frequency": 4,
@@ -569,15 +581,23 @@
                 "text": "Thinking quickly, you take a deep breath, roll into a patch of muck, and allow yourself to sink. With a gasp, your attacker leaps away to avoid going down with you, and presumably darts off. Relieved to have avoided a battle, you swim to the surface and haul yourself out of the muck - though you can't help but find some irony in the fact that your search for a dry resting place has left your pelt sodden with dark water and muck.",
                 "exp": 0,
                 "frequency": 4,
-                "stat_skill": ["SWIMMER,1"],
-                "can_have_stat": ["p_l"]
+                "stat_skill": [
+                    "SWIMMER,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
             },
             {
                 "text": "Maybe some <i>other</i> elder would consider this a problem, but whoever ambushed you must be mouse-brained! Your fighting skills are just as sharp as they were in your younger years, and you manage to win the fight despite having been caught by surprise. You lift your head smugly as your opponent flees into the murky mist. Hopefully they've learned not to assume all elders are easy targets... and if they haven't, you're <i>more</i> than happy to review that lesson with them again.",
                 "exp": 0,
                 "frequency": 4,
-                "stat_skill": ["FIGHTER,1"],
-                "can_have_stat": ["p_l"]
+                "stat_skill": [
+                    "FIGHTER,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
             }
         ],
         "fail_outcomes": [

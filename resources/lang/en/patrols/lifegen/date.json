@@ -292,7 +292,7 @@
                             "comfort"
                         ],
                         "amount": 10,
-                        "log":{}
+                        "log": {}
                     }
                 ]
             }
@@ -747,7 +747,10 @@
         "min_max_status": {},
         "random_cats": {
             "y_c": {
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             }
         },
         "frequency": 4,
@@ -1246,7 +1249,9 @@
         "min_max_status": {},
         "random_cats": {
             "y_c": {
-                "rank": ["df_trainee"]
+                "rank": [
+                    "df_trainee"
+                ]
             }
         },
         "frequency": 4,
@@ -1303,7 +1308,9 @@
         "min_max_status": {},
         "random_cats": {
             "y_c": {
-                "rank": ["df_trainee"]
+                "rank": [
+                    "df_trainee"
+                ]
             }
         },
         "frequency": 4,
@@ -1359,7 +1366,9 @@
         "min_max_status": {},
         "random_cats": {
             "y_c": {
-                "rank": ["df_trainee"]
+                "rank": [
+                    "df_trainee"
+                ]
             }
         },
         "frequency": 4,
@@ -2361,7 +2370,9 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["kitten"]
+                "rank": [
+                    "kitten"
+                ]
             }
         },
         "intro_text": "You watch from across camp as r_c works hard to help set a haunted den up for the kits. You wonder if {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} distracted enough to allow for you sneak out of camp to find {PRONOUN/r_c/object} a gift.",

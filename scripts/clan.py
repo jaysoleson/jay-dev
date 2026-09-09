@@ -421,7 +421,6 @@ class Clan:
                     the_cat.backstory = "clan_founder"
             if the_cat.status.rank == CatRank.APPRENTICE:
                 the_cat.rank_change(CatRank.APPRENTICE)
-            the_cat.get_new_thought()
 
         # # create leader's ceremony
         # self.leader.generate_lead_ceremony()
@@ -1432,10 +1431,6 @@ class Clan:
             raise error
         if "war" in clan_data:
             game.clan.war = clan_data["war"]
-
-        load_faded_cat_ids(clan_data["clanname"])
-
-        prune_dead_relationships(Cat)
 
         game.clan.last_focus_change = clan_data.get("last_focus_change")
         game.clan.clans_in_focus = clan_data.get("clans_in_focus", [])

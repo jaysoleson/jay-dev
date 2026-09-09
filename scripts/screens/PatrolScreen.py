@@ -139,6 +139,7 @@ class PatrolScreen(Screens):
             and event.ui_element == self.elements["cat_icon"]
         ):
             switch_set_value(Switch.patrol_category, "clangen")
+            self.patrol_type = "general"
             self.selected_cat = None
             self.current_patrol.clear()
             self.elements["cat_icon"].disable()
@@ -168,6 +169,7 @@ class PatrolScreen(Screens):
         ):
             switch_set_value(Switch.patrol_category, "df")
             self.selected_cat = None
+            self.patrol_type = "df"
             self.current_patrol.clear()
             self.elements["cat_icon"].enable()
             self.elements["df_icon"].disable()
@@ -189,7 +191,7 @@ class PatrolScreen(Screens):
             and event.ui_element == self.elements["date_icon"]
         ):
             switch_set_value(Switch.patrol_category, "date")
-
+            self.patrol_type = "date"
             self.selected_cat = None
             self.current_patrol.clear()
             self.elements["cat_icon"].enable()
@@ -213,7 +215,7 @@ class PatrolScreen(Screens):
             and event.ui_element == self.elements["your_cat"]
         ):
             switch_set_value(Switch.patrol_category, "lifegen")
-
+            self.patrol_type = "lifegen"
             self.selected_cat = None
             self.current_patrol.clear()
             self.elements["cat_icon"].enable()

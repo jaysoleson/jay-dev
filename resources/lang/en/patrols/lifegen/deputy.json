@@ -546,12 +546,22 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "cluster": ["neurotic"],
-                "rank": ["warrior", "apprentice"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:1": {
-                "cluster": ["brooding", "unlawful"],
-                "rank": ["warrior"]
+                "cluster": [
+                    "brooding",
+                    "unlawful"
+                ],
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "frequency": 4,
@@ -568,7 +578,9 @@
                 "text": "You tell r_c:0 that {PRONOUN/r_c:0/subject} can't avoid {PRONOUN/r_c:0/poss} Clanmates, and in fact, you'll make sure {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} put on a patrol with r_c:1 today. r_c:0 looks upset, but when {PRONOUN/r_c:0/subject} {VERB/r_c:0/return/returns} from {PRONOUN/r_c:0/poss} dawn patrol later, you see {PRONOUN/r_c:0/object} laughing and joking around with r_c:1. Looks like {PRONOUN/r_c:1/subject} {VERB/r_c:1/weren't/wasn't} so scary after all.",
                 "exp": 15,
                 "frequency": 4,
-                "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "righteous",
                     "ambitious",
@@ -581,10 +593,16 @@
                 ],
                 "relationships": [
                     {
-                        "cats_to": ["r_c:0"],
-                        "cats_from": ["r_c:1"],
+                        "cats_to": [
+                            "r_c:0"
+                        ],
+                        "cats_from": [
+                            "r_c:1"
+                        ],
                         "mutual": true,
-                        "values": ["like"],
+                        "values": [
+                            "like"
+                        ],
                         "amount": 10,
                         "log": {}
                     }
@@ -616,13 +634,21 @@
                     "gloomy",
                     "mellow"
                 ],
-                "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "relationships": [
                     {
-                        "cats_to": ["p_l"],
-                        "cats_from": ["r_c:0"],
+                        "cats_to": [
+                            "p_l"
+                        ],
+                        "cats_from": [
+                            "r_c:0"
+                        ],
                         "mutual": false,
-                        "values": ["comfort"],
+                        "values": [
+                            "comfort"
+                        ],
                         "amount": -5,
                         "log": {}
                     }
@@ -648,13 +674,20 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["leader"]
+                "rank": [
+                    "leader"
+                ]
             },
             "r_c:1": {
-                "rank": ["medicine cat", "medicine cat"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat"
+                ]
             },
             "r_c:2": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "frequency": 4,
@@ -770,7 +803,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "frequency": 4,
@@ -793,7 +828,6 @@
                 "exp": 0,
                 "frequency": 4
             }
-
         ],
         "fail_outcomes": [
             {
@@ -816,7 +850,6 @@
                 "exp": 0,
                 "frequency": 4
             }
-
         ]
     }
 ]

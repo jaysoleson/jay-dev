@@ -325,6 +325,11 @@ def _draw_sprite(
     # draw accessories
     from scripts.cat.pelts import Pelt
 
+    # LG edit
+    # accessories r on a new sprite for inventory display reasons
+    acc_sprite = pygame.Surface(
+            (sprites.size, sprites.size), pygame.HWSURFACE | pygame.SRCALPHA
+        )
     if not acc_hidden and cat.pelt.accessory:
         cat_accessories = cat.pelt.accessory
         categories = [
@@ -334,11 +339,6 @@ def _draw_sprite(
             "head_accessories",
             "paw_accessories",
         ]
-        # LG edit
-        # accessories r on a new sprite for inventory display reasons
-        acc_sprite = pygame.Surface(
-                (sprites.size, sprites.size), pygame.HWSURFACE | pygame.SRCALPHA
-            )
         for category in categories:
             for accessory in cat_accessories:
                 if accessory in getattr(Pelt, category):

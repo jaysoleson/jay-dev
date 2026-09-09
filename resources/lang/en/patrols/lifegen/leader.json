@@ -52,13 +52,19 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:1": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:2": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "frequency": 4,
@@ -133,7 +139,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "frequency": 4,
@@ -173,13 +181,21 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior", "apprentice"]
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:1": {
-                "rank": ["warrior", "apprentice"]
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:2": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "frequency": 4,
@@ -219,13 +235,21 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior", "apprentice"]
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:1": {
-                "rank": ["warrior", "apprentice"]
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:2": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "frequency": 4,
@@ -265,7 +289,10 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             }
         },
         "frequency": 4,
@@ -342,10 +369,14 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["kitten"]
+                "rank": [
+                    "kitten"
+                ]
             },
             "r_c:1": {
-                "rank": ["queen"]
+                "rank": [
+                    "queen"
+                ]
             }
         },
         "frequency": 4,
@@ -395,17 +426,28 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["assertive"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "assertive"
+                ]
             },
             "r_c:1": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             },
             "r_c:2": {
-                "rank": ["mediator", "mediator apprentice"]
+                "rank": [
+                    "mediator",
+                    "mediator apprentice"
+                ]
             },
             "r_c:3": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "frequency": 4,
@@ -455,10 +497,15 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["kitten"]
+                "rank": [
+                    "kitten"
+                ]
             },
             "r_c:1": {
-                "rank": ["warrior", "deputy"]
+                "rank": [
+                    "warrior",
+                    "deputy"
+                ]
             }
         },
         "frequency": 4,
@@ -508,17 +555,29 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior"],
-                "cluster": ["upstanding"]
+                "rank": [
+                    "warrior"
+                ],
+                "cluster": [
+                    "upstanding"
+                ]
             },
             "r_c:1": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             },
             "r_c:2": {
-                "rank": ["warrior", "apprentice"]
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:3": {
-                "rank": ["mediator", "mediator apprentice"]
+                "rank": [
+                    "mediator",
+                    "mediator apprentice"
+                ]
             }
         },
         "frequency": 4,
@@ -570,7 +629,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["kitten"]
+                "rank": [
+                    "kitten"
+                ]
             }
         },
         "frequency": 4,
@@ -587,7 +648,10 @@
                 "text": "r_c:0 is the first to move, visibly startled by your sudden appearance. However, {PRONOUN/r_c:0/subject} {VERB/r_c:0/don't/doesn't} seem terribly unnerved as {PRONOUN/r_c:0/subject} {VERB/r_c:0/open/opens} {PRONOUN/r_c:0/poss} paws to show you a flower crown. It must be a gift. You smile at r_c:0 in goodbye and leave {PRONOUN/r_c:0/object} to {PRONOUN/r_c:0/poss} gift making.",
                 "exp": 0,
                 "frequency": 4,
-                "stat_cluster": ["neurotic", "sweet"],
+                "stat_cluster": [
+                    "neurotic",
+                    "sweet"
+                ],
                 "can_have_stat": [
                     "r_c:0"
                 ]
@@ -596,7 +660,11 @@
                 "text": "r_c:0's eyes brighten, and {PRONOUN/r_c:0/subject} {VERB/r_c:0/exclaim/exclaims} your name, succeeding in getting the other cat's attention. It surprised you, but you suppose as a former leader, you should be well-known. Despite r_c:0 tumultuously announcing your ghostly appearance, at least now r_c:0 is interacting with the others.",
                 "exp": 0,
                 "frequency": 4,
-                "stat_cluster": ["assertive", "silly", "unabashed"],
+                "stat_cluster": [
+                    "assertive",
+                    "silly",
+                    "unabashed"
+                ],
                 "can_have_stat": [
                     "r_c:0"
                 ]
@@ -605,7 +673,10 @@
                 "text": "r_c:0 noticed you, but {PRONOUN/r_c:0/subject} {VERB/r_c:0/seem/seems} to ignore your presence and glances at the ground. You follow {PRONOUN/r_c:0/poss} gaze and see a flurry of bugs in the dirt. r_c:0 is enraptured by the sight, and you suddenly realize why {PRONOUN/r_c:0/subject} decided to be alone. With an amused huff, you leave {PRONOUN/r_c:0/object} be.",
                 "exp": 0,
                 "frequency": 4,
-                "stat_cluster": ["introspective", "stable"],
+                "stat_cluster": [
+                    "introspective",
+                    "stable"
+                ],
                 "can_have_stat": [
                     "r_c:0"
                 ]
@@ -614,7 +685,10 @@
                 "text": "r_c:0 looks to have the nastiest, meanest look on {PRONOUN/r_c:0/poss} face. Someone isn't happy, and {PRONOUN/r_c:0/subject} definitely {VERB/t_c/voice/voices} that as you hover in eyesight. Despite wanting to scold {PRONOUN/r_c:0/object} for {PRONOUN/r_c:0/poss} harsh use of words, you decide to just walk - or well, float - away.",
                 "exp": 0,
                 "frequency": 4,
-                "stat_cluster": ["brooding", "unlawful"],
+                "stat_cluster": [
+                    "brooding",
+                    "unlawful"
+                ],
                 "can_have_stat": [
                     "r_c:0"
                 ]
@@ -623,7 +697,10 @@
                 "text": "r_c:0 seems to recognize you almost immediately, and puffs up {PRONOUN/r_c:0/poss} chest, looking as fierce and regal as a kitten pretending to be a warrior cat can be. You can't help but stifle a laugh at {PRONOUN/r_c:0/poss} attempt to appear warrior-like. It's cute, and doesn't fail to brighten your usually dull day.",
                 "exp": 0,
                 "frequency": 4,
-                "stat_cluster": ["cool", "upstanding"],
+                "stat_cluster": [
+                    "cool",
+                    "upstanding"
+                ],
                 "can_have_stat": [
                     "r_c:0"
                 ]
@@ -652,66 +729,73 @@
             }
         ]
     },
-{
-    	"patrol_id": "life_df_leader_rad1",
-    	"biome": [
-        	"any"
-    	],
-    	"season": [
-        	"any"
-    	],
-    	"types": [
+    {
+        "patrol_id": "life_df_leader_rad1",
+        "biome": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "types": [
             "lifegen"
         ],
         "tags": [
             "df_lifegen"
         ],
-    	"patrol_art": "lg_default_df",
-    	"min_cats": 1,
-    	"max_cats": 1,
-    	"min_max_status": {},
+        "patrol_art": "lg_default_df",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["elder"]
+                "rank": [
+                    "elder"
+                ]
             }
         },
-    	"frequency": 4,
-    	"intro_text": "All your life, your Clanmates would share scary stories about leaders who wound up in the Dark Forest. Now that you're one of those leaders in Dark Forest, you can't help but be curious... What stories are living cats telling about <i>you</i>?",
-    	"decline_text": "Though you could easily find out, you decide not to. You already imagine them telling wild and outlandish stories about you, and you don't want to be disappointed if the real ones are boring.",
-    	"chance_of_success": 50,
-    	"success_outcomes": [
-        	{
-            	"text": "Not wanting to risk being spotted by a living cat, you wait until the Dark Forest trainees have arrived for tonight's practice session and casually ask one if their Clanmates ever tell stories about you. Their eyes widen as they begin sharing one of the most common stories about you, one that's often used to frighten the kits and apprentices into behaving, and one they've heard many times themselves. Normally you'd interrupt a trainee's long-winded tale, since you're supposed to be focusing on battle moves, but you'll make an exception - just this once.",
-            	"exp": 0,
-            	"frequency": 4
-        	},
-        	{
-            	"text": "Determined to find out for yourself, you manage to enter the c_n elders' den, secretly joining an audience of cats who are waiting to listen to a story from r_c:0. It's a nice surprise when {PRONOUN/r_c:0/subject} {VERB/r_c:0/start/stars} regaling a tale of your misdeeds, and an even bigger surprise that {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} describing you quite warmly and correctly explaining every justification you had for your actions. You smile as you listen along with the living cats, knowing your legacy is being passed down by good paws.",
-            	"exp": 0,
-            	"frequency": 4,
-            	"stat_faith": [-9, -6],
-            	"can_have_stat": ["r_c:0"]
-        	},
-        	{
-            	"text": "Some of your former Clanmates are always keen to give the younger cats a good scare, so you slip out of the confines of the Dark Forest and slink into the c_n camp. Once the cats start sharing spooky stories, you're dismayed to realize that not one of them is about you. Perhaps, during your life, you didn't accomplish anything worthy of becoming a warning tale to your Clanmates... But then again, you realize, your presence in the Dark Forest means you can accomplish that during death.",
-            	"exp": 0,
-            	"frequency": 3
-        	}
-    	],
-    	"fail_outcomes": [
-        	{
-            	"text": "Knowing that some of your former Clanmates are always keen to give the younger cats a good scare, you slip out of the confines of the Dark Forest and slink into the c_n camp. When the cats start sharing spooky stories, though, you're dismayed to realize that not one of them is about you. Did you really accomplish nothing worthy of becoming frightening lore among your Clanmates?",
-            	"exp": 0,
-            	"frequency": 4
-        	},
-        	{
-            	"text": "Not wanting to risk being spotted by a living cat, you save the question for that night: as you prepare to square off against a Dark Forest trainee, you casually ask if their Clanmates ever tell stories about you. The fury raises in your chest as they shake their head no, but you try to put that aside; after all, they're here to train. The fact that they return to the waking world with more injuries than usual has nothing to do with this piece of information, truly.",
-            	"exp": 0,
-            	"frequency": 4
-        	}
-    	]
-	},
-       {
+        "frequency": 4,
+        "intro_text": "All your life, your Clanmates would share scary stories about leaders who wound up in the Dark Forest. Now that you're one of those leaders in Dark Forest, you can't help but be curious... What stories are living cats telling about <i>you</i>?",
+        "decline_text": "Though you could easily find out, you decide not to. You already imagine them telling wild and outlandish stories about you, and you don't want to be disappointed if the real ones are boring.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "Not wanting to risk being spotted by a living cat, you wait until the Dark Forest trainees have arrived for tonight's practice session and casually ask one if their Clanmates ever tell stories about you. Their eyes widen as they begin sharing one of the most common stories about you, one that's often used to frighten the kits and apprentices into behaving, and one they've heard many times themselves. Normally you'd interrupt a trainee's long-winded tale, since you're supposed to be focusing on battle moves, but you'll make an exception - just this once.",
+                "exp": 0,
+                "frequency": 4
+            },
+            {
+                "text": "Determined to find out for yourself, you manage to enter the c_n elders' den, secretly joining an audience of cats who are waiting to listen to a story from r_c:0. It's a nice surprise when {PRONOUN/r_c:0/subject} {VERB/r_c:0/start/stars} regaling a tale of your misdeeds, and an even bigger surprise that {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} describing you quite warmly and correctly explaining every justification you had for your actions. You smile as you listen along with the living cats, knowing your legacy is being passed down by good paws.",
+                "exp": 0,
+                "frequency": 4,
+                "stat_faith": [
+                    -9,
+                    -6
+                ],
+                "can_have_stat": [
+                    "r_c:0"
+                ]
+            },
+            {
+                "text": "Some of your former Clanmates are always keen to give the younger cats a good scare, so you slip out of the confines of the Dark Forest and slink into the c_n camp. Once the cats start sharing spooky stories, you're dismayed to realize that not one of them is about you. Perhaps, during your life, you didn't accomplish anything worthy of becoming a warning tale to your Clanmates... But then again, you realize, your presence in the Dark Forest means you can accomplish that during death.",
+                "exp": 0,
+                "frequency": 3
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Knowing that some of your former Clanmates are always keen to give the younger cats a good scare, you slip out of the confines of the Dark Forest and slink into the c_n camp. When the cats start sharing spooky stories, though, you're dismayed to realize that not one of them is about you. Did you really accomplish nothing worthy of becoming frightening lore among your Clanmates?",
+                "exp": 0,
+                "frequency": 4
+            },
+            {
+                "text": "Not wanting to risk being spotted by a living cat, you save the question for that night: as you prepare to square off against a Dark Forest trainee, you casually ask if their Clanmates ever tell stories about you. The fury raises in your chest as they shake their head no, but you try to put that aside; after all, they're here to train. The fact that they return to the waking world with more injuries than usual has nothing to do with this piece of information, truly.",
+                "exp": 0,
+                "frequency": 4
+            }
+        ]
+    },
+    {
         "patrol_id": "leaderwithkits_H1",
         "biome": [
             "any"
@@ -729,14 +813,23 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["queen", "queen's apprentice"]
+                "rank": [
+                    "queen",
+                    "queen's apprentice"
+                ]
             },
             "r_c:1": {
-                "skill": ["KIT,1"],
-                "age": ["not_kitten"]
+                "skill": [
+                    "KIT,1"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:2": {
-                "rank": ["kitten"]
+                "rank": [
+                    "kitten"
+                ]
             }
         },
         "frequency": 4,
@@ -753,18 +846,32 @@
                 "text": "It would be unfair to both r_c:0 and the kittens if you accepted a request you didn't wish to do. With a smooth voice and a calming smile, you decline the offer and instead recommend r_c:1 for the job. It's like r_c:0's worries magically wash away as {PRONOUN/r_c:0/subject} {VERB/r_c:0/thank/thanks} you for your insight.",
                 "exp": 5,
                 "frequency": 4,
-                "stat_skill": ["COMFORTER,1","SPEAKER,1","GRACE,1","MEDIATOR,1","INSIGHTFUL,1"],
+                "stat_skill": [
+                    "COMFORTER,1",
+                    "SPEAKER,1",
+                    "GRACE,1",
+                    "MEDIATOR,1",
+                    "INSIGHTFUL,1"
+                ],
                 "relationships": [
                     {
-                        "cats_to": ["p_l"],
-                        "cats_from": ["r_c:0"],
+                        "cats_to": [
+                            "p_l"
+                        ],
+                        "cats_from": [
+                            "r_c:0"
+                        ],
                         "mutual": false,
-                        "values": ["trust"],
+                        "values": [
+                            "trust"
+                        ],
                         "amount": 10,
                         "log": {}
                     }
                 ],
-           	     "can_have_stat": ["p_l"]
+                "can_have_stat": [
+                    "p_l"
+                ]
             },
             {
                 "text": "You have nothing better to do and accept the request. As soon as you wander into the nursery, the kittens excitedly jump around you, asking for a story about the Clan's founding! You yield almost immediately and begin telling the nursery a tale about the many wars between StarClan and the Dark Forest, and how c_n was founded because of it. However, you realize you made the story sound too cool as r_c:0 keeps asking questions about the Dark Forest.",
@@ -772,7 +879,9 @@
                 "frequency": 2,
                 "faith_effects": [
                     {
-                        "faith_cat": ["r_c:0"],
+                        "faith_cat": [
+                            "r_c:0"
+                        ],
                         "amount": -1
                     }
                 ]
@@ -785,10 +894,16 @@
                 "frequency": 2,
                 "relationships": [
                     {
-                        "cats_to": ["p_l"],
-                        "cats_from": ["r_c:0"],
+                        "cats_to": [
+                            "p_l"
+                        ],
+                        "cats_from": [
+                            "r_c:0"
+                        ],
                         "mutual": false,
-                        "values": ["comfort"],
+                        "values": [
+                            "comfort"
+                        ],
                         "amount": -5,
                         "log": {}
                     }
@@ -817,7 +932,7 @@
             }
         ]
     },
-   {
+    {
         "patrol_id": "simplestroll_leader_H1",
         "biome": [
             "any"
@@ -857,14 +972,20 @@
                 "exp": 10,
                 "frequency": 1,
                 "new_cat": [
-                    ["meeting", "exists", "loner"]
+                    [
+                        "meeting",
+                        "exists",
+                        "loner"
+                    ]
                 ]
             },
             {
                 "text": "Of course, specifically looking for something strange always ends in never finding anything strange. You recall a few words of wisdom from an elder - waiting for something to happen makes it draw out longer - and you find yourself sighing as you realize that elder was correct. At least you caught a bird during your stroll.",
                 "exp": 5,
                 "frequency": 2,
-                "prey": ["small"]
+                "prey": [
+                    "small"
+                ]
             },
             {
                 "text": "Strangeness always seems to find you, even if you're not searching for it. You witness an argument between a o_c_n patrol, scolding an apprentice for deliberately crossing c_n's border for a measly mouse. You can't be mad as you sit at the sidelines, soaking in the drama that doesn't involve you, for once.",
@@ -922,8 +1043,12 @@
                 "frequency": 1,
                 "injury": [
                     {
-                        "cats": ["p_l"],
-                        "injuries": ["bruises"]
+                        "cats": [
+                            "p_l"
+                        ],
+                        "injuries": [
+                            "bruises"
+                        ]
                     }
                 ]
             },
@@ -931,7 +1056,7 @@
                 "text": "While on your walk, you spot a o_c_n patrol near the border of your territory. Disapproving the patrols' proximity, you decide to confront the patrol. The cat who appears to be the patrol leader boldly claims they're not <i>in</i> c_n's territory, so they can be wherever they want! You can't argue with that logic, but your mood sours anyway.",
                 "exp": 0,
                 "frequency": 2,
-                "other_clan_rep": -1            
+                "other_clan_rep": -1
             },
             {
                 "text": "Unfortunately, the walk is uneventful and you don't spot anything that needs your attention. You don't see any reason to wander the territory any longer, and tentatively hurry back to the camp. You can't help but feel like you missed something...",
@@ -949,7 +1074,9 @@
                 "frequency": 2,
                 "faith_effects": [
                     {
-                        "faith_cat": ["y_c"],
+                        "faith_cat": [
+                            "y_c"
+                        ],
                         "amount": -1
                     }
                 ]

@@ -21,9 +21,15 @@
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 3,
@@ -134,21 +140,33 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             },
             "r_c:1": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:2": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:3": {}
         },
         "relationships": [
             {
-                "cats_from": ["r_c:3"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:3"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 3,
@@ -245,7 +263,9 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["elder"]
+                "rank": [
+                    "elder"
+                ]
             }
         },
         "frequency": 3,
@@ -364,9 +384,15 @@
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "intro_text": "You notice a branch hanging low with a tempting leaf just out of reach. It taunts you hanging there, swaying in the breeze, distracting you...",
@@ -383,7 +409,8 @@
                             "y_c"
                         ],
                         "accessory": [
-                            "MAPLE LEAF", "OAK LEAVES"
+                            "MAPLE LEAF",
+                            "OAK LEAVES"
                         ]
                     }
                 ]
@@ -481,9 +508,15 @@
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 2,
@@ -626,9 +659,15 @@
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 2,
@@ -720,20 +759,32 @@
             "y_c": {},
             "r_c:0": {},
             "r_c:1": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:2": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:3": {
-                "rank": ["leader"]
+                "rank": [
+                    "leader"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 3,
@@ -865,14 +916,22 @@
             "y_c": {},
             "r_c:0": {},
             "r_c:1": {
-                "rank": ["leader"]
+                "rank": [
+                    "leader"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 2,
@@ -921,9 +980,15 @@
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -988,14 +1053,22 @@
             "y_c": {},
             "r_c:0": {},
             "r_c:1": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 1,
@@ -1059,10 +1132,14 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:1": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "frequency": 3,
@@ -1103,7 +1180,9 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["apprentice"]
+                "rank": [
+                    "apprentice"
+                ]
             }
         },
         "frequency": 4,
@@ -1144,7 +1223,9 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["queen"]
+                "rank": [
+                    "queen"
+                ]
             }
         },
         "frequency": 4,
@@ -1195,7 +1276,9 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "frequency": 4,
@@ -1264,7 +1347,9 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["apprentice"]
+                "rank": [
+                    "apprentice"
+                ]
             }
         },
         "frequency": 4,
@@ -1340,23 +1425,40 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["apprentice"]
+                "rank": [
+                    "apprentice"
+                ]
             },
             "r_c:1": {},
             "r_c:2": {
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["non-related"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "non-related"
+                ]
             },
             {
-                "cats_from": ["r_c:1"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:1"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -1468,14 +1570,22 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["apprentice"]
+                "rank": [
+                    "apprentice"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["non-related"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "non-related"
+                ]
             }
         ],
         "frequency": 4,
@@ -1516,7 +1626,9 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["apprentice"]
+                "rank": [
+                    "apprentice"
+                ]
             }
         },
         "frequency": 4,
@@ -1613,7 +1725,9 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["apprentice"]
+                "rank": [
+                    "apprentice"
+                ]
             }
         },
         "frequency": 4,
@@ -1711,14 +1825,22 @@
             "y_c": {},
             "r_c:0": {},
             "r_c:1": {
-                "rank": ["elder"]
+                "rank": [
+                    "elder"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -1788,14 +1910,22 @@
             "y_c": {},
             "r_c:0": {},
             "r_c:1": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -1839,9 +1969,15 @@
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -1885,9 +2021,15 @@
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -1929,17 +2071,29 @@
             "y_c": {},
             "r_c:0": {},
             "r_c:1": {
-                "rank": ["warrior", "apprentice"]
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             },
             "r_c:2": {
-                "rank": ["warrior", "apprentice"]
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -1981,17 +2135,29 @@
             "y_c": {},
             "r_c:0": {},
             "r_c:1": {
-                "rank": ["warrior", "deputy"]
+                "rank": [
+                    "warrior",
+                    "deputy"
+                ]
             },
             "r_c:2": {
-                "rank": ["warrior", "apprentice"]
+                "rank": [
+                    "warrior",
+                    "apprentice"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -2035,9 +2201,15 @@
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -2079,14 +2251,24 @@
             "y_c": {},
             "r_c:0": {},
             "r_c:1": {
-                "rank": ["apprentice", "warrior", "deputy"]
+                "rank": [
+                    "apprentice",
+                    "warrior",
+                    "deputy"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -2128,14 +2310,24 @@
             "y_c": {},
             "r_c:0": {},
             "r_c:1": {
-                "rank": ["warrior", "deputy", "leader"]
+                "rank": [
+                    "warrior",
+                    "deputy",
+                    "leader"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -2176,7 +2368,10 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             }
         },
         "frequency": 4,
@@ -2218,14 +2413,22 @@
             "y_c": {},
             "r_c:0": {},
             "r_c:1": {
-                "rank": ["elder"]
+                "rank": [
+                    "elder"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -2277,14 +2480,23 @@
             "y_c": {},
             "r_c:0": {},
             "r_c:1": {
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -2324,18 +2536,28 @@
         "min_max_status": {},
         "random_cats": {
             "y_c": {
-                "trait": ["bloodthirsty"]
+                "trait": [
+                    "bloodthirsty"
+                ]
             },
             "r_c:0": {},
             "r_c:1": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -2648,14 +2870,22 @@
         "random_cats": {
             "r_c:0": {},
             "r_c:1": {
-                "rank": ["leader"]
+                "rank": [
+                    "leader"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:0"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:0"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -2712,16 +2942,24 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:1": {
-                "rank": ["leader"]
+                "rank": [
+                    "leader"
+                ]
             },
             "r_c:2": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:3": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "frequency": 4,

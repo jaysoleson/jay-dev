@@ -17,7 +17,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "frequency": 4,
@@ -168,7 +170,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "residence": ["df"]
+                "residence": [
+                    "df"
+                ]
             }
         },
         "frequency": 4,
@@ -480,13 +484,19 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:1": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:2": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "frequency": 4,
@@ -656,7 +666,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "frequency": 4,
@@ -917,7 +929,10 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             }
         },
         "frequency": 4,
@@ -1600,7 +1615,10 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["mediator", "mediator apprentice"]
+                "rank": [
+                    "mediator",
+                    "mediator apprentice"
+                ]
             }
         },
         "frequency": 3,
@@ -1695,14 +1713,22 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["y_c"],
-                "cats_to": ["r_c:0"],
-                "relationship": ["max_like_-10"]
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "max_like_-10"
+                ]
             }
         ],
         "frequency": 4,
@@ -1722,21 +1748,29 @@
                 "exp": 0,
                 "frequency": 4,
                 "stat_trait": [
-                        "cold",
-                        "vengeful",
-                        "grumpy",
-                        "aloof",
-                        "righteous",
-                        "competitive",
-                        "smug"
-                    ],
-                "can_have_stat": ["r_c:0"],
+                    "cold",
+                    "vengeful",
+                    "grumpy",
+                    "aloof",
+                    "righteous",
+                    "competitive",
+                    "smug"
+                ],
+                "can_have_stat": [
+                    "r_c:0"
+                ],
                 "relationships": [
                     {
-                        "cats_to": ["r_c:0"],
-                        "cats_from": ["y_c"],
+                        "cats_to": [
+                            "r_c:0"
+                        ],
+                        "cats_from": [
+                            "y_c"
+                        ],
                         "mutual": true,
-                        "values": ["like"],
+                        "values": [
+                            "like"
+                        ],
                         "amount": -10,
                         "log": {}
                     }
@@ -1746,22 +1780,46 @@
                 "text": "You know that r_c:0 doesn't like you that much, so you decide to start chatting with {PRONOUN/r_c:0/object}! You hope that this will motivate {PRONOUN/r_c:0/object} to move faster, but it turns out that chatting with {PRONOUN/r_c:0/object} made r_c:0 move slower. You just wanted the rabbit to be brought to the fresh-kill pile faster, not to strike up an actual conversation with {PRONOUN/r_c:0/object}.",
                 "exp": 0,
                 "frequency": 4,
-                "stat_trait": ["troublesome","childish","playful","strange","rebellious","spontaneous","energetic","bouncy"],
-                "can_have_stat": ["p_l"],
+                "stat_trait": [
+                    "troublesome",
+                    "childish",
+                    "playful",
+                    "strange",
+                    "rebellious",
+                    "spontaneous",
+                    "energetic",
+                    "bouncy"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "relationships": [
                     {
-                        "cats_to": ["p_l"],
-                        "cats_from": ["r_c:0"],
+                        "cats_to": [
+                            "p_l"
+                        ],
+                        "cats_from": [
+                            "r_c:0"
+                        ],
                         "mutual": false,
-                        "values": ["comfort", "like"],
+                        "values": [
+                            "comfort",
+                            "like"
+                        ],
                         "amount": 10,
                         "log": {}
                     },
                     {
-                        "cats_to": ["p_l"],
-                        "cats_from": ["r_c:0"],
+                        "cats_to": [
+                            "p_l"
+                        ],
+                        "cats_from": [
+                            "r_c:0"
+                        ],
                         "mutual": false,
-                        "values": ["like"],
+                        "values": [
+                            "like"
+                        ],
                         "amount": 5,
                         "log": {}
                     }

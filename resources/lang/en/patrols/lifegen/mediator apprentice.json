@@ -17,7 +17,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "frequency": 4,
@@ -280,7 +282,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["leader"]
+                "rank": [
+                    "leader"
+                ]
             }
         },
         "frequency": 4,
@@ -351,7 +355,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
         "frequency": 4,
@@ -482,15 +488,23 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["leader"]
+                "rank": [
+                    "leader"
+                ]
             },
             "r_c:1": {}
         },
         "relationships": [
             {
-                "cats_from": ["r_c:1"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:1"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -519,8 +533,12 @@
                 "text": "s_c is never angry without reason and you back away slowly, unwilling to get into that mess. Your mentor must have messed up big time, and you're not staying around to find out what {PRONOUN/r_c:1/subject} did to anger s_c.",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["r_c:0"],
-                "stat_cluster": ["introspective"]
+                "can_have_stat": [
+                    "r_c:0"
+                ],
+                "stat_cluster": [
+                    "introspective"
+                ]
             },
             {
                 "text": "You try to mediate, but both your mentor and leader are ignoring you in favor of trying to get their point across - and quite loudly, too. Thankfully, the loud argument catches the deputy's attention and they're able to get the leader to see reason. Phew...",
@@ -619,8 +637,12 @@
                 "text": "You step in cheerily, as if no argument was going on. You crack a joke, making both of the cats laugh despite the heated argument that had been happening merely moments ago. Thanks to your jokes, they eventually calm down and discuss the argument in a more civil manner.",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["p_l"],
-                "stat_cluster": ["silly"]
+                "can_have_stat": [
+                    "p_l"
+                ],
+                "stat_cluster": [
+                    "silly"
+                ]
             }
         ],
         "fail_outcomes": [
@@ -633,8 +655,12 @@
                 "text": "You skip in between the two, cracking a joke that you thought would make them laugh, but they don't laugh. After a few moments of silence, they go back to their heated argument.",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["p_l"],
-                "stat_cluster": ["silly"]
+                "can_have_stat": [
+                    "p_l"
+                ],
+                "stat_cluster": [
+                    "silly"
+                ]
             }
         ]
     }

@@ -40,6 +40,11 @@ from scripts.events_module.text_pool_event.text_pool_event import TextPoolEvent
 from scripts.game_structure import game
 from scripts.game_structure.game.settings import game_setting_get
 from scripts.special_dates import SpecialDate, is_today
+from scripts.game_structure.game.switches import switch_set_value, switch_get_value, Switch
+from scripts.clan_package.get_clan_cats import (
+    get_living_clan_cat_count,
+    find_alive_cats_with_rank,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -95,6 +100,7 @@ class Patrol:
             "outcome_cats", {"success": dict[str, Cat], "failure": dict[str, Cat]}
         ) = {"success": {}, "failure": {}}
         self.chosen_poi = None
+        
 
     def begin_patrol(self, patrol_cats: List[Cat], patrol_type: str) -> str:
         """
@@ -131,11 +137,16 @@ class Patrol:
                 self.patrol_event.poi.get("category"),
             )
 
+        # LG
+        full_cat_dict = self.involved_cats.copy()
+        for abbr, cat in self.patrol_event.chosen_lifegen_cats.items():
+            full_cat_dict[abbr] = cat
+        # ---
         # Return text adjusted patrol intro
         return event_text_adjust(
             Cat,
             choice(self.patrol_event.intro_strings),
-            involved_cat_dict=self.involved_cats,
+            involved_cat_dict=full_cat_dict,
             clan=game.clan,
             other_clan=self.other_clan,
             chosen_poi=self.chosen_poi,
@@ -151,11 +162,16 @@ class Patrol:
                 print(
                     f"PATROL ID: {self.patrol_event.event_id} | SUCCESS: N/A (did not proceed)"
                 )
+                # LG
+                full_cat_dict = self.involved_cats.copy()
+                for abbr, cat in self.patrol_event.chosen_lifegen_cats.items():
+                    full_cat_dict[abbr] = cat
+                # ---
                 return (
                     event_text_adjust(
                         Cat,
                         choice(self.patrol_event.decline_strings),
-                        involved_cat_dict=self.involved_cats,
+                        involved_cat_dict=full_cat_dict,
                         clan=game.clan,
                         other_clan=self.other_clan,
                         chosen_poi=self.chosen_poi,
@@ -385,6 +401,7 @@ class Patrol:
         possible_patrols: List[PatrolEvent],
         patrol_type: str,
     ) -> PatrolEvent:
+        print("Filtering for:", patrol_type)
         # GET POSSIBLE PATROLS
         # run the first set of really basic constraint filtering, just to get our base of valid patrols
         possible_patrols = [
@@ -394,6 +411,7 @@ class Patrol:
                 p, patrol_type, is_debug_patrol=p.event_id == self.debug_patrol_id
             )
         ]
+        print("Patrol Num:", len(possible_patrols))
         # make sure the hunting patrols are balanced
         if patrol_type == "hunting" and not self.debug_patrol_id:
             possible_patrols = self.balance_hunting(possible_patrols)
@@ -509,6 +527,12 @@ class Patrol:
             is_debug_patrol,
         ):
             return False
+
+        if switch_get_value(Switch.patrol_category) != "clangen":
+            lg_cats = self.get_lifegen_patrol_cats(patrol)
+            if not lg_cats:
+                return False
+            patrol.chosen_lifegen_cats = lg_cats
 
         # CHECK POI
         if not event_for_poi(patrol.poi):
@@ -652,10 +676,16 @@ class Patrol:
             f"Outcome Frequency: {chosen_outcome.frequency} | Outcome Weight: {chosen_outcome.weight}"
         )
 
+        # LG
+        full_cat_dict = self.outcome_cats["success" if success else "failure"].copy()
+        for abbr, cat in self.patrol_event.chosen_lifegen_cats.items():
+            full_cat_dict[abbr] = cat
+        # ---
+
         # Run the chosen outcome
         return handle_consequences.execute_outcome(
             chosen_outcome,
-            self.outcome_cats["success" if success else "failure"],
+            full_cat_dict,
             self.other_clan,
             self.chosen_poi,
         ) + (self.get_patrol_art(chosen_outcome),)
@@ -826,3 +856,12 @@ class Patrol:
                 return pygame.image.load(f"{april_fools_root_dir}{file_name}.png")
 
         return pygame.image.load(f"{root_dir}{file_name}.png")
+
+    def get_lifegen_patrol_cats(self, patrol):
+        # print("LG CAT FINDING", patrol.random_cats)
+        return_dict = {}
+        for abbrev in patrol.random_cats:
+            return_dict[abbrev] = random.choice(find_alive_cats_with_rank(Cat, [CatRank.WARRIOR]))
+
+        # print("Returning dict:", return_dict)
+        return return_dict

@@ -17,10 +17,14 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:1": {
-                "rank": ["leader"]
+                "rank": [
+                    "leader"
+                ]
             }
         },
         "frequency": 4,
@@ -124,8 +128,12 @@
                 "frequency": 1,
                 "injury": [
                     {
-                        "cats": ["p_l"],
-                        "injuries": ["claw-wound"]
+                        "cats": [
+                            "p_l"
+                        ],
+                        "injuries": [
+                            "claw-wound"
+                        ]
                     }
                 ]
             }
@@ -384,83 +392,94 @@
         ]
     },
     {
-    	"patrol_id": "life_mediator_rad1",
-    	"biome": [
-        	"any"
-    	],
-    	"season": [
-        	"any"
-    	],
-    	"types": [
-        	"lifegen"
-    	],
-    	"tags": [],
-    	"patrol_art": "lg_mediator_default",
-    	"min_cats": 1,
-    	"max_cats": 1,
-    	"min_max_status": {},
+        "patrol_id": "life_mediator_rad1",
+        "biome": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [],
+        "patrol_art": "lg_mediator_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["leader"]
+                "rank": [
+                    "leader"
+                ]
             },
             "r_c:1": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             }
         },
-    	"frequency": 4,
-    	"intro_text": "r_c:1 is discussing recent border patrols with r_c:0 - apparently some outsiders keep trespassing on c_n territory. r_c:0, noticing your presence nearby, asks you if you have any ideas for handling the conflict.",
-    	"decline_text": "You tell r_c:0 that you don't have any ideas; you trust that {PRONOUN/r_c:0/object} and r_c:1 can handle the conflict efficiently.",
-    	"chance_of_success": 50,
-    	"success_outcomes": [
-        	{
-            	"text": "You offer to join a patrol and talk to these cats yourself - surely mediators can handle conflict with cats outside Clans, too. r_c:0 and r_c:1 are wary, unsure if non-Clan cats will respect a Clan mediator, but they both agree that your skills are strong enough that it's worth a try. Satisfied, you and r_c:1 begin talking between yourselves to figure out the patrol logistics.",
-            	"exp": 10,
-            	"frequency": 4
-        	},
-        	{
-            	"text": "You ask r_c:1 how a typical interaction with these cats goes, and as {PRONOUN/r_c:1/subject} describes the latest encounters, you quickly realize that the patrols are inadvertently antagonizing the outsiders. The clearer picture allows you, r_c:0, and r_c:1 to come up with instructions for how future patrols should interact with these cats.",
-            	"exp": 10,
-            	"frequency": 4
-        	},
-        	{
-            	"text": "The outsiders keep coming back to c_n territory because there's something they need - food, shelter, herbs, or so forth. Maybe, you suggest, the patrols could ask what the outsiders need and help them find it elsewhere. Both r_c:1 and r_c:0 approve of your idea, and begin discussing instructions for the next patrol that runs across them.",
-            	"exp": 10,
-            	"frequency": 4
-        	},
-        	{
-            	"text": "You ask if the outsiders might be open to joining the Clan - after all, they can't encroach on c_n territory if they're c_n cats. Though r_c:1 and r_c:0 both seem skeptical, they agree to at least try inviting these cats into c_n the next time a patrol sees them.",
-            	"exp": 10,
-            	"frequency": 4
-        	}
-    	],
-    	"fail_outcomes": [
-        	{
-            	"text": "Great minds think alike, much to your annoyance. Every suggestion you make, r_c:1 tells you the patrols have already tried without success. Eventually, you slink away in defeat, hoping that r_c:1 and r_c:0 can find a solution themselves.",
-            	"exp": 0,
-            	"frequency": 4
-        	},
-        	{
-            	"text": "You ask about joining a patrol to talk with these outsiders, like you would with an inter-Clan conflict. Though r_c:1 appreciates the suggestion, {PRONOUN/r_c:1/subject} {VERB/r_c:1/remind/reminds} you that your role as a mediator means nothing to the outsiders; they could attack you like they would any other cat on patrol. Disappointed, you return to mulling over potential solutions.",
-            	"exp": 0,
-            	"frequency": 4
-        	},
-        	{
-            	"text": "It quickly becomes apparent that r_c:0 and r_c:1 have very different ideas about how to handle these cats: your suggestions are either dismissed by one as too passive, or rejected by the other as too harsh. The two start arguing so intently about the matter, you have to abandon the discussion about the outsiders in favor of mediating r_c:1's and r_c:0's bickering.",
-            	"exp": 0,
-            	"frequency": 4,
-            	"relationships": [
+        "frequency": 4,
+        "intro_text": "r_c:1 is discussing recent border patrols with r_c:0 - apparently some outsiders keep trespassing on c_n territory. r_c:0, noticing your presence nearby, asks you if you have any ideas for handling the conflict.",
+        "decline_text": "You tell r_c:0 that you don't have any ideas; you trust that {PRONOUN/r_c:0/object} and r_c:1 can handle the conflict efficiently.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You offer to join a patrol and talk to these cats yourself - surely mediators can handle conflict with cats outside Clans, too. r_c:0 and r_c:1 are wary, unsure if non-Clan cats will respect a Clan mediator, but they both agree that your skills are strong enough that it's worth a try. Satisfied, you and r_c:1 begin talking between yourselves to figure out the patrol logistics.",
+                "exp": 10,
+                "frequency": 4
+            },
+            {
+                "text": "You ask r_c:1 how a typical interaction with these cats goes, and as {PRONOUN/r_c:1/subject} describes the latest encounters, you quickly realize that the patrols are inadvertently antagonizing the outsiders. The clearer picture allows you, r_c:0, and r_c:1 to come up with instructions for how future patrols should interact with these cats.",
+                "exp": 10,
+                "frequency": 4
+            },
+            {
+                "text": "The outsiders keep coming back to c_n territory because there's something they need - food, shelter, herbs, or so forth. Maybe, you suggest, the patrols could ask what the outsiders need and help them find it elsewhere. Both r_c:1 and r_c:0 approve of your idea, and begin discussing instructions for the next patrol that runs across them.",
+                "exp": 10,
+                "frequency": 4
+            },
+            {
+                "text": "You ask if the outsiders might be open to joining the Clan - after all, they can't encroach on c_n territory if they're c_n cats. Though r_c:1 and r_c:0 both seem skeptical, they agree to at least try inviting these cats into c_n the next time a patrol sees them.",
+                "exp": 10,
+                "frequency": 4
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Great minds think alike, much to your annoyance. Every suggestion you make, r_c:1 tells you the patrols have already tried without success. Eventually, you slink away in defeat, hoping that r_c:1 and r_c:0 can find a solution themselves.",
+                "exp": 0,
+                "frequency": 4
+            },
+            {
+                "text": "You ask about joining a patrol to talk with these outsiders, like you would with an inter-Clan conflict. Though r_c:1 appreciates the suggestion, {PRONOUN/r_c:1/subject} {VERB/r_c:1/remind/reminds} you that your role as a mediator means nothing to the outsiders; they could attack you like they would any other cat on patrol. Disappointed, you return to mulling over potential solutions.",
+                "exp": 0,
+                "frequency": 4
+            },
+            {
+                "text": "It quickly becomes apparent that r_c:0 and r_c:1 have very different ideas about how to handle these cats: your suggestions are either dismissed by one as too passive, or rejected by the other as too harsh. The two start arguing so intently about the matter, you have to abandon the discussion about the outsiders in favor of mediating r_c:1's and r_c:0's bickering.",
+                "exp": 0,
+                "frequency": 4,
+                "relationships": [
                     {
-                        "cats_to": ["p_l"],
-                        "cats_from": ["r_c:1", "r_c:0"],
+                        "cats_to": [
+                            "p_l"
+                        ],
+                        "cats_from": [
+                            "r_c:1",
+                            "r_c:0"
+                        ],
                         "mutual": true,
-                        "values": [ "respect" ],
+                        "values": [
+                            "respect"
+                        ],
                         "amount": -5,
                         "log": {}
                     }
                 ]
-        	}
-    	]
-	},
+            }
+        ]
+    },
     {
         "patrol_id": "dead_patrol_J4",
         "biome": [
@@ -488,7 +507,9 @@
                 "text": "Perhaps, if you can't find any problems... you can create one! You spend the afternoon sneaking around, mucking up nests and leaving the sparkly fur of other cats at the scenes of the crimes. By the time the evening comes, the StarClan camp has erupted into half a dozen arguments that you're able to bravely solve for everyone.",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_cluster": [
                     "unlawful"
                 ]
@@ -518,70 +539,78 @@
         ]
     },
     {
-    	"patrol_id": "sc_life_mediator_rad1",
-    	"biome": [
-        	"any"
-    	],
-    	"season": [
-        	"any"
-    	],
-    	"types": [
+        "patrol_id": "sc_life_mediator_rad1",
+        "biome": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "types": [
             "lifegen"
         ],
         "tags": [
             "sc_lifegen"
         ],
-    	"patrol_art": "lg_default_sc",
-    	"min_cats": 1,
-    	"max_cats": 1,
-    	"min_max_status": {},
-    	"frequency": 4,
-    	"intro_text": "Today, like any other day in StarClan, is perfect for taking a long, relaxing nap in the clouds... at least, until you're woken up by two apprentices bickering nearby. They both stubbornly want to give a life for the same thing at the next leadership ceremony.",
-    	"decline_text": "You decide their argument is not your business. You regrettably stand from your perfect resting spot and search for an area far out of listening range, deciding your nap is more important an an apprentices' bout.",
-    	"chance_of_success": 50,
-    	"success_outcomes": [
-        	{
-            	"text": "Disrupted and annoyed by the apprentices' relentless arguing, you suggest they decide who is better at what they wish to grant to the leader through a series of games, and the winner will give the life. This strikes a competitive spark between the two of them, and they run off to do exactly what you suggested. Finally - peace and quiet.",
-            	"exp": 0,
-            	"frequency": 4
-        	},
-        	{
-            	"text": "No, they can't grant a leader two lives for the same thing - but why not give two <i>similar</i> lives? Virtues are multifaceted, you explain to the apprentices, and there are many other traits and values similar to the one they're arguing over; they could lay claim to <i>those</i> instead. While they initially grumble about it not being the same, the more verbose of the two begins listing off alternatives, and it's not long before they've both settled on two unique options. The now-delighted apprentices thank you, and you smile as they return to their regular friendly chatter. Job well done!",
-            	"exp": 0,
-            	"frequency": 4
-        	},
-        	{
-            	"text": "A mischievous smile creeps onto your face as you suggest your \"solution\" - if the apprentices can't decide who will give the life, then maybe <i>you</i> should give it instead. As you expected, the idea horrifies the apprentices, and within a few heartbeats they've decided which of them would present the new leader with the life. You purr in amusement to yourself as they scamper off. Typical apprentices - they'd rather compromise than allow some other cat to take a privilege away from them!",
-            	"exp": 0,
-            	"frequency": 4,
-            	"stat_cluster": ["silly","unlawful"],
-            	"can_have_stat": ["p_l"]
-        	},
-        	{
-            	"text": "You initially try to help the two apprentices find a resolution, but as their bickering grows increasingly petty, your patience wears thinner and thinner. Finally, you snap that if they can't maturely solve this conflict, maybe neither of them should get to present the life to the new leader. After an initial shocked silence, one of the apprentices tentatively suggests to the other that they try the first resolution you offered, and the other hesitantly agrees. You're not sure if they were convinced by your temper, or the idea that they wouldn't get to present any lives to the leader at all - but considering it ended the argument, you don't know that it matters too much.",
-            	"exp": 0,
-            	"frequency": 4,
-            	"stat_cluster": ["brooding"],
-            	"can_have_stat": ["p_l"]
-        	}
-    	],
-    	"fail_outcomes": [
-        	{
-            	"text": "You're irritated by the apprentices' nonstop bickering, but are level-headed enough to suggest a solution: the two can have a competition, and whichever cat wins will get to grant the life. Thrilled by the idea, they dart off, and you contentedly curl up to return to your nap... until the apprentices come thundering back, arguing about whether one of them cheated at the game. What does it take to get some peace and quiet around here?",
-            	"exp": 0,
-            	"frequency": 4
-        	},
-        	{
-            	"text": "You ponder for a moment, then offer a solution: the two apprentices can grant the new leader one life <i>together</i>. This suggestion only baffles the apprentices, though; one asks if that's even possible, while the other insists that sharing the life would make it less important. ",
-            	"exp": 0,
-            	"frequency": 4
-        	},
-        	{
-            	"text": "Annoyed that your sunbathing was interrupted by such a pointless argument, you sharply tell them that there's an easy solution - <i>neither</i> of them will present the life to the new leader, because they won't be giving any lives at the ceremony. It's the solution that probably makes the most sense, but you can't help but feel guilty as the apprentices practically wilt in disappointment. Clearly, this was more important to them than the squabbling made it seem.",
-            	"exp": 0,
-            	"frequency": 4
-        	}
-    	]
-	}
-
+        "patrol_art": "lg_default_sc",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "frequency": 4,
+        "intro_text": "Today, like any other day in StarClan, is perfect for taking a long, relaxing nap in the clouds... at least, until you're woken up by two apprentices bickering nearby. They both stubbornly want to give a life for the same thing at the next leadership ceremony.",
+        "decline_text": "You decide their argument is not your business. You regrettably stand from your perfect resting spot and search for an area far out of listening range, deciding your nap is more important an an apprentices' bout.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "Disrupted and annoyed by the apprentices' relentless arguing, you suggest they decide who is better at what they wish to grant to the leader through a series of games, and the winner will give the life. This strikes a competitive spark between the two of them, and they run off to do exactly what you suggested. Finally - peace and quiet.",
+                "exp": 0,
+                "frequency": 4
+            },
+            {
+                "text": "No, they can't grant a leader two lives for the same thing - but why not give two <i>similar</i> lives? Virtues are multifaceted, you explain to the apprentices, and there are many other traits and values similar to the one they're arguing over; they could lay claim to <i>those</i> instead. While they initially grumble about it not being the same, the more verbose of the two begins listing off alternatives, and it's not long before they've both settled on two unique options. The now-delighted apprentices thank you, and you smile as they return to their regular friendly chatter. Job well done!",
+                "exp": 0,
+                "frequency": 4
+            },
+            {
+                "text": "A mischievous smile creeps onto your face as you suggest your \"solution\" - if the apprentices can't decide who will give the life, then maybe <i>you</i> should give it instead. As you expected, the idea horrifies the apprentices, and within a few heartbeats they've decided which of them would present the new leader with the life. You purr in amusement to yourself as they scamper off. Typical apprentices - they'd rather compromise than allow some other cat to take a privilege away from them!",
+                "exp": 0,
+                "frequency": 4,
+                "stat_cluster": [
+                    "silly",
+                    "unlawful"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            },
+            {
+                "text": "You initially try to help the two apprentices find a resolution, but as their bickering grows increasingly petty, your patience wears thinner and thinner. Finally, you snap that if they can't maturely solve this conflict, maybe neither of them should get to present the life to the new leader. After an initial shocked silence, one of the apprentices tentatively suggests to the other that they try the first resolution you offered, and the other hesitantly agrees. You're not sure if they were convinced by your temper, or the idea that they wouldn't get to present any lives to the leader at all - but considering it ended the argument, you don't know that it matters too much.",
+                "exp": 0,
+                "frequency": 4,
+                "stat_cluster": [
+                    "brooding"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You're irritated by the apprentices' nonstop bickering, but are level-headed enough to suggest a solution: the two can have a competition, and whichever cat wins will get to grant the life. Thrilled by the idea, they dart off, and you contentedly curl up to return to your nap... until the apprentices come thundering back, arguing about whether one of them cheated at the game. What does it take to get some peace and quiet around here?",
+                "exp": 0,
+                "frequency": 4
+            },
+            {
+                "text": "You ponder for a moment, then offer a solution: the two apprentices can grant the new leader one life <i>together</i>. This suggestion only baffles the apprentices, though; one asks if that's even possible, while the other insists that sharing the life would make it less important. ",
+                "exp": 0,
+                "frequency": 4
+            },
+            {
+                "text": "Annoyed that your sunbathing was interrupted by such a pointless argument, you sharply tell them that there's an easy solution - <i>neither</i> of them will present the life to the new leader, because they won't be giving any lives at the ceremony. It's the solution that probably makes the most sense, but you can't help but feel guilty as the apprentices practically wilt in disappointment. Clearly, this was more important to them than the squabbling made it seem.",
+                "exp": 0,
+                "frequency": 4
+            }
+        ]
+    }
 ]

@@ -165,8 +165,14 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "cluster": ["neurotic"],
-                "rank": ["warrior", "apprentice", "deputy"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy"
+                ]
             }
         },
         "frequency": 3,
@@ -379,8 +385,14 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "cluster": ["neurotic"],
-                "rank": ["warrior", "apprentice", "deputy"]
+                "cluster": [
+                    "neurotic"
+                ],
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy"
+                ]
             }
         },
         "frequency": 4,
@@ -618,7 +630,10 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "normal adult": [1, 1]
+            "normal adult": [
+                1,
+                1
+            ]
         },
         "frequency": 4,
         "intro_text": "While on a lone border patrol, you notice a large dog pawing at a kittypet, its huge, fluffy tail lashing!",
@@ -639,8 +654,12 @@
                 "text": "You cautiously trot forward, wondering if the kittypet may be in danger. However, when you see the dog's face, you can tell that they're friendly, and just playing. What a cute couple of friends!",
                 "exp": 20,
                 "frequency": 3,
-                "can_have_stat": ["p_l"],
-                "stat_skill": ["LANGUAGE,1"]
+                "can_have_stat": [
+                    "p_l"
+                ],
+                "stat_skill": [
+                    "LANGUAGE,1"
+                ]
             }
         ],
         "fail_outcomes": [
@@ -750,7 +769,11 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["warrior", "apprentice", "deputy"]
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy"
+                ]
             }
         },
         "frequency": 3,
@@ -897,15 +920,27 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "rank": ["warrior", "apprentice", "deputy"],
-                "cluster": ["silly"]
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy"
+                ],
+                "cluster": [
+                    "silly"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["y_c"],
-                "cats_to": ["r_c:0"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "y_c"
+                ],
+                "cats_to": [
+                    "r_c:0"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "frequency": 4,
@@ -980,7 +1015,11 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior", "apprentice", "deputy"]
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy"
+                ]
             }
         },
         "frequency": 4,
@@ -993,26 +1032,36 @@
                 "exp": 0,
                 "frequency": 4,
                 "faith_effect": [
-                        {
-                            "faith_cat": ["r_c:0"],
-                            "amount": 0.5
-                        }
-                    ]
+                    {
+                        "faith_cat": [
+                            "r_c:0"
+                        ],
+                        "amount": 0.5
+                    }
+                ]
             },
             {
                 "text": "You have a feeling that r_c:0 truly needs guidance from StarClan, so you wait for {PRONOUN/r_c:0/object} to fall asleep at the Moonplace - and you're glad you did. When you greet r_c:0 in the starry landscape, {PRONOUN/r_c:0/subject} {VERB/r_c:0/confess/confesses} that {PRONOUN/r_c:0/subject}{VERB/r_c:0/'ve/'s} been having strange visions and senses that no other cat seems to have. While you tell {PRONOUN/r_c:0/object} that you aren't able to explain what these mean, you <i>are</i> able to tell {PRONOUN/r_c:0/object} that they're messages from StarClan, much like the ones medicine cats and leaders can receive. By the time r_c:0 has to wake up, {PRONOUN/r_c:0/subject} {VERB/r_c:0/have/has} a new resolve to speak with the medicine cat, believing {PRONOUN/r_c:0/poss} latest vision may have been a sign of something the Clan needs to be prepared for.",
                 "exp": 0,
                 "frequency": 2,
-                "stat_skill": ["CLAIRVOYANT,1","PROPHET,1","OMEN,1"],
-                "can_have_stat": ["r_c:0"],
+                "stat_skill": [
+                    "CLAIRVOYANT,1",
+                    "PROPHET,1",
+                    "OMEN,1"
+                ],
+                "can_have_stat": [
+                    "r_c:0"
+                ],
                 "faith_effect": [
-                        {
-                        "faith_cat": ["r_c:0"],
+                    {
+                        "faith_cat": [
+                            "r_c:0"
+                        ],
                         "amount": 1
-                        }
-                    ]
-                }
-            ],
+                    }
+                ]
+            }
+        ],
         "fail_outcomes": [
             {
                 "text": "There's not much you can do. r_c:0 isn't a leader or medicine cat, and you don't get to talk to just any cat who happens to visit the Moonplace. All you can do is let {PRONOUN/r_c:0/object} sleep and try to ignore the dismay on {PRONOUN/r_c:0/poss} face when {PRONOUN/r_c:0/subject} wake up.",
@@ -1023,24 +1072,38 @@
                 "text": "Believing that r_c:0 might truly need some guidance, you decide to give {PRONOUN/r_c:0/object} the benefit of the doubt. After a barrage of aimless questions, however, it becomes clear that r_c:0 came to the Moonplace out of boredom or curiosity rather than a genuine need to speak with the stars. You cut r_c:0 off midsentence, sharply telling {PRONOUN/r_c:0/object} that the Moonplace isn't for frivolous things like this, and {PRONOUN/r_c:0/poss} tail droops in embarrassment as {PRONOUN/r_c:0/subject} {VERB/r_c:0/turn/turns} and pads away.",
                 "exp": 0,
                 "frequency": 4,
-                "stat_cluster": ["silly", "unlawful"],
-                "can_have_stat": ["r_c:0"],
+                "stat_cluster": [
+                    "silly",
+                    "unlawful"
+                ],
+                "can_have_stat": [
+                    "r_c:0"
+                ],
                 "faith_effects": [
                     {
-                        "faith_cat": ["r_c:0"],
+                        "faith_cat": [
+                            "r_c:0"
+                        ],
                         "amount": -0.5
                     }
                 ]
             },
-	        {
+            {
                 "text": "Curious, you decide to wait for r_c:0 on the starry hunting grounds... but {PRONOUN/r_c:0/subject} {VERB/r_c:0/don't/doesn't} show up. Certain that the warrior would be asleep by now, you begin searching StarClan's territory, wondering if {PRONOUN/r_c:0/subject} somehow got lost. Once you reach the border with the Dark Forest, you're about to give up and turn back when something makes your fur stand on end: a whiff of r_c:0's scent, entangled with the smell of Dark Forest cats.",
                 "exp": 0,
                 "frequency": 2,
-                "stat_faith": [-9, -5],
-                "can_have_stat": ["r_c:0"],
+                "stat_faith": [
+                    -9,
+                    -5
+                ],
+                "can_have_stat": [
+                    "r_c:0"
+                ],
                 "faith_effects": [
                     {
-                        "faith_cat": ["r_c:0"],
+                        "faith_cat": [
+                            "r_c:0"
+                        ],
                         "amount": -1
                     }
                 ]
@@ -1067,7 +1130,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["apprentice"]
+                "rank": [
+                    "apprentice"
+                ]
             }
         },
         "frequency": 4,
@@ -1081,8 +1146,10 @@
                 "frequency": 4,
                 "faith_effect": [
                     {
-                    "faith_cat": ["r_c:0"],
-                    "amount": -1
+                        "faith_cat": [
+                            "r_c:0"
+                        ],
+                        "amount": -1
                     }
                 ]
             },
@@ -1090,17 +1157,31 @@
                 "text": "As you observe r_c:0 trying to find {PRONOUN/r_c:0/poss} way out of the endless shadows, an idea pops into your head. Making sure you're concealed from sight, you snarl like a coyote - and have to restrain your laughter when the poor apprentice practically leaps out of {PRONOUN/r_c:0/poss} fur and bolts off. Sure, it was a little mean, but you have to find ways to entertain yourself <i>somehow<i>.",
                 "exp": 0,
                 "frequency": 4,
-                "stat_skill": ["LANGUAGE,1"],
-                "can_have_stat": ["p_l"]
+                "stat_skill": [
+                    "LANGUAGE,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
             },
             {
                 "text": "When you step out of the muck and fog, the apprentice whirls to face you, nervously introducing {PRONOUN/r_c:0/self} as r_c:0 and hesitantly asking if you're from StarClan. Before you can answer, {PRONOUN/r_c:0/subject} {VERB/r_c:0/confide/confides} that {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} seeking guidance: {PRONOUN/r_c:0/subject} {VERB/r_c:0/worry/worries} that {PRONOUN/r_c:0/poss} Clanmates see {PRONOUN/r_c:0/object} as weak, cowardly, and nothing more than an annoyance. Hearing the apprentice's fears, you smile and suggest that {PRONOUN/r_c:0/subject} train under you. After all, you promise, when {PRONOUN/r_c:0/subject} {VERB/r_c:0/demonstrate/demonstrates} what {PRONOUN/r_c:0/subject}{VERB/r_c:0/'ve/'s} learned from you, none of {PRONOUN/r_c:0/poss} Clanmates will doubt what {PRONOUN/r_c:0/subject}{VERB/r_c:0/'re/'s} capable of.",
                 "exp": 0,
                 "frequency": 3,
-                "stat_cluster": ["introspective","neurotic"],
-                "stat_faith": [-4, 2],
-                "can_have_stat": ["r_c:0"],
-                "convert": ["r_c:0"]
+                "stat_cluster": [
+                    "introspective",
+                    "neurotic"
+                ],
+                "stat_faith": [
+                    -4,
+                    2
+                ],
+                "can_have_stat": [
+                    "r_c:0"
+                ],
+                "convert": [
+                    "r_c:0"
+                ]
             }
         ],
         "fail_outcomes": [
@@ -1111,7 +1192,7 @@
             }
         ]
     },
-{
+    {
         "patrol_id": "life_df_sam1",
         "biome": [
             "any"
@@ -1129,7 +1210,10 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "kitten": [-1, 0]
+            "kitten": [
+                -1,
+                0
+            ]
         },
         "frequency": 4,
         "intro_text": "You're bathing yourself the best you can in one of the murky rivers in the Dark Forest, when a starry-pelted kit shows up all of a sudden.",
@@ -1150,7 +1234,7 @@
             }
         ]
     },
-   {
+    {
         "patrol_id": "cheshirecat_DEADDF_H1",
         "biome": [
             "any"
@@ -1170,10 +1254,15 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior", "deputy"]
+                "rank": [
+                    "warrior",
+                    "deputy"
+                ]
             },
             "r_c:1": {
-                "standing": ["lost"]
+                "standing": [
+                    "lost"
+                ]
             }
         },
         "frequency": 4,
@@ -1195,9 +1284,16 @@
                 "text": "Obviously, you have no idea where r_c:1 has gone, but you pop into r_c:0's line of sight and point in a random direction. Despite you being a Dark Forest cat, r_c:0 seems to take your word for it and thanks you as {PRONOUN/r_c:0/subject} {VERB/r_c:0/run/runs} where you guided {PRONOUN/r_c:0/object} to. Well, r_c:0 is definitely getting lost.",
                 "exp": 0,
                 "frequency": 1,
-                "lost_cats": ["r_c:0"],
-                "stat_trait": ["oblivious", "trusting"],
-                "can_have_stat": ["r_c:0"]
+                "lost_cats": [
+                    "r_c:0"
+                ],
+                "stat_trait": [
+                    "oblivious",
+                    "trusting"
+                ],
+                "can_have_stat": [
+                    "r_c:0"
+                ]
             }
         ],
         "fail_outcomes": [
@@ -1238,26 +1334,42 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["kitten"]
+                "rank": [
+                    "kitten"
+                ]
             },
             "r_c:1": {
-                "age": ["not_kitten"]
+                "age": [
+                    "not_kitten"
+                ]
             },
             "r_c:2": {
-                "rank": ["deputy"]
+                "rank": [
+                    "deputy"
+                ]
             },
             "r_c:3": {
-                "rank": ["leader"]
+                "rank": [
+                    "leader"
+                ]
             },
             "r_c:4": {
-                "residence": ["df"]
+                "residence": [
+                    "df"
+                ]
             }
         },
         "relationships": [
             {
-                "cats_from": ["r_c:1"],
-                "cats_to": ["y_c"],
-                "relationship": ["min_like_20"]
+                "cats_from": [
+                    "r_c:1"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "min_like_20"
+                ]
             }
         ],
         "frequency": 4,
@@ -1279,8 +1391,12 @@
                 "text": "You expect no one to be able to see you, but as you enter the c_n camp, you lock eyes with r_c:0. You've spoken with this kit before. {PRONOUN/r_c:0/subject/CAP}{VERB/r_c:0/'re/'s} special. You play a quick game of moss-ball with the little fluffball before a queen drags {PRONOUN/r_c:0/object} away.",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["r_c:0"],
-                "stat_skill": ["DARK,1"]
+                "can_have_stat": [
+                    "r_c:0"
+                ],
+                "stat_skill": [
+                    "DARK,1"
+                ]
             },
             {
                 "text": "You pad into the c_n camp, not expecting anyone to be able to see you. However, as you pass by, r_c:1 lets out a horrified gasp. {PRONOUN/r_c:1/subject/CAP} can see you, and {PRONOUN/r_c:1/subject}{VERB/r_c:1/'re/'s} shocked by where you've ended up. As the muck on your pelt settles into the floor of the camp, you ask r_c:1 if {PRONOUN/r_c:1/subject}{VERB/r_c:1/'ve/'s} missed you.",
@@ -1291,8 +1407,12 @@
                 "text": "You wander into the c_n camp, where it quickly becomes apparent that no one can see you. That's not a big deal, though. You make your way to the leader's den, where you listen in on some important political discussions between r_c:2 and r_c:3. Maybe you can visit another Clan's leader in their dreams and tell them about it, just to start some conflict.",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["p_l"],
-                "stat_cluster": ["unlawful"]
+                "can_have_stat": [
+                    "p_l"
+                ],
+                "stat_cluster": [
+                    "unlawful"
+                ]
             }
         ],
         "fail_outcomes": [
@@ -1301,7 +1421,7 @@
                 "exp": 0,
                 "frequency": 4
             },
-{
+            {
                 "text": "You step forward to go see your Clan once more, but a paw grabs your haunches and pulls you back. The Dark Forest cat, r_c:4, drags you back to your home, hissing at you about how irresponsible it was to visit the Clan.",
                 "exp": 0,
                 "frequency": 4
@@ -1329,7 +1449,9 @@
         "random_cats": {
             "y_c": {},
             "r_c:0": {
-                "residence": ["df"]
+                "residence": [
+                    "df"
+                ]
             }
         },
         "frequency": 4,
@@ -1476,7 +1598,10 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "healer cats": [1, 1]
+            "healer cats": [
+                1,
+                1
+            ]
         },
         "random_cats": {
             "y_c": {
@@ -1485,7 +1610,10 @@
                 ]
             },
             "r_c:0": {
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             }
         },
         "frequency": 4,
@@ -1502,7 +1630,9 @@
                 "text": "You catch a familiar scent and snake your way through the trees until you find it-- a large, untouched patch of catmint surrounding a crystal-clear puddle. Looking into the puddle gives you a hazy view of the c_n medicine den! You pluck a few catmint leaves and drop them in, hoping your living Clanmates will be able to receive them, and take the remaining herbs back to your StarClan camp.",
                 "exp": 0,
                 "frequency": 3,
-                "herbs": ["catmint"]
+                "herbs": [
+                    "catmint"
+                ]
             },
             {
                 "text": "Your herb-finding instincts lead you to a beautiful patch of berry bushes deep in StarClan territory. You're able to wrestle a branch from one of the bushes to bring the kits a nice snack.",

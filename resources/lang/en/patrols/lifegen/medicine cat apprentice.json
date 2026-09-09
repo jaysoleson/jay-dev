@@ -271,13 +271,19 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["medicine cat"]
+                "rank": [
+                    "medicine cat"
+                ]
             },
             "r_c:1": {
-                "condition": ["injury:any"]
+                "condition": [
+                    "injury:any"
+                ]
             },
             "r_c:2": {
-                "residence": ["sc"]
+                "residence": [
+                    "sc"
+                ]
             }
         },
         "frequency": 4,
@@ -294,7 +300,9 @@
                 "text": "Just as you turn away from watching r_c:0 and r_c:1, r_c:2 passes by with a fresh fading spot, which gives you an idea. You promptly pretend to 'treat' r_c:2's fading spot as if it were an injury. You both have loads of fun, and you forget all about your sadness.",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_cluster": [
                     "silly"
                 ]
@@ -307,8 +315,13 @@
                 "frequency": 2,
                 "injury": [
                     {
-                        "cats": ["r_c:1"],
-                        "injuries": ["an infected wound", "a festering wound"]
+                        "cats": [
+                            "r_c:1"
+                        ],
+                        "injuries": [
+                            "an infected wound",
+                            "a festering wound"
+                        ]
                     }
                 ]
             },

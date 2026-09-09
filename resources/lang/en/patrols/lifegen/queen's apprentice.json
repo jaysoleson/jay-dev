@@ -17,18 +17,28 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             },
             "r_c:1": {
-                "rank": ["queen"]
+                "rank": [
+                    "queen"
+                ]
             },
             "r_c:2": {}
         },
         "relationships": [
             {
-                "cats_from": ["r_c:2"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:2"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -147,15 +157,23 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["queen"]
+                "rank": [
+                    "queen"
+                ]
             },
             "r_c:1": {}
         },
         "relationships": [
             {
-                "cats_from": ["r_c:1"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:1"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -248,18 +266,28 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["queen"]
+                "rank": [
+                    "queen"
+                ]
             },
             "r_c:1": {
-                "rank": ["leader"]
+                "rank": [
+                    "leader"
+                ]
             },
             "r_c:2": {}
         },
         "relationships": [
             {
-                "cats_from": ["r_c:2"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:2"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -340,18 +368,29 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             },
             "r_c:1": {
-                "rank": ["medicine cat", "medicine cat apprentice"]
+                "rank": [
+                    "medicine cat",
+                    "medicine cat apprentice"
+                ]
             },
             "r_c:2": {}
         },
         "relationships": [
             {
-                "cats_from": ["r_c:2"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:2"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -608,18 +647,28 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             },
             "r_c:1": {
-                "rank": ["leader"]
+                "rank": [
+                    "leader"
+                ]
             },
             "r_c:2": {}
         },
         "relationships": [
             {
-                "cats_from": ["r_c:2"],
-                "cats_to": ["y_c"],
-                "relationship": ["mentor/app"]
+                "cats_from": [
+                    "r_c:2"
+                ],
+                "cats_to": [
+                    "y_c"
+                ],
+                "relationship": [
+                    "mentor/app"
+                ]
             }
         ],
         "frequency": 4,
@@ -636,7 +685,6 @@
                 "text": "The kits mess up on their lines quite a few times, but they are so incredibly proud of the work they do. You're proud of them too, and you consider it a success seeing the endeared faces of your clanmates.",
                 "exp": 10,
                 "frequency": 4
-    
             },
             {
                 "text": "You put in a ton of hard work throughout the day. You finish everything, and it runs smoothly! r_c:0 approaches you after the fact, still beaming from {PRONOUN/r_c:0/poss} performance. {PRONOUN/r_c:0/subject/CAP} gives you a gift as a 'thank you'!",
@@ -692,7 +740,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             }
         },
         "frequency": 4,
@@ -709,8 +759,15 @@
                 "text": "Your mentor never told you how to keep kits in one place! Despite not having the knowledge of a full-fledged queen, you're able to persuade r_c:0 to stay with you and the StarClan kits until {PRONOUN/r_c:0/subject} {VERB/r_c:0/wake/wakes} up.",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["p_l"],
-                "stat_skill": ["CLEVER,1", "INNOVATOR,1", "KIT,1", "THINKER,1"]
+                "can_have_stat": [
+                    "p_l"
+                ],
+                "stat_skill": [
+                    "CLEVER,1",
+                    "INNOVATOR,1",
+                    "KIT,1",
+                    "THINKER,1"
+                ]
             }
         ],
         "fail_outcomes": [
@@ -718,8 +775,12 @@
                 "text": "You quickly nudge the StarClan kit towards another cat, running off towards r_c:0. Before you can catch up, r_c:0 is running into the Dark Forest with surprising speed. Since when were kits so fast?",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["r_c:0"],
-                "stat_skill": ["RUNNER,1"]
+                "can_have_stat": [
+                    "r_c:0"
+                ],
+                "stat_skill": [
+                    "RUNNER,1"
+                ]
             },
             {
                 "text": "You rush off, leaving the StarClan kit unsupervised. You manage to catch up to r_c:0, but turn around to realize that the StarClan kit has disappeared. You spend your time until r_c:0 wakes up running between both kits, making sure they're both safe. You end up losing one of them a few times.",

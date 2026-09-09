@@ -283,7 +283,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             }
         },
         "frequency": 4,
@@ -794,7 +796,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             }
         },
         "frequency": 1,
@@ -870,7 +874,7 @@
                 "stat_skill": [
                     "DARK,1"
                 ],
-	            "can_have_stat": [
+                "can_have_stat": [
                     "p_l",
                     "r_c:0"
                 ]
@@ -911,11 +915,17 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             },
             "r_c:1": {
-                "age": ["kitten"],
-                "cluster": ["neurotic"]
+                "age": [
+                    "kitten"
+                ],
+                "cluster": [
+                    "neurotic"
+                ]
             }
         },
         "frequency": 4,
@@ -991,10 +1001,14 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "residence": ["df"]
+                "residence": [
+                    "df"
+                ]
             },
             "r_c:1": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "frequency": 4,
@@ -1011,35 +1025,54 @@
                 "text": "When you ask r_c:0 to help you learn to fight, {PRONOUN/r_c:0/subject} {VERB/r_c:0/agree/agrees}. You quickly realize that you're actually a natural at fighting! Who knew? You leave the training session with much more confidence, despite not having learned anything.",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["p_l"],
-                "stat_skill": ["FIGHTER,1"]
+                "can_have_stat": [
+                    "p_l"
+                ],
+                "stat_skill": [
+                    "FIGHTER,1"
+                ]
             },
             {
                 "text": "You realize that you may not be the best at fighting, and probably never will be, but you can do other things! You're quite good at protecting the kits, for example, even without fighting. You decide that makes you happy enough, and continue to protect them with your innate skill.",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["p_l"],
-                "stat_skill": ["GUARDIAN,1"]
+                "can_have_stat": [
+                    "p_l"
+                ],
+                "stat_skill": [
+                    "GUARDIAN,1"
+                ]
             },
             {
                 "text": "You realize that you may not be the best at fighting, and probably never will be, but you can do other things! You're quite good at creating safe places for the kits, for example, so you don't even need to protect them by fighting! That makes you happy enough, so you continue to do what you do best.",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["p_l"],
-                "stat_skill": ["INNOVATOR,1", "THINKER,1"]
+                "can_have_stat": [
+                    "p_l"
+                ],
+                "stat_skill": [
+                    "INNOVATOR,1",
+                    "THINKER,1"
+                ]
             },
             {
                 "text": "When you ask r_c:0 to help you, {PRONOUN/r_c:0/subject} {VERB/r_c:0/agree/agrees}, but {VERB/r_c:0/say/says} it'll come with a price. {PRONOUN/r_c:0/subject/CAP} {VERB/r_c:0/have/has} you do a few tasks to 'earn' the training, and you do them gladly. You'd do anything for the kits, after all. Once you've done the tasks, r_c:0 eagerly teaches you anything you want to know.",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["r_c:0"],
-                "stat_cluster": ["upstanding"]
+                "can_have_stat": [
+                    "r_c:0"
+                ],
+                "stat_cluster": [
+                    "upstanding"
+                ]
             },
             {
                 "text": "Just as you begin to lose hope on learning how to fight, r_c:1 appears in the Dark Forest. {PRONOUN/r_c:1/subject/CAP} {VERB/r_c:1/are/is} clearly in distress, but calms down after seeing you with the kits. You approach {PRONOUN/r_c:1/object} and ask for {PRONOUN/r_c:1/object} to help you learn to fight. {PRONOUN/r_c:1/subject/CAP} {VERB/r_c:1/agree/agrees}, and even decides to train in the Dark Forest! r_c:0 would be proud.",
                 "exp": 0,
                 "frequency": 3,
-                "convert": ["r_c:1"]
+                "convert": [
+                    "r_c:1"
+                ]
             }
         ],
         "fail_outcomes": [
@@ -1057,14 +1090,20 @@
                 "text": "When you ask r_c:0 to help you learn to fight, {PRONOUN/r_c:0/subject} {VERB/r_c:0/laugh/laughs} and leads you on a wild goose chase around the Dark Forest, doing odd tasks for hours. After you finish the last task, you turn around to see {PRONOUN/r_c:0/object} gone. This was all for nothing?!",
                 "exp": 0,
                 "frequency": 4,
-                "can_have_stat": ["r_c:0"],
-                "stat_cluster": ["unlawful"]
+                "can_have_stat": [
+                    "r_c:0"
+                ],
+                "stat_cluster": [
+                    "unlawful"
+                ]
             },
             {
                 "text": "You're beginning to lose hope on learning how to fight, when r_c:1 shows up! Before you can approach {PRONOUN/r_c:1/object}, {PRONOUN/r_c:1/subject} {VERB/r_c:1/run/runs} away from you. Well, without a guide, {PRONOUN/r_c:1/subject}{VERB/r_c:1/'re/'s} definitely getting lost.",
                 "exp": 0,
                 "frequency": 1,
-                "lost_cats": ["r_c:1"]
+                "lost_cats": [
+                    "r_c:1"
+                ]
             }
         ]
     },
@@ -1088,7 +1127,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "age": ["kitten"]
+                "age": [
+                    "kitten"
+                ]
             }
         },
         "frequency": 4,
@@ -1101,7 +1142,11 @@
                 "exp": 0,
                 "frequency": 1,
                 "new_cat": [
-                    ["meeting", "residence:ur", "status:kitten"]
+                    [
+                        "meeting",
+                        "residence:ur",
+                        "status:kitten"
+                    ]
                 ]
             },
             {
@@ -1115,8 +1160,12 @@
                 "text": "After searching for what feels like moons, you discover there <i>is</i> a kit in the Unknown Residence... but that kit isn't a resident. Somehow a very-much-alive kit from one of the Clans has managed to slip into this ghostly afterlife, and {PRONOUN/r_c:0/subject}{VERB/r_c:0/'ve/'s} been calling to you, thinking the two of you were playing some game {PRONOUN/r_c:0/subject} {VERB/r_c:0/have/has} with {PRONOUN/r_c:0/poss} Clanmates. While you're relieved that the kit is still alive, you can't help but feel disappointed; you were truly hoping you could care for kittens again like you did in life.",
                 "exp": 0,
                 "frequency": 4,
-                "stat_skill": ["GHOST,1"],
-                "can_have_stat": ["r_c:0"]
+                "stat_skill": [
+                    "GHOST,1"
+                ],
+                "can_have_stat": [
+                    "r_c:0"
+                ]
             },
             {
                 "text": "You turn your head and see a shadow in the mist, strangely kitten-like in shape. You tentatively creep closer, calling out for them, but they do not move or respond back. Once you get near enough to see through the mist, you only find a pile of sticks and a goop-like substance from the Dark Forest. You've been pranked again!",

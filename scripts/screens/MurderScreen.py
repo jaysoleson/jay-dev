@@ -3,7 +3,8 @@ import pygame_gui.elements
 from random import choice, randint
 import math
 import re
-from scripts.event_class import Single_Event
+from scripts.events_module.event_information import EventInformation
+
 from scripts.game_structure import constants
 
 from scripts.screens.enums import GameScreen
@@ -17,7 +18,8 @@ from scripts.ui.scale import ui_scale, ui_scale_dimensions
 from ..events_module.text_adjust import pronoun_repl, process_text
 
 
-from scripts.cat.cats import Cat, INJURIES
+from scripts.cat.cats import Cat
+from scripts.cat.constants import ILLNESSES, INJURIES, PERMANENT
 from scripts.game_structure import image_cache
 from ..ui.elements.image_button import UIImageButton
 from ..ui.elements.surface_image_button import UISurfaceImageButton
@@ -2046,7 +2048,7 @@ class MurderScreen(Screens):
             involved_cats.append(accomplice.ID)
 
         game.cur_events_list.insert(
-            0, Single_Event(ceremony_txt, ["alert", "birth_death"], involved_cats)
+            0, EventInformation(ceremony_txt, ["alert", "birth_death"], involved_cats)
         )
 
         discover_chance = self.get_discover_chance(
@@ -2086,7 +2088,7 @@ class MurderScreen(Screens):
                 if game.clan.your_cat.dead:
                     game.cur_events_list.insert(
                         1,
-                        Single_Event(
+                        EventInformation(
                             "You and "
                             + str(accomplice.name)
                             + " murdered "
@@ -2099,7 +2101,7 @@ class MurderScreen(Screens):
                 else:
                     game.cur_events_list.insert(
                         1,
-                        Single_Event(
+                        EventInformation(
                             "You successfully murdered "
                             + str(cat_to_murder.name)
                             + " with the help of "
@@ -2125,7 +2127,7 @@ class MurderScreen(Screens):
                 if game.clan.your_cat.dead:
                     game.cur_events_list.insert(
                         1,
-                        Single_Event(
+                        EventInformation(
                             "You successfully murdered "
                             + str(cat_to_murder.name)
                             + " at the cost of your own life.",
@@ -2136,7 +2138,7 @@ class MurderScreen(Screens):
                 else:
                     game.cur_events_list.insert(
                         1,
-                        Single_Event(
+                        EventInformation(
                             "You successfully murdered "
                             + str(cat_to_murder.name)
                             + ".",
@@ -2156,7 +2158,7 @@ class MurderScreen(Screens):
                     if game.clan.your_cat.dead:
                         game.cur_events_list.insert(
                             1,
-                            Single_Event(
+                            EventInformation(
                                 "You and "
                                 + str(accomplice.name)
                                 + " successfully murdered "
@@ -2173,7 +2175,7 @@ class MurderScreen(Screens):
                     else:
                         game.cur_events_list.insert(
                             1,
-                            Single_Event(
+                            EventInformation(
                                 "You successfully murdered "
                                 + str(cat_to_murder.name)
                                 + " along with "
@@ -2205,7 +2207,7 @@ class MurderScreen(Screens):
                     if game.clan.your_cat.dead:
                         game.cur_events_list.insert(
                             1,
-                            Single_Event(
+                            EventInformation(
                                 "You successfully murdered "
                                 + str(cat_to_murder.name)
                                 + " at the cost of your own life. "
@@ -2222,7 +2224,7 @@ class MurderScreen(Screens):
                     else:
                         game.cur_events_list.insert(
                             1,
-                            Single_Event(
+                            EventInformation(
                                 "You successfully murdered "
                                 + str(cat_to_murder.name)
                                 + " but "
@@ -2242,7 +2244,7 @@ class MurderScreen(Screens):
                 if game.clan.your_cat.dead:
                     game.cur_events_list.insert(
                         1,
-                        Single_Event(
+                        EventInformation(
                             "You successfully murdered "
                             + str(cat_to_murder.name)
                             + " at the cost of your own life. It seems that no cat knows the truth.",
@@ -2253,7 +2255,7 @@ class MurderScreen(Screens):
                 else:
                     game.cur_events_list.insert(
                         1,
-                        Single_Event(
+                        EventInformation(
                             "You successfully murdered "
                             + str(cat_to_murder.name)
                             + ". It seems no one is aware of your actions.",
@@ -2311,7 +2313,7 @@ class MurderScreen(Screens):
             demote_text = you.shunned_demotion() if not you.dead else ""
             if demote_text:
                 game.cur_events_list.insert(
-                    3, Single_Event(demote_text, ["alert", "birth_death"], [you.ID])
+                    3, EventInformation(demote_text, ["alert", "birth_death"], [you.ID])
                 )
         if punishment_chance in (2, 3) and accomplice:
             accomplice.status.shun_from_group()
@@ -2319,7 +2321,7 @@ class MurderScreen(Screens):
             if demote_text:
                 game.cur_events_list.insert(
                     3,
-                    Single_Event(
+                    EventInformation(
                         demote_text, ["alert", "birth_death"], [accomplice.ID]
                     ),
                 )
@@ -2334,7 +2336,7 @@ class MurderScreen(Screens):
                 ):
                     game.cur_events_list.insert(
                         2,
-                        Single_Event(
+                        EventInformation(
                             f"Shocked at your request to be an accomplice to murder, {accomplice.name} reports your actions to the Clan leader.",
                             ["alert", "birth_death"],
                             [game.clan.your_cat.ID, accomplice.ID, game.clan.leader.ID],
@@ -2360,7 +2362,7 @@ class MurderScreen(Screens):
             txt = txt.replace("v_c", str(cat_to_murder.name))
             game.cur_events_list.insert(
                 2,
-                Single_Event(
+                EventInformation(
                     txt,
                     ["alert", "birth_death"],
                     [game.clan.your_cat.ID, cat_to_murder.ID],
@@ -2375,7 +2377,7 @@ class MurderScreen(Screens):
             txt = txt.replace("v_c", str(cat_to_murder.name))
             game.cur_events_list.insert(
                 2,
-                Single_Event(
+                EventInformation(
                     txt,
                     ["alert", "birth_death"],
                     [game.clan.your_cat.ID, accomplice.ID, cat_to_murder.ID],
@@ -2387,7 +2389,7 @@ class MurderScreen(Screens):
             txt = txt.replace("v_c", str(cat_to_murder.name))
             game.cur_events_list.insert(
                 2,
-                Single_Event(
+                EventInformation(
                     txt,
                     ["alert", "birth_death"],
                     [game.clan.your_cat.ID, accomplice.ID, cat_to_murder.ID],
@@ -2414,7 +2416,7 @@ class MurderScreen(Screens):
             if you.status.rank in [CatRank.NEWBORN, CatRank.KITTEN]:
                 game.cur_events_list.insert(
                     3,
-                    Single_Event(
+                    EventInformation(
                         choice(kit_punishment), ["alert"], [game.clan.your_cat.ID]
                     ),
                 )
@@ -2423,7 +2425,7 @@ class MurderScreen(Screens):
                 if lead_choice == 1:
                     game.cur_events_list.insert(
                         3,
-                        Single_Event(
+                        EventInformation(
                             choice(gen_punishment), ["alert"], [game.clan.your_cat.ID]
                         ),
                     )
@@ -2432,7 +2434,7 @@ class MurderScreen(Screens):
                 if lead_choice == 1:
                     game.cur_events_list.insert(
                         3,
-                        Single_Event(
+                        EventInformation(
                             choice(gen_punishment), ["alert"], [game.clan.your_cat.ID]
                         ),
                     )
@@ -2441,7 +2443,7 @@ class MurderScreen(Screens):
                 if lead_choice == 1:
                     game.cur_events_list.insert(
                         3,
-                        Single_Event(
+                        EventInformation(
                             choice(gen_punishment), ["alert"], [game.clan.your_cat.ID]
                         ),
                     )
@@ -2450,7 +2452,7 @@ class MurderScreen(Screens):
                 if lead_choice in [1, 2, 3, 4]:
                     game.cur_events_list.insert(
                         3,
-                        Single_Event(
+                        EventInformation(
                             choice(gen_punishment), ["alert"], [game.clan.your_cat.ID]
                         ),
                     )
@@ -2480,7 +2482,7 @@ class MurderScreen(Screens):
             if accomplice.status.rank in [CatRank.NEWBORN, CatRank.KITTEN]:
                 game.cur_events_list.insert(
                     3,
-                    Single_Event(
+                    EventInformation(
                         self.adjust_txt(
                             choice(kit_punishment), accomplice, cat_to_murder
                         ),
@@ -2493,7 +2495,7 @@ class MurderScreen(Screens):
                 if lead_choice == 1:
                     game.cur_events_list.insert(
                         3,
-                        Single_Event(
+                        EventInformation(
                             self.adjust_txt(
                                 choice(gen_punishment), accomplice, cat_to_murder
                             ),
@@ -2507,7 +2509,7 @@ class MurderScreen(Screens):
                 if lead_choice == 1:
                     game.cur_events_list.insert(
                         3,
-                        Single_Event(
+                        EventInformation(
                             self.adjust_txt(
                                 choice(gen_punishment), accomplice, cat_to_murder
                             ),
@@ -2521,7 +2523,7 @@ class MurderScreen(Screens):
                 if lead_choice == 1:
                     game.cur_events_list.insert(
                         3,
-                        Single_Event(
+                        EventInformation(
                             self.adjust_txt(
                                 choice(gen_punishment), accomplice, cat_to_murder
                             ),
@@ -2535,7 +2537,7 @@ class MurderScreen(Screens):
                 if lead_choice in [1, 2, 3, 4]:
                     game.cur_events_list.insert(
                         3,
-                        Single_Event(
+                        EventInformation(
                             self.adjust_txt(
                                 choice(gen_punishment), accomplice, cat_to_murder
                             ),
@@ -2773,7 +2775,7 @@ class MurderScreen(Screens):
                 text = text + f" Your attempt on their life has left {c_m} injured."
 
         game.cur_events_list.insert(
-            0, Single_Event(text, ["health"], [game.clan.your_cat.ID, cat_to_murder.ID])
+            0, EventInformation(text, ["health"], [game.clan.your_cat.ID, cat_to_murder.ID])
         )
 
     status_chances = {

@@ -649,7 +649,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["kitten"]
+                "rank": [
+                    "kitten"
+                ]
             }
         },
         "frequency": 4,
@@ -736,11 +738,19 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior", "apprentice", "deputy"],
-                "cluster": ["unlawful"]
+                "rank": [
+                    "warrior",
+                    "apprentice",
+                    "deputy"
+                ],
+                "cluster": [
+                    "unlawful"
+                ]
             },
             "r_c:1": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "frequency": 4,
@@ -797,8 +807,12 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "residence": ["sc"],
-                "age": ["not_kitten"]
+                "residence": [
+                    "sc"
+                ],
+                "age": [
+                    "not_kitten"
+                ]
             }
         },
         "frequency": 4,
@@ -808,7 +822,9 @@
         "success_outcomes": [
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a vibrant suffix like -shine or -spark would reflect a cat like you who thrives on being noticed.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "attention-seeker"
                 ],
@@ -817,7 +833,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a bold and intimidating suffix like -claw or -fang would reflect a cat like you who always stands their ground.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "bullying"
                 ],
@@ -826,7 +844,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a melodic suffix like -song or -heart would reflect a cat like you who charms everyone they meet.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "charming"
                 ],
@@ -835,7 +855,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a dreamy suffix like -cloud or -sky would reflect a cat like you who is often lost in thought.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "daydreamer"
                 ],
@@ -844,7 +866,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a strong and structured suffix like -stone or -strike would reflect a cat like you who shows such discipline.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "disciplined"
                 ],
@@ -853,7 +877,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a powerful suffix like -storm or -fire would reflect a cat like you who never backs down from danger.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "fearless"
                 ],
@@ -862,7 +888,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a prickly suffix like -thorn or -frost would reflect a cat like you who appears standoffish -- until cats get to know you better.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "grumpy"
                 ],
@@ -871,7 +899,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a genuine suffix like -truth or -heart would reflect a cat like you who values honesty above all else.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "honest"
                 ],
@@ -880,7 +910,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a quick suffix like -flight or -rush would reflect a cat like you who acts on instinct.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "impulsive"
                 ],
@@ -889,7 +921,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a clever suffix like -whisker or -sage would reflect a cat like you who always seems to know best.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "know-it-all"
                 ],
@@ -898,7 +932,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine that the only suffix right for you is -star.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "leader-like"
                 ],
@@ -907,7 +943,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine an cool suffix like -shade or -mask would reflect a cat like you who knows how to get their way.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "manipulative"
                 ],
@@ -916,7 +954,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a lively suffix like -screech or -chatter would reflect a cat like you who rarely stays quiet.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "noisy"
                 ],
@@ -925,7 +965,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a fiery suffix like -flame or -spirit would reflect a cat like you who puts their whole heart into everything.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "passionate"
                 ],
@@ -934,7 +976,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a calm suffix like -pool or -stone would reflect a cat like you who waits for the right moment.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "patient"
                 ],
@@ -943,7 +987,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a gentle suffix like -flower or -breeze would reflect a cat like you who always shows courtesy.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "polite"
                 ],
@@ -952,7 +998,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a quiet suffix like -whisper or -shadow would reflect a cat like you who prefers staying unnoticed.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "quiet"
                 ],
@@ -961,7 +1009,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a mysterious suffix like -shade or -mist would reflect a cat like you who always keeps their secrets.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "secretive"
                 ],
@@ -970,7 +1020,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a delicate suffix like -fern or -dawn would reflect a cat like you who's thoughtful and often self-conscious.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "self-conscious"
                 ],
@@ -979,7 +1031,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a soft suffix like -mouse or -willow would reflect a cat like you who is quiet and reserved around others.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "shy"
                 ],
@@ -988,7 +1042,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a cautious suffix like -hare or -finch would reflect a cat like you who startles easily.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "skittish"
                 ],
@@ -997,7 +1053,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a proud suffix like -stride or -nose would reflect a cat like you who carries themselves confidently.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "smug"
                 ],
@@ -1006,7 +1064,9 @@
             },
             {
                 "text": "r_c:0 ponders for a bit. They'd imagine a sweet suffix like -berry or -petal would reflect a cat like you whose kindness is unmistakable.",
-	            "can_have_stat": ["p_l"],
+                "can_have_stat": [
+                    "p_l"
+                ],
                 "stat_trait": [
                     "sweet"
                 ],
@@ -1027,7 +1087,7 @@
             }
         ]
     },
-{
+    {
         "patrol_id": "dead_patrol_J1",
         "biome": [
             "any"
@@ -1128,7 +1188,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "residence": ["ur"]
+                "residence": [
+                    "ur"
+                ]
             }
         },
         "frequency": 4,
@@ -1151,51 +1213,50 @@
         ]
     },
     {
-            "patrol_id": "df_kit_deadpatrol_E1",
-            "biome": [
-                "any"
-            ],
-            "season": [
-                "any"
-            ],
-            "types": [
-                "lifegen"
-            ],
-            "tags": [
-                "df_lifegen"
-            ],
-            "patrol_art": "lg_default_df",
-            "min_cats": 1,
-            "max_cats": 1,
-            "min_max_status": {},
-            "frequency": 4,
-            "intro_text": "You're picking your way through the decaying underbrush of the Dark Forest when a distant, starry glow catches your eye. You begin to make your way towards it, recalling the stories you had heard about StarClan's territory.",
-            "decline_text": "Maybe this is an adventure for another day. You turn away as your eyes begin to burn from the dazzling light, and stumble back into the shadows you have grown accustomed to.",
-            "chance_of_success": 50,
-            "success_outcomes": [
-                {
-                    "text": "You venture onto StarClan's territory without hesitation! You spend time frolicking in the soft, sparkling grass and admiring the bright, colorful plants. You remain unseen and eventually return to the gloom of the Dark Forest, buzzing with energy and already planning your next adventure!",
-                    "exp": 0,
-                    "frequency": 4
-                },
-                {
-                    "text": "You stumble onto the unfamiliar territory and immediately find yourself face to face with a StarClan kit! The kit chirps out a greeting and invites you to play a game with them. Your heart soars as you and your new friend spend time chasing after a sparkling ball of moss, resurfacing previously forgotten memories of games you had played in the nursery while you were alive.",
-                    "exp": 0,
-                    "frequency": 4
-                }
-            ],
-            "fail_outcomes": [
-                {
-                    "text": "You can barely take two pawsteps forward when a shadow jumps out from behind a nearby bush. It hisses, scolding you for being so close to the border as you are quickly ushered back into the shadows.",
-                    "exp": 0,
-                    "frequency": 4
-                },
-                {
-                    "text": "You stumble into the unfamiliar territory and immediately find yourself face to face with a StarClan cat! They let out a startled hiss and swipe at you with a paw, causing you to flee back into the familiar gloom of the Dark Forest.",
-                    "exp": 0,
-                    "frequency": 4
-                }
-            ]
-        }
-
+        "patrol_id": "df_kit_deadpatrol_E1",
+        "biome": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "df_lifegen"
+        ],
+        "patrol_art": "lg_default_df",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "frequency": 4,
+        "intro_text": "You're picking your way through the decaying underbrush of the Dark Forest when a distant, starry glow catches your eye. You begin to make your way towards it, recalling the stories you had heard about StarClan's territory.",
+        "decline_text": "Maybe this is an adventure for another day. You turn away as your eyes begin to burn from the dazzling light, and stumble back into the shadows you have grown accustomed to.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You venture onto StarClan's territory without hesitation! You spend time frolicking in the soft, sparkling grass and admiring the bright, colorful plants. You remain unseen and eventually return to the gloom of the Dark Forest, buzzing with energy and already planning your next adventure!",
+                "exp": 0,
+                "frequency": 4
+            },
+            {
+                "text": "You stumble onto the unfamiliar territory and immediately find yourself face to face with a StarClan kit! The kit chirps out a greeting and invites you to play a game with them. Your heart soars as you and your new friend spend time chasing after a sparkling ball of moss, resurfacing previously forgotten memories of games you had played in the nursery while you were alive.",
+                "exp": 0,
+                "frequency": 4
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You can barely take two pawsteps forward when a shadow jumps out from behind a nearby bush. It hisses, scolding you for being so close to the border as you are quickly ushered back into the shadows.",
+                "exp": 0,
+                "frequency": 4
+            },
+            {
+                "text": "You stumble into the unfamiliar territory and immediately find yourself face to face with a StarClan cat! They let out a startled hiss and swipe at you with a paw, causing you to flee back into the familiar gloom of the Dark Forest.",
+                "exp": 0,
+                "frequency": 4
+            }
+        ]
+    }
 ]

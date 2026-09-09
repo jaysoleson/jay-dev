@@ -441,7 +441,10 @@
                     "DARK,1"
                 ],
                 "new_cat": [
-                    ["residence:df", "backstory:oldstarclan2"]
+                    [
+                        "residence:df",
+                        "backstory:oldstarclan2"
+                    ]
                 ],
                 "can_have_stat": [
                     "p_l"
@@ -535,7 +538,9 @@
         "min_max_status": {},
         "random_cats": {
             "r_c:0": {
-                "rank": ["warrior"]
+                "rank": [
+                    "warrior"
+                ]
             }
         },
         "frequency": 4,

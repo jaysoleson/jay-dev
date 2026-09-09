@@ -56,7 +56,9 @@ from ..ui.icon import Icon
 from ..ui.windows.leave_clan import LeaveClanWindow
 from scripts.cat.sprites.display_sprites import generate_sprite
 from scripts.cat.skills import SkillPath
-from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
+from scripts.events_module.pregnancy.check_parents import (
+    check_if_can_have_kits
+)
 from scripts.lifegen_utility import get_cluster
 
 
@@ -3331,7 +3333,7 @@ class ProfileScreen(Screens):
             )
             self.have_kits_button.disable()
             if (
-                Pregnancy_Events.check_if_can_have_kits(
+                check_if_can_have_kits(
                     cat=self.the_cat,
                     allow_single_parent=get_clan_setting("single parentage"),
                     allow_unmated=True,

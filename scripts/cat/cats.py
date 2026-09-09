@@ -64,6 +64,7 @@ from scripts.events_module.event_filters import get_personality_compatibility
 from scripts.clan_package.get_clan_cats import find_alive_cats_with_rank
 
 from scripts.lifegen_utility import get_cluster
+from scripts.events_module.event_information import EventInformation
 
 import scripts.game_structure.screen_settings
 
@@ -663,7 +664,7 @@ class Cat:
             # remove the exile from their history so it wont display on their profile
             self.status.add_to_group(CatGroup.PLAYER_CLAN_ID)
             game.cur_events_list.insert(
-                0, Single_Event(event_string, event_types, cats_involved=[self.ID])
+                0, EventInformation(event_string, event_types, cats_involved=[self.ID])
             )
             return True
 
@@ -674,7 +675,7 @@ class Cat:
             clan=game.clan,
         )
         game.cur_events_list.insert(
-            0, Single_Event(event_string, event_types, cats_involved=[self.ID])
+            0, EventInformation(event_string, event_types, cats_involved=[self.ID])
         )
 
     def grief(self, body: bool):

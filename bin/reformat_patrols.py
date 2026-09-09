@@ -29,7 +29,8 @@ fix a lot of patrols by hand. I recommend you preserve the already-fixed vanilla
 """
 
 
-root_dir = "../resources/lang/en/patrols"
+root_dir = "./resources/lang/en/patrols/lifegen"
+write_dir = "./resources/lang/en/patrols/lifegen_reformatted"
 file_set = set()
 
 
@@ -45,6 +46,7 @@ def load_paths():
 def reformat():
     for path in file_set:
         new_patrols = []
+        print("Reformatting", f"{root_dir}/{path}")
         try:
             if path == ".\\prey_text_replacements.json":
                 continue
@@ -63,7 +65,11 @@ def reformat():
             if isinstance(p, str):
                 continue
 
-            reformatted_patrol = {"id": p.get("patrol_id")}
+            if "id" in p:
+                reformatted_patrol = {"event_id": p.get("id")}
+            else:
+                reformatted_patrol = {"event_id": p.get("patrol_id")}
+
             medicine_cat_allowed = False
             if p.get("types"):
                 reformatted_patrol["types"] = p.get("types")
@@ -130,6 +136,26 @@ def reformat():
                     }
                 ]
 
+            # if p.get("random_cats"):
+            #     if "involved_cats" not in reformatted_patrol:
+            #         reformatted_patrol["involved_cats"] = {}
+            #     for abbr, info in p.get("random_cats").items():
+            #         abbr = abbr.replace(":", "")
+            #         reformatted_patrol["involved_cats"][abbr] = info
+            if p.get("random_cats"):
+                reformatted_patrol["random_cats"] = p.get("random_cats")
+            if p.get("relationships"):
+                reformatted_patrol["relationships"] = p.get("relationships")
+
+            abbrevs = ["r_c:0", "r_c:1", "r_c:2", "r_c:3", "r_c:0", "r_c:1", "r_c:2", "r_c:3"]
+            for abbr in abbrevs:
+                if abbr in p.get("intro_text"):
+                    if reformatted_patrol.get("random_cats"):
+                        abbr = abbr.replace(":", "")
+                        if abbr not in reformatted_patrol["random_cats"]:
+                            reformatted_patrol["random_cats"][abbr] = {}
+
+
             text_to_search = p.get("intro_text") + p.get("decline_text")
             if "r_c" in text_to_search and p.get("max_cats") != 1:
                 involved_cats["r_c"] = {}
@@ -151,9 +177,9 @@ def reformat():
                 reformatted_patrol["patrol_art_clean"] = p.get("patrol_art_clean")
 
             replace_rc_to_pl = False
-            if p.get("max_cats") == 1 and "r_c" in p.get("intro_text"):
-                replace_rc_to_pl = True
-                p["intro_text"] = p["intro_text"].replace("r_c", "p_l")
+            # if p.get("max_cats") == 1 and "r_c" in p.get("intro_text"):
+            #     replace_rc_to_pl = True
+            #     p["intro_text"] = p["intro_text"].replace("r_c", "p_l")
             for i in range(0, 7):
                 if f"app{i}" in p["intro_text"]:
                     if p.get("max_cats") == 1:
@@ -231,7 +257,7 @@ def reformat():
                         )
                     )
 
-            if not reformatted_patrol["involved_cats"]:
+            if "involved_cats" in reformatted_patrol:
                 reformatted_patrol.pop("involved_cats")
             new_patrols.append(reformatted_patrol)
 
@@ -240,7 +266,8 @@ def reformat():
             "\/", "/"
         )  # ujson tries to escape "/", but doesn't end up doing a good job.
 
-        with open(f"{root_dir}/{path}", "w") as write_file:
+        print(dict_text)
+        with open(f"{write_dir}/{path}", "w") as write_file:
             write_file.write(dict_text)
 
 
@@ -257,8 +284,8 @@ def reformat_outcome(
     if outcome.get("art_clean"):
         reformatted_outcome["outcome_art_clean"] = outcome.get("art_clean")
 
-    if replace_name:
-        outcome["text"] = outcome["text"].replace("r_c", "p_l")
+    # if replace_name:
+    #     outcome["text"] = outcome["text"].replace("r_c", "p_l")
 
     reformatted_outcome["strings"] = [outcome.get("text")]
 
@@ -446,6 +473,10 @@ def reformat_outcome(
 
             new_cats_joining.append(join_dict)
 
+    for cat in involved_cats.copy():
+        new_abbr = cat.replace(":", "")
+        involved_cats[new_abbr] = involved_cats[cat]
+        involved_cats.pop(cat)
     reformatted_outcome["involved_cats"] = involved_cats
 
     if outcome.get("relationship_constraint"):
@@ -556,6 +587,16 @@ def reformat_outcome(
                     injury_dict["death_history"] = death_history
 
             reformatted_outcome["injury"].append(injury_dict)
+    if outcome.get("injury"):
+        reformatted_outcome["condition"] = outcome.get("injury")
+        for i, cond in enumerate(reformatted_outcome["condition"]):
+            if "injuries" in cond:
+                reformatted_outcome["condition"][i]["condition"] = reformatted_outcome["condition"][i]["injuries"]
+                reformatted_outcome["condition"][i].pop("injuries")
+            if "scars" in cond:
+                reformatted_outcome["condition"][i]["scar_pool_override"] = reformatted_outcome["condition"][i]["scars"]
+                reformatted_outcome["condition"][i].pop("scars")
+        reformatted_outcome.pop("injury")
 
     if outcome.get("lost_cats"):
         cat_list = []
@@ -587,7 +628,7 @@ def second_reformat():
         try:
             if path == ".\\prey_text_replacements.json":
                 continue
-            with open(f"{root_dir}/{path}", "r") as read_file:
+            with open(f"{write_dir}/{path}", "r") as read_file:
                 patrols = read_file.read()
                 patrol_dict = ujson.loads(patrols)
 
@@ -596,7 +637,7 @@ def second_reformat():
             continue
 
         for p in patrol_dict:
-            # reformatted_patrol = check_romance(p)
+            reformatted_patrol = _check_romance(p)
 
             for outcome in (
                 p.get("success_outcomes")
@@ -610,14 +651,29 @@ def second_reformat():
 
             reformatted_patrol = p
 
+            # LG
+            if "id" in reformatted_patrol:
+                reformatted_patrol["event_id"] = reformatted_patrol["patrol_id"]
+            if "intro_text" in reformatted_patrol:
+                reformatted_patrol["intro_text"] = [reformatted_patrol["intro_text"]]
+            if "decline_text" in reformatted_patrol:
+                reformatted_patrol["decline_text"] = [reformatted_patrol["decline_text"]]
+
             new_patrols.append(reformatted_patrol)
 
         dict_text = ujson.dumps(new_patrols, indent=4)
+        dict_text = dict_text.replace("r_c:0", "r_c0")
+        dict_text = dict_text.replace("r_c:1", "r_c1")
+        dict_text = dict_text.replace("r_c:2", "r_c2")
+        dict_text = dict_text.replace("r_c:3", "r_c3")
+        dict_text = dict_text.replace("patrol_id", "event_id")
+        dict_text = dict_text.replace("intro_text", "intro_strings")
+        dict_text = dict_text.replace("decline_text", "decline_strings")
         dict_text = dict_text.replace(
             "\/", "/"
         )  # ujson tries to escape "/", but doesn't end up doing a good job.
 
-        with open(f"{root_dir}/{path}", "w") as write_file:
+        with open(f"{write_dir}/{path}", "w") as write_file:
             write_file.write(dict_text)
 
 
@@ -693,6 +749,6 @@ def check_solo_patrols():
 
 
 load_paths()
-# reformat()
-# second_reformat()
-check_solo_patrols()
+reformat()
+second_reformat()
+# check_solo_patrols()

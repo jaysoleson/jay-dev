@@ -363,14 +363,11 @@ def event_text_adjust(
     other_clan=None,
     chosen_herb: str = None,
     chosen_poi: str = None,
-    # LG: random cats in patrols
-    chosen_lifegen_cats: list = None,
 ):
     """
     handles finding abbreviations in the text and replacing them appropriately, returns the adjusted text
     :param Cat Cat: always pass the Cat class
     :param str text: the text being adjusted
-    :param dict patrol_cat_dict: LIFEGEN: dict to hold random cat abbrevs in LG patrols
     :param Cat main_cat: Cat object for main_cat (m_c), if present
     :param Cat random_cat: Cat object for random_cat (r_c), if present
     :param Cat victim_cat: Cat object for victim_cat (mur_c), if present
@@ -385,10 +382,6 @@ def event_text_adjust(
         new_cats = []
     if not involved_cat_dict:
         involved_cat_dict = {}
-
-    # LG
-    if not chosen_lifegen_cats:
-        chosen_lifegen_cats = []
 
     if not text:
         text = "This should not appear, report as a bug please! Tried to adjust the text, but no text was provided."
@@ -425,14 +418,6 @@ def event_text_adjust(
     if "m_c" in text:
         if main_cat:
             replace_dict["m_c"] = (str(main_cat.name), choice(main_cat.pronouns))
-
-    # LG
-    for i, lg_cat in enumerate(chosen_lifegen_cats):
-        name = str(lg_cat.name)
-        pronoun = choice(lg_cat.pronouns)
-
-        replace_dict[f"r_c:{i}"] = (name, pronoun)
-    # ---
 
     # random_cat
     if "r_c" in text:

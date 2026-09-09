@@ -56,9 +56,9 @@ class PatrolEvent:
     patrol_art_clean: Optional[str] = None
 
     # LG
-    lifegen_cat_constraints={}
-    lifegen_relationship_constraints={}
-    chosen_lifegen_cats={}
+    random_cats: dict = field(default_factory=dict)
+    relationships: dict = field(default_factory=dict)
+    chosen_lifegen_cats: dict = field(default_factory=dict)
     # ---
 
     def __post_init__(self):
