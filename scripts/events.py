@@ -2112,8 +2112,8 @@ def other_clans_territory_wobble():
         )
     second_clan_tiles = territory_class.get_tiles(
         ["other_clan_inner_border"],
-        clan=first_clan,
-        other_clan=second_clan
+        clan=second_clan,
+        other_clan=first_clan
         )
 
     chance = 6
