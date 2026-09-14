@@ -3,6 +3,7 @@
 
 import i18n
 import ujson
+from random import choice
 
 from scripts.cat_relations.enums import RelType
 from scripts.events_module.event_filters import (
@@ -212,6 +213,5 @@ class GenerateEvents:
             possible_events.append(event)
 
         return possible_events
-
 
 generate_events = GenerateEvents()

@@ -7728,7 +7728,7 @@
             "war"
         ],
         "frequency": 2,
-        "event_text": "m_c conversed with r_c about ways to potentially end this war — though not without bloodshed.",
+        "event_text": "m_c conversed with r_c about ways to potentially end this war -- though not without bloodshed.",
         "m_c": {
             "status": [
                 "mediator",
@@ -12223,7 +12223,7 @@
             "war"
         ],
         "frequency": 2,
-        "event_text": "m_c conversed with r_c about ways to potentially end this war — though not without bloodshed.",
+        "event_text": "m_c conversed with r_c about ways to potentially end this war -- though not without bloodshed.",
         "m_c": {
             "status": [
                 "mediator",
@@ -18320,5 +18320,647 @@
                 }
             }
         ]
+    },
+    {
+        "event_id": "gen_cgwar_ally_gift_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "exclude_involved": [
+            "m_c",
+            "r_c"
+        ],
+        "frequency": 2,
+        "event_text": "o_c_n's leader sends a patrol to c_n camp with mouths full of prey. The o_c_n warriors have a friendly chat with some c_n cats before heading home.",
+        "tile_location": [
+            "camp"
+        ],
+        "supplies": [
+            {
+                "type": "freshkill",
+                "trigger": [
+                    "always"
+                ],
+                "adjust": "increase_20"
+            }
+        ],
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "gen_cgwar_ally_gift_02",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "exclude_involved": [
+            "m_c",
+            "r_c"
+        ],
+        "frequency": 2,
+        "event_text": "A o_c_n patrol visits camp to deliver some herb bundles as a gift.",
+        "tile_location": [
+            "camp"
+        ],
+        "supplies": [
+            {
+                "type": "all_herb",
+                "trigger": [
+                    "always"
+                ],
+                "adjust": "increase_10"
+            }
+        ],
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_rep_ally_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 2,
+        "event_text": "m_c and r_c pay a visit to o_c_n camp to see some friends.",
+        "tile_location": [
+            "other_clan_camp"
+        ],
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 1
+        },
+        "m_c": {
+            "status": ["-kitten"]
+        },
+        "r_c": {
+            "status": ["-kitten"]
+        }
+    },
+    {
+        "event_id": "cgwar_rep_ally_02",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "exclude_involved": [
+            "m_c",
+            "r_c"
+        ],
+        "frequency": 2,
+        "event_text": "r_c notices m_c blush when a o_c_n warrior compliments {PRONOUN/m_c/poss} fur at the Gathering.",
+        "tile_location": [
+            "gathering"
+        ],
+        "other_clan": {
+            "current_rep": [
+                "ally", "amicable"
+            ],
+            "changed": 1
+        },
+        "m_c": {
+            "status": ["-kitten"]
+        },
+        "r_c": {
+            "status": ["-kitten"]
+        }
+    },
+    {
+        "event_id": "cgwar_rep_amicable_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 2,
+        "event_text": "m_c takes r_c to o_c_n's camp for a friendly visit, hoping to make an ally out of o_c_n.",
+        "tile_location": [
+            "other_clan_camp"
+        ],
+        "other_clan": {
+            "current_rep": [
+                "amicable"
+            ],
+            "changed": 1
+        },
+        "m_c": {
+            "status": [
+                "leader", "deputy"
+            ]
+        },
+        "r_c": {
+            "status": [
+                "deputy", "warrior"
+            ]
+        }
+    },
+    {
+        "event_id": "cgwar_rep_amicable_02",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 2,
+        "event_text": "A group of o_c_n apprentices invite m_c to join in their game while they wait for the Gathering to start.",
+        "tile_location": [
+            "gathering"
+        ],
+        "other_clan": {
+            "current_rep": [
+                "amicable", "ally"
+            ],
+            "changed": 0
+        },
+        "m_c": {
+            "status": [
+                "apprentice", "mediator apprentice", "medicine cat apprentice"
+            ]
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_deathreaction_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_death_reaction"
+        ],
+        "exclude_involved": ["m_c", "r_c"],
+        "frequency": 4,
+        "event_text": "A o_c_n patrol visits the camp with bundles of flowers to pay respects to multi_cat.",
+        "tile_location": [
+            "camp"
+        ],
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_deathreaction_02",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_death_reaction"
+        ],
+        "exclude_involved": ["r_c"],
+        "frequency": 3,
+        "event_text": "o_c_n's medicine cats join m_c at the half-moon meeting to pray for multi_cat's safe passage into StarClan.",
+        "tile_location": [
+            "moonplace"
+        ],
+        "m_c": {
+            "status": ["medicine cat apprentice", "medicine cat"]
+        },
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_deathreaction_03",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_death_reaction"
+        ],
+        "exclude_involved": ["r_c"],
+        "frequency": 2,
+        "event_text": "A o_c_n patrol visits camp with some bundles of herbs, having heard of the tragic passing of multi_cat. They pay their respects to the c_n cats affected and leave the herbs with m_c.",
+        "tile_location": [
+            "camp"
+        ],
+        "m_c": {
+            "status": ["medicine cat", "medicine cat apprentice"]
+        },
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_deathreaction_04",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_death_reaction"
+        ],
+        "exclude_involved": ["m_c", "r_c"],
+        "frequency": 1,
+        "event_text": "o_c_n's leader initiates a moment of silence for multi_cat at the Gathering.",
+        "tile_location": [
+            "gathering"
+        ],
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_deathreaction_05",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_death_reaction"
+        ],
+        "exclude_involved": ["m_c", "r_c"],
+        "frequency": 1,
+        "event_text": "A mediator from o_c_n spends the day in c_n camp, helping cats who have been affected by the loss of multi_cat.",
+        "tile_location": [
+            "camp"
+        ],
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_deathreaction_06",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_death_reaction"
+        ],
+        "exclude_involved": [
+            "m_c",
+            "r_c"
+        ],
+        "frequency": 4,
+        "event_text": "o_c_n's leader sends a patrol to c_n camp to deliver some herbs and their respects for the passing of multi_cat.",
+        "tile_location": [
+            "camp"
+        ],
+        "supplies": [
+            {
+                "type": "any_herb",
+                "trigger": [
+                    "always"
+                ],
+                "adjust": "increase_10"
+            }
+        ],
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_deathreaction_07",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_death_reaction"
+        ],
+        "exclude_involved": [
+            "m_c",
+            "r_c"
+        ],
+        "frequency": 3,
+        "event_text": "Two o_c_n apprentices visit c_n camp with a collection of flowers as a gift, saying how much multi_cat will be missed.",
+        "tile_location": [
+            "camp"
+        ],
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_deathreaction_08",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_death_reaction"
+        ],
+        "exclude_involved": [
+            "r_c"
+        ],
+        "frequency": 2,
+        "event_text": "o_c_n's leader sympathises with m_c at the Gathering over the tragic passing of multi_cat, stating that o_c_n has suffered a lot of death this moon as well.",
+        "tile_location": [
+            "gathering"
+        ],
+        "m_c": {
+            "status": ["leader"]
+        },
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_deathreaction_09",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_death_reaction"
+        ],
+        "exclude_involved": [
+            "m_c",
+            "r_c"
+        ],
+        "frequency": 2,
+        "event_text": "A few o_c_n warriors ask to stay in c_n overnight for multi_cat's vigil.",
+        "tile_location": [
+            "gathering"
+        ],
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_deathreaction_10",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_death_reaction"
+        ],
+        "exclude_involved": [
+            "m_c",
+            "r_c"
+        ],
+        "frequency": 2,
+        "event_text": "A few o_c_n cats snicker when m_c announces the passing of multi_cat at the Gathering.",
+        "tile_location": [
+            "gathering"
+        ],
+        "m_c": {
+            "status": ["leader"]
+        },
+        "other_clan": {
+            "current_rep": [
+                "hostile"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_deathreaction_11",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_death_reaction"
+        ],
+        "exclude_involved": [
+            "m_c",
+            "r_c"
+        ],
+        "frequency": 1,
+        "event_text": "Guards are stationed around the freshly-buried multi_cat when faint o_c_n scent is detected nearby. No cat knows what that Clan may stoop to.",
+        "tile_location": [
+            "camp"
+        ],
+        "m_c": {
+            "status": ["leader"]
+        },
+        "other_clan": {
+            "current_rep": [
+                "hostile"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_deathreaction_12",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_death_reaction"
+        ],
+        "exclude_involved": [
+            "m_c",
+            "r_c"
+        ],
+        "frequency": 3,
+        "event_text": "o_c_n expresses their sympathies for the passing of multi_cat at the Gathering.",
+        "tile_location": [
+            "camp"
+        ],
+        "other_clan": {
+            "current_rep": [
+                "amicable", "neutral"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_birthreaction_01",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_birth_reaction"
+        ],
+        "exclude_involved": [
+            "r_c"
+        ],
+        "frequency": 4,
+        "event_text": "A o_c_n patrol stops by with prey and moss-balls for m_c's new litter.",
+        "tile_location": [
+            "camp"
+        ],
+        "m_c": {},
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_birthreaction_02",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_birth_reaction"
+        ],
+        "exclude_involved": [
+            "r_c"
+        ],
+        "frequency": 3,
+        "event_text": "A group of o_c_n cats visit to bring some gifts for m_c and multi_cat.",
+        "tile_location": [
+            "camp"
+        ],
+        "m_c": {},
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_birthreaction_03",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_birth_reaction"
+        ],
+        "exclude_involved": [
+            "r_c"
+        ],
+        "frequency": 2,
+        "event_text": "A friend of m_c's from o_c_n visits to meet multi_cat.",
+        "tile_location": [
+            "camp"
+        ],
+        "m_c": {},
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_reputation_birthreaction_04",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "other_clan_birth_reaction"
+        ],
+        "exclude_involved": [
+            "r_c"
+        ],
+        "frequency": 1,
+        "event_text": "o_c_n's deputy stops by to congratulate m_c on {PRONOUN/m_c/poss} new litter.",
+        "tile_location": [
+            "camp"
+        ],
+        "m_c": {},
+        "other_clan": {
+            "current_rep": [
+                "ally"
+            ],
+            "changed": 0
+        }
+    },
+    {
+        "event_id": "cgwar_rep_amicable_03",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 2,
+        "event_text": "o_c_n's medicine cat comforts m_c when {PRONOUN/m_c/subject} {VERB/m_c/have/has} a scary dream at POI.",
+        "tile_location": [
+            "moonplace"
+        ],
+        "other_clan": {
+            "current_rep": [
+                "amicable", "ally"
+            ],
+            "changed": 0
+        },
+        "m_c": {
+            "status": [
+                "medicine cat apprentice"
+            ]
+        }
     }
 ]

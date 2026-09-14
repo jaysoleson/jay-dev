@@ -50,6 +50,9 @@ def create_short_event(
     victim_cat: Cat = None,
     sub_type: list = None,
     future_event=None,
+    # CGW
+    other_clan=None,
+    multi_cats=[]
 ):
     """
     Handles everything involved in finding and executing an appropriate short event for the given args.
@@ -84,13 +87,14 @@ def create_short_event(
             current_war = war
             break
 
-    if current_war and random.randint(1, war_chance) != 1:
-        other_clan = current_war.get_opponent_object(game.clan)
-        sub_types.append("war")
-    else:
-        other_clan = random.choice(
-            game.clan.all_other_clans if game.clan.all_other_clans else None
-        )
+    if not other_clan:
+        if current_war and random.randint(1, war_chance) != 1:
+            other_clan = current_war.get_opponent_object(game.clan)
+            sub_types.append("war")
+        else:
+            other_clan = random.choice(
+                game.clan.all_other_clans if game.clan.all_other_clans else None
+            )
 
     # collecting CAMP skill cats for reduction events
     camp_cats = [
@@ -166,7 +170,7 @@ def create_short_event(
 
     else:
         # this doesn't necessarily mean there's a problem, but can be helpful for narrowing down possibilities
-        print(f"WARNING: no {event_type}: {sub_types} events found for {main_cat.name}")
+        print(f"WARNING: no {event_type}: {sub_types} events found for {main_cat.name}", frequency)
         return
 
 

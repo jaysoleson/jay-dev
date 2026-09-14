@@ -126,7 +126,6 @@ def one_moon():
     update_afterlife_temper()
     pregnancy_events.increment_pregnancy_age()
 
-    # CGWAR
     other_clans_territory_wobble()
     if not int(random.random() * 4):
         other_clans_relations_wobble()
@@ -259,6 +258,12 @@ def one_moon():
 
         else:
             event = i18n.t("hardcoded.event_deaths", count=1)
+
+        # CGWAR
+        reputation_based_events(
+            chance=(10 - len(game.dead_cats_to_grieve) if len(game.dead_cats_to_grieve) < 9 else 3),
+            event_type="other_clan_death_reaction"
+        )
 
         game.cur_events_list.append(
             EventInformation(
@@ -1104,6 +1109,12 @@ def one_moon_cat(cat):
     # Stop the timeskip if the cat died in childbirth
     if cat.dead:
         return
+    # CGWAR
+    if cat.birth_cooldown == 6:
+        reputation_based_events(
+            event_type="other_clan_birth_reaction",
+            main_cat=cat
+        )
 
     # relationships have to be handled separately, because of the ceremony name change
     if cat.status.alive_in_player_clan:
@@ -2233,7 +2244,8 @@ def handle_map_interaction_event():
             not int(random.random() * war_chance) and
             other_clan and
             not game.clan.get_current_war() and
-            not other_clan.get_current_war()
+            not other_clan.get_current_war() and
+            interaction == "take"
             ):
             war = True
 
@@ -2447,5 +2459,46 @@ def get_take_events(
     if terrain_events:
         return terrain_events
     return possible_events
+
+def reputation_based_events(
+    chance=6,
+    other_clan=None,
+    required_rep=[],
+    event_type="",
+    main_cat=None
+):
+    """
+    events involving other clans that happen in direct response to something
+    and are based on rep
+    """
+    if int(random.random() * chance):
+        return
+
+    if not other_clan:
+        possible_clans = []
+        for clan in game.clan.all_other_clans:
+            if not required_rep:
+                possible_clans.append(clan)
+                continue
+            if required_rep and clan.get_standing() in required_rep:
+                possible_clans.append(clan)
+        if not possible_clans:
+            return
+        other_clan = random.choice(possible_clans)
+
+    possible_cats = []
+    if not main_cat:
+        if game.clan.leader:
+            possible_cats.append(game.clan.leader)
+        for cat in find_alive_cats_with_rank(Cat, [CatRank.MEDICINE_APPRENTICE, CatRank.MEDICINE_CAT]):
+            possible_cats.append(cat)
+        main_cat = random.choice(possible_cats)
+
+    create_short_event(
+        event_type="misc",
+        main_cat=main_cat,
+        sub_type=[event_type],
+        other_clan=other_clan
+    )
 
 load_other_clan_events()

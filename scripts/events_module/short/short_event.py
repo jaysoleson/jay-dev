@@ -241,6 +241,7 @@ class ShortEvent:
         Handles the execution of this event.
         :param other_clan: the object for the other clan involved in this event
         """
+        # print("Executing", self.event_id)
         self.additional_event_text = ""
         self.text = self.text_template
         self.all_involved_cat_ids.clear()
@@ -266,6 +267,12 @@ class ShortEvent:
             self.handle_mass_death()
             if len(self.multi_cat_objects) <= 2:
                 return
+
+        # CGWAR
+        if "other_clan_death_reaction" in self.sub_type:
+            self.multi_cat_objects = game.dead_cats_to_grieve
+        if "other_clan_birth_reaction" in self.sub_type:
+            self.multi_cat_objects = [Cat.fetch_cat(c) for c in self.main_cat.get_children() if Cat.fetch_cat(c).moons == 0]
 
         # create new cats (must happen here so that new cats can be included in further changes)
         self.handle_new_cats(other_clan)
@@ -402,7 +409,7 @@ class ShortEvent:
         # must be done after adjusting text
         event_tile = self.handle_tile_location(other_clan)
         if self.tile_location and not event_tile:
-            print(self.event_id, ": No valid tile found for", self.tile_location, ". Aborting.")
+            # print(self.event_id, ": No valid tile found for", self.tile_location, ". Aborting.")
             return
 
         if self.chosen_herb:
