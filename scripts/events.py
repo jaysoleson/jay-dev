@@ -459,10 +459,12 @@ def handle_lead_den_event():
         recieved_tile = None
         given_tile = None
         if info_dict["success"]:
-            recieved = info_dict["recieved"]
-            given = info_dict["given"]
-            print("Received:", recieved)
-            print("Given:", given)
+            if info_dict["interaction_type"] == "trade":
+                recieved = info_dict["recieved"]
+                given = info_dict["given"]
+                print("TRADE")
+                print("Received:", recieved)
+                print("Given:", given)
 
             recieved_tile = territory_class.get_tile_from_string(recieved)
             given_tile = territory_class.get_tile_from_string(given)

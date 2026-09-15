@@ -15192,6 +15192,7 @@
         ],
         "frequency": 1,
         "event_text": "During the Gathering, m_c overhears a new o_c_n apprentice gossiping about how their leader might break off the alliance with c_n.",
+        "tile_location": ["gathering"],
         "m_c": {
             "age": [
                 "adolescent",
