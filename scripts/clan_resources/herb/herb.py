@@ -1,8 +1,7 @@
-import os
 import pygame
-
-import ujson
 import i18n
+
+from scripts.game_structure.constants import HERBS
 
 
 class Herb:
@@ -55,7 +54,7 @@ class Herb:
         return rarity
 
 
-with open(
-    os.path.normpath("resources/dicts/herb_info.json"), "r", encoding="utf-8"
-) as read_file:
-    HERBS = ujson.loads(read_file.read())
+# with open(
+#     os.path.normpath("resources/dicts/herb_info.json"), "r", encoding="utf-8"
+# ) as read_file:
+#     HERBS = ujson.loads(read_file.read())
